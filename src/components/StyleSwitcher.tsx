@@ -3,14 +3,12 @@ import React, { useEffect, useState } from "react"
 
 interface StyleSwitcherProps {
   isDarkMode: boolean
-  currentColor: string
   onToggleDarkMode: () => void
   onChangeColor: (color: string) => void
 }
 
 const StyleSwitcher: React.FC<StyleSwitcherProps> = ({
   isDarkMode,
-  currentColor,
   onToggleDarkMode,
   onChangeColor,
 }) => {

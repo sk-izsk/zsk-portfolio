@@ -118,14 +118,8 @@ function App() {
       />
 
       <div className="main-content">
-        <Home
-          isActive={activeSection === "home"}
-          onHireMe={() => handleNavigation("contact")}
-        />
-        <About
-          isActive={activeSection === "about"}
-          onHireMe={() => handleNavigation("contact")}
-        />
+        <Home isActive={activeSection === "home"} />
+        <About isActive={activeSection === "about"} />
         <Services isActive={activeSection === "service"} />
         <Portfolio isActive={activeSection === "portfolio"} />
         <Blog isActive={activeSection === "blog"} />
@@ -134,7 +128,6 @@ function App() {
 
       <StyleSwitcher
         isDarkMode={isDarkMode}
-        currentColor={currentColor}
         onToggleDarkMode={toggleDarkMode}
         onChangeColor={changeColor}
       />

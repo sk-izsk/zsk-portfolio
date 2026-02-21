@@ -4,10 +4,9 @@ import { usePortfolioData } from "../hooks/usePortfolioData"
 
 interface AboutProps {
   isActive: boolean
-  onHireMe: () => void
 }
 
-const About: React.FC<AboutProps> = ({ isActive, onHireMe }) => {
+const About: React.FC<AboutProps> = ({ isActive }) => {
   const { loading, data, error } = usePortfolioData()
 
   if (loading) {
@@ -85,14 +84,7 @@ const About: React.FC<AboutProps> = ({ isActive, onHireMe }) => {
                     <a href="#" className="btn">
                       Download CV
                     </a>
-                    <a
-                      href="#contact"
-                      className="btn hire-me"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        onHireMe()
-                      }}
-                    >
+                    <a href="#contact" className="btn hire-me">
                       Hire Me
                     </a>
                   </div>

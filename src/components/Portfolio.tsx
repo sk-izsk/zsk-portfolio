@@ -51,7 +51,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ isActive }) => {
           </div>
         </div>
         <div className="row">
-          {data?.portfolioPhotos?.map((item) => (
+          {data.portfolio.photos.map((item) => (
             <div key={item.id} className="portfolio-item padd-15">
               <div className="portfolio-item-inner shadow-dark">
                 <div className="portfolio-img">
