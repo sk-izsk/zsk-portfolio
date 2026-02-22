@@ -26,6 +26,7 @@ export const styleSwitcher = style({
     "(max-width: 767px)": {
       width: "180px",
       top: "20px",
+      padding: "15px 20px",
     },
   },
 })
@@ -90,17 +91,21 @@ export const heading = style({
 })
 
 export const colors = style({
-  display: "flex",
-  flexWrap: "wrap",
-  justifyContent: "space-between",
+  display: "grid",
+  gridTemplateColumns: "repeat(5, 28px)",
+  gridTemplateRows: "repeat(2, 28px)",
+  gap: "8px",
+  justifyContent: "center",
+  width: "100%",
 })
 
 export const colorItem = style({
   display: "inline-block",
-  height: "30px",
-  width: "30px",
+  height: "28px",
+  width: "28px",
   borderRadius: "50%",
   cursor: "pointer",
+  transition: "all 0.3s ease",
   selectors: {
     "&.color-1": {
       background: "#ec1839",
@@ -117,9 +122,28 @@ export const colorItem = style({
     "&.color-5": {
       background: "#f021b2",
     },
+    "&.color-6": {
+      background: "#8a2be2",
+    },
+    "&.color-7": {
+      background: "#daa520",
+    },
+    "&.color-8": {
+      background: "#00ced1",
+    },
+    "&.color-9": {
+      background: "#00bfff",
+    },
+    "&.color-10": {
+      background: "#2e8b57",
+    },
     "&.active": {
-      border: "3px solid #fff",
-      boxShadow: "0 0 15px rgba(0,0,0,0.3)",
+      border: "2px solid #fff",
+      boxShadow: "0 0 10px rgba(0,0,0,0.3)",
+      transform: "scale(1.1)",
+    },
+    "&:hover": {
+      transform: "scale(1.05)",
     },
   },
 })

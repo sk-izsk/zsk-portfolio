@@ -36,6 +36,11 @@ const StyleSwitcher: React.FC<StyleSwitcherProps> = ({
     { name: "color-3", color: "#37b182" },
     { name: "color-4", color: "#1854b4" },
     { name: "color-5", color: "#f021b2" },
+    { name: "color-6", color: "#8a2be2" },
+    { name: "color-7", color: "#daa520" },
+    { name: "color-8", color: "#00ced1" },
+    { name: "color-9", color: "#00bfff" },
+    { name: "color-10", color: "#2e8b57" },
   ]
 
   const toggleSwitcher = () => {

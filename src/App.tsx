@@ -42,16 +42,26 @@ import { usePortfolioStore } from "./stores/portfolioStore"
 // Import vanilla-extract styles
 import "./styles/global.css"
 import {
+  color10Theme,
   color1Theme,
   color2Theme,
   color3Theme,
   color4Theme,
   color5Theme,
+  color6Theme,
+  color7Theme,
+  color8Theme,
+  color9Theme,
+  darkColor10Theme,
   darkColor1Theme,
   darkColor2Theme,
   darkColor3Theme,
   darkColor4Theme,
   darkColor5Theme,
+  darkColor6Theme,
+  darkColor7Theme,
+  darkColor8Theme,
+  darkColor9Theme,
   darkTheme,
   lightTheme,
 } from "./styles/themes.css"
@@ -131,6 +141,11 @@ const colorThemes = {
   "color-3": "#37b182",
   "color-4": "#1854b4",
   "color-5": "#f021b2",
+  "color-6": "#8a2be2",
+  "color-7": "#daa520",
+  "color-8": "#00ced1",
+  "color-9": "#00bfff",
+  "color-10": "#2e8b57",
 }
 
 // Main App Content Component
@@ -198,6 +213,11 @@ function AppContent() {
       else if (currentColor === "color-3") themeClass = darkColor3Theme
       else if (currentColor === "color-4") themeClass = darkColor4Theme
       else if (currentColor === "color-5") themeClass = darkColor5Theme
+      else if (currentColor === "color-6") themeClass = darkColor6Theme
+      else if (currentColor === "color-7") themeClass = darkColor7Theme
+      else if (currentColor === "color-8") themeClass = darkColor8Theme
+      else if (currentColor === "color-9") themeClass = darkColor9Theme
+      else if (currentColor === "color-10") themeClass = darkColor10Theme
       else themeClass = darkTheme
     } else {
       if (currentColor === "color-1") themeClass = color1Theme
@@ -205,6 +225,11 @@ function AppContent() {
       else if (currentColor === "color-3") themeClass = color3Theme
       else if (currentColor === "color-4") themeClass = color4Theme
       else if (currentColor === "color-5") themeClass = color5Theme
+      else if (currentColor === "color-6") themeClass = color6Theme
+      else if (currentColor === "color-7") themeClass = color7Theme
+      else if (currentColor === "color-8") themeClass = color8Theme
+      else if (currentColor === "color-9") themeClass = color9Theme
+      else if (currentColor === "color-10") themeClass = color10Theme
       else themeClass = lightTheme
     }
 
