@@ -259,6 +259,7 @@ function AppContent() {
 
       <StyleSwitcher
         isDarkMode={isDarkMode}
+        currentColor={currentColor}
         onToggleDarkMode={toggleDarkMode}
         onChangeColor={changeColor}
       />

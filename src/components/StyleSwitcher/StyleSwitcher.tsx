@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import {
   colorItem,
   colors,
@@ -15,17 +15,20 @@ import {
 
 interface StyleSwitcherProps {
   isDarkMode: boolean
+  currentColor: string
   onToggleDarkMode: () => void
   onChangeColor: (color: string) => void
 }
 
 const StyleSwitcher: React.FC<StyleSwitcherProps> = ({
   isDarkMode,
+  currentColor,
   onToggleDarkMode,
   onChangeColor,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const [activeColor, setActiveColor] = useState("color-1")
+  const [activeColor, setActiveColor] = useState(currentColor)
+  const styleSwitcherRef = useRef<HTMLDivElement>(null)
 
   const colorOptions = [
     { name: "color-1", color: "#ec1839" },
@@ -43,6 +46,11 @@ const StyleSwitcher: React.FC<StyleSwitcherProps> = ({
     setActiveColor(colorName)
     onChangeColor(colorName)
   }
+
+  // Sync activeColor with currentColor prop
+  useEffect(() => {
+    setActiveColor(currentColor)
+  }, [currentColor])
 
   // Hide style switcher on mouse wheel or touch move
   useEffect(() => {
@@ -64,8 +72,30 @@ const StyleSwitcher: React.FC<StyleSwitcherProps> = ({
     }
   }, [isOpen])
 
+  // Handle click outside to close style switcher
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isOpen &&
+        styleSwitcherRef.current &&
+        !styleSwitcherRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [isOpen])
+
   return (
-    <div className={`${styleSwitcher} ${isOpen ? styleSwitcherOpen : ""}`}>
+    <div
+      ref={styleSwitcherRef}
+      className={`${styleSwitcher} ${isOpen ? styleSwitcherOpen : ""}`}
+    >
       <div className={styleSwitcherToggler} onClick={toggleSwitcher}>
         <FontAwesomeIcon icon="cog" className={`${s_icon} ${settingsIcon}`} />
       </div>
