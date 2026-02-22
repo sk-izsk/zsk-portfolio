@@ -150,3 +150,24 @@ globalStyle(".btn:hover", {
 globalStyle(".shadow-dark", {
   boxShadow: "0 0 20px rgba(48, 46, 77, 0.15)",
 })
+
+// Page loader styles
+globalStyle(".page-loader", {
+  position: "fixed",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100vh",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  background: vars.color.background[900],
+  zIndex: 9999,
+})
+
+globalStyle(".page-loader .loading", {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flexDirection: "column",
+})

@@ -1,6 +1,0 @@
-<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-  <rect x="0" y="0" width="400" height="400" fill="#ec1839"/>
-  <circle cx="200" cy="150" r="60" fill="#fff"/>
-  <rect x="160" y="220" width="80" height="100" fill="#fff"/>
-  <text x="200" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#fff">Profile Image</text>
-</svg>
