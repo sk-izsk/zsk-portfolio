@@ -28,7 +28,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   const getLogoText = () => {
     if (loading || !data) return "Atlas"
-    const firstName = data.personalInfo.name.split(" ")[0]
+    const firstName = data.personalInfo.name.split(" ")[1]
     return `${firstName.charAt(0).toUpperCase()}${firstName.slice(1).toLowerCase()}`
   }
 
