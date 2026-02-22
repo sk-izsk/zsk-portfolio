@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css"
+import { globalStyle, style } from "@vanilla-extract/css"
 import { vars } from "../../styles/theme.css"
 
 export const home = style({
@@ -76,16 +76,6 @@ export const homeImg = style({
     borderTop: `10px solid ${vars.color.skin}`,
     left: "20px",
     top: "-40px",
-    "@media": {
-      "(max-width: 991px)": {
-        height: "60px",
-        width: "60px",
-        borderLeftWidth: "8px",
-        borderTopWidth: "8px",
-        left: "10px",
-        top: "-30px",
-      },
-    },
   },
   "::after": {
     content: '""',
@@ -96,16 +86,6 @@ export const homeImg = style({
     borderBottom: `10px solid ${vars.color.skin}`,
     right: "20px",
     bottom: "-40px",
-    "@media": {
-      "(max-width: 991px)": {
-        height: "60px",
-        width: "60px",
-        borderRightWidth: "8px",
-        borderBottomWidth: "8px",
-        right: "10px",
-        bottom: "-30px",
-      },
-    },
   },
 })
 
@@ -117,4 +97,31 @@ export const homeImgImg = style({
   height: "100%",
   objectFit: "cover",
   display: "block",
+})
+
+// Responsive styles for home image pseudo-elements
+globalStyle(`.${homeImg}::before`, {
+  "@media": {
+    "(max-width: 991px)": {
+      height: "60px !important",
+      width: "60px !important",
+      borderLeftWidth: "8px !important",
+      borderTopWidth: "8px !important",
+      left: "10px !important",
+      top: "-30px !important",
+    },
+  },
+})
+
+globalStyle(`.${homeImg}::after`, {
+  "@media": {
+    "(max-width: 991px)": {
+      height: "60px !important",
+      width: "60px !important",
+      borderRightWidth: "8px !important",
+      borderBottomWidth: "8px !important",
+      right: "10px !important",
+      bottom: "-30px !important",
+    },
+  },
 })
