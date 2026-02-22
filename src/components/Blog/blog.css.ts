@@ -5,6 +5,20 @@ export const blogContainer = style({
   paddingBottom: "40px",
 })
 
+export const blogGrid = style({
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+  gap: "30px",
+  "@media": {
+    "(max-width: 991px)": {
+      gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+    },
+    "(max-width: 767px)": {
+      gridTemplateColumns: "1fr",
+    },
+  },
+})
+
 export const blogHeading = style({
   flex: "0 0 100%",
   maxWidth: "100%",
@@ -17,19 +31,8 @@ export const blogHeadingH2 = style({
 })
 
 export const blogItem = style({
-  flex: "0 0 33.33%",
-  maxWidth: "33.33%",
-  marginBottom: "30px",
-  "@media": {
-    "(max-width: 991px)": {
-      flex: "0 0 50%",
-      maxWidth: "50%",
-    },
-    "(max-width: 767px)": {
-      flex: "0 0 100%",
-      maxWidth: "100%",
-    },
-  },
+  display: "flex",
+  flexDirection: "column",
 })
 
 export const blogItemInner = style({
@@ -39,6 +42,9 @@ export const blogItemInner = style({
   padding: "30px 10px",
   textAlign: "center",
   transition: "all 0.3s ease",
+  display: "flex",
+  flexDirection: "column",
+  height: "100%",
   ":hover": {
     boxShadow: "0 0 20px rgba(48, 46, 77, 0.15)",
   },
@@ -100,6 +106,7 @@ export const blogContent = style({
   color: vars.color.text[700],
   lineHeight: "25px",
   marginBottom: "15px",
+  flex: 1,
 })
 
 export const blogLink = style({

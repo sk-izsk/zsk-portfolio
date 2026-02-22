@@ -9,6 +9,7 @@ import {
 import {
   blogContainer,
   blogContent,
+  blogGrid,
   blogHeading,
   blogHeadingH2,
   blogImage,
@@ -63,9 +64,9 @@ const Blog: React.FC = () => {
             <h2 className={blogHeadingH2}>My Recent Blogs :</h2>
           </div>
         </div>
-        <div className="row">
+        <div className={`${blogGrid} padd-15`}>
           {blog?.map((post) => (
-            <div key={post.id} className={`${blogItem} padd-15`}>
+            <div key={post.id} className={blogItem}>
               <div className={blogItemInner}>
                 <div className={blogImage}>
                   <img
