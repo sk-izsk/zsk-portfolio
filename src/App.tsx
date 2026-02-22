@@ -23,18 +23,54 @@ import {
   faSun,
   faUser,
 } from "@fortawesome/free-solid-svg-icons"
-import { useEffect, useState } from "react"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { useLocalStorageState } from "ahooks"
+import { lazy, Suspense, useEffect, useState } from "react"
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  useLocation,
+} from "react-router-dom"
 
-import About from "./components/About"
-import Blog from "./components/Blog"
-import Contact from "./components/Contact"
-import Home from "./components/Home"
-import Portfolio from "./components/Portfolio"
-import Services from "./components/Services"
+import { Bars } from "react-loader-spinner"
 import Sidebar from "./components/Sidebar"
 import StyleSwitcher from "./components/StyleSwitcher"
+import { usePortfolioData } from "./hooks/usePortfolioData"
+import { usePortfolioStore } from "./stores/portfolioStore"
 
 import "./styles/style.css"
+
+// Lazy loaded components
+const Home = lazy(() => import("./components/Home"))
+const About = lazy(() => import("./components/About"))
+const Services = lazy(() => import("./components/Services"))
+const Portfolio = lazy(() => import("./components/Portfolio"))
+const Blog = lazy(() => import("./components/Blog"))
+const Contact = lazy(() => import("./components/Contact"))
+
+// Loading component
+const PageLoader = () => {
+  const [currentColor] = useLocalStorageState("portfolio-color-theme", {
+    defaultValue: "color-1",
+  })
+  console.log("currentColor: ", currentColor)
+  return (
+    <div className="page-loader">
+      <div className="loading">
+        <Bars
+          height="80"
+          width="80"
+          color={colorThemes[currentColor as keyof typeof colorThemes]}
+          ariaLabel="bars-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      </div>
+    </div>
+  )
+}
 
 // Add icons to library
 library.add(
@@ -62,18 +98,77 @@ library.add(
   faReadme,
 )
 
-function App() {
-  const [activeSection, setActiveSection] = useState("home")
-  const [isDarkMode, setIsDarkMode] = useState(true)
-  const [currentColor, setCurrentColor] = useState("color-1")
+// Create a client
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 minutes
+      gcTime: 1000 * 60 * 10, // 10 minutes
+      retry: 2,
+      refetchOnWindowFocus: false,
+    },
+  },
+})
+
+// Color themes configuration
+const colorThemes = {
+  "color-1": "#ec1839",
+  "color-2": "#fa5b0f",
+  "color-3": "#37b182",
+  "color-4": "#1854b4",
+  "color-5": "#f021b2",
+}
+
+// Main App Content Component
+function AppContent() {
+  const location = useLocation()
+  const [isDarkMode, setIsDarkMode] = useLocalStorageState(
+    "portfolio-dark-mode",
+    {
+      defaultValue: true,
+    },
+  )
+  const [currentColor, setCurrentColor] = useLocalStorageState(
+    "portfolio-color-theme",
+    {
+      defaultValue: "color-1",
+    },
+  )
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
-  const colorThemes = {
-    "color-1": "#ec1839",
-    "color-2": "#fa5b0f",
-    "color-3": "#37b182",
-    "color-4": "#1854b4",
-    "color-5": "#f021b2",
+  // Fetch portfolio data once and update Zustand store
+  const portfolioQuery = usePortfolioData()
+  const { setData, setLoading, setError } = usePortfolioStore()
+
+  useEffect(() => {
+    setLoading(portfolioQuery.isLoading)
+
+    if (portfolioQuery.data) {
+      setData(portfolioQuery.data)
+    }
+
+    if (portfolioQuery.error) {
+      setError(portfolioQuery.error.message)
+    }
+  }, [
+    portfolioQuery.isLoading,
+    portfolioQuery.data,
+    portfolioQuery.error,
+    setData,
+    setLoading,
+    setError,
+  ])
+
+  // Get current route for active section
+  const getCurrentSection = () => {
+    const path = location.pathname
+    if (path === "/" || path === "/home") return "home"
+    if (path === "/about") return "about"
+    if (path === "/services") return "service"
+    if (path === "/portfolio") return "portfolio"
+    if (path === "/blog") return "blog"
+    if (path === "/contact") return "contact"
+    return "home"
   }
 
   useEffect(() => {
@@ -89,13 +184,6 @@ function App() {
     )
   }, [currentColor])
 
-  const handleNavigation = (section: string) => {
-    setActiveSection(section)
-    if (window.innerWidth < 1200) {
-      setIsSidebarOpen(false)
-    }
-  }
-
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen)
   }
@@ -108,22 +196,37 @@ function App() {
     setCurrentColor(color)
   }
 
+  // Close sidebar on mobile after navigation
+  useEffect(() => {
+    const handleRouteChange = () => {
+      if (window.innerWidth < 1200) {
+        setIsSidebarOpen(false)
+      }
+    }
+
+    handleRouteChange()
+  }, [location.pathname])
+
   return (
     <div className="main-container">
       <Sidebar
-        activeSection={activeSection}
-        onNavigation={handleNavigation}
+        activeSection={getCurrentSection()}
         isOpen={isSidebarOpen}
         toggleSidebar={toggleSidebar}
       />
 
       <div className="main-content">
-        <Home isActive={activeSection === "home"} />
-        <About isActive={activeSection === "about"} />
-        <Services isActive={activeSection === "service"} />
-        <Portfolio isActive={activeSection === "portfolio"} />
-        <Blog isActive={activeSection === "blog"} />
-        <Contact isActive={activeSection === "contact"} />
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </Suspense>
       </div>
 
       <StyleSwitcher
@@ -132,6 +235,16 @@ function App() {
         onChangeColor={changeColor}
       />
     </div>
+  )
+}
+
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <AppContent />
+      </Router>
+    </QueryClientProvider>
   )
 }
 

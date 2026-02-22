@@ -1,17 +1,23 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useTitle } from "ahooks"
 import React from "react"
-import { usePortfolioData } from "../hooks/usePortfolioData"
+import {
+  useBlog,
+  usePortfolioError,
+  usePortfolioLoading,
+} from "../stores/portfolioStore"
 
-interface BlogProps {
-  isActive: boolean
-}
+const Blog: React.FC = () => {
+  const blog = useBlog()
+  const loading = usePortfolioLoading()
+  const error = usePortfolioError()
 
-const Blog: React.FC<BlogProps> = ({ isActive }) => {
-  const { loading, data, error } = usePortfolioData()
+  // Update page title
+  useTitle("Blog - ZSK Portfolio")
 
   if (loading) {
     return (
-      <section className={`blog section ${isActive ? "active" : ""}`} id="blog">
+      <section className="blog section active" id="blog">
         <div className="container">
           <div className="loading">Loading...</div>
         </div>
@@ -19,9 +25,9 @@ const Blog: React.FC<BlogProps> = ({ isActive }) => {
     )
   }
 
-  if (error || !data) {
+  if (error || !blog) {
     return (
-      <section className={`blog section ${isActive ? "active" : ""}`} id="blog">
+      <section className="blog section active" id="blog">
         <div className="container">
           <div className="error">Error loading data</div>
         </div>
@@ -30,7 +36,7 @@ const Blog: React.FC<BlogProps> = ({ isActive }) => {
   }
 
   return (
-    <section className={`blog section ${isActive ? "active" : ""}`} id="blog">
+    <section className="blog section active" id="blog">
       <div className="container">
         <div className="row">
           <div className="section-title padd-15">
@@ -43,7 +49,7 @@ const Blog: React.FC<BlogProps> = ({ isActive }) => {
           </div>
         </div>
         <div className="row">
-          {data.blog.map((post) => (
+          {blog?.map((post) => (
             <div key={post.id} className="blog-item padd-15">
               <div className="blog-item-inner">
                 <div className="image">

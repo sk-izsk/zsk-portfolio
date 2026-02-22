@@ -1,13 +1,22 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useTitle } from "ahooks"
 import React, { useState } from "react"
-import { usePortfolioData } from "../hooks/usePortfolioData"
+import {
+  useContactInfo,
+  usePersonalInfo,
+  usePortfolioError,
+  usePortfolioLoading,
+} from "../stores/portfolioStore"
 
-interface ContactProps {
-  isActive: boolean
-}
+const Contact: React.FC = () => {
+  const contact = useContactInfo()
+  const personalInfo = usePersonalInfo()
+  const loading = usePortfolioLoading()
+  const error = usePortfolioError()
 
-const Contact: React.FC<ContactProps> = ({ isActive }) => {
-  const { loading, data, error } = usePortfolioData()
+  // Update page title
+  useTitle("Contact - ZSK Portfolio")
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,10 +26,7 @@ const Contact: React.FC<ContactProps> = ({ isActive }) => {
 
   if (loading) {
     return (
-      <section
-        className={`contact section ${isActive ? "active" : ""}`}
-        id="contact"
-      >
+      <section className="contact section active" id="contact">
         <div className="container">
           <div className="loading">Loading...</div>
         </div>
@@ -28,12 +34,9 @@ const Contact: React.FC<ContactProps> = ({ isActive }) => {
     )
   }
 
-  if (error || !data) {
+  if (error || !contact || !personalInfo) {
     return (
-      <section
-        className={`contact section ${isActive ? "active" : ""}`}
-        id="contact"
-      >
+      <section className="contact section active" id="contact">
         <div className="container">
           <div className="error">Error loading data</div>
         </div>
@@ -45,25 +48,23 @@ const Contact: React.FC<ContactProps> = ({ isActive }) => {
     {
       icon: "phone",
       title: "Call Us On",
-      details: data.contact.phone,
+      details: contact.phone,
     },
     {
       icon: "map-marker-alt",
       title: "Location",
       details:
-        data.personalInfo.location.city +
-        ", " +
-        data.personalInfo.location.country,
+        personalInfo.location.city + ", " + personalInfo.location.country,
     },
     {
       icon: "envelope",
       title: "Email",
-      details: data.contact.email,
+      details: contact.email,
     },
     {
       icon: "globe-europe",
       title: "Website",
-      details: data.contact.social.website.label,
+      details: contact.social.website.label,
     },
   ]
 
@@ -84,10 +85,7 @@ const Contact: React.FC<ContactProps> = ({ isActive }) => {
   }
 
   return (
-    <section
-      className={`contact section ${isActive ? "active" : ""}`}
-      id="contact"
-    >
+    <section className="contact section active" id="contact">
       <div className="container">
         <div className="row">
           <div className="section-title padd-15">

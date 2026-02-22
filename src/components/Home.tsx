@@ -1,18 +1,24 @@
+import { useTitle } from "ahooks"
 import React, { useEffect, useRef } from "react"
 import Typed from "typed.js"
-import { usePortfolioData } from "../hooks/usePortfolioData"
+import {
+  usePersonalInfo,
+  usePortfolioError,
+  usePortfolioLoading,
+} from "../stores/portfolioStore"
 
-interface HomeProps {
-  isActive: boolean
-}
-
-const Home: React.FC<HomeProps> = ({ isActive }) => {
-  const { loading, data, error } = usePortfolioData()
+const Home: React.FC = () => {
+  const personalInfo = usePersonalInfo()
+  const loading = usePortfolioLoading()
+  const error = usePortfolioError()
   const typingRef = useRef<HTMLSpanElement>(null)
   const typedInstance = useRef<Typed | null>(null)
 
+  // Update page title
+  useTitle("Home - ZSK Portfolio")
+
   useEffect(() => {
-    if (typingRef.current && !typedInstance.current && data) {
+    if (typingRef.current && !typedInstance.current && personalInfo) {
       const typingStrings = [
         "",
         "Full Stack Developer",
@@ -37,11 +43,11 @@ const Home: React.FC<HomeProps> = ({ isActive }) => {
         typedInstance.current = null
       }
     }
-  }, [data])
+  }, [personalInfo])
 
   if (loading) {
     return (
-      <section className={`home section ${isActive ? "active" : ""}`} id="home">
+      <section className="home section active" id="home">
         <div className="container">
           <div className="loading">Loading...</div>
         </div>
@@ -49,9 +55,9 @@ const Home: React.FC<HomeProps> = ({ isActive }) => {
     )
   }
 
-  if (error || !data) {
+  if (error || !personalInfo) {
     return (
-      <section className={`home section ${isActive ? "active" : ""}`} id="home">
+      <section className="home section active" id="home">
         <div className="container">
           <div className="error">Error loading data</div>
         </div>
@@ -60,27 +66,27 @@ const Home: React.FC<HomeProps> = ({ isActive }) => {
   }
 
   return (
-    <section className={`home section ${isActive ? "active" : ""}`} id="home">
+    <section className="home section active" id="home">
       <div className="container">
         <div className="row">
           <div className="home-info padd-15">
             <h3 className="hello">
-              {data.personalInfo.greeting}{" "}
-              <span className="name">{data.personalInfo.name}</span>
+              {personalInfo.greeting}{" "}
+              <span className="name">{personalInfo.name}</span>
             </h3>
             <h3 className="my-profession">
-              {data.personalInfo.profession}{" "}
+              {personalInfo.profession}{" "}
               <span className="typing" ref={typingRef}></span>
             </h3>
-            <p>{data.personalInfo.bio}</p>
+            <p>{personalInfo.bio}</p>
             <a href="#" className="btn">
               Download CV
             </a>
           </div>
           <div className="home-img padd-15">
             <img
-              src={data.personalInfo.avatar.primary}
-              alt={data.personalInfo.avatar.alt}
+              src={personalInfo.avatar.primary}
+              alt={personalInfo.avatar.alt}
             />
           </div>
         </div>

@@ -1,19 +1,22 @@
+import { useTitle } from "ahooks"
 import React from "react"
-import { usePortfolioData } from "../hooks/usePortfolioData"
+import {
+  usePortfolio,
+  usePortfolioError,
+  usePortfolioLoading,
+} from "../stores/portfolioStore"
 
-interface PortfolioProps {
-  isActive: boolean
-}
+const Portfolio: React.FC = () => {
+  const portfolio = usePortfolio()
+  const loading = usePortfolioLoading()
+  const error = usePortfolioError()
 
-const Portfolio: React.FC<PortfolioProps> = ({ isActive }) => {
-  const { loading, data, error } = usePortfolioData()
+  // Update page title
+  useTitle("Portfolio - ZSK Portfolio")
 
   if (loading) {
     return (
-      <section
-        className={`portfolio section ${isActive ? "active" : ""}`}
-        id="portfolio"
-      >
+      <section className="portfolio section active" id="portfolio">
         <div className="container">
           <div className="loading">Loading...</div>
         </div>
@@ -21,12 +24,9 @@ const Portfolio: React.FC<PortfolioProps> = ({ isActive }) => {
     )
   }
 
-  if (error || !data) {
+  if (error || !portfolio) {
     return (
-      <section
-        className={`portfolio section ${isActive ? "active" : ""}`}
-        id="portfolio"
-      >
+      <section className="portfolio section active" id="portfolio">
         <div className="container">
           <div className="error">Error loading data</div>
         </div>
@@ -35,10 +35,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ isActive }) => {
   }
 
   return (
-    <section
-      className={`portfolio section ${isActive ? "active" : ""}`}
-      id="portfolio"
-    >
+    <section className="portfolio section active" id="portfolio">
       <div className="container">
         <div className="row">
           <div className="section-title padd-15">
@@ -51,7 +48,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ isActive }) => {
           </div>
         </div>
         <div className="row">
-          {data.portfolio.photos.map((item) => (
+          {portfolio.photos.map((item) => (
             <div key={item.id} className="portfolio-item padd-15">
               <div className="portfolio-item-inner shadow-dark">
                 <div className="portfolio-img">

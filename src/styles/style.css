@@ -331,6 +331,10 @@ ul {
   max-width: 60%;
 }
 
+.home .row {
+  align-items: flex-start;
+}
+
 h3.hello {
   font-size: 28px;
   margin: 15px 0;
@@ -363,6 +367,10 @@ h3.my-profession {
   max-width: 40%;
   text-align: center;
   position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .home .home-img::before {
@@ -388,13 +396,12 @@ h3.my-profession {
 }
 
 .home .home-img img {
-  margin: auto;
   border-radius: 5px;
-  max-height: 400px;
+  max-height: 100%;
   max-width: 100%;
   width: auto;
-  height: auto;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
@@ -1046,4 +1053,24 @@ h3.my-profession {
     flex: 0 0 100%;
     max-width: 100%;
   }
+}
+
+/* Page Loader Styles */
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-black-900);
+  z-index: 9999;
+}
+
+.page-loader .loading {
+  color: var(--text-black-900);
+  font-size: 18px;
+  font-weight: 600;
 }

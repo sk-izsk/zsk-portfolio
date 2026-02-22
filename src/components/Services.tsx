@@ -1,20 +1,23 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useTitle } from "ahooks"
 import React from "react"
-import { usePortfolioData } from "../hooks/usePortfolioData"
+import {
+  usePortfolioError,
+  usePortfolioLoading,
+  useServices,
+} from "../stores/portfolioStore"
 
-interface ServicesProps {
-  isActive: boolean
-}
+const Services: React.FC = () => {
+  const services = useServices()
+  const loading = usePortfolioLoading()
+  const error = usePortfolioError()
 
-const Services: React.FC<ServicesProps> = ({ isActive }) => {
-  const { loading, data, error } = usePortfolioData()
+  // Update page title
+  useTitle("Services - ZSK Portfolio")
 
   if (loading) {
     return (
-      <section
-        className={`service section ${isActive ? "active" : ""}`}
-        id="service"
-      >
+      <section className="service section active" id="service">
         <div className="container">
           <div className="loading">Loading...</div>
         </div>
@@ -22,12 +25,9 @@ const Services: React.FC<ServicesProps> = ({ isActive }) => {
     )
   }
 
-  if (error || !data) {
+  if (error || !services) {
     return (
-      <section
-        className={`service section ${isActive ? "active" : ""}`}
-        id="service"
-      >
+      <section className="service section active" id="service">
         <div className="container">
           <div className="error">Error loading data</div>
         </div>
@@ -36,10 +36,7 @@ const Services: React.FC<ServicesProps> = ({ isActive }) => {
   }
 
   return (
-    <section
-      className={`service section ${isActive ? "active" : ""}`}
-      id="service"
-    >
+    <section className="service section active" id="service">
       <div className="container">
         <div className="row">
           <div className="section-title padd-15">
@@ -47,7 +44,7 @@ const Services: React.FC<ServicesProps> = ({ isActive }) => {
           </div>
         </div>
         <div className="row">
-          {data.services.map((service) => (
+          {services.map((service) => (
             <div key={service.id} className="service-item padd-15">
               <div className="service-item-inner">
                 <div className="icon">

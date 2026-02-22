@@ -1,34 +1,39 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
-import { usePortfolioData } from "../hooks/usePortfolioData"
+import { Link } from "react-router-dom"
+import { usePersonalInfo, usePortfolioLoading } from "../stores/portfolioStore"
 
 interface SidebarProps {
   activeSection: string
-  onNavigation: (section: string) => void
   isOpen: boolean
   toggleSidebar: () => void
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
   activeSection,
-  onNavigation,
   isOpen,
   toggleSidebar,
 }) => {
-  const { loading, data } = usePortfolioData()
+  const personalInfo = usePersonalInfo()
+  const loading = usePortfolioLoading()
 
   const navigationItems = [
-    { id: "home", label: "Home", icon: "home" },
-    { id: "about", label: "About", icon: "user" },
-    { id: "service", label: "Services", icon: "list" },
-    { id: "portfolio", label: "Portfolio", icon: "briefcase" },
-    { id: "blog", label: "Blog", icon: ["fab", "readme"] },
-    { id: "contact", label: "Contact", icon: "comments" },
+    { id: "home", label: "Home", icon: "home", path: "/" },
+    { id: "about", label: "About", icon: "user", path: "/about" },
+    { id: "service", label: "Services", icon: "list", path: "/services" },
+    {
+      id: "portfolio",
+      label: "Portfolio",
+      icon: "briefcase",
+      path: "/portfolio",
+    },
+    { id: "blog", label: "Blog", icon: ["fab", "readme"], path: "/blog" },
+    { id: "contact", label: "Contact", icon: "comments", path: "/contact" },
   ]
 
   const getLogoText = () => {
-    if (loading || !data) return "Atlas"
-    const firstName = data.personalInfo.name.split(" ")[1]
+    if (loading || !personalInfo) return "Atlas"
+    const firstName = personalInfo.name.split(" ")[1]
     return `${firstName.charAt(0).toUpperCase()}${firstName.slice(1).toLowerCase()}`
   }
 
@@ -49,13 +54,9 @@ const Sidebar: React.FC<SidebarProps> = ({
       <ul className="nav">
         {navigationItems.map((item) => (
           <li key={item.id}>
-            <a
-              href={`#${item.id}`}
+            <Link
+              to={item.path}
               className={activeSection === item.id ? "active" : ""}
-              onClick={(e) => {
-                e.preventDefault()
-                onNavigation(item.id)
-              }}
             >
               <FontAwesomeIcon
                 icon={
@@ -69,7 +70,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                 }
               />{" "}
               {item.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
