@@ -5,7 +5,19 @@ import {
   usePersonalInfo,
   usePortfolioError,
   usePortfolioLoading,
-} from "../stores/portfolioStore"
+} from "../../stores/portfolioStore"
+import {
+  hello,
+  helloName,
+  home,
+  homeImg,
+  homeImgImg,
+  homeInfo,
+  homeInfoP,
+  homeRow,
+  myProfession,
+  typing,
+} from "./home.css"
 
 const Home: React.FC = () => {
   const personalInfo = usePersonalInfo()
@@ -47,7 +59,7 @@ const Home: React.FC = () => {
 
   if (loading) {
     return (
-      <section className="home section active" id="home">
+      <section className={`${home} section active`} id="home">
         <div className="container">
           <div className="loading">Loading...</div>
         </div>
@@ -57,7 +69,7 @@ const Home: React.FC = () => {
 
   if (error || !personalInfo) {
     return (
-      <section className="home section active" id="home">
+      <section className={`${home} section active`} id="home">
         <div className="container">
           <div className="error">Error loading data</div>
         </div>
@@ -66,25 +78,26 @@ const Home: React.FC = () => {
   }
 
   return (
-    <section className="home section active" id="home">
+    <section className={`${home} section active`} id="home">
       <div className="container">
-        <div className="row">
-          <div className="home-info padd-15">
-            <h3 className="hello">
+        <div className={`row ${homeRow}`}>
+          <div className={`${homeInfo} padd-15`}>
+            <h3 className={hello}>
               {personalInfo.greeting}{" "}
-              <span className="name">{personalInfo.name}</span>
+              <span className={helloName}>{personalInfo.name}</span>
             </h3>
-            <h3 className="my-profession">
+            <h3 className={myProfession}>
               {personalInfo.profession}{" "}
-              <span className="typing" ref={typingRef}></span>
+              <span className={typing} ref={typingRef}></span>
             </h3>
-            <p>{personalInfo.bio}</p>
+            <p className={homeInfoP}>{personalInfo.bio}</p>
             <a href="#" className="btn">
               Download CV
             </a>
           </div>
-          <div className="home-img padd-15">
+          <div className={`${homeImg} padd-15`}>
             <img
+              className={homeImgImg}
               src={personalInfo.avatar.primary}
               alt={personalInfo.avatar.alt}
             />

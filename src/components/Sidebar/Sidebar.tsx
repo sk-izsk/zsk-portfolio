@@ -1,7 +1,25 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import { Link } from "react-router-dom"
-import { usePersonalInfo, usePortfolioLoading } from "../stores/portfolioStore"
+import {
+  usePersonalInfo,
+  usePortfolioLoading,
+} from "../../stores/portfolioStore"
+import {
+  aside,
+  logo,
+  logoA,
+  logoSpan,
+  nav,
+  navA,
+  navAActive,
+  navAI,
+  navLi,
+  navToggler,
+  navTogglerOpen,
+  navTogglerOpenSpan,
+  navTogglerSpan,
+} from "./sidebar.css"
 
 interface SidebarProps {
   activeSection: string
@@ -38,27 +56,30 @@ const Sidebar: React.FC<SidebarProps> = ({
   }
 
   return (
-    <div className={`aside ${isOpen ? "open" : ""}`}>
-      <div className="logo">
-        <a href="#home">
-          <span>{getLogoText().charAt(0)}</span>
+    <div className={`${aside} ${isOpen ? "open" : ""}`}>
+      <div className={logo}>
+        <a href="#home" className={logoA}>
+          <span className={logoSpan}>{getLogoText().charAt(0)}</span>
           {getLogoText().slice(1)}
         </a>
       </div>
       <div
-        className={`nav-toggler ${isOpen ? "open" : ""}`}
+        className={`${navToggler} ${isOpen ? navTogglerOpen : ""}`}
         onClick={toggleSidebar}
       >
-        <span></span>
+        <span
+          className={`${navTogglerSpan} ${isOpen ? navTogglerOpenSpan : ""}`}
+        ></span>
       </div>
-      <ul className="nav">
+      <ul className={nav}>
         {navigationItems.map((item) => (
-          <li key={item.id}>
+          <li key={item.id} className={navLi}>
             <Link
               to={item.path}
-              className={activeSection === item.id ? "active" : ""}
+              className={`${navA} ${activeSection === item.id ? navAActive : ""}`}
             >
               <FontAwesomeIcon
+                className={navAI}
                 icon={
                   item.icon as
                     | "home"

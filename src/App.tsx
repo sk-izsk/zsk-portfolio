@@ -34,20 +34,35 @@ import {
 } from "react-router-dom"
 
 import { Bars } from "react-loader-spinner"
-import Sidebar from "./components/Sidebar"
-import StyleSwitcher from "./components/StyleSwitcher"
+import Sidebar from "./components/Sidebar/Sidebar"
+import StyleSwitcher from "./components/StyleSwitcher/StyleSwitcher"
 import { usePortfolioData } from "./hooks/usePortfolioData"
 import { usePortfolioStore } from "./stores/portfolioStore"
 
-import "./styles/style.css"
+// Import vanilla-extract styles
+import "./styles/global.css"
+import {
+  color1Theme,
+  color2Theme,
+  color3Theme,
+  color4Theme,
+  color5Theme,
+  darkColor1Theme,
+  darkColor2Theme,
+  darkColor3Theme,
+  darkColor4Theme,
+  darkColor5Theme,
+  darkTheme,
+  lightTheme,
+} from "./styles/themes.css"
 
 // Lazy loaded components
-const Home = lazy(() => import("./components/Home"))
-const About = lazy(() => import("./components/About"))
-const Services = lazy(() => import("./components/Services"))
-const Portfolio = lazy(() => import("./components/Portfolio"))
-const Blog = lazy(() => import("./components/Blog"))
-const Contact = lazy(() => import("./components/Contact"))
+const Home = lazy(() => import("./components/Home/Home"))
+const About = lazy(() => import("./components/About/About"))
+const Services = lazy(() => import("./components/Services/Services"))
+const Portfolio = lazy(() => import("./components/Portfolio/Portfolio"))
+const Blog = lazy(() => import("./components/Blog/Blog"))
+const Contact = lazy(() => import("./components/Contact/Contact"))
 
 // Loading component
 const PageLoader = () => {
@@ -172,17 +187,30 @@ function AppContent() {
   }
 
   useEffect(() => {
-    // Set initial dark mode
-    document.body.className = isDarkMode ? "dark" : ""
-  }, [isDarkMode])
+    // Apply vanilla-extract theme classes
+    document.body.className = ""
 
-  useEffect(() => {
-    // Update color theme using CSS custom property
-    document.documentElement.style.setProperty(
-      "--skin-color",
-      colorThemes[currentColor as keyof typeof colorThemes],
-    )
-  }, [currentColor])
+    // Apply theme based on dark mode and color
+    let themeClass = lightTheme
+
+    if (isDarkMode) {
+      if (currentColor === "color-1") themeClass = darkColor1Theme
+      else if (currentColor === "color-2") themeClass = darkColor2Theme
+      else if (currentColor === "color-3") themeClass = darkColor3Theme
+      else if (currentColor === "color-4") themeClass = darkColor4Theme
+      else if (currentColor === "color-5") themeClass = darkColor5Theme
+      else themeClass = darkTheme
+    } else {
+      if (currentColor === "color-1") themeClass = color1Theme
+      else if (currentColor === "color-2") themeClass = color2Theme
+      else if (currentColor === "color-3") themeClass = color3Theme
+      else if (currentColor === "color-4") themeClass = color4Theme
+      else if (currentColor === "color-5") themeClass = color5Theme
+      else themeClass = lightTheme
+    }
+
+    document.body.classList.add(themeClass)
+  }, [isDarkMode, currentColor])
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen)

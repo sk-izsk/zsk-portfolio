@@ -5,7 +5,18 @@ import {
   usePortfolioError,
   usePortfolioLoading,
   useServices,
-} from "../stores/portfolioStore"
+} from "../../stores/portfolioStore"
+import {
+  serviceContainer,
+  serviceH4,
+  serviceIcon,
+  serviceIconFA,
+  serviceIconFAHover,
+  serviceItem,
+  serviceItemInner,
+  serviceItemInnerHover,
+  serviceP,
+} from "./services.css"
 
 const Services: React.FC = () => {
   const services = useServices()
@@ -18,7 +29,7 @@ const Services: React.FC = () => {
   if (loading) {
     return (
       <section className="service section active" id="service">
-        <div className="container">
+        <div className={`container ${serviceContainer}`}>
           <div className="loading">Loading...</div>
         </div>
       </section>
@@ -28,7 +39,7 @@ const Services: React.FC = () => {
   if (error || !services) {
     return (
       <section className="service section active" id="service">
-        <div className="container">
+        <div className={`container ${serviceContainer}`}>
           <div className="error">Error loading data</div>
         </div>
       </section>
@@ -37,7 +48,7 @@ const Services: React.FC = () => {
 
   return (
     <section className="service section active" id="service">
-      <div className="container">
+      <div className={`container ${serviceContainer}`}>
         <div className="row">
           <div className="section-title padd-15">
             <h2>Services</h2>
@@ -45,10 +56,11 @@ const Services: React.FC = () => {
         </div>
         <div className="row">
           {services.map((service) => (
-            <div key={service.id} className="service-item padd-15">
-              <div className="service-item-inner">
-                <div className="icon">
+            <div key={service.id} className={`${serviceItem} padd-15`}>
+              <div className={serviceItemInner}>
+                <div className={`${serviceIcon} ${serviceItemInnerHover}`}>
                   <FontAwesomeIcon
+                    className={`${serviceIconFA} ${serviceIconFAHover}`}
                     icon={
                       service.icon.replace("fa-", "") as
                         | "code"
@@ -60,8 +72,8 @@ const Services: React.FC = () => {
                     }
                   />
                 </div>
-                <h4>{service.title}</h4>
-                <p>{service.description}</p>
+                <h4 className={serviceH4}>{service.title}</h4>
+                <p className={serviceP}>{service.description}</p>
               </div>
             </div>
           ))}

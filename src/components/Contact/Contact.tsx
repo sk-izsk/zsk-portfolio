@@ -6,17 +6,30 @@ import {
   usePersonalInfo,
   usePortfolioError,
   usePortfolioLoading,
-} from "../stores/portfolioStore"
+} from "../../stores/portfolioStore"
+import {
+  btn,
+  col12,
+  col6,
+  contactContainer,
+  contactForm,
+  contactInfoIcon,
+  contactInfoIconFa,
+  contactInfoItem,
+  contactInfoItemH4,
+  contactInfoItemP,
+  contactSubTitle,
+  contactTitle,
+  formControl,
+  formControlTextarea,
+  formItem,
+} from "./contact.css"
 
 const Contact: React.FC = () => {
   const contact = useContactInfo()
   const personalInfo = usePersonalInfo()
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
-
-  // Update page title
-  useTitle("Contact - ZSK Portfolio")
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,10 +37,27 @@ const Contact: React.FC = () => {
     message: "",
   })
 
+  useTitle("Contact - ZSK Portfolio")
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    console.log("Form submitted:", formData)
+  }
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
   if (loading) {
     return (
       <section className="contact section active" id="contact">
-        <div className="container">
+        <div className={`container ${contactContainer}`}>
           <div className="loading">Loading...</div>
         </div>
       </section>
@@ -37,7 +67,7 @@ const Contact: React.FC = () => {
   if (error || !contact || !personalInfo) {
     return (
       <section className="contact section active" id="contact">
-        <div className="container">
+        <div className={`container ${contactContainer}`}>
           <div className="error">Error loading data</div>
         </div>
       </section>
@@ -68,36 +98,22 @@ const Contact: React.FC = () => {
     },
   ]
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Form submitted:", formData)
-    // Handle form submission here
-  }
-
   return (
     <section className="contact section active" id="contact">
-      <div className="container">
+      <div className={`container ${contactContainer}`}>
         <div className="row">
           <div className="section-title padd-15">
             <h2>Contact Me</h2>
           </div>
         </div>
-        <h3 className="contact-title padd-15">Do You Have Any Questions?</h3>
-        <h4 className="contact-sub-title padd-15">I'M AT YOUR SERVICE</h4>
+        <h3 className={`${contactTitle} padd-15`}>
+          Do You Have Any Questions?
+        </h3>
+        <h4 className={`${contactSubTitle} padd-15`}>I'M AT YOUR SERVICE</h4>
         <div className="row">
           {contactInfo.map((info, index) => (
-            <div key={index} className="contact-info-item padd-15">
-              <div className="icon">
+            <div key={index} className={`${contactInfoItem} padd-15`}>
+              <div className={contactInfoIcon}>
                 <FontAwesomeIcon
                   icon={
                     info.icon as
@@ -106,27 +122,27 @@ const Contact: React.FC = () => {
                       | "envelope"
                       | "globe-americas"
                   }
-                  className="fa"
+                  className={contactInfoIconFa}
                 />
               </div>
-              <h4>{info.title}</h4>
-              <p>{info.details}</p>
+              <h4 className={contactInfoItemH4}>{info.title}</h4>
+              <p className={contactInfoItemP}>{info.details}</p>
             </div>
           ))}
         </div>
-        <h3 className="contact-title padd-15">SEND ME AN EMAIL</h3>
-        <h4 className="contact-sub-title padd-15">
+        <h3 className={`${contactTitle} padd-15`}>SEND ME AN EMAIL</h3>
+        <h4 className={`${contactSubTitle} padd-15`}>
           I'M VERY RESPONSIVE TO MESSAGES
         </h4>
         <div className="row">
-          <div className="contact-form padd-15">
+          <div className={`${contactForm} padd-15`}>
             <form onSubmit={handleSubmit}>
               <div className="row">
-                <div className="form-item col-6 padd-15">
+                <div className={`${formItem} ${col6} padd-15`}>
                   <div className="form-group">
                     <input
                       type="text"
-                      className="form-control"
+                      className={formControl}
                       placeholder="Name"
                       name="name"
                       value={formData.name}
@@ -134,11 +150,11 @@ const Contact: React.FC = () => {
                     />
                   </div>
                 </div>
-                <div className="form-item col-6 padd-15">
+                <div className={`${formItem} ${col6} padd-15`}>
                   <div className="form-group">
                     <input
                       type="email"
-                      className="form-control"
+                      className={formControl}
                       placeholder="Email"
                       name="email"
                       value={formData.email}
@@ -148,11 +164,11 @@ const Contact: React.FC = () => {
                 </div>
               </div>
               <div className="row">
-                <div className="form-item col-12 padd-15">
+                <div className={`${formItem} ${col12} padd-15`}>
                   <div className="form-group">
                     <input
                       type="text"
-                      className="form-control"
+                      className={formControl}
                       placeholder="Subject"
                       name="subject"
                       value={formData.subject}
@@ -162,10 +178,10 @@ const Contact: React.FC = () => {
                 </div>
               </div>
               <div className="row">
-                <div className="form-item col-12 padd-15">
+                <div className={`${formItem} ${col12} padd-15`}>
                   <div className="form-group">
                     <textarea
-                      className="form-control"
+                      className={`${formControl} ${formControlTextarea}`}
                       placeholder="Message"
                       name="message"
                       value={formData.message}
@@ -175,9 +191,9 @@ const Contact: React.FC = () => {
                 </div>
               </div>
               <div className="row">
-                <div className="form-item col-12 padd-15">
+                <div className={`${formItem} ${col12} padd-15`}>
                   <div className="form-group">
-                    <button type="submit" className="btn">
+                    <button type="submit" className={btn}>
                       Send Message
                     </button>
                   </div>

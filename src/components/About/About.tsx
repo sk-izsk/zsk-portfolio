@@ -9,14 +9,43 @@ import {
   usePortfolioError,
   usePortfolioLoading,
   useSkills,
-} from "../stores/portfolioStore"
+} from "../../stores/portfolioStore"
+import {
+  aboutContent,
+  aboutText,
+  aboutTextH3,
+  aboutTextP,
+  aboutTextSpan,
+  btnMargin,
+  buttons,
+  circleDot,
+  education,
+  experience,
+  infoItem,
+  infoItemP,
+  infoItemSpan,
+  personalInfoSection,
+  progress,
+  progressIn,
+  skillPercent,
+  skills,
+  skillsItem,
+  skillsItemH5,
+  timeline,
+  timelineBox,
+  timelineDate,
+  timelineItem,
+  timelineText,
+  timelineTitle,
+  title,
+} from "./about.css"
 
 const About: React.FC = () => {
   const personalInfo = usePersonalInfo()
   const contact = useContactInfo()
-  const skills = useSkills()
-  const education = useEducation()
-  const experience = useExperience()
+  const skillsData = useSkills()
+  const educationData = useEducation()
+  const experienceData = useExperience()
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
 
@@ -66,49 +95,50 @@ const About: React.FC = () => {
           </div>
         </div>
         <div className="row">
-          <div className="about-content padd-15">
+          <div className={`${aboutContent} padd-15`}>
             <div className="row">
-              <div className="about-text padd-15">
-                <h3>
+              <div className={`${aboutText} padd-15`}>
+                <h3 className={aboutTextH3}>
                   I'm {personalInfo.name.split(" ")[0]} and{" "}
-                  <span>{personalInfo.title}</span>
+                  <span className={aboutTextSpan}>{personalInfo.title}</span>
                 </h3>
-                <p>{personalInfo.detailedBio}</p>
+                <p className={aboutTextP}>{personalInfo.detailedBio}</p>
               </div>
             </div>
             <div className="row">
-              <div className="personal-info padd-15">
+              <div className={`${personalInfoSection} padd-15`}>
                 <div className="row">
                   {personalInfoData.map((item, index) => (
-                    <div key={index} className="info-item padd-15">
-                      <p>
-                        {item.label} : <span>{item.value}</span>
+                    <div key={index} className={`${infoItem} padd-15`}>
+                      <p className={infoItemP}>
+                        {item.label} :{" "}
+                        <span className={infoItemSpan}>{item.value}</span>
                       </p>
                     </div>
                   ))}
                 </div>
                 <div className="row">
-                  <div className="buttons padd-15">
-                    <a href="#" className="btn">
+                  <div className={`${buttons} padd-15`}>
+                    <a href="#" className={`btn ${btnMargin}`}>
                       Download CV
                     </a>
-                    <a href="#contact" className="btn hire-me">
+                    <a href="#contact" className={`btn hire-me ${btnMargin}`}>
                       Hire Me
                     </a>
                   </div>
                 </div>
               </div>
-              <div className="skills padd-15">
+              <div className={`${skills} padd-15`}>
                 <div className="row">
-                  {skills?.technical.slice(0, 6).map((skill, index) => (
-                    <div key={index} className="skills-item padd-15">
-                      <h5>{skill.name}</h5>
-                      <div className="progress">
+                  {skillsData?.technical.slice(0, 6).map((skill, index) => (
+                    <div key={index} className={`${skillsItem} padd-15`}>
+                      <h5 className={skillsItemH5}>{skill.name}</h5>
+                      <div className={progress}>
                         <div
-                          className="progress-in"
+                          className={progressIn}
                           style={{ width: `${skill.level}%` }}
                         ></div>
-                        <div className="skill-percent">{skill.level}%</div>
+                        <div className={skillPercent}>{skill.level}%</div>
                       </div>
                     </div>
                   ))}
@@ -116,40 +146,40 @@ const About: React.FC = () => {
               </div>
             </div>
             <div className="row">
-              <div className="education padd-15">
-                <h3 className="title">Education</h3>
+              <div className={`${education} padd-15`}>
+                <h3 className={title}>Education</h3>
                 <div className="row">
-                  <div className="timeline-box padd-15">
-                    <div className="timeline shadow-dark">
-                      {education?.map((item, index) => (
-                        <div key={`edu-${index}`} className="timeline-item">
-                          <div className="circle-dot"></div>
-                          <h3 className="timeline-date">
+                  <div className={`${timelineBox} padd-15`}>
+                    <div className={`${timeline} shadow-dark`}>
+                      {educationData?.map((item, index) => (
+                        <div key={`edu-${index}`} className={timelineItem}>
+                          <div className={circleDot}></div>
+                          <h3 className={timelineDate}>
                             <FontAwesomeIcon icon="calendar" /> {item.duration}
                           </h3>
-                          <h4 className="timeline-title">{item.degree}</h4>
-                          <p className="timeline-text">{item.description}</p>
+                          <h4 className={timelineTitle}>{item.degree}</h4>
+                          <p className={timelineText}>{item.description}</p>
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="experience padd-15">
-                <h3 className="title">Experience</h3>
+              <div className={`${experience} padd-15`}>
+                <h3 className={title}>Experience</h3>
                 <div className="row">
-                  <div className="timeline-box padd-15">
-                    <div className="timeline shadow-dark">
-                      {experience?.slice(0, 3).map((item, index) => (
-                        <div key={`exp-${index}`} className="timeline-item">
-                          <div className="circle-dot"></div>
-                          <h3 className="timeline-date">
+                  <div className={`${timelineBox} padd-15`}>
+                    <div className={`${timeline} shadow-dark`}>
+                      {experienceData?.slice(0, 3).map((item, index) => (
+                        <div key={`exp-${index}`} className={timelineItem}>
+                          <div className={circleDot}></div>
+                          <h3 className={timelineDate}>
                             <FontAwesomeIcon icon="calendar" /> {item.duration}
                           </h3>
-                          <h4 className="timeline-title">
+                          <h4 className={timelineTitle}>
                             {item.position} at {item.company}
                           </h4>
-                          <p className="timeline-text">{item.description}</p>
+                          <p className={timelineText}>{item.description}</p>
                         </div>
                       ))}
                     </div>

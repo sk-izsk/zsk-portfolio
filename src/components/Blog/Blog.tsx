@@ -1,24 +1,36 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useTitle } from "ahooks"
 import React from "react"
 import {
   useBlog,
   usePortfolioError,
   usePortfolioLoading,
-} from "../stores/portfolioStore"
+} from "../../stores/portfolioStore"
+import {
+  blogContainer,
+  blogContent,
+  blogImage,
+  blogImageImg,
+  blogImageImgHover,
+  blogInfo,
+  blogInfoIcon,
+  blogInfoP,
+  blogItem,
+  blogItemInner,
+  blogLink,
+  blogTitle,
+} from "./blog.css"
 
 const Blog: React.FC = () => {
   const blog = useBlog()
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
 
-  // Update page title
   useTitle("Blog - ZSK Portfolio")
 
   if (loading) {
     return (
       <section className="blog section active" id="blog">
-        <div className="container">
+        <div className={`container ${blogContainer}`}>
           <div className="loading">Loading...</div>
         </div>
       </section>
@@ -28,7 +40,7 @@ const Blog: React.FC = () => {
   if (error || !blog) {
     return (
       <section className="blog section active" id="blog">
-        <div className="container">
+        <div className={`container ${blogContainer}`}>
           <div className="error">Error loading data</div>
         </div>
       </section>
@@ -37,7 +49,7 @@ const Blog: React.FC = () => {
 
   return (
     <section className="blog section active" id="blog">
-      <div className="container">
+      <div className={`container ${blogContainer}`}>
         <div className="row">
           <div className="section-title padd-15">
             <h2>Blog</h2>
@@ -50,32 +62,40 @@ const Blog: React.FC = () => {
         </div>
         <div className="row">
           {blog?.map((post) => (
-            <div key={post.id} className="blog-item padd-15">
-              <div className="blog-item-inner">
-                <div className="image">
-                  <img src={post.image} alt={post.title} />
+            <div key={post.id} className={`${blogItem} padd-15`}>
+              <div className={blogItemInner}>
+                <div className={blogImage}>
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className={`${blogImageImg} ${blogImageImgHover}`}
+                  />
                 </div>
-                <div className="blog-info">
+                <div className={blogInfo}>
                   <div className="category">
                     <a href="#">
-                      <p>
-                        <FontAwesomeIcon icon="book-open-reader" />{" "}
+                      <p className={blogInfoP}>
+                        <i
+                          className={`fa fa-book-open-reader ${blogInfoIcon}`}
+                        />
                         {post.category}
                       </p>
                     </a>
                   </div>
                   <div className="date">
-                    <p>
-                      <FontAwesomeIcon icon="calendar-days" />{" "}
+                    <p className={blogInfoP}>
+                      <i className={`fa fa-calendar-days ${blogInfoIcon}`} />
                       {new Date(post.publishDate).toLocaleDateString()}
                     </p>
                   </div>
                 </div>
                 <a href="#">
-                  <h4>{post.title}</h4>
+                  <h4 className={blogTitle}>{post.title}</h4>
                 </a>
-                <p>{post.excerpt}</p>
-                <a href="#">Read More...</a>
+                <p className={blogContent}>{post.excerpt}</p>
+                <a href="#" className={blogLink}>
+                  Read More...
+                </a>
               </div>
             </div>
           ))}
