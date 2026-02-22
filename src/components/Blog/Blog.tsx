@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useTitle } from "ahooks"
 import React from "react"
 import {
@@ -8,6 +9,8 @@ import {
 import {
   blogContainer,
   blogContent,
+  blogHeading,
+  blogHeadingH2,
   blogImage,
   blogImageImg,
   blogImageImgHover,
@@ -56,8 +59,8 @@ const Blog: React.FC = () => {
           </div>
         </div>
         <div className="row">
-          <div className="blog-heading padd-15">
-            <h2>My Recent Blogs :</h2>
+          <div className={`${blogHeading} padd-15`}>
+            <h2 className={blogHeadingH2}>My Recent Blogs :</h2>
           </div>
         </div>
         <div className="row">
@@ -75,6 +78,7 @@ const Blog: React.FC = () => {
                   <div className="category">
                     <a href="#">
                       <p className={blogInfoP}>
+                        <FontAwesomeIcon icon="book-open-reader" />{" "}
                         <i
                           className={`fa fa-book-open-reader ${blogInfoIcon}`}
                         />
@@ -84,6 +88,7 @@ const Blog: React.FC = () => {
                   </div>
                   <div className="date">
                     <p className={blogInfoP}>
+                      <FontAwesomeIcon icon="calendar-days" />{" "}
                       <i className={`fa fa-calendar-days ${blogInfoIcon}`} />
                       {new Date(post.publishDate).toLocaleDateString()}
                     </p>

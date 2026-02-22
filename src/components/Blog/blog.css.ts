@@ -11,6 +11,11 @@ export const blogHeading = style({
   marginBottom: "40px",
 })
 
+export const blogHeadingH2 = style({
+  color: vars.color.text[900],
+  fontWeight: 500,
+})
+
 export const blogItem = style({
   flex: "0 0 33.33%",
   maxWidth: "33.33%",
