@@ -33,7 +33,7 @@ export const personalInfoSection = style({
   maxWidth: "60%",
   marginTop: "40px",
   "@media": {
-    "(max-width: 991px)": {
+    "(max-width: 1199px)": {
       flex: "0 0 100%",
       maxWidth: "100%",
     },
@@ -81,7 +81,7 @@ export const skills = style({
   maxWidth: "40%",
   marginTop: "40px",
   "@media": {
-    "(max-width: 991px)": {
+    "(max-width: 1199px)": {
       flex: "0 0 100%",
       maxWidth: "100%",
       marginTop: "30px",

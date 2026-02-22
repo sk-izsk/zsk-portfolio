@@ -7,6 +7,7 @@ import {
 } from "../../stores/portfolioStore"
 import {
   aside,
+  asideOpen,
   logo,
   logoA,
   logoSpan,
@@ -55,8 +56,15 @@ const Sidebar: React.FC<SidebarProps> = ({
     return `${firstName.charAt(0).toUpperCase()}${firstName.slice(1).toLowerCase()}`
   }
 
+  const handleNavClick = (itemId: string, event: React.MouseEvent) => {
+    if (activeSection === itemId && isOpen) {
+      event.preventDefault()
+      toggleSidebar()
+    }
+  }
+
   return (
-    <div className={`${aside} ${isOpen ? "open" : ""}`}>
+    <div className={`${aside} ${isOpen ? asideOpen : ""}`}>
       <div className={logo}>
         <a href="#home" className={logoA}>
           <span className={logoSpan}>{getLogoText().charAt(0)}</span>
@@ -77,6 +85,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             <Link
               to={item.path}
               className={`${navA} ${activeSection === item.id ? navAActive : ""}`}
+              onClick={(e) => handleNavClick(item.id, e)}
             >
               <FontAwesomeIcon
                 className={navAI}

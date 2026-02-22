@@ -63,7 +63,8 @@ export const homeImg = style({
     "(max-width: 991px)": {
       flex: "0 0 100%",
       maxWidth: "100%",
-      height: "400px",
+      height: "300px",
+      marginTop: "30px",
     },
   },
   "::before": {
@@ -75,6 +76,16 @@ export const homeImg = style({
     borderTop: `10px solid ${vars.color.skin}`,
     left: "20px",
     top: "-40px",
+    "@media": {
+      "(max-width: 991px)": {
+        height: "60px",
+        width: "60px",
+        borderLeftWidth: "8px",
+        borderTopWidth: "8px",
+        left: "10px",
+        top: "-30px",
+      },
+    },
   },
   "::after": {
     content: '""',
@@ -85,6 +96,16 @@ export const homeImg = style({
     borderBottom: `10px solid ${vars.color.skin}`,
     right: "20px",
     bottom: "-40px",
+    "@media": {
+      "(max-width: 991px)": {
+        height: "60px",
+        width: "60px",
+        borderRightWidth: "8px",
+        borderBottomWidth: "8px",
+        right: "10px",
+        bottom: "-30px",
+      },
+    },
   },
 })
 

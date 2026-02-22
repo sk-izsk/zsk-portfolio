@@ -15,6 +15,21 @@ export const aside = style({
   alignItems: "center",
   borderRight: `1px solid ${vars.color.background[50]}`,
   transition: "all 0.3s ease",
+  "@media": {
+    "(max-width: 1199px)": {
+      left: "-100%",
+      width: "100%",
+      zIndex: 1000,
+    },
+  },
+})
+
+export const asideOpen = style({
+  "@media": {
+    "(max-width: 1199px)": {
+      left: 0,
+    },
+  },
 })
 
 export const logo = style({
@@ -83,7 +98,7 @@ export const navToggler = style({
 export const navTogglerOpen = style({
   "@media": {
     "(max-width: 1199px)": {
-      left: "300px",
+      left: "calc(100% - 75px)",
     },
   },
 })

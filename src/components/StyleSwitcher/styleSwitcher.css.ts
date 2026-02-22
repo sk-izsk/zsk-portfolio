@@ -23,8 +23,9 @@ export const styleSwitcher = style({
   transition: "all 0.3s ease",
   transform: "translateX(100%)",
   "@media": {
-    "(max-width: 1199px)": {
-      display: "none",
+    "(max-width: 767px)": {
+      width: "180px",
+      top: "20px",
     },
   },
 })

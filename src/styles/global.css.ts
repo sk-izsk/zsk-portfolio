@@ -55,6 +55,29 @@ globalStyle(".section", {
   overflowX: "hidden",
   overflowY: "auto",
   transition: "all 0.3s ease",
+  "@media": {
+    "(max-width: 1199px)": {
+      left: 0,
+    },
+  },
+})
+
+globalStyle(".section.open", {
+  "@media": {
+    "(max-width: 1199px)": {
+      left: "270px",
+    },
+  },
+})
+
+globalStyle(".sidebar-open .section", {
+  "@media": {
+    "(max-width: 1199px)": {
+      left: "0",
+      opacity: "0.3",
+      pointerEvents: "none",
+    },
+  },
 })
 
 globalStyle(".section.back-section", {

@@ -69,7 +69,6 @@ const PageLoader = () => {
   const [currentColor] = useLocalStorageState("portfolio-color-theme", {
     defaultValue: "color-1",
   })
-  console.log("currentColor: ", currentColor)
   return (
     <div className="page-loader">
       <div className="loading">
@@ -243,7 +242,7 @@ function AppContent() {
         toggleSidebar={toggleSidebar}
       />
 
-      <div className="main-content">
+      <div className={`main-content ${isSidebarOpen ? "sidebar-open" : ""}`}>
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Home />} />
