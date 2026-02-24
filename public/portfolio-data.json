@@ -4,6 +4,7 @@
     "title": "Full Stack Web Developer",
     "greeting": "Hello, my name is",
     "profession": "I'm a Full Stack Web Developer",
+    "resume_link": "https://docs.google.com/document/d/16Ko4S8n50fedwi4re2K-djKxe2zGrRRWKuXdtko7jow/edit?usp=sharing",
     "location": {
       "city": "Montréal",
       "province": "QC",
@@ -18,10 +19,9 @@
       "alt": "Shaikh Zeeshan Murshed"
     },
     "languages": ["English", "Bengali", "Hindi"],
-    "age": 32,
-    "birthday": "1992-01-01",
+    "age": 33,
+    "birthday": "1992-04-05",
     "availability": {
-      "freelance": true,
       "fullTime": true,
       "remote": true,
       "status": "Available"

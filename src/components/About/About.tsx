@@ -119,7 +119,12 @@ const About: React.FC = () => {
                 </div>
                 <div className="row">
                   <div className={`${buttons} padd-15`}>
-                    <a href="#" className={`btn ${btnMargin}`}>
+                    <a
+                      href={personalInfo.resume_link}
+                      className={`btn ${btnMargin}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Download CV
                     </a>
                     <a href="#contact" className={`btn hire-me ${btnMargin}`}>

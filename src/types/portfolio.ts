@@ -5,6 +5,7 @@ export interface PersonalInfo {
   title: string
   greeting: string
   profession: string
+  resume_link: string
   location: {
     city: string
     province: string

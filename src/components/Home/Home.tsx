@@ -91,7 +91,12 @@ const Home: React.FC = () => {
               <span className={typing} ref={typingRef}></span>
             </h3>
             <p className={homeInfoP}>{personalInfo.bio}</p>
-            <a href="#" className="btn">
+            <a
+              href={personalInfo.resume_link}
+              className="btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Download CV
             </a>
           </div>
