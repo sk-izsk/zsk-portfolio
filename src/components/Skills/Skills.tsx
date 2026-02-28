@@ -50,32 +50,32 @@ const Skills: React.FC = () => {
     {
       title: "Frontend Development",
       key: "frontend" as const,
-      icon: "fa-laptop-code",
+      icon: "laptop-code",
     },
     {
       title: "Backend Development",
       key: "backend" as const,
-      icon: "fa-server",
+      icon: "server",
     },
     {
       title: "Programming Languages",
       key: "languages" as const,
-      icon: "fa-code",
+      icon: "code",
     },
     {
       title: "Development Tools",
       key: "tools" as const,
-      icon: "fa-cog",
+      icon: "cog",
     },
     {
       title: "Testing Frameworks",
       key: "testing" as const,
-      icon: "fa-vial",
+      icon: "vial",
     },
     {
       title: "Currently Learning",
       key: "learning" as const,
-      icon: "fa-graduation-cap",
+      icon: "graduation-cap",
     },
   ]
 
@@ -93,7 +93,7 @@ const Skills: React.FC = () => {
           <div className={`${skillsSection} padd-15`}>
             <h3 className={title}>
               <FontAwesomeIcon
-                icon="fa-laptop-code"
+                icon="laptop-code"
                 style={{ marginRight: "8px" }}
               />
               Frontend Skills
@@ -117,10 +117,7 @@ const Skills: React.FC = () => {
           </div>
           <div className={`${skillsSection} padd-15`}>
             <h3 className={title}>
-              <FontAwesomeIcon
-                icon="fa-server"
-                style={{ marginRight: "8px" }}
-              />
+              <FontAwesomeIcon icon="server" style={{ marginRight: "8px" }} />
               Backend Skills
             </h3>
             <div className="row">
@@ -146,7 +143,7 @@ const Skills: React.FC = () => {
         <div className="row">
           <div className={`${skillsSection} padd-15`}>
             <h3 className={title}>
-              <FontAwesomeIcon icon="fa-code" style={{ marginRight: "8px" }} />
+              <FontAwesomeIcon icon="code" style={{ marginRight: "8px" }} />
               Programming Languages
             </h3>
             <div className="row">
@@ -168,7 +165,7 @@ const Skills: React.FC = () => {
           </div>
           <div className={`${skillsSection} padd-15`}>
             <h3 className={title}>
-              <FontAwesomeIcon icon="fa-cog" style={{ marginRight: "8px" }} />
+              <FontAwesomeIcon icon="cog" style={{ marginRight: "8px" }} />
               Development Tools
             </h3>
             <div className="row">
