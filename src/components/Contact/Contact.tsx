@@ -95,6 +95,31 @@ const Contact: React.FC = () => {
       title: "Website",
       details: contact.social.website.label,
     },
+    {
+      icon: ["fab", "github"],
+      title: "GitHub",
+      details: contact.social.github.label,
+    },
+    {
+      icon: ["fab", "linkedin"],
+      title: "LinkedIn",
+      details: contact.social.linkedin.label,
+    },
+    {
+      icon: ["fab", "twitter"],
+      title: "Twitter",
+      details: contact.social.twitter.label,
+    },
+    {
+      icon: ["fab", "instagram"],
+      title: "Instagram",
+      details: contact.social.instagram.label,
+    },
+    {
+      icon: ["fab", "telegram"],
+      title: "Telegram",
+      details: contact.social.telegram.label,
+    },
   ]
 
   return (
@@ -108,19 +133,15 @@ const Contact: React.FC = () => {
         <h3 className={`${contactTitle} padd-15`}>
           Do You Have Any Questions?
         </h3>
-        <h4 className={`${contactSubTitle} padd-15`}>I'M AT YOUR SERVICE</h4>
+        <h4 className={`${contactSubTitle} padd-15`}>
+          FEEL FREE TO REACH OUT TO ME
+        </h4>
         <div className="row">
           {contactInfo.map((info, index) => (
             <div key={index} className={`${contactInfoItem} padd-15`}>
               <div className={contactInfoIcon}>
                 <FontAwesomeIcon
-                  icon={
-                    info.icon as
-                      | "map-marker-alt"
-                      | "phone-alt"
-                      | "envelope"
-                      | "globe-americas"
-                  }
+                  icon={info.icon as any}
                   className={contactInfoIconFa}
                 />
               </div>
@@ -130,9 +151,6 @@ const Contact: React.FC = () => {
           ))}
         </div>
         <h3 className={`${contactTitle} padd-15`}>SEND ME AN EMAIL</h3>
-        <h4 className={`${contactSubTitle} padd-15`}>
-          I'M VERY RESPONSIVE TO MESSAGES
-        </h4>
         <div className="row">
           <div className={`${contactForm} padd-15`}>
             <form onSubmit={handleSubmit}>

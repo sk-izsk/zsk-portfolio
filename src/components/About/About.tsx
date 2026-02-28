@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useTitle } from "ahooks"
+import dayjs from "dayjs"
 import React from "react"
 import {
   useContactInfo,
@@ -25,12 +26,6 @@ import {
   infoItemP,
   infoItemSpan,
   personalInfoSection,
-  progress,
-  progressIn,
-  skillPercent,
-  skills,
-  skillsItem,
-  skillsItemH5,
   timeline,
   timelineBox,
   timelineDate,
@@ -44,6 +39,7 @@ const About: React.FC = () => {
   const personalInfo = usePersonalInfo()
   const contact = useContactInfo()
   const skillsData = useSkills()
+  console.log("skillsData: ", skillsData)
   const educationData = useEducation()
   const experienceData = useExperience()
   const loading = usePortfolioLoading()
@@ -72,17 +68,21 @@ const About: React.FC = () => {
     )
   }
 
+  // Calculate age for specific birthday: May 4, 1992
+  const birthday = dayjs(personalInfo.birthday)
+  const ageInYears = dayjs().diff(birthday, "year")
+
   const personalInfoData = [
     {
       label: "Birthday",
-      value: new Date(personalInfo.birthday).toLocaleDateString(),
+      value: birthday.format("MMMM D, YYYY"),
     },
-    { label: "Age", value: personalInfo.age.toString() },
+    { label: "Age", value: ageInYears },
     { label: "Website", value: contact.social.website.label },
     { label: "Email", value: contact.email },
     { label: "Phone", value: contact.phone },
     { label: "City", value: personalInfo.location.city },
-    { label: "Freelance", value: personalInfo.availability.status },
+    { label: "Availability", value: personalInfo.availability.join(", ") },
     { label: "Languages", value: personalInfo.languages.join(", ") },
   ]
 
@@ -131,22 +131,6 @@ const About: React.FC = () => {
                       Hire Me
                     </a>
                   </div>
-                </div>
-              </div>
-              <div className={`${skills} padd-15`}>
-                <div className="row">
-                  {skillsData?.technical.slice(0, 6).map((skill, index) => (
-                    <div key={index} className={`${skillsItem} padd-15`}>
-                      <h5 className={skillsItemH5}>{skill.name}</h5>
-                      <div className={progress}>
-                        <div
-                          className={progressIn}
-                          style={{ width: `${skill.level}%` }}
-                        ></div>
-                        <div className={skillPercent}>{skill.level}%</div>
-                      </div>
-                    </div>
-                  ))}
                 </div>
               </div>
             </div>

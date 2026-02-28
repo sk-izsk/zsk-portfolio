@@ -42,11 +42,11 @@ const Sidebar: React.FC<SidebarProps> = ({
     { id: "service", label: "Services", icon: "list", path: "/services" },
     {
       id: "portfolio",
-      label: "Portfolio",
-      icon: "briefcase",
+      label: "Skills",
+      icon: "cogs",
       path: "/portfolio",
     },
-    { id: "blog", label: "Blog", icon: ["fab", "readme"], path: "/blog" },
+    { id: "blog", label: "Portfolio", icon: "briefcase", path: "/blog" },
     { id: "contact", label: "Contact", icon: "comments", path: "/contact" },
   ]
 
@@ -94,6 +94,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                     | "home"
                     | "user"
                     | "list"
+                    | "cogs"
                     | "briefcase"
                     | "comments"
                     | "envelope"

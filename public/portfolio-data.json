@@ -11,8 +11,8 @@
       "country": "Canada",
       "fullAddress": "Montréal, QC, Canada"
     },
-    "bio": "Experienced Full Stack Developer with extensive expertise in React, TypeScript, Node.js, and modern web technologies. Specialized in building scalable, reliable, and optimized applications. Passionate about creating quality code with robust, reusable, and maintainable architecture.",
-    "detailedBio": "I'm a Full Stack Developer with over 4+ years of professional experience, working with modern technologies like React, TypeScript, Redux, Node.js, and Express. I have gained extensive experience in Antd, React Query, Zustand, building private NPM libraries, and making React applications more scalable, reliable, and optimized. I prefer component-based approach in frontend development and focus on writing quality code rather than hacky solutions.",
+    "bio": "Frontend-focused Software Engineer with 6+ years of experience specializing in React, TypeScript, and web performance. Actively expanding into Full Stack architecture by building scalable Node.js services, with a core professional focus on Core Web Vitals, System Design, and zero-runtime CSS.",
+    "detailedBio": "I am a Software Engineer with over 6 years of professional experience, currently specializing in Frontend Architecture and Performance. While my foundation is deeply rooted in React, TypeScript, and state management (Redux, Zustand, React Query), my personal projects involve building full-stack applications using Node.js and Express to bridge the gap toward System Design. At the enterprise level, I focus on optimizing Core Web Vitals (LCP, INP, CLS), establishing robust private NPM libraries, and implementing clean, component-based architectures. My engineering philosophy prioritizes a deep understanding of browser internals and the event loop over surface-level pattern matching, ensuring my code is scalable, reliable, and strictly typed.",
     "avatar": {
       "primary": "https://izsk.netlify.app/.netlify/images?url=/images/zeeshan.jpg&w=800&q=80",
       "secondary": "https://izsk.netlify.app/.netlify/images?url=/images/zee-memoji.png&w=150&q=80",
@@ -20,12 +20,8 @@
     },
     "languages": ["English", "Bengali", "Hindi"],
     "age": 33,
-    "birthday": "1992-04-05",
-    "availability": {
-      "fullTime": true,
-      "remote": true,
-      "status": "Available"
-    }
+    "birthday": "05-04-1992",
+    "availability": ["Full time", "Remote"]
   },
 
   "contact": {
@@ -219,14 +215,7 @@
         "Chai",
         "Cypress"
       ],
-      "learning": [
-        "SASS",
-        "Socket.IO",
-        "Firebase",
-        "Python",
-        "GraphQL",
-        "Gatsby"
-      ]
+      "learning": ["SASS", "Socket.IO", "Firebase", "GraphQL", "PostgreSQL"]
     }
   },
 

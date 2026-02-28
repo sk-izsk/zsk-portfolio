@@ -1,5 +1,12 @@
 import { library } from "@fortawesome/fontawesome-svg-core"
-import { faReadme } from "@fortawesome/free-brands-svg-icons"
+import {
+  faGithub,
+  faInstagram,
+  faLinkedin,
+  faReadme,
+  faTelegram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons"
 import {
   faBookOpenReader,
   faBriefcase,
@@ -8,9 +15,12 @@ import {
   faCalendarDays,
   faCode,
   faCog,
+  faCogs,
   faComments,
+  faDatabase,
   faEnvelope,
   faGlobeEurope,
+  faGraduationCap,
   faHome,
   faLaptopCode,
   faList,
@@ -20,8 +30,10 @@ import {
   faPalette,
   faPhone,
   faSearch,
+  faServer,
   faSun,
   faUser,
+  faVial,
 } from "@fortawesome/free-solid-svg-icons"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { useLocalStorageState } from "ahooks"
@@ -70,7 +82,7 @@ import {
 const Home = lazy(() => import("./components/Home/Home"))
 const About = lazy(() => import("./components/About/About"))
 const Services = lazy(() => import("./components/Services/Services"))
-const Portfolio = lazy(() => import("./components/Portfolio/Portfolio"))
+const Skills = lazy(() => import("./components/Skills/Skills"))
 const Blog = lazy(() => import("./components/Blog/Blog"))
 const Contact = lazy(() => import("./components/Contact/Contact"))
 
@@ -117,9 +129,19 @@ library.add(
   faBookOpenReader,
   faCalendarDays,
   faCog,
+  faCogs,
   faSun,
   faMoon,
   faReadme,
+  faGithub,
+  faLinkedin,
+  faTwitter,
+  faInstagram,
+  faTelegram,
+  faServer,
+  faDatabase,
+  faGraduationCap,
+  faVial,
 )
 
 // Create a client
@@ -274,7 +296,7 @@ function AppContent() {
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/portfolio" element={<Skills />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

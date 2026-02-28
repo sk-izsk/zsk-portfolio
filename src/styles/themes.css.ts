@@ -16,7 +16,7 @@ export const lightTheme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -38,7 +38,7 @@ export const color1Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -59,7 +59,7 @@ export const color2Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -80,7 +80,7 @@ export const color3Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -101,7 +101,7 @@ export const color4Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -122,7 +122,7 @@ export const color5Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -144,7 +144,7 @@ export const darkColor1Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -165,7 +165,7 @@ export const darkColor2Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -186,7 +186,7 @@ export const darkColor3Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -207,7 +207,7 @@ export const darkColor4Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -228,7 +228,7 @@ export const darkColor5Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -250,7 +250,7 @@ export const color6Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -271,7 +271,7 @@ export const color7Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -292,7 +292,7 @@ export const color8Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -313,7 +313,7 @@ export const color9Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -334,7 +334,7 @@ export const color10Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -356,7 +356,7 @@ export const darkColor6Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -377,7 +377,7 @@ export const darkColor7Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -398,7 +398,7 @@ export const darkColor8Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -419,7 +419,7 @@ export const darkColor9Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },
@@ -440,7 +440,7 @@ export const darkColor10Theme = createTheme(vars, {
   },
   font: {
     family: {
-      primary: '"Poppins", sans-serif',
+      primary: '"JetBrains Mono", monospace',
       script: '"Clicker Script", cursive',
     },
   },

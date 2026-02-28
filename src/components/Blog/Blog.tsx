@@ -29,7 +29,7 @@ const Blog: React.FC = () => {
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
 
-  useTitle("Blog - ZSK Portfolio")
+  useTitle("Portfolio - ZSK Portfolio")
 
   if (loading) {
     return (
@@ -56,12 +56,12 @@ const Blog: React.FC = () => {
       <div className={`container ${blogContainer}`}>
         <div className="row">
           <div className="section-title padd-15">
-            <h2>Blog</h2>
+            <h2>Portfolio</h2>
           </div>
         </div>
         <div className="row">
           <div className={`${blogHeading} padd-15`}>
-            <h2 className={blogHeadingH2}>My Recent Blogs :</h2>
+            <h2 className={blogHeadingH2}>My Recent Portfolios :</h2>
           </div>
         </div>
         <div className={`${blogGrid} padd-15`}>

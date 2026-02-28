@@ -22,12 +22,7 @@ export interface PersonalInfo {
   languages: string[]
   age: number
   birthday: string
-  availability: {
-    freelance: boolean
-    fullTime: boolean
-    remote: boolean
-    status: string
-  }
+  availability: string[]
 }
 
 export interface ContactInfo {
