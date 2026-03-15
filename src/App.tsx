@@ -17,6 +17,7 @@ import {
   faCog,
   faCogs,
   faComments,
+  faCubes,
   faDatabase,
   faEnvelope,
   faGlobeEurope,
@@ -83,7 +84,7 @@ const Home = lazy(() => import("./components/Home/Home"))
 const About = lazy(() => import("./components/About/About"))
 const Services = lazy(() => import("./components/Services/Services"))
 const Skills = lazy(() => import("./components/Skills/Skills"))
-const Blog = lazy(() => import("./components/Blog/Blog"))
+const Projects = lazy(() => import("./components/Projects/Projects"))
 const Contact = lazy(() => import("./components/Contact/Contact"))
 
 // Loading component
@@ -140,6 +141,7 @@ library.add(
   faTelegram,
   faServer,
   faDatabase,
+  faCubes,
   faGraduationCap,
   faVial,
 )
@@ -217,7 +219,7 @@ function AppContent() {
     if (path === "/about") return "about"
     if (path === "/services") return "service"
     if (path === "/portfolio") return "portfolio"
-    if (path === "/blog") return "blog"
+    if (path === "/projects" || path === "/blog") return "projects"
     if (path === "/contact") return "contact"
     return "home"
   }
@@ -297,7 +299,8 @@ function AppContent() {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/portfolio" element={<Skills />} />
-            <Route path="/blog" element={<Blog />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/blog" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </Suspense>

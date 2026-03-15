@@ -17,6 +17,7 @@ import {
   contactInfoIconFa,
   contactInfoItem,
   contactInfoItemH4,
+  contactInfoItemLink,
   contactInfoItemP,
   contactSubTitle,
   contactTitle,
@@ -89,36 +90,43 @@ const Contact: React.FC = () => {
       icon: "envelope",
       title: "Email",
       details: contact.email,
+      url: `mailto:${contact.email}`,
     },
     {
       icon: "globe-europe",
       title: "Website",
       details: contact.social.website.label,
+      url: contact.social.website.url,
     },
     {
       icon: ["fab", "github"],
       title: "GitHub",
       details: contact.social.github.label,
+      url: contact.social.github.url,
     },
     {
       icon: ["fab", "linkedin"],
       title: "LinkedIn",
       details: contact.social.linkedin.label,
+      url: contact.social.linkedin.url,
     },
     {
       icon: ["fab", "twitter"],
       title: "Twitter",
       details: contact.social.twitter.label,
+      url: contact.social.twitter.url,
     },
     {
       icon: ["fab", "instagram"],
       title: "Instagram",
       details: contact.social.instagram.label,
+      url: contact.social.instagram.url,
     },
     {
       icon: ["fab", "telegram"],
       title: "Telegram",
       details: contact.social.telegram.label,
+      url: contact.social.telegram.url,
     },
   ]
 
@@ -137,18 +145,36 @@ const Contact: React.FC = () => {
           FEEL FREE TO REACH OUT TO ME
         </h4>
         <div className="row">
-          {contactInfo.map((info, index) => (
-            <div key={index} className={`${contactInfoItem} padd-15`}>
-              <div className={contactInfoIcon}>
-                <FontAwesomeIcon
-                  icon={info.icon as any}
-                  className={contactInfoIconFa}
-                />
+          {contactInfo.map((info, index) => {
+            const inner = (
+              <>
+                <div className={contactInfoIcon}>
+                  <FontAwesomeIcon
+                    icon={info.icon as any}
+                    className={contactInfoIconFa}
+                  />
+                </div>
+                <h4 className={contactInfoItemH4}>{info.title}</h4>
+                <p className={contactInfoItemP}>{info.details}</p>
+              </>
+            )
+
+            return "url" in info && info.url ? (
+              <a
+                key={index}
+                href={info.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${contactInfoItem} ${contactInfoItemLink} padd-15`}
+              >
+                {inner}
+              </a>
+            ) : (
+              <div key={index} className={`${contactInfoItem} padd-15`}>
+                {inner}
               </div>
-              <h4 className={contactInfoItemH4}>{info.title}</h4>
-              <p className={contactInfoItemP}>{info.details}</p>
-            </div>
-          ))}
+            )
+          })}
         </div>
         <h3 className={`${contactTitle} padd-15`}>SEND ME AN EMAIL</h3>
         <div className="row">

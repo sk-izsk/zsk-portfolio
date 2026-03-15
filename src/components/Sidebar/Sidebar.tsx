@@ -46,7 +46,12 @@ const Sidebar: React.FC<SidebarProps> = ({
       icon: "cogs",
       path: "/portfolio",
     },
-    { id: "blog", label: "Portfolio", icon: "briefcase", path: "/blog" },
+    {
+      id: "projects",
+      label: "Projects",
+      icon: "briefcase",
+      path: "/projects",
+    },
     { id: "contact", label: "Contact", icon: "comments", path: "/contact" },
   ]
 

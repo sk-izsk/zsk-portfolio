@@ -7,159 +7,154 @@
     "resume_link": "https://docs.google.com/document/d/16Ko4S8n50fedwi4re2K-djKxe2zGrRRWKuXdtko7jow/edit?usp=sharing",
     "location": {
       "city": "Montréal",
-      "province": "QC",
-      "country": "Canada",
-      "fullAddress": "Montréal, QC, Canada"
+      "country": "Canada"
     },
     "bio": "Frontend-focused Software Engineer with 6+ years of experience specializing in React, TypeScript, and web performance. Actively expanding into Full Stack architecture by building scalable Node.js services, with a core professional focus on Core Web Vitals, System Design, and zero-runtime CSS.",
     "detailedBio": "I am a Software Engineer with over 6 years of professional experience, currently specializing in Frontend Architecture and Performance. While my foundation is deeply rooted in React, TypeScript, and state management (Redux, Zustand, React Query), my personal projects involve building full-stack applications using Node.js and Express to bridge the gap toward System Design. At the enterprise level, I focus on optimizing Core Web Vitals (LCP, INP, CLS), establishing robust private NPM libraries, and implementing clean, component-based architectures. My engineering philosophy prioritizes a deep understanding of browser internals and the event loop over surface-level pattern matching, ensuring my code is scalable, reliable, and strictly typed.",
     "avatar": {
       "primary": "https://izsk.netlify.app/.netlify/images?url=/images/zeeshan.jpg&w=800&q=80",
-      "secondary": "https://izsk.netlify.app/.netlify/images?url=/images/zee-memoji.png&w=150&q=80",
       "alt": "Shaikh Zeeshan Murshed"
     },
     "languages": ["English", "Bengali", "Hindi"],
-    "age": 33,
     "birthday": "05-04-1992",
     "availability": ["Full time", "Remote"]
   },
-
   "contact": {
     "email": "sk.zeeshan1992@gmail.com",
     "phone": "NA",
     "social": {
       "website": {
         "label": "izsk.netlify.app",
-        "url": "https://izsk.netlify.app",
-        "icon": "fa-globe"
+        "url": "https://izsk.netlify.app"
       },
       "github": {
         "label": "sk-izsk",
-        "url": "https://github.com/sk-izsk",
-        "icon": "fa-github"
+        "url": "https://github.com/sk-izsk"
       },
       "linkedin": {
         "label": "skizsk",
-        "url": "https://www.linkedin.com/in/skizsk/",
-        "icon": "fa-linkedin"
+        "url": "https://www.linkedin.com/in/skizsk/"
       },
       "twitter": {
         "label": "@Sk_iZsk",
-        "url": "https://www.twitter.com/sk_izsk",
-        "icon": "fa-twitter"
+        "url": "https://www.twitter.com/sk_izsk"
       },
       "instagram": {
         "label": "sk_izsk",
-        "url": "https://www.instagram.com/sk_izsk/",
-        "icon": "fa-instagram"
+        "url": "https://www.instagram.com/sk_izsk/"
       },
       "telegram": {
         "label": "sk_izsk",
-        "url": "https://t.me/sk_izsk",
-        "icon": "fa-telegram"
+        "url": "https://t.me/sk_izsk"
       }
     }
   },
-
   "skills": {
     "technical": [
       {
         "name": "React",
         "level": 85,
-        "category": "frontend",
-        "color": "#61DBFB",
-        "icon": "fab fa-react"
+        "category": "frontend"
       },
       {
         "name": "TypeScript",
         "level": 80,
-        "category": "language",
-        "color": "#007acc",
-        "icon": "fab fa-js-square"
+        "category": "language"
       },
       {
         "name": "JavaScript",
         "level": 85,
-        "category": "language",
-        "color": "#f0db4f",
-        "icon": "fab fa-js-square"
+        "category": "language"
       },
       {
         "name": "React Native",
         "level": 85,
-        "category": "frontend",
-        "color": "#61DBFB",
-        "icon": "fab fa-react"
+        "category": "frontend"
       },
       {
         "name": "Redux",
         "level": 75,
-        "category": "frontend",
-        "color": "#764abc",
-        "icon": "fas fa-code"
+        "category": "frontend"
       },
       {
         "name": "Vue.js",
         "level": 75,
-        "category": "frontend",
-        "color": "#41B883",
-        "icon": "fab fa-vuejs"
+        "category": "frontend"
       },
       {
         "name": "Node.js",
         "level": 70,
-        "category": "backend",
-        "color": "#3C873A",
-        "icon": "fab fa-node-js"
+        "category": "backend"
       },
       {
         "name": "Express",
         "level": 70,
-        "category": "backend",
-        "color": "#cbcbcb",
-        "icon": "fas fa-server"
+        "category": "backend"
       },
       {
         "name": "MongoDB",
         "level": 70,
-        "category": "backend",
-        "color": "#3fa037",
-        "icon": "fas fa-database"
+        "category": "backend"
       },
       {
         "name": "Next.js",
         "level": 80,
-        "category": "frontend",
-        "color": "#000000",
-        "icon": "fas fa-code"
+        "category": "frontend"
       },
       {
         "name": "GraphQL",
         "level": 60,
-        "category": "backend",
-        "color": "#e535ab",
-        "icon": "fas fa-code"
+        "category": "backend"
       },
       {
         "name": "Jest",
         "level": 60,
-        "category": "testing",
-        "color": "#BF0A30",
-        "icon": "fas fa-vial"
+        "category": "testing"
       },
       {
         "name": "Cypress",
         "level": 75,
-        "category": "testing",
-        "color": "#192634",
-        "icon": "fas fa-vial"
+        "category": "testing"
       },
       {
         "name": "Storybook",
         "level": 60,
-        "category": "tools",
-        "color": "#FF4785",
-        "icon": "fas fa-book"
+        "category": "tools"
+      },
+      {
+        "name": "Tanstack Query",
+        "level": 80,
+        "category": "frontend"
+      },
+      {
+        "name": "Zustand",
+        "level": 80,
+        "category": "frontend"
+      },
+      {
+        "name": "Tailwind CSS",
+        "level": 60,
+        "category": "frontend"
+      },
+      {
+        "name": "Clerk Auth",
+        "level": 50,
+        "category": "frontend"
+      },
+      {
+        "name": "PostgreSQL",
+        "level": 60,
+        "category": "backend"
+      },
+      {
+        "name": "Drizzle ORM",
+        "level": 50,
+        "category": "backend"
+      },
+      {
+        "name": "Clerk Auth",
+        "level": 50,
+        "category": "backend"
       }
     ],
     "categories": {
@@ -173,8 +168,10 @@
         "React Native",
         "Material-UI",
         "Antd",
-        "React Query",
+        "Tanstack Query",
         "Zustand",
+        "Tailwind CSS",
+        "Clerk Auth",
         "Bootstrap",
         "CSS3",
         "HTML5",
@@ -184,6 +181,9 @@
         "Node.js",
         "Express",
         "MongoDB",
+        "PostgreSQL",
+        "Drizzle ORM",
+        "Clerk Auth",
         "JWT",
         "RESTful API",
         "GraphQL",
@@ -215,387 +215,99 @@
         "Chai",
         "Cypress"
       ],
-      "learning": ["SASS", "Socket.IO", "Firebase", "GraphQL", "PostgreSQL"]
+      "learning": ["SASS", "Socket.IO", "Firebase", "GraphQL"]
     }
   },
-
   "education": [
     {
-      "id": 1,
-      "institution": "DecodeMTL (Concordia Bootcamp)",
       "degree": "Fullstack Web Development",
-      "location": "Montreal",
-      "startDate": "April 2019",
-      "endDate": "May 2019",
       "duration": "April 2019 - May 2019",
-      "description": "Intensive full-stack web development bootcamp that teaches the fundamentals of programming across the front-end and back-end. Gained knowledge about React, Redux, Node, Express. Worked in a team of four members to build a meal delivery website.",
-      "skills": [
-        "React",
-        "Redux",
-        "Node.js",
-        "Express",
-        "MongoDB",
-        "Full Stack Development"
-      ],
-      "type": "Bootcamp"
+      "description": "Intensive full-stack web development bootcamp that teaches the fundamentals of programming across the front-end and back-end. Gained knowledge about React, Redux, Node, Express. Worked in a team of four members to build a meal delivery website."
     },
     {
-      "id": 2,
-      "institution": "Concordia University",
       "degree": "Master's of Electrical & Computer Engineering",
-      "location": "Montreal",
-      "startDate": "Sept 2016",
-      "endDate": "Dec 2018",
       "duration": "Sept 2016 - Dec 2018",
-      "description": "Studied many engineering topics, including digital communication, digital signal processing, real-time applications, robotics, and nanotechnology. Also studied computer science topics, such as computer architecture design, microprocessor applications, model-driven software, and formal hardware verification.",
-      "skills": [
-        "Digital Communication",
-        "Signal Processing",
-        "Computer Architecture",
-        "Microprocessor Applications"
-      ],
-      "type": "Master's Degree"
+      "description": "Studied many engineering topics, including digital communication, digital signal processing, real-time applications, robotics, and nanotechnology. Also studied computer science topics, such as computer architecture design, microprocessor applications, model-driven software, and formal hardware verification."
     }
   ],
-
   "experience": [
     {
-      "id": 1,
       "company": "SwiftConnect",
       "position": "Software Engineer",
-      "location": "Montreal",
-      "startDate": "Nov 2020",
-      "endDate": "Present",
       "duration": "Nov 2020 - Present",
-      "current": true,
-      "type": "full-time",
-      "description": "Led development and maintenance of various projects using React, Typescript, Styled components, React Router, antd library, Redux Toolkit, and react-query. Developed expertise in additional skills such as building and maintain NPM(private) libraries.",
-      "achievements": [
-        "Led development and maintenance of various projects using React, TypeScript, Redux Toolkit, React Query",
-        "Developed expertise in building and maintaining private NPM libraries",
-        "Collaborated closely with designers to implement design language and deliver visually appealing user interfaces",
-        "Successfully initiated and set up projects from scratch, ensuring seamless integration",
-        "Mentored junior team members and actively participated in code reviews",
-        "Facilitated effective communication and coordination within the team to streamline development processes"
-      ],
-      "technologies": [
-        "React",
-        "TypeScript",
-        "Styled Components",
-        "React Router",
-        "Antd",
-        "Redux Toolkit",
-        "React Query",
-        "Storybook",
-        "Cypress"
-      ]
+      "description": "Led development and maintenance of various projects using React, Typescript, Styled components, React Router, antd library, Redux Toolkit, and react-query. Developed expertise in additional skills such as building and maintain NPM(private) libraries."
     },
     {
-      "id": 2,
       "company": "Hatchways",
       "position": "Fullstack Web Developer (Co-Op)",
-      "location": "Toronto",
-      "startDate": "Oct 2020",
-      "endDate": "Nov 2020",
       "duration": "Oct 2020 - Nov 2020",
-      "current": false,
-      "type": "internship",
-      "description": "Worked collaboratively in a team of 4 to develop web applications using React, Material-UI for the frontend, and Express, Node, MongoDB, Cloudinary Image uploader, and JWT authentication for the backend.",
-      "achievements": [
-        "Worked in a collaborative team environment",
-        "Developed full-stack web applications",
-        "Implemented modern authentication systems",
-        "Enhanced backend development skills"
-      ],
-      "technologies": [
-        "React",
-        "Material-UI",
-        "Express",
-        "Node.js",
-        "MongoDB",
-        "Cloudinary",
-        "JWT Authentication"
-      ]
+      "description": "Worked collaboratively in a team of 4 to develop web applications using React, Material-UI for the frontend, and Express, Node, MongoDB, Cloudinary Image uploader, and JWT authentication for the backend."
     },
     {
-      "id": 3,
       "company": "Guiker Inc",
       "position": "Junior Software Developer",
-      "location": "Montreal",
-      "startDate": "July 2019",
-      "endDate": "June 2020",
       "duration": "July 2019 - June 2020",
-      "current": false,
-      "type": "full-time",
-      "description": "Assisted in the development of mobile applications for iOS and Android using Expo, Typescript, Jest, and React Native. Contributed significantly to rebuilding the main product of Guiker to React, utilizing Typescript, Material-UI for React, Restful API, and JSS for design, along with unit testing using Jest.",
-      "achievements": [
-        "Developed mobile applications for iOS and Android",
-        "Contributed to rebuilding main product in React",
-        "Implemented comprehensive unit testing",
-        "Worked with modern mobile development frameworks"
-      ],
-      "technologies": [
-        "React Native",
-        "Expo",
-        "TypeScript",
-        "Jest",
-        "React",
-        "Redux",
-        "Material-UI",
-        "JSS",
-        "Axios"
-      ]
+      "description": "Assisted in the development of mobile applications for iOS and Android using Expo, Typescript, Jest, and React Native. Contributed significantly to rebuilding the main product of Guiker to React, utilizing Typescript, Material-UI for React, Restful API, and JSS for design, along with unit testing using Jest."
     }
   ],
-
   "services": [
     {
       "id": 1,
       "title": "Frontend Development",
       "icon": "fa-laptop-code",
-      "description": "Building modern, responsive, and scalable frontend applications using React, Next.js, Vue.js, and TypeScript. Focus on component-based architecture and performance optimization.",
-      "technologies": [
-        "React",
-        "Next.js",
-        "TypeScript",
-        "Vue.js",
-        "React Native"
-      ],
-      "features": [
-        "Component-based architecture",
-        "Responsive design implementation",
-        "Performance optimization",
-        "Modern state management",
-        "Cross-browser compatibility"
-      ]
+      "description": "Building modern, responsive, and scalable frontend applications using React, Next.js, Vue.js, and TypeScript. Focus on component-based architecture and performance optimization."
     },
     {
       "id": 2,
       "title": "Backend Development",
       "icon": "fa-server",
-      "description": "Creating robust APIs and server-side applications using Node.js, Express, and modern databases. Experienced in building scalable backend architectures.",
-      "technologies": ["Node.js", "Express", "MongoDB", "PostgreSQL", "JWT"],
-      "features": [
-        "RESTful API design",
-        "Database optimization",
-        "Authentication & authorization",
-        "Scalable architecture",
-        "API documentation"
-      ]
+      "description": "Creating robust APIs and server-side applications using Node.js, Express, and modern databases. Experienced in building scalable backend architectures."
     },
     {
       "id": 3,
       "title": "Full Stack Solutions",
       "icon": "fa-code",
-      "description": "End-to-end application development combining frontend and backend technologies. Specializing in MERN/MEAN stack development with modern deployment practices.",
-      "technologies": ["MERN Stack", "MEAN Stack", "TypeScript", "Docker"],
-      "features": [
-        "End-to-end development",
-        "Database design",
-        "API integration",
-        "Deployment & DevOps",
-        "Code review & mentoring"
-      ]
+      "description": "End-to-end application development combining frontend and backend technologies. Specializing in MERN/MEAN stack development with modern deployment practices."
     },
     {
       "id": 4,
       "title": "Mobile Development",
       "icon": "fa-mobile-alt",
-      "description": "Cross-platform mobile application development using React Native and Expo. Creating performant mobile apps for both iOS and Android platforms.",
-      "technologies": ["React Native", "Expo", "TypeScript", "Redux"],
-      "features": [
-        "Cross-platform development",
-        "Native performance",
-        "App store deployment",
-        "Push notifications",
-        "Offline functionality"
-      ]
+      "description": "Cross-platform mobile application development using React Native and Expo. Creating performant mobile apps for both iOS and Android platforms."
     },
     {
       "id": 5,
       "title": "NPM Library Development",
       "icon": "fa-cubes",
-      "description": "Creating and maintaining private and public NPM libraries. Specialized in building reusable components and utility libraries for enhanced development productivity.",
-      "technologies": ["TypeScript", "Jest", "Rollup", "Webpack"],
-      "features": [
-        "Reusable component libraries",
-        "Comprehensive documentation",
-        "Testing & CI/CD",
-        "Semantic versioning",
-        "TypeScript support"
-      ]
+      "description": "Creating and maintaining private and public NPM libraries. Specialized in building reusable components and utility libraries for enhanced development productivity."
     },
     {
       "id": 6,
       "title": "Technical Consulting",
       "icon": "fa-comments",
-      "description": "Providing technical guidance on architecture decisions, code reviews, and best practices. Helping teams improve code quality and development processes.",
-      "technologies": ["Code Review", "Architecture", "Best Practices"],
-      "features": [
-        "Code architecture review",
-        "Performance optimization",
-        "Best practices implementation",
-        "Team mentoring",
-        "Technical documentation"
-      ]
+      "description": "Providing technical guidance on architecture decisions, code reviews, and best practices. Helping teams improve code quality and development processes."
     }
   ],
-
-  "projects": [],
-
-  "testimonials": [
+  "projects": [
     {
       "id": 1,
-      "name": "Project Manager",
-      "position": "Senior Project Manager",
-      "company": "SwiftConnect",
-      "avatar": "/images/testimonials/testimonial-1.jpg",
-      "rating": 5,
-      "text": "Zeeshan is an exceptional developer who consistently delivers high-quality code and innovative solutions. His expertise in React and TypeScript has been invaluable to our team's success.",
-      "date": "2023-10-15"
-    },
-    {
-      "id": 2,
-      "name": "Tech Lead",
-      "position": "Technical Lead",
-      "company": "Development Team",
-      "avatar": "/images/testimonials/testimonial-2.jpg",
-      "rating": 5,
-      "text": "Working with Zeeshan has been a pleasure. His ability to build scalable applications and mentor junior developers makes him a valuable team member.",
-      "date": "2023-09-20"
-    },
-    {
-      "id": 3,
-      "name": "Frontend Developer",
-      "position": "Frontend Developer",
-      "company": "Tech Startup",
-      "avatar": "/images/testimonials/testimonial-3.jpg",
-      "rating": 5,
-      "text": "Zeeshan's knowledge of modern React patterns and state management solutions helped us build more maintainable and performant applications.",
-      "date": "2023-08-10"
-    }
-  ],
-
-  "blog": [
-    {
-      "id": 1,
-      "title": "Building Scalable React Applications with TypeScript",
-      "slug": "building-scalable-react-applications-typescript",
-      "excerpt": "Learn how to structure React applications with TypeScript for long-term maintainability and scalability using modern patterns and best practices.",
-      "content": "Comprehensive guide on building scalable React applications...",
-      "image": "/images/blog/blog-1.jpg",
-      "category": "React",
-      "tags": ["React", "TypeScript", "Architecture", "Best Practices"],
-      "publishDate": "2024-01-15",
-      "readTime": "8 min read",
-      "featured": true,
-      "author": "Shaikh Zeeshan Murshed"
-    },
-    {
-      "id": 2,
-      "title": "State Management with Zustand vs Redux",
-      "slug": "state-management-zustand-vs-redux",
-      "excerpt": "A comprehensive comparison between Zustand and Redux for state management in React applications, with practical examples.",
-      "content": "Detailed comparison of state management solutions...",
-      "image": "/images/blog/blog-2.jpg",
-      "category": "State Management",
-      "tags": ["React", "Zustand", "Redux", "State Management"],
-      "publishDate": "2024-01-10",
-      "readTime": "6 min read",
-      "featured": false,
-      "author": "Shaikh Zeeshan Murshed"
-    },
-    {
-      "id": 3,
-      "title": "Creating Private NPM Libraries",
-      "slug": "creating-private-npm-libraries",
-      "excerpt": "Step-by-step guide to creating and maintaining private NPM libraries for better code reusability and team productivity.",
-      "content": "Complete guide on NPM library development...",
-      "image": "/images/blog/blog-3.jpg",
-      "category": "Development",
-      "tags": ["NPM", "Libraries", "TypeScript", "Development"],
-      "publishDate": "2024-01-05",
-      "readTime": "10 min read",
-      "featured": true,
-      "author": "Shaikh Zeeshan Murshed"
-    }
-  ],
-
-  "portfolio": {
-    "photos": [
-      {
-        "id": 1,
-        "url": "https://lh3.googleusercontent.com/pw/ACtC-3fn3fohPamP-S-zK3KcM922JgG3qK-MpoGUQyKxGMa4fiSHBWE7GocRT4TEQTQ2RJ-os9-5PBZ9HsOUH9WA82DwhAFK4pJvtZax-03UaLVDZFmQKZNlfr2WzP__mfdzhzikyJp0vokt82o62rCQ05mfKA=w1391-h927-no",
-        "alt": "Portfolio Photo 1"
-      },
-      {
-        "id": 2,
-        "url": "https://lh3.googleusercontent.com/pw/ACtC-3eQQqwZSCuzi8WmWIpCtNxxeWPKgRFY3W8xxDHKTfR2dvxO_xACqMWjkbZdGMrw8AFIpPrniAefxLdvQuljOeKV0U5tmssgwkr8Z27rjNuH7UJ8x0P7yfGRIluskInKtwwQoxx6YPsMyqRQuZdiVdAGog=w1391-h927-no",
-        "alt": "Portfolio Photo 2"
-      },
-      {
-        "id": 3,
-        "url": "https://lh3.googleusercontent.com/pw/ACtC-3fvoWyn4aTnVPqsc4nyVyiSxV4peiPbQGlNPvTXNkdBgYJ7KTqCUhtmrUtzQw60geTDJC-hiyPqX_uh8uAuhhXAtIrigS48BXBvr_LSo1S16qqtF1CX4_g_CqjopQdlwKQGhMpFqZ5YNFAMRxJJI0Ueag=w1391-h927-no",
-        "alt": "Portfolio Photo 3"
-      }
-    ]
-  },
-
-  "offerings": {
-    "frontend": {
-      "name": "Frontend Development",
-      "icon": "fa-code",
-      "description": "I specialize in creating modern, scalable frontend applications with focus on quality and performance.",
-      "offerings": [
-        "I can write quality code rather than hacky code - robust, reusable, and easy to understand",
-        "I prefer component-based approach in frontend development for better maintainability",
-        "Experienced in working with small teams and agile methodologies",
-        "Quick learner who can adapt to new technologies as per project requirements",
-        "Focus on performance optimization and accessibility compliance"
-      ]
-    },
-    "backend": {
-      "name": "Backend Development",
-      "icon": "fa-server",
-      "description": "I have solid experience in backend development with modern Node.js ecosystem.",
-      "offerings": [
-        "Learned backend development during coding bootcamp and enhanced through professional experience",
-        "Can write intermediate to advanced level backend in Node.js with Express and TypeScript",
-        "Experience with MongoDB, CORS, RESTful API, and GraphQL",
-        "Focus on writing maintainable code that ensures long-term robustness and reusability",
-        "Built complete backend systems for multiple portfolios with email functionality and MongoDB integration",
-        "Always ready to learn new backend technologies as required by the team"
-      ]
-    }
-  },
-
-  "meta": {
-    "version": "2.0",
-    "lastUpdated": "2026-02-20",
-    "description": "Portfolio data for Shaikh Zeeshan Murshed - Full Stack Web Developer",
-    "theme": {
-      "primaryColor": "#ec1839",
-      "secondaryColor": "#1854b4",
-      "darkMode": true,
-      "colorSchemes": [
-        { "name": "Red", "value": "#ec1839" },
-        { "name": "Orange", "value": "#fa5b0f" },
-        { "name": "Green", "value": "#37b182" },
-        { "name": "Blue", "value": "#1854b4" },
-        { "name": "Pink", "value": "#f021b2" }
-      ]
-    },
-    "seo": {
-      "title": "Shaikh Zeeshan Murshed - Full Stack Web Developer",
-      "description": "Experienced Full Stack Developer specializing in React, TypeScript, Node.js. Building scalable web applications and mobile solutions in Montreal, Canada.",
-      "keywords": [
-        "Full Stack Developer",
-        "React Developer",
+      "title": "Productify: Full-Stack TypeScript Product Platform",
+      "url": "https://github.com/sk-izsk/productify",
+      "excerpt": "A real-world PERN-style build where I implemented end-to-end auth with Clerk, ownership-safe product/comment CRUD, and cache-aware React Query flows to keep UX fast without excessive refetching.",
+      "category": "Full Stack",
+      "tags": [
+        "React 19",
         "TypeScript",
-        "Node.js",
-        "Montreal Developer",
-        "Web Development"
-      ]
+        "Express 5",
+        "Drizzle ORM",
+        "PostgreSQL (Neon)",
+        "Clerk Auth",
+        "React Query",
+        "Ky",
+        "Tailwind CSS 4",
+        "DaisyUI"
+      ],
+      "publishDate": "2026-03-14"
     }
-  }
+  ]
 }
