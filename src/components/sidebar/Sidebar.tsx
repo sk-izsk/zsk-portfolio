@@ -7,6 +7,7 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons"
 import React, { useEffect } from "react"
+import { useTranslation } from "react-i18next"
 import { useLocation } from "react-router-dom"
 import {
   usePersonalInfo,
@@ -17,6 +18,10 @@ import { SidebarNavItem } from "./SidebarNavItem"
 import {
   aside,
   asideOpen,
+  languageButton,
+  languageButtonActive,
+  languageDivider,
+  languageSwitcher,
   logo,
   logoA,
   logoSpan,
@@ -39,6 +44,7 @@ const getCurrentSection = (path: string) => {
 }
 
 export const Sidebar: React.FC = () => {
+  const { t, i18n } = useTranslation()
   const location = useLocation()
   const personalInfo = usePersonalInfo()
   const loading = usePortfolioLoading()
@@ -46,24 +52,40 @@ export const Sidebar: React.FC = () => {
   const toggleSidebar = useSidebarStore((state) => state.toggle)
   const closeSidebar = useSidebarStore((state) => state.close)
   const activeSection = getCurrentSection(location.pathname)
+  const currentLanguage = i18n.resolvedLanguage === "fr" ? "fr" : "en"
 
   const navigationItems: SidebarNavigationItem[] = [
-    { id: "home", label: "Home", icon: faHome, path: "/" },
-    { id: "about", label: "About", icon: faUser, path: "/about" },
-    { id: "service", label: "Services", icon: faList, path: "/services" },
+    { id: "home", label: t("sidebar.nav.home"), icon: faHome, path: "/" },
+    {
+      id: "about",
+      label: t("sidebar.nav.about"),
+      icon: faUser,
+      path: "/about",
+    },
+    {
+      id: "service",
+      label: t("sidebar.nav.services"),
+      icon: faList,
+      path: "/services",
+    },
     {
       id: "portfolio",
-      label: "Skills",
+      label: t("sidebar.nav.skills"),
       icon: faCogs,
       path: "/portfolio",
     },
     {
       id: "projects",
-      label: "Projects",
+      label: t("sidebar.nav.projects"),
       icon: faBriefcase,
       path: "/projects",
     },
-    { id: "contact", label: "Contact", icon: faComments, path: "/contact" },
+    {
+      id: "contact",
+      label: t("sidebar.nav.contact"),
+      icon: faComments,
+      path: "/contact",
+    },
   ]
 
   const getLogoText = () => {
@@ -77,6 +99,10 @@ export const Sidebar: React.FC = () => {
       event.preventDefault()
       toggleSidebar()
     }
+  }
+
+  const handleLanguageChange = (language: "en" | "fr") => {
+    void i18n.changeLanguage(language)
   }
 
   useEffect(() => {
@@ -100,6 +126,23 @@ export const Sidebar: React.FC = () => {
           <span className={logoSpan}>{getLogoText().charAt(0)}</span>
           {getLogoText().slice(1)}
         </a>
+        <div className={languageSwitcher}>
+          <button
+            className={`${languageButton} ${currentLanguage === "en" ? languageButtonActive : ""}`}
+            type="button"
+            onClick={() => handleLanguageChange("en")}
+          >
+            {t("sidebar.language.en")}
+          </button>
+          <span className={languageDivider}>|</span>
+          <button
+            className={`${languageButton} ${currentLanguage === "fr" ? languageButtonActive : ""}`}
+            type="button"
+            onClick={() => handleLanguageChange("fr")}
+          >
+            {t("sidebar.language.fr")}
+          </button>
+        </div>
       </div>
       <div
         className={`${navToggler} ${isOpen ? navTogglerOpen : ""}`}
