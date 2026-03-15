@@ -89,5 +89,5 @@ export interface PortfolioData {
   education: Education[]
   experience: Experience[]
   services: Service[]
-  blog: BlogPost[]
+  projects: BlogPost[]
 }

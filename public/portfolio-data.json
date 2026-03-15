@@ -15,16 +15,9 @@
       "primary": "https://izsk.netlify.app/.netlify/images?url=/images/zeeshan.jpg&w=800&q=80",
       "alt": "Shaikh Zeeshan Murshed"
     },
-    "languages": [
-      "English",
-      "Bengali",
-      "Hindi"
-    ],
+    "languages": ["English", "Bengali", "Hindi"],
     "birthday": "05-04-1992",
-    "availability": [
-      "Full time",
-      "Remote"
-    ]
+    "availability": ["Full time", "Remote"]
   },
   "contact": {
     "email": "sk.zeeshan1992@gmail.com",
@@ -197,11 +190,7 @@
         "Mocha",
         "Chai"
       ],
-      "languages": [
-        "JavaScript",
-        "TypeScript",
-        "Python"
-      ],
+      "languages": ["JavaScript", "TypeScript", "Python"],
       "tools": [
         "Git",
         "Yarn/NPM",
@@ -226,12 +215,7 @@
         "Chai",
         "Cypress"
       ],
-      "learning": [
-        "SASS",
-        "Socket.IO",
-        "Firebase",
-        "GraphQL"
-      ]
+      "learning": ["SASS", "Socket.IO", "Firebase", "GraphQL"]
     }
   },
   "education": [
@@ -304,7 +288,7 @@
       "description": "Providing technical guidance on architecture decisions, code reviews, and best practices. Helping teams improve code quality and development processes."
     }
   ],
-  "blog": [
+  "projects": [
     {
       "id": 1,
       "title": "Productify: Full-Stack TypeScript Product Platform",

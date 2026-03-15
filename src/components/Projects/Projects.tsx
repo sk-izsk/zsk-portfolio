@@ -2,9 +2,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useTitle } from "ahooks"
 import React from "react"
 import {
-  useBlog,
   usePortfolioError,
   usePortfolioLoading,
+  useProjects,
 } from "../../stores/portfolioStore"
 import {
   blogContainer,
@@ -21,18 +21,18 @@ import {
   blogTag,
   blogTags,
   blogTitle,
-} from "./blog.css"
+} from "./projects.css"
 
-const Blog: React.FC = () => {
-  const blog = useBlog()
+const Projects: React.FC = () => {
+  const projects = useProjects()
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
 
-  useTitle("Portfolio - ZSK Portfolio")
+  useTitle("Projects - ZSK Portfolio")
 
   if (loading) {
     return (
-      <section className="blog section active" id="blog">
+      <section className="blog section active" id="projects">
         <div className={`container ${blogContainer}`}>
           <div className="loading">Loading...</div>
         </div>
@@ -40,9 +40,9 @@ const Blog: React.FC = () => {
     )
   }
 
-  if (error || !blog) {
+  if (error || !projects) {
     return (
-      <section className="blog section active" id="blog">
+      <section className="blog section active" id="projects">
         <div className={`container ${blogContainer}`}>
           <div className="error">Error loading data</div>
         </div>
@@ -51,30 +51,30 @@ const Blog: React.FC = () => {
   }
 
   return (
-    <section className="blog section active" id="blog">
+    <section className="blog section active" id="projects">
       <div className={`container ${blogContainer}`}>
         <div className="row">
           <div className="section-title padd-15">
-            <h2>Portfolio</h2>
+            <h2>Projects</h2>
           </div>
         </div>
         <div className="row">
           <div className={`${blogHeading} padd-15`}>
-            <h2 className={blogHeadingH2}>My Recent Portfolios :</h2>
+            <h2 className={blogHeadingH2}>My Recent Projects :</h2>
           </div>
         </div>
         <div className={`${blogGrid} padd-15`}>
-          {blog?.map((post) => {
-            const postHref = post.url || "#"
-            const isExternal = postHref.startsWith("http")
+          {projects.map((project) => {
+            const projectHref = project.url || "#"
+            const isExternal = projectHref.startsWith("http")
 
             return (
-              <div key={post.id} className={blogItem}>
+              <div key={project.id} className={blogItem}>
                 <div className={blogItemInner}>
                   <div className={blogInfo}>
                     <div className="category">
                       <a
-                        href={postHref}
+                        href={projectHref}
                         target={isExternal ? "_blank" : undefined}
                         rel={isExternal ? "noopener noreferrer" : undefined}
                       >
@@ -83,7 +83,7 @@ const Blog: React.FC = () => {
                           <i
                             className={`fa fa-book-open-reader ${blogInfoIcon}`}
                           />
-                          {post.category}
+                          {project.category}
                         </p>
                       </a>
                     </div>
@@ -91,21 +91,21 @@ const Blog: React.FC = () => {
                       <p className={blogInfoP}>
                         <FontAwesomeIcon icon="calendar-days" />{" "}
                         <i className={`fa fa-calendar-days ${blogInfoIcon}`} />
-                        {new Date(post.publishDate).toLocaleDateString()}
+                        {new Date(project.publishDate).toLocaleDateString()}
                       </p>
                     </div>
                   </div>
                   <a
-                    href={postHref}
+                    href={projectHref}
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noopener noreferrer" : undefined}
                   >
-                    <h4 className={blogTitle}>{post.title}</h4>
+                    <h4 className={blogTitle}>{project.title}</h4>
                   </a>
-                  <p className={blogContent}>{post.excerpt}</p>
-                  {post.tags?.length > 0 && (
+                  <p className={blogContent}>{project.excerpt}</p>
+                  {project.tags?.length > 0 && (
                     <div className={blogTags}>
-                      {post.tags.map((tag) => (
+                      {project.tags.map((tag) => (
                         <span key={tag} className={blogTag}>
                           {tag}
                         </span>
@@ -113,7 +113,7 @@ const Blog: React.FC = () => {
                     </div>
                   )}
                   <a
-                    href={postHref}
+                    href={projectHref}
                     className={blogLink}
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noopener noreferrer" : undefined}
@@ -130,4 +130,4 @@ const Blog: React.FC = () => {
   )
 }
 
-export default Blog
+export default Projects
