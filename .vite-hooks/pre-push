@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+set -e
+
+before_status="$(git status --porcelain)"
+
+echo "[pre-push] Running formatter..."
+bun run fmt
+
+echo "[pre-push] Running lint auto-fix..."
+bunx oxlint . --fix
+
+echo "[pre-push] Verifying lint..."
+bun run lint
+
+after_status="$(git status --porcelain)"
+
+# If hook commands introduced new changes, stop push so they can be reviewed and committed.
+if [ "$before_status" != "$after_status" ]; then
+  echo "[pre-push] Formatter/lint introduced new file changes. Commit these changes, then push again."
+  git status --short
+  exit 1
+fi

@@ -1,18 +1,10 @@
 import { faComments } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { PopupModal } from 'react-calendly'
 import { useTranslation } from 'react-i18next'
 import { useThemeStore } from '../stores/themeStore'
-import {
-  floatingContainer,
-  triggerButton,
-  triggerCollapsed,
-  triggerExpanded,
-  triggerIcon,
-  triggerLabel,
-  triggerLabelVisible,
-} from './canedly.css'
+import { floatingContainer, triggerButton, triggerIcon, triggerLabelDesktop } from './canedly.css'
 
 const colorThemes = {
   'color-1': '#ec1839',
@@ -29,72 +21,25 @@ export const Canedly = () => {
   const { t } = useTranslation()
   const isDarkMode = useThemeStore((state) => state.isDarkMode)
   const currentColor = useThemeStore((state) => state.currentColor)
-  const [isExpanded, setIsExpanded] = useState(false)
-  const [isPinned, setIsPinned] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
-  const buttonRef = useRef<HTMLButtonElement>(null)
 
   const currentAccentColor =
     colorThemes[currentColor as keyof typeof colorThemes] ?? colorThemes['color-1']
   const rootElement = document.getElementById('root') ?? document.body
-  const supportsHover = window.matchMedia('(hover: hover)').matches
-  const isActive = isExpanded || isPinned
-  const buttonText = t('common.calendly.cta')
-
-  useEffect(() => {
-    const handleDocumentClick = (event: MouseEvent) => {
-      const target = event.target as Node
-
-      if (!buttonRef.current?.contains(target)) {
-        setIsPinned(false)
-        setIsExpanded(false)
-      }
-    }
-
-    document.addEventListener('mousedown', handleDocumentClick)
-
-    return () => {
-      document.removeEventListener('mousedown', handleDocumentClick)
-    }
-  }, [])
-
-  const handleButtonClick = () => {
-    if (!supportsHover && !isActive) {
-      setIsExpanded(true)
-      setIsPinned(true)
-      return
-    }
-
-    setIsPinned(true)
-    setIsExpanded(true)
-    setIsOpen(true)
-  }
+  const desktopText = t('common.calendly.cta')
 
   return (
     <>
       <div className={floatingContainer}>
         <button
-          ref={buttonRef}
-          className={`${triggerButton} ${isActive ? triggerExpanded : triggerCollapsed}`}
+          className={triggerButton}
           style={{ background: currentAccentColor }}
           type="button"
-          onMouseEnter={() => {
-            if (!isPinned) {
-              setIsExpanded(true)
-            }
-          }}
-          onMouseLeave={() => {
-            if (!isPinned) {
-              setIsExpanded(false)
-            }
-          }}
-          onClick={handleButtonClick}
-          aria-label={buttonText}
+          onClick={() => setIsOpen(true)}
+          aria-label={desktopText}
         >
           <FontAwesomeIcon icon={faComments} className={triggerIcon} />
-          <span className={`${triggerLabel} ${isActive ? triggerLabelVisible : ''}`}>
-            {buttonText}
-          </span>
+          <span className={triggerLabelDesktop}>{desktopText}</span>
         </button>
       </div>
 
