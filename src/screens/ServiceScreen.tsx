@@ -48,13 +48,11 @@ const ServiceScreen: React.FC = () => {
       {services && (
         <div className={`row ${serviceRow}`}>
           {services.map((service) => (
-            <ServiceCard
-              key={service.id}
-              id={service.id}
-              title={service.title}
-              description={service.description}
-              icon={toServiceIcon(service.icon)}
-            />
+            <ServiceCard key={service.id}>
+              <ServiceCard.Icon icon={toServiceIcon(service.icon)} />
+              <ServiceCard.Title>{service.title}</ServiceCard.Title>
+              <ServiceCard.Body>{service.description}</ServiceCard.Body>
+            </ServiceCard>
           ))}
         </div>
       )}

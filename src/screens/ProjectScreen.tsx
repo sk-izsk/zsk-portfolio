@@ -33,9 +33,33 @@ const ProjectScreen: React.FC = () => {
             </div>
           </div>
           <div className={`${projectGrid} padd-15`}>
-            {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
+            {projects.map((project) => {
+              const projectHref = project.url || "#"
+              const isExternal = projectHref.startsWith("http")
+
+              return (
+                <ProjectCard key={project.id}>
+                  <ProjectCard.TimeLink
+                    category={project.category}
+                    publishDate={project.publishDate}
+                    href={projectHref}
+                    isExternal={isExternal}
+                  />
+                  <ProjectCard.Title href={projectHref} isExternal={isExternal}>
+                    {project.title}
+                  </ProjectCard.Title>
+                  <ProjectCard.Body>{project.excerpt}</ProjectCard.Body>
+                  <ProjectCard.Tags
+                    projectId={project.id}
+                    tags={project.tags}
+                  />
+                  <ProjectCard.ReadMore
+                    href={projectHref}
+                    isExternal={isExternal}
+                  />
+                </ProjectCard>
+              )
+            })}
           </div>
         </>
       )}
