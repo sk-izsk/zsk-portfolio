@@ -39,6 +39,7 @@ import {
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { useLocalStorageState } from "ahooks"
 import { lazy, Suspense, useEffect, useState } from "react"
+import { PopupWidget } from "react-calendly"
 import {
   Route,
   BrowserRouter as Router,
@@ -172,6 +173,8 @@ const colorThemes = {
   "color-10": "#2e8b57",
 }
 
+const stripHexPrefix = (value: string) => value.replace(/^#/, "")
+
 // Main App Content Component
 function AppContent() {
   const location = useLocation()
@@ -188,6 +191,10 @@ function AppContent() {
     },
   )
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const currentAccentColor =
+    colorThemes[currentColor as keyof typeof colorThemes] ??
+    colorThemes["color-1"]
+  const calendlyRootElement = document.getElementById("root") ?? document.body
 
   // Fetch portfolio data once and update Zustand store
   const portfolioQuery = usePortfolioData()
@@ -311,6 +318,20 @@ function AppContent() {
         currentColor={currentColor}
         onToggleDarkMode={toggleDarkMode}
         onChangeColor={changeColor}
+      />
+
+      <PopupWidget
+        url="https://calendly.com/izsk/60min"
+        rootElement={calendlyRootElement}
+        text="Want to book a meeting ?"
+        color={currentAccentColor}
+        textColor="#ffffff"
+        branding={false}
+        pageSettings={{
+          primaryColor: stripHexPrefix(currentAccentColor),
+          backgroundColor: isDarkMode ? "151515" : "fdf9ff",
+          textColor: isDarkMode ? "ffffff" : "302e4d",
+        }}
       />
     </div>
   )
