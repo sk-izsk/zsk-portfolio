@@ -1,3 +1,3 @@
 export const servicesEn = {
-  title: "Services",
+  title: 'Services',
 } as const

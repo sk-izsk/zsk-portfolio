@@ -1,45 +1,35 @@
-import { create } from "zustand"
+import { create } from 'zustand'
 
-export type ThemeColor =
-  | "color-1"
-  | "color-2"
-  | "color-3"
-  | "color-5"
-  | "color-7"
-  | "color-9"
+export type ThemeColor = 'color-1' | 'color-2' | 'color-3' | 'color-5' | 'color-7' | 'color-9'
 
-const DEFAULT_THEME_COLOR: ThemeColor = "color-1"
+const DEFAULT_THEME_COLOR: ThemeColor = 'color-1'
 const DEFAULT_DARK_MODE = true
 
 const isThemeColor = (value: string): value is ThemeColor => {
   return (
-    value === "color-1" ||
-    value === "color-2" ||
-    value === "color-3" ||
-    value === "color-5" ||
-    value === "color-7" ||
-    value === "color-9"
+    value === 'color-1' ||
+    value === 'color-2' ||
+    value === 'color-3' ||
+    value === 'color-5' ||
+    value === 'color-7' ||
+    value === 'color-9'
   )
 }
 
 const getInitialThemeState = () => {
-  if (typeof window === "undefined") {
+  if (typeof window === 'undefined') {
     return {
       isDarkMode: DEFAULT_DARK_MODE,
       currentColor: DEFAULT_THEME_COLOR,
     }
   }
 
-  const storedDarkMode = window.localStorage.getItem("portfolio-dark-mode")
-  const storedColor = window.localStorage.getItem("portfolio-color-theme")
+  const storedDarkMode = window.localStorage.getItem('portfolio-dark-mode')
+  const storedColor = window.localStorage.getItem('portfolio-color-theme')
 
   return {
-    isDarkMode:
-      storedDarkMode === null ? DEFAULT_DARK_MODE : storedDarkMode === "true",
-    currentColor:
-      storedColor && isThemeColor(storedColor)
-        ? storedColor
-        : DEFAULT_THEME_COLOR,
+    isDarkMode: storedDarkMode === null ? DEFAULT_DARK_MODE : storedDarkMode === 'true',
+    currentColor: storedColor && isThemeColor(storedColor) ? storedColor : DEFAULT_THEME_COLOR,
   }
 }
 
@@ -56,22 +46,22 @@ export const useThemeStore = create<ThemeStore>((set, get) => ({
   toggleDarkMode: () => {
     const nextValue = !get().isDarkMode
 
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem("portfolio-dark-mode", String(nextValue))
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem('portfolio-dark-mode', String(nextValue))
     }
 
     set({ isDarkMode: nextValue })
   },
   setDarkMode: (isDarkMode) => {
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem("portfolio-dark-mode", String(isDarkMode))
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem('portfolio-dark-mode', String(isDarkMode))
     }
 
     set({ isDarkMode })
   },
   setCurrentColor: (color) => {
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem("portfolio-color-theme", color)
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem('portfolio-color-theme', color)
     }
 
     set({ currentColor: color })

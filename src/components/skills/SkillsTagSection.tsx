@@ -1,12 +1,8 @@
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import React from "react"
-import { Tag } from "../tag/Tag"
-import {
-  skillCategoryContainer,
-  skillCategoryTitle,
-  skillsList,
-} from "./skills.css"
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from 'react'
+import { Tag } from '../tag/Tag'
+import { skillCategoryContainer, skillCategoryTitle, skillsList } from './skills.css'
 
 interface SkillsTagSectionProps {
   icon: IconDefinition
@@ -14,11 +10,7 @@ interface SkillsTagSectionProps {
   tags: string[]
 }
 
-export const SkillsTagSection: React.FC<SkillsTagSectionProps> = ({
-  icon,
-  titleText,
-  tags,
-}) => {
+export const SkillsTagSection: React.FC<SkillsTagSectionProps> = ({ icon, titleText, tags }) => {
   if (tags.length === 0) {
     return null
   }
@@ -27,7 +19,7 @@ export const SkillsTagSection: React.FC<SkillsTagSectionProps> = ({
     <div className="row">
       <div className={`${skillCategoryContainer} padd-15`}>
         <h3 className={skillCategoryTitle}>
-          <FontAwesomeIcon icon={icon} style={{ marginRight: "10px" }} />
+          <FontAwesomeIcon icon={icon} style={{ marginRight: '10px' }} />
           {titleText}
         </h3>
         <div className={skillsList}>

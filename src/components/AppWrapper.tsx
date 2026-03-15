@@ -1,16 +1,16 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import type { PropsWithChildren } from "react"
-import { useEffect } from "react"
-import { useTranslation } from "react-i18next"
-import { BrowserRouter as Router } from "react-router-dom"
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import type { PropsWithChildren } from 'react'
+import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+import { BrowserRouter as Router } from 'react-router-dom'
 
-import { usePortfolioData } from "../hooks/usePortfolioData"
-import { usePortfolioStore } from "../stores/portfolioStore"
-import { useSidebarStore } from "../stores/sidebarStore"
-import "../styles/global.css"
-import { Canedly } from "./Canedly"
-import { Sidebar } from "./sidebar/Sidebar"
-import { StyleSwitcher } from "./styleSwitcher/StyleSwitcher"
+import { usePortfolioData } from '../hooks/usePortfolioData'
+import { usePortfolioStore } from '../stores/portfolioStore'
+import { useSidebarStore } from '../stores/sidebarStore'
+import '../styles/global.css'
+import { Canedly } from './Canedly'
+import { Sidebar } from './sidebar/Sidebar'
+import { StyleSwitcher } from './styleSwitcher/StyleSwitcher'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,7 +26,7 @@ const queryClient = new QueryClient({
 const AppLayout = ({ children }: PropsWithChildren) => {
   const { i18n } = useTranslation()
   const isSidebarOpen = useSidebarStore((state) => state.isOpen)
-  const currentLanguage = i18n.resolvedLanguage === "fr" ? "fr" : "en"
+  const currentLanguage = i18n.resolvedLanguage === 'fr' ? 'fr' : 'en'
 
   const portfolioQuery = usePortfolioData(currentLanguage)
   const { setData, setLoading, setError } = usePortfolioStore()
@@ -55,9 +55,7 @@ const AppLayout = ({ children }: PropsWithChildren) => {
     <div className="main-container">
       <Sidebar />
 
-      <div className={`main-content ${isSidebarOpen ? "sidebar-open" : ""}`}>
-        {children}
-      </div>
+      <div className={`main-content ${isSidebarOpen ? 'sidebar-open' : ''}`}>{children}</div>
 
       <StyleSwitcher />
       <Canedly />

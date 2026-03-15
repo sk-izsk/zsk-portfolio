@@ -1,4 +1,4 @@
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import {
   faBullhorn,
   faChartLine,
@@ -7,30 +7,26 @@ import {
   faMobileAlt,
   faPalette,
   faSearch,
-} from "@fortawesome/free-solid-svg-icons"
-import React from "react"
-import { useTranslation } from "react-i18next"
-import { Screen } from "../components/Screen"
-import { ServiceCard } from "../components/services/ServiceCard"
-import { serviceRow } from "../components/services/services.css"
-import {
-  usePortfolioError,
-  usePortfolioLoading,
-  useServices,
-} from "../stores/portfolioStore"
+} from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { Screen } from '../components/Screen'
+import { ServiceCard } from '../components/services/ServiceCard'
+import { serviceRow } from '../components/services/services.css'
+import { usePortfolioError, usePortfolioLoading, useServices } from '../stores/portfolioStore'
 
 const serviceIconMap: Record<string, IconDefinition> = {
   code: faCode,
   palette: faPalette,
-  "chart-line": faChartLine,
-  "mobile-alt": faMobileAlt,
+  'chart-line': faChartLine,
+  'mobile-alt': faMobileAlt,
   search: faSearch,
   bullhorn: faBullhorn,
   cubes: faCubes,
 }
 
 const toServiceIcon = (rawIcon: string): IconDefinition => {
-  const normalized = rawIcon.replace("fa-", "")
+  const normalized = rawIcon.replace('fa-', '')
   return serviceIconMap[normalized] ?? faCode
 }
 
@@ -45,7 +41,7 @@ const ServiceScreen: React.FC = () => {
       sectionId="service"
       isLoading={loading}
       isError={Boolean(error || !services)}
-      title={t("services.title")}
+      title={t('services.title')}
     >
       {services && (
         <div className={`row ${serviceRow}`}>

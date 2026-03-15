@@ -1,12 +1,9 @@
-import React from "react"
-import { useTranslation } from "react-i18next"
-import { Screen } from "../components/Screen"
-import { SkillsRate } from "../components/skills/SkillsRate"
-import { SkillsTag } from "../components/skills/SkillsTag"
-import {
-  usePortfolioError,
-  usePortfolioLoading,
-} from "../stores/portfolioStore"
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { Screen } from '../components/Screen'
+import { SkillsRate } from '../components/skills/SkillsRate'
+import { SkillsTag } from '../components/skills/SkillsTag'
+import { usePortfolioError, usePortfolioLoading } from '../stores/portfolioStore'
 
 const SkillScreen: React.FC = () => {
   const loading = usePortfolioLoading()
@@ -18,7 +15,7 @@ const SkillScreen: React.FC = () => {
       sectionId="portfolio"
       isLoading={loading}
       isError={Boolean(error)}
-      title={t("skills.title")}
+      title={t('skills.title')}
     >
       <SkillsRate />
       <SkillsTag />

@@ -1,7 +1,7 @@
-import { faCalendar } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import type { PropsWithChildren } from "react"
-import React from "react"
+import { faCalendar } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import type { PropsWithChildren } from 'react'
+import React from 'react'
 import {
   circleDot,
   timeline,
@@ -11,7 +11,7 @@ import {
   timelineText,
   timelineTitle,
   title,
-} from "./about.css"
+} from './about.css'
 
 interface ActivityTimelineProps extends PropsWithChildren {
   heading: string
@@ -32,9 +32,7 @@ type ActivityTimelineItemCompound = React.FC<ActivityTimelineItemRootProps> & {
   Body: React.FC<ActivityTimelineItemBodyProps>
 }
 
-const ActivityTimelineItemRoot: React.FC<ActivityTimelineItemRootProps> = ({
-  children,
-}) => {
+const ActivityTimelineItemRoot: React.FC<ActivityTimelineItemRootProps> = ({ children }) => {
   return (
     <div className={timelineItem}>
       <div className={circleDot}></div>
@@ -43,9 +41,9 @@ const ActivityTimelineItemRoot: React.FC<ActivityTimelineItemRootProps> = ({
   )
 }
 
-const ActivityTimelineItemTimeSpan: React.FC<
-  ActivityTimelineItemTimeSpanProps
-> = ({ children }) => {
+const ActivityTimelineItemTimeSpan: React.FC<ActivityTimelineItemTimeSpanProps> = ({
+  children,
+}) => {
   return (
     <h3 className={timelineDate}>
       <FontAwesomeIcon icon={faCalendar} /> {children}
@@ -53,26 +51,19 @@ const ActivityTimelineItemTimeSpan: React.FC<
   )
 }
 
-const ActivityTimelineItemTitle: React.FC<ActivityTimelineItemTitleProps> = ({
-  children,
-}) => {
+const ActivityTimelineItemTitle: React.FC<ActivityTimelineItemTitleProps> = ({ children }) => {
   return <h4 className={timelineTitle}>{children}</h4>
 }
 
-const ActivityTimelineItemBody: React.FC<ActivityTimelineItemBodyProps> = ({
-  children,
-}) => {
+const ActivityTimelineItemBody: React.FC<ActivityTimelineItemBodyProps> = ({ children }) => {
   return <p className={timelineText}>{children}</p>
 }
 
-const ActivityTimelineItem: ActivityTimelineItemCompound = Object.assign(
-  ActivityTimelineItemRoot,
-  {
-    TimeSpan: ActivityTimelineItemTimeSpan,
-    Title: ActivityTimelineItemTitle,
-    Body: ActivityTimelineItemBody,
-  },
-)
+const ActivityTimelineItem: ActivityTimelineItemCompound = Object.assign(ActivityTimelineItemRoot, {
+  TimeSpan: ActivityTimelineItemTimeSpan,
+  Title: ActivityTimelineItemTitle,
+  Body: ActivityTimelineItemBody,
+})
 
 const ActivityTimelineRoot: React.FC<ActivityTimelineProps> = ({
   heading,

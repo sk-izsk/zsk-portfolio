@@ -1,20 +1,12 @@
-import React from "react"
-import {
-  col12,
-  col6,
-  formControl,
-  formControlTextarea,
-  formItem,
-} from "./contact.css"
+import React from 'react'
+import { col12, col6, formControl, formControlTextarea, formItem } from './contact.css'
 
 interface ContactFormFieldProps {
-  type: "text" | "email" | "textarea"
+  type: 'text' | 'email' | 'textarea'
   name: string
   placeholder: string
   value: string
-  onChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => void
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
   halfWidth?: boolean
 }
 
@@ -31,7 +23,7 @@ export const ContactFormField: React.FC<ContactFormFieldProps> = ({
   return (
     <div className={`${formItem} ${widthClass} padd-15`}>
       <div className="form-group">
-        {type === "textarea" ? (
+        {type === 'textarea' ? (
           <textarea
             className={`${formControl} ${formControlTextarea}`}
             placeholder={placeholder}

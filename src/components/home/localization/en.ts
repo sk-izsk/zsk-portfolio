@@ -1,13 +1,13 @@
 export const homeEn = {
-  pageTitle: "Home",
+  pageTitle: 'Home',
   professionPrefix: "I'm a",
-  downloadCv: "Download CV",
+  downloadCv: 'Download CV',
   roles: {
-    fullStack: "Full Stack Developer",
-    react: "React Developer",
-    typescript: "TypeScript Developer",
-    frontend: "Frontend Developer",
-    backend: "Backend Developer",
-    mobile: "Mobile Developer",
+    fullStack: 'Full Stack Developer',
+    react: 'React Developer',
+    typescript: 'TypeScript Developer',
+    frontend: 'Frontend Developer',
+    backend: 'Backend Developer',
+    mobile: 'Mobile Developer',
   },
 } as const

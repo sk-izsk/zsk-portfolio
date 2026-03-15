@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react"
-import { useThemeStore } from "../../stores/themeStore"
+import React, { useEffect, useRef, useState } from 'react'
+import { useThemeStore } from '../../stores/themeStore'
 import {
   color1Theme,
   color2Theme,
@@ -15,27 +15,27 @@ import {
   darkColor9Theme,
   darkTheme,
   lightTheme,
-} from "../../styles/themes.css"
-import { styleSwitcher, styleSwitcherOpen } from "./styleSwitcher.css"
-import { StyleSwitcherSettings } from "./StyleSwitcherSettings"
-import { StyleSwitcherToggleTheme } from "./StyleSwitcherToggleTheme"
+} from '../../styles/themes.css'
+import { styleSwitcher, styleSwitcherOpen } from './styleSwitcher.css'
+import { StyleSwitcherSettings } from './StyleSwitcherSettings'
+import { StyleSwitcherToggleTheme } from './StyleSwitcherToggleTheme'
 
 const lightThemeByColor = {
-  "color-1": color1Theme,
-  "color-2": color2Theme,
-  "color-3": color3Theme,
-  "color-5": color5Theme,
-  "color-7": color7Theme,
-  "color-9": color9Theme,
+  'color-1': color1Theme,
+  'color-2': color2Theme,
+  'color-3': color3Theme,
+  'color-5': color5Theme,
+  'color-7': color7Theme,
+  'color-9': color9Theme,
 } as const
 
 const darkThemeByColor = {
-  "color-1": darkColor1Theme,
-  "color-2": darkColor2Theme,
-  "color-3": darkColor3Theme,
-  "color-5": darkColor5Theme,
-  "color-7": darkColor7Theme,
-  "color-9": darkColor9Theme,
+  'color-1': darkColor1Theme,
+  'color-2': darkColor2Theme,
+  'color-3': darkColor3Theme,
+  'color-5': darkColor5Theme,
+  'color-7': darkColor7Theme,
+  'color-9': darkColor9Theme,
 } as const
 
 export const StyleSwitcher: React.FC = () => {
@@ -60,18 +60,18 @@ export const StyleSwitcher: React.FC = () => {
       setIsOpen(false)
     }
 
-    window.addEventListener("wheel", handleHide)
-    window.addEventListener("touchmove", handleHide)
+    window.addEventListener('wheel', handleHide)
+    window.addEventListener('touchmove', handleHide)
 
     return () => {
-      window.removeEventListener("wheel", handleHide)
-      window.removeEventListener("touchmove", handleHide)
+      window.removeEventListener('wheel', handleHide)
+      window.removeEventListener('touchmove', handleHide)
     }
   }, [isOpen])
 
   // Apply selected theme class to body
   useEffect(() => {
-    document.body.className = ""
+    document.body.className = ''
 
     const themeClass = isDarkMode
       ? (darkThemeByColor[currentColor] ?? darkTheme)
@@ -87,36 +87,27 @@ export const StyleSwitcher: React.FC = () => {
     }
 
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        styleSwitcherRef.current &&
-        !styleSwitcherRef.current.contains(event.target as Node)
-      ) {
+      if (styleSwitcherRef.current && !styleSwitcherRef.current.contains(event.target as Node)) {
         setIsOpen(false)
       }
     }
 
-    document.addEventListener("mousedown", handleClickOutside)
+    document.addEventListener('mousedown', handleClickOutside)
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
+      document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [isOpen])
 
   return (
-    <div
-      ref={styleSwitcherRef}
-      className={`${styleSwitcher} ${isOpen ? styleSwitcherOpen : ""}`}
-    >
+    <div ref={styleSwitcherRef} className={`${styleSwitcher} ${isOpen ? styleSwitcherOpen : ''}`}>
       <StyleSwitcherSettings
         currentColor={currentColor}
         isOpen={isOpen}
         onToggleOpen={toggleSwitcher}
         onChangeColor={setCurrentColor}
       />
-      <StyleSwitcherToggleTheme
-        isDarkMode={isDarkMode}
-        onToggleDarkMode={toggleDarkMode}
-      />
+      <StyleSwitcherToggleTheme isDarkMode={isDarkMode} onToggleDarkMode={toggleDarkMode} />
     </div>
   )
 }

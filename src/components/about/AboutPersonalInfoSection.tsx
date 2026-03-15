@@ -1,7 +1,7 @@
-import dayjs from "dayjs"
-import React from "react"
-import { useTranslation } from "react-i18next"
-import { useContactInfo, usePersonalInfo } from "../../stores/portfolioStore"
+import dayjs from 'dayjs'
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { useContactInfo, usePersonalInfo } from '../../stores/portfolioStore'
 import {
   btnMargin,
   buttons,
@@ -9,7 +9,7 @@ import {
   infoItemP,
   infoItemSpan,
   personalInfoSection,
-} from "./about.css"
+} from './about.css'
 
 export const AboutPersonalInfoSection: React.FC = () => {
   const { t, i18n } = useTranslation()
@@ -21,34 +21,34 @@ export const AboutPersonalInfoSection: React.FC = () => {
   }
 
   const birthday = dayjs(personalInfo.birthday)
-  const ageInYears = dayjs().diff(birthday, "year")
+  const ageInYears = dayjs().diff(birthday, 'year')
 
   const personalInfoData = [
     {
-      label: t("about.info.birthday"),
+      label: t('about.info.birthday'),
       value: birthday.isValid()
         ? new Date(personalInfo.birthday).toLocaleDateString(
-            i18n.resolvedLanguage === "fr" ? "fr-FR" : "en-US",
+            i18n.resolvedLanguage === 'fr' ? 'fr-FR' : 'en-US',
             {
-              month: "long",
-              day: "numeric",
-              year: "numeric",
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric',
             },
           )
-        : t("about.info.notAvailable"),
+        : t('about.info.notAvailable'),
     },
-    { label: t("about.info.age"), value: ageInYears },
-    { label: t("about.info.website"), value: contact.social.website.label },
-    { label: t("about.info.email"), value: contact.email },
-    { label: t("about.info.phone"), value: contact.phone },
-    { label: t("about.info.city"), value: personalInfo.location.city },
+    { label: t('about.info.age'), value: ageInYears },
+    { label: t('about.info.website'), value: contact.social.website.label },
+    { label: t('about.info.email'), value: contact.email },
+    { label: t('about.info.phone'), value: contact.phone },
+    { label: t('about.info.city'), value: personalInfo.location.city },
     {
-      label: t("about.info.availability"),
-      value: personalInfo.availability.join(", "),
+      label: t('about.info.availability'),
+      value: personalInfo.availability.join(', '),
     },
     {
-      label: t("about.info.languages"),
-      value: personalInfo.languages.join(", "),
+      label: t('about.info.languages'),
+      value: personalInfo.languages.join(', '),
     },
   ]
 
@@ -59,8 +59,7 @@ export const AboutPersonalInfoSection: React.FC = () => {
           {personalInfoData.map((item, index) => (
             <div key={index} className={`${infoItem} padd-15`}>
               <p className={infoItemP}>
-                {item.label} :{" "}
-                <span className={infoItemSpan}>{item.value}</span>
+                {item.label} : <span className={infoItemSpan}>{item.value}</span>
               </p>
             </div>
           ))}
@@ -73,10 +72,10 @@ export const AboutPersonalInfoSection: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {t("about.actions.downloadCv")}
+              {t('about.actions.downloadCv')}
             </a>
             <a href="#contact" className={`btn hire-me ${btnMargin}`}>
-              {t("about.actions.hireMe")}
+              {t('about.actions.hireMe')}
             </a>
           </div>
         </div>

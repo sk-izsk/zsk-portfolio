@@ -1,7 +1,7 @@
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import type { PropsWithChildren } from "react"
-import React from "react"
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import type { PropsWithChildren } from 'react'
+import React from 'react'
 import {
   serviceH4,
   serviceIcon,
@@ -11,7 +11,7 @@ import {
   serviceItemInner,
   serviceItemInnerHover,
   serviceP,
-} from "./services.css"
+} from './services.css'
 
 type ServiceCardRootProps = PropsWithChildren
 
@@ -40,10 +40,7 @@ const ServiceCardRoot: React.FC<ServiceCardRootProps> = ({ children }) => {
 const ServiceCardIcon: React.FC<ServiceCardIconProps> = ({ icon }) => {
   return (
     <div className={`${serviceIcon} ${serviceItemInnerHover}`}>
-      <FontAwesomeIcon
-        className={`${serviceIconFA} ${serviceIconFAHover}`}
-        icon={icon}
-      />
+      <FontAwesomeIcon className={`${serviceIconFA} ${serviceIconFAHover}`} icon={icon} />
     </div>
   )
 }

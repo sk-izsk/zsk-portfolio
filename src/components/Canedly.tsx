@@ -1,9 +1,9 @@
-import { faComments } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useEffect, useRef, useState } from "react"
-import { PopupModal } from "react-calendly"
-import { useTranslation } from "react-i18next"
-import { useThemeStore } from "../stores/themeStore"
+import { faComments } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useEffect, useRef, useState } from 'react'
+import { PopupModal } from 'react-calendly'
+import { useTranslation } from 'react-i18next'
+import { useThemeStore } from '../stores/themeStore'
 import {
   floatingContainer,
   triggerButton,
@@ -12,18 +12,18 @@ import {
   triggerIcon,
   triggerLabel,
   triggerLabelVisible,
-} from "./canedly.css"
+} from './canedly.css'
 
 const colorThemes = {
-  "color-1": "#ec1839",
-  "color-2": "#fa5b0f",
-  "color-3": "#37b182",
-  "color-5": "#f021b2",
-  "color-7": "#daa520",
-  "color-9": "#00bfff",
+  'color-1': '#ec1839',
+  'color-2': '#fa5b0f',
+  'color-3': '#37b182',
+  'color-5': '#f021b2',
+  'color-7': '#daa520',
+  'color-9': '#00bfff',
 } as const
 
-const stripHexPrefix = (value: string) => value.replace(/^#/, "")
+const stripHexPrefix = (value: string) => value.replace(/^#/, '')
 
 export const Canedly = () => {
   const { t } = useTranslation()
@@ -35,12 +35,11 @@ export const Canedly = () => {
   const buttonRef = useRef<HTMLButtonElement>(null)
 
   const currentAccentColor =
-    colorThemes[currentColor as keyof typeof colorThemes] ??
-    colorThemes["color-1"]
-  const rootElement = document.getElementById("root") ?? document.body
-  const supportsHover = window.matchMedia("(hover: hover)").matches
+    colorThemes[currentColor as keyof typeof colorThemes] ?? colorThemes['color-1']
+  const rootElement = document.getElementById('root') ?? document.body
+  const supportsHover = window.matchMedia('(hover: hover)').matches
   const isActive = isExpanded || isPinned
-  const buttonText = t("common.calendly.cta")
+  const buttonText = t('common.calendly.cta')
 
   useEffect(() => {
     const handleDocumentClick = (event: MouseEvent) => {
@@ -52,10 +51,10 @@ export const Canedly = () => {
       }
     }
 
-    document.addEventListener("mousedown", handleDocumentClick)
+    document.addEventListener('mousedown', handleDocumentClick)
 
     return () => {
-      document.removeEventListener("mousedown", handleDocumentClick)
+      document.removeEventListener('mousedown', handleDocumentClick)
     }
   }, [])
 
@@ -93,9 +92,7 @@ export const Canedly = () => {
           aria-label={buttonText}
         >
           <FontAwesomeIcon icon={faComments} className={triggerIcon} />
-          <span
-            className={`${triggerLabel} ${isActive ? triggerLabelVisible : ""}`}
-          >
+          <span className={`${triggerLabel} ${isActive ? triggerLabelVisible : ''}`}>
             {buttonText}
           </span>
         </button>
@@ -108,8 +105,8 @@ export const Canedly = () => {
         onModalClose={() => setIsOpen(false)}
         pageSettings={{
           primaryColor: stripHexPrefix(currentAccentColor),
-          backgroundColor: isDarkMode ? "151515" : "fdf9ff",
-          textColor: isDarkMode ? "ffffff" : "302e4d",
+          backgroundColor: isDarkMode ? '151515' : 'fdf9ff',
+          textColor: isDarkMode ? 'ffffff' : '302e4d',
         }}
       />
     </>

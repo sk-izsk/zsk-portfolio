@@ -1,9 +1,9 @@
-import { faCog } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import React from "react"
-import type { ThemeColor } from "../../stores/themeStore"
-import { s_icon, settingsIcon, styleSwitcherToggler } from "./styleSwitcher.css"
-import { StyleSwitcherThemeColors } from "./StyleSwitcherThemeColors"
+import { faCog } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from 'react'
+import type { ThemeColor } from '../../stores/themeStore'
+import { s_icon, settingsIcon, styleSwitcherToggler } from './styleSwitcher.css'
+import { StyleSwitcherThemeColors } from './StyleSwitcherThemeColors'
 
 interface StyleSwitcherSettingsProps {
   currentColor: string
@@ -20,17 +20,10 @@ export const StyleSwitcherSettings: React.FC<StyleSwitcherSettingsProps> = ({
 }) => {
   return (
     <>
-      <div
-        className={styleSwitcherToggler}
-        onClick={onToggleOpen}
-        aria-expanded={isOpen}
-      >
+      <div className={styleSwitcherToggler} onClick={onToggleOpen} aria-expanded={isOpen}>
         <FontAwesomeIcon icon={faCog} className={`${s_icon} ${settingsIcon}`} />
       </div>
-      <StyleSwitcherThemeColors
-        currentColor={currentColor}
-        onChangeColor={onChangeColor}
-      />
+      <StyleSwitcherThemeColors currentColor={currentColor} onChangeColor={onChangeColor} />
     </>
   )
 }
