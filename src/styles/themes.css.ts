@@ -1,450 +1,84 @@
 import { createTheme } from "@vanilla-extract/css"
+import { createDarkThemeConfig, createLightThemeConfig } from "../utils/theme"
 import { vars } from "./theme.css"
 
-export const lightTheme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#f2f2fc",
-      100: "#fdf9ff",
-      50: "#e8dfec",
-    },
-    text: {
-      900: "#302e4d",
-      700: "#504e70",
-    },
-    skin: "#ec1839",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
+const skinByColor = {
+  "color-1": "#ec1839",
+  "color-2": "#fa5b0f",
+  "color-3": "#37b182",
+  "color-5": "#f021b2",
+  "color-7": "#daa520",
+  "color-9": "#00bfff",
+} as const
+
+export const lightTheme = createTheme(
+  vars,
+  createLightThemeConfig(skinByColor["color-1"]),
+)
 
 // Color theme variations - light mode base
-export const color1Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#f2f2fc",
-      100: "#fdf9ff",
-      50: "#e8dfec",
-    },
-    text: {
-      900: "#302e4d",
-      700: "#504e70",
-    },
-    skin: "#ec1839",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
+export const color1Theme = createTheme(
+  vars,
+  createLightThemeConfig(skinByColor["color-1"]),
+)
 
-export const color2Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#f2f2fc",
-      100: "#fdf9ff",
-      50: "#e8dfec",
-    },
-    text: {
-      900: "#302e4d",
-      700: "#504e70",
-    },
-    skin: "#fa5b0f",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
+export const color2Theme = createTheme(
+  vars,
+  createLightThemeConfig(skinByColor["color-2"]),
+)
 
-export const color3Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#f2f2fc",
-      100: "#fdf9ff",
-      50: "#e8dfec",
-    },
-    text: {
-      900: "#302e4d",
-      700: "#504e70",
-    },
-    skin: "#37b182",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
+export const color3Theme = createTheme(
+  vars,
+  createLightThemeConfig(skinByColor["color-3"]),
+)
 
-export const color4Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#f2f2fc",
-      100: "#fdf9ff",
-      50: "#e8dfec",
-    },
-    text: {
-      900: "#302e4d",
-      700: "#504e70",
-    },
-    skin: "#1854b4",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
-
-export const color5Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#f2f2fc",
-      100: "#fdf9ff",
-      50: "#e8dfec",
-    },
-    text: {
-      900: "#302e4d",
-      700: "#504e70",
-    },
-    skin: "#f021b2",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
+export const color5Theme = createTheme(
+  vars,
+  createLightThemeConfig(skinByColor["color-5"]),
+)
 
 // Dark theme variations
-export const darkColor1Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#151515",
-      100: "#222222",
-      50: "#393939",
-    },
-    text: {
-      900: "#ffffff",
-      700: "#e9e9e9",
-    },
-    skin: "#ec1839",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
+export const darkColor1Theme = createTheme(
+  vars,
+  createDarkThemeConfig(skinByColor["color-1"]),
+)
 
-export const darkColor2Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#151515",
-      100: "#222222",
-      50: "#393939",
-    },
-    text: {
-      900: "#ffffff",
-      700: "#e9e9e9",
-    },
-    skin: "#fa5b0f",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
+export const darkColor2Theme = createTheme(
+  vars,
+  createDarkThemeConfig(skinByColor["color-2"]),
+)
 
-export const darkColor3Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#151515",
-      100: "#222222",
-      50: "#393939",
-    },
-    text: {
-      900: "#ffffff",
-      700: "#e9e9e9",
-    },
-    skin: "#37b182",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
+export const darkColor3Theme = createTheme(
+  vars,
+  createDarkThemeConfig(skinByColor["color-3"]),
+)
 
-export const darkColor4Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#151515",
-      100: "#222222",
-      50: "#393939",
-    },
-    text: {
-      900: "#ffffff",
-      700: "#e9e9e9",
-    },
-    skin: "#1854b4",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
-
-export const darkColor5Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#151515",
-      100: "#222222",
-      50: "#393939",
-    },
-    text: {
-      900: "#ffffff",
-      700: "#e9e9e9",
-    },
-    skin: "#f021b2",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
+export const darkColor5Theme = createTheme(
+  vars,
+  createDarkThemeConfig(skinByColor["color-5"]),
+)
 
 // Additional light color themes
-export const color6Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#f2f2fc",
-      100: "#fdf9ff",
-      50: "#e8dfec",
-    },
-    text: {
-      900: "#302e4d",
-      700: "#504e70",
-    },
-    skin: "#8a2be2",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
+export const color7Theme = createTheme(
+  vars,
+  createLightThemeConfig(skinByColor["color-7"]),
+)
 
-export const color7Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#f2f2fc",
-      100: "#fdf9ff",
-      50: "#e8dfec",
-    },
-    text: {
-      900: "#302e4d",
-      700: "#504e70",
-    },
-    skin: "#daa520",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
-
-export const color8Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#f2f2fc",
-      100: "#fdf9ff",
-      50: "#e8dfec",
-    },
-    text: {
-      900: "#302e4d",
-      700: "#504e70",
-    },
-    skin: "#00ced1",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
-
-export const color9Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#f2f2fc",
-      100: "#fdf9ff",
-      50: "#e8dfec",
-    },
-    text: {
-      900: "#302e4d",
-      700: "#504e70",
-    },
-    skin: "#00bfff",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
-
-export const color10Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#f2f2fc",
-      100: "#fdf9ff",
-      50: "#e8dfec",
-    },
-    text: {
-      900: "#302e4d",
-      700: "#504e70",
-    },
-    skin: "#2e8b57",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
+export const color9Theme = createTheme(
+  vars,
+  createLightThemeConfig(skinByColor["color-9"]),
+)
 
 // Additional dark color themes
-export const darkColor6Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#151515",
-      100: "#222222",
-      50: "#393939",
-    },
-    text: {
-      900: "#ffffff",
-      700: "#e9e9e9",
-    },
-    skin: "#8a2be2",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
+export const darkColor7Theme = createTheme(
+  vars,
+  createDarkThemeConfig(skinByColor["color-7"]),
+)
 
-export const darkColor7Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#151515",
-      100: "#222222",
-      50: "#393939",
-    },
-    text: {
-      900: "#ffffff",
-      700: "#e9e9e9",
-    },
-    skin: "#daa520",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
-
-export const darkColor8Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#151515",
-      100: "#222222",
-      50: "#393939",
-    },
-    text: {
-      900: "#ffffff",
-      700: "#e9e9e9",
-    },
-    skin: "#00ced1",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
-
-export const darkColor9Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#151515",
-      100: "#222222",
-      50: "#393939",
-    },
-    text: {
-      900: "#ffffff",
-      700: "#e9e9e9",
-    },
-    skin: "#00bfff",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
-
-export const darkColor10Theme = createTheme(vars, {
-  color: {
-    background: {
-      900: "#151515",
-      100: "#222222",
-      50: "#393939",
-    },
-    text: {
-      900: "#ffffff",
-      700: "#e9e9e9",
-    },
-    skin: "#2e8b57",
-  },
-  font: {
-    family: {
-      primary: '"JetBrains Mono", monospace',
-      script: '"Clicker Script", cursive',
-    },
-  },
-})
+export const darkColor9Theme = createTheme(
+  vars,
+  createDarkThemeConfig(skinByColor["color-9"]),
+)
 
 // Default dark theme (alias for darkColor1Theme)
 export const darkTheme = darkColor1Theme

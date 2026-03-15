@@ -4,13 +4,9 @@ export type ThemeColor =
   | "color-1"
   | "color-2"
   | "color-3"
-  | "color-4"
   | "color-5"
-  | "color-6"
   | "color-7"
-  | "color-8"
   | "color-9"
-  | "color-10"
 
 const DEFAULT_THEME_COLOR: ThemeColor = "color-1"
 const DEFAULT_DARK_MODE = true
@@ -20,13 +16,9 @@ const isThemeColor = (value: string): value is ThemeColor => {
     value === "color-1" ||
     value === "color-2" ||
     value === "color-3" ||
-    value === "color-4" ||
     value === "color-5" ||
-    value === "color-6" ||
     value === "color-7" ||
-    value === "color-8" ||
-    value === "color-9" ||
-    value === "color-10"
+    value === "color-9"
   )
 }
 

@@ -83,7 +83,7 @@ export const dayNightIcon = style({
 })
 
 export const heading = style({
-  margin: "20px 0 15px",
+  margin: "2px 0 8px",
   color: vars.color.text[700],
   fontSize: "16px",
   fontWeight: 600,
@@ -91,11 +91,11 @@ export const heading = style({
 })
 
 export const colors = style({
-  display: "grid",
-  gridTemplateColumns: "repeat(5, 28px)",
-  gridTemplateRows: "repeat(2, 28px)",
+  display: "flex",
+  flexWrap: "wrap",
   gap: "8px",
-  justifyContent: "center",
+  justifyContent: "flex-start",
+  alignItems: "center",
   width: "100%",
 })
 
@@ -116,26 +116,14 @@ export const colorItem = style({
     "&.color-3": {
       background: "#37b182",
     },
-    "&.color-4": {
-      background: "#1854b4",
-    },
     "&.color-5": {
       background: "#f021b2",
-    },
-    "&.color-6": {
-      background: "#8a2be2",
     },
     "&.color-7": {
       background: "#daa520",
     },
-    "&.color-8": {
-      background: "#00ced1",
-    },
     "&.color-9": {
       background: "#00bfff",
-    },
-    "&.color-10": {
-      background: "#2e8b57",
     },
     "&.active": {
       border: "2px solid #fff",

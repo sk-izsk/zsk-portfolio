@@ -1,25 +1,17 @@
 import React, { useEffect, useRef, useState } from "react"
 import { useThemeStore } from "../../stores/themeStore"
 import {
-  color10Theme,
   color1Theme,
   color2Theme,
   color3Theme,
-  color4Theme,
   color5Theme,
-  color6Theme,
   color7Theme,
-  color8Theme,
   color9Theme,
-  darkColor10Theme,
   darkColor1Theme,
   darkColor2Theme,
   darkColor3Theme,
-  darkColor4Theme,
   darkColor5Theme,
-  darkColor6Theme,
   darkColor7Theme,
-  darkColor8Theme,
   darkColor9Theme,
   darkTheme,
   lightTheme,
@@ -27,6 +19,24 @@ import {
 import { styleSwitcher, styleSwitcherOpen } from "./styleSwitcher.css"
 import { StyleSwitcherSettings } from "./StyleSwitcherSettings"
 import { StyleSwitcherToggleTheme } from "./StyleSwitcherToggleTheme"
+
+const lightThemeByColor = {
+  "color-1": color1Theme,
+  "color-2": color2Theme,
+  "color-3": color3Theme,
+  "color-5": color5Theme,
+  "color-7": color7Theme,
+  "color-9": color9Theme,
+} as const
+
+const darkThemeByColor = {
+  "color-1": darkColor1Theme,
+  "color-2": darkColor2Theme,
+  "color-3": darkColor3Theme,
+  "color-5": darkColor5Theme,
+  "color-7": darkColor7Theme,
+  "color-9": darkColor9Theme,
+} as const
 
 export const StyleSwitcher: React.FC = () => {
   const isDarkMode = useThemeStore((state) => state.isDarkMode)
@@ -37,68 +47,47 @@ export const StyleSwitcher: React.FC = () => {
   const styleSwitcherRef = useRef<HTMLDivElement>(null)
 
   const toggleSwitcher = () => {
-    setIsOpen(!isOpen)
+    setIsOpen((prevState) => !prevState)
   }
 
   // Hide style switcher on mouse wheel or touch move
   useEffect(() => {
-    const handleHide = () => {
-      if (isOpen) {
-        setIsOpen(false)
-      }
+    if (!isOpen) {
+      return
     }
 
-    const handleWheel = () => handleHide()
-    const handleTouchMove = () => handleHide()
+    const handleHide = () => {
+      setIsOpen(false)
+    }
 
-    window.addEventListener("wheel", handleWheel)
-    window.addEventListener("touchmove", handleTouchMove)
+    window.addEventListener("wheel", handleHide)
+    window.addEventListener("touchmove", handleHide)
 
     return () => {
-      window.removeEventListener("wheel", handleWheel)
-      window.removeEventListener("touchmove", handleTouchMove)
+      window.removeEventListener("wheel", handleHide)
+      window.removeEventListener("touchmove", handleHide)
     }
   }, [isOpen])
 
-  // Handle click outside to close style switcher
+  // Apply selected theme class to body
   useEffect(() => {
     document.body.className = ""
 
-    let themeClass = lightTheme
-
-    if (isDarkMode) {
-      if (currentColor === "color-1") themeClass = darkColor1Theme
-      else if (currentColor === "color-2") themeClass = darkColor2Theme
-      else if (currentColor === "color-3") themeClass = darkColor3Theme
-      else if (currentColor === "color-4") themeClass = darkColor4Theme
-      else if (currentColor === "color-5") themeClass = darkColor5Theme
-      else if (currentColor === "color-6") themeClass = darkColor6Theme
-      else if (currentColor === "color-7") themeClass = darkColor7Theme
-      else if (currentColor === "color-8") themeClass = darkColor8Theme
-      else if (currentColor === "color-9") themeClass = darkColor9Theme
-      else if (currentColor === "color-10") themeClass = darkColor10Theme
-      else themeClass = darkTheme
-    } else {
-      if (currentColor === "color-1") themeClass = color1Theme
-      else if (currentColor === "color-2") themeClass = color2Theme
-      else if (currentColor === "color-3") themeClass = color3Theme
-      else if (currentColor === "color-4") themeClass = color4Theme
-      else if (currentColor === "color-5") themeClass = color5Theme
-      else if (currentColor === "color-6") themeClass = color6Theme
-      else if (currentColor === "color-7") themeClass = color7Theme
-      else if (currentColor === "color-8") themeClass = color8Theme
-      else if (currentColor === "color-9") themeClass = color9Theme
-      else if (currentColor === "color-10") themeClass = color10Theme
-      else themeClass = lightTheme
-    }
+    const themeClass = isDarkMode
+      ? (darkThemeByColor[currentColor] ?? darkTheme)
+      : (lightThemeByColor[currentColor] ?? lightTheme)
 
     document.body.classList.add(themeClass)
   }, [isDarkMode, currentColor])
 
+  // Handle click outside to close style switcher
   useEffect(() => {
+    if (!isOpen) {
+      return
+    }
+
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        isOpen &&
         styleSwitcherRef.current &&
         !styleSwitcherRef.current.contains(event.target as Node)
       ) {
