@@ -1,7 +1,7 @@
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
-import { Tag } from "../Tag/Tag"
+import { Tag } from "../tag/Tag"
 import {
   skillCategoryContainer,
   skillCategoryTitle,

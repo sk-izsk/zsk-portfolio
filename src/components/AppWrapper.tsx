@@ -8,8 +8,8 @@ import { usePortfolioStore } from "../stores/portfolioStore"
 import { useSidebarStore } from "../stores/sidebarStore"
 import "../styles/global.css"
 import { Canedly } from "./Canedly"
-import { Sidebar } from "./Sidebar/Sidebar"
-import { StyleSwitcher } from "./StyleSwitcher/StyleSwitcher"
+import { Sidebar } from "./sidebar/Sidebar"
+import { StyleSwitcher } from "./styleSwitcher/StyleSwitcher"
 
 const queryClient = new QueryClient({
   defaultOptions: {

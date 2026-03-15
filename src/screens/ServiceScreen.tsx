@@ -11,11 +11,11 @@ import {
 import { useTitle } from "ahooks"
 import React from "react"
 import { Screen } from "../components/Screen"
-import { ServiceCard } from "../components/Services/ServiceCard"
+import { ServiceCard } from "../components/services/ServiceCard"
 import {
   serviceContainer,
   serviceRow,
-} from "../components/Services/services.css"
+} from "../components/services/services.css"
 import {
   usePortfolioError,
   usePortfolioLoading,

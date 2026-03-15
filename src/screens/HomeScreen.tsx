@@ -1,10 +1,10 @@
 import { useTitle } from "ahooks"
 import React from "react"
-import { HomeDetailBio } from "../components/Home/HomeDetailBio"
-import { HomeDownloadCv } from "../components/Home/HomeDownloadCv"
-import { HomeImageContainer } from "../components/Home/HomeImageContainer"
-import { HomeTitleAnimated } from "../components/Home/HomeTitleAnimated"
-import { home, homeInfo, homeRow } from "../components/Home/home.css"
+import { HomeDetailBio } from "../components/home/HomeDetailBio"
+import { HomeDownloadCv } from "../components/home/HomeDownloadCv"
+import { HomeImageContainer } from "../components/home/HomeImageContainer"
+import { HomeTitleAnimated } from "../components/home/HomeTitleAnimated"
+import { home, homeInfo, homeRow } from "../components/home/home.css"
 import { Screen } from "../components/Screen"
 import {
   usePersonalInfo,

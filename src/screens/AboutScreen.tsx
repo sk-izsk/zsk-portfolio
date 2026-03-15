@@ -1,8 +1,8 @@
 import React from "react"
-import { AboutPersonalInfoSection } from "../components/About/AboutPersonalInfoSection"
-import { AboutPersonalIntro } from "../components/About/AboutPersonalIntro"
-import { ActivitiesSection } from "../components/About/ActivitiesSection"
-import { aboutContent } from "../components/About/about.css"
+import { AboutPersonalInfoSection } from "../components/about/AboutPersonalInfoSection"
+import { AboutPersonalIntro } from "../components/about/AboutPersonalIntro"
+import { ActivitiesSection } from "../components/about/ActivitiesSection"
+import { aboutContent } from "../components/about/about.css"
 import { Screen } from "../components/Screen"
 import {
   usePortfolioError,

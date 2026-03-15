@@ -2,7 +2,7 @@ import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import { useSkills } from "../../stores/portfolioStore"
-import { title } from "../About/about.css"
+import { title } from "../about/about.css"
 import { SkillRateItem } from "./SkillRateItem"
 import { skillsSection } from "./skills.css"
 

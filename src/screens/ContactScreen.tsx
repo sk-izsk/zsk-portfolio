@@ -1,8 +1,8 @@
 import { useTitle } from "ahooks"
 import React from "react"
-import { ContactFormSection } from "../components/Contact/ContactFormSection"
-import { ContactSocialsSection } from "../components/Contact/ContactSocialsSection"
-import { contactContainer } from "../components/Contact/contact.css"
+import { ContactFormSection } from "../components/contact/ContactFormSection"
+import { ContactSocialsSection } from "../components/contact/ContactSocialsSection"
+import { contactContainer } from "../components/contact/contact.css"
 import { Screen } from "../components/Screen"
 import {
   usePortfolioError,

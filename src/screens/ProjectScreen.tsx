@@ -1,12 +1,12 @@
 import { useTitle } from "ahooks"
 import React from "react"
-import { ProjectCard } from "../components/Projects/ProjectCard"
+import { ProjectCard } from "../components/projects/ProjectCard"
 import {
   blogContainer,
   blogGrid,
   blogHeading,
   blogHeadingH2,
-} from "../components/Projects/projects.css"
+} from "../components/projects/projects.css"
 import { Screen } from "../components/Screen"
 import {
   usePortfolioError,

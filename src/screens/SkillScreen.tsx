@@ -1,9 +1,9 @@
 import { useTitle } from "ahooks"
 import React from "react"
 import { Screen } from "../components/Screen"
-import { SkillsRate } from "../components/Skills/SkillsRate"
-import { SkillsTag } from "../components/Skills/SkillsTag"
-import { skillsContainer } from "../components/Skills/skills.css"
+import { SkillsRate } from "../components/skills/SkillsRate"
+import { SkillsTag } from "../components/skills/SkillsTag"
+import { skillsContainer } from "../components/skills/skills.css"
 import {
   usePortfolioError,
   usePortfolioLoading,
