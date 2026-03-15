@@ -86,7 +86,7 @@ const About = lazy(() => import("./screens/AboutScreen"))
 const Services = lazy(() => import("./components/Services/Services"))
 const Skills = lazy(() => import("./components/Skills/Skills"))
 const Projects = lazy(() => import("./components/Projects/Projects"))
-const Contact = lazy(() => import("./components/Contact/Contact"))
+const Contact = lazy(() => import("./screens/ContactScreen"))
 
 // Loading component
 const PageLoader = () => {
