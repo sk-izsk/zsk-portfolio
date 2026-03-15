@@ -1,8 +1,33 @@
 import React from "react"
-import { About } from "../components/About/About"
+import { AboutPersonalInfoSection } from "../components/About/AboutPersonalInfoSection"
+import { AboutPersonalIntro } from "../components/About/AboutPersonalIntro"
+import { ActivitiesSection } from "../components/About/ActivitiesSection"
+import { aboutContent } from "../components/About/about.css"
+import { Screen } from "../components/Screen"
+import {
+  usePortfolioError,
+  usePortfolioLoading,
+} from "../stores/portfolioStore"
 
 const AboutScreen: React.FC = () => {
-  return <About />
+  const loading = usePortfolioLoading()
+  const error = usePortfolioError()
+
+  return (
+    <section className="about section active" id="about">
+      <div className="container">
+        <Screen isLoading={loading} isError={Boolean(error)} title="About Me">
+          <div className="row">
+            <div className={`${aboutContent} padd-15`}>
+              <AboutPersonalIntro />
+              <AboutPersonalInfoSection />
+              <ActivitiesSection />
+            </div>
+          </div>
+        </Screen>
+      </div>
+    </section>
+  )
 }
 
 export default AboutScreen
