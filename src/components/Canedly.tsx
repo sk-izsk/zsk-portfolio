@@ -40,6 +40,7 @@ export const Canedly = () => {
   const rootElement = document.getElementById("root") ?? document.body
   const supportsHover = window.matchMedia("(hover: hover)").matches
   const isActive = isExpanded || isPinned
+  const buttonText = t("common.calendly.cta")
 
   useEffect(() => {
     const handleDocumentClick = (event: MouseEvent) => {
@@ -89,13 +90,13 @@ export const Canedly = () => {
             }
           }}
           onClick={handleButtonClick}
-          aria-label={t("common.calendly.cta")}
+          aria-label={buttonText}
         >
           <FontAwesomeIcon icon={faComments} className={triggerIcon} />
           <span
             className={`${triggerLabel} ${isActive ? triggerLabelVisible : ""}`}
           >
-            {t("common.calendly.cta")}
+            {buttonText}
           </span>
         </button>
       </div>

@@ -25,7 +25,7 @@ export const triggerButton = style({
   gap: "10px",
   padding: "0 16px",
   boxShadow: "0 10px 30px rgba(0, 0, 0, 0.22)",
-  transition: "width 220ms ease, transform 200ms ease",
+  transition: "width 380ms ease, transform 260ms ease",
   transformOrigin: "right center",
   overflow: "hidden",
   selectors: {
@@ -47,7 +47,8 @@ export const triggerCollapsed = style({
 })
 
 export const triggerExpanded = style({
-  width: "286px",
+  width: "fit-content",
+  maxWidth: "90vw",
   justifyContent: "flex-start",
 })
 
@@ -63,7 +64,7 @@ export const triggerLabel = style({
   opacity: 0,
   transform: "translateX(8px)",
   maxWidth: 0,
-  transition: "opacity 180ms ease, transform 220ms ease, max-width 220ms ease",
+  transition: "opacity 260ms ease, transform 360ms ease, max-width 360ms ease",
 })
 
 export const triggerLabelVisible = style({
