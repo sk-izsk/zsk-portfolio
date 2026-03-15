@@ -1,12 +1,13 @@
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import { useSkills } from "../../stores/portfolioStore"
 import { title } from "../About/about.css"
-import { skillsSection } from "./skills.css"
 import { SkillRateItem } from "./SkillRateItem"
+import { skillsSection } from "./skills.css"
 
 interface SkillsRateSectionProps {
-  icon: "laptop-code" | "server" | "code" | "cog"
+  icon: IconDefinition
   titleText: string
   category: "frontend" | "backend" | "language" | "tools"
 }
@@ -17,7 +18,8 @@ export const SkillsRateSection: React.FC<SkillsRateSectionProps> = ({
   category,
 }) => {
   const skillsData = useSkills()
-  const skills = skillsData?.technical?.filter((skill) => skill.category === category) ?? []
+  const skills =
+    skillsData?.technical?.filter((skill) => skill.category === category) ?? []
 
   return (
     <div className={`${skillsSection} padd-15`}>
@@ -27,7 +29,11 @@ export const SkillsRateSection: React.FC<SkillsRateSectionProps> = ({
       </h3>
       <div className="row">
         {skills.map((skill, index) => (
-          <SkillRateItem key={`${skill.name}-${index}`} name={skill.name} level={skill.level} />
+          <SkillRateItem
+            key={`${skill.name}-${index}`}
+            name={skill.name}
+            level={skill.level}
+          />
         ))}
       </div>
     </div>

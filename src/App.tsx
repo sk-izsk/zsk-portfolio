@@ -1,5 +1,4 @@
 import { AppWrapper } from "./components/AppWrapper"
-import "./lib/fontawesome"
 import { AppRoutes } from "./routes/AppRoutes"
 
 const App = () => {

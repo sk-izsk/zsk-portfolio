@@ -1,11 +1,24 @@
-import type { IconProp } from "@fortawesome/fontawesome-svg-core"
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
+import {
+  faGithub,
+  faInstagram,
+  faLinkedin,
+  faTelegram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons"
+import {
+  faEnvelope,
+  faGlobeEurope,
+  faMapMarkerAlt,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons"
 import React from "react"
 import { useContactInfo, usePersonalInfo } from "../../stores/portfolioStore"
 import { contactSubTitle, contactTitle } from "./contact.css"
 import { ContactSocialCard } from "./ContactSocialCard"
 
 interface ContactSocialItem {
-  icon: IconProp
+  icon: IconDefinition
   title: string
   details: string
   url?: string
@@ -21,53 +34,53 @@ export const ContactSocialsSection: React.FC = () => {
 
   const contactInfo: ContactSocialItem[] = [
     {
-      icon: "phone",
+      icon: faPhone,
       title: "Call Us On",
       details: contact.phone,
     },
     {
-      icon: "map-marker-alt",
+      icon: faMapMarkerAlt,
       title: "Location",
       details: `${personalInfo.location.city}, ${personalInfo.location.country}`,
     },
     {
-      icon: "envelope",
+      icon: faEnvelope,
       title: "Email",
       details: contact.email,
       url: `mailto:${contact.email}`,
     },
     {
-      icon: "globe-europe",
+      icon: faGlobeEurope,
       title: "Website",
       details: contact.social.website.label,
       url: contact.social.website.url,
     },
     {
-      icon: ["fab", "github"],
+      icon: faGithub,
       title: "GitHub",
       details: contact.social.github.label,
       url: contact.social.github.url,
     },
     {
-      icon: ["fab", "linkedin"],
+      icon: faLinkedin,
       title: "LinkedIn",
       details: contact.social.linkedin.label,
       url: contact.social.linkedin.url,
     },
     {
-      icon: ["fab", "twitter"],
+      icon: faTwitter,
       title: "Twitter",
       details: contact.social.twitter.label,
       url: contact.social.twitter.url,
     },
     {
-      icon: ["fab", "instagram"],
+      icon: faInstagram,
       title: "Instagram",
       details: contact.social.instagram.label,
       url: contact.social.instagram.url,
     },
     {
-      icon: ["fab", "telegram"],
+      icon: faTelegram,
       title: "Telegram",
       details: contact.social.telegram.label,
       url: contact.social.telegram.url,

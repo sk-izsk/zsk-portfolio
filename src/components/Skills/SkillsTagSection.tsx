@@ -1,3 +1,4 @@
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import { Tag } from "../Tag/Tag"
@@ -8,7 +9,7 @@ import {
 } from "./skills.css"
 
 interface SkillsTagSectionProps {
-  icon: "laptop-code" | "server" | "code" | "cog" | "vial" | "graduation-cap"
+  icon: IconDefinition
   titleText: string
   tags: string[]
 }

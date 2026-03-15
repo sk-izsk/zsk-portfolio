@@ -1,3 +1,11 @@
+import {
+  faBriefcase,
+  faCogs,
+  faComments,
+  faHome,
+  faList,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons"
 import React from "react"
 import {
   usePersonalInfo,
@@ -33,22 +41,22 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const loading = usePortfolioLoading()
 
   const navigationItems: SidebarNavigationItem[] = [
-    { id: "home", label: "Home", icon: "home", path: "/" },
-    { id: "about", label: "About", icon: "user", path: "/about" },
-    { id: "service", label: "Services", icon: "list", path: "/services" },
+    { id: "home", label: "Home", icon: faHome, path: "/" },
+    { id: "about", label: "About", icon: faUser, path: "/about" },
+    { id: "service", label: "Services", icon: faList, path: "/services" },
     {
       id: "portfolio",
       label: "Skills",
-      icon: "cogs",
+      icon: faCogs,
       path: "/portfolio",
     },
     {
       id: "projects",
       label: "Projects",
-      icon: "briefcase",
+      icon: faBriefcase,
       path: "/projects",
     },
-    { id: "contact", label: "Contact", icon: "comments", path: "/contact" },
+    { id: "contact", label: "Contact", icon: faComments, path: "/contact" },
   ]
 
   const getLogoText = () => {

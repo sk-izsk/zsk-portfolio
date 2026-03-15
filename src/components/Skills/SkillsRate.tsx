@@ -1,3 +1,9 @@
+import {
+  faCode,
+  faCog,
+  faLaptopCode,
+  faServer,
+} from "@fortawesome/free-solid-svg-icons"
 import React from "react"
 import { SkillsRateSection } from "./SkillsRateSection"
 
@@ -6,24 +12,24 @@ export const SkillsRate: React.FC = () => {
     <>
       <div className="row">
         <SkillsRateSection
-          icon="laptop-code"
+          icon={faLaptopCode}
           titleText="Frontend Skills"
           category="frontend"
         />
         <SkillsRateSection
-          icon="server"
+          icon={faServer}
           titleText="Backend Skills"
           category="backend"
         />
       </div>
       <div className="row">
         <SkillsRateSection
-          icon="code"
+          icon={faCode}
           titleText="Programming Languages"
           category="language"
         />
         <SkillsRateSection
-          icon="cog"
+          icon={faCog}
           titleText="Development Tools"
           category="tools"
         />

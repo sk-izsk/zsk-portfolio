@@ -1,3 +1,7 @@
+import {
+  faBookOpenReader,
+  faCalendarDays,
+} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import type { BlogPost } from "../../types/portfolio"
@@ -33,7 +37,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               rel={isExternal ? "noopener noreferrer" : undefined}
             >
               <p className={blogInfoP}>
-                <FontAwesomeIcon icon="book-open-reader" />
+                <FontAwesomeIcon icon={faBookOpenReader} />
                 <i className={`fa fa-book-open-reader ${blogInfoIcon}`} />
                 {project.category}
               </p>
@@ -41,7 +45,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           </div>
           <div className="date">
             <p className={blogInfoP}>
-              <FontAwesomeIcon icon="calendar-days" />
+              <FontAwesomeIcon icon={faCalendarDays} />
               <i className={`fa fa-calendar-days ${blogInfoIcon}`} />
               {new Date(project.publishDate).toLocaleDateString()}
             </p>

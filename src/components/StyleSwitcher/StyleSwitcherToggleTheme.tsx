@@ -1,3 +1,4 @@
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import { dayNight, dayNightIcon, s_icon } from "./styleSwitcher.css"
@@ -13,7 +14,7 @@ export const StyleSwitcherToggleTheme: React.FC<
   return (
     <div className={dayNight} onClick={onToggleDarkMode}>
       <FontAwesomeIcon
-        icon={isDarkMode ? "sun" : "moon"}
+        icon={isDarkMode ? faSun : faMoon}
         className={`${s_icon} ${dayNightIcon}`}
       />
     </div>

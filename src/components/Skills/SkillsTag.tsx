@@ -1,3 +1,11 @@
+import {
+  faCode,
+  faCog,
+  faGraduationCap,
+  faLaptopCode,
+  faServer,
+  faVial,
+} from "@fortawesome/free-solid-svg-icons"
 import React from "react"
 import { useSkills } from "../../stores/portfolioStore"
 import { SkillsTagSection } from "./SkillsTagSection"
@@ -12,32 +20,32 @@ export const SkillsTag: React.FC = () => {
   return (
     <>
       <SkillsTagSection
-        icon="laptop-code"
+        icon={faLaptopCode}
         titleText="Frontend Development"
         tags={categories.frontend ?? []}
       />
       <SkillsTagSection
-        icon="server"
+        icon={faServer}
         titleText="Backend Development"
         tags={categories.backend ?? []}
       />
       <SkillsTagSection
-        icon="code"
+        icon={faCode}
         titleText="Programming Languages"
         tags={categories.languages ?? []}
       />
       <SkillsTagSection
-        icon="cog"
+        icon={faCog}
         titleText="Development Tools"
         tags={categories.tools ?? []}
       />
       <SkillsTagSection
-        icon="vial"
+        icon={faVial}
         titleText="Testing Frameworks"
         tags={categories.testing ?? []}
       />
       <SkillsTagSection
-        icon="graduation-cap"
+        icon={faGraduationCap}
         titleText="Currently Learning"
         tags={categories.learning ?? []}
       />

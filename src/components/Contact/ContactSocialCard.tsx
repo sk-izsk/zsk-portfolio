@@ -1,4 +1,4 @@
-import type { IconProp } from "@fortawesome/fontawesome-svg-core"
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import {
@@ -11,7 +11,7 @@ import {
 } from "./contact.css"
 
 interface ContactSocialCardProps {
-  icon: IconProp
+  icon: IconDefinition
   title: string
   details: string
   url?: string

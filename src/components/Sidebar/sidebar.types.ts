@@ -1,15 +1,8 @@
-export type SidebarIconName =
-  | "home"
-  | "user"
-  | "list"
-  | "cogs"
-  | "briefcase"
-  | "comments"
-  | "envelope"
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 
 export interface SidebarNavigationItem {
   id: string
   label: string
-  icon: SidebarIconName
+  icon: IconDefinition
   path: string
 }

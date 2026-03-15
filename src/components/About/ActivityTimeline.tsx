@@ -1,3 +1,4 @@
+import { faCalendar } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import {
@@ -39,7 +40,7 @@ export const ActivityTimeline: React.FC<ActivityTimelineProps> = ({
               <div key={item.id} className={timelineItem}>
                 <div className={circleDot}></div>
                 <h3 className={timelineDate}>
-                  <FontAwesomeIcon icon="calendar" /> {item.duration}
+                  <FontAwesomeIcon icon={faCalendar} /> {item.duration}
                 </h3>
                 <h4 className={timelineTitle}>{item.heading}</h4>
                 <p className={timelineText}>{item.description}</p>

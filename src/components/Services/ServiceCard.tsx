@@ -1,3 +1,4 @@
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import {
@@ -11,20 +12,11 @@ import {
   serviceP,
 } from "./services.css"
 
-export type ServiceIconName =
-  | "code"
-  | "palette"
-  | "chart-line"
-  | "mobile-alt"
-  | "search"
-  | "bullhorn"
-  | "cubes"
-
 interface ServiceCardProps {
   id: number
   title: string
   description: string
-  icon: ServiceIconName
+  icon: IconDefinition
 }
 
 export const ServiceCard: React.FC<ServiceCardProps> = ({

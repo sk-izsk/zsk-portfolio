@@ -1,10 +1,17 @@
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
+import {
+  faBullhorn,
+  faChartLine,
+  faCode,
+  faCubes,
+  faMobileAlt,
+  faPalette,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons"
 import { useTitle } from "ahooks"
 import React from "react"
 import { Screen } from "../components/Screen"
-import {
-  ServiceCard,
-  type ServiceIconName,
-} from "../components/Services/ServiceCard"
+import { ServiceCard } from "../components/Services/ServiceCard"
 import {
   serviceContainer,
   serviceRow,
@@ -15,23 +22,19 @@ import {
   useServices,
 } from "../stores/portfolioStore"
 
-const serviceIconNames: ServiceIconName[] = [
-  "code",
-  "palette",
-  "chart-line",
-  "mobile-alt",
-  "search",
-  "bullhorn",
-  "cubes",
-]
-
-const isServiceIconName = (value: string): value is ServiceIconName => {
-  return serviceIconNames.includes(value as ServiceIconName)
+const serviceIconMap: Record<string, IconDefinition> = {
+  code: faCode,
+  palette: faPalette,
+  "chart-line": faChartLine,
+  "mobile-alt": faMobileAlt,
+  search: faSearch,
+  bullhorn: faBullhorn,
+  cubes: faCubes,
 }
 
-const toServiceIconName = (rawIcon: string): ServiceIconName => {
+const toServiceIcon = (rawIcon: string): IconDefinition => {
   const normalized = rawIcon.replace("fa-", "")
-  return isServiceIconName(normalized) ? normalized : "code"
+  return serviceIconMap[normalized] ?? faCode
 }
 
 const ServiceScreen: React.FC = () => {
@@ -57,7 +60,7 @@ const ServiceScreen: React.FC = () => {
                   id={service.id}
                   title={service.title}
                   description={service.description}
-                  icon={toServiceIconName(service.icon)}
+                  icon={toServiceIcon(service.icon)}
                 />
               ))}
             </div>
