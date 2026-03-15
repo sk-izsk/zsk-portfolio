@@ -1,6 +1,7 @@
-import { useContactInfo, usePersonalInfo } from "../../stores/portfolioStore"
 import dayjs from "dayjs"
 import React from "react"
+import { useTranslation } from "react-i18next"
+import { useContactInfo, usePersonalInfo } from "../../stores/portfolioStore"
 import {
   btnMargin,
   buttons,
@@ -11,6 +12,7 @@ import {
 } from "./about.css"
 
 export const AboutPersonalInfoSection: React.FC = () => {
+  const { t, i18n } = useTranslation()
   const personalInfo = usePersonalInfo()
   const contact = useContactInfo()
 
@@ -23,16 +25,31 @@ export const AboutPersonalInfoSection: React.FC = () => {
 
   const personalInfoData = [
     {
-      label: "Birthday",
-      value: birthday.isValid() ? birthday.format("MMMM D, YYYY") : "N/A",
+      label: t("about.info.birthday"),
+      value: birthday.isValid()
+        ? new Date(personalInfo.birthday).toLocaleDateString(
+            i18n.resolvedLanguage === "fr" ? "fr-FR" : "en-US",
+            {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            },
+          )
+        : t("about.info.notAvailable"),
     },
-    { label: "Age", value: ageInYears },
-    { label: "Website", value: contact.social.website.label },
-    { label: "Email", value: contact.email },
-    { label: "Phone", value: contact.phone },
-    { label: "City", value: personalInfo.location.city },
-    { label: "Availability", value: personalInfo.availability.join(", ") },
-    { label: "Languages", value: personalInfo.languages.join(", ") },
+    { label: t("about.info.age"), value: ageInYears },
+    { label: t("about.info.website"), value: contact.social.website.label },
+    { label: t("about.info.email"), value: contact.email },
+    { label: t("about.info.phone"), value: contact.phone },
+    { label: t("about.info.city"), value: personalInfo.location.city },
+    {
+      label: t("about.info.availability"),
+      value: personalInfo.availability.join(", "),
+    },
+    {
+      label: t("about.info.languages"),
+      value: personalInfo.languages.join(", "),
+    },
   ]
 
   return (
@@ -42,7 +59,8 @@ export const AboutPersonalInfoSection: React.FC = () => {
           {personalInfoData.map((item, index) => (
             <div key={index} className={`${infoItem} padd-15`}>
               <p className={infoItemP}>
-                {item.label} : <span className={infoItemSpan}>{item.value}</span>
+                {item.label} :{" "}
+                <span className={infoItemSpan}>{item.value}</span>
               </p>
             </div>
           ))}
@@ -55,10 +73,10 @@ export const AboutPersonalInfoSection: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Download CV
+              {t("about.actions.downloadCv")}
             </a>
             <a href="#contact" className={`btn hire-me ${btnMargin}`}>
-              Hire Me
+              {t("about.actions.hireMe")}
             </a>
           </div>
         </div>

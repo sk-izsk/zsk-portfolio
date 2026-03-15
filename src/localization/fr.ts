@@ -1,4 +1,5 @@
 import { aboutFr } from "../components/about/localization/fr"
+import { commonFr } from "../components/common/localization/fr"
 import { contactFr } from "../components/contact/localization/fr"
 import { homeFr } from "../components/home/localization/fr"
 import { projectsFr } from "../components/projects/localization/fr"
@@ -8,6 +9,7 @@ import { skillsFr } from "../components/skills/localization/fr"
 
 export const fr = {
   about: aboutFr,
+  common: commonFr,
   contact: contactFr,
   home: homeFr,
   projects: projectsFr,

@@ -1,8 +1,10 @@
 import React, { useState } from "react"
+import { useTranslation } from "react-i18next"
 import { btn, contactForm, contactTitle, formItem } from "./contact.css"
 import { ContactFormField } from "./ContactFormField"
 
 export const ContactFormSection: React.FC = () => {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,7 +28,7 @@ export const ContactFormSection: React.FC = () => {
 
   return (
     <>
-      <h3 className={`${contactTitle} padd-15`}>SEND ME AN EMAIL</h3>
+      <h3 className={`${contactTitle} padd-15`}>{t("contact.form.heading")}</h3>
       <div className="row">
         <div className={`${contactForm} padd-15`}>
           <form onSubmit={handleSubmit}>
@@ -34,7 +36,7 @@ export const ContactFormSection: React.FC = () => {
               <ContactFormField
                 type="text"
                 name="name"
-                placeholder="Name"
+                placeholder={t("contact.form.placeholders.name")}
                 value={formData.name}
                 onChange={handleInputChange}
                 halfWidth
@@ -42,7 +44,7 @@ export const ContactFormSection: React.FC = () => {
               <ContactFormField
                 type="email"
                 name="email"
-                placeholder="Email"
+                placeholder={t("contact.form.placeholders.email")}
                 value={formData.email}
                 onChange={handleInputChange}
                 halfWidth
@@ -52,7 +54,7 @@ export const ContactFormSection: React.FC = () => {
               <ContactFormField
                 type="text"
                 name="subject"
-                placeholder="Subject"
+                placeholder={t("contact.form.placeholders.subject")}
                 value={formData.subject}
                 onChange={handleInputChange}
               />
@@ -61,7 +63,7 @@ export const ContactFormSection: React.FC = () => {
               <ContactFormField
                 type="textarea"
                 name="message"
-                placeholder="Message"
+                placeholder={t("contact.form.placeholders.message")}
                 value={formData.message}
                 onChange={handleInputChange}
               />
@@ -70,7 +72,7 @@ export const ContactFormSection: React.FC = () => {
               <div className={`${formItem} padd-15`}>
                 <div className="form-group">
                   <button type="submit" className={btn}>
-                    Send Message
+                    {t("contact.form.submit")}
                   </button>
                 </div>
               </div>

@@ -72,8 +72,11 @@ const ProjectCardTimeLink: React.FC<ProjectCardTimeLinkProps> = ({
   href,
   isExternal,
 }) => {
+  const { i18n } = useTranslation()
   const linkAttrs = getLinkAttrs(isExternal)
-  const readableDate = new Date(publishDate).toLocaleDateString()
+  const readableDate = new Date(publishDate).toLocaleDateString(
+    i18n.resolvedLanguage === "fr" ? "fr-FR" : "en-US",
+  )
 
   return (
     <div className={projectInfo}>

@@ -1,4 +1,5 @@
 import { PopupWidget } from "react-calendly"
+import { useTranslation } from "react-i18next"
 import { useThemeStore } from "../stores/themeStore"
 
 const colorThemes = {
@@ -13,6 +14,7 @@ const colorThemes = {
 const stripHexPrefix = (value: string) => value.replace(/^#/, "")
 
 export const Canedly = () => {
+  const { t } = useTranslation()
   const isDarkMode = useThemeStore((state) => state.isDarkMode)
   const currentColor = useThemeStore((state) => state.currentColor)
 
@@ -25,7 +27,7 @@ export const Canedly = () => {
     <PopupWidget
       url="https://calendly.com/izsk/60min"
       rootElement={rootElement}
-      text="Want to book a meeting ?"
+      text={t("common.calendly.cta")}
       color={currentAccentColor}
       textColor="#ffffff"
       branding={false}

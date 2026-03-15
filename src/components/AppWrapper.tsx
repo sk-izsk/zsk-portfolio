@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import type { PropsWithChildren } from "react"
 import { useEffect } from "react"
+import { useTranslation } from "react-i18next"
 import { BrowserRouter as Router } from "react-router-dom"
 
 import { usePortfolioData } from "../hooks/usePortfolioData"
@@ -23,9 +24,11 @@ const queryClient = new QueryClient({
 })
 
 const AppLayout = ({ children }: PropsWithChildren) => {
+  const { i18n } = useTranslation()
   const isSidebarOpen = useSidebarStore((state) => state.isOpen)
+  const currentLanguage = i18n.resolvedLanguage === "fr" ? "fr" : "en"
 
-  const portfolioQuery = usePortfolioData()
+  const portfolioQuery = usePortfolioData(currentLanguage)
   const { setData, setLoading, setError } = usePortfolioStore()
 
   useEffect(() => {
@@ -39,6 +42,7 @@ const AppLayout = ({ children }: PropsWithChildren) => {
       setError(portfolioQuery.error.message)
     }
   }, [
+    currentLanguage,
     portfolioQuery.isLoading,
     portfolioQuery.data,
     portfolioQuery.error,

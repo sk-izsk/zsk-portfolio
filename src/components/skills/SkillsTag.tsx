@@ -7,10 +7,12 @@ import {
   faVial,
 } from "@fortawesome/free-solid-svg-icons"
 import React from "react"
+import { useTranslation } from "react-i18next"
 import { useSkills } from "../../stores/portfolioStore"
 import { SkillsTagSection } from "./SkillsTagSection"
 
 export const SkillsTag: React.FC = () => {
+  const { t } = useTranslation()
   const categories = useSkills()?.categories
 
   if (!categories) {
@@ -21,32 +23,32 @@ export const SkillsTag: React.FC = () => {
     <>
       <SkillsTagSection
         icon={faLaptopCode}
-        titleText="Frontend Development"
+        titleText={t("skills.tags.frontend")}
         tags={categories.frontend ?? []}
       />
       <SkillsTagSection
         icon={faServer}
-        titleText="Backend Development"
+        titleText={t("skills.tags.backend")}
         tags={categories.backend ?? []}
       />
       <SkillsTagSection
         icon={faCode}
-        titleText="Programming Languages"
+        titleText={t("skills.tags.languages")}
         tags={categories.languages ?? []}
       />
       <SkillsTagSection
         icon={faCog}
-        titleText="Development Tools"
+        titleText={t("skills.tags.tools")}
         tags={categories.tools ?? []}
       />
       <SkillsTagSection
         icon={faVial}
-        titleText="Testing Frameworks"
+        titleText={t("skills.tags.testing")}
         tags={categories.testing ?? []}
       />
       <SkillsTagSection
         icon={faGraduationCap}
-        titleText="Currently Learning"
+        titleText={t("skills.tags.learning")}
         tags={categories.learning ?? []}
       />
     </>
