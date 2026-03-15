@@ -72,7 +72,7 @@ export interface Service {
   description: string
 }
 
-export interface BlogPost {
+export interface Project {
   id: number
   title: string
   url?: string
@@ -89,5 +89,5 @@ export interface PortfolioData {
   education: Education[]
   experience: Experience[]
   services: Service[]
-  projects: BlogPost[]
+  projects: Project[]
 }
