@@ -1,10 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
-import { Link } from "react-router-dom"
 import {
   usePersonalInfo,
   usePortfolioLoading,
 } from "../../stores/portfolioStore"
+import { SidebarNavItem } from "./SidebarNavItem"
 import {
   aside,
   asideOpen,
@@ -12,15 +11,12 @@ import {
   logoA,
   logoSpan,
   nav,
-  navA,
-  navAActive,
-  navAI,
-  navLi,
   navToggler,
   navTogglerOpen,
   navTogglerOpenSpan,
   navTogglerSpan,
 } from "./sidebar.css"
+import type { SidebarNavigationItem } from "./sidebar.types"
 
 interface SidebarProps {
   activeSection: string
@@ -36,7 +32,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   const personalInfo = usePersonalInfo()
   const loading = usePortfolioLoading()
 
-  const navigationItems = [
+  const navigationItems: SidebarNavigationItem[] = [
     { id: "home", label: "Home", icon: "home", path: "/" },
     { id: "about", label: "About", icon: "user", path: "/about" },
     { id: "service", label: "Services", icon: "list", path: "/services" },
@@ -86,28 +82,12 @@ const Sidebar: React.FC<SidebarProps> = ({
       </div>
       <ul className={nav}>
         {navigationItems.map((item) => (
-          <li key={item.id} className={navLi}>
-            <Link
-              to={item.path}
-              className={`${navA} ${activeSection === item.id ? navAActive : ""}`}
-              onClick={(e) => handleNavClick(item.id, e)}
-            >
-              <FontAwesomeIcon
-                className={navAI}
-                icon={
-                  item.icon as
-                    | "home"
-                    | "user"
-                    | "list"
-                    | "cogs"
-                    | "briefcase"
-                    | "comments"
-                    | "envelope"
-                }
-              />{" "}
-              {item.label}
-            </Link>
-          </li>
+          <SidebarNavItem
+            key={item.id}
+            item={item}
+            isActive={activeSection === item.id}
+            onClick={(e) => handleNavClick(item.id, e)}
+          />
         ))}
       </ul>
     </div>
