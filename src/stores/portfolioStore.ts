@@ -45,21 +45,7 @@ export const useExperience = () =>
 export const useServices = () =>
   usePortfolioStore((state) => state.data?.services)
 
-export const useProjects = () =>
-  usePortfolioStore((state) => state.data?.projects)
-
-export const useTestimonials = () =>
-  usePortfolioStore((state) => state.data?.testimonials)
-
 export const useBlog = () => usePortfolioStore((state) => state.data?.blog)
-
-export const usePortfolio = () =>
-  usePortfolioStore((state) => state.data?.portfolio)
-
-export const useOfferings = () =>
-  usePortfolioStore((state) => state.data?.offerings)
-
-export const useMeta = () => usePortfolioStore((state) => state.data?.meta)
 
 // Loading state selectors
 export const usePortfolioLoading = () =>
