@@ -33,7 +33,7 @@ const getCurrentSection = (path: string) => {
   if (path === "/about") return "about"
   if (path === "/services") return "service"
   if (path === "/portfolio") return "portfolio"
-  if (path === "/projects" || path === "/blog") return "projects"
+  if (path === "/projects") return "projects"
   if (path === "/contact") return "contact"
   return "home"
 }

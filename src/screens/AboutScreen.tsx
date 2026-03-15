@@ -1,8 +1,8 @@
 import React from "react"
+import { aboutContent } from "../components/about/about.css"
 import { AboutPersonalInfoSection } from "../components/about/AboutPersonalInfoSection"
 import { AboutPersonalIntro } from "../components/about/AboutPersonalIntro"
 import { ActivitiesSection } from "../components/about/ActivitiesSection"
-import { aboutContent } from "../components/about/about.css"
 import { Screen } from "../components/Screen"
 import {
   usePortfolioError,
@@ -14,19 +14,20 @@ const AboutScreen: React.FC = () => {
   const error = usePortfolioError()
 
   return (
-    <section className="about section active" id="about">
-      <div className="container">
-        <Screen isLoading={loading} isError={Boolean(error)} title="About Me">
-          <div className="row">
-            <div className={`${aboutContent} padd-15`}>
-              <AboutPersonalIntro />
-              <AboutPersonalInfoSection />
-              <ActivitiesSection />
-            </div>
-          </div>
-        </Screen>
+    <Screen
+      sectionId="about"
+      isLoading={loading}
+      isError={Boolean(error)}
+      title="About Me"
+    >
+      <div className="row">
+        <div className={`${aboutContent} padd-15`}>
+          <AboutPersonalIntro />
+          <AboutPersonalInfoSection />
+          <ActivitiesSection />
+        </div>
       </div>
-    </section>
+    </Screen>
   )
 }
 

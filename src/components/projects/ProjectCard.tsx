@@ -4,22 +4,22 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
-import type { BlogPost } from "../../types/portfolio"
+import type { Project } from "../../types/portfolio"
 import { Tag } from "../tag/Tag"
 import {
-  blogContent,
-  blogInfo,
-  blogInfoIcon,
-  blogInfoP,
-  blogItem,
-  blogItemInner,
-  blogLink,
-  blogTags,
-  blogTitle,
+  projectContent,
+  projectInfo,
+  projectInfoIcon,
+  projectInfoText,
+  projectItem,
+  projectItemInner,
+  projectLink,
+  projectTags,
+  projectTitle,
 } from "./projects.css"
 
 interface ProjectCardProps {
-  project: BlogPost
+  project: Project
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
@@ -27,26 +27,26 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const isExternal = projectHref.startsWith("http")
 
   return (
-    <div className={blogItem}>
-      <div className={blogItemInner}>
-        <div className={blogInfo}>
+    <div className={projectItem}>
+      <div className={projectItemInner}>
+        <div className={projectInfo}>
           <div className="category">
             <a
               href={projectHref}
               target={isExternal ? "_blank" : undefined}
               rel={isExternal ? "noopener noreferrer" : undefined}
             >
-              <p className={blogInfoP}>
+              <p className={projectInfoText}>
                 <FontAwesomeIcon icon={faBookOpenReader} />
-                <i className={`fa fa-book-open-reader ${blogInfoIcon}`} />
+                <i className={`fa fa-book-open-reader ${projectInfoIcon}`} />
                 {project.category}
               </p>
             </a>
           </div>
           <div className="date">
-            <p className={blogInfoP}>
+            <p className={projectInfoText}>
               <FontAwesomeIcon icon={faCalendarDays} />
-              <i className={`fa fa-calendar-days ${blogInfoIcon}`} />
+              <i className={`fa fa-calendar-days ${projectInfoIcon}`} />
               {new Date(project.publishDate).toLocaleDateString()}
             </p>
           </div>
@@ -57,13 +57,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           target={isExternal ? "_blank" : undefined}
           rel={isExternal ? "noopener noreferrer" : undefined}
         >
-          <h4 className={blogTitle}>{project.title}</h4>
+          <h4 className={projectTitle}>{project.title}</h4>
         </a>
 
-        <p className={blogContent}>{project.excerpt}</p>
+        <p className={projectContent}>{project.excerpt}</p>
 
         {project.tags?.length > 0 && (
-          <div className={blogTags}>
+          <div className={projectTags}>
             {project.tags.map((value) => (
               <Tag key={`${project.id}-${value}`} label={value} />
             ))}
@@ -72,7 +72,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
         <a
           href={projectHref}
-          className={blogLink}
+          className={projectLink}
           target={isExternal ? "_blank" : undefined}
           rel={isExternal ? "noopener noreferrer" : undefined}
         >

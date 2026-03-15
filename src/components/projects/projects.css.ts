@@ -1,11 +1,7 @@
 import { style } from "@vanilla-extract/css"
 import { vars } from "../../styles/theme.css"
 
-export const blogContainer = style({
-  paddingBottom: "40px",
-})
-
-export const blogGrid = style({
+export const projectGrid = style({
   display: "grid",
   gridTemplateColumns: "repeat(auto-fill, minmax(300px, 300px))",
   justifyContent: "start",
@@ -20,18 +16,18 @@ export const blogGrid = style({
   },
 })
 
-export const blogHeading = style({
+export const projectHeading = style({
   flex: "0 0 100%",
   maxWidth: "100%",
   marginBottom: "40px",
 })
 
-export const blogHeadingH2 = style({
+export const projectHeadingTitle = style({
   color: vars.color.text[900],
   fontWeight: 500,
 })
 
-export const blogItem = style({
+export const projectItem = style({
   display: "flex",
   flexDirection: "column",
   width: "100%",
@@ -39,7 +35,7 @@ export const blogItem = style({
   margin: 0,
 })
 
-export const blogItemInner = style({
+export const projectItemInner = style({
   backgroundColor: vars.color.background[100],
   border: `1px solid ${vars.color.background[50]}`,
   borderRadius: "10px",
@@ -54,11 +50,11 @@ export const blogItemInner = style({
   },
 })
 
-export const blogImage = style({
+export const projectImage = style({
   marginBottom: "20px",
 })
 
-export const blogImageImg = style({
+export const projectImageImg = style({
   width: "100%",
   borderRadius: "10px",
   display: "block",
@@ -66,16 +62,16 @@ export const blogImageImg = style({
   transition: "all 0.3s ease",
 })
 
-export const blogImageImgHover = style({
+export const projectImageImgHover = style({
   selectors: {
-    [`${blogItemInner}:hover &`]: {
+    [`${projectItemInner}:hover &`]: {
       transform: "scale(1.05)",
       borderRadius: "10px",
     },
   },
 })
 
-export const blogInfo = style({
+export const projectInfo = style({
   display: "flex",
   flexWrap: "wrap",
   justifyContent: "space-around",
@@ -83,7 +79,7 @@ export const blogInfo = style({
   paddingBottom: "15px",
 })
 
-export const blogInfoP = style({
+export const projectInfoText = style({
   fontSize: "14px",
   color: vars.color.text[700],
   margin: 0,
@@ -92,12 +88,12 @@ export const blogInfoP = style({
   gap: "4px",
 })
 
-export const blogInfoIcon = style({
+export const projectInfoIcon = style({
   color: vars.color.skin,
   paddingRight: "2px",
 })
 
-export const blogTitle = style({
+export const projectTitle = style({
   fontSize: "18px",
   marginBottom: "15px",
   color: vars.color.text[900],
@@ -105,7 +101,7 @@ export const blogTitle = style({
   textTransform: "capitalize",
 })
 
-export const blogContent = style({
+export const projectContent = style({
   fontSize: "16px",
   color: vars.color.text[700],
   lineHeight: "25px",
@@ -113,7 +109,7 @@ export const blogContent = style({
   flex: 1,
 })
 
-export const blogTags = style({
+export const projectTags = style({
   display: "flex",
   flexWrap: "wrap",
   gap: "8px",
@@ -121,7 +117,7 @@ export const blogTags = style({
   marginBottom: "18px",
 })
 
-export const blogTag = style({
+export const projectTag = style({
   padding: "5px 10px",
   borderRadius: "999px",
   fontSize: "12px",
@@ -138,7 +134,7 @@ export const blogTag = style({
   },
 })
 
-export const blogLink = style({
+export const projectLink = style({
   fontSize: "16px",
   color: vars.color.skin,
   lineHeight: "25px",

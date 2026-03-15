@@ -1,10 +1,6 @@
 import { style } from "@vanilla-extract/css"
 import { vars } from "../../styles/theme.css"
 
-export const contactContainer = style({
-  paddingBottom: "40px",
-})
-
 export const contactTitle = style({
   color: vars.color.skin,
   textAlign: "center",

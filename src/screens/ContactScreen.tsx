@@ -1,5 +1,4 @@
 import React from "react"
-import { contactContainer } from "../components/contact/contact.css"
 import { ContactFormSection } from "../components/contact/ContactFormSection"
 import { ContactSocialsSection } from "../components/contact/ContactSocialsSection"
 import { Screen } from "../components/Screen"
@@ -13,14 +12,15 @@ const ContactScreen: React.FC = () => {
   const error = usePortfolioError()
 
   return (
-    <section className="contact section active" id="contact">
-      <div className={`container ${contactContainer}`}>
-        <Screen isLoading={loading} isError={Boolean(error)} title="Contact Me">
-          <ContactSocialsSection />
-          <ContactFormSection />
-        </Screen>
-      </div>
-    </section>
+    <Screen
+      sectionId="contact"
+      isLoading={loading}
+      isError={Boolean(error)}
+      title="Contact Me"
+    >
+      <ContactSocialsSection />
+      <ContactFormSection />
+    </Screen>
   )
 }
 

@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import type { ReactNode } from "react"
+import type { PropsWithChildren } from "react"
 import { useEffect } from "react"
 import { BrowserRouter as Router } from "react-router-dom"
 
@@ -22,11 +22,7 @@ const queryClient = new QueryClient({
   },
 })
 
-type AppWrapperProps = {
-  children: ReactNode
-}
-
-const AppLayout = ({ children }: AppWrapperProps) => {
+const AppLayout = ({ children }: PropsWithChildren) => {
   const isSidebarOpen = useSidebarStore((state) => state.isOpen)
 
   const portfolioQuery = usePortfolioData()
@@ -65,7 +61,7 @@ const AppLayout = ({ children }: AppWrapperProps) => {
   )
 }
 
-export const AppWrapper = ({ children }: AppWrapperProps) => {
+export const AppWrapper = ({ children }: PropsWithChildren) => {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>

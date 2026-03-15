@@ -110,6 +110,25 @@ globalStyle(".section .container", {
   paddingBottom: "70px",
 })
 
+globalStyle(".screen-container", {
+  paddingBottom: "40px",
+})
+
+globalStyle(".screen-state", {
+  minHeight: "40vh",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  textAlign: "center",
+  fontSize: "16px",
+  color: vars.color.text[700],
+})
+
+globalStyle(".screen-state--error", {
+  color: vars.color.skin,
+  fontWeight: 600,
+})
+
 globalStyle(".section-title", {
   flex: "0 0 100%",
   maxWidth: "100%",

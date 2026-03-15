@@ -1,10 +1,6 @@
 import { style } from "@vanilla-extract/css"
 import { vars } from "../../styles/theme.css"
 
-export const serviceContainer = style({
-  paddingBottom: "40px",
-})
-
 export const serviceRow = style({
   alignItems: "stretch",
 })

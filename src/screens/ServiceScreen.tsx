@@ -11,10 +11,7 @@ import {
 import React from "react"
 import { Screen } from "../components/Screen"
 import { ServiceCard } from "../components/services/ServiceCard"
-import {
-  serviceContainer,
-  serviceRow,
-} from "../components/services/services.css"
+import { serviceRow } from "../components/services/services.css"
 import {
   usePortfolioError,
   usePortfolioLoading,
@@ -42,29 +39,26 @@ const ServiceScreen: React.FC = () => {
   const error = usePortfolioError()
 
   return (
-    <section className="service section active" id="service">
-      <div className={`container ${serviceContainer}`}>
-        <Screen
-          isLoading={loading}
-          isError={Boolean(error || !services)}
-          title="Services"
-        >
-          {services && (
-            <div className={`row ${serviceRow}`}>
-              {services.map((service) => (
-                <ServiceCard
-                  key={service.id}
-                  id={service.id}
-                  title={service.title}
-                  description={service.description}
-                  icon={toServiceIcon(service.icon)}
-                />
-              ))}
-            </div>
-          )}
-        </Screen>
-      </div>
-    </section>
+    <Screen
+      sectionId="service"
+      isLoading={loading}
+      isError={Boolean(error || !services)}
+      title="Services"
+    >
+      {services && (
+        <div className={`row ${serviceRow}`}>
+          {services.map((service) => (
+            <ServiceCard
+              key={service.id}
+              id={service.id}
+              title={service.title}
+              description={service.description}
+              icon={toServiceIcon(service.icon)}
+            />
+          ))}
+        </div>
+      )}
+    </Screen>
   )
 }
 
