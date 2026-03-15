@@ -10,7 +10,7 @@ interface StyleSwitcherProps {
   onChangeColor: (color: string) => void
 }
 
-const StyleSwitcher: React.FC<StyleSwitcherProps> = ({
+export const StyleSwitcher: React.FC<StyleSwitcherProps> = ({
   isDarkMode,
   currentColor,
   onToggleDarkMode,
@@ -80,5 +80,3 @@ const StyleSwitcher: React.FC<StyleSwitcherProps> = ({
     </div>
   )
 }
-
-export default StyleSwitcher
