@@ -6,7 +6,7 @@ import {
   usePortfolioLoading,
   useProjects,
 } from "../../stores/portfolioStore"
-import Screen from "../Screen/Screen"
+import { Screen } from "../Screen"
 import {
   blogContainer,
   blogContent,

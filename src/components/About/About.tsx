@@ -10,7 +10,7 @@ import {
   usePortfolioError,
   usePortfolioLoading,
 } from "../../stores/portfolioStore"
-import Screen from "../Screen/Screen"
+import { Screen } from "../Screen"
 import {
   aboutContent,
   aboutText,
@@ -35,7 +35,7 @@ import {
   title,
 } from "./about.css"
 
-const About: React.FC = () => {
+export const About: React.FC = () => {
   const personalInfo = usePersonalInfo()
   const contact = useContactInfo()
   const educationData = useEducation()
@@ -188,5 +188,3 @@ const About: React.FC = () => {
     </section>
   )
 }
-
-export default About

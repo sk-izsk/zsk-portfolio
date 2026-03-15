@@ -10,7 +10,7 @@ import {
   skillsItemH5,
   title,
 } from "../About/about.css"
-import Screen from "../Screen/Screen"
+import { Screen } from "../Screen"
 import {
   categoryBadge,
   skillCategoryContainer,

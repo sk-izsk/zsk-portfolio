@@ -82,7 +82,7 @@ import {
 
 // Lazy loaded components
 const Home = lazy(() => import("./components/Home/Home"))
-const About = lazy(() => import("./components/About/About"))
+const About = lazy(() => import("./screens/AboutScreen"))
 const Services = lazy(() => import("./components/Services/Services"))
 const Skills = lazy(() => import("./components/Skills/Skills"))
 const Projects = lazy(() => import("./components/Projects/Projects"))

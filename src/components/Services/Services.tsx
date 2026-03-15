@@ -6,7 +6,7 @@ import {
   usePortfolioLoading,
   useServices,
 } from "../../stores/portfolioStore"
-import Screen from "../Screen/Screen"
+import { Screen } from "../Screen"
 import {
   serviceContainer,
   serviceH4,

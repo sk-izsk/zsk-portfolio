@@ -8,7 +8,7 @@ interface ScreenProps {
   children: React.ReactNode
 }
 
-const Screen: React.FC<ScreenProps> = ({
+export const Screen: React.FC<ScreenProps> = ({
   isLoading,
   isError,
   loadingMessage = "Loading...",
@@ -25,5 +25,3 @@ const Screen: React.FC<ScreenProps> = ({
 
   return <>{children}</>
 }
-
-export default Screen

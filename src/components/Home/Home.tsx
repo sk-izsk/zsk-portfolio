@@ -6,7 +6,7 @@ import {
   usePortfolioError,
   usePortfolioLoading,
 } from "../../stores/portfolioStore"
-import Screen from "../Screen/Screen"
+import { Screen } from "../Screen"
 import {
   hello,
   helloName,
