@@ -85,7 +85,7 @@ const Home = lazy(() => import("./screens/HomeScreen"))
 const About = lazy(() => import("./screens/AboutScreen"))
 const Services = lazy(() => import("./components/Services/Services"))
 const Skills = lazy(() => import("./components/Skills/Skills"))
-const Projects = lazy(() => import("./components/Projects/Projects"))
+const Projects = lazy(() => import("./screens/ProjectScreen"))
 const Contact = lazy(() => import("./screens/ContactScreen"))
 
 // Loading component
