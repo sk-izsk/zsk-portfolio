@@ -6,7 +6,7 @@ import {
   faList,
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
 import { usePersonalInfo, usePortfolioLoading } from '../../stores/portfolioStore'
@@ -100,10 +100,18 @@ export const Sidebar: React.FC = () => {
 
   const handleLanguageChange = (language: 'en' | 'fr') => {
     void i18n.changeLanguage(language)
+    if (window.innerWidth < 1200) {
+      closeSidebar()
+    }
   }
 
+  const isOpenRef = useRef(isOpen)
   useEffect(() => {
-    if (window.innerWidth >= 1200 || !isOpen) {
+    isOpenRef.current = isOpen
+  }, [isOpen])
+
+  useEffect(() => {
+    if (window.innerWidth >= 1200 || !isOpenRef.current) {
       return
     }
 
@@ -114,7 +122,7 @@ export const Sidebar: React.FC = () => {
     return () => {
       window.clearTimeout(timeoutId)
     }
-  }, [location.pathname, closeSidebar, isOpen])
+  }, [location.pathname, closeSidebar])
 
   return (
     <div className={`${aside} ${isOpen ? asideOpen : ''}`}>
