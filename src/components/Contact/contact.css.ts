@@ -36,6 +36,13 @@ export const contactInfoItem = style({
   },
 })
 
+export const contactInfoItemLink = style({
+  display: "block",
+  textDecoration: "none",
+  color: "inherit",
+  cursor: "pointer",
+})
+
 export const contactInfoIcon = style({
   display: "inline-block",
 })

@@ -160,6 +160,55 @@
         "category": "tools",
         "color": "#FF4785",
         "icon": "fas fa-book"
+      },
+      {
+        "name": "Tanstack Query",
+        "level": 80,
+        "category": "frontend",
+        "color": "#FF4154",
+        "icon": "fas fa-code"
+      },
+      {
+        "name": "Zustand",
+        "level": 80,
+        "category": "frontend",
+        "color": "#443E38",
+        "icon": "fas fa-code"
+      },
+      {
+        "name": "Tailwind CSS",
+        "level": 60,
+        "category": "frontend",
+        "color": "#38BDF8",
+        "icon": "fas fa-code"
+      },
+      {
+        "name": "Clerk Auth",
+        "level": 50,
+        "category": "frontend",
+        "color": "#6C47FF",
+        "icon": "fas fa-lock"
+      },
+      {
+        "name": "PostgreSQL",
+        "level": 60,
+        "category": "backend",
+        "color": "#336791",
+        "icon": "fas fa-database"
+      },
+      {
+        "name": "Drizzle ORM",
+        "level": 50,
+        "category": "backend",
+        "color": "#C5F74F",
+        "icon": "fas fa-database"
+      },
+      {
+        "name": "Clerk Auth",
+        "level": 50,
+        "category": "backend",
+        "color": "#6C47FF",
+        "icon": "fas fa-lock"
       }
     ],
     "categories": {
@@ -173,8 +222,10 @@
         "React Native",
         "Material-UI",
         "Antd",
-        "React Query",
+        "Tanstack Query",
         "Zustand",
+        "Tailwind CSS",
+        "Clerk Auth",
         "Bootstrap",
         "CSS3",
         "HTML5",
@@ -184,6 +235,9 @@
         "Node.js",
         "Express",
         "MongoDB",
+        "PostgreSQL",
+        "Drizzle ORM",
+        "Clerk Auth",
         "JWT",
         "RESTful API",
         "GraphQL",
@@ -215,7 +269,7 @@
         "Chai",
         "Cypress"
       ],
-      "learning": ["SASS", "Socket.IO", "Firebase", "GraphQL", "PostgreSQL"]
+      "learning": ["SASS", "Socket.IO", "Firebase", "GraphQL"]
     }
   },
 
