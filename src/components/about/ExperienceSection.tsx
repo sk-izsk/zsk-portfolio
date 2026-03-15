@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useMemo } from "react"
 import { useExperience } from "../../stores/portfolioStore"
 import { experience } from "./about.css"
 import { ActivityTimeline } from "./ActivityTimeline"
@@ -6,12 +6,16 @@ import { ActivityTimeline } from "./ActivityTimeline"
 export const ExperienceSection: React.FC = () => {
   const experienceData = useExperience() ?? []
 
-  const items = experienceData.slice(0, 3).map((item, index) => ({
-    id: `exp-${index}`,
-    timeSpan: item.duration,
-    title: `${item.position} at ${item.company}`,
-    body: item.description,
-  }))
+  const items = useMemo(
+    () =>
+      experienceData.slice(0, 3).map((item, index) => ({
+        id: `exp-${index}`,
+        timeSpan: item.duration,
+        title: `${item.position} at ${item.company}`,
+        body: item.description,
+      })),
+    [experienceData],
+  )
 
   return (
     <ActivityTimeline

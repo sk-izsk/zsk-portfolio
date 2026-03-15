@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useMemo } from "react"
 import { useEducation } from "../../stores/portfolioStore"
 import { education } from "./about.css"
 import { ActivityTimeline } from "./ActivityTimeline"
@@ -6,12 +6,16 @@ import { ActivityTimeline } from "./ActivityTimeline"
 export const EducationSection: React.FC = () => {
   const educationData = useEducation() ?? []
 
-  const items = educationData.map((item, index) => ({
-    id: `edu-${index}`,
-    timeSpan: item.duration,
-    title: item.degree,
-    body: item.description,
-  }))
+  const items = useMemo(
+    () =>
+      educationData.map((item, index) => ({
+        id: `edu-${index}`,
+        timeSpan: item.duration,
+        title: item.degree,
+        body: item.description,
+      })),
+    [educationData],
+  )
 
   return (
     <ActivityTimeline

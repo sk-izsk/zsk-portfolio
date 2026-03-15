@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useMemo } from "react"
 import { ProjectCard } from "../components/projects/ProjectCard"
 import {
   projectGrid,
@@ -17,6 +17,20 @@ const ProjectScreen: React.FC = () => {
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
 
+  const projectViewModels = useMemo(
+    () =>
+      (projects ?? []).map((project) => {
+        const projectHref = project.url || "#"
+
+        return {
+          ...project,
+          projectHref,
+          isExternal: projectHref.startsWith("http"),
+        }
+      }),
+    [projects],
+  )
+
   return (
     <Screen
       sectionId="projects"
@@ -33,19 +47,19 @@ const ProjectScreen: React.FC = () => {
             </div>
           </div>
           <div className={`${projectGrid} padd-15`}>
-            {projects.map((project) => {
-              const projectHref = project.url || "#"
-              const isExternal = projectHref.startsWith("http")
-
+            {projectViewModels.map((project) => {
               return (
                 <ProjectCard key={project.id}>
                   <ProjectCard.TimeLink
                     category={project.category}
                     publishDate={project.publishDate}
-                    href={projectHref}
-                    isExternal={isExternal}
+                    href={project.projectHref}
+                    isExternal={project.isExternal}
                   />
-                  <ProjectCard.Title href={projectHref} isExternal={isExternal}>
+                  <ProjectCard.Title
+                    href={project.projectHref}
+                    isExternal={project.isExternal}
+                  >
                     {project.title}
                   </ProjectCard.Title>
                   <ProjectCard.Body>{project.excerpt}</ProjectCard.Body>
@@ -54,8 +68,8 @@ const ProjectScreen: React.FC = () => {
                     tags={project.tags}
                   />
                   <ProjectCard.ReadMore
-                    href={projectHref}
-                    isExternal={isExternal}
+                    href={project.projectHref}
+                    isExternal={project.isExternal}
                   />
                 </ProjectCard>
               )
