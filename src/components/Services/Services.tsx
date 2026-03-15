@@ -16,6 +16,7 @@ import {
   serviceItemInner,
   serviceItemInnerHover,
   serviceP,
+  serviceRow,
 } from "./services.css"
 
 const Services: React.FC = () => {
@@ -54,7 +55,7 @@ const Services: React.FC = () => {
             <h2>Services</h2>
           </div>
         </div>
-        <div className="row">
+        <div className={`row ${serviceRow}`}>
           {services.map((service) => (
             <div key={service.id} className={`${serviceItem} padd-15`}>
               <div className={serviceItemInner}>
@@ -69,6 +70,7 @@ const Services: React.FC = () => {
                         | "mobile-alt"
                         | "search"
                         | "bullhorn"
+                        | "cubes"
                     }
                   />
                 </div>

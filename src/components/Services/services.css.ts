@@ -5,7 +5,12 @@ export const serviceContainer = style({
   paddingBottom: "40px",
 })
 
+export const serviceRow = style({
+  alignItems: "stretch",
+})
+
 export const serviceItem = style({
+  display: "flex",
   marginBottom: "30px",
   flex: "0 0 33.33%",
   maxWidth: "33.33%",
@@ -26,6 +31,10 @@ export const serviceItemInner = style({
   border: `1px solid ${vars.color.background[50]}`,
   borderRadius: "10px",
   padding: "30px 15px",
+  width: "100%",
+  height: "100%",
+  display: "flex",
+  flexDirection: "column",
   textAlign: "center",
   transition: "all 0.3s ease",
   ":hover": {
@@ -79,4 +88,5 @@ export const serviceP = style({
   fontSize: "16px",
   color: vars.color.text[700],
   lineHeight: "25px",
+  marginBottom: 0,
 })

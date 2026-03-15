@@ -32,7 +32,7 @@ const Home: React.FC = () => {
   useEffect(() => {
     if (typingRef.current && !typedInstance.current && personalInfo) {
       const typingStrings = [
-        "",
+        personalInfo.title,
         "Full Stack Developer",
         "React Developer",
         "TypeScript Developer",
@@ -87,8 +87,7 @@ const Home: React.FC = () => {
               <span className={helloName}>{personalInfo.name}</span>
             </h3>
             <h3 className={myProfession}>
-              {personalInfo.profession}{" "}
-              <span className={typing} ref={typingRef}></span>
+              I'm a <span className={typing} ref={typingRef}></span>
             </h3>
             <p className={homeInfoP}>{personalInfo.bio}</p>
             <a

@@ -17,6 +17,7 @@ import {
   faCog,
   faCogs,
   faComments,
+  faCubes,
   faDatabase,
   faEnvelope,
   faGlobeEurope,
@@ -140,6 +141,7 @@ library.add(
   faTelegram,
   faServer,
   faDatabase,
+  faCubes,
   faGraduationCap,
   faVial,
 )
