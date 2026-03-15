@@ -8,16 +8,27 @@ export const EducationSection: React.FC = () => {
 
   const items = educationData.map((item, index) => ({
     id: `edu-${index}`,
-    duration: item.duration,
-    heading: item.degree,
-    description: item.description,
+    timeSpan: item.duration,
+    title: item.degree,
+    body: item.description,
   }))
 
   return (
     <ActivityTimeline
       heading="Education"
       containerClassName={`${education} padd-15`}
-      items={items}
-    />
+    >
+      {items.map((item) => (
+        <ActivityTimeline.Item key={item.id}>
+          <ActivityTimeline.Item.TimeSpan>
+            {item.timeSpan}
+          </ActivityTimeline.Item.TimeSpan>
+          <ActivityTimeline.Item.Title>
+            {item.title}
+          </ActivityTimeline.Item.Title>
+          <ActivityTimeline.Item.Body>{item.body}</ActivityTimeline.Item.Body>
+        </ActivityTimeline.Item>
+      ))}
+    </ActivityTimeline>
   )
 }

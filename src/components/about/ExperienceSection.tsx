@@ -8,16 +8,27 @@ export const ExperienceSection: React.FC = () => {
 
   const items = experienceData.slice(0, 3).map((item, index) => ({
     id: `exp-${index}`,
-    duration: item.duration,
-    heading: `${item.position} at ${item.company}`,
-    description: item.description,
+    timeSpan: item.duration,
+    title: `${item.position} at ${item.company}`,
+    body: item.description,
   }))
 
   return (
     <ActivityTimeline
       heading="Experience"
       containerClassName={`${experience} padd-15`}
-      items={items}
-    />
+    >
+      {items.map((item) => (
+        <ActivityTimeline.Item key={item.id}>
+          <ActivityTimeline.Item.TimeSpan>
+            {item.timeSpan}
+          </ActivityTimeline.Item.TimeSpan>
+          <ActivityTimeline.Item.Title>
+            {item.title}
+          </ActivityTimeline.Item.Title>
+          <ActivityTimeline.Item.Body>{item.body}</ActivityTimeline.Item.Body>
+        </ActivityTimeline.Item>
+      ))}
+    </ActivityTimeline>
   )
 }
