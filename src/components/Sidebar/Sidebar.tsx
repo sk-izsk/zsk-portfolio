@@ -24,7 +24,7 @@ interface SidebarProps {
   toggleSidebar: () => void
 }
 
-const Sidebar: React.FC<SidebarProps> = ({
+export const Sidebar: React.FC<SidebarProps> = ({
   activeSection,
   isOpen,
   toggleSidebar,
@@ -93,5 +93,3 @@ const Sidebar: React.FC<SidebarProps> = ({
     </div>
   )
 }
-
-export default Sidebar

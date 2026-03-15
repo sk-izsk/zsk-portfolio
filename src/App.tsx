@@ -48,12 +48,12 @@ import {
 } from "react-router-dom"
 
 import { Bars } from "react-loader-spinner"
-import Sidebar from "./components/Sidebar/Sidebar"
 import StyleSwitcher from "./components/StyleSwitcher/StyleSwitcher"
 import { usePortfolioData } from "./hooks/usePortfolioData"
 import { usePortfolioStore } from "./stores/portfolioStore"
 
 // Import vanilla-extract styles
+import { Sidebar } from "./components/Sidebar/Sidebar"
 import "./styles/global.css"
 import {
   color10Theme,

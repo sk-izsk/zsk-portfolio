@@ -1,17 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React, { useEffect, useRef, useState } from "react"
-import {
-  colorItem,
-  colors,
-  dayNight,
-  dayNightIcon,
-  heading,
-  s_icon,
-  settingsIcon,
-  styleSwitcher,
-  styleSwitcherOpen,
-  styleSwitcherToggler,
-} from "./styleSwitcher.css"
+import { styleSwitcher, styleSwitcherOpen } from "./styleSwitcher.css"
+import { StyleSwitcherSettings } from "./StyleSwitcherSettings"
+import { StyleSwitcherToggleTheme } from "./StyleSwitcherToggleTheme"
 
 interface StyleSwitcherProps {
   isDarkMode: boolean
@@ -27,35 +17,11 @@ const StyleSwitcher: React.FC<StyleSwitcherProps> = ({
   onChangeColor,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const [activeColor, setActiveColor] = useState(currentColor)
   const styleSwitcherRef = useRef<HTMLDivElement>(null)
-
-  const colorOptions = [
-    { name: "color-1", color: "#ec1839" },
-    { name: "color-2", color: "#fa5b0f" },
-    { name: "color-3", color: "#37b182" },
-    { name: "color-4", color: "#1854b4" },
-    { name: "color-5", color: "#f021b2" },
-    { name: "color-6", color: "#8a2be2" },
-    { name: "color-7", color: "#daa520" },
-    { name: "color-8", color: "#00ced1" },
-    { name: "color-9", color: "#00bfff" },
-    { name: "color-10", color: "#2e8b57" },
-  ]
 
   const toggleSwitcher = () => {
     setIsOpen(!isOpen)
   }
-
-  const handleColorChange = (colorName: string) => {
-    setActiveColor(colorName)
-    onChangeColor(colorName)
-  }
-
-  // Sync activeColor with currentColor prop
-  useEffect(() => {
-    setActiveColor(currentColor)
-  }, [currentColor])
 
   // Hide style switcher on mouse wheel or touch move
   useEffect(() => {
@@ -101,25 +67,16 @@ const StyleSwitcher: React.FC<StyleSwitcherProps> = ({
       ref={styleSwitcherRef}
       className={`${styleSwitcher} ${isOpen ? styleSwitcherOpen : ""}`}
     >
-      <div className={styleSwitcherToggler} onClick={toggleSwitcher}>
-        <FontAwesomeIcon icon="cog" className={`${s_icon} ${settingsIcon}`} />
-      </div>
-      <div className={dayNight} onClick={onToggleDarkMode}>
-        <FontAwesomeIcon
-          icon={isDarkMode ? "sun" : "moon"}
-          className={`${s_icon} ${dayNightIcon}`}
-        />
-      </div>
-      <h4 className={heading}>Theme Colors</h4>
-      <div className={colors}>
-        {colorOptions.map((color) => (
-          <span
-            key={color.name}
-            className={`${colorItem} ${color.name} ${activeColor === color.name ? "active" : ""}`}
-            onClick={() => handleColorChange(color.name)}
-          ></span>
-        ))}
-      </div>
+      <StyleSwitcherSettings
+        currentColor={currentColor}
+        isOpen={isOpen}
+        onToggleOpen={toggleSwitcher}
+        onChangeColor={onChangeColor}
+      />
+      <StyleSwitcherToggleTheme
+        isDarkMode={isDarkMode}
+        onToggleDarkMode={onToggleDarkMode}
+      />
     </div>
   )
 }
