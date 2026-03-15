@@ -1,4 +1,3 @@
-import { useTitle } from "ahooks"
 import React from "react"
 import { ProjectCard } from "../components/projects/ProjectCard"
 import {
@@ -18,8 +17,6 @@ const ProjectScreen: React.FC = () => {
   const projects = useProjects()
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
-
-  useTitle("Projects - ZSK Portfolio")
 
   return (
     <section className="blog section active" id="projects">

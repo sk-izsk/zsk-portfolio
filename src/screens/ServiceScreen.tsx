@@ -8,7 +8,6 @@ import {
   faPalette,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons"
-import { useTitle } from "ahooks"
 import React from "react"
 import { Screen } from "../components/Screen"
 import { ServiceCard } from "../components/services/ServiceCard"
@@ -41,8 +40,6 @@ const ServiceScreen: React.FC = () => {
   const services = useServices()
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
-
-  useTitle("Services - ZSK Portfolio")
 
   return (
     <section className="service section active" id="service">

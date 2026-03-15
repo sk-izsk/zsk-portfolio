@@ -1,4 +1,3 @@
-import { useTitle } from "ahooks"
 import React from "react"
 import { Screen } from "../components/Screen"
 import { SkillsRate } from "../components/skills/SkillsRate"
@@ -14,8 +13,6 @@ const SkillScreen: React.FC = () => {
   const skillsData = useSkills()
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
-
-  useTitle("Skills - ZSK Portfolio")
 
   return (
     <section className="portfolio section active" id="portfolio">

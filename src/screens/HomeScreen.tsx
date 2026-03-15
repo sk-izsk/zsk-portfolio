@@ -1,10 +1,9 @@
-import { useTitle } from "ahooks"
 import React from "react"
+import { home, homeInfo, homeRow } from "../components/home/home.css"
 import { HomeDetailBio } from "../components/home/HomeDetailBio"
 import { HomeDownloadCv } from "../components/home/HomeDownloadCv"
 import { HomeImageContainer } from "../components/home/HomeImageContainer"
 import { HomeTitleAnimated } from "../components/home/HomeTitleAnimated"
-import { home, homeInfo, homeRow } from "../components/home/home.css"
 import { Screen } from "../components/Screen"
 import {
   usePersonalInfo,
@@ -17,12 +16,14 @@ const HomeScreen: React.FC = () => {
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
 
-  useTitle("Home - ZSK Portfolio")
-
   return (
     <section className={`${home} section active`} id="home">
       <div className="container">
-        <Screen isLoading={loading} isError={Boolean(error || !personalInfo)}>
+        <Screen
+          isLoading={loading}
+          isError={Boolean(error || !personalInfo)}
+          pageTitle="Home"
+        >
           <div className={`row ${homeRow}`}>
             <div className={`${homeInfo} padd-15`}>
               <HomeTitleAnimated />

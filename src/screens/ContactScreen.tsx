@@ -1,8 +1,7 @@
-import { useTitle } from "ahooks"
 import React from "react"
+import { contactContainer } from "../components/contact/contact.css"
 import { ContactFormSection } from "../components/contact/ContactFormSection"
 import { ContactSocialsSection } from "../components/contact/ContactSocialsSection"
-import { contactContainer } from "../components/contact/contact.css"
 import { Screen } from "../components/Screen"
 import {
   usePortfolioError,
@@ -12,8 +11,6 @@ import {
 const ContactScreen: React.FC = () => {
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
-
-  useTitle("Contact - ZSK Portfolio")
 
   return (
     <section className="contact section active" id="contact">
