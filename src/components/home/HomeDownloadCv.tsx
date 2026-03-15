@@ -1,6 +1,6 @@
-import React from "react"
-import { useTranslation } from "react-i18next"
-import { usePersonalInfo } from "../../stores/portfolioStore"
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { usePersonalInfo } from '../../stores/portfolioStore'
 
 export const HomeDownloadCv: React.FC = () => {
   const personalInfo = usePersonalInfo()
@@ -11,13 +11,8 @@ export const HomeDownloadCv: React.FC = () => {
   }
 
   return (
-    <a
-      href={personalInfo.resume_link}
-      className="btn"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {t("home.downloadCv")}
+    <a href={personalInfo.resume_link} className="btn" target="_blank" rel="noopener noreferrer">
+      {t('home.downloadCv')}
     </a>
   )
 }

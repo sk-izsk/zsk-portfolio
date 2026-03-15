@@ -41,8 +41,8 @@ public/
 ### Basic Usage
 
 ```tsx
-import React from "react"
-import { usePortfolioData } from "../hooks/usePortfolioData"
+import React from 'react'
+import { usePortfolioData } from '../hooks/usePortfolioData'
 
 export const MyComponent: React.FC = () => {
   const { loading, data, error } = usePortfolioData()
@@ -68,7 +68,7 @@ import {
   getCurrentExperience,
   getSkillsByCategory,
   getFeaturedBlogPosts,
-} from "../hooks/usePortfolioData"
+} from '../hooks/usePortfolioData'
 
 export const Dashboard: React.FC = () => {
   const { data } = usePortfolioData()
@@ -76,7 +76,7 @@ export const Dashboard: React.FC = () => {
   if (!data) return null
 
   const currentJob = getCurrentExperience(data)
-  const frontendSkills = getSkillsByCategory(data, "frontend")
+  const frontendSkills = getSkillsByCategory(data, 'frontend')
   const featuredPosts = getFeaturedBlogPosts(data)
 
   return (
@@ -153,7 +153,7 @@ const allExperience = data.experience
 const currentJob = data.experience.find((exp) => exp.current)
 
 // Get experience by type
-const fullTimeJobs = data.experience.filter((exp) => exp.type === "full-time")
+const fullTimeJobs = data.experience.filter((exp) => exp.type === 'full-time')
 
 // Render experience timeline
 {
@@ -203,12 +203,10 @@ const fullTimeJobs = data.experience.filter((exp) => exp.type === "full-time")
 const recentPosts = data.blog.slice(0, 3)
 
 // Get posts by category
-const reactPosts = data.blog.filter((post) => post.category === "React")
+const reactPosts = data.blog.filter((post) => post.category === 'React')
 
 // Get posts with specific tag
-const typescriptPosts = data.blog.filter((post) =>
-  post.tags.includes("TypeScript"),
-)
+const typescriptPosts = data.blog.filter((post) => post.tags.includes('TypeScript'))
 
 // Render blog grid
 {

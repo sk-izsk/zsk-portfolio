@@ -1,5 +1,5 @@
-import React from "react"
-import { tag } from "./tag.css"
+import React from 'react'
+import { tag } from './tag.css'
 
 interface TagProps {
   label: string

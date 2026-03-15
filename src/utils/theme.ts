@@ -28,25 +28,25 @@ const sharedFont = {
 
 const lightPalette = {
   background: {
-    900: "#f2f2fc",
-    100: "#fdf9ff",
-    50: "#e8dfec",
+    900: '#f2f2fc',
+    100: '#fdf9ff',
+    50: '#e8dfec',
   },
   text: {
-    900: "#302e4d",
-    700: "#504e70",
+    900: '#302e4d',
+    700: '#504e70',
   },
 }
 
 const darkPalette = {
   background: {
-    900: "#151515",
-    100: "#222222",
-    50: "#393939",
+    900: '#151515',
+    100: '#222222',
+    50: '#393939',
   },
   text: {
-    900: "#ffffff",
-    700: "#e9e9e9",
+    900: '#ffffff',
+    700: '#e9e9e9',
   },
 }
 

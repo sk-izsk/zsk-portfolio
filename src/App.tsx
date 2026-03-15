@@ -1,5 +1,5 @@
-import { AppWrapper } from "./components/AppWrapper"
-import { AppRoutes } from "./routes/AppRoutes"
+import { AppWrapper } from './components/AppWrapper'
+import { AppRoutes } from './routes/AppRoutes'
 
 const App = () => {
   return (

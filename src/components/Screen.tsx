@@ -1,6 +1,6 @@
-import { useTitle } from "ahooks"
-import type { PropsWithChildren } from "react"
-import React from "react"
+import { useTitle } from 'ahooks'
+import type { PropsWithChildren } from 'react'
+import React from 'react'
 
 interface ScreenProps extends PropsWithChildren {
   sectionId: string
@@ -22,32 +22,29 @@ export const Screen: React.FC<ScreenProps> = ({
   isError,
   title,
   pageTitle,
-  loadingMessage = "Loading...",
-  errorMessage = "Error loading data",
+  loadingMessage = 'Loading...',
+  errorMessage = 'Error loading data',
   children,
 }) => {
   const resolvedPageTitle = pageTitle ?? title
 
-  useTitle(resolvedPageTitle ?? "")
+  useTitle(resolvedPageTitle ?? '')
 
   const state = isLoading
     ? {
         message: loadingMessage,
-        className: "screen-state screen-state--loading",
+        className: 'screen-state screen-state--loading',
       }
     : isError
       ? {
           message: errorMessage,
-          className: "screen-state screen-state--error",
+          className: 'screen-state screen-state--error',
         }
       : null
 
   return (
-    <section
-      className={`${sectionClassName ?? sectionId} section active`}
-      id={sectionId}
-    >
-      <div className={`container screen-container ${containerClassName ?? ""}`}>
+    <section className={`${sectionClassName ?? sectionId} section active`} id={sectionId}>
+      <div className={`container screen-container ${containerClassName ?? ''}`}>
         {title && (
           <div className="row">
             <div className="section-title padd-15">
@@ -55,11 +52,7 @@ export const Screen: React.FC<ScreenProps> = ({
             </div>
           </div>
         )}
-        {state ? (
-          <div className={state.className}>{state.message}</div>
-        ) : (
-          children
-        )}
+        {state ? <div className={state.className}>{state.message}</div> : children}
       </div>
     </section>
   )

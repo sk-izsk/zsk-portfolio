@@ -1,5 +1,5 @@
-import React from "react"
-import { progress, progressIn, skillPercent, skillsItem, skillsItemH5 } from "../about/about.css"
+import React from 'react'
+import { progress, progressIn, skillPercent, skillsItem, skillsItemH5 } from '../about/about.css'
 
 interface SkillRateItemProps {
   name: string

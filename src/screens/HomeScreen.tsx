@@ -1,15 +1,12 @@
-import React from "react"
-import { useTranslation } from "react-i18next"
-import { home, homeInfo, homeRow } from "../components/home/home.css"
-import { HomeDetailBio } from "../components/home/HomeDetailBio"
-import { HomeDownloadCv } from "../components/home/HomeDownloadCv"
-import { HomeImageContainer } from "../components/home/HomeImageContainer"
-import { HomeTitleAnimated } from "../components/home/HomeTitleAnimated"
-import { Screen } from "../components/Screen"
-import {
-  usePortfolioError,
-  usePortfolioLoading,
-} from "../stores/portfolioStore"
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { home, homeInfo, homeRow } from '../components/home/home.css'
+import { HomeDetailBio } from '../components/home/HomeDetailBio'
+import { HomeDownloadCv } from '../components/home/HomeDownloadCv'
+import { HomeImageContainer } from '../components/home/HomeImageContainer'
+import { HomeTitleAnimated } from '../components/home/HomeTitleAnimated'
+import { Screen } from '../components/Screen'
+import { usePortfolioError, usePortfolioLoading } from '../stores/portfolioStore'
 
 const HomeScreen: React.FC = () => {
   const loading = usePortfolioLoading()
@@ -22,7 +19,7 @@ const HomeScreen: React.FC = () => {
       sectionClassName={home}
       isLoading={loading}
       isError={Boolean(error)}
-      pageTitle={t("home.pageTitle")}
+      pageTitle={t('home.pageTitle')}
     >
       <div className={`row ${homeRow}`}>
         <div className={`${homeInfo} padd-15`}>

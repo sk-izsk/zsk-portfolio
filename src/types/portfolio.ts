@@ -35,7 +35,7 @@ export interface ContactInfo {
 export interface Skill {
   name: string
   level: number
-  category: "frontend" | "backend" | "language" | "tools" | "testing"
+  category: 'frontend' | 'backend' | 'language' | 'tools' | 'testing'
 }
 
 export interface SkillCategories {

@@ -1,6 +1,6 @@
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import React from "react"
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from 'react'
 import {
   contactInfoIcon,
   contactInfoIconFa,
@@ -8,7 +8,7 @@ import {
   contactInfoItemH4,
   contactInfoItemLink,
   contactInfoItemP,
-} from "./contact.css"
+} from './contact.css'
 
 interface ContactSocialCardProps {
   icon: IconDefinition

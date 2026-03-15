@@ -1,22 +1,22 @@
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import {
   faGithub,
   faInstagram,
   faLinkedin,
   faTelegram,
   faTwitter,
-} from "@fortawesome/free-brands-svg-icons"
+} from '@fortawesome/free-brands-svg-icons'
 import {
   faEnvelope,
   faGlobeEurope,
   faMapMarkerAlt,
   faPhone,
-} from "@fortawesome/free-solid-svg-icons"
-import React from "react"
-import { useTranslation } from "react-i18next"
-import { useContactInfo, usePersonalInfo } from "../../stores/portfolioStore"
-import { contactSubTitle, contactTitle } from "./contact.css"
-import { ContactSocialCard } from "./ContactSocialCard"
+} from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { useContactInfo, usePersonalInfo } from '../../stores/portfolioStore'
+import { contactSubTitle, contactTitle } from './contact.css'
+import { ContactSocialCard } from './ContactSocialCard'
 
 interface ContactSocialItem {
   icon: IconDefinition
@@ -37,53 +37,53 @@ export const ContactSocialsSection: React.FC = () => {
   const contactInfo: ContactSocialItem[] = [
     {
       icon: faPhone,
-      title: t("contact.socials.call"),
+      title: t('contact.socials.call'),
       details: contact.phone,
     },
     {
       icon: faMapMarkerAlt,
-      title: t("contact.socials.location"),
+      title: t('contact.socials.location'),
       details: `${personalInfo.location.city}, ${personalInfo.location.country}`,
     },
     {
       icon: faEnvelope,
-      title: t("contact.socials.email"),
+      title: t('contact.socials.email'),
       details: contact.email,
       url: `mailto:${contact.email}`,
     },
     {
       icon: faGlobeEurope,
-      title: t("contact.socials.website"),
+      title: t('contact.socials.website'),
       details: contact.social.website.label,
       url: contact.social.website.url,
     },
     {
       icon: faGithub,
-      title: t("contact.socials.github"),
+      title: t('contact.socials.github'),
       details: contact.social.github.label,
       url: contact.social.github.url,
     },
     {
       icon: faLinkedin,
-      title: t("contact.socials.linkedin"),
+      title: t('contact.socials.linkedin'),
       details: contact.social.linkedin.label,
       url: contact.social.linkedin.url,
     },
     {
       icon: faTwitter,
-      title: t("contact.socials.twitter"),
+      title: t('contact.socials.twitter'),
       details: contact.social.twitter.label,
       url: contact.social.twitter.url,
     },
     {
       icon: faInstagram,
-      title: t("contact.socials.instagram"),
+      title: t('contact.socials.instagram'),
       details: contact.social.instagram.label,
       url: contact.social.instagram.url,
     },
     {
       icon: faTelegram,
-      title: t("contact.socials.telegram"),
+      title: t('contact.socials.telegram'),
       details: contact.social.telegram.label,
       url: contact.social.telegram.url,
     },
@@ -91,12 +91,8 @@ export const ContactSocialsSection: React.FC = () => {
 
   return (
     <>
-      <h3 className={`${contactTitle} padd-15`}>
-        {t("contact.socials.heading")}
-      </h3>
-      <h4 className={`${contactSubTitle} padd-15`}>
-        {t("contact.socials.subHeading")}
-      </h4>
+      <h3 className={`${contactTitle} padd-15`}>{t('contact.socials.heading')}</h3>
+      <h4 className={`${contactSubTitle} padd-15`}>{t('contact.socials.subHeading')}</h4>
       <div className="row">
         {contactInfo.map((item) => (
           <ContactSocialCard

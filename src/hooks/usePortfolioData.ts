@@ -1,6 +1,6 @@
-import { useQuery } from "@tanstack/react-query"
-import type { AppLanguage } from "../localization"
-import { portfolioApi, queryKeys } from "../services/api"
+import { useQuery } from '@tanstack/react-query'
+import type { AppLanguage } from '../localization'
+import { portfolioApi, queryKeys } from '../services/api'
 
 export const usePortfolioData = (language: AppLanguage) => {
   const query = useQuery({

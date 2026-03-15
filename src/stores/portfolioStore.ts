@@ -1,5 +1,5 @@
-import { create } from "zustand"
-import type { PortfolioData } from "../types/portfolio"
+import { create } from 'zustand'
+import type { PortfolioData } from '../types/portfolio'
 
 interface PortfolioStore {
   // State
@@ -28,28 +28,21 @@ export const usePortfolioStore = create<PortfolioStore>((set) => ({
 }))
 
 // Selector hooks for specific data sections to avoid unnecessary re-renders
-export const usePersonalInfo = () =>
-  usePortfolioStore((state) => state.data?.personalInfo)
+export const usePersonalInfo = () => usePortfolioStore((state) => state.data?.personalInfo)
 
-export const useContactInfo = () =>
-  usePortfolioStore((state) => state.data?.contact)
+export const useContactInfo = () => usePortfolioStore((state) => state.data?.contact)
 
 export const useSkills = () => usePortfolioStore((state) => state.data?.skills)
 
-export const useEducation = () =>
-  usePortfolioStore((state) => state.data?.education)
+export const useEducation = () => usePortfolioStore((state) => state.data?.education)
 
-export const useExperience = () =>
-  usePortfolioStore((state) => state.data?.experience)
+export const useExperience = () => usePortfolioStore((state) => state.data?.experience)
 
-export const useServices = () =>
-  usePortfolioStore((state) => state.data?.services)
+export const useServices = () => usePortfolioStore((state) => state.data?.services)
 
-export const useProjects = () =>
-  usePortfolioStore((state) => state.data?.projects)
+export const useProjects = () => usePortfolioStore((state) => state.data?.projects)
 
 // Loading state selectors
-export const usePortfolioLoading = () =>
-  usePortfolioStore((state) => state.loading)
+export const usePortfolioLoading = () => usePortfolioStore((state) => state.loading)
 
 export const usePortfolioError = () => usePortfolioStore((state) => state.error)

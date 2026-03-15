@@ -1,12 +1,9 @@
-import React from "react"
-import { useTranslation } from "react-i18next"
-import { ContactFormSection } from "../components/contact/ContactFormSection"
-import { ContactSocialsSection } from "../components/contact/ContactSocialsSection"
-import { Screen } from "../components/Screen"
-import {
-  usePortfolioError,
-  usePortfolioLoading,
-} from "../stores/portfolioStore"
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { ContactFormSection } from '../components/contact/ContactFormSection'
+import { ContactSocialsSection } from '../components/contact/ContactSocialsSection'
+import { Screen } from '../components/Screen'
+import { usePortfolioError, usePortfolioLoading } from '../stores/portfolioStore'
 
 const ContactScreen: React.FC = () => {
   const loading = usePortfolioLoading()
@@ -18,7 +15,7 @@ const ContactScreen: React.FC = () => {
       sectionId="contact"
       isLoading={loading}
       isError={Boolean(error)}
-      title={t("contact.title")}
+      title={t('contact.title')}
     >
       <ContactSocialsSection />
       <ContactFormSection />

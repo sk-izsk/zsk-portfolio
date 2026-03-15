@@ -5,16 +5,13 @@ import {
   faHome,
   faList,
   faUser,
-} from "@fortawesome/free-solid-svg-icons"
-import React, { useEffect } from "react"
-import { useTranslation } from "react-i18next"
-import { useLocation } from "react-router-dom"
-import {
-  usePersonalInfo,
-  usePortfolioLoading,
-} from "../../stores/portfolioStore"
-import { useSidebarStore } from "../../stores/sidebarStore"
-import { SidebarNavItem } from "./SidebarNavItem"
+} from '@fortawesome/free-solid-svg-icons'
+import React, { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useLocation } from 'react-router-dom'
+import { usePersonalInfo, usePortfolioLoading } from '../../stores/portfolioStore'
+import { useSidebarStore } from '../../stores/sidebarStore'
+import { SidebarNavItem } from './SidebarNavItem'
 import {
   aside,
   asideOpen,
@@ -30,17 +27,17 @@ import {
   navTogglerOpen,
   navTogglerOpenSpan,
   navTogglerSpan,
-} from "./sidebar.css"
-import type { SidebarNavigationItem } from "./sidebar.types"
+} from './sidebar.css'
+import type { SidebarNavigationItem } from './sidebar.types'
 
 const getCurrentSection = (path: string) => {
-  if (path === "/" || path === "/home") return "home"
-  if (path === "/about") return "about"
-  if (path === "/services") return "service"
-  if (path === "/portfolio") return "portfolio"
-  if (path === "/projects") return "projects"
-  if (path === "/contact") return "contact"
-  return "home"
+  if (path === '/' || path === '/home') return 'home'
+  if (path === '/about') return 'about'
+  if (path === '/services') return 'service'
+  if (path === '/portfolio') return 'portfolio'
+  if (path === '/projects') return 'projects'
+  if (path === '/contact') return 'contact'
+  return 'home'
 }
 
 export const Sidebar: React.FC = () => {
@@ -52,45 +49,45 @@ export const Sidebar: React.FC = () => {
   const toggleSidebar = useSidebarStore((state) => state.toggle)
   const closeSidebar = useSidebarStore((state) => state.close)
   const activeSection = getCurrentSection(location.pathname)
-  const currentLanguage = i18n.resolvedLanguage === "fr" ? "fr" : "en"
+  const currentLanguage = i18n.resolvedLanguage === 'fr' ? 'fr' : 'en'
 
   const navigationItems: SidebarNavigationItem[] = [
-    { id: "home", label: t("sidebar.nav.home"), icon: faHome, path: "/" },
+    { id: 'home', label: t('sidebar.nav.home'), icon: faHome, path: '/' },
     {
-      id: "about",
-      label: t("sidebar.nav.about"),
+      id: 'about',
+      label: t('sidebar.nav.about'),
       icon: faUser,
-      path: "/about",
+      path: '/about',
     },
     {
-      id: "service",
-      label: t("sidebar.nav.services"),
+      id: 'service',
+      label: t('sidebar.nav.services'),
       icon: faList,
-      path: "/services",
+      path: '/services',
     },
     {
-      id: "portfolio",
-      label: t("sidebar.nav.skills"),
+      id: 'portfolio',
+      label: t('sidebar.nav.skills'),
       icon: faCogs,
-      path: "/portfolio",
+      path: '/portfolio',
     },
     {
-      id: "projects",
-      label: t("sidebar.nav.projects"),
+      id: 'projects',
+      label: t('sidebar.nav.projects'),
       icon: faBriefcase,
-      path: "/projects",
+      path: '/projects',
     },
     {
-      id: "contact",
-      label: t("sidebar.nav.contact"),
+      id: 'contact',
+      label: t('sidebar.nav.contact'),
       icon: faComments,
-      path: "/contact",
+      path: '/contact',
     },
   ]
 
   const getLogoText = () => {
-    if (loading || !personalInfo) return "Atlas"
-    const firstName = personalInfo.name.split(" ")[1]
+    if (loading || !personalInfo) return 'Atlas'
+    const firstName = personalInfo.name.split(' ')[1]
     return `${firstName.charAt(0).toUpperCase()}${firstName.slice(1).toLowerCase()}`
   }
 
@@ -101,7 +98,7 @@ export const Sidebar: React.FC = () => {
     }
   }
 
-  const handleLanguageChange = (language: "en" | "fr") => {
+  const handleLanguageChange = (language: 'en' | 'fr') => {
     void i18n.changeLanguage(language)
   }
 
@@ -117,10 +114,10 @@ export const Sidebar: React.FC = () => {
     return () => {
       window.clearTimeout(timeoutId)
     }
-  }, [location.pathname, closeSidebar])
+  }, [location.pathname, closeSidebar, isOpen])
 
   return (
-    <div className={`${aside} ${isOpen ? asideOpen : ""}`}>
+    <div className={`${aside} ${isOpen ? asideOpen : ''}`}>
       <div className={logo}>
         <a href="#home" className={logoA}>
           <span className={logoSpan}>{getLogoText().charAt(0)}</span>
@@ -128,29 +125,24 @@ export const Sidebar: React.FC = () => {
         </a>
         <div className={languageSwitcher}>
           <button
-            className={`${languageButton} ${currentLanguage === "en" ? languageButtonActive : ""}`}
+            className={`${languageButton} ${currentLanguage === 'en' ? languageButtonActive : ''}`}
             type="button"
-            onClick={() => handleLanguageChange("en")}
+            onClick={() => handleLanguageChange('en')}
           >
-            {t("sidebar.language.en")}
+            {t('sidebar.language.en')}
           </button>
           <span className={languageDivider}>|</span>
           <button
-            className={`${languageButton} ${currentLanguage === "fr" ? languageButtonActive : ""}`}
+            className={`${languageButton} ${currentLanguage === 'fr' ? languageButtonActive : ''}`}
             type="button"
-            onClick={() => handleLanguageChange("fr")}
+            onClick={() => handleLanguageChange('fr')}
           >
-            {t("sidebar.language.fr")}
+            {t('sidebar.language.fr')}
           </button>
         </div>
       </div>
-      <div
-        className={`${navToggler} ${isOpen ? navTogglerOpen : ""}`}
-        onClick={toggleSidebar}
-      >
-        <span
-          className={`${navTogglerSpan} ${isOpen ? navTogglerOpenSpan : ""}`}
-        ></span>
+      <div className={`${navToggler} ${isOpen ? navTogglerOpen : ''}`} onClick={toggleSidebar}>
+        <span className={`${navTogglerSpan} ${isOpen ? navTogglerOpenSpan : ''}`}></span>
       </div>
       <ul className={nav}>
         {navigationItems.map((item) => (

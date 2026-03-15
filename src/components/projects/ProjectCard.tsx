@@ -1,12 +1,9 @@
-import {
-  faBookOpenReader,
-  faCalendarDays,
-} from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import type { PropsWithChildren } from "react"
-import React from "react"
-import { useTranslation } from "react-i18next"
-import { Tag } from "../tag/Tag"
+import { faBookOpenReader, faCalendarDays } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import type { PropsWithChildren } from 'react'
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { Tag } from '../tag/Tag'
 import {
   projectContent,
   projectInfo,
@@ -17,7 +14,7 @@ import {
   projectLink,
   projectTags,
   projectTitle,
-} from "./projects.css"
+} from './projects.css'
 
 type ProjectCardRootProps = PropsWithChildren
 
@@ -54,8 +51,8 @@ type ProjectCardCompound = React.FC<ProjectCardRootProps> & {
 }
 
 const getLinkAttrs = (isExternal: boolean) => ({
-  target: isExternal ? "_blank" : undefined,
-  rel: isExternal ? "noopener noreferrer" : undefined,
+  target: isExternal ? '_blank' : undefined,
+  rel: isExternal ? 'noopener noreferrer' : undefined,
 })
 
 const ProjectCardRoot: React.FC<ProjectCardRootProps> = ({ children }) => {
@@ -75,7 +72,7 @@ const ProjectCardTimeLink: React.FC<ProjectCardTimeLinkProps> = ({
   const { i18n } = useTranslation()
   const linkAttrs = getLinkAttrs(isExternal)
   const readableDate = new Date(publishDate).toLocaleDateString(
-    i18n.resolvedLanguage === "fr" ? "fr-FR" : "en-US",
+    i18n.resolvedLanguage === 'fr' ? 'fr-FR' : 'en-US',
   )
 
   return (
@@ -100,11 +97,7 @@ const ProjectCardTimeLink: React.FC<ProjectCardTimeLinkProps> = ({
   )
 }
 
-const ProjectCardTitle: React.FC<ProjectCardTitleProps> = ({
-  href,
-  isExternal,
-  children,
-}) => {
+const ProjectCardTitle: React.FC<ProjectCardTitleProps> = ({ href, isExternal, children }) => {
   const linkAttrs = getLinkAttrs(isExternal)
 
   return (
@@ -118,10 +111,7 @@ const ProjectCardBody: React.FC<ProjectCardBodyProps> = ({ children }) => {
   return <p className={projectContent}>{children}</p>
 }
 
-const ProjectCardTags: React.FC<ProjectCardTagsProps> = ({
-  projectId,
-  tags,
-}) => {
+const ProjectCardTags: React.FC<ProjectCardTagsProps> = ({ projectId, tags }) => {
   if (!tags?.length) {
     return null
   }
@@ -135,16 +125,13 @@ const ProjectCardTags: React.FC<ProjectCardTagsProps> = ({
   )
 }
 
-const ProjectCardReadMore: React.FC<ProjectCardReadMoreProps> = ({
-  href,
-  isExternal,
-}) => {
+const ProjectCardReadMore: React.FC<ProjectCardReadMoreProps> = ({ href, isExternal }) => {
   const linkAttrs = getLinkAttrs(isExternal)
   const { t } = useTranslation()
 
   return (
     <a href={href} className={projectLink} {...linkAttrs}>
-      {t("projects.readMore")}
+      {t('projects.readMore')}
     </a>
   )
 }
