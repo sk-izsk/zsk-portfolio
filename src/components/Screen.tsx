@@ -3,6 +3,7 @@ import React from "react"
 interface ScreenProps {
   isLoading: boolean
   isError: boolean
+  title?: string
   loadingMessage?: string
   errorMessage?: string
   children: React.ReactNode
@@ -11,6 +12,7 @@ interface ScreenProps {
 export const Screen: React.FC<ScreenProps> = ({
   isLoading,
   isError,
+  title,
   loadingMessage = "Loading...",
   errorMessage = "Error loading data",
   children,
@@ -23,5 +25,16 @@ export const Screen: React.FC<ScreenProps> = ({
     return <div className="error">{errorMessage}</div>
   }
 
-  return <>{children}</>
+  return (
+    <>
+      {title && (
+        <div className="row">
+          <div className="section-title padd-15">
+            <h2>{title}</h2>
+          </div>
+        </div>
+      )}
+      {children}
+    </>
+  )
 }

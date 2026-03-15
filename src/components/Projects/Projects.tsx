@@ -36,14 +36,9 @@ const Projects: React.FC = () => {
   return (
     <section className="blog section active" id="projects">
       <div className={`container ${blogContainer}`}>
-        <Screen isLoading={loading} isError={hasError}>
+        <Screen isLoading={loading} isError={hasError} title="Projects">
           {projects && (
             <>
-              <div className="row">
-                <div className="section-title padd-15">
-                  <h2>Projects</h2>
-                </div>
-              </div>
               <div className="row">
                 <div className={`${blogHeading} padd-15`}>
                   <h2 className={blogHeadingH2}>My Recent Projects :</h2>

@@ -33,14 +33,9 @@ const Services: React.FC = () => {
   return (
     <section className="service section active" id="service">
       <div className={`container ${serviceContainer}`}>
-        <Screen isLoading={loading} isError={hasError}>
+        <Screen isLoading={loading} isError={hasError} title="Services">
           {services && (
             <>
-              <div className="row">
-                <div className="section-title padd-15">
-                  <h2>Services</h2>
-                </div>
-              </div>
               <div className={`row ${serviceRow}`}>
                 {services.map((service) => (
                   <div key={service.id} className={`${serviceItem} padd-15`}>

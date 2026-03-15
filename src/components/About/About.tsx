@@ -72,14 +72,9 @@ export const About: React.FC = () => {
   return (
     <section className="about section active" id="about">
       <div className="container">
-        <Screen isLoading={loading} isError={hasError}>
+        <Screen isLoading={loading} isError={hasError} title="About Me">
           {personalInfo && contact && (
             <>
-              <div className="row">
-                <div className="section-title padd-15">
-                  <h2>About Me</h2>
-                </div>
-              </div>
               <div className="row">
                 <div className={`${aboutContent} padd-15`}>
                   <div className="row">

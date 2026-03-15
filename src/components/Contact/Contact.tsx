@@ -120,14 +120,9 @@ const Contact: React.FC = () => {
   return (
     <section className="contact section active" id="contact">
       <div className={`container ${contactContainer}`}>
-        <Screen isLoading={loading} isError={hasError}>
+        <Screen isLoading={loading} isError={hasError} title="Contact Me">
           {contact && personalInfo && (
             <>
-              <div className="row">
-                <div className="section-title padd-15">
-                  <h2>Contact Me</h2>
-                </div>
-              </div>
               <h3 className={`${contactTitle} padd-15`}>
                 Do You Have Any Questions?
               </h3>

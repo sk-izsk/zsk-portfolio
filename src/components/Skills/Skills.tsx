@@ -65,15 +65,9 @@ const Skills: React.FC = () => {
   return (
     <section className="portfolio section active" id="portfolio">
       <div className={`container ${skillsContainer}`}>
-        <Screen isLoading={loading} isError={hasError}>
+        <Screen isLoading={loading} isError={hasError} title="Skills">
           {skillsData && (
             <>
-              <div className="row">
-                <div className="section-title padd-15">
-                  <h2>Skills</h2>
-                </div>
-              </div>
-
               {/* Frontend and Backend Skills */}
               <div className="row">
                 <div className={`${skillsSection} padd-15`}>
