@@ -7,11 +7,12 @@ export const blogContainer = style({
 
 export const blogGrid = style({
   display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+  gridTemplateColumns: "repeat(auto-fill, minmax(300px, 300px))",
+  justifyContent: "start",
   gap: "30px",
   "@media": {
     "(max-width: 991px)": {
-      gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+      gridTemplateColumns: "repeat(auto-fill, minmax(280px, 280px))",
     },
     "(max-width: 767px)": {
       gridTemplateColumns: "1fr",
@@ -33,6 +34,9 @@ export const blogHeadingH2 = style({
 export const blogItem = style({
   display: "flex",
   flexDirection: "column",
+  width: "100%",
+  maxWidth: "300px",
+  margin: 0,
 })
 
 export const blogItemInner = style({
@@ -107,6 +111,31 @@ export const blogContent = style({
   lineHeight: "25px",
   marginBottom: "15px",
   flex: 1,
+})
+
+export const blogTags = style({
+  display: "flex",
+  flexWrap: "wrap",
+  gap: "8px",
+  justifyContent: "center",
+  marginBottom: "18px",
+})
+
+export const blogTag = style({
+  padding: "5px 10px",
+  borderRadius: "999px",
+  fontSize: "12px",
+  fontWeight: 500,
+  lineHeight: 1.2,
+  backgroundColor: vars.color.skin + "15",
+  color: vars.color.skin,
+  border: `1px solid ${vars.color.skin}`,
+  transition: "all 0.3s ease",
+  cursor: "default",
+  ":hover": {
+    backgroundColor: vars.color.skin,
+    color: "white",
+  },
 })
 
 export const blogLink = style({

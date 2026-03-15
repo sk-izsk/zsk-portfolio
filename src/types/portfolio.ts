@@ -111,9 +111,9 @@ export interface BlogPost {
   id: number
   title: string
   slug: string
+  url?: string
   excerpt: string
   content: string
-  image: string
   category: string
   tags: string[]
   publishDate: string
