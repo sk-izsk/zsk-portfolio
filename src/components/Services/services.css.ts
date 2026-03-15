@@ -46,15 +46,16 @@ export const serviceIcon = style({
   height: "60px",
   width: "60px",
   borderRadius: "50%",
-  display: "block",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
   margin: "0 auto 30px",
-  textAlign: "center",
   transition: "all 0.3s ease",
 })
 
 export const serviceIconFA = style({
   fontSize: "40px",
-  lineHeight: "60px",
+  lineHeight: 1,
   color: vars.color.skin,
   transition: "all 0.3s ease",
 })
@@ -70,7 +71,7 @@ export const serviceItemInnerHover = style({
 export const serviceIconFAHover = style({
   selectors: {
     [`${serviceItemInner}:hover &`]: {
-      fontSize: "25px",
+      transform: "scale(0.625)",
       color: "#ffffff",
     },
   },
