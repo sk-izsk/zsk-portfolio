@@ -1,4 +1,5 @@
 import React from "react"
+import { useTranslation } from "react-i18next"
 import { Screen } from "../components/Screen"
 import { SkillsRate } from "../components/skills/SkillsRate"
 import { SkillsTag } from "../components/skills/SkillsTag"
@@ -10,13 +11,14 @@ import {
 const SkillScreen: React.FC = () => {
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
+  const { t } = useTranslation()
 
   return (
     <Screen
       sectionId="portfolio"
       isLoading={loading}
       isError={Boolean(error)}
-      title="Skills"
+      title={t("skills.title")}
     >
       <SkillsRate />
       <SkillsTag />

@@ -5,6 +5,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import type { PropsWithChildren } from "react"
 import React from "react"
+import { useTranslation } from "react-i18next"
 import { Tag } from "../tag/Tag"
 import {
   projectContent,
@@ -136,10 +137,11 @@ const ProjectCardReadMore: React.FC<ProjectCardReadMoreProps> = ({
   isExternal,
 }) => {
   const linkAttrs = getLinkAttrs(isExternal)
+  const { t } = useTranslation()
 
   return (
     <a href={href} className={projectLink} {...linkAttrs}>
-      Read More...
+      {t("projects.readMore")}
     </a>
   )
 }

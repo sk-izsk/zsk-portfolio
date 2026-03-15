@@ -9,6 +9,7 @@ import {
   faSearch,
 } from "@fortawesome/free-solid-svg-icons"
 import React from "react"
+import { useTranslation } from "react-i18next"
 import { Screen } from "../components/Screen"
 import { ServiceCard } from "../components/services/ServiceCard"
 import { serviceRow } from "../components/services/services.css"
@@ -37,13 +38,14 @@ const ServiceScreen: React.FC = () => {
   const services = useServices()
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
+  const { t } = useTranslation()
 
   return (
     <Screen
       sectionId="service"
       isLoading={loading}
       isError={Boolean(error || !services)}
-      title="Services"
+      title={t("services.title")}
     >
       {services && (
         <div className={`row ${serviceRow}`}>

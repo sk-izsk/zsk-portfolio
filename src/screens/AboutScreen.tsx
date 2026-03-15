@@ -1,4 +1,5 @@
 import React from "react"
+import { useTranslation } from "react-i18next"
 import { aboutContent } from "../components/about/about.css"
 import { AboutPersonalInfoSection } from "../components/about/AboutPersonalInfoSection"
 import { AboutPersonalIntro } from "../components/about/AboutPersonalIntro"
@@ -12,13 +13,14 @@ import {
 const AboutScreen: React.FC = () => {
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
+  const { t } = useTranslation()
 
   return (
     <Screen
       sectionId="about"
       isLoading={loading}
       isError={Boolean(error)}
-      title="About Me"
+      title={t("about.title")}
     >
       <div className="row">
         <div className={`${aboutContent} padd-15`}>
