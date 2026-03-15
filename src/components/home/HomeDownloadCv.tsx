@@ -1,8 +1,10 @@
 import React from "react"
+import { useTranslation } from "react-i18next"
 import { usePersonalInfo } from "../../stores/portfolioStore"
 
 export const HomeDownloadCv: React.FC = () => {
   const personalInfo = usePersonalInfo()
+  const { t } = useTranslation()
 
   if (!personalInfo) {
     return null
@@ -15,7 +17,7 @@ export const HomeDownloadCv: React.FC = () => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      Download CV
+      {t("home.downloadCv")}
     </a>
   )
 }

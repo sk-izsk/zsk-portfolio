@@ -1,4 +1,5 @@
 import React, { useMemo } from "react"
+import { useTranslation } from "react-i18next"
 import { ProjectCard } from "../components/projects/ProjectCard"
 import {
   projectGrid,
@@ -16,6 +17,7 @@ const ProjectScreen: React.FC = () => {
   const projects = useProjects()
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
+  const { t } = useTranslation()
 
   const projectViewModels = useMemo(
     () =>
@@ -37,13 +39,13 @@ const ProjectScreen: React.FC = () => {
       sectionClassName="projects"
       isLoading={loading}
       isError={Boolean(error || !projects)}
-      title="Projects"
+      title={t("projects.title")}
     >
       {projects && (
         <>
           <div className="row">
             <div className={`${projectHeading} padd-15`}>
-              <h2 className={projectHeadingTitle}>My Recent Projects :</h2>
+              <h2 className={projectHeadingTitle}>{t("projects.heading")}</h2>
             </div>
           </div>
           <div className={`${projectGrid} padd-15`}>

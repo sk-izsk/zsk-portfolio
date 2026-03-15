@@ -1,4 +1,5 @@
 import React from "react"
+import { useTranslation } from "react-i18next"
 import { ContactFormSection } from "../components/contact/ContactFormSection"
 import { ContactSocialsSection } from "../components/contact/ContactSocialsSection"
 import { Screen } from "../components/Screen"
@@ -10,13 +11,14 @@ import {
 const ContactScreen: React.FC = () => {
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
+  const { t } = useTranslation()
 
   return (
     <Screen
       sectionId="contact"
       isLoading={loading}
       isError={Boolean(error)}
-      title="Contact Me"
+      title={t("contact.title")}
     >
       <ContactSocialsSection />
       <ContactFormSection />

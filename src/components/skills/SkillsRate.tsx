@@ -5,32 +5,35 @@ import {
   faServer,
 } from "@fortawesome/free-solid-svg-icons"
 import React from "react"
+import { useTranslation } from "react-i18next"
 import { SkillsRateSection } from "./SkillsRateSection"
 
 export const SkillsRate: React.FC = () => {
+  const { t } = useTranslation()
+
   return (
     <>
       <div className="row">
         <SkillsRateSection
           icon={faLaptopCode}
-          titleText="Frontend Skills"
+          titleText={t("skills.rate.frontend")}
           category="frontend"
         />
         <SkillsRateSection
           icon={faServer}
-          titleText="Backend Skills"
+          titleText={t("skills.rate.backend")}
           category="backend"
         />
       </div>
       <div className="row">
         <SkillsRateSection
           icon={faCode}
-          titleText="Programming Languages"
+          titleText={t("skills.rate.languages")}
           category="language"
         />
         <SkillsRateSection
           icon={faCog}
-          titleText="Development Tools"
+          titleText={t("skills.rate.tools")}
           category="tools"
         />
       </div>

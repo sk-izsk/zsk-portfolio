@@ -5,6 +5,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import type { PropsWithChildren } from "react"
 import React from "react"
+import { useTranslation } from "react-i18next"
 import { Tag } from "../tag/Tag"
 import {
   projectContent,
@@ -71,8 +72,11 @@ const ProjectCardTimeLink: React.FC<ProjectCardTimeLinkProps> = ({
   href,
   isExternal,
 }) => {
+  const { i18n } = useTranslation()
   const linkAttrs = getLinkAttrs(isExternal)
-  const readableDate = new Date(publishDate).toLocaleDateString()
+  const readableDate = new Date(publishDate).toLocaleDateString(
+    i18n.resolvedLanguage === "fr" ? "fr-FR" : "en-US",
+  )
 
   return (
     <div className={projectInfo}>
@@ -136,10 +140,11 @@ const ProjectCardReadMore: React.FC<ProjectCardReadMoreProps> = ({
   isExternal,
 }) => {
   const linkAttrs = getLinkAttrs(isExternal)
+  const { t } = useTranslation()
 
   return (
     <a href={href} className={projectLink} {...linkAttrs}>
-      Read More...
+      {t("projects.readMore")}
     </a>
   )
 }

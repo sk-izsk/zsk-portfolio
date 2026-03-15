@@ -73,6 +73,35 @@ export const logoSpan = style({
   fontSize: "40px",
 })
 
+export const languageSwitcher = style({
+  marginTop: "10px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "8px",
+})
+
+export const languageButton = style({
+  border: "none",
+  background: "transparent",
+  color: vars.color.text[700],
+  fontSize: "14px",
+  fontWeight: 600,
+  textTransform: "uppercase",
+  cursor: "pointer",
+  padding: 0,
+})
+
+export const languageButtonActive = style({
+  color: vars.color.skin,
+})
+
+export const languageDivider = style({
+  color: vars.color.text[700],
+  fontSize: "14px",
+  fontWeight: 600,
+})
+
 export const navToggler = style({
   height: "40px",
   width: "45px",

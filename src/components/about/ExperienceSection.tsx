@@ -1,10 +1,12 @@
 import React, { useMemo } from "react"
+import { useTranslation } from "react-i18next"
 import { useExperience } from "../../stores/portfolioStore"
 import { experience } from "./about.css"
 import { ActivityTimeline } from "./ActivityTimeline"
 
 export const ExperienceSection: React.FC = () => {
   const experienceData = useExperience() ?? []
+  const { t } = useTranslation()
 
   const items = useMemo(
     () =>
@@ -19,7 +21,7 @@ export const ExperienceSection: React.FC = () => {
 
   return (
     <ActivityTimeline
-      heading="Experience"
+      heading={t("about.sections.experience")}
       containerClassName={`${experience} padd-15`}
     >
       {items.map((item) => (

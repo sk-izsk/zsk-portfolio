@@ -1,4 +1,5 @@
 import React from "react"
+import { useTranslation } from "react-i18next"
 import { home, homeInfo, homeRow } from "../components/home/home.css"
 import { HomeDetailBio } from "../components/home/HomeDetailBio"
 import { HomeDownloadCv } from "../components/home/HomeDownloadCv"
@@ -13,6 +14,7 @@ import {
 const HomeScreen: React.FC = () => {
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
+  const { t } = useTranslation()
 
   return (
     <Screen
@@ -20,7 +22,7 @@ const HomeScreen: React.FC = () => {
       sectionClassName={home}
       isLoading={loading}
       isError={Boolean(error)}
-      pageTitle="Home"
+      pageTitle={t("home.pageTitle")}
     >
       <div className={`row ${homeRow}`}>
         <div className={`${homeInfo} padd-15`}>

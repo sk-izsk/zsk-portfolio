@@ -13,6 +13,7 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons"
 import React from "react"
+import { useTranslation } from "react-i18next"
 import { useContactInfo, usePersonalInfo } from "../../stores/portfolioStore"
 import { contactSubTitle, contactTitle } from "./contact.css"
 import { ContactSocialCard } from "./ContactSocialCard"
@@ -25,6 +26,7 @@ interface ContactSocialItem {
 }
 
 export const ContactSocialsSection: React.FC = () => {
+  const { t } = useTranslation()
   const contact = useContactInfo()
   const personalInfo = usePersonalInfo()
 
@@ -35,53 +37,53 @@ export const ContactSocialsSection: React.FC = () => {
   const contactInfo: ContactSocialItem[] = [
     {
       icon: faPhone,
-      title: "Call Us On",
+      title: t("contact.socials.call"),
       details: contact.phone,
     },
     {
       icon: faMapMarkerAlt,
-      title: "Location",
+      title: t("contact.socials.location"),
       details: `${personalInfo.location.city}, ${personalInfo.location.country}`,
     },
     {
       icon: faEnvelope,
-      title: "Email",
+      title: t("contact.socials.email"),
       details: contact.email,
       url: `mailto:${contact.email}`,
     },
     {
       icon: faGlobeEurope,
-      title: "Website",
+      title: t("contact.socials.website"),
       details: contact.social.website.label,
       url: contact.social.website.url,
     },
     {
       icon: faGithub,
-      title: "GitHub",
+      title: t("contact.socials.github"),
       details: contact.social.github.label,
       url: contact.social.github.url,
     },
     {
       icon: faLinkedin,
-      title: "LinkedIn",
+      title: t("contact.socials.linkedin"),
       details: contact.social.linkedin.label,
       url: contact.social.linkedin.url,
     },
     {
       icon: faTwitter,
-      title: "Twitter",
+      title: t("contact.socials.twitter"),
       details: contact.social.twitter.label,
       url: contact.social.twitter.url,
     },
     {
       icon: faInstagram,
-      title: "Instagram",
+      title: t("contact.socials.instagram"),
       details: contact.social.instagram.label,
       url: contact.social.instagram.url,
     },
     {
       icon: faTelegram,
-      title: "Telegram",
+      title: t("contact.socials.telegram"),
       details: contact.social.telegram.label,
       url: contact.social.telegram.url,
     },
@@ -89,9 +91,11 @@ export const ContactSocialsSection: React.FC = () => {
 
   return (
     <>
-      <h3 className={`${contactTitle} padd-15`}>Do You Have Any Questions?</h3>
+      <h3 className={`${contactTitle} padd-15`}>
+        {t("contact.socials.heading")}
+      </h3>
       <h4 className={`${contactSubTitle} padd-15`}>
-        FEEL FREE TO REACH OUT TO ME
+        {t("contact.socials.subHeading")}
       </h4>
       <div className="row">
         {contactInfo.map((item) => (
