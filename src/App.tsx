@@ -84,7 +84,7 @@ import {
 const Home = lazy(() => import("./screens/HomeScreen"))
 const About = lazy(() => import("./screens/AboutScreen"))
 const Services = lazy(() => import("./components/Services/Services"))
-const Skills = lazy(() => import("./components/Skills/Skills"))
+const Skills = lazy(() => import("./screens/SkillScreen"))
 const Projects = lazy(() => import("./screens/ProjectScreen"))
 const Contact = lazy(() => import("./screens/ContactScreen"))
 
