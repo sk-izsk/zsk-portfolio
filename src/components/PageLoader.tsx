@@ -1,5 +1,5 @@
-import { useLocalStorageState } from "ahooks"
 import { Bars } from "react-loader-spinner"
+import { useThemeStore } from "../stores/themeStore"
 
 const colorThemes = {
   "color-1": "#ec1839",
@@ -15,9 +15,7 @@ const colorThemes = {
 }
 
 export const PageLoader = () => {
-  const [currentColor] = useLocalStorageState("portfolio-color-theme", {
-    defaultValue: "color-1",
-  })
+  const currentColor = useThemeStore((state) => state.currentColor)
 
   return (
     <div className="page-loader">

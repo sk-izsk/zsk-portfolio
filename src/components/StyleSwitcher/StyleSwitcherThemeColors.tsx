@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react"
+import type { ThemeColor } from "../../stores/themeStore"
 import { colorItem, colors, heading } from "./styleSwitcher.css"
 
 interface StyleSwitcherThemeColorsProps {
   currentColor: string
-  onChangeColor: (color: string) => void
+  onChangeColor: (color: ThemeColor) => void
 }
 
 const colorOptions = [
@@ -17,7 +18,7 @@ const colorOptions = [
   { name: "color-8", color: "#00ced1" },
   { name: "color-9", color: "#00bfff" },
   { name: "color-10", color: "#2e8b57" },
-]
+] as const
 
 export const StyleSwitcherThemeColors: React.FC<
   StyleSwitcherThemeColorsProps
@@ -28,7 +29,7 @@ export const StyleSwitcherThemeColors: React.FC<
     setActiveColor(currentColor)
   }, [currentColor])
 
-  const handleColorChange = (colorName: string) => {
+  const handleColorChange = (colorName: ThemeColor) => {
     setActiveColor(colorName)
     onChangeColor(colorName)
   }

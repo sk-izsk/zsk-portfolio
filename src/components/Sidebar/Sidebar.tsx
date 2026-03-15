@@ -6,11 +6,13 @@ import {
   faList,
   faUser,
 } from "@fortawesome/free-solid-svg-icons"
-import React from "react"
+import React, { useEffect } from "react"
+import { useLocation } from "react-router-dom"
 import {
   usePersonalInfo,
   usePortfolioLoading,
 } from "../../stores/portfolioStore"
+import { useSidebarStore } from "../../stores/sidebarStore"
 import { SidebarNavItem } from "./SidebarNavItem"
 import {
   aside,
@@ -26,19 +28,24 @@ import {
 } from "./sidebar.css"
 import type { SidebarNavigationItem } from "./sidebar.types"
 
-interface SidebarProps {
-  activeSection: string
-  isOpen: boolean
-  toggleSidebar: () => void
+const getCurrentSection = (path: string) => {
+  if (path === "/" || path === "/home") return "home"
+  if (path === "/about") return "about"
+  if (path === "/services") return "service"
+  if (path === "/portfolio") return "portfolio"
+  if (path === "/projects" || path === "/blog") return "projects"
+  if (path === "/contact") return "contact"
+  return "home"
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({
-  activeSection,
-  isOpen,
-  toggleSidebar,
-}) => {
+export const Sidebar: React.FC = () => {
+  const location = useLocation()
   const personalInfo = usePersonalInfo()
   const loading = usePortfolioLoading()
+  const isOpen = useSidebarStore((state) => state.isOpen)
+  const toggleSidebar = useSidebarStore((state) => state.toggle)
+  const closeSidebar = useSidebarStore((state) => state.close)
+  const activeSection = getCurrentSection(location.pathname)
 
   const navigationItems: SidebarNavigationItem[] = [
     { id: "home", label: "Home", icon: faHome, path: "/" },
@@ -71,6 +78,20 @@ export const Sidebar: React.FC<SidebarProps> = ({
       toggleSidebar()
     }
   }
+
+  useEffect(() => {
+    if (window.innerWidth >= 1200 || !isOpen) {
+      return
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      closeSidebar()
+    }, 0)
+
+    return () => {
+      window.clearTimeout(timeoutId)
+    }
+  }, [location.pathname, closeSidebar])
 
   return (
     <div className={`${aside} ${isOpen ? asideOpen : ""}`}>
