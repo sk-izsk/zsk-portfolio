@@ -15,7 +15,7 @@
       "primary": "https://izsk.netlify.app/.netlify/images?url=/images/zeeshan.jpg&w=800&q=80",
       "alt": "Shaikh Zeeshan Murshed"
     },
-    "languages": ["Francais", "Bengali", "Hindi", "Anglais"],
+    "languages": ["Bengali", "Hindi", "Anglais"],
     "birthday": "05-04-1992",
     "availability": ["Temps plein", "Teletravail"]
   },
@@ -247,7 +247,7 @@
       "company": "Guiker Inc",
       "position": "Developpeur logiciel junior",
       "duration": "Juil 2019 - Juin 2020",
-      "description": "Participation au developpement d'applications mobiles iOS et Android avec Expo, TypeScript, Jest et React Native. Contribution majeure a la refonte du produit principal de Guiker en React avec TypeScript, Material-UI, API REST et JSS, accompagnee de tests unitaires avec Jest."
+      "description": "Participation au developpement d'applications mobiles iOS et Android avec Expo, TypeScript, Jest et React Native. Consolidation de l'experience backend avec Node.js et Express: conception et consommation d'API REST, ainsi que mise en place de patterns backend essentiels (routing, controllers, middleware) pour soutenir la refonte de l'application web."
     }
   ],
   "services": [

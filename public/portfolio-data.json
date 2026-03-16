@@ -247,7 +247,7 @@
       "company": "Guiker Inc",
       "position": "Junior Software Developer",
       "duration": "July 2019 - June 2020",
-      "description": "Assisted in the development of mobile applications for iOS and Android using Expo, Typescript, Jest, and React Native. Contributed significantly to rebuilding the main product of Guiker to React, utilizing Typescript, Material-UI for React, Restful API, and JSS for design, along with unit testing using Jest."
+      "description": "Assisted in developing iOS and Android mobile apps using Expo, TypeScript, Jest, and React Native. Gained hands-on backend experience with Node.js and Express by building and consuming REST APIs and applying core patterns like routing, controllers, and middleware to support the web app rebuild."
     }
   ],
   "services": [

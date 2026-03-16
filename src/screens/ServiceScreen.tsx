@@ -3,10 +3,13 @@ import {
   faBullhorn,
   faChartLine,
   faCode,
+  faComments,
   faCubes,
+  faLaptopCode,
   faMobileAlt,
   faPalette,
   faSearch,
+  faServer,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
@@ -17,6 +20,9 @@ import { usePortfolioError, usePortfolioLoading, useServices } from '../stores/p
 
 const serviceIconMap: Record<string, IconDefinition> = {
   code: faCode,
+  'laptop-code': faLaptopCode,
+  server: faServer,
+  comments: faComments,
   palette: faPalette,
   'chart-line': faChartLine,
   'mobile-alt': faMobileAlt,
