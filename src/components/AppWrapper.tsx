@@ -3,8 +3,9 @@ import type { PropsWithChildren } from 'react'
 import { useEffect } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 
+import { LocalizeProvider } from 'zsk-react-i18n'
 import { usePortfolioData } from '../hooks/usePortfolioData'
-import { LocalizeProvider, useAppTranslation } from '../localization/localize'
+import { localizeConfig, useTranslation } from '../localization/localize'
 import { usePortfolioStore } from '../stores/portfolioStore'
 import { useSidebarStore } from '../stores/sidebarStore'
 import '../styles/global.css'
@@ -24,7 +25,7 @@ const queryClient = new QueryClient({
 })
 
 const AppLayout = ({ children }: PropsWithChildren) => {
-  const { i18n } = useAppTranslation()
+  const { i18n } = useTranslation()
   const isSidebarOpen = useSidebarStore((state) => state.isOpen)
   const currentLanguage = i18n.resolvedLanguage === 'fr' ? 'fr' : 'en'
 
@@ -65,7 +66,7 @@ const AppLayout = ({ children }: PropsWithChildren) => {
 
 export const AppWrapper = ({ children }: PropsWithChildren) => {
   return (
-    <LocalizeProvider>
+    <LocalizeProvider config={localizeConfig}>
       <QueryClientProvider client={queryClient}>
         <Router>
           <AppLayout>{children}</AppLayout>

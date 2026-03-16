@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react'
-import { useAppTranslation as useTranslation } from '../localization/localize'
 import { ProjectCard } from '../components/projects/ProjectCard'
 import {
   projectGrid,
@@ -7,6 +6,7 @@ import {
   projectHeadingTitle,
 } from '../components/projects/projects.css'
 import { Screen } from '../components/Screen'
+import { useTranslation } from '../localization/localize'
 import { usePortfolioError, usePortfolioLoading, useProjects } from '../stores/portfolioStore'
 
 const ProjectScreen: React.FC = () => {

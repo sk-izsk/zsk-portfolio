@@ -2,7 +2,7 @@ import { faBookOpenReader, faCalendarDays } from '@fortawesome/free-solid-svg-ic
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
-import { useAppTranslation as useTranslation } from '../../localization/localize'
+import { useTranslation } from '../../localization/localize'
 import { Tag } from '../tag/Tag'
 import {
   projectContent,

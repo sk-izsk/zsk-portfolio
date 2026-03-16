@@ -1,8 +1,8 @@
 import React from 'react'
-import { useAppTranslation as useTranslation } from '../localization/localize'
 import { Screen } from '../components/Screen'
 import { SkillsRate } from '../components/skills/SkillsRate'
 import { SkillsTag } from '../components/skills/SkillsTag'
+import { useTranslation } from '../localization/localize'
 import { usePortfolioError, usePortfolioLoading } from '../stores/portfolioStore'
 
 const SkillScreen: React.FC = () => {

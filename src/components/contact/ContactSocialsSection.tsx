@@ -13,7 +13,7 @@ import {
   faPhone,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { useAppTranslation as useTranslation } from '../../localization/localize'
+import { useTranslation } from '../../localization/localize'
 import { useContactInfo, usePersonalInfo } from '../../stores/portfolioStore'
 import { contactSubTitle, contactTitle } from './contact.css'
 import { ContactSocialCard } from './ContactSocialCard'

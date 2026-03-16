@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useAppTranslation as useTranslation } from '../../localization/localize'
+import { useTranslation } from '../../localization/localize'
 import { btn, contactForm, contactTitle, formItem } from './contact.css'
 import { ContactFormField } from './ContactFormField'
 

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { useAppTranslation as useTranslation } from '../../localization/localize'
+import { useTranslation } from '../../localization/localize'
 import { useExperience } from '../../stores/portfolioStore'
 import { experience } from './about.css'
 import { ActivityTimeline } from './ActivityTimeline'

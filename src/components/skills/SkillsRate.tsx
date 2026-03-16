@@ -1,6 +1,6 @@
 import { faCode, faCog, faLaptopCode, faServer } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { useAppTranslation as useTranslation } from '../../localization/localize'
+import { useTranslation } from '../../localization/localize'
 import { SkillsRateSection } from './SkillsRateSection'
 
 export const SkillsRate: React.FC = () => {

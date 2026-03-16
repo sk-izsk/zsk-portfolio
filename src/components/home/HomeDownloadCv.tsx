@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAppTranslation as useTranslation } from '../../localization/localize'
+import { useTranslation } from '../../localization/localize'
 import { usePersonalInfo } from '../../stores/portfolioStore'
 
 export const HomeDownloadCv: React.FC = () => {

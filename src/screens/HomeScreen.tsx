@@ -1,11 +1,11 @@
 import React from 'react'
-import { useAppTranslation as useTranslation } from '../localization/localize'
 import { home, homeInfo, homeRow } from '../components/home/home.css'
 import { HomeDetailBio } from '../components/home/HomeDetailBio'
 import { HomeDownloadCv } from '../components/home/HomeDownloadCv'
 import { HomeImageContainer } from '../components/home/HomeImageContainer'
 import { HomeTitleAnimated } from '../components/home/HomeTitleAnimated'
 import { Screen } from '../components/Screen'
+import { useTranslation } from '../localization/localize'
 import { usePortfolioError, usePortfolioLoading } from '../stores/portfolioStore'
 
 const HomeScreen: React.FC = () => {

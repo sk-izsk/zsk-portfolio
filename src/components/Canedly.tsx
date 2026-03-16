@@ -2,7 +2,7 @@ import { faComments } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react'
 import { PopupModal } from 'react-calendly'
-import { useAppTranslation as useTranslation } from '../localization/localize'
+import { useTranslation } from '../localization/localize'
 import { useThemeStore } from '../stores/themeStore'
 import { floatingContainer, triggerButton, triggerIcon, triggerLabelDesktop } from './canedly.css'
 
