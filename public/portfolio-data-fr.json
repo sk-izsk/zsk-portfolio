@@ -122,6 +122,11 @@
         "category": "tools"
       },
       {
+        "name": "NPM",
+        "level": 60,
+        "category": "tools"
+      },
+      {
         "name": "Tanstack Query",
         "level": 80,
         "category": "frontend"
@@ -137,23 +142,8 @@
         "category": "frontend"
       },
       {
-        "name": "Clerk Auth",
-        "level": 50,
-        "category": "frontend"
-      },
-      {
         "name": "PostgreSQL",
         "level": 60,
-        "category": "backend"
-      },
-      {
-        "name": "Drizzle ORM",
-        "level": 50,
-        "category": "backend"
-      },
-      {
-        "name": "Clerk Auth",
-        "level": 50,
         "category": "backend"
       }
     ],
@@ -170,6 +160,8 @@
         "Antd",
         "Tanstack Query",
         "Zustand",
+        "i18n",
+        "react-i18n",
         "Tailwind CSS",
         "Clerk Auth",
         "Bootstrap",
@@ -194,6 +186,7 @@
       "tools": [
         "Git",
         "Yarn/NPM",
+        "NPM",
         "VS Code",
         "Postman",
         "Figma",
@@ -308,6 +301,26 @@
         "DaisyUI"
       ],
       "publishDate": "2026-03-14"
+    },
+    {
+      "id": 2,
+      "title": "zsk-react-i18n : wrapper de localisation type-safe pour React",
+      "url": "https://github.com/sk-izsk/zsk-react-i18n",
+      "excerpt": "Un package npm reutilisable qui encapsule i18next/react-i18next avec une API type-safe pour les applications React. J'y ai construit les modes factory et direct-provider, des gardes runtime pour les langues, la persistance via localStorage, la prise en charge de plusieurs langues et la securite compile-time des cles de traduction, valides par des tests.",
+      "category": "Bibliotheque",
+      "tags": [
+        "TypeScript",
+        "React 19",
+        "i18n",
+        "i18next",
+        "react-i18next",
+        "Localisation",
+        "NPM",
+        "Bibliotheque",
+        "Type Safety",
+        "Bun Test"
+      ],
+      "publishDate": "2026-03-16"
     }
   ]
 }
