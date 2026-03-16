@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { useAppTranslation as useTranslation } from '../localization/localize'
 import { home, homeInfo, homeRow } from '../components/home/home.css'
 import { HomeDetailBio } from '../components/home/HomeDetailBio'
 import { HomeDownloadCv } from '../components/home/HomeDownloadCv'

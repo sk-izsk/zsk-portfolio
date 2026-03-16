@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { useAppTranslation as useTranslation } from '../localization/localize'
 import { Screen } from '../components/Screen'
 import { SkillsRate } from '../components/skills/SkillsRate'
 import { SkillsTag } from '../components/skills/SkillsTag'

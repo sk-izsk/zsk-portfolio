@@ -7,7 +7,7 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useRef } from 'react'
-import { useTranslation } from 'react-i18next'
+import { useAppTranslation as useTranslation } from '../../localization/localize'
 import { useLocation } from 'react-router-dom'
 import { usePersonalInfo, usePortfolioLoading } from '../../stores/portfolioStore'
 import { useSidebarStore } from '../../stores/sidebarStore'

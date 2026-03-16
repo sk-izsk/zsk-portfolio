@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { useTranslation } from 'react-i18next'
+import { useAppTranslation as useTranslation } from '../../localization/localize'
 import Typed from 'typed.js'
 import { usePersonalInfo } from '../../stores/portfolioStore'
 import { hello, helloName, myProfession, typing } from './home.css'

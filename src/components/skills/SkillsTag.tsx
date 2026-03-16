@@ -7,7 +7,7 @@ import {
   faVial,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { useAppTranslation as useTranslation } from '../../localization/localize'
 import { useSkills } from '../../stores/portfolioStore'
 import { SkillsTagSection } from './SkillsTagSection'
 

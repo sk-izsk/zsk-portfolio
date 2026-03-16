@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
+import { useAppTranslation as useTranslation } from '../localization/localize'
 import { ProjectCard } from '../components/projects/ProjectCard'
 import {
   projectGrid,

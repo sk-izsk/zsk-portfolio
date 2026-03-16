@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { useAppTranslation as useTranslation } from '../../localization/localize'
 import { usePersonalInfo } from '../../stores/portfolioStore'
 
 export const HomeDownloadCv: React.FC = () => {

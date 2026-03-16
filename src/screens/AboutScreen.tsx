@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { useAppTranslation as useTranslation } from '../localization/localize'
 import { aboutContent } from '../components/about/about.css'
 import { AboutPersonalInfoSection } from '../components/about/AboutPersonalInfoSection'
 import { AboutPersonalIntro } from '../components/about/AboutPersonalIntro'

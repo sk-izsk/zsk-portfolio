@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { useAppTranslation as useTranslation } from '../localization/localize'
 import { ContactFormSection } from '../components/contact/ContactFormSection'
 import { ContactSocialsSection } from '../components/contact/ContactSocialsSection'
 import { Screen } from '../components/Screen'
