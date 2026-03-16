@@ -12,10 +12,10 @@ import {
   faServer,
 } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
-import { useTranslation } from 'react-i18next'
 import { Screen } from '../components/Screen'
 import { ServiceCard } from '../components/services/ServiceCard'
 import { serviceRow } from '../components/services/services.css'
+import { useTranslation } from '../localization/localize'
 import { usePortfolioError, usePortfolioLoading, useServices } from '../stores/portfolioStore'
 
 const serviceIconMap: Record<string, IconDefinition> = {

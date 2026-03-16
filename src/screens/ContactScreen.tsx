@@ -1,8 +1,8 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
 import { ContactFormSection } from '../components/contact/ContactFormSection'
 import { ContactSocialsSection } from '../components/contact/ContactSocialsSection'
 import { Screen } from '../components/Screen'
+import { useTranslation } from '../localization/localize'
 import { usePortfolioError, usePortfolioLoading } from '../stores/portfolioStore'
 
 const ContactScreen: React.FC = () => {

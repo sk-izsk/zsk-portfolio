@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from '../../localization/localize'
 import { usePersonalInfo } from '../../stores/portfolioStore'
 import { aboutText, aboutTextH3, aboutTextP, aboutTextSpan } from './about.css'
 

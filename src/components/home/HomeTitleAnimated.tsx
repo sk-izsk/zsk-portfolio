@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
-import { useTranslation } from 'react-i18next'
 import Typed from 'typed.js'
+import { useTranslation } from '../../localization/localize'
 import { usePersonalInfo } from '../../stores/portfolioStore'
 import { hello, helloName, myProfession, typing } from './home.css'
 

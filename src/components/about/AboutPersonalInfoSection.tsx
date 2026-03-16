@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from '../../localization/localize'
 import { useContactInfo, usePersonalInfo } from '../../stores/portfolioStore'
 import {
   btnMargin,
