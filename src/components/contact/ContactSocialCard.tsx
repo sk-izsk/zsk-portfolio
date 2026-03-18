@@ -25,6 +25,14 @@ export const ContactSocialCard: React.FC<ContactSocialCardProps> = ({
   url,
 }) => {
   const openInNewTab = typeof url === 'string' && /^https?:\/\//.test(url)
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!url || openInNewTab) {
+      return
+    }
+
+    event.preventDefault()
+    window.location.href = url
+  }
 
   const inner = (
     <>
@@ -40,6 +48,7 @@ export const ContactSocialCard: React.FC<ContactSocialCardProps> = ({
     return (
       <a
         href={url}
+        onClick={handleClick}
         target={openInNewTab ? '_blank' : undefined}
         rel={openInNewTab ? 'noopener noreferrer' : undefined}
         className={`${contactInfoItem} ${contactInfoItemLink} padd-15`}
