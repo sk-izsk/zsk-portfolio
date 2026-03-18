@@ -8,6 +8,7 @@ import {
   contactInfoItemH4,
   contactInfoItemLink,
   contactInfoItemP,
+  contactInfoItemPLink,
 } from './contact.css'
 
 interface ContactSocialCardProps {
@@ -29,7 +30,7 @@ export const ContactSocialCard: React.FC<ContactSocialCardProps> = ({
         <FontAwesomeIcon icon={icon} className={contactInfoIconFa} />
       </div>
       <h4 className={contactInfoItemH4}>{title}</h4>
-      <p className={contactInfoItemP}>{details}</p>
+      <p className={url ? contactInfoItemPLink : contactInfoItemP}>{details}</p>
     </>
   )
 

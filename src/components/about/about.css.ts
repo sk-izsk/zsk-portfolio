@@ -67,6 +67,15 @@ export const infoItemSpan = style({
   display: 'inline-block',
 })
 
+export const infoItemSpanLink = style({
+  fontWeight: 400,
+  color: vars.color.skin,
+  marginLeft: '4px',
+  display: 'inline-block',
+  textDecoration: 'none',
+  cursor: 'pointer',
+})
+
 export const buttons = style({
   marginTop: '30px',
 })

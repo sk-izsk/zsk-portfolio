@@ -63,6 +63,13 @@ export const contactInfoItemP = style({
   fontWeight: 400,
 })
 
+export const contactInfoItemPLink = style({
+  fontSize: '16px',
+  lineHeight: '25px',
+  color: vars.color.skin,
+  fontWeight: 400,
+})
+
 export const contactForm = style({
   flex: '0 0 100%',
   maxWidth: '100%',

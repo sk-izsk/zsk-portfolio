@@ -8,6 +8,7 @@ import {
   infoItem,
   infoItemP,
   infoItemSpan,
+  infoItemSpanLink,
   personalInfoSection,
 } from './about.css'
 
@@ -59,7 +60,19 @@ export const AboutPersonalInfoSection: React.FC = () => {
           {personalInfoData.map((item, index) => (
             <div key={index} className={`${infoItem} padd-15`}>
               <p className={infoItemP}>
-                {item.label} : <span className={infoItemSpan}>{item.value}</span>
+                {item.label} :{' '}
+                {item.label === t('about.info.website') ? (
+                  <a
+                    href={contact.social.website.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={infoItemSpanLink}
+                  >
+                    {item.value}
+                  </a>
+                ) : (
+                  <span className={infoItemSpan}>{item.value}</span>
+                )}
               </p>
             </div>
           ))}
