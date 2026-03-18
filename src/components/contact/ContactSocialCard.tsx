@@ -24,6 +24,8 @@ export const ContactSocialCard: React.FC<ContactSocialCardProps> = ({
   details,
   url,
 }) => {
+  const openInNewTab = typeof url === 'string' && /^https?:\/\//.test(url)
+
   const inner = (
     <>
       <div className={contactInfoIcon}>
@@ -38,8 +40,8 @@ export const ContactSocialCard: React.FC<ContactSocialCardProps> = ({
     return (
       <a
         href={url}
-        target="_blank"
-        rel="noopener noreferrer"
+        target={openInNewTab ? '_blank' : undefined}
+        rel={openInNewTab ? 'noopener noreferrer' : undefined}
         className={`${contactInfoItem} ${contactInfoItemLink} padd-15`}
       >
         {inner}

@@ -39,8 +39,17 @@ export const AboutPersonalInfoSection: React.FC = () => {
         : t('about.info.notAvailable'),
     },
     { label: t('about.info.age'), value: ageInYears },
-    { label: t('about.info.website'), value: contact.social.website.label },
-    { label: t('about.info.email'), value: contact.email },
+    {
+      label: t('about.info.website'),
+      value: contact.social.website.label,
+      href: contact.social.website.url,
+      openInNewTab: true,
+    },
+    {
+      label: t('about.info.email'),
+      value: contact.email,
+      href: `mailto:${contact.email}`,
+    },
     { label: t('about.info.phone'), value: contact.phone },
     { label: t('about.info.city'), value: personalInfo.location.city },
     {
@@ -61,11 +70,11 @@ export const AboutPersonalInfoSection: React.FC = () => {
             <div key={index} className={`${infoItem} padd-15`}>
               <p className={infoItemP}>
                 {item.label} :{' '}
-                {item.label === t('about.info.website') ? (
+                {item.href ? (
                   <a
-                    href={contact.social.website.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={item.href}
+                    target={item.openInNewTab ? '_blank' : undefined}
+                    rel={item.openInNewTab ? 'noopener noreferrer' : undefined}
                     className={infoItemSpanLink}
                   >
                     {item.value}
