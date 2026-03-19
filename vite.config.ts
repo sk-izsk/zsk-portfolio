@@ -1,7 +1,8 @@
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import react from '@vitejs/plugin-react'
 import { exec } from 'node:child_process'
-import { defineConfig, type ViteDevServer } from 'vite'
+import type { ViteDevServer } from 'vite'
+import { defineConfig } from 'vitest/config'
 
 const openUrl = (url: string) => {
   const quotedUrl = JSON.stringify(url)
@@ -48,4 +49,16 @@ export default defineConfig({
     port: 2222,
   },
   plugins: [react(), vanillaExtractPlugin(), openBrowserOnStart()],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./tests/setup.ts'],
+    include: ['tests/**/*.{test,spec}.{ts,tsx}'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'html'],
+      include: ['src/**/*.{ts,tsx}'],
+      exclude: ['src/**/*.css.ts', 'src/main.tsx', 'src/routes/lazyScreens.ts'],
+    },
+  },
 })
