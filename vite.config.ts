@@ -1,8 +1,8 @@
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import react from '@vitejs/plugin-react'
 import { exec } from 'node:child_process'
-import { defineConfig, type ViteDevServer } from 'vite'
-import type { UserConfig } from 'vitest/config'
+import type { ViteDevServer } from 'vite'
+import { defineConfig } from 'vitest/config'
 
 const openUrl = (url: string) => {
   const quotedUrl = JSON.stringify(url)
@@ -60,5 +60,5 @@ export default defineConfig({
       include: ['src/**/*.{ts,tsx}'],
       exclude: ['src/**/*.css.ts', 'src/main.tsx', 'src/routes/lazyScreens.ts'],
     },
-  } satisfies UserConfig['test'],
+  },
 })
