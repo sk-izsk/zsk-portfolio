@@ -102,13 +102,7 @@ const ProjectCardTimeLink: React.FC<ProjectCardTimeLinkProps> = ({
 }
 
 const ProjectCardTitle: React.FC<ProjectCardTitleProps> = ({ href, isExternal, children }) => {
-  const linkAttrs = getLinkAttrs(isExternal)
-
-  return (
-    <a href={href} {...linkAttrs}>
-      <h4 className={projectTitle}>{children}</h4>
-    </a>
-  )
+  return <h4 className={projectTitle}>{children}</h4>
 }
 
 const ProjectCardBody: React.FC<ProjectCardBodyProps> = ({ shortDescription }) => {

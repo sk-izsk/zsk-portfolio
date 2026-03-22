@@ -77,17 +77,6 @@ ProjectModal.Title = ({ children, onClose }) => (
   <>
     <div className={modalStyles.titleRowSticky}>
       <h2 className={modalExtra.title}>{children}</h2>
-      <button
-        className={modalExtra.closeBtnTag}
-        aria-label="Close"
-        type="button"
-        onClick={(e) => {
-          e.stopPropagation()
-          onClose()
-        }}
-      >
-        ×
-      </button>
     </div>
     <Divider />
   </>
@@ -103,32 +92,36 @@ ProjectModal.Description = ({ children }) => <div className={modalExtra.desc}>{c
 ProjectModal.Highlights = ({ children }) => <ul className={modalStyles.highlights}>{children}</ul>
 
 // Footer — sticky footer with solid background
-ProjectModal.Footer = ({ link, onClose }) => (
-  <>
-    <Divider />
-    <div className={modalStyles.footerSticky}>
-      <Button
-        variant="secondary"
-        size="medium"
-        style={{ marginRight: 12 }}
-        onClick={onClose}
-        type="button"
-      >
-        Close
-      </Button>
-      <Button
-        as="a"
-        href={link}
-        variant="primary"
-        size="medium"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ textDecoration: 'none' }}
-      >
-        Project Link
-      </Button>
-    </div>
-  </>
-)
+import { useTranslation } from '../../localization/localize'
+ProjectModal.Footer = ({ link, onClose }) => {
+  const { t } = useTranslation()
+  return (
+    <>
+      <Divider />
+      <div className={modalStyles.footerSticky}>
+        <Button
+          variant="secondary"
+          size="medium"
+          style={{ marginRight: 12 }}
+          onClick={onClose}
+          type="button"
+        >
+          {t('common.modal.close')}
+        </Button>
+        <Button
+          as="a"
+          href={link}
+          variant="primary"
+          size="medium"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: 'none' }}
+        >
+          {t('common.modal.projectLink')}
+        </Button>
+      </div>
+    </>
+  )
+}
 
 export { ProjectModal }

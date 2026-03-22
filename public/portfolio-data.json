@@ -304,7 +304,8 @@
         "React Query",
         "Ky",
         "Tailwind CSS 4",
-        "DaisyUI"
+        "DaisyUI",
+        "Jest"
       ],
       "publishDate": "2026-03-14"
     },
@@ -338,15 +339,36 @@
       "id": 3,
       "title": "zsk-react-error: React Error Boundary & Reporter",
       "url": "https://github.com/sk-izsk/zsk-react-error",
-      "excerpt": "A robust React error boundary component with error reporting and reset logic. Built for production-grade error handling in React apps.",
-      "shortDescription": "A TypeScript-first React error boundary package with advanced error state control and Zustand integration. Unlike react-error-boundary, it supports global, composable error state, keyed error isolation, and imperative resets. Avoids context nesting for better performance and scalability. Features a strongly typed API, composable hooks, and flexible fallback UI options. Ideal for both local and global error handling in modern React apps.",
+      "excerpt": "A TypeScript-first React error boundary and reporter package with advanced error state control, reset logic, and analytics integration. Designed for scalable, production-grade error handling in React apps.",
+      "shortDescription": "A robust React error boundary and reporter package supporting both global and local error state, composable hooks, imperative resets, and flexible fallback UI. Integrates easily with Zustand and analytics tools for complete error visibility.",
       "highlights": [
-        "Customizable error fallback UI and reset logic",
-        "Error reporting hook for analytics integration",
-        "Thorough unit testing for all error flows"
+        "Global and local error state management with composable hooks",
+        "Keyed error isolation and imperative reset support",
+        "Customizable fallback UI and error reporting integration",
+        "Optimized for performance and scalable error handling",
+        "Easy integration with Zustand and analytics tools"
       ],
       "category": "Library",
-      "tags": ["React 19", "TypeScript", "Error Boundary", "Error Reporting", "Testing", "NPM"],
+      "tags": ["React 19", "TypeScript", "Error Boundary", "Error Reporting", "Zustand", "NPM"],
+      "tags": [
+        "React 19",
+        "TypeScript",
+        "Error Boundary",
+        "Error Reporting",
+        "Zustand",
+        "NPM",
+        "Jest"
+      ],
+      "tags": [
+        "React 19",
+        "TypeScript",
+        "Error Boundary",
+        "Error Reporting",
+        "Zustand",
+        "NPM",
+        "Jest",
+        "Library"
+      ],
       "publishDate": "2026-03-21"
     }
   ]

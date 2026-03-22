@@ -28,7 +28,12 @@ export const closeBtnTag = style({
   borderRadius: '999px',
   fontSize: '18px',
   fontWeight: 500,
-  lineHeight: 1.2,
+  lineHeight: 1,
+  height: '2.5rem',
+  minWidth: '2.5rem',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   backgroundColor: `${vars.color.skin}15`,
   color: vars.color.skin,
   border: `1px solid ${vars.color.skin}`,
@@ -38,6 +43,7 @@ export const closeBtnTag = style({
   borderStyle: 'solid',
   borderWidth: 1,
   appearance: 'none',
+  alignSelf: 'center',
   selectors: {
     '&:hover': {
       backgroundColor: vars.color.skin,
@@ -65,6 +71,8 @@ export const title = style({
   fontSize: 22,
   fontWeight: 700,
   margin: 0,
+  cursor: 'default',
+  userSelect: 'text',
 })
 
 export const closeBtn = style({

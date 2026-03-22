@@ -304,7 +304,8 @@
         "React Query",
         "Ky",
         "Tailwind CSS 4",
-        "DaisyUI"
+        "DaisyUI",
+        "Jest"
       ],
       "publishDate": "2026-03-14"
     },
@@ -338,15 +339,36 @@
       "id": 3,
       "title": "zsk-react-error : Error Boundary & Reporter pour React",
       "url": "https://github.com/sk-izsk/zsk-react-error",
-      "excerpt": "Un composant Error Boundary robuste pour React avec reporting d'erreur et logique de reset. Concu pour la gestion d'erreurs en production.",
-      "shortDescription": "Un package Error Boundary React oriente TypeScript avec gestion d'état avancée et intégration Zustand. Contrairement à react-error-boundary, il prend en charge l'état d'erreur global composable, l'isolation par clé, et le reset impératif. Évite l'imbrication des contextes pour de meilleures performances et une meilleure scalabilité. API fortement typée, hooks composables et UI de fallback flexible. Idéal pour la gestion d'erreurs locale et globale dans les apps React modernes.",
+      "excerpt": "Un package Error Boundary et reporter pour React, orienté TypeScript, avec gestion avancée de l'état d'erreur, logique de reset et intégration analytics. Conçu pour une gestion d'erreurs évolutive et robuste en production.",
+      "shortDescription": "Un package Error Boundary et reporter robuste pour React, prenant en charge l'état d'erreur global et local, des hooks composables, le reset impératif et une UI de fallback flexible. S'intègre facilement avec Zustand et les outils analytics pour une visibilité complète des erreurs.",
       "highlights": [
-        "UI de fallback et logique de reset personnalisables",
-        "Hook de reporting d'erreur pour integration analytics",
-        "Tests unitaires approfondis sur tous les flux d'erreur"
+        "Gestion globale et locale de l'état d'erreur avec hooks composables",
+        "Isolation par clé et support du reset impératif",
+        "UI de fallback personnalisable et intégration reporting",
+        "Optimisé pour la performance et la gestion d'erreurs à grande échelle",
+        "Intégration facile avec Zustand et outils analytics"
       ],
       "category": "Bibliotheque",
-      "tags": ["React 19", "TypeScript", "Error Boundary", "Error Reporting", "Testing", "NPM"],
+      "tags": ["React 19", "TypeScript", "Error Boundary", "Error Reporting", "Zustand", "NPM"],
+      "tags": [
+        "React 19",
+        "TypeScript",
+        "Error Boundary",
+        "Error Reporting",
+        "Zustand",
+        "NPM",
+        "Jest"
+      ],
+      "tags": [
+        "React 19",
+        "TypeScript",
+        "Error Boundary",
+        "Error Reporting",
+        "Zustand",
+        "NPM",
+        "Jest",
+        "Bibliotheque"
+      ],
       "publishDate": "2026-03-21"
     }
   ]
