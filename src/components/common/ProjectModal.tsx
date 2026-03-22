@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import type { Project } from '../../types/portfolio'
+
+import { Divider } from './Divider'
 import * as modalStyles from './projectModal.css'
 import * as modalExtra from './projectModalExtra.css'
 
@@ -56,47 +58,52 @@ const ProjectModal: ModalCompound = ({ open, onClose, children }) => {
 }
 
 ProjectModal.Title = ({ children, onClose }) => (
-  <div className={modalStyles.titleRowSticky}>
-    <h2 className={modalExtra.title}>{children}</h2>
-    <button
-      className={modalExtra.closeBtnTag}
-      aria-label="Close"
-      type="button"
-      onClick={(e) => {
-        e.stopPropagation()
-        onClose()
-      }}
-    >
-      ×
-    </button>
-    <div className={modalStyles.divider} />
-  </div>
+  <>
+    <div className={modalStyles.titleRowSticky}>
+      <h2 className={modalExtra.title}>{children}</h2>
+      <button
+        className={modalExtra.closeBtnTag}
+        aria-label="Close"
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation()
+          onClose()
+        }}
+      >
+        ×
+      </button>
+    </div>
+    <Divider />
+  </>
 )
 
-ProjectModal.Description = ({ children }) => (
-  <div className={modalExtra.desc}>
-    {children}
-    <div className={modalStyles.divider} />
-  </div>
-)
+ProjectModal.Description = ({ children }) => <div className={modalExtra.desc}>{children}</div>
 
 ProjectModal.Highlights = ({ children }) => <ul className={modalStyles.highlights}>{children}</ul>
 
 ProjectModal.Footer = ({ link, onClose }) => (
-  <div className={modalStyles.footerSticky}>
-    <button className="btn" onClick={onClose} style={{ marginRight: 12 }}>
-      Close
-    </button>
-    <a
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="btn"
-      style={{ textDecoration: 'none' }}
-    >
-      Project Link
-    </a>
-  </div>
+  <>
+    <Divider />
+    <div className={modalStyles.footerSticky}>
+      <button
+        className={modalExtra.closeBtnTag}
+        style={{ marginRight: 12 }}
+        onClick={onClose}
+        type="button"
+      >
+        Close
+      </button>
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn"
+        style={{ textDecoration: 'none' }}
+      >
+        Project Link
+      </a>
+    </div>
+  </>
 )
 
 export { ProjectModal }

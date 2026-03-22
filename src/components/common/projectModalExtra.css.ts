@@ -1,31 +1,47 @@
-export const closeBtnTag = style([
-  {
-    padding: '5px 10px',
-    borderRadius: '999px',
-    fontSize: '18px',
-    fontWeight: 500,
-    lineHeight: 1.2,
-    backgroundColor: `${vars.color.skin}15`,
-    color: vars.color.skin,
-    border: `1px solid ${vars.color.skin}`,
-    transition: 'all 0.3s ease',
-    cursor: 'pointer',
-    marginLeft: 8,
-    borderStyle: 'solid',
-    borderWidth: 1,
-    appearance: 'none',
-  },
-  {
-    selectors: {
-      '&:hover': {
-        backgroundColor: vars.color.skin,
-        color: 'white',
-      },
-    },
-  },
-])
 import { style } from '@vanilla-extract/css'
 import { vars } from '../../styles/theme.css'
+export const divider = style({
+  width: '100%',
+  height: 1,
+  background: vars.color.skin,
+  borderRadius: 1,
+  margin: '8px 0 12px 0',
+  border: 'none',
+  transition: 'background 0.3s',
+})
+
+export const dividerVertical = style({
+  width: 2,
+  height: 32,
+  background: vars.color.skin,
+  borderRadius: 1,
+  margin: '0 16px',
+  alignSelf: 'center',
+  flexShrink: 0,
+  transition: 'background 0.3s',
+})
+export const closeBtnTag = style({
+  padding: '5px 10px',
+  borderRadius: '999px',
+  fontSize: '18px',
+  fontWeight: 500,
+  lineHeight: 1.2,
+  backgroundColor: `${vars.color.skin}15`,
+  color: vars.color.skin,
+  border: `1px solid ${vars.color.skin}`,
+  transition: 'all 0.3s ease',
+  cursor: 'pointer',
+  marginLeft: 8,
+  borderStyle: 'solid',
+  borderWidth: 1,
+  appearance: 'none',
+  selectors: {
+    '&:hover': {
+      backgroundColor: vars.color.skin,
+      color: 'white',
+    },
+  },
+})
 
 export const overlay = style({
   position: 'fixed',
