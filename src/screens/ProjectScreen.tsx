@@ -87,8 +87,6 @@ const ProjectScreen: React.FC = () => {
                 {selectedProject.title}
               </ProjectModal.Title>
               <ProjectModal.Body>
-                {' '}
-                {/* ✅ add this wrapper */}
                 <ProjectModal.Description>
                   {selectedProject?.shortDescription}
                 </ProjectModal.Description>

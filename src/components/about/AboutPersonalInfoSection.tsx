@@ -2,7 +2,7 @@ import dayjs from 'dayjs'
 import React from 'react'
 import { useTranslation } from '../../localization/localize'
 import { useContactInfo, usePersonalInfo } from '../../stores/portfolioStore'
-import Button from '../common/Button'
+import { Button } from '../common/Button'
 import {
   btnMargin,
   buttons,

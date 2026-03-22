@@ -9,12 +9,12 @@ export const modal = style({
   width: '50rem',
   maxWidth: '90vw',
   minHeight: '17.88rem',
-  maxHeight: '90vh', // ✅ better for mobile
-  padding: 0, // ✅ remove padding — let header/footer control spacing
+  maxHeight: '90vh',
+  padding: 0,
   display: 'flex',
   flexDirection: 'column',
   position: 'relative',
-  overflow: 'hidden', // ✅ change from 'auto' to 'hidden' — body scrolls instead
+  overflow: 'hidden',
   scrollbarWidth: 'none',
   msOverflowStyle: 'none',
   selectors: {
@@ -27,13 +27,13 @@ export const titleRowSticky = style({
   alignItems: 'center',
   justifyContent: 'space-between',
   minHeight: '3.125rem',
-  padding: '0 16px', // ✅ add horizontal padding here instead
+  padding: '0 16px',
   position: 'sticky',
   top: 0,
   zIndex: 2,
-  background: vars.color.background[900], // ✅ solid bg = no bleed-through
-  borderRadius: '10px 10px 0 0', // ✅ match modal border-radius at top
-  flexShrink: 0, // ✅ never shrink
+  background: vars.color.background[900],
+  borderRadius: '10px 10px 0 0',
+  flexShrink: 0,
 })
 
 export const highlights = style({
@@ -49,16 +49,16 @@ export const highlights = style({
 export const footerSticky = style({
   display: 'flex',
   justifyContent: 'flex-end',
-  alignItems: 'center', // ✅ vertically center buttons
+  alignItems: 'center',
   gap: 12,
   minHeight: '3.125rem',
-  padding: '0 16px', // ✅ add horizontal padding
+  padding: '0 16px',
   position: 'sticky',
   bottom: 0,
   zIndex: 2,
-  background: vars.color.background[900], // ✅ solid bg = no bleed-through
-  borderRadius: '0 0 10px 10px', // ✅ match modal border-radius at bottom
-  flexShrink: 0, // ✅ never shrink
+  background: vars.color.background[900],
+  borderRadius: '0 0 10px 10px',
+  flexShrink: 0,
 })
 
 export const divider = style({
@@ -73,7 +73,7 @@ export const divider = style({
 
 export const modalBody = style({
   flex: 1,
-  overflowY: 'auto', // scrolls between fixed header and footer
+  overflowY: 'auto',
   padding: '12px 16px',
   scrollbarWidth: 'none',
   msOverflowStyle: 'none',

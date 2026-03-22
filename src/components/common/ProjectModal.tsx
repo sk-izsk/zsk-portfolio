@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
+import { useTranslation } from '../../localization/localize'
 import type { Project } from '../../types/portfolio'
 import { Button } from './Button'
 import { Divider } from './Divider'
@@ -23,10 +24,9 @@ type ModalCompound = React.FC<ProjectModalProps> & {
   Footer: React.FC<{ link: string; onClose: () => void }>
 }
 
-const ProjectModal: ModalCompound = ({ open, onClose, children }) => {
+export const ProjectModal: ModalCompound = ({ open, onClose, children }) => {
   const ref = useRef<HTMLDivElement>(null)
 
-  // Escape key closes modal
   useEffect(() => {
     if (!open) return
     const handleKey = (e: KeyboardEvent) => {
@@ -36,7 +36,6 @@ const ProjectModal: ModalCompound = ({ open, onClose, children }) => {
     return () => document.removeEventListener('keydown', handleKey)
   }, [open, onClose])
 
-  // Click outside closes modal
   useEffect(() => {
     if (!open) return
     const handleClick = (e: MouseEvent) => {
@@ -48,7 +47,6 @@ const ProjectModal: ModalCompound = ({ open, onClose, children }) => {
     return () => document.removeEventListener('mousedown', handleClick)
   }, [open, onClose])
 
-  // Prevent body scroll when modal is open
   useEffect(() => {
     if (open) {
       document.body.style.overflow = 'hidden'
@@ -72,7 +70,6 @@ const ProjectModal: ModalCompound = ({ open, onClose, children }) => {
   )
 }
 
-// Title — sticky header with solid background
 ProjectModal.Title = ({ children }) => (
   <>
     <div className={modalStyles.titleRowSticky}>
@@ -82,17 +79,12 @@ ProjectModal.Title = ({ children }) => (
   </>
 )
 
-// Body — scrollable area between header and footer
 ProjectModal.Body = ({ children }) => <div className={modalStyles.modalBody}>{children}</div>
 
-// Description — inside Body
 ProjectModal.Description = ({ children }) => <div className={modalExtra.desc}>{children}</div>
 
-// Highlights — inside Body
 ProjectModal.Highlights = ({ children }) => <ul className={modalStyles.highlights}>{children}</ul>
 
-// Footer — sticky footer with solid background
-import { useTranslation } from '../../localization/localize'
 ProjectModal.Footer = ({ link, onClose }) => {
   const { t } = useTranslation()
   return (
@@ -123,5 +115,3 @@ ProjectModal.Footer = ({ link, onClose }) => {
     </>
   )
 }
-
-export { ProjectModal }

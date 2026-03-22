@@ -14,6 +14,8 @@ export const button = style({
   textDecoration: 'none',
   userSelect: 'none',
   fontFamily: 'inherit',
+  minHeight: '3.125rem',
+  lineHeight: 1.2,
 })
 
 export const primary = style({

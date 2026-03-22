@@ -46,7 +46,6 @@ export const Button: React.FC<ButtonProps> = (props) => {
     .join(' ')
 
   if (as === 'a' && 'href' in props) {
-    // eslint-disable-next-line jsx-a11y/anchor-has-content
     return (
       <a
         {...(rest as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
@@ -63,5 +62,3 @@ export const Button: React.FC<ButtonProps> = (props) => {
     </button>
   )
 }
-
-export default Button
