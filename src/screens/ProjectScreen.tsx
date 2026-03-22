@@ -1,4 +1,5 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
+import { ProjectModal } from '../components/common/ProjectModal'
 import { ProjectCard } from '../components/projects/ProjectCard'
 import {
   projectGrid,
@@ -15,11 +16,15 @@ const ProjectScreen: React.FC = () => {
   const error = usePortfolioError()
   const { t } = useTranslation()
 
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedProject, setSelectedProject] = useState(
+    null as null | (typeof projectViewModels)[0],
+  )
+
   const projectViewModels = useMemo(
     () =>
       (projects ?? []).map((project) => {
         const projectHref = project.url || '#'
-
         return {
           ...project,
           projectHref,
@@ -57,19 +62,44 @@ const ProjectScreen: React.FC = () => {
                   <ProjectCard.Title href={project.projectHref} isExternal={project.isExternal}>
                     {project.title}
                   </ProjectCard.Title>
-                  <ProjectCard.Body
-                    shortDescription={project.shortDescription}
-                    highlights={project.highlights}
-                  />
+                  <ProjectCard.Body shortDescription={project.shortDescription} highlights={[]} />
                   <ProjectCard.Tags projectId={project.id} tags={project.tags} />
                   <ProjectCard.ReadMore
                     href={project.projectHref}
                     isExternal={project.isExternal}
+                    onClick={(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+                      e.preventDefault()
+                      setSelectedProject(project)
+                      setModalOpen(true)
+                    }}
                   />
                 </ProjectCard>
               )
             })}
           </div>
+          {selectedProject && (
+            <ProjectModal
+              open={modalOpen}
+              onClose={() => setModalOpen(false)}
+              project={selectedProject}
+            >
+              <ProjectModal.Title onClose={() => setModalOpen(false)}>
+                {selectedProject.title}
+              </ProjectModal.Title>
+              <ProjectModal.Description>
+                {selectedProject.shortDescription}
+              </ProjectModal.Description>
+              <ProjectModal.Highlights>
+                {selectedProject.highlights.map((h, i) => (
+                  <li key={i}>{h}</li>
+                ))}
+              </ProjectModal.Highlights>
+              <ProjectModal.Footer
+                link={selectedProject.projectHref}
+                onClose={() => setModalOpen(false)}
+              />
+            </ProjectModal>
+          )}
         </>
       )}
     </Screen>
