@@ -17,7 +17,7 @@ interface ProjectModalProps {
 }
 
 type ModalCompound = React.FC<ProjectModalProps> & {
-  Title: React.FC<{ children: React.ReactNode; onClose: () => void }>
+  Title: React.FC<{ children: React.ReactNode; onClose?: () => void }>
   Body: React.FC<{ children: React.ReactNode }>
   Description: React.FC<{ children: React.ReactNode }>
   Highlights: React.FC<{ children: React.ReactNode }>

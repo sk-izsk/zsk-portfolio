@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslation } from '../../localization/localize'
-import Button from '../common/Button'
+import { Button } from '../common/Button'
 import { contactForm, contactTitle, formItem } from './contact.css'
 import { ContactFormField } from './ContactFormField'
 

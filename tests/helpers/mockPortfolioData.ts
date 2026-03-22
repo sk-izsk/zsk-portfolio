@@ -71,6 +71,8 @@ export const mockPortfolioData: PortfolioData = {
       excerpt: 'A modern portfolio built with React and TypeScript.',
       category: 'Web',
       tags: ['React', 'TypeScript', 'Vite'],
+      shortDescription: 'A modern portfolio built with React and TypeScript.',
+      highlights: ['Responsive design', 'Fast load times'],
       publishDate: '2024-01-01',
     },
     {
@@ -79,6 +81,8 @@ export const mockPortfolioData: PortfolioData = {
       excerpt: 'A command-line utility written in Node.js.',
       category: 'Tools',
       tags: ['Node.js', 'CLI'],
+      shortDescription: 'A command-line utility written in Node.js.',
+      highlights: ['Cross-platform', 'Easy to use'],
       publishDate: '2023-06-15',
     },
   ],
