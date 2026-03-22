@@ -86,14 +86,18 @@ const ProjectScreen: React.FC = () => {
               <ProjectModal.Title onClose={() => setModalOpen(false)}>
                 {selectedProject.title}
               </ProjectModal.Title>
-              <ProjectModal.Description>
-                {selectedProject.shortDescription}
-              </ProjectModal.Description>
-              <ProjectModal.Highlights>
-                {selectedProject.highlights.map((h, i) => (
-                  <li key={i}>{h}</li>
-                ))}
-              </ProjectModal.Highlights>
+              <ProjectModal.Body>
+                {' '}
+                {/* ✅ add this wrapper */}
+                <ProjectModal.Description>
+                  {selectedProject?.shortDescription}
+                </ProjectModal.Description>
+                <ProjectModal.Highlights>
+                  {selectedProject.highlights?.map((h, i) => (
+                    <li key={i}>{h}</li>
+                  ))}
+                </ProjectModal.Highlights>
+              </ProjectModal.Body>
               <ProjectModal.Footer
                 link={selectedProject.projectHref}
                 onClose={() => setModalOpen(false)}

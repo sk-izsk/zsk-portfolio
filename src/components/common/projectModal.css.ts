@@ -9,20 +9,16 @@ export const modal = style({
   width: '50rem',
   maxWidth: '90vw',
   minHeight: '17.88rem',
-  maxHeight: '43rem',
-  // boxShadow: '0 8px 32px rgba(0,0,0,0.18)',
-  padding: 16,
+  maxHeight: '90vh', // ✅ better for mobile
+  padding: 0, // ✅ remove padding — let header/footer control spacing
   display: 'flex',
   flexDirection: 'column',
   position: 'relative',
-  overflow: 'auto',
-  /* Hide scrollbar for all browsers */
-  scrollbarWidth: 'none' /* Firefox */,
-  msOverflowStyle: 'none' /* IE and Edge */,
+  overflow: 'hidden', // ✅ change from 'auto' to 'hidden' — body scrolls instead
+  scrollbarWidth: 'none',
+  msOverflowStyle: 'none',
   selectors: {
-    '&::-webkit-scrollbar': {
-      display: 'none' /* Chrome, Safari, Opera */,
-    },
+    '&::-webkit-scrollbar': { display: 'none' },
   },
 })
 
@@ -30,17 +26,14 @@ export const titleRowSticky = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  height: '3.125rem',
   minHeight: '3.125rem',
-  maxHeight: '3.125rem',
-  marginBottom: 8,
+  padding: '0 16px', // ✅ add horizontal padding here instead
   position: 'sticky',
   top: 0,
   zIndex: 2,
-  background: vars.color.background[900],
-  color: vars.color.text[900],
-  // paddingTop: 4,
-  // paddingBottom: 4,
+  background: vars.color.background[900], // ✅ solid bg = no bleed-through
+  borderRadius: '10px 10px 0 0', // ✅ match modal border-radius at top
+  flexShrink: 0, // ✅ never shrink
 })
 
 export const highlights = style({
@@ -56,16 +49,16 @@ export const highlights = style({
 export const footerSticky = style({
   display: 'flex',
   justifyContent: 'flex-end',
+  alignItems: 'center', // ✅ vertically center buttons
   gap: 12,
-  height: '3.125rem',
   minHeight: '3.125rem',
-  maxHeight: '3.125rem',
+  padding: '0 16px', // ✅ add horizontal padding
   position: 'sticky',
   bottom: 0,
   zIndex: 2,
-  background: vars.color.background[900],
-  color: vars.color.text[900],
-  marginTop: 12,
+  background: vars.color.background[900], // ✅ solid bg = no bleed-through
+  borderRadius: '0 0 10px 10px', // ✅ match modal border-radius at bottom
+  flexShrink: 0, // ✅ never shrink
 })
 
 export const divider = style({
@@ -76,4 +69,15 @@ export const divider = style({
   border: 'none',
   display: 'block',
   padding: 0,
+})
+
+export const modalBody = style({
+  flex: 1,
+  overflowY: 'auto', // scrolls between fixed header and footer
+  padding: '12px 16px',
+  scrollbarWidth: 'none',
+  msOverflowStyle: 'none',
+  selectors: {
+    '&::-webkit-scrollbar': { display: 'none' },
+  },
 })

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import type { Project } from '../../types/portfolio'
-
 import { Button } from './Button'
 import { Divider } from './Divider'
 import * as modalStyles from './projectModal.css'
@@ -18,6 +17,7 @@ interface ProjectModalProps {
 
 type ModalCompound = React.FC<ProjectModalProps> & {
   Title: React.FC<{ children: React.ReactNode; onClose: () => void }>
+  Body: React.FC<{ children: React.ReactNode }>
   Description: React.FC<{ children: React.ReactNode }>
   Highlights: React.FC<{ children: React.ReactNode }>
   Footer: React.FC<{ link: string; onClose: () => void }>
@@ -26,6 +26,7 @@ type ModalCompound = React.FC<ProjectModalProps> & {
 const ProjectModal: ModalCompound = ({ open, onClose, children }) => {
   const ref = useRef<HTMLDivElement>(null)
 
+  // Escape key closes modal
   useEffect(() => {
     if (!open) return
     const handleKey = (e: KeyboardEvent) => {
@@ -35,6 +36,7 @@ const ProjectModal: ModalCompound = ({ open, onClose, children }) => {
     return () => document.removeEventListener('keydown', handleKey)
   }, [open, onClose])
 
+  // Click outside closes modal
   useEffect(() => {
     if (!open) return
     const handleClick = (e: MouseEvent) => {
@@ -45,6 +47,18 @@ const ProjectModal: ModalCompound = ({ open, onClose, children }) => {
     document.addEventListener('mousedown', handleClick)
     return () => document.removeEventListener('mousedown', handleClick)
   }, [open, onClose])
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [open])
 
   if (!open || !modalRoot) return null
 
@@ -58,6 +72,7 @@ const ProjectModal: ModalCompound = ({ open, onClose, children }) => {
   )
 }
 
+// Title — sticky header with solid background
 ProjectModal.Title = ({ children, onClose }) => (
   <>
     <div className={modalStyles.titleRowSticky}>
@@ -78,10 +93,16 @@ ProjectModal.Title = ({ children, onClose }) => (
   </>
 )
 
+// Body — scrollable area between header and footer
+ProjectModal.Body = ({ children }) => <div className={modalStyles.modalBody}>{children}</div>
+
+// Description — inside Body
 ProjectModal.Description = ({ children }) => <div className={modalExtra.desc}>{children}</div>
 
+// Highlights — inside Body
 ProjectModal.Highlights = ({ children }) => <ul className={modalStyles.highlights}>{children}</ul>
 
+// Footer — sticky footer with solid background
 ProjectModal.Footer = ({ link, onClose }) => (
   <>
     <Divider />

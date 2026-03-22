@@ -52,13 +52,13 @@ export const overlay = style({
   left: 0,
   width: '100vw',
   height: '100vh',
-  background: 'rgba(0,0,0,0.18)',
+  background: 'rgba(0,0,0,0.65)',
   zIndex: 1000,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   backdropFilter: 'blur(6px)',
-  WebkitBackdropFilter: 'blur(6px)',
+  WebkitBackdropFilter: 'blur(2px)',
 })
 
 export const title = style({
