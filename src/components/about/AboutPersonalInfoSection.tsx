@@ -2,6 +2,7 @@ import dayjs from 'dayjs'
 import React from 'react'
 import { useTranslation } from '../../localization/localize'
 import { useContactInfo, usePersonalInfo } from '../../stores/portfolioStore'
+import Button from '../common/Button'
 import {
   btnMargin,
   buttons,
@@ -82,34 +83,31 @@ export const AboutPersonalInfoSection: React.FC = () => {
                 ) : (
                   <span className={infoItemSpan}>{item.value}</span>
                 )}
-              <Button
-                as="a"
-                href={personalInfo.resume_link}
-                variant="primary"
-                size="large"
-                className={btnMargin}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t('about.actions.downloadCv')}
-              </Button>
-              <Button
-                as="a"
-                href="#contact"
-                variant="secondary"
-                size="large"
-                className={`hire-me ${btnMargin}`}
-              >
-                {t('about.actions.hireMe')}
-              </Button>
-              rel="noopener noreferrer"
-            >
-              {t('about.actions.downloadCv')}
-            </a>
-            <a href="#contact" className={`btn hire-me ${btnMargin}`}>
-              {t('about.actions.hireMe')}
-            </a>
-          </div>
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className={buttons} style={{ marginTop: 24 }}>
+          <Button
+            as="a"
+            href={personalInfo.resume_link}
+            variant="primary"
+            size="large"
+            className={btnMargin}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t('about.actions.downloadCv')}
+          </Button>
+          <Button
+            as="a"
+            href="#contact"
+            variant="secondary"
+            size="large"
+            className={`hire-me ${btnMargin}`}
+          >
+            {t('about.actions.hireMe')}
+          </Button>
         </div>
       </div>
     </div>
