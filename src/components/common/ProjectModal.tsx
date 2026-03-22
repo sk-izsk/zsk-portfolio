@@ -73,7 +73,7 @@ const ProjectModal: ModalCompound = ({ open, onClose, children }) => {
 }
 
 // Title — sticky header with solid background
-ProjectModal.Title = ({ children, onClose }) => (
+ProjectModal.Title = ({ children }) => (
   <>
     <div className={modalStyles.titleRowSticky}>
       <h2 className={modalExtra.title}>{children}</h2>
