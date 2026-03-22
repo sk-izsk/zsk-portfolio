@@ -5,7 +5,10 @@ export const divider = style({
   height: 1,
   background: vars.color.skin,
   borderRadius: 1,
-  margin: '8px 0 12px 0',
+  marginLeft: 0,
+  marginRight: 0,
+  marginTop: 8,
+  marginBottom: 8,
   border: 'none',
   transition: 'background 0.3s',
 })
@@ -49,11 +52,13 @@ export const overlay = style({
   left: 0,
   width: '100vw',
   height: '100vh',
-  background: 'rgba(0,0,0,0.35)',
+  background: 'rgba(0,0,0,0.18)',
   zIndex: 1000,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  backdropFilter: 'blur(6px)',
+  WebkitBackdropFilter: 'blur(6px)',
 })
 
 export const title = style({

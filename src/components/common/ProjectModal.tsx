@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import type { Project } from '../../types/portfolio'
 
+import { Button } from './Button'
 import { Divider } from './Divider'
 import * as modalStyles from './projectModal.css'
 import * as modalExtra from './projectModalExtra.css'
@@ -85,23 +86,26 @@ ProjectModal.Footer = ({ link, onClose }) => (
   <>
     <Divider />
     <div className={modalStyles.footerSticky}>
-      <button
-        className={modalExtra.closeBtnTag}
+      <Button
+        variant="secondary"
+        size="medium"
         style={{ marginRight: 12 }}
         onClick={onClose}
         type="button"
       >
         Close
-      </button>
-      <a
+      </Button>
+      <Button
+        as="a"
         href={link}
+        variant="primary"
+        size="medium"
         target="_blank"
         rel="noopener noreferrer"
-        className="btn"
         style={{ textDecoration: 'none' }}
       >
         Project Link
-      </a>
+      </Button>
     </div>
   </>
 )

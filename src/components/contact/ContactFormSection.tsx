@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslation } from '../../localization/localize'
-import { btn, contactForm, contactTitle, formItem } from './contact.css'
+import { contactForm, contactTitle, formItem } from './contact.css'
 import { ContactFormField } from './ContactFormField'
 
 export const ContactFormSection: React.FC = () => {
@@ -69,9 +69,9 @@ export const ContactFormSection: React.FC = () => {
             <div className="row">
               <div className={`${formItem} padd-15`}>
                 <div className="form-group">
-                  <button type="submit" className={btn}>
+                  <Button type="submit" variant="primary" size="large">
                     {t('contact.form.submit')}
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>

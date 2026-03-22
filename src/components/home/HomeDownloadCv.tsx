@@ -1,6 +1,7 @@
 import React from 'react'
 import { useTranslation } from '../../localization/localize'
 import { usePersonalInfo } from '../../stores/portfolioStore'
+import Button from '../common/Button'
 
 export const HomeDownloadCv: React.FC = () => {
   const personalInfo = usePersonalInfo()
@@ -11,8 +12,15 @@ export const HomeDownloadCv: React.FC = () => {
   }
 
   return (
-    <a href={personalInfo.resume_link} className="btn" target="_blank" rel="noopener noreferrer">
+    <Button
+      as="a"
+      href={personalInfo.resume_link}
+      variant="primary"
+      size="large"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {t('home.downloadCv')}
-    </a>
+    </Button>
   )
 }

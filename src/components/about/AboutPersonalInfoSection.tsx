@@ -82,16 +82,26 @@ export const AboutPersonalInfoSection: React.FC = () => {
                 ) : (
                   <span className={infoItemSpan}>{item.value}</span>
                 )}
-              </p>
-            </div>
-          ))}
-        </div>
-        <div className="row">
-          <div className={`${buttons} padd-15`}>
-            <a
-              href={personalInfo.resume_link}
-              className={`btn ${btnMargin}`}
-              target="_blank"
+              <Button
+                as="a"
+                href={personalInfo.resume_link}
+                variant="primary"
+                size="large"
+                className={btnMargin}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t('about.actions.downloadCv')}
+              </Button>
+              <Button
+                as="a"
+                href="#contact"
+                variant="secondary"
+                size="large"
+                className={`hire-me ${btnMargin}`}
+              >
+                {t('about.actions.hireMe')}
+              </Button>
               rel="noopener noreferrer"
             >
               {t('about.actions.downloadCv')}
