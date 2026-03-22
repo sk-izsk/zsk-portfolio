@@ -77,6 +77,8 @@ export interface Project {
   title: string
   url?: string
   excerpt: string
+  shortDescription: string
+  highlights: string[]
   category: string
   tags: string[]
   publishDate: string

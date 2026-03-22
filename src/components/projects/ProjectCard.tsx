@@ -30,7 +30,10 @@ interface ProjectCardTitleProps extends PropsWithChildren {
   isExternal: boolean
 }
 
-type ProjectCardBodyProps = PropsWithChildren
+interface ProjectCardBodyProps {
+  shortDescription: string
+  highlights: string[]
+}
 
 interface ProjectCardTagsProps {
   projectId: number
@@ -40,6 +43,7 @@ interface ProjectCardTagsProps {
 interface ProjectCardReadMoreProps {
   href: string
   isExternal: boolean
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
 }
 
 type ProjectCardCompound = React.FC<ProjectCardRootProps> & {
@@ -97,18 +101,12 @@ const ProjectCardTimeLink: React.FC<ProjectCardTimeLinkProps> = ({
   )
 }
 
-const ProjectCardTitle: React.FC<ProjectCardTitleProps> = ({ href, isExternal, children }) => {
-  const linkAttrs = getLinkAttrs(isExternal)
-
-  return (
-    <a href={href} {...linkAttrs}>
-      <h4 className={projectTitle}>{children}</h4>
-    </a>
-  )
+const ProjectCardTitle: React.FC<ProjectCardTitleProps> = ({ children }) => {
+  return <h4 className={projectTitle}>{children}</h4>
 }
 
-const ProjectCardBody: React.FC<ProjectCardBodyProps> = ({ children }) => {
-  return <p className={projectContent}>{children}</p>
+const ProjectCardBody: React.FC<ProjectCardBodyProps> = ({ shortDescription }) => {
+  return <div className={projectContent}>{shortDescription}</div>
 }
 
 const ProjectCardTags: React.FC<ProjectCardTagsProps> = ({ projectId, tags }) => {
@@ -125,12 +123,12 @@ const ProjectCardTags: React.FC<ProjectCardTagsProps> = ({ projectId, tags }) =>
   )
 }
 
-const ProjectCardReadMore: React.FC<ProjectCardReadMoreProps> = ({ href, isExternal }) => {
+const ProjectCardReadMore: React.FC<ProjectCardReadMoreProps> = ({ href, isExternal, onClick }) => {
   const linkAttrs = getLinkAttrs(isExternal)
   const { t } = useTranslation()
 
   return (
-    <a href={href} className={projectLink} {...linkAttrs}>
+    <a href={href} className={projectLink} {...linkAttrs} onClick={onClick}>
       {t('projects.readMore')}
     </a>
   )

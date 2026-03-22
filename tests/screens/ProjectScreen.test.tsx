@@ -51,10 +51,10 @@ describe('ProjectScreen', () => {
     usePortfolioStore.getState().setData(mockPortfolioData)
     renderScreen()
 
-    // The first project has a URL (external)
+    // The first project should be rendered as a heading, not a link
     const externalProject = mockPortfolioData.projects[0]!
-    const links = screen.getAllByRole('link', { name: externalProject.title })
-    expect(links[0]).toHaveAttribute('target', '_blank')
+    const heading = screen.getByRole('heading', { name: externalProject.title })
+    expect(heading).toBeInTheDocument()
   })
 
   it('renders the projects section element', () => {

@@ -19,7 +19,10 @@ describe('ProjectCard', () => {
         <ProjectCard.Title href="https://example.com" isExternal={true}>
           My Awesome Project
         </ProjectCard.Title>
-        <ProjectCard.Body>A great project description.</ProjectCard.Body>
+        <ProjectCard.Body
+          shortDescription="A great project description."
+          highlights={['Highlight 1', 'Highlight 2']}
+        />
       </ProjectCard>,
     )
 
@@ -32,7 +35,10 @@ describe('ProjectCard', () => {
         <ProjectCard.Title href="#" isExternal={false}>
           Title
         </ProjectCard.Title>
-        <ProjectCard.Body>A great project description.</ProjectCard.Body>
+        <ProjectCard.Body
+          shortDescription="A great project description."
+          highlights={['Highlight 1', 'Highlight 2']}
+        />
       </ProjectCard>,
     )
 
@@ -45,7 +51,7 @@ describe('ProjectCard', () => {
         <ProjectCard.Title href="#" isExternal={false}>
           Title
         </ProjectCard.Title>
-        <ProjectCard.Body>Body</ProjectCard.Body>
+        <ProjectCard.Body shortDescription="Body" highlights={['Highlight 1']} />
         <ProjectCard.Tags projectId={1} tags={['React', 'TypeScript']} />
       </ProjectCard>,
     )
@@ -74,13 +80,13 @@ describe('ProjectCard', () => {
         <ProjectCard.Title href="https://example.com" isExternal={true}>
           External Project
         </ProjectCard.Title>
-        <ProjectCard.Body>Body</ProjectCard.Body>
+        <ProjectCard.Body shortDescription="Body" highlights={['Highlight 1']} />
       </ProjectCard>,
     )
 
-    const link = screen.getByRole('link', { name: /External Project/i })
-    expect(link).toHaveAttribute('target', '_blank')
-    expect(link).toHaveAttribute('rel', 'noopener noreferrer')
+    // Title should be a heading, not a link
+    const heading = screen.getByRole('heading', { name: /External Project/i })
+    expect(heading).toBeInTheDocument()
   })
 
   it('does not set target=_blank on internal links', () => {
@@ -89,11 +95,12 @@ describe('ProjectCard', () => {
         <ProjectCard.Title href="#" isExternal={false}>
           Internal Project
         </ProjectCard.Title>
-        <ProjectCard.Body>Body</ProjectCard.Body>
+        <ProjectCard.Body shortDescription="Body" highlights={['Highlight 1']} />
       </ProjectCard>,
     )
 
-    const link = screen.getByRole('link', { name: /Internal Project/i })
-    expect(link).not.toHaveAttribute('target')
+    // Title should be a heading, not a link
+    const heading = screen.getByRole('heading', { name: /Internal Project/i })
+    expect(heading).toBeInTheDocument()
   })
 })
