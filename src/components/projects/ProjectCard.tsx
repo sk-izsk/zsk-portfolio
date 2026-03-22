@@ -30,7 +30,10 @@ interface ProjectCardTitleProps extends PropsWithChildren {
   isExternal: boolean
 }
 
-type ProjectCardBodyProps = PropsWithChildren
+interface ProjectCardBodyProps {
+  shortDescription: string
+  highlights: string[]
+}
 
 interface ProjectCardTagsProps {
   projectId: number
@@ -107,8 +110,29 @@ const ProjectCardTitle: React.FC<ProjectCardTitleProps> = ({ href, isExternal, c
   )
 }
 
-const ProjectCardBody: React.FC<ProjectCardBodyProps> = ({ children }) => {
-  return <p className={projectContent}>{children}</p>
+const ProjectCardBody: React.FC<ProjectCardBodyProps> = ({ shortDescription, highlights }) => {
+  return (
+    <div className={projectContent}>
+      <div style={{ marginBottom: highlights.length ? '0.5em' : 0 }}>{shortDescription}</div>
+      {highlights.length > 0 && (
+        <ul
+          style={{
+            margin: 0,
+            paddingLeft: '1.2em',
+            listStyleType: 'disc',
+            fontSize: '0.97em',
+            lineHeight: 1.5,
+          }}
+        >
+          {highlights.slice(0, 3).map((point, idx) => (
+            <li key={idx} style={{ marginBottom: 2 }}>
+              {point}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  )
 }
 
 const ProjectCardTags: React.FC<ProjectCardTagsProps> = ({ projectId, tags }) => {

@@ -57,7 +57,10 @@ const ProjectScreen: React.FC = () => {
                   <ProjectCard.Title href={project.projectHref} isExternal={project.isExternal}>
                     {project.title}
                   </ProjectCard.Title>
-                  <ProjectCard.Body>{project.excerpt}</ProjectCard.Body>
+                  <ProjectCard.Body
+                    shortDescription={project.shortDescription}
+                    highlights={project.highlights}
+                  />
                   <ProjectCard.Tags projectId={project.id} tags={project.tags} />
                   <ProjectCard.ReadMore
                     href={project.projectHref}

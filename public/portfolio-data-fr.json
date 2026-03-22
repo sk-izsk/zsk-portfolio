@@ -287,6 +287,12 @@
       "title": "Productify : plateforme produit Full Stack en TypeScript",
       "url": "https://github.com/sk-izsk/productify",
       "excerpt": "Un projet de type PERN en conditions reelles, avec authentification de bout en bout via Clerk, CRUD securise par proprietaire pour produits/commentaires, et flux React Query orientes cache pour une UX rapide sans refetch excessif.",
+      "shortDescription": "Bootcamp intensif de développement web full stack couvrant les fondamentaux du front-end et du back-end. Acquisition de compétences sur React, Redux, Node et Express. Projet réalisé en équipe de quatre pour construire un site de livraison de repas.",
+      "highlights": [
+        "Authentification de bout en bout avec Clerk",
+        "CRUD securise par proprietaire pour produits/commentaires",
+        "Flux React Query optimises (avec tests unitaires)"
+      ],
       "category": "Full Stack",
       "tags": [
         "React 19",
@@ -307,6 +313,12 @@
       "title": "zsk-react-i18n : wrapper de localisation type-safe pour React",
       "url": "https://github.com/sk-izsk/zsk-react-i18n",
       "excerpt": "Un package npm reutilisable qui encapsule i18next/react-i18next avec une API type-safe pour les applications React. J'y ai construit les modes factory et direct-provider, des gardes runtime pour les langues, la persistance via localStorage, la prise en charge de plusieurs langues et la securite compile-time des cles de traduction, valides par des tests.",
+      "shortDescription": "Un package npm réutilisable qui encapsule i18next/react-i18next avec une API type-safe pour les applications React. J'y ai construit les modes factory et direct-provider, des gardes runtime pour les langues, la persistance via localStorage, la prise en charge de plusieurs langues et la sécurité compile-time des clés de traduction, validées par des tests.",
+      "highlights": [
+        "Modes factory et direct-provider pour la flexibilite",
+        "Securite compile-time des cles de traduction",
+        "Tests unitaires complets avec Jest et React Testing Library"
+      ],
       "category": "Bibliotheque",
       "tags": [
         "TypeScript",
@@ -318,9 +330,24 @@
         "NPM",
         "Bibliotheque",
         "Type Safety",
-        "Bun Test"
+        "Jest"
       ],
       "publishDate": "2026-03-16"
+    },
+    {
+      "id": 3,
+      "title": "zsk-react-error : Error Boundary & Reporter pour React",
+      "url": "https://github.com/sk-izsk/zsk-react-error",
+      "excerpt": "Un composant Error Boundary robuste pour React avec reporting d'erreur et logique de reset. Concu pour la gestion d'erreurs en production.",
+      "shortDescription": "Un package Error Boundary React oriente TypeScript avec gestion d'état avancée et intégration Zustand. Contrairement à react-error-boundary, il prend en charge l'état d'erreur global composable, l'isolation par clé, et le reset impératif. Évite l'imbrication des contextes pour de meilleures performances et une meilleure scalabilité. API fortement typée, hooks composables et UI de fallback flexible. Idéal pour la gestion d'erreurs locale et globale dans les apps React modernes.",
+      "highlights": [
+        "UI de fallback et logique de reset personnalisables",
+        "Hook de reporting d'erreur pour integration analytics",
+        "Tests unitaires approfondis sur tous les flux d'erreur"
+      ],
+      "category": "Bibliotheque",
+      "tags": ["React 19", "TypeScript", "Error Boundary", "Error Reporting", "Testing", "NPM"],
+      "publishDate": "2026-03-21"
     }
   ]
 }
