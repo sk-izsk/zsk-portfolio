@@ -10,12 +10,7 @@ describe('ProjectCard', () => {
   it('renders the project title', () => {
     renderCard(
       <ProjectCard>
-        <ProjectCard.TimeLink
-          category="Web"
-          publishDate="2024-01-01"
-          href="https://example.com"
-          isExternal={true}
-        />
+        <ProjectCard.TimeLink category="Web" publishDate="2024-01-01" />
         <ProjectCard.Title href="https://example.com" isExternal={true}>
           My Awesome Project
         </ProjectCard.Title>
