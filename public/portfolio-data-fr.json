@@ -228,7 +228,7 @@
       "company": "SwiftConnect",
       "position": "Ingenieur logiciel",
       "duration": "Nov 2020 - Aujourd'hui",
-      "description": "Ingenieur a temps plein menant des projets frontend et transverses, creation d'applications web et d'outils internes evolutifs.",
+      "description": "A dirigé le développement et la maintenance de divers projets utilisant React, Typescript, Styled components, React Router, la bibliothèque antd, Redux Toolkit et react-query. Développé une expertise supplémentaire dans la création et la maintenance de bibliothèques NPM (privées).",
       "highlights": [
         "Pilotage du developpement et de la maintenance de projets React/TypeScript avec Styled Components, React Router, Redux Toolkit et React Query.",
         "Architecture et maintenance de bibliotheques NPM privees pour UI et utilitaires, ameliorant la reutilisabilite et la productivite.",
@@ -240,7 +240,7 @@
       "company": "Hatchways",
       "position": "Developpeur Web Full Stack (Co-op)",
       "duration": "Oct 2020 - Nov 2020",
-      "description": "Travail en equipe agile pour livrer des fonctionnalites full stack sur des applications web reelles.",
+      "description": "A travaillé en collaboration dans une équipe de 4 personnes pour développer des applications web avec React, Material-UI pour le frontend, et Express, Node, MongoDB, Cloudinary Image uploader et authentification JWT pour le backend.",
       "highlights": [
         "Developpement frontend avec React et Material-UI, focus sur composants modulaires et design responsive.",
         "Creation et integration d'API REST avec Node.js, Express et MongoDB, incluant authentification et upload de fichiers.",
@@ -252,7 +252,7 @@
       "company": "Guiker Inc",
       "position": "Developpeur logiciel junior",
       "duration": "Juil 2019 - Juin 2020",
-      "description": "Contribution au developpement mobile et backend pour une plateforme de location immobiliere.",
+      "description": "A aidé au développement d'applications mobiles iOS et Android avec Expo, TypeScript, Jest et React Native. Expérience pratique du backend avec Node.js et Express en construisant et consommant des API REST et en appliquant les patterns de routage, de contrôleurs et de middleware pour soutenir la refonte de l'application web.",
       "highlights": [
         "Developpement d'applications iOS et Android avec Expo, TypeScript, Jest et React Native.",
         "Creation et consommation d'API REST avec Node.js et Express, application des patterns routing, controllers et middleware.",
@@ -367,16 +367,6 @@
         "Intégration facile avec Zustand et outils analytics"
       ],
       "category": "Bibliotheque",
-      "tags": ["React 19", "TypeScript", "Error Boundary", "Error Reporting", "Zustand", "NPM"],
-      "tags": [
-        "React 19",
-        "TypeScript",
-        "Error Boundary",
-        "Error Reporting",
-        "Zustand",
-        "NPM",
-        "Jest"
-      ],
       "tags": [
         "React 19",
         "TypeScript",

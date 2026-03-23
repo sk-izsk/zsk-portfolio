@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useTranslation } from '../../localization/localize'
 import { useExperience } from '../../stores/portfolioStore'
-import { Modal } from '../common/ProjectModal'
+import { Modal } from '../common/Modal'
 import { ProjectCard } from '../projects/ProjectCard'
 import { experience as experienceClass } from './about.css'
 import { ActivityTimeline } from './ActivityTimeline'

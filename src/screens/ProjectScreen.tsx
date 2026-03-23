@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react'
-import { Modal } from '../components/common/ProjectModal'
+import { Modal } from '../components/common/Modal'
 import { ProjectCard } from '../components/projects/ProjectCard'
 import {
   projectGrid,
