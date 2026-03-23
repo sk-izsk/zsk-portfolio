@@ -57,6 +57,7 @@ export const mockPortfolioData: PortfolioData = {
       position: 'Senior Frontend Engineer',
       duration: '2020 - Present',
       description: 'Led development of large-scale React applications.',
+      highlights: ['Built reusable UI components', 'Improved performance by 30%'],
     },
   ],
   services: [
