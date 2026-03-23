@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { useTranslation } from '../../localization/localize'
-import type { Project } from '../../types/portfolio'
 import { Button } from './Button'
 import { Divider } from './Divider'
 import * as modalStyles from './projectModal.css'
@@ -9,22 +8,21 @@ import * as modalExtra from './projectModalExtra.css'
 
 const modalRoot = typeof window !== 'undefined' ? document.body : null
 
-interface ProjectModalProps {
-  project: Project
+interface ModalProps {
   open: boolean
   onClose: () => void
   children: React.ReactNode
 }
 
-type ModalCompound = React.FC<ProjectModalProps> & {
+type ModalCompound = React.FC<ModalProps> & {
   Title: React.FC<{ children: React.ReactNode; onClose?: () => void }>
   Body: React.FC<{ children: React.ReactNode }>
   Description: React.FC<{ children: React.ReactNode }>
   Highlights: React.FC<{ children: React.ReactNode }>
-  Footer: React.FC<{ link: string; onClose: () => void }>
+  Footer: React.FC<{ link?: string; onClose: () => void }>
 }
 
-export const ProjectModal: ModalCompound = ({ open, onClose, children }) => {
+export const Modal: ModalCompound = ({ open, onClose, children }) => {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -70,7 +68,7 @@ export const ProjectModal: ModalCompound = ({ open, onClose, children }) => {
   )
 }
 
-ProjectModal.Title = ({ children }) => (
+Modal.Title = ({ children }) => (
   <>
     <div className={modalStyles.titleRowSticky}>
       <h2 className={modalExtra.title}>{children}</h2>
@@ -79,13 +77,13 @@ ProjectModal.Title = ({ children }) => (
   </>
 )
 
-ProjectModal.Body = ({ children }) => <div className={modalStyles.modalBody}>{children}</div>
+Modal.Body = ({ children }) => <div className={modalStyles.modalBody}>{children}</div>
 
-ProjectModal.Description = ({ children }) => <div className={modalExtra.desc}>{children}</div>
+Modal.Description = ({ children }) => <div className={modalExtra.desc}>{children}</div>
 
-ProjectModal.Highlights = ({ children }) => <ul className={modalStyles.highlights}>{children}</ul>
+Modal.Highlights = ({ children }) => <ul className={modalStyles.highlights}>{children}</ul>
 
-ProjectModal.Footer = ({ link, onClose }) => {
+Modal.Footer = ({ link, onClose }) => {
   const { t } = useTranslation()
   return (
     <>
@@ -100,17 +98,19 @@ ProjectModal.Footer = ({ link, onClose }) => {
         >
           {t('common.modal.close')}
         </Button>
-        <Button
-          as="a"
-          href={link}
-          variant="primary"
-          size="medium"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ textDecoration: 'none' }}
-        >
-          {t('common.modal.projectLink')}
-        </Button>
+        {link && link !== '' && (
+          <Button
+            as="a"
+            href={link}
+            variant="primary"
+            size="medium"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: 'none' }}
+          >
+            {t('common.modal.projectLink')}
+          </Button>
+        )}
       </div>
     </>
   )

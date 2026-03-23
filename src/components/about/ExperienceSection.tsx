@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useTranslation } from '../../localization/localize'
 import { useExperience } from '../../stores/portfolioStore'
-import { ProjectModal } from '../common/ProjectModal'
+import { Modal } from '../common/ProjectModal'
 import { ProjectCard } from '../projects/ProjectCard'
 import { experience as experienceClass } from './about.css'
 import { ActivityTimeline } from './ActivityTimeline'
@@ -33,21 +33,21 @@ export const ExperienceSection: React.FC = () => {
               />
             </div>
             {openIdx === idx && (
-              <ProjectModal open={true} onClose={() => setOpenIdx(null)} project={{} as any}>
-                <ProjectModal.Title>{`${item.position} at ${item.company}`}</ProjectModal.Title>
-                <ProjectModal.Description>{item.description}</ProjectModal.Description>
+              <Modal open={true} onClose={() => setOpenIdx(null)}>
+                <Modal.Title>{`${item.position} at ${item.company}`}</Modal.Title>
+                <Modal.Description>{item.description}</Modal.Description>
                 {item.highlights && item.highlights.length > 0 && (
-                  <ProjectModal.Highlights>
+                  <Modal.Highlights>
                     {item?.highlights.map((h, i) => (
                       <li key={i}>{h}</li>
                     ))}
-                  </ProjectModal.Highlights>
+                  </Modal.Highlights>
                 )}
                 {/* Footer: Only Close button, no Project Link */}
                 <div style={{ width: '100%' }}>
-                  <ProjectModal.Footer link={'' as any} onClose={() => setOpenIdx(null)} />
+                  <Modal.Footer onClose={() => setOpenIdx(null)} />
                 </div>
-              </ProjectModal>
+              </Modal>
             )}
           </ActivityTimeline.Item>
         ))}
