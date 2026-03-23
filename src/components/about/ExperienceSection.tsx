@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { useTranslation } from '../../localization/localize'
 import { useExperience } from '../../stores/portfolioStore'
-import type { Experience } from '../../types/portfolio'
 import { ProjectModal } from '../common/ProjectModal'
 import { ProjectCard } from '../projects/ProjectCard'
 import { experience as experienceClass } from './about.css'
 import { ActivityTimeline } from './ActivityTimeline'
 
-  const experienceData: Experience[] = useExperience() || []
+export const ExperienceSection: React.FC = () => {
+  const experienceData = useExperience() || []
   const { t } = useTranslation()
   const [openIdx, setOpenIdx] = useState<number | null>(null)
 
