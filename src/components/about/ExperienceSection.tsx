@@ -9,7 +9,10 @@ import { ActivityTimeline } from './ActivityTimeline'
 export const ExperienceSection: React.FC = () => {
   const experienceData = useExperience() || []
   const { t } = useTranslation()
-  const [openIdx, setOpenIdx] = useState<number | null>(null)
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedExperience, setSelectedExperience] = useState<(typeof experienceData)[0] | null>(
+    null,
+  )
 
   return (
     <>
@@ -28,29 +31,40 @@ export const ExperienceSection: React.FC = () => {
                 isExternal={false}
                 onClick={(e) => {
                   e.preventDefault()
-                  setOpenIdx(idx)
+                  setSelectedExperience(item)
+                  setModalOpen(true)
                 }}
               />
             </div>
-            {openIdx === idx && (
-              <Modal open={true} onClose={() => setOpenIdx(null)}>
-                <Modal.Title>{`${item.position} at ${item.company}`}</Modal.Title>
-                <Modal.Description>{item.description}</Modal.Description>
-                {item.highlights && item.highlights.length > 0 && (
-                  <Modal.Highlights>
-                    {item?.highlights.map((h, i) => (
-                      <li key={i}>{h}</li>
-                    ))}
-                  </Modal.Highlights>
-                )}
-                {/* Footer: Only Close button, no Project Link */}
-                <div style={{ width: '100%' }}>
-                  <Modal.Footer onClose={() => setOpenIdx(null)} />
-                </div>
-              </Modal>
-            )}
           </ActivityTimeline.Item>
         ))}
+        {selectedExperience && (
+          <Modal
+            open={modalOpen}
+            onClose={() => {
+              setModalOpen(false)
+              setSelectedExperience(null)
+            }}
+          >
+            <Modal.Title>{`${selectedExperience.position} at ${selectedExperience.company}`}</Modal.Title>
+            <Modal.Description>{selectedExperience.description}</Modal.Description>
+            {selectedExperience.highlights && selectedExperience.highlights.length > 0 && (
+              <Modal.Highlights>
+                {selectedExperience.highlights.map((h) => (
+                  <li key={h}>{h}</li>
+                ))}
+              </Modal.Highlights>
+            )}
+            <div style={{ width: '100%' }}>
+              <Modal.Footer
+                onClose={() => {
+                  setModalOpen(false)
+                  setSelectedExperience(null)
+                }}
+              />
+            </div>
+          </Modal>
+        )}
       </ActivityTimeline>
     </>
   )
