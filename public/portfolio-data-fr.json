@@ -228,19 +228,37 @@
       "company": "SwiftConnect",
       "position": "Ingenieur logiciel",
       "duration": "Nov 2020 - Aujourd'hui",
-      "description": "Direction du developpement et de la maintenance de plusieurs projets avec React, TypeScript, Styled Components, React Router, antd, Redux Toolkit et React Query. Renforcement de l'expertise sur la creation et la maintenance de bibliotheques NPM privees."
+      "description": "A dirigé le développement et la maintenance de divers projets utilisant React, Typescript, Styled components, React Router, la bibliothèque antd, Redux Toolkit et react-query. Développé une expertise supplémentaire dans la création et la maintenance de bibliothèques NPM (privées).",
+      "highlights": [
+        "Pilotage du developpement et de la maintenance de projets React/TypeScript avec Styled Components, React Router, Redux Toolkit et React Query.",
+        "Architecture et maintenance de bibliotheques NPM privees pour UI et utilitaires, ameliorant la reutilisabilite et la productivite.",
+        "Collaboration avec des equipes pluridisciplinaires pour livrer des fonctionnalites dans les delais et ameliorer la qualite du code via revues et mentorat.",
+        "Optimisation des Core Web Vitals et mise en place des bonnes pratiques d'accessibilite et de performance."
+      ]
     },
     {
       "company": "Hatchways",
       "position": "Developpeur Web Full Stack (Co-op)",
       "duration": "Oct 2020 - Nov 2020",
-      "description": "Travail collaboratif au sein d'une equipe de 4 pour developper des applications web avec React et Material-UI cote frontend, puis Express, Node, MongoDB, Cloudinary et authentification JWT cote backend."
+      "description": "A travaillé en collaboration dans une équipe de 4 personnes pour développer des applications web avec React, Material-UI pour le frontend, et Express, Node, MongoDB, Cloudinary Image uploader et authentification JWT pour le backend.",
+      "highlights": [
+        "Developpement frontend avec React et Material-UI, focus sur composants modulaires et design responsive.",
+        "Creation et integration d'API REST avec Node.js, Express et MongoDB, incluant authentification et upload de fichiers.",
+        "Mise en place de l'authentification JWT et de flux utilisateurs securises.",
+        "Participation aux sprints agiles, revues de code et resolution collaborative de problemes."
+      ]
     },
     {
       "company": "Guiker Inc",
       "position": "Developpeur logiciel junior",
       "duration": "Juil 2019 - Juin 2020",
-      "description": "Participation au developpement d'applications mobiles iOS et Android avec Expo, TypeScript, Jest et React Native. Consolidation de l'experience backend avec Node.js et Express: conception et consommation d'API REST, ainsi que mise en place de patterns backend essentiels (routing, controllers, middleware) pour soutenir la refonte de l'application web."
+      "description": "A aidé au développement d'applications mobiles iOS et Android avec Expo, TypeScript, Jest et React Native. Expérience pratique du backend avec Node.js et Express en construisant et consommant des API REST et en appliquant les patterns de routage, de contrôleurs et de middleware pour soutenir la refonte de l'application web.",
+      "highlights": [
+        "Developpement d'applications iOS et Android avec Expo, TypeScript, Jest et React Native.",
+        "Creation et consommation d'API REST avec Node.js et Express, application des patterns routing, controllers et middleware.",
+        "Soutien a une refonte majeure de l'application web, amelioration de la maintenabilite et des performances.",
+        "Experience pratique avec les technologies backend et cloud."
+      ]
     }
   ],
   "services": [
@@ -349,16 +367,6 @@
         "Intégration facile avec Zustand et outils analytics"
       ],
       "category": "Bibliotheque",
-      "tags": ["React 19", "TypeScript", "Error Boundary", "Error Reporting", "Zustand", "NPM"],
-      "tags": [
-        "React 19",
-        "TypeScript",
-        "Error Boundary",
-        "Error Reporting",
-        "Zustand",
-        "NPM",
-        "Jest"
-      ],
       "tags": [
         "React 19",
         "TypeScript",

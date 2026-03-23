@@ -1,5 +1,5 @@
 import React from 'react'
-import { divider, dividerVertical } from './projectModalExtra.css'
+import { divider, dividerVertical } from './modalExtra.css'
 
 interface DividerProps {
   vertical?: boolean
@@ -8,5 +8,3 @@ interface DividerProps {
 export const Divider: React.FC<DividerProps> = ({ vertical = false }) => (
   <div className={vertical ? dividerVertical : divider} role="separator" />
 )
-
-export default Divider

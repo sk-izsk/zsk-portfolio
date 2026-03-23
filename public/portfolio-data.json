@@ -228,19 +228,37 @@
       "company": "SwiftConnect",
       "position": "Software Engineer",
       "duration": "Nov 2020 - Present",
-      "description": "Led development and maintenance of various projects using React, Typescript, Styled components, React Router, antd library, Redux Toolkit, and react-query. Developed expertise in additional skills such as building and maintain NPM(private) libraries."
+      "description": "Led development and maintenance of various projects using React, Typescript, Styled components, React Router, antd library, Redux Toolkit, and react-query. Developed expertise in additional skills such as building and maintain NPM(private) libraries.",
+      "highlights": [
+        "Led development and maintenance of React/TypeScript projects with Styled Components, React Router, Redux Toolkit, and React Query.",
+        "Architected and maintained private NPM libraries for UI and utilities, improving code reuse and developer velocity.",
+        "Collaborated with cross-functional teams to deliver features on schedule and improve code quality via code reviews and mentoring.",
+        "Optimized Core Web Vitals and implemented best practices for accessibility and performance."
+      ]
     },
     {
       "company": "Hatchways",
       "position": "Fullstack Web Developer (Co-Op)",
       "duration": "Oct 2020 - Nov 2020",
-      "description": "Worked collaboratively in a team of 4 to develop web applications using React, Material-UI for the frontend, and Express, Node, MongoDB, Cloudinary Image uploader, and JWT authentication for the backend."
+      "description": "Worked collaboratively in a team of 4 to develop web applications using React, Material-UI for the frontend, and Express, Node, MongoDB, Cloudinary Image uploader, and JWT authentication for the backend.",
+      "highlights": [
+        "Developed frontend with React and Material-UI, focusing on modular components and responsive design.",
+        "Built and integrated REST APIs using Node.js, Express, and MongoDB, including authentication and file uploads.",
+        "Implemented JWT authentication and secure user flows.",
+        "Participated in agile sprints, code reviews, and collaborative problem-solving."
+      ]
     },
     {
       "company": "Guiker Inc",
       "position": "Junior Software Developer",
       "duration": "July 2019 - June 2020",
-      "description": "Assisted in developing iOS and Android mobile apps using Expo, TypeScript, Jest, and React Native. Gained hands-on backend experience with Node.js and Express by building and consuming REST APIs and applying core patterns like routing, controllers, and middleware to support the web app rebuild."
+      "description": "Assisted in developing iOS and Android mobile apps using Expo, TypeScript, Jest, and React Native. Gained hands-on backend experience with Node.js and Express by building and consuming REST APIs and applying core patterns like routing, controllers, and middleware to support the web app rebuild.",
+      "highlights": [
+        "Developed iOS and Android apps using Expo, TypeScript, Jest, and React Native.",
+        "Built and consumed REST APIs with Node.js and Express, applying routing, controllers, and middleware patterns.",
+        "Supported a major web app rebuild, improving maintainability and performance.",
+        "Gained hands-on experience with backend and cloud technologies."
+      ]
     }
   ],
   "services": [
@@ -349,16 +367,6 @@
         "Easy integration with Zustand and analytics tools"
       ],
       "category": "Library",
-      "tags": ["React 19", "TypeScript", "Error Boundary", "Error Reporting", "Zustand", "NPM"],
-      "tags": [
-        "React 19",
-        "TypeScript",
-        "Error Boundary",
-        "Error Reporting",
-        "Zustand",
-        "NPM",
-        "Jest"
-      ],
       "tags": [
         "React 19",
         "TypeScript",

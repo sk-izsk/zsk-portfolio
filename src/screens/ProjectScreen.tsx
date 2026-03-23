@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react'
-import { ProjectModal } from '../components/common/ProjectModal'
+import { Modal } from '../components/common/Modal'
 import { ProjectCard } from '../components/projects/ProjectCard'
 import {
   projectGrid,
@@ -76,29 +76,21 @@ const ProjectScreen: React.FC = () => {
             })}
           </div>
           {selectedProject && (
-            <ProjectModal
-              open={modalOpen}
-              onClose={() => setModalOpen(false)}
-              project={selectedProject}
-            >
-              <ProjectModal.Title onClose={() => setModalOpen(false)}>
-                {selectedProject.title}
-              </ProjectModal.Title>
-              <ProjectModal.Body>
-                <ProjectModal.Description>
-                  {selectedProject?.shortDescription}
-                </ProjectModal.Description>
-                <ProjectModal.Highlights>
+            <Modal open={modalOpen} onClose={() => setModalOpen(false)}>
+              <Modal.Title onClose={() => setModalOpen(false)}>{selectedProject.title}</Modal.Title>
+              <Modal.Body>
+                <Modal.Description>{selectedProject?.shortDescription}</Modal.Description>
+                <Modal.Highlights>
                   {selectedProject.highlights?.map((h, i) => (
                     <li key={i}>{h}</li>
                   ))}
-                </ProjectModal.Highlights>
-              </ProjectModal.Body>
-              <ProjectModal.Footer
+                </Modal.Highlights>
+              </Modal.Body>
+              <Modal.Footer
                 link={selectedProject.projectHref}
                 onClose={() => setModalOpen(false)}
               />
-            </ProjectModal>
+            </Modal>
           )}
         </>
       )}
