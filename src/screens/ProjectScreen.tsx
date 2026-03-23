@@ -56,8 +56,6 @@ const ProjectScreen: React.FC = () => {
                   <ProjectCard.TimeLink
                     category={project.category}
                     publishDate={project.publishDate}
-                    href={project.projectHref}
-                    isExternal={project.isExternal}
                   />
                   <ProjectCard.Title href={project.projectHref} isExternal={project.isExternal}>
                     {project.title}

@@ -58,13 +58,17 @@ export const overlay = style({
   left: 0,
   width: '100vw',
   height: '100vh',
+  // Always use a semi-opaque background for fallback
   background: 'rgba(0,0,0,0.65)',
   zIndex: 1000,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  backdropFilter: 'blur(6px)',
-  WebkitBackdropFilter: 'blur(2px)',
+  // Guarantee both properties for all browsers and production builds
+  backdropFilter: 'blur(2px)',
+  WebkitBackdropFilter: 'blur(1px)',
+  // For Safari and iOS, force hardware acceleration for blur
+  willChange: 'backdrop-filter',
 })
 
 export const title = style({

@@ -21,8 +21,6 @@ type ProjectCardRootProps = PropsWithChildren
 interface ProjectCardTimeLinkProps {
   category: string
   publishDate: string
-  href: string
-  isExternal: boolean
 }
 
 interface ProjectCardTitleProps extends PropsWithChildren {
@@ -67,14 +65,8 @@ const ProjectCardRoot: React.FC<ProjectCardRootProps> = ({ children }) => {
   )
 }
 
-const ProjectCardTimeLink: React.FC<ProjectCardTimeLinkProps> = ({
-  category,
-  publishDate,
-  href,
-  isExternal,
-}) => {
+const ProjectCardTimeLink: React.FC<ProjectCardTimeLinkProps> = ({ category, publishDate }) => {
   const { i18n } = useTranslation()
-  const linkAttrs = getLinkAttrs(isExternal)
   const readableDate = new Date(publishDate).toLocaleDateString(
     i18n.resolvedLanguage === 'fr' ? 'fr-FR' : 'en-US',
   )
@@ -82,13 +74,11 @@ const ProjectCardTimeLink: React.FC<ProjectCardTimeLinkProps> = ({
   return (
     <div className={projectInfo}>
       <div className="category">
-        <a href={href} {...linkAttrs}>
-          <p className={projectInfoText}>
-            <FontAwesomeIcon icon={faBookOpenReader} />
-            <i className={`fa fa-book-open-reader ${projectInfoIcon}`} />
-            {category}
-          </p>
-        </a>
+        <p className={projectInfoText}>
+          <FontAwesomeIcon icon={faBookOpenReader} />
+          <i className={`fa fa-book-open-reader ${projectInfoIcon}`} />
+          {category}
+        </p>
       </div>
       <div className="date">
         <p className={projectInfoText}>
