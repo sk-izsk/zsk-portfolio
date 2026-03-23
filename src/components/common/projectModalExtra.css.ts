@@ -63,8 +63,8 @@ export const overlay = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  backdropFilter: 'blur(6px)',
-  WebkitBackdropFilter: 'blur(2px)',
+  backdropFilter: 'blur(16px)',
+  WebkitBackdropFilter: 'blur(16px)',
 })
 
 export const title = style({
