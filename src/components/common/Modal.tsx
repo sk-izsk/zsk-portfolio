@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useTranslation } from '../../localization/localize'
 import { Button } from './Button'
@@ -24,49 +24,61 @@ type ModalCompound = React.FC<ModalProps> & {
 
 export const Modal: ModalCompound = ({ open, onClose, children }) => {
   const ref = useRef<HTMLDivElement>(null)
+  const [shouldRender, setShouldRender] = useState(open)
+
+  useEffect(() => {
+    if (open) {
+      setShouldRender(true)
+    }
+  }, [open])
+
+  const handleAnimationEnd = () => {
+    if (!open) {
+      setShouldRender(false)
+    }
+  }
 
   useEffect(() => {
     if (!open) {
       return
     }
+
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         onClose()
       }
     }
-    document.addEventListener('keydown', handleKey)
-    return () => document.removeEventListener('keydown', handleKey)
-  }, [open, onClose])
 
-  useEffect(() => {
-    if (!open) return
     const handleClick = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) {
         onClose()
       }
     }
+
+    document.addEventListener('keydown', handleKey)
     document.addEventListener('mousedown', handleClick)
-    return () => document.removeEventListener('mousedown', handleClick)
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.removeEventListener('keydown', handleKey)
+      document.removeEventListener('mousedown', handleClick)
+      document.body.style.overflow = ''
+    }
   }, [open, onClose])
 
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
-    return () => {
-      document.body.style.overflow = ''
-    }
-  }, [open])
-
-  if (!open || !modalRoot) {
+  if (!shouldRender || !modalRoot) {
     return null
   }
 
   return createPortal(
-    <div className={modalExtra.overlay}>
-      <div ref={ref} className={modalStyles.modal}>
+    <div
+      className={`${modalExtra.overlay} ${open ? modalStyles.overlayAnimateIn : modalStyles.overlayAnimateOut}`}
+    >
+      <div
+        ref={ref}
+        className={`${modalStyles.modal} ${open ? modalStyles.modalAnimateIn : modalStyles.modalAnimateOut}`}
+        onAnimationEnd={handleAnimationEnd}
+      >
         {children}
       </div>
     </div>,
