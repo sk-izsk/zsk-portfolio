@@ -3,7 +3,8 @@
   "plugins": ["typescript", "unicorn", "react"],
   "categories": {},
   "rules": {
-    "semi": "error"
+    "semi": "error",
+    "curly": "error"
   },
   "settings": {
     "jsx-a11y": {

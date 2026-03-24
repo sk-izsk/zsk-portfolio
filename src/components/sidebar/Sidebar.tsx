@@ -31,12 +31,24 @@ import {
 import type { SidebarNavigationItem } from './sidebar.types'
 
 const getCurrentSection = (path: string) => {
-  if (path === '/' || path === '/home') return 'home'
-  if (path === '/about') return 'about'
-  if (path === '/services') return 'service'
-  if (path === '/portfolio') return 'portfolio'
-  if (path === '/projects') return 'projects'
-  if (path === '/contact') return 'contact'
+  if (path === '/' || path === '/home') {
+    return 'home'
+  }
+  if (path === '/about') {
+    return 'about'
+  }
+  if (path === '/services') {
+    return 'service'
+  }
+  if (path === '/portfolio') {
+    return 'portfolio'
+  }
+  if (path === '/projects') {
+    return 'projects'
+  }
+  if (path === '/contact') {
+    return 'contact'
+  }
   return 'home'
 }
 
@@ -86,7 +98,9 @@ export const Sidebar: React.FC = () => {
   ]
 
   const getLogoText = () => {
-    if (loading || !personalInfo) return 'Atlas'
+    if (loading || !personalInfo) {
+      return 'Atlas'
+    }
     const firstName = personalInfo.name.split(' ')[1]
     return `${firstName.charAt(0).toUpperCase()}${firstName.slice(1).toLowerCase()}`
   }

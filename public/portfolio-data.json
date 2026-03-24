@@ -9,8 +9,8 @@
       "city": "Montréal",
       "country": "Canada"
     },
-    "bio": "Frontend-focused Software Engineer with 6+ years of experience specializing in React, TypeScript, and web performance. Actively expanding into Full Stack architecture by building scalable Node.js services, with a core professional focus on Core Web Vitals, System Design, and zero-runtime CSS.",
-    "detailedBio": "I am a Software Engineer with over 6 years of professional experience, currently specializing in Frontend Architecture and Performance. While my foundation is deeply rooted in React, TypeScript, and state management (Redux, Zustand, React Query), my personal projects involve building full-stack applications using Node.js and Express to bridge the gap toward System Design. At the enterprise level, I focus on optimizing Core Web Vitals (LCP, INP, CLS), establishing robust private NPM libraries, and implementing clean, component-based architectures. My engineering philosophy prioritizes a deep understanding of browser internals and the event loop over surface-level pattern matching, ensuring my code is scalable, reliable, and strictly typed.",
+    "bio": "Frontend Engineer with 6+ years architecting scalable web and mobile applications in React and TypeScript. Expanding into full-stack system design. Acted as technical lead and proxy PO to synchronize cross-functional delivery. Leverage AI as a critical peer for architectural pair-planning. Obsessive focus on Core Web Vitals and clean architecture.",
+    "detailedBio": "Frontend Developer with over 6 years of experience architecting scalable, high-performance web and mobile applications, rooted in React and TypeScript. Proven track record of owning projects end-to-end, expanding into full-stack backend system design (Node.js, Express, PostgreSQL). Capable of bridging the gap between engineering and business; successfully stepped into acting Lead and Product Owner roles to define technical roadmaps and synchronize delivery across frontend and backend teams. Leverage AI-driven workflows as a critical peer for architectural pair-planning and rapid pattern evaluation, maintaining a strict focus on browser internals, Core Web Vitals, and execution.",
     "avatar": {
       "primary": "https://izsk.netlify.app/.netlify/images?url=/images/zeeshan.jpg&w=800&q=80",
       "alt": "Shaikh Zeeshan Murshed"
@@ -228,8 +228,9 @@
       "company": "SwiftConnect",
       "position": "Software Engineer",
       "duration": "Nov 2020 - Present",
-      "description": "Led development and maintenance of various projects using React, Typescript, Styled components, React Router, antd library, Redux Toolkit, and react-query. Developed expertise in additional skills such as building and maintain NPM(private) libraries.",
+      "description": "Acted as technical lead and proxy Product Owner to synchronize cross-functional delivery. Led development and maintenance of various projects using React, Typescript, Styled components, React Router, antd library, Redux Toolkit, and react-query. Developed expertise in additional skills such as building and maintain NPM(private) libraries.",
       "highlights": [
+        "Acted as technical lead and proxy Product Owner, translating management requirements into actionable architecture plans and coordinating sprint execution.",
         "Led development and maintenance of React/TypeScript projects with Styled Components, React Router, Redux Toolkit, and React Query.",
         "Architected and maintained private NPM libraries for UI and utilities, improving code reuse and developer velocity.",
         "Collaborated with cross-functional teams to deliver features on schedule and improve code quality via code reviews and mentoring.",

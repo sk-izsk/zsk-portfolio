@@ -1,5 +1,41 @@
-import { style } from '@vanilla-extract/css'
+import { keyframes, style } from '@vanilla-extract/css'
 import { vars } from '../../styles/theme.css'
+
+const slideUp = keyframes({
+  '0%': { transform: 'translateY(100vh)', opacity: 0 },
+  '100%': { transform: 'translateY(0)', opacity: 1 },
+})
+
+const slideDown = keyframes({
+  '0%': { transform: 'translateY(0)', opacity: 1 },
+  '100%': { transform: 'translateY(100vh)', opacity: 0 },
+})
+
+const fadeIn = keyframes({
+  '0%': { opacity: 0 },
+  '100%': { opacity: 1 },
+})
+
+const fadeOut = keyframes({
+  '0%': { opacity: 1 },
+  '100%': { opacity: 0 },
+})
+
+export const modalAnimateIn = style({
+  animation: `${slideUp} 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+})
+
+export const modalAnimateOut = style({
+  animation: `${slideDown} 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+})
+
+export const overlayAnimateIn = style({
+  animation: `${fadeIn} 0.4s ease forwards`,
+})
+
+export const overlayAnimateOut = style({
+  animation: `${fadeOut} 0.3s ease forwards`,
+})
 
 export const modal = style({
   background: vars.color.background[900],

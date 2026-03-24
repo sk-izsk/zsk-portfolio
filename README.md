@@ -1,4 +1,4 @@
-![React Doctor](https://www.react.doctor/share/badge?p=zsk-portfolio&s=100&e=1&w=42&f=20)
+![React Doctor](https://www.react.doctor/share/badge?p=zsk-portfolio&s=100)
 
 # zsk-portfolio
 
