@@ -9,8 +9,8 @@
       "city": "Montréal",
       "country": "Canada"
     },
-    "bio": "Ingenieur logiciel axe frontend avec plus de 6 ans d'experience, specialise en React, TypeScript et performance web. J'etends activement mon expertise vers l'architecture Full Stack en construisant des services Node.js evolutifs, avec un focus principal sur les Core Web Vitals, le System Design et le CSS zero-runtime.",
-    "detailedBio": "Je suis ingenieur logiciel avec plus de 6 ans d'experience professionnelle, actuellement specialise en architecture frontend et performance. Bien que ma base soit fortement ancree dans React, TypeScript et la gestion d'etat (Redux, Zustand, React Query), mes projets personnels consistent a construire des applications full stack avec Node.js et Express pour renforcer mes competences en System Design. En environnement entreprise, je me concentre sur l'optimisation des Core Web Vitals (LCP, INP, CLS), la mise en place de bibliotheques NPM privees robustes et des architectures propres basees sur des composants. Ma philosophie d'ingenierie privilegie une comprehension approfondie des internals navigateur et de la boucle d'evenements afin de produire un code evolutif, fiable et strictement type.",
+    "bio": "Ingenieur logiciel avec plus de 6 ans d'experience dans l'architecture d'applications web et mobiles evolutives en React et TypeScript. En pleine expansion vers le design de systemes full-stack. A agi en tant que lead technique et proxy PO pour synchroniser la livraison interfonctionnelle. J'utilise l'IA comme pair critique pour la planification d'architecture. Focus absolu sur les Core Web Vitals et l'architecture propre.",
+    "detailedBio": "Developpeur Frontend avec plus de 6 ans d'experience dans l'architecture d'applications web et mobiles performantes, basees sur React et TypeScript. Solide experience dans la gestion de projets de bout en bout, s'etendant au design de systemes backend full-stack (Node.js, Express, PostgreSQL). Capable de faire le pont entre l'ingenierie et le metier ; j'ai occupe avec succes des roles de Lead et Product Owner par interim pour definir les feuilles de route techniques et synchroniser la livraison entre les equipes frontend et backend. J'exploite les workflows diriges par l'IA comme un pair critique pour le pair-planning architectural et l'evaluation rapide de modeles, tout en maintenant un focus strict sur les internals du navigateur, les Core Web Vitals et l'execution.",
     "avatar": {
       "primary": "https://izsk.netlify.app/.netlify/images?url=/images/zeeshan.jpg&w=800&q=80",
       "alt": "Shaikh Zeeshan Murshed"
@@ -228,8 +228,9 @@
       "company": "SwiftConnect",
       "position": "Ingenieur logiciel",
       "duration": "Nov 2020 - Aujourd'hui",
-      "description": "A dirigé le développement et la maintenance de divers projets utilisant React, Typescript, Styled components, React Router, la bibliothèque antd, Redux Toolkit et react-query. Développé une expertise supplémentaire dans la création et la maintenance de bibliothèques NPM (privées).",
+      "description": "A agi en tant que lead technique et proxy Product Owner pour synchroniser la livraison. A dirige le developpement et la maintenance de divers projets utilisant React, Typescript, Styled components, React Router, la bibliotheque antd, Redux Toolkit et react-query. Developpe une expertise supplementaire dans la creation et la maintenance de bibliotheques NPM (privees).",
       "highlights": [
+        "A agi en tant que lead technique et proxy Product Owner, traduisant les exigences de la direction en plans d'architecture actionnables et coordonnant l'execution des sprints.",
         "Pilotage du developpement et de la maintenance de projets React/TypeScript avec Styled Components, React Router, Redux Toolkit et React Query.",
         "Architecture et maintenance de bibliotheques NPM privees pour UI et utilitaires, ameliorant la reutilisabilite et la productivite.",
         "Collaboration avec des equipes pluridisciplinaires pour livrer des fonctionnalites dans les delais et ameliorer la qualite du code via revues et mentorat.",
