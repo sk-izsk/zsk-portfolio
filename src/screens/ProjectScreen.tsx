@@ -81,8 +81,8 @@ const ProjectScreen: React.FC = () => {
               <Modal.Body>
                 <Modal.Description>{selectedProject?.shortDescription}</Modal.Description>
                 <Modal.Highlights>
-                  {selectedProject.highlights?.map((h, i) => (
-                    <li key={i}>{h}</li>
+                  {selectedProject.highlights?.map((h) => (
+                    <li key={h}>{h}</li>
                   ))}
                 </Modal.Highlights>
               </Modal.Body>

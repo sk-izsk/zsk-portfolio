@@ -67,8 +67,8 @@ export const AboutPersonalInfoSection: React.FC = () => {
     <div className="row">
       <div className={`${personalInfoSection} padd-15`}>
         <div className="row">
-          {personalInfoData.map((item, index) => (
-            <div key={index} className={`${infoItem} padd-15`}>
+          {personalInfoData.map((item) => (
+            <div key={item.label} className={`${infoItem} padd-15`}>
               <p className={infoItemP}>
                 {item.label} :{' '}
                 {item.href ? (

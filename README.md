@@ -1,3 +1,5 @@
+![React Doctor](https://www.react.doctor/share/badge?p=zsk-portfolio&s=100&e=1&w=42&f=20)
+
 # zsk-portfolio
 
 Personal portfolio built with React, TypeScript, Vite, Zustand, React Query, and vanilla-extract.

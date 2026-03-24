@@ -5,8 +5,8 @@ import { ExperienceSection } from './ExperienceSection'
 export const ActivitiesSection: React.FC = () => {
   return (
     <div className="row">
-      <EducationSection />
       <ExperienceSection />
+      <EducationSection />
     </div>
   )
 }
