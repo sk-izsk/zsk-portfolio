@@ -4,22 +4,22 @@
   "categories": {},
   "rules": {
     "semi": "error",
-    "curly": "error",
+    "curly": "error"
   },
   "settings": {
     "jsx-a11y": {
       "polymorphicPropName": "as",
       "components": {},
-      "attributes": {},
+      "attributes": {}
     },
     "next": {
-      "rootDir": [],
+      "rootDir": []
     },
     "react": {
       "formComponents": [],
       "linkComponents": [],
       "version": null,
-      "componentWrapperFunctions": [],
+      "componentWrapperFunctions": []
     },
     "jsdoc": {
       "ignorePrivate": false,
@@ -29,15 +29,15 @@
       "augmentsExtendsReplacesDocs": false,
       "implementsReplacesDocs": false,
       "exemptDestructuredRootsFromChecks": false,
-      "tagNamePreference": {},
+      "tagNamePreference": {}
     },
     "vitest": {
-      "typecheck": false,
-    },
+      "typecheck": false
+    }
   },
   "env": {
-    "builtin": true,
+    "builtin": true
   },
   "globals": {},
-  "ignorePatterns": ["dist"],
+  "ignorePatterns": ["dist"]
 }
