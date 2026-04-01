@@ -1,0 +1,389 @@
+{
+  "personalInfo": {
+    "resume_link": "https://docs.google.com/document/d/1XW4H0H-r0bMR5tq9k0rdTkvZWguzS2itWm_OdIdWR6Y/edit?usp=sharing",
+    "location": {
+      "city": "Montréal",
+      "country": "Canada"
+    },
+    "avatar": {
+      "primary": "https://izsk.netlify.app/.netlify/images?url=/images/zeeshan.jpg&w=800&q=80",
+      "alt": "Shaikh Zeeshan Murshed"
+    },
+    "languages": ["English", "Bengali", "Hindi"],
+    "birthday": "05-04-1992",
+    "availability": ["Full time", "Remote"]
+  },
+  "contact": {
+    "email": "sk.zeeshan1992@gmail.com",
+    "phone": "NA",
+    "social": {
+      "website": {
+        "label": "izsk.netlify.app",
+        "url": "https://izsk.netlify.app"
+      },
+      "github": {
+        "label": "sk-izsk",
+        "url": "https://github.com/sk-izsk"
+      },
+      "linkedin": {
+        "label": "skizsk",
+        "url": "https://www.linkedin.com/in/skizsk/"
+      },
+      "twitter": {
+        "label": "@Sk_iZsk",
+        "url": "https://www.twitter.com/sk_izsk"
+      },
+      "instagram": {
+        "label": "sk_izsk",
+        "url": "https://www.instagram.com/sk_izsk/"
+      },
+      "telegram": {
+        "label": "sk_izsk",
+        "url": "https://t.me/sk_izsk"
+      }
+    }
+  },
+  "skills": {
+    "technical": [
+      {
+        "name": "React",
+        "level": 85,
+        "category": "frontend"
+      },
+      {
+        "name": "TypeScript",
+        "level": 80,
+        "category": "language"
+      },
+      {
+        "name": "JavaScript",
+        "level": 85,
+        "category": "language"
+      },
+      {
+        "name": "React Native",
+        "level": 85,
+        "category": "frontend"
+      },
+      {
+        "name": "Redux",
+        "level": 75,
+        "category": "frontend"
+      },
+      {
+        "name": "Vue.js",
+        "level": 75,
+        "category": "frontend"
+      },
+      {
+        "name": "Node.js",
+        "level": 70,
+        "category": "backend"
+      },
+      {
+        "name": "Express",
+        "level": 70,
+        "category": "backend"
+      },
+      {
+        "name": "MongoDB",
+        "level": 70,
+        "category": "backend"
+      },
+      {
+        "name": "Next.js",
+        "level": 80,
+        "category": "frontend"
+      },
+      {
+        "name": "GraphQL",
+        "level": 60,
+        "category": "backend"
+      },
+      {
+        "name": "Jest",
+        "level": 60,
+        "category": "testing"
+      },
+      {
+        "name": "Cypress",
+        "level": 75,
+        "category": "testing"
+      },
+      {
+        "name": "Storybook",
+        "level": 60,
+        "category": "tools"
+      },
+      {
+        "name": "NPM",
+        "level": 60,
+        "category": "tools"
+      },
+      {
+        "name": "Tanstack Query",
+        "level": 80,
+        "category": "frontend"
+      },
+      {
+        "name": "Zustand",
+        "level": 80,
+        "category": "frontend"
+      },
+      {
+        "name": "Tailwind CSS",
+        "level": 60,
+        "category": "frontend"
+      },
+      {
+        "name": "PostgreSQL",
+        "level": 60,
+        "category": "backend"
+      },
+      {
+        "name": "MikroORM",
+        "level": 50,
+        "category": "backend"
+      },
+      {
+        "name": "DrizzleORM",
+        "level": 50,
+        "category": "backend"
+      },
+      {
+        "name": "Vite",
+        "level": 75,
+        "category": "tools"
+      },
+      {
+        "name": "Vitest",
+        "level": 65,
+        "category": "testing"
+      },
+      {
+        "name": "Multer",
+        "level": 65,
+        "category": "backend"
+      },
+      {
+        "name": "Google Gemini API",
+        "level": 70,
+        "category": "backend"
+      },
+      {
+        "name": "ClipDrop",
+        "level": 70,
+        "category": "backend"
+      }
+    ],
+    "categories": {
+      "frontend": [
+        "React",
+        "Redux",
+        "Next.js",
+        "Vue",
+        "Vuex",
+        "Vue-Router",
+        "React Native",
+        "Material-UI",
+        "Antd",
+        "Tanstack Query",
+        "Zustand",
+        "i18n",
+        "react-i18n",
+        "Tailwind CSS",
+        "Clerk Auth",
+        "Bootstrap",
+        "CSS3",
+        "HTML5",
+        "JSS"
+      ],
+      "backend": [
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "PostgreSQL",
+        "MikroORM",
+        "Drizzle ORM",
+        "Clerk Auth",
+        "JWT",
+        "RESTful API",
+        "GraphQL",
+        "Mocha",
+        "Chai",
+        "Multer",
+        "Google Gemini API",
+        "ClipDrop"
+      ],
+      "languages": ["JavaScript", "TypeScript", "Python"],
+      "tools": [
+        "Git",
+        "Yarn/NPM",
+        "NPM",
+        "VS Code",
+        "Postman",
+        "Figma",
+        "Asana",
+        "Notion",
+        "GitLab CI/CD",
+        "ClickUp",
+        "Cloudinary",
+        "Jira",
+        "Storybook",
+        "Vite"
+      ],
+      "testing": [
+        "Jest",
+        "Enzyme",
+        "React Native Testing Library",
+        "React Testing Library",
+        "Nock",
+        "Mocha",
+        "Chai",
+        "Cypress",
+        "Vitest"
+      ],
+      "learning": ["SASS", "Socket.IO", "Firebase", "GraphQL"]
+    }
+  },
+  "projectsBase": [
+    {
+      "id": 1,
+      "url": "https://github.com/sk-izsk/productify",
+      "category": "Full Stack",
+      "tags": [
+        "React 19",
+        "TypeScript",
+        "Express 5",
+        "Drizzle ORM",
+        "PostgreSQL (Neon)",
+        "Clerk Auth",
+        "React Query",
+        "Ky",
+        "Tailwind CSS 4",
+        "DaisyUI",
+        "Jest"
+      ],
+      "publishDate": "2026-03-14"
+    },
+    {
+      "id": 2,
+      "url": "https://github.com/sk-izsk/zsk-react-i18n",
+      "category": "Library",
+      "tags": [
+        "TypeScript",
+        "React 19",
+        "i18n",
+        "i18next",
+        "react-i18next",
+        "Localization",
+        "NPM",
+        "Library",
+        "Type Safety",
+        "Jest"
+      ],
+      "publishDate": "2026-03-16"
+    },
+    {
+      "id": 3,
+      "url": "https://github.com/sk-izsk/zsk-react-error",
+      "category": "Library",
+      "tags": [
+        "React 19",
+        "TypeScript",
+        "Error Boundary",
+        "Error Reporting",
+        "Zustand",
+        "NPM",
+        "Jest",
+        "Library"
+      ],
+      "publishDate": "2026-03-21"
+    },
+    {
+      "id": 4,
+      "url": "https://github.com/sk-izsk/smart-ai",
+      "category": "Full Stack",
+      "tags": [
+        "Express 5",
+        "React 19",
+        "TypeScript",
+        "PostgreSQL",
+        "MikroORM",
+        "Clerk Auth",
+        "Google Gemini API",
+        "ClipDrop",
+        "Cloudinary",
+        "Multer",
+        "Vite",
+        "TanStack Query",
+        "React Router",
+        "Tailwind CSS",
+        "Vitest",
+        "SaaS",
+        "AI Integration"
+      ],
+      "publishDate": "2026-04-01"
+    }
+  ],
+  "experienceBase": [
+    {
+      "id": 1,
+      "company": "SwiftConnect",
+      "position": "Software Engineer",
+      "duration": "Nov 2020 - Present"
+    },
+    {
+      "id": 2,
+      "company": "Hatchways",
+      "position": "Fullstack Web Developer (Co-Op)",
+      "duration": "Oct 2020 - Nov 2020"
+    },
+    {
+      "id": 3,
+      "company": "Guiker Inc",
+      "position": "Junior Software Developer",
+      "duration": "July 2019 - June 2020"
+    }
+  ],
+  "educationBase": [
+    {
+      "id": 1,
+      "duration": "April 2019 - May 2019"
+    },
+    {
+      "id": 2,
+      "duration": "Sept 2016 - Dec 2018"
+    }
+  ],
+  "servicesBase": [
+    {
+      "id": 1,
+      "icon": "fa-laptop-code"
+    },
+    {
+      "id": 2,
+      "icon": "fa-server"
+    },
+    {
+      "id": 3,
+      "icon": "fa-code"
+    },
+    {
+      "id": 4,
+      "icon": "fa-mobile-alt"
+    },
+    {
+      "id": 5,
+      "icon": "fa-cubes"
+    },
+    {
+      "id": 6,
+      "icon": "fa-comments"
+    },
+    {
+      "id": 7,
+      "icon": "fa-briefcase"
+    }
+  ]
+}

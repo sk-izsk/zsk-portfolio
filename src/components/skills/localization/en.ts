@@ -13,5 +13,8 @@ export const skillsEn = {
     tools: 'Development Tools',
     testing: 'Testing Frameworks',
     learning: 'Currently Learning',
+    ai: 'AI & Machine Learning',
+    saas: 'SaaS & Cloud',
+    api: 'API Design & Integration',
   },
 } as const

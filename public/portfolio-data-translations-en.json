@@ -4,230 +4,24 @@
     "title": "Full Stack Web Developer",
     "greeting": "Hello, my name is",
     "profession": "I'm a Full Stack Web Developer",
-    "resume_link": "https://docs.google.com/document/d/1XW4H0H-r0bMR5tq9k0rdTkvZWguzS2itWm_OdIdWR6Y/edit?usp=sharing",
-    "location": {
-      "city": "Montréal",
-      "country": "Canada"
-    },
     "bio": "Frontend Engineer with 6+ years architecting scalable web and mobile applications in React and TypeScript. Expanding into full-stack system design. Acted as technical lead and proxy PO to synchronize cross-functional delivery. Leverage AI as a critical peer for architectural pair-planning. Obsessive focus on Core Web Vitals and clean architecture.",
-    "detailedBio": "Frontend Developer with over 6 years of experience architecting scalable, high-performance web and mobile applications, rooted in React and TypeScript. Proven track record of owning projects end-to-end, expanding into full-stack backend system design (Node.js, Express, PostgreSQL). Capable of bridging the gap between engineering and business; successfully stepped into acting Lead and Product Owner roles to define technical roadmaps and synchronize delivery across frontend and backend teams. Leverage AI-driven workflows as a critical peer for architectural pair-planning and rapid pattern evaluation, maintaining a strict focus on browser internals, Core Web Vitals, and execution.",
-    "avatar": {
-      "primary": "https://izsk.netlify.app/.netlify/images?url=/images/zeeshan.jpg&w=800&q=80",
-      "alt": "Shaikh Zeeshan Murshed"
-    },
-    "languages": ["English", "Bengali", "Hindi"],
-    "birthday": "05-04-1992",
-    "availability": ["Full time", "Remote"]
-  },
-  "contact": {
-    "email": "sk.zeeshan1992@gmail.com",
-    "phone": "NA",
-    "social": {
-      "website": {
-        "label": "izsk.netlify.app",
-        "url": "https://izsk.netlify.app"
-      },
-      "github": {
-        "label": "sk-izsk",
-        "url": "https://github.com/sk-izsk"
-      },
-      "linkedin": {
-        "label": "skizsk",
-        "url": "https://www.linkedin.com/in/skizsk/"
-      },
-      "twitter": {
-        "label": "@Sk_iZsk",
-        "url": "https://www.twitter.com/sk_izsk"
-      },
-      "instagram": {
-        "label": "sk_izsk",
-        "url": "https://www.instagram.com/sk_izsk/"
-      },
-      "telegram": {
-        "label": "sk_izsk",
-        "url": "https://t.me/sk_izsk"
-      }
-    }
-  },
-  "skills": {
-    "technical": [
-      {
-        "name": "React",
-        "level": 85,
-        "category": "frontend"
-      },
-      {
-        "name": "TypeScript",
-        "level": 80,
-        "category": "language"
-      },
-      {
-        "name": "JavaScript",
-        "level": 85,
-        "category": "language"
-      },
-      {
-        "name": "React Native",
-        "level": 85,
-        "category": "frontend"
-      },
-      {
-        "name": "Redux",
-        "level": 75,
-        "category": "frontend"
-      },
-      {
-        "name": "Vue.js",
-        "level": 75,
-        "category": "frontend"
-      },
-      {
-        "name": "Node.js",
-        "level": 70,
-        "category": "backend"
-      },
-      {
-        "name": "Express",
-        "level": 70,
-        "category": "backend"
-      },
-      {
-        "name": "MongoDB",
-        "level": 70,
-        "category": "backend"
-      },
-      {
-        "name": "Next.js",
-        "level": 80,
-        "category": "frontend"
-      },
-      {
-        "name": "GraphQL",
-        "level": 60,
-        "category": "backend"
-      },
-      {
-        "name": "Jest",
-        "level": 60,
-        "category": "testing"
-      },
-      {
-        "name": "Cypress",
-        "level": 75,
-        "category": "testing"
-      },
-      {
-        "name": "Storybook",
-        "level": 60,
-        "category": "tools"
-      },
-      {
-        "name": "NPM",
-        "level": 60,
-        "category": "tools"
-      },
-      {
-        "name": "Tanstack Query",
-        "level": 80,
-        "category": "frontend"
-      },
-      {
-        "name": "Zustand",
-        "level": 80,
-        "category": "frontend"
-      },
-      {
-        "name": "Tailwind CSS",
-        "level": 60,
-        "category": "frontend"
-      },
-      {
-        "name": "PostgreSQL",
-        "level": 60,
-        "category": "backend"
-      }
-    ],
-    "categories": {
-      "frontend": [
-        "React",
-        "Redux",
-        "Next.js",
-        "Vue",
-        "Vuex",
-        "Vue-Router",
-        "React Native",
-        "Material-UI",
-        "Antd",
-        "Tanstack Query",
-        "Zustand",
-        "i18n",
-        "react-i18n",
-        "Tailwind CSS",
-        "Clerk Auth",
-        "Bootstrap",
-        "CSS3",
-        "HTML5",
-        "JSS"
-      ],
-      "backend": [
-        "Node.js",
-        "Express",
-        "MongoDB",
-        "PostgreSQL",
-        "Drizzle ORM",
-        "Clerk Auth",
-        "JWT",
-        "RESTful API",
-        "GraphQL",
-        "Mocha",
-        "Chai"
-      ],
-      "languages": ["JavaScript", "TypeScript", "Python"],
-      "tools": [
-        "Git",
-        "Yarn/NPM",
-        "NPM",
-        "VS Code",
-        "Postman",
-        "Figma",
-        "Asana",
-        "Notion",
-        "GitLab CI/CD",
-        "ClickUp",
-        "Cloudinary",
-        "Jira",
-        "Storybook"
-      ],
-      "testing": [
-        "Jest",
-        "Enzyme",
-        "React Native Testing Library",
-        "React Testing Library",
-        "Nock",
-        "Mocha",
-        "Chai",
-        "Cypress"
-      ],
-      "learning": ["SASS", "Socket.IO", "Firebase", "GraphQL"]
-    }
+    "detailedBio": "Frontend Developer with over 6 years of experience architecting scalable, high-performance web and mobile applications, rooted in React and TypeScript. Proven track record of owning projects end-to-end, expanding into full-stack backend system design (Node.js, Express, PostgreSQL). Capable of bridging the gap between engineering and business; successfully stepped into acting Lead and Product Owner roles to define technical roadmaps and synchronize delivery across frontend and backend teams. Leverage AI-driven workflows as a critical peer for architectural pair-planning and rapid pattern evaluation, maintaining a strict focus on browser internals, Core Web Vitals, and execution."
   },
   "education": [
     {
+      "id": 1,
       "degree": "Fullstack Web Development",
-      "duration": "April 2019 - May 2019",
       "description": "Intensive full-stack web development bootcamp that teaches the fundamentals of programming across the front-end and back-end. Gained knowledge about React, Redux, Node, Express. Worked in a team of four members to build a meal delivery website."
     },
     {
+      "id": 2,
       "degree": "Master's of Electrical & Computer Engineering",
-      "duration": "Sept 2016 - Dec 2018",
       "description": "Studied many engineering topics, including digital communication, digital signal processing, real-time applications, robotics, and nanotechnology. Also studied computer science topics, such as computer architecture design, microprocessor applications, model-driven software, and formal hardware verification."
     }
   ],
   "experience": [
     {
-      "company": "SwiftConnect",
-      "position": "Software Engineer",
-      "duration": "Nov 2020 - Present",
+      "id": 1,
       "description": "Acted as technical lead and proxy Product Owner to synchronize cross-functional delivery. Led development and maintenance of various projects using React, Typescript, Styled components, React Router, antd library, Redux Toolkit, and react-query. Developed expertise in additional skills such as building and maintain NPM(private) libraries.",
       "highlights": [
         "Acted as technical lead and proxy Product Owner, translating management requirements into actionable architecture plans and coordinating sprint execution.",
@@ -238,9 +32,7 @@
       ]
     },
     {
-      "company": "Hatchways",
-      "position": "Fullstack Web Developer (Co-Op)",
-      "duration": "Oct 2020 - Nov 2020",
+      "id": 2,
       "description": "Worked collaboratively in a team of 4 to develop web applications using React, Material-UI for the frontend, and Express, Node, MongoDB, Cloudinary Image uploader, and JWT authentication for the backend.",
       "highlights": [
         "Developed frontend with React and Material-UI, focusing on modular components and responsive design.",
@@ -250,9 +42,7 @@
       ]
     },
     {
-      "company": "Guiker Inc",
-      "position": "Junior Software Developer",
-      "duration": "July 2019 - June 2020",
+      "id": 3,
       "description": "Assisted in developing iOS and Android mobile apps using Expo, TypeScript, Jest, and React Native. Gained hands-on backend experience with Node.js and Express by building and consuming REST APIs and applying core patterns like routing, controllers, and middleware to support the web app rebuild.",
       "highlights": [
         "Developed iOS and Android apps using Expo, TypeScript, Jest, and React Native.",
@@ -266,98 +56,65 @@
     {
       "id": 1,
       "title": "Frontend Development",
-      "icon": "fa-laptop-code",
       "description": "Building modern, responsive, and scalable frontend applications using React, Next.js, Vue.js, and TypeScript. Focus on component-based architecture and performance optimization."
     },
     {
       "id": 2,
       "title": "Backend Development",
-      "icon": "fa-server",
       "description": "Creating robust APIs and server-side applications using Node.js, Express, and modern databases. Experienced in building scalable backend architectures."
     },
     {
       "id": 3,
       "title": "Full Stack Solutions",
-      "icon": "fa-code",
       "description": "End-to-end application development combining frontend and backend technologies. Specializing in MERN/MEAN stack development with modern deployment practices."
     },
     {
       "id": 4,
       "title": "Mobile Development",
-      "icon": "fa-mobile-alt",
       "description": "Cross-platform mobile application development using React Native and Expo. Creating performant mobile apps for both iOS and Android platforms."
     },
     {
       "id": 5,
       "title": "NPM Library Development",
-      "icon": "fa-cubes",
       "description": "Creating and maintaining private and public NPM libraries. Specialized in building reusable components and utility libraries for enhanced development productivity."
     },
     {
       "id": 6,
       "title": "Technical Consulting",
-      "icon": "fa-comments",
       "description": "Providing technical guidance on architecture decisions, code reviews, and best practices. Helping teams improve code quality and development processes."
+    },
+    {
+      "id": 7,
+      "title": "Freelance Projects",
+      "description": "Offering flexible freelance services for short-term and long-term projects. Available for contract work, project-based engagements, and specialized technical tasks across frontend, backend, and full-stack domains."
     }
   ],
   "projects": [
     {
       "id": 1,
       "title": "Productify: Full-Stack TypeScript Product Platform",
-      "url": "https://github.com/sk-izsk/productify",
       "excerpt": "A real-world PERN-style build where I implemented end-to-end auth with Clerk, ownership-safe product/comment CRUD, and cache-aware React Query flows to keep UX fast without excessive refetching.",
       "shortDescription": "Intensive full-stack web development bootcamp that teaches the fundamentals of programming across the front-end and back-end. Gained knowledge about React, Redux, Node, Express. Worked in a team of four members to build a meal delivery website.",
       "highlights": [
         "End-to-end authentication with Clerk integration",
         "Ownership-safe CRUD for products and comments",
         "Cache-aware React Query flows for optimal performance (with unit testing)"
-      ],
-      "category": "Full Stack",
-      "tags": [
-        "React 19",
-        "TypeScript",
-        "Express 5",
-        "Drizzle ORM",
-        "PostgreSQL (Neon)",
-        "Clerk Auth",
-        "React Query",
-        "Ky",
-        "Tailwind CSS 4",
-        "DaisyUI",
-        "Jest"
-      ],
-      "publishDate": "2026-03-14"
+      ]
     },
     {
       "id": 2,
       "title": "zsk-react-i18n: Typed React Localization Wrapper",
-      "url": "https://github.com/sk-izsk/zsk-react-i18n",
       "excerpt": "A reusable npm package that wraps i18next/react-i18next with a type-safe API for React apps. I built both factory and direct-provider modes, runtime language guards, localStorage persistence, multi-language scaling, and compile-time translation-key safety backed by tests.",
       "shortDescription": "A reusable npm package that wraps i18next/react-i18next with a type-safe API for React apps. I built both factory and direct-provider modes, runtime language guards, localStorage persistence, multi-language scaling, and compile-time translation-key safety backed by tests.",
       "highlights": [
         "Factory and direct-provider modes for flexibility",
         "Compile-time translation key safety",
         "Comprehensive unit testing with Jest and React Testing Library"
-      ],
-      "category": "Library",
-      "tags": [
-        "TypeScript",
-        "React 19",
-        "i18n",
-        "i18next",
-        "react-i18next",
-        "Localization",
-        "NPM",
-        "Library",
-        "Type Safety",
-        "Jest"
-      ],
-      "publishDate": "2026-03-16"
+      ]
     },
     {
       "id": 3,
       "title": "zsk-react-error: React Error Boundary & Reporter",
-      "url": "https://github.com/sk-izsk/zsk-react-error",
       "excerpt": "A TypeScript-first React error boundary and reporter package with advanced error state control, reset logic, and analytics integration. Designed for scalable, production-grade error handling in React apps.",
       "shortDescription": "A robust React error boundary and reporter package supporting both global and local error state, composable hooks, imperative resets, and flexible fallback UI. Integrates easily with Zustand and analytics tools for complete error visibility.",
       "highlights": [
@@ -366,19 +123,22 @@
         "Customizable fallback UI and error reporting integration",
         "Optimized for performance and scalable error handling",
         "Easy integration with Zustand and analytics tools"
-      ],
-      "category": "Library",
-      "tags": [
-        "React 19",
-        "TypeScript",
-        "Error Boundary",
-        "Error Reporting",
-        "Zustand",
-        "NPM",
-        "Jest",
-        "Library"
-      ],
-      "publishDate": "2026-03-21"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Smart AI: Full-Stack SaaS AI Platform",
+      "excerpt": "A comprehensive SaaS platform democratizing access to AI capabilities. Provides features for article generation, image creation/editing, resume analysis, and community interaction—with freemium tier distinction enforced at the API boundary.",
+      "shortDescription": "Full-stack AI-powered SaaS application integrating multiple AI services (Gemini, ClipDrop) and media processing (Cloudinary) with plan-based access control. Features user dashboards, creation history, community feed, and usage tracking.",
+      "highlights": [
+        "Full-stack architecture with Express backend and React frontend",
+        "Integrated AI services: Google Gemini (text), ClipDrop (images), Cloudinary (storage)",
+        "Plan-based access control enforced server-side with Clerk authentication",
+        "User creation history, community feed, and like/publish system",
+        "Usage tracking and rate limiting for free tier users",
+        "MikroORM for type-safe database operations with PostgreSQL",
+        "Comprehensive API routes for AI generation and user management"
+      ]
     }
   ]
 }
