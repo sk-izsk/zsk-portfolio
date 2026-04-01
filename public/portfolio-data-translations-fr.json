@@ -1,0 +1,144 @@
+{
+  "personalInfo": {
+    "name": "Shaikh Zeeshan Murshed",
+    "title": "Developpeur Web Full Stack",
+    "greeting": "Bonjour, je m'appelle",
+    "profession": "Je suis Developpeur Web Full Stack",
+    "bio": "Ingenieur logiciel avec plus de 6 ans d'experience dans l'architecture d'applications web et mobiles evolutives en React et TypeScript. En pleine expansion vers le design de systemes full-stack. A agi en tant que lead technique et proxy PO pour synchroniser la livraison interfonctionnelle. J'utilise l'IA comme pair critique pour la planification d'architecture. Focus absolu sur les Core Web Vitals et l'architecture propre.",
+    "detailedBio": "Developpeur Frontend avec plus de 6 ans d'experience dans l'architecture d'applications web et mobiles performantes, basees sur React et TypeScript. Solide experience dans la gestion de projets de bout en bout, s'etendant au design de systemes backend full-stack (Node.js, Express, PostgreSQL). Capable de faire le pont entre l'ingenierie et le metier ; j'ai occupe avec succes des roles de Lead et Product Owner par interim pour definir les feuilles de route techniques et synchroniser la livraison entre les equipes frontend et backend. J'exploite les workflows diriges par l'IA comme un pair critique pour le pair-planning architectural et l'evaluation rapide de modeles, tout en maintenant un focus strict sur les internals du navigateur, les Core Web Vitals et l'execution."
+  },
+  "education": [
+    {
+      "id": 1,
+      "degree": "Developpement Web Full Stack",
+      "description": "Bootcamp intensif de developpement web full stack couvrant les fondamentaux du front-end et du back-end. Acquisition de competences sur React, Redux, Node et Express. Projet realise en equipe de quatre pour construire un site de livraison de repas."
+    },
+    {
+      "id": 2,
+      "degree": "Master en genie electrique et informatique",
+      "description": "Etudes de nombreux sujets d'ingenierie, notamment la communication numerique, le traitement du signal, les applications temps reel, la robotique et la nanotechnologie. Cote informatique: architecture des ordinateurs, applications microprocesseurs, logiciels diriges par les modeles et verification formelle materielle."
+    }
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "description": "A agi en tant que lead technique et proxy Product Owner pour synchroniser la livraison. A dirige le developpement et la maintenance de divers projets utilisant React, Typescript, Styled components, React Router, la bibliotheque antd, Redux Toolkit et react-query. Developpe une expertise supplementaire dans la creation et la maintenance de bibliotheques NPM (privees).",
+      "highlights": [
+        "A agi en tant que lead technique et proxy Product Owner, traduisant les exigences de la direction en plans d'architecture actionnables et coordonnant l'execution des sprints.",
+        "Pilotage du developpement et de la maintenance de projets React/TypeScript avec Styled Components, React Router, Redux Toolkit et React Query.",
+        "Architecture et maintenance de bibliotheques NPM privees pour UI et utilitaires, ameliorant la reutilisabilite et la productivite.",
+        "Collaboration avec des equipes pluridisciplinaires pour livrer des fonctionnalites dans les delais et ameliorer la qualite du code via revues et mentorat.",
+        "Optimisation des Core Web Vitals et mise en place des bonnes pratiques d'accessibilite et de performance."
+      ]
+    },
+    {
+      "id": 2,
+      "description": "A travaillé en collaboration dans une équipe de 4 personnes pour développer des applications web avec React, Material-UI pour le frontend, et Express, Node, MongoDB, Cloudinary Image uploader et authentification JWT pour le backend.",
+      "highlights": [
+        "Developpement frontend avec React et Material-UI, focus sur composants modulaires et design responsive.",
+        "Creation et integration d'API REST avec Node.js, Express et MongoDB, incluant authentification et upload de fichiers.",
+        "Mise en place de l'authentification JWT et de flux utilisateurs securises.",
+        "Participation aux sprints agiles, revues de code et resolution collaborative de problemes."
+      ]
+    },
+    {
+      "id": 3,
+      "description": "A assiste au developpement d'applications mobiles iOS et Android utilisant Expo, TypeScript, Jest et React Native. Acquisition d'experience backend pratique avec Node.js et Express via la construction et consommation d'API REST et l'application de patterns fondamentaux comme routing, controllers et middleware pour supporter la refonte du site.",
+      "highlights": [
+        "Developpement d'applications iOS et Android utilisant Expo, TypeScript, Jest et React Native.",
+        "Construction et consommation d'API REST avec Node.js et Express, application de patterns routing, controllers et middleware.",
+        "Support d'une refonte majeure du site, ameliorant la maintenabilite et la performance.",
+        "Acquisition d'experience pratique avec technologies backend et cloud."
+      ]
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "title": "Developpement Frontend",
+      "description": "Construction d'applications frontend modernes, responsives et scalables utilisant React, Next.js, Vue.js et TypeScript. Focus sur l'architecture basee composants et l'optimisation de performance."
+    },
+    {
+      "id": 2,
+      "title": "Developpement Backend",
+      "description": "Creation d'API robustes et d'applications serveur utilisant Node.js, Express et bases de donnees modernes. Experience dans la construction d'architectures backend scalables."
+    },
+    {
+      "id": 3,
+      "title": "Solutions Full Stack",
+      "description": "Developpement d'applications de bout en bout combinant technologies frontend et backend. Specialisation dans le developpement MERN/MEAN stack avec pratiques de deploiement modernes."
+    },
+    {
+      "id": 4,
+      "title": "Developpement Mobile",
+      "description": "Developpement mobile cross-platform avec React Native et Expo. Creation d'applications performantes pour iOS et Android."
+    },
+    {
+      "id": 5,
+      "title": "Developpement de bibliotheques NPM",
+      "description": "Creation et maintenance de bibliotheques NPM privees et publiques. Specialisation dans les composants reutilisables et bibliotheques utilitaires pour accelerer la productivite."
+    },
+    {
+      "id": 6,
+      "title": "Conseil technique",
+      "description": "Accompagnement technique sur les decisions d'architecture, les revues de code et les bonnes pratiques. Aide aux equipes pour ameliorer la qualite du code et les processus."
+    },
+    {
+      "id": 7,
+      "title": "Projets en Freelance",
+      "description": "Services de freelance flexibles pour projets court et long terme. Disponible pour travail contractuel, missions basees sur projet et taches techniques specialisees en frontend, backend et full-stack."
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Productify : plateforme produit Full Stack en TypeScript",
+      "excerpt": "Un projet de type PERN en conditions reelles, avec authentification de bout en bout via Clerk, CRUD securise par proprietaire pour produits/commentaires, et flux React Query orientes cache pour une UX rapide sans refetch excessif.",
+      "shortDescription": "Bootcamp intensif de développement web full stack couvrant les fondamentaux du front-end et du back-end. Acquisition de compétences sur React, Redux, Node et Express. Projet réalisé en équipe de quatre pour construire un site de livraison de repas.",
+      "highlights": [
+        "Authentification de bout en bout avec Clerk",
+        "CRUD securise par proprietaire pour produits/commentaires",
+        "Flux React Query optimises (avec tests unitaires)"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "zsk-react-i18n : wrapper de localisation type-safe pour React",
+      "excerpt": "Un package npm reutilisable qui encapsule i18next/react-i18next avec une API type-safe pour les applications React. J'y ai construit les modes factory et direct-provider, des gardes runtime pour les langues, la persistance via localStorage, la prise en charge de plusieurs langues et la securite compile-time des cles de traduction, valides par des tests.",
+      "shortDescription": "Un package npm réutilisable qui encapsule i18next/react-i18next avec une API type-safe pour les applications React. J'y ai construit les modes factory et direct-provider, des gardes runtime pour les langues, la persistance via localStorage, la prise en charge de plusieurs langues et la sécurité compile-time des clés de traduction, validées par des tests.",
+      "highlights": [
+        "Modes factory et direct-provider pour la flexibilite",
+        "Securite compile-time des cles de traduction",
+        "Tests unitaires complets avec Jest et React Testing Library"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "zsk-react-error : Error Boundary & Reporter pour React",
+      "excerpt": "Un package Error Boundary et reporter pour React, orienté TypeScript, avec gestion avancée de l'état d'erreur, logique de reset et intégration analytics. Conçu pour une gestion d'erreurs évolutive et robuste en production.",
+      "shortDescription": "Un package Error Boundary et reporter robuste pour React, prenant en charge l'état d'erreur global et local, des hooks composables, le reset impératif et une UI de fallback flexible. S'intègre facilement avec Zustand et les outils analytics pour une visibilité complète des erreurs.",
+      "highlights": [
+        "Gestion globale et locale de l'état d'erreur avec hooks composables",
+        "Isolation par clé et support du reset impératif",
+        "UI de fallback personnalisable et intégration reporting",
+        "Optimisé pour la performance et la gestion d'erreurs à grande échelle",
+        "Intégration facile avec Zustand et outils analytics"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Smart AI: Plateforme SaaS IA Full-Stack",
+      "excerpt": "Une plateforme SaaS complète démocratisant l'accès aux capacités d'IA. Fournit des fonctionnalités de génération d'articles, de création/édition d'images, d'analyse de CV et d'interaction communautaire—avec distinction de tiers freemium appliquée à la limite de l'API.",
+      "shortDescription": "Application SaaS full-stack propulsée par l'IA intégrant de multiples services d'IA (Gemini, ClipDrop) et traitement médias (Cloudinary) avec contrôle d'accès basé sur le forfait. Dispose de tableaux de bord utilisateurs, historique des créations et flux communautaire.",
+      "highlights": [
+        "Architecture full-stack avec backend Express et frontend React",
+        "Services IA intégrés : Google Gemini (texte), ClipDrop (images), Cloudinary (stockage)",
+        "Contrôle d'accès basé sur le forfait appliqué côté serveur avec authentification Clerk",
+        "Historique des créations utilisateur, flux communautaire et système de like/publication",
+        "Suivi d'usage et limitation de taux pour les utilisateurs du tiers gratuit",
+        "MikroORM pour les opérations de base de données type-safe avec PostgreSQL",
+        "Routes API complètes pour la génération d'IA et la gestion des utilisateurs"
+      ]
+    }
+  ]
+}
