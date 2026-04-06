@@ -99,7 +99,7 @@ export const Sidebar: React.FC = () => {
 
   const getLogoText = () => {
     if (loading || !personalInfo) {
-      return 'Atlas'
+      return 'Zeeshan'
     }
     const firstName = personalInfo.name.split(' ')[1]
     return `${firstName.charAt(0).toUpperCase()}${firstName.slice(1).toLowerCase()}`
