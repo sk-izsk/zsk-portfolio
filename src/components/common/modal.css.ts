@@ -43,8 +43,7 @@ export const modal = style({
   borderRadius: 12,
   border: `2px solid ${vars.color.skin}`,
   width: 'min(50rem, 92vw)',
-  minHeight: '17.88rem',
-  height: 'min(84dvh, 44rem)',
+  height: 'auto',
   maxHeight: '84dvh',
   padding: 0,
   display: 'flex',
@@ -60,6 +59,7 @@ export const modal = style({
   '@media': {
     'screen and (max-width: 768px)': {
       width: '94vw',
+      minHeight: '17.88rem',
       height: '78dvh',
       maxHeight: '78dvh',
       borderRadius: 10,
