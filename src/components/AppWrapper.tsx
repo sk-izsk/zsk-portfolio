@@ -10,6 +10,7 @@ import { usePortfolioStore } from '../stores/portfolioStore'
 import { useSidebarStore } from '../stores/sidebarStore'
 import '../styles/global.css'
 import { Canedly } from './Canedly'
+import { ThemeAnimatedCursor } from './common/ThemeAnimatedCursor'
 import { Sidebar } from './sidebar/Sidebar'
 import { StyleSwitcher } from './styleSwitcher/StyleSwitcher'
 
@@ -54,6 +55,7 @@ const AppLayout = ({ children }: PropsWithChildren) => {
 
   return (
     <div className="main-container">
+      <ThemeAnimatedCursor />
       <Sidebar />
 
       <div className={`main-content ${isSidebarOpen ? 'sidebar-open' : ''}`}>{children}</div>
