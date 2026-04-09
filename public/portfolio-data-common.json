@@ -164,16 +164,6 @@
         "name": "Multer",
         "level": 65,
         "category": "backend"
-      },
-      {
-        "name": "Google Gemini API",
-        "level": 70,
-        "category": "backend"
-      },
-      {
-        "name": "ClipDrop",
-        "level": 70,
-        "category": "backend"
       }
     ],
     "categories": {
