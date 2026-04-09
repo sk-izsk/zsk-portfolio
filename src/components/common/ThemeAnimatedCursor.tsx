@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import AnimatedCursor from 'react-animated-cursor'
 import { useThemeStore, type ThemeColor } from '../../stores/themeStore'
 
@@ -14,29 +14,6 @@ const cursorColorByTheme: Record<ThemeColor, string> = {
 export const ThemeAnimatedCursor: React.FC = () => {
   const currentColor = useThemeStore((state) => state.currentColor)
   const cursorColor = cursorColorByTheme[currentColor]
-  const [isFinePointerDevice, setIsFinePointerDevice] = useState(false)
-
-  useEffect(() => {
-    if (typeof window === 'undefined') {
-      return
-    }
-
-    const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)')
-    const updateDeviceType = () => {
-      setIsFinePointerDevice(mediaQuery.matches)
-    }
-
-    updateDeviceType()
-
-    mediaQuery.addEventListener('change', updateDeviceType)
-    return () => {
-      mediaQuery.removeEventListener('change', updateDeviceType)
-    }
-  }, [])
-
-  if (!isFinePointerDevice) {
-    return null
-  }
 
   return (
     <AnimatedCursor
