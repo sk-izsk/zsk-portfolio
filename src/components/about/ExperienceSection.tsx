@@ -66,22 +66,22 @@ export const ExperienceSection: React.FC = () => {
             }}
           >
             <Modal.Title>{`${selectedExperience.position} at ${selectedExperience.company}`}</Modal.Title>
-            <Modal.Description>{selectedExperience.description}</Modal.Description>
-            {selectedExperience.highlights && selectedExperience.highlights.length > 0 && (
-              <Modal.Highlights>
-                {selectedExperience.highlights.map((h) => (
-                  <li key={h}>{h}</li>
-                ))}
-              </Modal.Highlights>
-            )}
-            <div style={{ width: '100%' }}>
-              <Modal.Footer
-                onClose={() => {
-                  setModalOpen(false)
-                  setSelectedExperience(null)
-                }}
-              />
-            </div>
+            <Modal.Body>
+              <Modal.Description>{selectedExperience.description}</Modal.Description>
+              {selectedExperience.highlights && selectedExperience.highlights.length > 0 && (
+                <Modal.Highlights>
+                  {selectedExperience.highlights.map((h) => (
+                    <li key={h}>{h}</li>
+                  ))}
+                </Modal.Highlights>
+              )}
+            </Modal.Body>
+            <Modal.Footer
+              onClose={() => {
+                setModalOpen(false)
+                setSelectedExperience(null)
+              }}
+            />
           </Modal>
         )}
       </ActivityTimeline>
