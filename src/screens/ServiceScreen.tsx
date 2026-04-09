@@ -15,6 +15,7 @@ import React from 'react'
 import { Screen } from '../components/Screen'
 import { ServiceCard } from '../components/services/ServiceCard'
 import { serviceRow } from '../components/services/services.css'
+import { useAnalytics } from '../hooks/useAnalytics'
 import { useTranslation } from '../localization/localize'
 import { usePortfolioError, usePortfolioLoading, useServices } from '../stores/portfolioStore'
 
@@ -41,6 +42,7 @@ const ServiceScreen: React.FC = () => {
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
   const { t } = useTranslation()
+  useAnalytics()
 
   return (
     <Screen

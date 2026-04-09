@@ -7,6 +7,7 @@ import {
   projectHeadingTitle,
 } from '../components/projects/projects.css'
 import { Screen } from '../components/Screen'
+import { trackGaEvent, trackMixpanelEvent, useAnalytics } from '../hooks/useAnalytics'
 import { useTranslation } from '../localization/localize'
 import { usePortfolioError, usePortfolioLoading, useProjects } from '../stores/portfolioStore'
 
@@ -15,6 +16,7 @@ const ProjectScreen: React.FC = () => {
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
   const { t } = useTranslation()
+  useAnalytics()
 
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedProject, setSelectedProject] = useState(
@@ -67,6 +69,8 @@ const ProjectScreen: React.FC = () => {
                     isExternal={project.isExternal}
                     onClick={(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
                       e.preventDefault()
+                      trackGaEvent('Projects', 'read_more_click', project.title)
+                      trackMixpanelEvent('read_more_click', 'Projects', project.title)
                       setSelectedProject(project)
                       setModalOpen(true)
                     }}

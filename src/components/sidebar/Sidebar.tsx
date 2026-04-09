@@ -8,6 +8,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
+import { trackGaEvent, trackMixpanelEvent } from '../../hooks/useAnalytics'
 import { useTranslation } from '../../localization/localize'
 import { usePersonalInfo, usePortfolioLoading } from '../../stores/portfolioStore'
 import { useSidebarStore } from '../../stores/sidebarStore'
@@ -113,6 +114,9 @@ export const Sidebar: React.FC = () => {
   }
 
   const handleLanguageChange = (language: 'en' | 'fr') => {
+    const label = language.toUpperCase()
+    trackGaEvent('Language', 'language_switch_click', label)
+    trackMixpanelEvent('language_switch_click', 'Language', label)
     void i18n.changeLanguage(language)
     if (window.innerWidth < 1200) {
       closeSidebar()

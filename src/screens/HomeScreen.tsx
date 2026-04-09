@@ -5,6 +5,7 @@ import { HomeDownloadCv } from '../components/home/HomeDownloadCv'
 import { HomeImageContainer } from '../components/home/HomeImageContainer'
 import { HomeTitleAnimated } from '../components/home/HomeTitleAnimated'
 import { Screen } from '../components/Screen'
+import { useAnalytics } from '../hooks/useAnalytics'
 import { useTranslation } from '../localization/localize'
 import { usePortfolioError, usePortfolioLoading } from '../stores/portfolioStore'
 
@@ -12,6 +13,7 @@ const HomeScreen: React.FC = () => {
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
   const { t } = useTranslation()
+  useAnalytics()
 
   return (
     <Screen

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { trackGaEvent, trackMixpanelEvent } from '../../hooks/useAnalytics'
 import { useTranslation } from '../../localization/localize'
 import { useExperience } from '../../stores/portfolioStore'
 import { Modal } from '../common/Modal'
@@ -46,6 +47,9 @@ export const ExperienceSection: React.FC = () => {
                 isExternal={false}
                 onClick={(e) => {
                   e.preventDefault()
+                  const label = `${item.position} at ${item.company}`
+                  trackGaEvent('About', 'read_more_click', label)
+                  trackMixpanelEvent('read_more_click', 'About', label)
                   setSelectedExperience(item)
                   setModalOpen(true)
                 }}
