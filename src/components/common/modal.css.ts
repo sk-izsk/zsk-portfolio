@@ -42,19 +42,28 @@ export const modal = style({
   color: vars.color.text[900],
   borderRadius: 12,
   border: `2px solid ${vars.color.skin}`,
-  width: '50rem',
-  maxWidth: '90vw',
-  minHeight: '17.88rem',
-  maxHeight: '90vh',
+  width: 'min(50rem, 92vw)',
+  height: 'auto',
+  maxHeight: '84dvh',
   padding: 0,
   display: 'flex',
   flexDirection: 'column',
   position: 'relative',
   overflow: 'hidden',
+  boxSizing: 'border-box',
   scrollbarWidth: 'none',
   msOverflowStyle: 'none',
   selectors: {
     '&::-webkit-scrollbar': { display: 'none' },
+  },
+  '@media': {
+    'screen and (max-width: 768px)': {
+      width: '94vw',
+      minHeight: '17.88rem',
+      height: '78dvh',
+      maxHeight: '78dvh',
+      borderRadius: 10,
+    },
   },
 })
 
@@ -110,6 +119,9 @@ export const divider = style({
 export const modalBody = style({
   flex: 1,
   overflowY: 'auto',
+  overflowX: 'hidden',
+  minHeight: 0,
+  overscrollBehavior: 'contain',
   padding: '12px 16px',
   scrollbarWidth: 'none',
   msOverflowStyle: 'none',

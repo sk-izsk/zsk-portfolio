@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
 import React from 'react'
+import { trackGaEvent, trackMixpanelEvent } from '../../hooks/useAnalytics'
 import { useTranslation } from '../../localization/localize'
 import { useContactInfo, usePersonalInfo } from '../../stores/portfolioStore'
 import { Button } from '../common/Button'
@@ -96,6 +97,10 @@ export const AboutPersonalInfoSection: React.FC = () => {
             className={btnMargin}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              trackGaEvent('About', 'download_cv_click', 'Download CV')
+              trackMixpanelEvent('download_cv_click', 'About', 'Download CV')
+            }}
           >
             {t('about.actions.downloadCv')}
           </Button>
@@ -105,6 +110,10 @@ export const AboutPersonalInfoSection: React.FC = () => {
             variant="secondary"
             size="large"
             className={`hire-me ${btnMargin}`}
+            onClick={() => {
+              trackGaEvent('About', 'hire_me_click', 'Hire Me')
+              trackMixpanelEvent('hire_me_click', 'About', 'Hire Me')
+            }}
           >
             {t('about.actions.hireMe')}
           </Button>

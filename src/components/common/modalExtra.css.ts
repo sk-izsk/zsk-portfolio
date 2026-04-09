@@ -64,11 +64,18 @@ export const overlay = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  padding: 12,
+  boxSizing: 'border-box',
   // Guarantee both properties for all browsers and production builds
   backdropFilter: 'blur(2px)',
   WebkitBackdropFilter: 'blur(1px)',
   // For Safari and iOS, force hardware acceleration for blur
   willChange: 'backdrop-filter',
+  '@media': {
+    'screen and (max-width: 768px)': {
+      padding: 8,
+    },
+  },
 })
 
 export const title = style({

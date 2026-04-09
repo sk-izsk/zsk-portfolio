@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { trackGaEvent, trackMixpanelEvent } from '../../hooks/useAnalytics'
 import { useTranslation } from '../../localization/localize'
 import { useExperience } from '../../stores/portfolioStore'
 import { Modal } from '../common/Modal'
@@ -46,6 +47,9 @@ export const ExperienceSection: React.FC = () => {
                 isExternal={false}
                 onClick={(e) => {
                   e.preventDefault()
+                  const label = `${item.position} at ${item.company}`
+                  trackGaEvent('About', 'read_more_click', label)
+                  trackMixpanelEvent('read_more_click', 'About', label)
                   setSelectedExperience(item)
                   setModalOpen(true)
                 }}
@@ -62,22 +66,22 @@ export const ExperienceSection: React.FC = () => {
             }}
           >
             <Modal.Title>{`${selectedExperience.position} at ${selectedExperience.company}`}</Modal.Title>
-            <Modal.Description>{selectedExperience.description}</Modal.Description>
-            {selectedExperience.highlights && selectedExperience.highlights.length > 0 && (
-              <Modal.Highlights>
-                {selectedExperience.highlights.map((h) => (
-                  <li key={h}>{h}</li>
-                ))}
-              </Modal.Highlights>
-            )}
-            <div style={{ width: '100%' }}>
-              <Modal.Footer
-                onClose={() => {
-                  setModalOpen(false)
-                  setSelectedExperience(null)
-                }}
-              />
-            </div>
+            <Modal.Body>
+              <Modal.Description>{selectedExperience.description}</Modal.Description>
+              {selectedExperience.highlights && selectedExperience.highlights.length > 0 && (
+                <Modal.Highlights>
+                  {selectedExperience.highlights.map((h) => (
+                    <li key={h}>{h}</li>
+                  ))}
+                </Modal.Highlights>
+              )}
+            </Modal.Body>
+            <Modal.Footer
+              onClose={() => {
+                setModalOpen(false)
+                setSelectedExperience(null)
+              }}
+            />
           </Modal>
         )}
       </ActivityTimeline>

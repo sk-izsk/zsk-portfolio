@@ -2,6 +2,7 @@ import { faComments } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react'
 import { PopupModal } from 'react-calendly'
+import { trackGaEvent, trackMixpanelEvent } from '../hooks/useAnalytics'
 import { useTranslation } from '../localization/localize'
 import { useThemeStore } from '../stores/themeStore'
 import { floatingContainer, triggerButton, triggerIcon, triggerLabelDesktop } from './canedly.css'
@@ -35,7 +36,11 @@ export const Canedly = () => {
           className={triggerButton}
           style={{ background: currentAccentColor }}
           type="button"
-          onClick={() => setIsOpen(true)}
+          onClick={() => {
+            trackGaEvent('Calendly', 'book_meeting_click', 'Want to book a meeting')
+            trackMixpanelEvent('book_meeting_click', 'Calendly', 'Want to book a meeting')
+            setIsOpen(true)
+          }}
           aria-label={desktopText}
         >
           <FontAwesomeIcon icon={faComments} className={triggerIcon} />
