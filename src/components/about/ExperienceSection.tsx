@@ -3,6 +3,7 @@ import { trackGaEvent, trackMixpanelEvent } from '../../hooks/useAnalytics'
 import { useTranslation } from '../../localization/localize'
 import { useExperience } from '../../stores/portfolioStore'
 import { Modal } from '../common/Modal'
+import { TextReveal } from '../common/TextReveal'
 import { ProjectCard } from '../projects/ProjectCard'
 import { experience as experienceClass } from './about.css'
 import { ActivityTimeline } from './ActivityTimeline'
@@ -24,8 +25,12 @@ export const ExperienceSection: React.FC = () => {
         {experienceData.slice(0, 3).map((item) => (
           <ActivityTimeline.Item key={item.company + item.position + item.duration}>
             <ActivityTimeline.Item.TimeSpan>{item.duration}</ActivityTimeline.Item.TimeSpan>
-            <ActivityTimeline.Item.Title>{`${item.position} at ${item.company}`}</ActivityTimeline.Item.Title>
-            <ActivityTimeline.Item.Body>{item.description}</ActivityTimeline.Item.Body>
+            <ActivityTimeline.Item.Title>
+              <TextReveal>{`${item.position} at ${item.company}`}</TextReveal>
+            </ActivityTimeline.Item.Title>
+            <ActivityTimeline.Item.Body>
+              <TextReveal>{item.description}</TextReveal>
+            </ActivityTimeline.Item.Body>
             <div
               style={{ marginTop: 12, display: 'flex', justifyContent: 'flex-start' }}
               role="button"

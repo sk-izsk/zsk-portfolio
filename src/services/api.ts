@@ -1,6 +1,6 @@
 import ky from 'ky'
 import type { AppLanguage } from '../localization'
-import type { PortfolioData } from '../types/portfolio'
+import type { PortfolioData, RichTextSegment } from '../types/portfolio'
 
 interface PortfolioCommonData {
   personalInfo: {
@@ -43,7 +43,9 @@ interface PortfolioTranslations {
     greeting: string
     profession: string
     bio: string
+    bioSegments?: RichTextSegment[]
     detailedBio: string
+    detailedBioSegments?: RichTextSegment[]
   }
   education: Array<{
     id: number
@@ -83,7 +85,9 @@ const mergePortfolioData = (
       greeting: translations.personalInfo.greeting,
       profession: translations.personalInfo.profession,
       bio: translations.personalInfo.bio,
+      bioSegments: translations.personalInfo.bioSegments,
       detailedBio: translations.personalInfo.detailedBio,
+      detailedBioSegments: translations.personalInfo.detailedBioSegments,
       ...common.personalInfo,
     },
     contact: common.contact,

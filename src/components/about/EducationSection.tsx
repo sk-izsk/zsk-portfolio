@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import { useTranslation } from '../../localization/localize'
 import { useEducation } from '../../stores/portfolioStore'
+import { TextReveal } from '../common/TextReveal'
 import { education } from './about.css'
 import { ActivityTimeline } from './ActivityTimeline'
 
@@ -27,8 +28,12 @@ export const EducationSection: React.FC = () => {
       {items.map((item) => (
         <ActivityTimeline.Item key={item.id}>
           <ActivityTimeline.Item.TimeSpan>{item.timeSpan}</ActivityTimeline.Item.TimeSpan>
-          <ActivityTimeline.Item.Title>{item.title}</ActivityTimeline.Item.Title>
-          <ActivityTimeline.Item.Body>{item.body}</ActivityTimeline.Item.Body>
+          <ActivityTimeline.Item.Title>
+            <TextReveal>{item.title}</TextReveal>
+          </ActivityTimeline.Item.Title>
+          <ActivityTimeline.Item.Body>
+            <TextReveal>{item.body}</TextReveal>
+          </ActivityTimeline.Item.Body>
         </ActivityTimeline.Item>
       ))}
     </ActivityTimeline>

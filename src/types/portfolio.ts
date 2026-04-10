@@ -1,5 +1,12 @@
 // Types for portfolio data structure
 
+export type TextMark = 'none' | 'underline' | 'highlight'
+
+export interface RichTextSegment {
+  text: string
+  mark?: TextMark
+}
+
 export interface PersonalInfo {
   name: string
   title: string
@@ -11,7 +18,9 @@ export interface PersonalInfo {
     country: string
   }
   bio: string
+  bioSegments?: RichTextSegment[]
   detailedBio: string
+  detailedBioSegments?: RichTextSegment[]
   avatar: {
     primary: string
     alt: string
