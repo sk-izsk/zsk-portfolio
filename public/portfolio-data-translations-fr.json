@@ -5,7 +5,37 @@
     "greeting": "Bonjour, je m'appelle",
     "profession": "Je suis Developpeur Web Full Stack",
     "bio": "Ingenieur logiciel avec plus de 6 ans d'experience dans l'architecture d'applications web et mobiles evolutives en React et TypeScript. En pleine expansion vers le design de systemes full-stack. A agi en tant que lead technique et proxy PO pour synchroniser la livraison interfonctionnelle. J'utilise l'IA comme pair critique pour la planification d'architecture. Focus absolu sur les Core Web Vitals et l'architecture propre.",
-    "detailedBio": "Developpeur Frontend avec plus de 6 ans d'experience dans l'architecture d'applications web et mobiles performantes, basees sur React et TypeScript. Solide experience dans la gestion de projets de bout en bout, s'etendant au design de systemes backend full-stack (Node.js, Express, PostgreSQL). Capable de faire le pont entre l'ingenierie et le metier ; j'ai occupe avec succes des roles de Lead et Product Owner par interim pour definir les feuilles de route techniques et synchroniser la livraison entre les equipes frontend et backend. J'exploite les workflows diriges par l'IA comme un pair critique pour le pair-planning architectural et l'evaluation rapide de modeles, tout en maintenant un focus strict sur les internals du navigateur, les Core Web Vitals et l'execution."
+    "bioSegments": [
+      { "text": "Ingenieur logiciel", "mark": "underline" },
+      {
+        "text": " avec plus de 6 ans d'experience dans l'architecture d'applications web et mobiles evolutives en React et TypeScript. ",
+        "mark": "none"
+      },
+      { "text": "En pleine expansion vers le design de systemes full-stack", "mark": "highlight" },
+      {
+        "text": ". A agi en tant que lead technique et proxy PO pour synchroniser la livraison interfonctionnelle. J'utilise l'IA comme pair critique pour la planification d'architecture. Focus absolu sur les Core Web Vitals et l'architecture propre.",
+        "mark": "none"
+      }
+    ],
+    "detailedBio": "Developpeur Frontend avec plus de 6 ans d'experience dans l'architecture d'applications web et mobiles performantes, basees sur React et TypeScript. Solide experience dans la gestion de projets de bout en bout, s'etendant au design de systemes backend full-stack (Node.js, Express, PostgreSQL). Capable de faire le pont entre l'ingenierie et le metier ; j'ai occupe avec succes des roles de Lead et Product Owner par interim pour definir les feuilles de route techniques et synchroniser la livraison entre les equipes frontend et backend. J'exploite les workflows diriges par l'IA comme un pair critique pour le pair-planning architectural et l'evaluation rapide de modeles, tout en maintenant un focus strict sur les internals du navigateur, les Core Web Vitals et l'execution.",
+    "detailedBioSegments": [
+      {
+        "text": "Developpeur Frontend avec plus de 6 ans d'experience",
+        "mark": "highlight"
+      },
+      {
+        "text": " dans l'architecture d'applications web et mobiles performantes, basees sur React et TypeScript. Solide experience dans la gestion de projets de bout en bout, s'etendant au design de systemes backend full-stack (Node.js, Express, PostgreSQL). Capable de faire le pont entre l'ingenierie et le metier ; ",
+        "mark": "none"
+      },
+      {
+        "text": "j'ai occupe avec succes des roles de Lead et Product Owner par interim",
+        "mark": "highlight"
+      },
+      {
+        "text": " pour definir les feuilles de route techniques et synchroniser la livraison entre les equipes frontend et backend. J'exploite les workflows diriges par l'IA comme un pair critique pour le pair-planning architectural et l'evaluation rapide de modeles, tout en maintenant un focus strict sur les internals du navigateur, les Core Web Vitals et l'execution.",
+        "mark": "none"
+      }
+    ]
   },
   "education": [
     {

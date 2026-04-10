@@ -3,8 +3,6 @@ import { usePersonalInfo } from '../../stores/portfolioStore'
 import { TextHighlighter } from '../common/TextHighlighter'
 import { homeInfoP } from './home.css'
 
-const escapeRegExp = (value: string): string => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-
 export const HomeDetailBio: React.FC = () => {
   const personalInfo = usePersonalInfo()
 
@@ -12,38 +10,26 @@ export const HomeDetailBio: React.FC = () => {
     return null
   }
 
-  const underlinePhrases = ['Frontend Engineer', 'Ingenieur logiciel']
-  const highlightPhrases = [
-    'Expanding into full-stack system design',
-    'En pleine expansion vers le design de systemes full-stack',
-  ]
-  const underlineRegex = new RegExp(`^(?:${underlinePhrases.map(escapeRegExp).join('|')})$`, 'i')
-  const highlightRegex = new RegExp(`^(?:${highlightPhrases.map(escapeRegExp).join('|')})$`, 'i')
-
-  const segments = personalInfo.bio.split(
-    new RegExp(`(${[...underlinePhrases, ...highlightPhrases].map(escapeRegExp).join('|')})`, 'gi'),
-  )
-
   return (
     <p className={homeInfoP}>
-      {segments.map((segment, index) => {
-        if (underlineRegex.test(segment)) {
+      {(personalInfo.bioSegments ?? [{ text: personalInfo.bio }]).map((segment, index) => {
+        if (segment.mark === 'underline') {
           return (
-            <TextHighlighter key={`${segment}-${index}`} action="underline">
-              {segment}
+            <TextHighlighter key={`${segment.text}-${index}`} action="underline">
+              {segment.text}
             </TextHighlighter>
           )
         }
 
-        if (highlightRegex.test(segment)) {
+        if (segment.mark === 'highlight') {
           return (
-            <TextHighlighter key={`${segment}-${index}`} action="highlight">
-              {segment}
+            <TextHighlighter key={`${segment.text}-${index}`} action="highlight">
+              {segment.text}
             </TextHighlighter>
           )
         }
 
-        return <React.Fragment key={`${segment}-${index}`}>{segment}</React.Fragment>
+        return <React.Fragment key={`${segment.text}-${index}`}>{segment.text}</React.Fragment>
       })}
     </p>
   )

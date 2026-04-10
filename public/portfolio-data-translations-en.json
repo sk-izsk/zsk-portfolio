@@ -5,7 +5,34 @@
     "greeting": "Hello, my name is",
     "profession": "I'm a Full Stack Web Developer",
     "bio": "Frontend Engineer with 6+ years architecting scalable web and mobile applications in React and TypeScript. Expanding into full-stack system design. Acted as technical lead and proxy PO to synchronize cross-functional delivery. Leverage AI as a critical peer for architectural pair-planning. Obsessive focus on Core Web Vitals and clean architecture.",
-    "detailedBio": "Frontend Developer with over 6 years of experience architecting scalable, high-performance web and mobile applications, rooted in React and TypeScript. Proven track record of owning projects end-to-end, expanding into full-stack backend system design (Node.js, Express, PostgreSQL). Capable of bridging the gap between engineering and business; successfully stepped into acting Lead and Product Owner roles to define technical roadmaps and synchronize delivery across frontend and backend teams. Leverage AI-driven workflows as a critical peer for architectural pair-planning and rapid pattern evaluation, maintaining a strict focus on browser internals, Core Web Vitals, and execution."
+    "bioSegments": [
+      { "text": "Frontend Engineer", "mark": "underline" },
+      {
+        "text": " with 6+ years architecting scalable web and mobile applications in React and TypeScript. ",
+        "mark": "none"
+      },
+      { "text": "Expanding into full-stack system design", "mark": "highlight" },
+      {
+        "text": ". Acted as technical lead and proxy PO to synchronize cross-functional delivery. Leverage AI as a critical peer for architectural pair-planning. Obsessive focus on Core Web Vitals and clean architecture.",
+        "mark": "none"
+      }
+    ],
+    "detailedBio": "Frontend Developer with over 6 years of experience architecting scalable, high-performance web and mobile applications, rooted in React and TypeScript. Proven track record of owning projects end-to-end, expanding into full-stack backend system design (Node.js, Express, PostgreSQL). Capable of bridging the gap between engineering and business; successfully stepped into acting Lead and Product Owner roles to define technical roadmaps and synchronize delivery across frontend and backend teams. Leverage AI-driven workflows as a critical peer for architectural pair-planning and rapid pattern evaluation, maintaining a strict focus on browser internals, Core Web Vitals, and execution.",
+    "detailedBioSegments": [
+      { "text": "Frontend Developer with over 6 years of experience", "mark": "highlight" },
+      {
+        "text": " architecting scalable, high-performance web and mobile applications, rooted in React and TypeScript. Proven track record of owning projects end-to-end, expanding into full-stack backend system design (Node.js, Express, PostgreSQL). Capable of bridging the gap between engineering and business; ",
+        "mark": "none"
+      },
+      {
+        "text": "successfully stepped into acting Lead and Product Owner roles",
+        "mark": "highlight"
+      },
+      {
+        "text": " to define technical roadmaps and synchronize delivery across frontend and backend teams. Leverage AI-driven workflows as a critical peer for architectural pair-planning and rapid pattern evaluation, maintaining a strict focus on browser internals, Core Web Vitals, and execution.",
+        "mark": "none"
+      }
+    ]
   },
   "education": [
     {
