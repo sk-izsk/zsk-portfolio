@@ -22,6 +22,8 @@ const HomeScreen: React.FC = () => {
       isLoading={loading}
       isError={Boolean(error)}
       pageTitle={t('home.pageTitle')}
+      description={t('home.seoDescription')}
+      canonical="/"
     >
       <div className={`row ${homeRow}`}>
         <div className={`${homeInfo} padd-15`}>

@@ -1,5 +1,8 @@
 export const skillsFr = {
   title: 'Competences',
+  seoDescription:
+    'Découvrez les compétences techniques de Shaikh Zeeshan Murshed – frontend, backend, langages de programmation et outils.',
+
   rate: {
     frontend: 'Competences Frontend',
     backend: 'Competences Backend',

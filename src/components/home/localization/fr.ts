@@ -1,5 +1,8 @@
 export const homeFr = {
   pageTitle: 'Accueil',
+  seoDescription:
+    'Portfolio de développeur Full Stack de Shaikh Zeeshan Murshed – expert React, TypeScript et Node.js basé à Montréal.',
+
   professionPrefix: 'Je suis',
   downloadCv: 'Telecharger CV',
   roles: {

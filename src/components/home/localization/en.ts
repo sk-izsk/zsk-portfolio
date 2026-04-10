@@ -1,5 +1,8 @@
 export const homeEn = {
   pageTitle: 'Home',
+  seoDescription:
+    'Full Stack Developer portfolio of Shaikh Zeeshan Murshed – React, TypeScript, and Node.js expert based in Montreal.',
+
   professionPrefix: "I'm a",
   downloadCv: 'Download CV',
   roles: {

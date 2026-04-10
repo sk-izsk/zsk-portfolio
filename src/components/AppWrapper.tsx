@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import type { PropsWithChildren } from 'react'
 import { useEffect } from 'react'
+import { HelmetProvider } from 'react-helmet-async'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import { LocalizeProvider } from 'zsk-react-i18n'
@@ -68,12 +69,14 @@ const AppLayout = ({ children }: PropsWithChildren) => {
 
 export const AppWrapper = ({ children }: PropsWithChildren) => {
   return (
-    <LocalizeProvider config={localizeConfig}>
-      <QueryClientProvider client={queryClient}>
-        <Router>
-          <AppLayout>{children}</AppLayout>
-        </Router>
-      </QueryClientProvider>
-    </LocalizeProvider>
+    <HelmetProvider>
+      <LocalizeProvider config={localizeConfig}>
+        <QueryClientProvider client={queryClient}>
+          <Router>
+            <AppLayout>{children}</AppLayout>
+          </Router>
+        </QueryClientProvider>
+      </LocalizeProvider>
+    </HelmetProvider>
   )
 }

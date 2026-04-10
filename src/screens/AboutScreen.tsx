@@ -15,7 +15,14 @@ const AboutScreen: React.FC = () => {
   useAnalytics()
 
   return (
-    <Screen sectionId="about" isLoading={loading} isError={Boolean(error)} title={t('about.title')}>
+    <Screen
+      sectionId="about"
+      isLoading={loading}
+      isError={Boolean(error)}
+      title={t('about.title')}
+      description={t('about.seoDescription')}
+      canonical="/about"
+    >
       <div className="row">
         <div className={`${aboutContent} padd-15`}>
           <AboutPersonalIntro />

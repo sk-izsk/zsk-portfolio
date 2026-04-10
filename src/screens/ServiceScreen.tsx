@@ -50,6 +50,8 @@ const ServiceScreen: React.FC = () => {
       isLoading={loading}
       isError={Boolean(error || !services)}
       title={t('services.title')}
+      description={t('services.seoDescription')}
+      canonical="/services"
     >
       {services && (
         <div className={`row ${serviceRow}`}>

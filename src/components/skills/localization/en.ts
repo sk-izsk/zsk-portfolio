@@ -1,5 +1,8 @@
 export const skillsEn = {
   title: 'Skills',
+  seoDescription:
+    'Explore the technical skills of Shaikh Zeeshan Murshed – frontend, backend, programming languages, tools, and more.',
+
   rate: {
     frontend: 'Frontend Skills',
     backend: 'Backend Skills',
