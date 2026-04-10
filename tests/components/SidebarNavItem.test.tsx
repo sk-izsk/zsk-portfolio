@@ -1,7 +1,6 @@
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { BrowserRouter } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
 import { SidebarNavItem } from '../../src/components/sidebar/SidebarNavItem'
 
@@ -9,11 +8,9 @@ const homeItem = { id: 'home', label: 'Home', icon: faHome, path: '/' }
 
 const renderItem = (isActive = false, onClick = vi.fn()) =>
   render(
-    <BrowserRouter>
-      <ul>
-        <SidebarNavItem item={homeItem} isActive={isActive} onClick={onClick} />
-      </ul>
-    </BrowserRouter>,
+    <ul>
+      <SidebarNavItem item={homeItem} isActive={isActive} onClick={onClick} />
+    </ul>,
   )
 
 describe('SidebarNavItem', () => {

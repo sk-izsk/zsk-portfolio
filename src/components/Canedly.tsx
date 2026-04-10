@@ -1,6 +1,6 @@
 import { faComments } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { PopupModal } from 'react-calendly'
 import { trackGaEvent, trackMixpanelEvent } from '../hooks/useAnalytics'
 import { useTranslation } from '../localization/localize'
@@ -26,7 +26,13 @@ export const Canedly = () => {
 
   const currentAccentColor =
     colorThemes[currentColor as keyof typeof colorThemes] ?? colorThemes['color-1']
-  const rootElement = document.getElementById('root') ?? document.body
+  const rootElement = useMemo(() => {
+    if (typeof document === 'undefined') {
+      return null
+    }
+
+    return document.getElementById('__next') ?? document.body
+  }, [])
   const desktopText = t('common.calendly.cta')
 
   return (
@@ -48,17 +54,19 @@ export const Canedly = () => {
         </button>
       </div>
 
-      <PopupModal
-        url="https://calendly.com/izsk/60min"
-        rootElement={rootElement}
-        open={isOpen}
-        onModalClose={() => setIsOpen(false)}
-        pageSettings={{
-          primaryColor: stripHexPrefix(currentAccentColor),
-          backgroundColor: isDarkMode ? '151515' : 'fdf9ff',
-          textColor: isDarkMode ? 'ffffff' : '302e4d',
-        }}
-      />
+      {rootElement && (
+        <PopupModal
+          url="https://calendly.com/izsk/60min"
+          rootElement={rootElement}
+          open={isOpen}
+          onModalClose={() => setIsOpen(false)}
+          pageSettings={{
+            primaryColor: stripHexPrefix(currentAccentColor),
+            backgroundColor: isDarkMode ? '151515' : 'fdf9ff',
+            textColor: isDarkMode ? 'ffffff' : '302e4d',
+          }}
+        />
+      )}
     </>
   )
 }

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://izsk.netlify.app
+
+# Sitemaps
+Sitemap: https://izsk.netlify.app/sitemap.xml

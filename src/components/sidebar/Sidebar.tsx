@@ -6,8 +6,8 @@ import {
   faList,
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
+import { useRouter } from 'next/router'
 import React, { useEffect, useRef } from 'react'
-import { useLocation } from 'react-router-dom'
 import { trackGaEvent, trackMixpanelEvent } from '../../hooks/useAnalytics'
 import { useTranslation } from '../../localization/localize'
 import { usePersonalInfo, usePortfolioLoading } from '../../stores/portfolioStore'
@@ -55,13 +55,13 @@ const getCurrentSection = (path: string) => {
 
 export const Sidebar: React.FC = () => {
   const { t, i18n } = useTranslation()
-  const location = useLocation()
+  const router = useRouter()
   const personalInfo = usePersonalInfo()
   const loading = usePortfolioLoading()
   const isOpen = useSidebarStore((state) => state.isOpen)
   const toggleSidebar = useSidebarStore((state) => state.toggle)
   const closeSidebar = useSidebarStore((state) => state.close)
-  const activeSection = getCurrentSection(location.pathname)
+  const activeSection = getCurrentSection(router.pathname)
   const currentLanguage = i18n.resolvedLanguage === 'fr' ? 'fr' : 'en'
 
   const navigationItems: SidebarNavigationItem[] = [
@@ -107,9 +107,12 @@ export const Sidebar: React.FC = () => {
   }
 
   const handleNavClick = (itemId: string, event: React.MouseEvent) => {
-    if (activeSection === itemId && isOpen) {
+    if (activeSection === itemId) {
       event.preventDefault()
-      toggleSidebar()
+
+      if (isOpen) {
+        toggleSidebar()
+      }
     }
   }
 
@@ -140,7 +143,7 @@ export const Sidebar: React.FC = () => {
     return () => {
       window.clearTimeout(timeoutId)
     }
-  }, [location.pathname, closeSidebar])
+  }, [router.pathname, closeSidebar])
 
   return (
     <div className={`${aside} ${isOpen ? asideOpen : ''}`}>

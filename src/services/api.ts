@@ -1,4 +1,3 @@
-import ky from 'ky'
 import type { AppLanguage } from '../localization'
 import type { PortfolioData } from '../types/portfolio'
 
@@ -69,10 +68,13 @@ interface PortfolioTranslations {
   }>
 }
 
-/**
- * Merge common data with language-specific translations
- */
-const mergePortfolioData = (
+export const getTranslationPath = (language: AppLanguage) => {
+  return language === 'fr'
+    ? 'portfolio-data-translations-fr.json'
+    : 'portfolio-data-translations-en.json'
+}
+
+export const mergePortfolioData = (
   common: PortfolioCommonData,
   translations: PortfolioTranslations,
 ): PortfolioData => {
@@ -120,23 +122,4 @@ const mergePortfolioData = (
   }
 }
 
-/**
- * Simple API client for portfolio data
- */
-export const portfolioApi = {
-  getPortfolioData: async (language: AppLanguage): Promise<PortfolioData> => {
-    const common = await ky.get('portfolio-data-common.json').json<PortfolioCommonData>()
-
-    const translationPath =
-      language === 'fr'
-        ? 'portfolio-data-translations-fr.json'
-        : 'portfolio-data-translations-en.json'
-    const translations = await ky.get(translationPath).json<PortfolioTranslations>()
-
-    return mergePortfolioData(common, translations)
-  },
-}
-
-export const queryKeys = {
-  portfolioData: (language: AppLanguage) => ['portfolio-data', language] as const,
-}
+export type { PortfolioCommonData, PortfolioTranslations }
