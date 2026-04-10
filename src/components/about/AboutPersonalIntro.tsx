@@ -23,18 +23,16 @@ export const AboutPersonalIntro: React.FC = () => {
         </h3>
         <p className={aboutTextP}>
           {(personalInfo.detailedBioSegments ?? [{ text: personalInfo.detailedBio }]).map(
-            (segment, index) => {
+            (segment) => {
               if (segment.mark === 'highlight') {
                 return (
-                  <TextHighlighter key={`${segment.text}-${index}`} action="highlight">
+                  <TextHighlighter key={`highlight:${segment.text}`} action="highlight">
                     {segment.text}
                   </TextHighlighter>
                 )
               }
 
-              return (
-                <React.Fragment key={`${segment.text}-${index}`}>{segment.text}</React.Fragment>
-              )
+              return <React.Fragment key={`plain:${segment.text}`}>{segment.text}</React.Fragment>
             },
           )}
         </p>

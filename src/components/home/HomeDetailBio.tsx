@@ -12,10 +12,10 @@ export const HomeDetailBio: React.FC = () => {
 
   return (
     <p className={homeInfoP}>
-      {(personalInfo.bioSegments ?? [{ text: personalInfo.bio }]).map((segment, index) => {
+      {(personalInfo.bioSegments ?? [{ text: personalInfo.bio }]).map((segment) => {
         if (segment.mark === 'underline') {
           return (
-            <TextHighlighter key={`${segment.text}-${index}`} action="underline">
+            <TextHighlighter key={`underline:${segment.text}`} action="underline">
               {segment.text}
             </TextHighlighter>
           )
@@ -23,13 +23,13 @@ export const HomeDetailBio: React.FC = () => {
 
         if (segment.mark === 'highlight') {
           return (
-            <TextHighlighter key={`${segment.text}-${index}`} action="highlight">
+            <TextHighlighter key={`highlight:${segment.text}`} action="highlight">
               {segment.text}
             </TextHighlighter>
           )
         }
 
-        return <React.Fragment key={`${segment.text}-${index}`}>{segment.text}</React.Fragment>
+        return <React.Fragment key={`plain:${segment.text}`}>{segment.text}</React.Fragment>
       })}
     </p>
   )
