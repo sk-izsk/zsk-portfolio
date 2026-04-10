@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
   experimental: {
     turbopackFileSystemCacheForDev: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'izsk.netlify.app',
+      },
+    ],
+  },
   poweredByHeader: false,
   async redirects() {
     return [
