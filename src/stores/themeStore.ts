@@ -3,7 +3,7 @@ import { create } from 'zustand'
 export type ThemeColor = 'color-1' | 'color-2' | 'color-3' | 'color-5' | 'color-7' | 'color-9'
 
 const DEFAULT_THEME_COLOR: ThemeColor = 'color-1'
-const DEFAULT_DARK_MODE = true
+const DEFAULT_DARK_MODE = false
 
 const isThemeColor = (value: string): value is ThemeColor => {
   return (
