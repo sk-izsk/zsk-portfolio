@@ -3,7 +3,6 @@
   "plugins": ["typescript", "unicorn", "react"],
   "categories": {},
   "rules": {
-    "semi": "error",
     "curly": "error"
   },
   "settings": {
