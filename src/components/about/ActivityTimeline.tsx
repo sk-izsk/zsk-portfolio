@@ -1,5 +1,4 @@
-import { faCalendar } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Calendar } from 'lucide-react'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
 import {
@@ -46,7 +45,7 @@ const ActivityTimelineItemTimeSpan: React.FC<ActivityTimelineItemTimeSpanProps> 
 }) => {
   return (
     <h3 className={timelineDate}>
-      <FontAwesomeIcon icon={faCalendar} /> {children}
+      <Calendar size={14} style={{ verticalAlign: 'text-bottom' }} /> {children}
     </h3>
   )
 }

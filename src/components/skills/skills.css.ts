@@ -96,6 +96,17 @@ export const skillCategoryTitle = style({
   color: vars.color.text[900],
 })
 
+export const skillsHeading = style({
+  display: 'flex',
+  alignItems: 'center',
+})
+
+export const skillsHeadingIcon = style({
+  flexShrink: 0,
+  position: 'relative',
+  top: '1px',
+})
+
 export const skillsList = style({
   display: 'flex',
   flexWrap: 'wrap',

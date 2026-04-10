@@ -1,5 +1,4 @@
-import { faBookOpenReader, faCalendarDays } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { BookOpenText, CalendarDays } from 'lucide-react'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
 import { useTranslation } from '../../localization/localize'
@@ -75,15 +74,13 @@ const ProjectCardTimeLink: React.FC<ProjectCardTimeLinkProps> = ({ category, pub
     <div className={projectInfo}>
       <div className="category">
         <p className={projectInfoText}>
-          <FontAwesomeIcon icon={faBookOpenReader} />
-          <i className={`fa fa-book-open-reader ${projectInfoIcon}`} />
+          <BookOpenText className={projectInfoIcon} size={16} />
           {category}
         </p>
       </div>
       <div className="date">
         <p className={projectInfoText}>
-          <FontAwesomeIcon icon={faCalendarDays} />
-          <i className={`fa fa-calendar-days ${projectInfoIcon}`} />
+          <CalendarDays className={projectInfoIcon} size={16} />
           {readableDate}
         </p>
       </div>

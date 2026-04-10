@@ -1,11 +1,11 @@
-import { faHome } from '@fortawesome/free-solid-svg-icons'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { House } from 'lucide-react'
 import { BrowserRouter } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
 import { SidebarNavItem } from '../../src/components/sidebar/SidebarNavItem'
 
-const homeItem = { id: 'home', label: 'Home', icon: faHome, path: '/' }
+const homeItem = { id: 'home', label: 'Home', icon: House, path: '/' }
 
 const renderItem = (isActive = false, onClick = vi.fn()) =>
   render(

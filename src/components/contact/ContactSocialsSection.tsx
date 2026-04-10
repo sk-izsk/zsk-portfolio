@@ -1,17 +1,15 @@
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+import type { LucideIcon } from 'lucide-react'
 import {
-  faGithub,
-  faInstagram,
-  faLinkedin,
-  faTelegram,
-  faTwitter,
-} from '@fortawesome/free-brands-svg-icons'
-import {
-  faEnvelope,
-  faGlobeEurope,
-  faMapMarkerAlt,
-  faPhone,
-} from '@fortawesome/free-solid-svg-icons'
+  Briefcase,
+  Camera,
+  GitBranch,
+  Globe,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Send,
+} from 'lucide-react'
 import React from 'react'
 import { useTranslation } from '../../localization/localize'
 import { useContactInfo, usePersonalInfo } from '../../stores/portfolioStore'
@@ -19,7 +17,7 @@ import { contactSubTitle, contactTitle } from './contact.css'
 import { ContactSocialCard } from './ContactSocialCard'
 
 interface ContactSocialItem {
-  icon: IconDefinition
+  icon: LucideIcon
   title: string
   details: string
   url?: string
@@ -36,53 +34,53 @@ export const ContactSocialsSection: React.FC = () => {
 
   const contactInfo: ContactSocialItem[] = [
     {
-      icon: faPhone,
+      icon: Phone,
       title: t('contact.socials.call'),
       details: contact.phone,
     },
     {
-      icon: faMapMarkerAlt,
+      icon: MapPin,
       title: t('contact.socials.location'),
       details: `${personalInfo.location.city}, ${personalInfo.location.country}`,
     },
     {
-      icon: faEnvelope,
+      icon: Mail,
       title: t('contact.socials.email'),
       details: contact.email,
       url: `mailto:${contact.email}`,
     },
     {
-      icon: faGlobeEurope,
+      icon: Globe,
       title: t('contact.socials.website'),
       details: contact.social.website.label,
       url: contact.social.website.url,
     },
     {
-      icon: faGithub,
+      icon: GitBranch,
       title: t('contact.socials.github'),
       details: contact.social.github.label,
       url: contact.social.github.url,
     },
     {
-      icon: faLinkedin,
+      icon: Briefcase,
       title: t('contact.socials.linkedin'),
       details: contact.social.linkedin.label,
       url: contact.social.linkedin.url,
     },
     {
-      icon: faTwitter,
+      icon: MessageCircle,
       title: t('contact.socials.twitter'),
       details: contact.social.twitter.label,
       url: contact.social.twitter.url,
     },
     {
-      icon: faInstagram,
+      icon: Camera,
       title: t('contact.socials.instagram'),
       details: contact.social.instagram.label,
       url: contact.social.instagram.url,
     },
     {
-      icon: faTelegram,
+      icon: Send,
       title: t('contact.socials.telegram'),
       details: contact.social.telegram.label,
       url: contact.social.telegram.url,

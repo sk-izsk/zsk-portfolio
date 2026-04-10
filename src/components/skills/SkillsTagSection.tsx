@@ -1,16 +1,22 @@
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import type { LucideIcon } from 'lucide-react'
 import React from 'react'
 import { Tag } from '../tag/Tag'
-import { skillCategoryContainer, skillCategoryTitle, skillsList } from './skills.css'
+import {
+  skillCategoryContainer,
+  skillCategoryTitle,
+  skillsHeadingIcon,
+  skillsList,
+} from './skills.css'
 
 interface SkillsTagSectionProps {
-  icon: IconDefinition
+  icon: LucideIcon
   titleText: string
   tags: string[]
 }
 
 export const SkillsTagSection: React.FC<SkillsTagSectionProps> = ({ icon, titleText, tags }) => {
+  const Icon = icon
+
   if (tags.length === 0) {
     return null
   }
@@ -19,7 +25,12 @@ export const SkillsTagSection: React.FC<SkillsTagSectionProps> = ({ icon, titleT
     <div className="row">
       <div className={`${skillCategoryContainer} padd-15`}>
         <h3 className={skillCategoryTitle}>
-          <FontAwesomeIcon icon={icon} style={{ marginRight: '10px' }} />
+          <Icon
+            className={skillsHeadingIcon}
+            style={{ marginRight: '10px' }}
+            size={22}
+            strokeWidth={2.25}
+          />
           {titleText}
         </h3>
         <div className={skillsList}>

@@ -1,5 +1,4 @@
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import type { LucideIcon } from 'lucide-react'
 import React from 'react'
 import {
   contactInfoIcon,
@@ -12,7 +11,7 @@ import {
 } from './contact.css'
 
 interface ContactSocialCardProps {
-  icon: IconDefinition
+  icon: LucideIcon
   title: string
   details: string
   url?: string
@@ -24,6 +23,7 @@ export const ContactSocialCard: React.FC<ContactSocialCardProps> = ({
   details,
   url,
 }) => {
+  const Icon = icon
   const openInNewTab = typeof url === 'string' && /^https?:\/\//.test(url)
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     if (!url || openInNewTab) {
@@ -37,7 +37,7 @@ export const ContactSocialCard: React.FC<ContactSocialCardProps> = ({
   const inner = (
     <>
       <div className={contactInfoIcon}>
-        <FontAwesomeIcon icon={icon} className={contactInfoIconFa} />
+        <Icon className={contactInfoIconFa} size={25} />
       </div>
       <h4 className={contactInfoItemH4}>{title}</h4>
       <p className={url ? contactInfoItemPLink : contactInfoItemP}>{details}</p>

@@ -1,16 +1,17 @@
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+import type { LucideIcon } from 'lucide-react'
 import {
-  faBullhorn,
-  faChartLine,
-  faCode,
-  faComments,
-  faCubes,
-  faLaptopCode,
-  faMobileAlt,
-  faPalette,
-  faSearch,
-  faServer,
-} from '@fortawesome/free-solid-svg-icons'
+  Briefcase,
+  Code,
+  Cuboid,
+  Laptop,
+  LineChart,
+  Megaphone,
+  MessageCircle,
+  Palette,
+  Search,
+  Server,
+  Smartphone,
+} from 'lucide-react'
 import React from 'react'
 import { Screen } from '../components/Screen'
 import { ServiceCard } from '../components/services/ServiceCard'
@@ -19,22 +20,23 @@ import { useAnalytics } from '../hooks/useAnalytics'
 import { useTranslation } from '../localization/localize'
 import { usePortfolioError, usePortfolioLoading, useServices } from '../stores/portfolioStore'
 
-const serviceIconMap: Record<string, IconDefinition> = {
-  code: faCode,
-  'laptop-code': faLaptopCode,
-  server: faServer,
-  comments: faComments,
-  palette: faPalette,
-  'chart-line': faChartLine,
-  'mobile-alt': faMobileAlt,
-  search: faSearch,
-  bullhorn: faBullhorn,
-  cubes: faCubes,
+const serviceIconMap: Record<string, LucideIcon> = {
+  code: Code,
+  'laptop-code': Laptop,
+  server: Server,
+  comments: MessageCircle,
+  palette: Palette,
+  'chart-line': LineChart,
+  'mobile-alt': Smartphone,
+  search: Search,
+  bullhorn: Megaphone,
+  cubes: Cuboid,
+  briefcase: Briefcase,
 }
 
-const toServiceIcon = (rawIcon: string): IconDefinition => {
+const toServiceIcon = (rawIcon: string): LucideIcon => {
   const normalized = rawIcon.replace('fa-', '')
-  return serviceIconMap[normalized] ?? faCode
+  return serviceIconMap[normalized] ?? Code
 }
 
 const ServiceScreen: React.FC = () => {

@@ -1,8 +1,8 @@
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+import type { LucideIcon } from 'lucide-react'
 
 export interface SidebarNavigationItem {
   id: string
   label: string
-  icon: IconDefinition
+  icon: LucideIcon
   path: string
 }

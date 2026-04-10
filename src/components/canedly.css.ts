@@ -45,7 +45,8 @@ export const triggerButton = style({
 
 export const triggerIcon = style({
   display: 'none',
-  fontSize: '18px',
+  width: '18px',
+  height: '18px',
   flexShrink: 0,
   '@media': {
     '(max-width: 767px)': {
