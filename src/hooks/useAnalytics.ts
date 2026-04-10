@@ -1,13 +1,17 @@
 import mixpanel from 'mixpanel-browser'
+import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import ReactGA from 'react-ga4'
-import { useLocation } from 'react-router-dom'
 
 export const trackGaEvent = (category: string, action: string, label?: string) => {
   ReactGA.event({ category, action, label })
 }
 
 export const trackMixpanelEvent = (action: string, category?: string, label?: string) => {
+  if (!process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN) {
+    return
+  }
+
   mixpanel.track(action, {
     category,
     label,
@@ -15,9 +19,9 @@ export const trackMixpanelEvent = (action: string, category?: string, label?: st
 }
 
 export const useAnalytics = () => {
-  const location = useLocation()
+  const router = useRouter()
 
   useEffect(() => {
-    ReactGA.send({ hitType: 'pageview', page: location.pathname })
-  }, [location.pathname])
+    ReactGA.send({ hitType: 'pageview', page: router.asPath })
+  }, [router.asPath])
 }

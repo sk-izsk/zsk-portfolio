@@ -10,6 +10,8 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.next
+out
 *.local
 .env
 
@@ -24,3 +26,4 @@ dist-ssr
 *.sln
 *.sw?
 coverage/
+public/sitemap*.xml
