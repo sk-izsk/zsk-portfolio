@@ -1,5 +1,8 @@
 export const aboutEn = {
   title: 'About Me',
+  seoDescription:
+    'Learn about Shaikh Zeeshan Murshed – his background, experience, education, and technical skills as a Full Stack Developer.',
+
   introPrefix: 'I am {{name}} and',
   actions: {
     downloadCv: 'Download CV',

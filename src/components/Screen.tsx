@@ -1,6 +1,7 @@
 import { useTitle } from 'ahooks'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
+import { SeoHead } from './common/SeoHead'
 
 interface ScreenProps extends PropsWithChildren {
   sectionId: string
@@ -10,6 +11,8 @@ interface ScreenProps extends PropsWithChildren {
   isError: boolean
   title?: string
   pageTitle?: string
+  description?: string
+  canonical?: string
   loadingMessage?: string
   errorMessage?: string
 }
@@ -22,6 +25,8 @@ export const Screen: React.FC<ScreenProps> = ({
   isError,
   title,
   pageTitle,
+  description,
+  canonical,
   loadingMessage = 'Loading...',
   errorMessage = 'Error loading data',
   children,
@@ -44,6 +49,7 @@ export const Screen: React.FC<ScreenProps> = ({
 
   return (
     <section className={`${sectionClassName ?? sectionId} section active`} id={sectionId}>
+      <SeoHead title={resolvedPageTitle} description={description} canonical={canonical} />
       <div className={`container screen-container ${containerClassName ?? ''}`}>
         {title && (
           <div className="row">

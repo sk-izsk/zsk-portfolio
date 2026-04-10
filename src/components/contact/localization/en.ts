@@ -1,5 +1,8 @@
 export const contactEn = {
   title: 'Contact Me',
+  seoDescription:
+    'Get in touch with Shaikh Zeeshan Murshed – contact details, social links, and a message form to reach out directly.',
+
   socials: {
     heading: 'Do You Have Any Questions?',
     subHeading: 'FEEL FREE TO REACH OUT TO ME',

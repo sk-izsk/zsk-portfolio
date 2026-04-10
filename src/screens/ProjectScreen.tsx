@@ -43,6 +43,8 @@ const ProjectScreen: React.FC = () => {
       isLoading={loading}
       isError={Boolean(error || !projects)}
       title={t('projects.title')}
+      description={t('projects.seoDescription')}
+      canonical="/projects"
     >
       {projects && (
         <>

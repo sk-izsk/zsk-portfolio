@@ -18,6 +18,8 @@ const SkillScreen: React.FC = () => {
       isLoading={loading}
       isError={Boolean(error)}
       title={t('skills.title')}
+      description={t('skills.seoDescription')}
+      canonical="/portfolio"
     >
       <SkillsRate />
       <SkillsTag />

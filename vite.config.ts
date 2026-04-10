@@ -1,5 +1,6 @@
+import babelPlugin from '@rolldown/plugin-babel'
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
-import react from '@vitejs/plugin-react'
+import react, { reactCompilerPreset } from '@vitejs/plugin-react'
 import { exec } from 'node:child_process'
 import type { ViteDevServer } from 'vite'
 import { defineConfig } from 'vitest/config'
@@ -48,7 +49,12 @@ export default defineConfig({
   server: {
     port: 2222,
   },
-  plugins: [react(), vanillaExtractPlugin(), openBrowserOnStart()],
+  plugins: [
+    react(),
+    babelPlugin({ presets: [reactCompilerPreset()] }),
+    vanillaExtractPlugin(),
+    openBrowserOnStart(),
+  ],
   test: {
     globals: true,
     environment: 'jsdom',

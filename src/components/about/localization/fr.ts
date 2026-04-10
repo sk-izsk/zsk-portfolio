@@ -1,5 +1,8 @@
 export const aboutFr = {
   title: 'A Propos de Moi',
+  seoDescription:
+    'Découvrez Shaikh Zeeshan Murshed – son parcours, son expérience, sa formation et ses compétences techniques.',
+
   introPrefix: 'Je suis {{name}} et',
   actions: {
     downloadCv: 'Telecharger CV',

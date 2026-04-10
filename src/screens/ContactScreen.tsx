@@ -18,6 +18,8 @@ const ContactScreen: React.FC = () => {
       isLoading={loading}
       isError={Boolean(error)}
       title={t('contact.title')}
+      description={t('contact.seoDescription')}
+      canonical="/contact"
     >
       <ContactSocialsSection />
       <ContactFormSection />
