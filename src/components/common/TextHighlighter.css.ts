@@ -130,7 +130,18 @@ globalStyle(`.${highlight}`, {
 })
 
 globalStyle(`${darkThemeSelector} .${highlight}`, {
-  backgroundImage: `linear-gradient(color-mix(in srgb, ${vars.color.skin} 36%, transparent), color-mix(in srgb, ${vars.color.skin} 36%, transparent))`,
+  backgroundImage: `
+    linear-gradient(
+      color-mix(in srgb, ${vars.color.skin} 62%, transparent),
+      color-mix(in srgb, ${vars.color.skin} 62%, transparent)
+    ),
+    linear-gradient(
+      color-mix(in srgb, white 10%, transparent),
+      color-mix(in srgb, white 10%, transparent)
+    )
+  `,
+  backgroundPosition: '0 88%, 0 84%',
+  backgroundSize: '100% 70%, 100% 58%',
 })
 
 globalStyle(`.${underline}::before`, {
@@ -147,6 +158,47 @@ globalStyle(`.${underline}::after`, {
     '(prefers-reduced-motion: reduce)': {
       animation: 'none',
       opacity: 0.95,
+    },
+  },
+})
+
+globalStyle(`.${underline}`, {
+  '@media': {
+    '(max-width: 767px)': {
+      display: 'inline',
+    },
+  },
+})
+
+globalStyle(`.${underline}::before`, {
+  '@media': {
+    '(max-width: 767px)': {
+      display: 'none',
+    },
+  },
+})
+
+globalStyle(`.${underline}::after`, {
+  '@media': {
+    '(max-width: 767px)': {
+      display: 'none',
+    },
+  },
+})
+
+globalStyle(`.${underline} .${highlighterText}`, {
+  '@media': {
+    '(max-width: 767px)': {
+      WebkitBoxDecorationBreak: 'clone',
+      boxDecorationBreak: 'clone',
+      paddingBottom: '0.2em',
+      backgroundImage: `
+        radial-gradient(circle at 0.12em -0.02em, transparent 0.13em, ${vars.color.skin} 0.135em, ${vars.color.skin} 0.16em, transparent 0.165em),
+        radial-gradient(circle at 0.12em 0.3em, transparent 0.13em, ${vars.color.skin} 0.135em, ${vars.color.skin} 0.16em, transparent 0.165em)
+      `,
+      backgroundRepeat: 'repeat-x',
+      backgroundSize: '0.24em 0.28em',
+      backgroundPosition: '0 calc(100% - 0.02em)',
     },
   },
 })
