@@ -1,11 +1,4 @@
-import {
-  faCode,
-  faCog,
-  faGraduationCap,
-  faLaptopCode,
-  faServer,
-  faVial,
-} from '@fortawesome/free-solid-svg-icons'
+import { Code, Cog, FlaskConical, GraduationCap, Laptop, Server } from 'lucide-react'
 import React from 'react'
 import { useTranslation } from '../../localization/localize'
 import { useSkills } from '../../stores/portfolioStore'
@@ -22,32 +15,32 @@ export const SkillsTag: React.FC = () => {
   return (
     <>
       <SkillsTagSection
-        icon={faLaptopCode}
+        icon={Laptop}
         titleText={t('skills.tags.frontend')}
         tags={categories.frontend ?? []}
       />
       <SkillsTagSection
-        icon={faServer}
+        icon={Server}
         titleText={t('skills.tags.backend')}
         tags={categories.backend ?? []}
       />
       <SkillsTagSection
-        icon={faCode}
+        icon={Code}
         titleText={t('skills.tags.languages')}
         tags={categories.languages ?? []}
       />
       <SkillsTagSection
-        icon={faCog}
+        icon={Cog}
         titleText={t('skills.tags.tools')}
         tags={categories.tools ?? []}
       />
       <SkillsTagSection
-        icon={faVial}
+        icon={FlaskConical}
         titleText={t('skills.tags.testing')}
         tags={categories.testing ?? []}
       />
       <SkillsTagSection
-        icon={faGraduationCap}
+        icon={GraduationCap}
         titleText={t('skills.tags.learning')}
         tags={categories.learning ?? []}
       />

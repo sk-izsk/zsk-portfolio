@@ -1,5 +1,4 @@
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import type { LucideIcon } from 'lucide-react'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
 import {
@@ -16,7 +15,7 @@ import {
 type ServiceCardRootProps = PropsWithChildren
 
 interface ServiceCardIconProps {
-  icon: IconDefinition
+  icon: LucideIcon
 }
 
 type ServiceCardTitleProps = PropsWithChildren
@@ -38,9 +37,11 @@ const ServiceCardRoot: React.FC<ServiceCardRootProps> = ({ children }) => {
 }
 
 const ServiceCardIcon: React.FC<ServiceCardIconProps> = ({ icon }) => {
+  const Icon = icon
+
   return (
     <div className={`${serviceIcon} ${serviceItemInnerHover}`}>
-      <FontAwesomeIcon className={`${serviceIconFA} ${serviceIconFAHover}`} icon={icon} />
+      <Icon className={`${serviceIconFA} ${serviceIconFAHover}`} size={40} />
     </div>
   )
 }

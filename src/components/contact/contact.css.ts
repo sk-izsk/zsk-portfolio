@@ -44,7 +44,8 @@ export const contactInfoIcon = style({
 })
 
 export const contactInfoIconFa = style({
-  fontSize: '25px',
+  width: '25px',
+  height: '25px',
   color: vars.color.skin,
 })
 

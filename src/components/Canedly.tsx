@@ -1,5 +1,4 @@
-import { faComments } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { MessageCircle } from 'lucide-react'
 import { useState } from 'react'
 import { PopupModal } from 'react-calendly'
 import { trackGaEvent, trackMixpanelEvent } from '../hooks/useAnalytics'
@@ -43,7 +42,7 @@ export const Canedly = () => {
           }}
           aria-label={desktopText}
         >
-          <FontAwesomeIcon icon={faComments} className={triggerIcon} />
+          <MessageCircle className={triggerIcon} size={18} />
           <span className={triggerLabelDesktop}>{desktopText}</span>
         </button>
       </div>

@@ -1,11 +1,4 @@
-import {
-  faBriefcase,
-  faCogs,
-  faComments,
-  faHome,
-  faList,
-  faUser,
-} from '@fortawesome/free-solid-svg-icons'
+import { Briefcase, Cog, House, List, MessageCircle, User } from 'lucide-react'
 import React, { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { trackGaEvent, trackMixpanelEvent } from '../../hooks/useAnalytics'
@@ -65,35 +58,35 @@ export const Sidebar: React.FC = () => {
   const currentLanguage = i18n.resolvedLanguage === 'fr' ? 'fr' : 'en'
 
   const navigationItems: SidebarNavigationItem[] = [
-    { id: 'home', label: t('sidebar.nav.home'), icon: faHome, path: '/' },
+    { id: 'home', label: t('sidebar.nav.home'), icon: House, path: '/' },
     {
       id: 'about',
       label: t('sidebar.nav.about'),
-      icon: faUser,
+      icon: User,
       path: '/about',
     },
     {
       id: 'service',
       label: t('sidebar.nav.services'),
-      icon: faList,
+      icon: List,
       path: '/services',
     },
     {
       id: 'portfolio',
       label: t('sidebar.nav.skills'),
-      icon: faCogs,
+      icon: Cog,
       path: '/portfolio',
     },
     {
       id: 'projects',
       label: t('sidebar.nav.projects'),
-      icon: faBriefcase,
+      icon: Briefcase,
       path: '/projects',
     },
     {
       id: 'contact',
       label: t('sidebar.nav.contact'),
-      icon: faComments,
+      icon: MessageCircle,
       path: '/contact',
     },
   ]

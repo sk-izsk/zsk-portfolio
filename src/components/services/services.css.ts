@@ -50,8 +50,8 @@ export const serviceIcon = style({
 })
 
 export const serviceIconFA = style({
-  fontSize: '40px',
-  lineHeight: 1,
+  width: '40px',
+  height: '40px',
   color: vars.color.skin,
   transition: 'all 0.3s ease',
 })

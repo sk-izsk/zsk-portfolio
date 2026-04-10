@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { navA, navAActive, navAI, navLi } from './sidebar.css'
@@ -11,10 +10,12 @@ interface SidebarNavItemProps {
 }
 
 export const SidebarNavItem: React.FC<SidebarNavItemProps> = ({ item, isActive, onClick }) => {
+  const Icon = item.icon
+
   return (
     <li className={navLi}>
       <Link to={item.path} className={`${navA} ${isActive ? navAActive : ''}`} onClick={onClick}>
-        <FontAwesomeIcon className={navAI} icon={item.icon} /> {item.label}
+        <Icon className={navAI} size={16} /> {item.label}
       </Link>
     </li>
   )

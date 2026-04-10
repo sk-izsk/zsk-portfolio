@@ -69,7 +69,8 @@ export const dayNight = style([
 ])
 
 export const s_icon = style({
-  fontSize: '16px',
+  width: '16px',
+  height: '16px',
   transition: 'all 0.3s ease',
 })
 
@@ -78,7 +79,6 @@ export const settingsIcon = style({
 })
 
 export const dayNightIcon = style({
-  fontSize: '16px',
   color: vars.color.text[700],
 })
 
