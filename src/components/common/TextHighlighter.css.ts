@@ -203,14 +203,12 @@ globalStyle(`.${underline} .${highlighterText}`, {
     '(max-width: 767px)': {
       WebkitBoxDecorationBreak: 'clone',
       boxDecorationBreak: 'clone',
-      paddingBottom: '0.2em',
-      backgroundImage: `
-        radial-gradient(circle at 0.12em -0.02em, transparent 0.13em, ${vars.color.skin} 0.135em, ${vars.color.skin} 0.16em, transparent 0.165em),
-        radial-gradient(circle at 0.12em 0.3em, transparent 0.13em, ${vars.color.skin} 0.135em, ${vars.color.skin} 0.16em, transparent 0.165em)
-      `,
-      backgroundRepeat: 'repeat-x',
-      backgroundSize: '0.24em 0.28em',
-      backgroundPosition: '0 calc(100% - 0.02em)',
+      paddingBottom: '0.1em',
+      textDecorationLine: 'underline',
+      textDecorationStyle: 'wavy',
+      textDecorationColor: vars.color.skin,
+      textDecorationThickness: '2px',
+      textUnderlineOffset: '0.15em',
     },
   },
 })
