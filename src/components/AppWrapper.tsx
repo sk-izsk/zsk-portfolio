@@ -5,9 +5,9 @@ import { HelmetProvider } from 'react-helmet-async'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import { LocalizeProvider } from 'zsk-react-i18n'
-import { useClickSound } from '../hooks/useClickSound'
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts'
 import { usePortfolioData } from '../hooks/usePortfolioData'
+import { useSoundClick } from '../hooks/useSoundClick'
 import { localizeConfig, useTranslation } from '../localization/localize'
 import { usePortfolioStore } from '../stores/portfolioStore'
 import { useSidebarStore } from '../stores/sidebarStore'
@@ -37,8 +37,8 @@ const AppLayout = ({ children }: PropsWithChildren) => {
   const portfolioQuery = usePortfolioData(currentLanguage)
   const { setData, setLoading, setError } = usePortfolioStore()
 
-  useClickSound()
   useKeyboardShortcuts()
+  useSoundClick()
 
   useEffect(() => {
     setLoading(portfolioQuery.isLoading)

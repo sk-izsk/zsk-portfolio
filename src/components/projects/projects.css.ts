@@ -5,6 +5,7 @@ export const projectGrid = style({
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 300px))',
   justifyContent: 'start',
+  justifyItems: 'stretch',
   gap: '30px',
   '@media': {
     '(max-width: 991px)': {
@@ -12,6 +13,7 @@ export const projectGrid = style({
     },
     '(max-width: 767px)': {
       gridTemplateColumns: '1fr',
+      justifyItems: 'center',
     },
   },
 })
@@ -19,7 +21,33 @@ export const projectGrid = style({
 export const projectHeading = style({
   flex: '0 0 100%',
   maxWidth: '100%',
+})
+
+export const projectToolbar = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  gap: '20px',
   marginBottom: '40px',
+  '@media': {
+    '(max-width: 767px)': {
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      gap: '16px',
+    },
+  },
+})
+
+export const projectFilter = style({
+  width: '100%',
+  maxWidth: '300px',
+  flexShrink: 0,
+  '@media': {
+    '(max-width: 767px)': {
+      width: 'min(300px, 100%)',
+      margin: '0 auto',
+    },
+  },
 })
 
 export const projectHeadingTitle = style({
@@ -33,6 +61,11 @@ export const projectItem = style({
   width: '100%',
   maxWidth: '300px',
   margin: 0,
+  '@media': {
+    '(max-width: 767px)': {
+      maxWidth: 'min(300px, 100%)',
+    },
+  },
 })
 
 export const projectItemInner = style({

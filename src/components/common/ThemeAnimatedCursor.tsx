@@ -26,14 +26,6 @@ export const ThemeAnimatedCursor: React.FC = () => {
       outerAlpha={0.25}
       trailingSpeed={10}
       showSystemCursor={false}
-      innerStyle={{
-        zIndex: 2001,
-        pointerEvents: 'none',
-      }}
-      outerStyle={{
-        zIndex: 2001,
-        pointerEvents: 'none',
-      }}
       clickables={[
         'a',
         'button',

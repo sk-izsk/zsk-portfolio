@@ -69,6 +69,7 @@ export const mockPortfolioData: PortfolioData = {
       id: 1,
       title: 'Portfolio Website',
       url: 'https://johndoe.dev',
+      projectType: 'frontend',
       excerpt: 'A modern portfolio built with React and TypeScript.',
       category: 'Web',
       tags: ['React', 'TypeScript', 'Vite'],
@@ -79,6 +80,7 @@ export const mockPortfolioData: PortfolioData = {
     {
       id: 2,
       title: 'Open Source CLI Tool',
+      projectType: 'misc',
       excerpt: 'A command-line utility written in Node.js.',
       category: 'Tools',
       tags: ['Node.js', 'CLI'],

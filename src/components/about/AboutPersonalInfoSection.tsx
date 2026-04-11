@@ -7,6 +7,7 @@ import { Button } from '../common/button/Button'
 import {
   btnMargin,
   buttons,
+  buttonsCompactTop,
   infoItem,
   infoItemP,
   infoItemSpan,
@@ -88,7 +89,7 @@ export const AboutPersonalInfoSection: React.FC = () => {
             </div>
           ))}
         </div>
-        <div className={buttons} style={{ marginTop: 24 }}>
+        <div className={`${buttons} ${buttonsCompactTop}`}>
           <Button
             as="a"
             href={personalInfo.resume_link}

@@ -3,7 +3,12 @@ import React from 'react'
 import { useSkills } from '../../stores/portfolioStore'
 import { title } from '../about/about.css'
 import { SkillRateItem } from './SkillRateItem'
-import { skillsHeading, skillsHeadingIcon, skillsSection } from './skills.css'
+import {
+  skillsHeading,
+  skillsHeadingIcon,
+  skillsHeadingIconGapSm,
+  skillsSection,
+} from './skills.css'
 
 interface SkillsRateSectionProps {
   icon: LucideIcon
@@ -24,8 +29,7 @@ export const SkillsRateSection: React.FC<SkillsRateSectionProps> = ({
     <div className={`${skillsSection} padd-15`}>
       <h3 className={`${title} ${skillsHeading}`}>
         <Icon
-          className={skillsHeadingIcon}
-          style={{ marginRight: '8px' }}
+          className={`${skillsHeadingIcon} ${skillsHeadingIconGapSm}`}
           size={22}
           strokeWidth={2.25}
         />

@@ -1,6 +1,6 @@
 import ky from 'ky'
 import type { AppLanguage } from '../localization'
-import type { PortfolioData, RichTextSegment } from '../types/portfolio'
+import type { PortfolioData, ProjectType, RichTextSegment } from '../types/portfolio'
 
 interface PortfolioCommonData {
   personalInfo: {
@@ -17,6 +17,7 @@ interface PortfolioCommonData {
     id: number
     url: string
     demo_link?: string
+    projectType: ProjectType
     category: string
     tags: string[]
     publishDate: string
@@ -117,6 +118,7 @@ const mergePortfolioData = (
         id: trans.id,
         url: base?.url || '',
         demo_link: base?.demo_link,
+        projectType: base?.projectType || 'misc',
         title: trans.title,
         excerpt: trans.excerpt,
         shortDescription: trans.shortDescription,

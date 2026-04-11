@@ -106,23 +106,29 @@ Modal.Footer = ({ link, demoLink, onClose }) => {
     <>
       <Divider />
       <div className={modalStyles.footerSticky}>
-        <div>
+        <div className={modalStyles.footerDemoGroup}>
           {demoLink && demoLink !== '' && (
             <Button
               as="a"
               href={demoLink}
               variant="primary"
               size="medium"
+              className={`${modalStyles.footerButton} ${modalStyles.footerLinkButton}`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ textDecoration: 'none' }}
             >
               {t('common.modal.demoLink')}
             </Button>
           )}
         </div>
-        <div style={{ display: 'flex', gap: 12 }}>
-          <Button variant="secondary" size="medium" onClick={onClose} type="button">
+        <div className={modalStyles.footerMainActions}>
+          <Button
+            variant="secondary"
+            size="medium"
+            className={modalStyles.footerButton}
+            onClick={onClose}
+            type="button"
+          >
             {t('common.modal.close')}
           </Button>
           {link && link !== '' && (
@@ -131,9 +137,9 @@ Modal.Footer = ({ link, demoLink, onClose }) => {
               href={link}
               variant="primary"
               size="medium"
+              className={`${modalStyles.footerButton} ${modalStyles.footerLinkButton}`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ textDecoration: 'none' }}
             >
               {t('common.modal.projectLink')}
             </Button>

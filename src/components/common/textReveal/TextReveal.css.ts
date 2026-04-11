@@ -45,3 +45,9 @@ export const reducedMotionReveal = style({
     },
   },
 })
+
+export const revealDelay = Array.from({ length: 120 }, (_, index) =>
+  style({
+    transitionDelay: `${index * 28}ms`,
+  }),
+)
