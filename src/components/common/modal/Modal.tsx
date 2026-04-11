@@ -122,12 +122,7 @@ Modal.Footer = ({ link, demoLink, onClose }) => {
           )}
         </div>
         <div style={{ display: 'flex', gap: 12 }}>
-          <Button
-            variant="secondary"
-            size="medium"
-            onClick={onClose}
-            type="button"
-          >
+          <Button variant="secondary" size="medium" onClick={onClose} type="button">
             {t('common.modal.close')}
           </Button>
           {link && link !== '' && (
