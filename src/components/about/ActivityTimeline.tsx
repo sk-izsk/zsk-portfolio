@@ -6,6 +6,7 @@ import {
   timeline,
   timelineBox,
   timelineDate,
+  timelineDateIcon,
   timelineItem,
   timelineText,
   timelineTitle,
@@ -45,7 +46,8 @@ const ActivityTimelineItemTimeSpan: React.FC<ActivityTimelineItemTimeSpanProps> 
 }) => {
   return (
     <h3 className={timelineDate}>
-      <Calendar size={14} style={{ verticalAlign: 'text-bottom' }} /> {children}
+      <Calendar className={timelineDateIcon} size={14} />
+      {children}
     </h3>
   )
 }
