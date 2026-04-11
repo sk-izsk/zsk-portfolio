@@ -25,6 +25,7 @@
         "typed.js": "^3.0.0",
         "zsk-react-error": "^0.0.4",
         "zsk-react-i18n": "^0.0.5",
+        "zsk-use-sound": "^1.0.1",
         "zustand": "^5.0.12",
       },
       "devDependencies": {
@@ -826,6 +827,8 @@
 
     "hasown": ["hasown@2.0.2", "", { "dependencies": { "function-bind": "^1.1.2" } }, "sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ=="],
 
+    "howler": ["howler@2.2.4", "", {}, "sha512-iARIBPgcQrwtEr+tALF+rapJ8qSc+Set2GJQl7xT1MQzWaVkFebdJhR3alVlSiUf5U7nAANKuj3aWpwerocD5w=="],
+
     "html-encoding-sniffer": ["html-encoding-sniffer@6.0.0", "", { "dependencies": { "@exodus/bytes": "^1.6.0" } }, "sha512-CV9TW3Y3f8/wT0BRFc1/KAVQ3TUHiXmaAb6VW9vtiMFf7SLoMd1PdAc4W3KFOFETBJUb90KatHqlsZMWV+R9Gg=="],
 
     "html-escaper": ["html-escaper@2.0.2", "", {}, "sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg=="],
@@ -1337,6 +1340,8 @@
     "zsk-react-error": ["zsk-react-error@0.0.4", "", { "dependencies": { "zustand": "^5.0.12" }, "peerDependencies": { "react": ">=18" } }, "sha512-TkdC54kGWl54cdNwTtZpL88PSDWyK3RPkG4C0w83h/XZUkLheZukfgHyL3P0L9ZTAHeXDqLk/OK9EVTOr75ujA=="],
 
     "zsk-react-i18n": ["zsk-react-i18n@0.0.5", "", { "dependencies": { "i18next": "^25.0.0", "react-i18next": "^16.0.0" }, "peerDependencies": { "react": "^19.0.0" } }, "sha512-pxKyhh7KDb+E9GPzm7Lazx/gdx790wQlwm4kqw/pek8ExeHH3snZVVCxVKr8X3fTqF6ATfSNtWjr84Q5qiXZ+Q=="],
+
+    "zsk-use-sound": ["zsk-use-sound@1.0.1", "", { "dependencies": { "howler": "^2.2.4" }, "peerDependencies": { "react": ">=18" } }, "sha512-Zx2Ll4vO9n+NPGzooQFEvlD5Nh5kwsYFW1xlCS8CnQkG9HenNmU9Lt3D66CCSr6BtXeVyo4m2SHcji5r9YYwsw=="],
 
     "zustand": ["zustand@5.0.12", "", { "peerDependencies": { "@types/react": ">=18.0.0", "immer": ">=9.0.6", "react": ">=18.0.0", "use-sync-external-store": ">=1.2.0" }, "optionalPeers": ["@types/react", "immer", "react", "use-sync-external-store"] }, "sha512-i77ae3aZq4dhMlRhJVCYgMLKuSiZAaUPAct2AksxQ+gOtimhGMdXljRT21P5BNpeT4kXlLIckvkPM029OljD7g=="],
 
