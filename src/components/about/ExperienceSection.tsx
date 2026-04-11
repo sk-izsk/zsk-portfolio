@@ -5,7 +5,7 @@ import { useExperience } from '../../stores/portfolioStore'
 import { Modal } from '../common/modal/Modal'
 import { TextReveal } from '../common/textReveal/TextReveal'
 import { ProjectCard } from '../projects/ProjectCard'
-import { experience as experienceClass } from './about.css'
+import { experience as experienceClass, readMoreTrigger } from './about.css'
 import { ActivityTimeline } from './ActivityTimeline'
 
 export const ExperienceSection: React.FC = () => {
@@ -32,7 +32,7 @@ export const ExperienceSection: React.FC = () => {
               <TextReveal>{item.description}</TextReveal>
             </ActivityTimeline.Item.Body>
             <div
-              style={{ marginTop: 12, display: 'flex', justifyContent: 'flex-start' }}
+              className={readMoreTrigger}
               role="button"
               tabIndex={0}
               onClick={(e) => {

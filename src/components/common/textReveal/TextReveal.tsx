@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import {
   reducedMotionReveal,
+  revealDelay,
   revealRoot,
   revealWord,
   revealWordGhost,
@@ -48,8 +49,10 @@ export const TextReveal: React.FC<TextRevealProps> = ({ children, className }) =
   return (
     <span ref={rootRef} className={[revealRoot, className].filter(Boolean).join(' ')}>
       {words.map((word, index) => {
+        const delayClass = revealDelay[Math.min(index, revealDelay.length - 1)]
         const textClasses = [
           revealWordText,
+          delayClass,
           reducedMotionReveal,
           isVisible ? revealWordVisible : '',
         ]
@@ -61,9 +64,7 @@ export const TextReveal: React.FC<TextRevealProps> = ({ children, className }) =
             <span aria-hidden="true" className={revealWordGhost}>
               {word}
             </span>
-            <span className={textClasses} style={{ transitionDelay: `${index * 28}ms` }}>
-              {word}
-            </span>
+            <span className={textClasses}>{word}</span>
           </span>
         )
       })}

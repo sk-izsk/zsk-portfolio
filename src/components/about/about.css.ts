@@ -80,6 +80,10 @@ export const buttons = style({
   marginTop: '30px',
 })
 
+export const buttonsCompactTop = style({
+  marginTop: '24px',
+})
+
 export const btnMargin = style({
   marginRight: '15px',
   marginTop: '10px',
@@ -129,6 +133,12 @@ export const progressIn = style({
   borderRadius: '4px',
   background: vars.color.skin,
 })
+
+export const progressInWidth = Array.from({ length: 101 }, (_, value) =>
+  style({
+    width: `${value}%`,
+  }),
+)
 
 export const skillPercent = style({
   position: 'absolute',
@@ -245,4 +255,10 @@ export const timelineText = style({
   fontSize: '16px',
   textAlign: 'justify',
   color: vars.color.text[700],
+})
+
+export const readMoreTrigger = style({
+  marginTop: '12px',
+  display: 'flex',
+  justifyContent: 'flex-start',
 })

@@ -107,6 +107,14 @@ export const skillsHeadingIcon = style({
   top: '1px',
 })
 
+export const skillsHeadingIconGapSm = style({
+  marginRight: '8px',
+})
+
+export const skillsHeadingIconGapMd = style({
+  marginRight: '10px',
+})
+
 export const skillsList = style({
   display: 'flex',
   flexWrap: 'wrap',

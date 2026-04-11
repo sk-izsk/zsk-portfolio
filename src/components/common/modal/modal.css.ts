@@ -103,6 +103,54 @@ export const footerSticky = style({
   background: vars.color.background[900],
   borderRadius: '0 0 10px 10px',
   flexShrink: 0,
+  '@media': {
+    'screen and (max-width: 768px)': {
+      minHeight: 'auto',
+      padding: '8px 12px 10px',
+      flexDirection: 'column',
+      alignItems: 'stretch',
+      gap: 8,
+    },
+  },
+})
+
+export const footerDemoGroup = style({
+  display: 'flex',
+  alignItems: 'center',
+  minWidth: 0,
+  '@media': {
+    'screen and (max-width: 768px)': {
+      width: '100%',
+    },
+  },
+})
+
+export const footerMainActions = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: 12,
+  '@media': {
+    'screen and (max-width: 768px)': {
+      width: '100%',
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: 8,
+    },
+  },
+})
+
+export const footerButton = style({
+  '@media': {
+    'screen and (max-width: 768px)': {
+      width: '100%',
+      minWidth: 0,
+      padding: '7px 12px',
+    },
+  },
+})
+
+export const footerLinkButton = style({
+  textDecoration: 'none',
 })
 
 export const divider = style({

@@ -65,3 +65,27 @@ export const triggerLabelDesktop = style({
     },
   },
 })
+
+export const triggerColor1 = style({
+  background: '#ec1839',
+})
+
+export const triggerColor2 = style({
+  background: '#fa5b0f',
+})
+
+export const triggerColor3 = style({
+  background: '#37b182',
+})
+
+export const triggerColor5 = style({
+  background: '#f021b2',
+})
+
+export const triggerColor7 = style({
+  background: '#daa520',
+})
+
+export const triggerColor9 = style({
+  background: '#00bfff',
+})

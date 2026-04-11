@@ -5,6 +5,7 @@ import {
   skillCategoryContainer,
   skillCategoryTitle,
   skillsHeadingIcon,
+  skillsHeadingIconGapMd,
   skillsList,
 } from './skills.css'
 
@@ -26,8 +27,7 @@ export const SkillsTagSection: React.FC<SkillsTagSectionProps> = ({ icon, titleT
       <div className={`${skillCategoryContainer} padd-15`}>
         <h3 className={skillCategoryTitle}>
           <Icon
-            className={skillsHeadingIcon}
-            style={{ marginRight: '10px' }}
+            className={`${skillsHeadingIcon} ${skillsHeadingIconGapMd}`}
             size={22}
             strokeWidth={2.25}
           />

@@ -21,7 +21,6 @@ export const PageLoader = () => {
           width="80"
           color={colorThemes[currentColor as keyof typeof colorThemes]}
           ariaLabel="bars-loading"
-          wrapperStyle={{}}
           wrapperClass=""
           visible={true}
         />

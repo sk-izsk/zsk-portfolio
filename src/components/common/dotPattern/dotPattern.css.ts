@@ -21,3 +21,11 @@ export const dotPatternContainer = style({
     },
   },
 })
+
+export const dotPatternLight = style({
+  opacity: 0.4,
+})
+
+export const dotPatternDark = style({
+  opacity: 0.7,
+})

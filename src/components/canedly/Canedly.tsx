@@ -4,7 +4,18 @@ import { PopupModal } from 'react-calendly'
 import { trackGaEvent, trackMixpanelEvent } from '../../hooks/useAnalytics'
 import { useTranslation } from '../../localization/localize'
 import { useThemeStore } from '../../stores/themeStore'
-import { floatingContainer, triggerButton, triggerIcon, triggerLabelDesktop } from './canedly.css'
+import {
+  floatingContainer,
+  triggerButton,
+  triggerColor1,
+  triggerColor2,
+  triggerColor3,
+  triggerColor5,
+  triggerColor7,
+  triggerColor9,
+  triggerIcon,
+  triggerLabelDesktop,
+} from './canedly.css'
 
 const colorThemes = {
   'color-1': '#ec1839',
@@ -17,6 +28,15 @@ const colorThemes = {
 
 const stripHexPrefix = (value: string) => value.replace(/^#/, '')
 
+const triggerColorClassByTheme = {
+  'color-1': triggerColor1,
+  'color-2': triggerColor2,
+  'color-3': triggerColor3,
+  'color-5': triggerColor5,
+  'color-7': triggerColor7,
+  'color-9': triggerColor9,
+} as const
+
 export const Canedly = () => {
   const { t } = useTranslation()
   const isDarkMode = useThemeStore((state) => state.isDarkMode)
@@ -25,6 +45,8 @@ export const Canedly = () => {
 
   const currentAccentColor =
     colorThemes[currentColor as keyof typeof colorThemes] ?? colorThemes['color-1']
+  const triggerColorClass =
+    triggerColorClassByTheme[currentColor as keyof typeof triggerColorClassByTheme] ?? triggerColor1
   const rootElement = document.getElementById('root') ?? document.body
   const desktopText = t('common.calendly.cta')
 
@@ -32,8 +54,7 @@ export const Canedly = () => {
     <>
       <div className={floatingContainer}>
         <button
-          className={triggerButton}
-          style={{ background: currentAccentColor }}
+          className={`${triggerButton} ${triggerColorClass}`}
           type="button"
           onClick={() => {
             trackGaEvent('Calendly', 'book_meeting_click', 'Want to book a meeting')
