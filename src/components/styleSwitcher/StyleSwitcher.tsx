@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useSoundStore } from '../../stores/soundStore'
 import { useThemeStore } from '../../stores/themeStore'
 import {
   color1Theme,
@@ -18,6 +19,7 @@ import {
 } from '../../styles/themes.css'
 import { styleSwitcher, styleSwitcherOpen } from './styleSwitcher.css'
 import { StyleSwitcherSettings } from './StyleSwitcherSettings'
+import { StyleSwitcherToggleSound } from './StyleSwitcherToggleSound'
 import { StyleSwitcherToggleTheme } from './StyleSwitcherToggleTheme'
 
 const lightThemeByColor = {
@@ -40,6 +42,8 @@ const darkThemeByColor = {
 
 export const StyleSwitcher: React.FC = () => {
   const isDarkMode = useThemeStore((state) => state.isDarkMode)
+  const isSoundEnabled = useSoundStore((state) => state.isSoundEnabled)
+  const toggleSound = useSoundStore((state) => state.toggleSound)
   const currentColor = useThemeStore((state) => state.currentColor)
   const toggleDarkMode = useThemeStore((state) => state.toggleDarkMode)
   const setCurrentColor = useThemeStore((state) => state.setCurrentColor)
@@ -108,6 +112,7 @@ export const StyleSwitcher: React.FC = () => {
         onChangeColor={setCurrentColor}
       />
       <StyleSwitcherToggleTheme isDarkMode={isDarkMode} onToggleDarkMode={toggleDarkMode} />
+      <StyleSwitcherToggleSound isSoundEnabled={isSoundEnabled} onToggleSound={toggleSound} />
     </div>
   )
 }

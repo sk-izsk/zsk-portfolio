@@ -68,6 +68,13 @@ export const dayNight = style([
   },
 ])
 
+export const soundToggle = style([
+  sIcon,
+  {
+    top: '110px',
+  },
+])
+
 export const s_icon = style({
   width: '16px',
   height: '16px',
@@ -146,5 +153,13 @@ globalStyle(`.${dayNight}:hover`, {
 })
 
 globalStyle(`.${dayNight}:hover .${dayNightIcon}`, {
+  color: `${vars.color.skin} !important`,
+})
+
+globalStyle(`.${soundToggle}:hover`, {
+  color: `${vars.color.skin} !important`,
+})
+
+globalStyle(`.${soundToggle}:hover .${dayNightIcon}`, {
   color: `${vars.color.skin} !important`,
 })

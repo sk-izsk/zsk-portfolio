@@ -5,6 +5,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import { LocalizeProvider } from 'zsk-react-i18n'
+import { useClickSound } from '../hooks/useClickSound'
 import { usePortfolioData } from '../hooks/usePortfolioData'
 import { localizeConfig, useTranslation } from '../localization/localize'
 import { usePortfolioStore } from '../stores/portfolioStore'
@@ -33,6 +34,9 @@ const AppLayout = ({ children }: PropsWithChildren) => {
 
   const portfolioQuery = usePortfolioData(currentLanguage)
   const { setData, setLoading, setError } = usePortfolioStore()
+
+  // Spin up global audio listening directly tied to the primary interaction tree
+  useClickSound()
 
   useEffect(() => {
     setLoading(portfolioQuery.isLoading)
