@@ -352,6 +352,22 @@
         "Compound Components"
       ],
       "publishDate": "2026-04-11"
+    },
+    {
+      "id": 7,
+      "url": "https://github.com/sk-izsk/zsk-use-sound",
+      "category": "Library",
+      "tags": [
+        "React Hook",
+        "TypeScript",
+        "Howler",
+        "Web Audio API",
+        "NPM",
+        "Library",
+        "Dual Mode Audio",
+        "Sound Effects"
+      ],
+      "publishDate": "2026-04-11"
     }
   ],
   "experienceBase": [

@@ -204,6 +204,19 @@
         "Keyboard accessibility: T (theme), M (mute), Cmd+D (download CV)",
         "Custom NPM packages: zsk-react-error and zsk-react-i18n used in production"
       ]
+    },
+    {
+      "id": 7,
+      "title": "zsk-use-sound: React Hook for File + Generated Sound",
+      "excerpt": "A TypeScript-first React hook inspired by use-sound that supports both Howler-powered file playback and browser-generated click sounds through one API. Designed for UI feedback without forcing bundled audio assets.",
+      "shortDescription": "zsk-use-sound unifies two sound strategies in one ergonomic hook: file mode for mp3/wav assets via Howler, and generated mode that synthesizes built-in click profiles in the browser when no file is provided. It exposes a familiar tuple API with play controls, mode visibility, and sound-enabled toggling for app-wide mute workflows.",
+      "highlights": [
+        "Dual-mode audio engine: file playback (Howler) and generated Web Audio click presets",
+        "TypeScript-first API with exported option/play/control types for consumer safety",
+        "Built-in generated profiles (click, soft-click, tick) with volume and playback controls",
+        "Supports global mute flow via soundEnabled and per-play override via forceSoundEnabled",
+        "use-sound-inspired tuple return shape with stop, pause, duration, and runtime mode metadata"
+      ]
     }
   ]
 }
