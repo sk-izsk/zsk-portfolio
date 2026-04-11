@@ -1,8 +1,8 @@
 import { Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
-import { PageLoader } from '../components/PageLoader'
-import { About, Contact, Home, Projects, Services, Skills } from './lazyScreens'
+import { PageLoader } from '@components/PageLoader'
+import { About, Contact, Home, Projects, Services, Skills } from '@routes/lazyScreens'
 
 export const AppRoutes = () => {
   return (

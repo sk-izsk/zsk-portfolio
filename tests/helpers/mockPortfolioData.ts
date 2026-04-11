@@ -1,4 +1,4 @@
-import type { PortfolioData } from '../../src/types/portfolio'
+import type { PortfolioData } from '@app-types/portfolio'
 
 export const mockPortfolioData: PortfolioData = {
   personalInfo: {

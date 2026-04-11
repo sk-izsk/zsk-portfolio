@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from 'vitest'
-import { useSidebarStore } from '../../src/stores/sidebarStore'
+import { useSidebarStore } from '@stores/sidebarStore'
 
 describe('sidebarStore', () => {
   beforeEach(() => {

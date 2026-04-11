@@ -1,5 +1,5 @@
 import { globalStyle, keyframes } from '@vanilla-extract/css'
-import { vars } from './theme.css'
+import { vars } from '@styles/theme.css'
 
 const slideSection = keyframes({
   '0%': {

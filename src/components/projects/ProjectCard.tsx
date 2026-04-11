@@ -1,8 +1,8 @@
 import { BookOpenText, CalendarDays } from 'lucide-react'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
-import { useTranslation } from '../../localization/localize'
-import { Tag } from '../tag/Tag'
+import { useTranslation } from '@localization/localize'
+import { Tag } from '@components/tag/Tag'
 import {
   projectContent,
   projectInfo,
@@ -13,7 +13,7 @@ import {
   projectLink,
   projectTags,
   projectTitle,
-} from './projects.css'
+} from '@components/projects/projects.css'
 
 type ProjectCardRootProps = PropsWithChildren
 

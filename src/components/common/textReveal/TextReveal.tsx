@@ -7,7 +7,7 @@ import {
   revealWordGhost,
   revealWordText,
   revealWordVisible,
-} from './TextReveal.css'
+} from '@components/common/textReveal/TextReveal.css'
 
 interface TextRevealProps {
   children: string

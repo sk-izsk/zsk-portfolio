@@ -1,7 +1,7 @@
 import type { SVGProps } from 'react'
 import { useId } from 'react'
-import { useThemeStore } from '../../../stores/themeStore'
-import { dotPatternContainer, dotPatternDark, dotPatternLight } from './dotPattern.css'
+import { useThemeStore } from '@stores/themeStore'
+import { dotPatternContainer, dotPatternDark, dotPatternLight } from '@components/common/dotPattern/dotPattern.css'
 
 interface DotPatternProps extends SVGProps<SVGSVGElement> {
   width?: number

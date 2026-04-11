@@ -1,10 +1,10 @@
 import React from 'react'
-import { ContactFormSection } from '../components/contact/ContactFormSection'
-import { ContactSocialsSection } from '../components/contact/ContactSocialsSection'
-import { Screen } from '../components/Screen'
-import { useAnalytics } from '../hooks/useAnalytics'
-import { useTranslation } from '../localization/localize'
-import { usePortfolioError, usePortfolioLoading } from '../stores/portfolioStore'
+import { ContactFormSection } from '@components/contact/ContactFormSection'
+import { ContactSocialsSection } from '@components/contact/ContactSocialsSection'
+import { Screen } from '@components/Screen'
+import { useAnalytics } from '@hooks/useAnalytics'
+import { useTranslation } from '@localization/localize'
+import { usePortfolioError, usePortfolioLoading } from '@stores/portfolioStore'
 
 const ContactScreen: React.FC = () => {
   const loading = usePortfolioLoading()

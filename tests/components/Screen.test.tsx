@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import { Screen } from '../../src/components/Screen'
+import { Screen } from '@components/Screen'
 
 describe('Screen', () => {
   it('renders children when not loading and no error', () => {

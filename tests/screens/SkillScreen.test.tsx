@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import { beforeEach, describe, expect, it } from 'vitest'
-import SkillScreen from '../../src/screens/SkillScreen'
-import { usePortfolioStore } from '../../src/stores/portfolioStore'
-import { AllProviders } from '../helpers/AllProviders'
-import { mockPortfolioData } from '../helpers/mockPortfolioData'
+import SkillScreen from '@screens/SkillScreen'
+import { usePortfolioStore } from '@stores/portfolioStore'
+import { AllProviders } from '@tests/helpers/AllProviders'
+import { mockPortfolioData } from '@tests/helpers/mockPortfolioData'
 
 const renderScreen = () =>
   render(

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useSoundStore } from '../../stores/soundStore'
-import { useThemeStore } from '../../stores/themeStore'
+import { useSoundStore } from '@stores/soundStore'
+import { useThemeStore } from '@stores/themeStore'
 import {
   color1Theme,
   color2Theme,
@@ -16,11 +16,11 @@ import {
   darkColor9Theme,
   darkTheme,
   lightTheme,
-} from '../../styles/themes.css'
-import { styleSwitcher, styleSwitcherOpen } from './styleSwitcher.css'
-import { StyleSwitcherSettings } from './StyleSwitcherSettings'
-import { StyleSwitcherToggleSound } from './StyleSwitcherToggleSound'
-import { StyleSwitcherToggleTheme } from './StyleSwitcherToggleTheme'
+} from '@styles/themes.css'
+import { styleSwitcher, styleSwitcherOpen } from '@components/styleSwitcher/styleSwitcher.css'
+import { StyleSwitcherSettings } from '@components/styleSwitcher/StyleSwitcherSettings'
+import { StyleSwitcherToggleSound } from '@components/styleSwitcher/StyleSwitcherToggleSound'
+import { StyleSwitcherToggleTheme } from '@components/styleSwitcher/StyleSwitcherToggleTheme'
 
 const lightThemeByColor = {
   'color-1': color1Theme,

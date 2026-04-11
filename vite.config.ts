@@ -1,9 +1,10 @@
 import babelPlugin from '@rolldown/plugin-babel'
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import react, { reactCompilerPreset } from '@vitejs/plugin-react'
-import { VitePWA } from 'vite-plugin-pwa'
 import { exec } from 'node:child_process'
+import path from 'node:path'
 import type { ViteDevServer } from 'vite'
+import { VitePWA } from 'vite-plugin-pwa'
 import { defineConfig } from 'vitest/config'
 
 const openUrl = (url: string) => {
@@ -47,6 +48,23 @@ const openBrowserOnStart = () => {
 
 // https://vite.dev/config/
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      '@assets': path.resolve(__dirname, 'src/assets'),
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@hooks': path.resolve(__dirname, 'src/hooks'),
+      '@localization': path.resolve(__dirname, 'src/localization'),
+      '@routes': path.resolve(__dirname, 'src/routes'),
+      '@screens': path.resolve(__dirname, 'src/screens'),
+      '@services': path.resolve(__dirname, 'src/services'),
+      '@stores': path.resolve(__dirname, 'src/stores'),
+      '@styles': path.resolve(__dirname, 'src/styles'),
+      '@app-types': path.resolve(__dirname, 'src/types'),
+      '@utils': path.resolve(__dirname, 'src/utils'),
+      '@tests': path.resolve(__dirname, 'tests'),
+    },
+  },
   server: {
     port: 2222,
   },

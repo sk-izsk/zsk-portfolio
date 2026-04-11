@@ -1,5 +1,5 @@
 import { defineLocalizeConfig, useAppTranslation as useTranslation } from 'zsk-react-i18n'
-import { resources } from './index'
+import { resources } from '@localization/index'
 
 export const localizeConfig = defineLocalizeConfig({
   resources,

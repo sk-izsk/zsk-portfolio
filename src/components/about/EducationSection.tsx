@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react'
-import { useTranslation } from '../../localization/localize'
-import { useEducation } from '../../stores/portfolioStore'
-import { TextReveal } from '../common/textReveal/TextReveal'
-import { education } from './about.css'
-import { ActivityTimeline } from './ActivityTimeline'
+import { useTranslation } from '@localization/localize'
+import { useEducation } from '@stores/portfolioStore'
+import { TextReveal } from '@components/common/textReveal/TextReveal'
+import { education } from '@components/about/about.css'
+import { ActivityTimeline } from '@components/about/ActivityTimeline'
 
 export const EducationSection: React.FC = () => {
   const educationData = useEducation()

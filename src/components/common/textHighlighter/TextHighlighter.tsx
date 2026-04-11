@@ -1,5 +1,5 @@
 import React from 'react'
-import { highlight, highlighterRoot, highlighterText, underline } from './TextHighlighter.css'
+import { highlight, highlighterRoot, highlighterText, underline } from '@components/common/textHighlighter/TextHighlighter.css'
 
 type TextHighlighterAction = 'highlight' | 'underline'
 

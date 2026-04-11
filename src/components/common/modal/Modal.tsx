@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { useTranslation } from '../../../localization/localize'
-import { Button } from '../button/Button'
-import { Divider } from '../divider/Divider'
-import * as modalStyles from './modal.css'
+import { useTranslation } from '@localization/localize'
+import { Button } from '@components/common/button/Button'
+import { Divider } from '@components/common/divider/Divider'
+import * as modalStyles from '@components/common/modal/modal.css'
 
 const modalRoot = typeof window !== 'undefined' ? document.body : null
 

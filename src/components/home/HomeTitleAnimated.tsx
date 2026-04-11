@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import Typed from 'typed.js'
-import { useTranslation } from '../../localization/localize'
-import { usePersonalInfo } from '../../stores/portfolioStore'
-import { hello, helloName, myProfession, typing } from './home.css'
+import { useTranslation } from '@localization/localize'
+import { usePersonalInfo } from '@stores/portfolioStore'
+import { hello, helloName, myProfession, typing } from '@components/home/home.css'
 
 export const HomeTitleAnimated: React.FC = () => {
   const { t } = useTranslation()

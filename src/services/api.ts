@@ -1,6 +1,6 @@
+import type { PortfolioData, ProjectType, RichTextSegment } from '@app-types/portfolio'
+import type { AppLanguage } from '@localization/index'
 import ky from 'ky'
-import type { AppLanguage } from '../localization'
-import type { PortfolioData, ProjectType, RichTextSegment } from '../types/portfolio'
 
 interface PortfolioCommonData {
   personalInfo: {

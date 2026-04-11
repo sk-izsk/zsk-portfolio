@@ -11,10 +11,10 @@ import {
   Send,
 } from 'lucide-react'
 import React from 'react'
-import { useTranslation } from '../../localization/localize'
-import { useContactInfo, usePersonalInfo } from '../../stores/portfolioStore'
-import { contactSubTitle, contactTitle } from './contact.css'
-import { ContactSocialCard } from './ContactSocialCard'
+import { useTranslation } from '@localization/localize'
+import { useContactInfo, usePersonalInfo } from '@stores/portfolioStore'
+import { contactSubTitle, contactTitle } from '@components/contact/contact.css'
+import { ContactSocialCard } from '@components/contact/ContactSocialCard'
 
 interface ContactSocialItem {
   icon: LucideIcon

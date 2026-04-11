@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeEach, describe, expect, it } from 'vitest'
-import { Sidebar } from '../../src/components/sidebar/Sidebar'
-import { usePortfolioStore } from '../../src/stores/portfolioStore'
-import { useSidebarStore } from '../../src/stores/sidebarStore'
-import { AllProviders } from '../helpers/AllProviders'
-import { mockPortfolioData } from '../helpers/mockPortfolioData'
+import { Sidebar } from '@components/sidebar/Sidebar'
+import { usePortfolioStore } from '@stores/portfolioStore'
+import { useSidebarStore } from '@stores/sidebarStore'
+import { AllProviders } from '@tests/helpers/AllProviders'
+import { mockPortfolioData } from '@tests/helpers/mockPortfolioData'
 
 const renderSidebar = () =>
   render(

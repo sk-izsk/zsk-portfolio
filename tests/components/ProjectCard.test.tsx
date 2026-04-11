@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import React from 'react'
 import { describe, expect, it } from 'vitest'
-import { ProjectCard } from '../../src/components/projects/ProjectCard'
-import { AllProviders } from '../helpers/AllProviders'
+import { ProjectCard } from '@components/projects/ProjectCard'
+import { AllProviders } from '@tests/helpers/AllProviders'
 
 const renderCard = (ui: React.ReactElement) => render(<AllProviders>{ui}</AllProviders>)
 

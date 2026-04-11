@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react'
 import React from 'react'
 import { ErrorBoundary as ZskErrorBoundary } from 'zsk-react-error'
-import { errorButton, errorContainer, errorHeading, errorPre } from './errorBoundary.css'
+import { errorButton, errorContainer, errorHeading, errorPre } from '@components/errorBoundary/errorBoundary.css'
 
 export const ErrorBoundary: React.FC<PropsWithChildren> = ({ children }) => {
   return (

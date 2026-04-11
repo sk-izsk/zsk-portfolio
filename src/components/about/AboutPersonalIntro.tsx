@@ -1,8 +1,8 @@
 import React from 'react'
-import { useTranslation } from '../../localization/localize'
-import { usePersonalInfo } from '../../stores/portfolioStore'
-import { TextHighlighter } from '../common/textHighlighter/TextHighlighter'
-import { aboutText, aboutTextH3, aboutTextP, aboutTextSpan } from './about.css'
+import { useTranslation } from '@localization/localize'
+import { usePersonalInfo } from '@stores/portfolioStore'
+import { TextHighlighter } from '@components/common/textHighlighter/TextHighlighter'
+import { aboutText, aboutTextH3, aboutTextP, aboutTextSpan } from '@components/about/about.css'
 
 export const AboutPersonalIntro: React.FC = () => {
   const { t } = useTranslation()

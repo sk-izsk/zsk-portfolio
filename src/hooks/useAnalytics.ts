@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { getReactGA } from '../utils/analytics'
+import { getReactGA } from '@utils/analytics'
 
 export const useAnalytics = () => {
   const location = useLocation()

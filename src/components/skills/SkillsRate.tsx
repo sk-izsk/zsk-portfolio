@@ -1,7 +1,7 @@
 import { Code, Cog, Laptop, Server } from 'lucide-react'
 import React from 'react'
-import { useTranslation } from '../../localization/localize'
-import { SkillsRateSection } from './SkillsRateSection'
+import { useTranslation } from '@localization/localize'
+import { SkillsRateSection } from '@components/skills/SkillsRateSection'
 
 export const SkillsRate: React.FC = () => {
   const { t } = useTranslation()

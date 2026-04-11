@@ -1,7 +1,7 @@
 import React from 'react'
-import { useTranslation } from '../../localization/localize'
-import type { ProjectFilterType } from '../../types/portfolio'
-import { Dropdown } from '../common/dropdown/Dropdown'
+import { useTranslation } from '@localization/localize'
+import type { ProjectFilterType } from '@app-types/portfolio'
+import { Dropdown } from '@components/common/dropdown/Dropdown'
 
 const projectFilterValues = [
   'all',

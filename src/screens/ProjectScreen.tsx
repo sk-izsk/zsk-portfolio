@@ -1,21 +1,21 @@
 import React, { useMemo, useState } from 'react'
-import { Modal } from '../components/common/modal/Modal'
-import { ProjectCard } from '../components/projects/ProjectCard'
+import { Modal } from '@components/common/modal/Modal'
+import { ProjectCard } from '@components/projects/ProjectCard'
 import {
   projectFilter,
   projectGrid,
   projectHeading,
   projectHeadingTitle,
   projectToolbar,
-} from '../components/projects/projects.css'
-import { ProjectTypeDropdown } from '../components/projects/ProjectTypeDropdown'
-import { Screen } from '../components/Screen'
-import { useAnalytics } from '../hooks/useAnalytics'
-import { useHandleParams } from '../hooks/useHandleParams'
-import { useTranslation } from '../localization/localize'
-import { usePortfolioError, usePortfolioLoading, useProjects } from '../stores/portfolioStore'
-import type { ProjectFilterType } from '../types/portfolio'
-import { trackGaEvent, trackMixpanelEvent } from '../utils/analytics'
+} from '@components/projects/projects.css'
+import { ProjectTypeDropdown } from '@components/projects/ProjectTypeDropdown'
+import { Screen } from '@components/Screen'
+import { useAnalytics } from '@hooks/useAnalytics'
+import { useHandleParams } from '@hooks/useHandleParams'
+import { useTranslation } from '@localization/localize'
+import { usePortfolioError, usePortfolioLoading, useProjects } from '@stores/portfolioStore'
+import type { ProjectFilterType } from '@app-types/portfolio'
+import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
 
 const projectFilterValues = [
   'all',

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { useTranslation } from '../../localization/localize'
-import { Button } from '../common/button/Button'
-import { contactForm, contactTitle, formItem } from './contact.css'
-import { ContactFormField } from './ContactFormField'
+import { useTranslation } from '@localization/localize'
+import { Button } from '@components/common/button/Button'
+import { contactForm, contactTitle, formItem } from '@components/contact/contact.css'
+import { ContactFormField } from '@components/contact/ContactFormField'
 
 export const ContactFormSection: React.FC = () => {
   const { t } = useTranslation()

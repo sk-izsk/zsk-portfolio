@@ -1,14 +1,14 @@
 import type { LucideIcon } from 'lucide-react'
 import React from 'react'
-import { useSkills } from '../../stores/portfolioStore'
-import { title } from '../about/about.css'
-import { SkillRateItem } from './SkillRateItem'
+import { useSkills } from '@stores/portfolioStore'
+import { title } from '@components/about/about.css'
+import { SkillRateItem } from '@components/skills/SkillRateItem'
 import {
   skillsHeading,
   skillsHeadingIcon,
   skillsHeadingIconGapSm,
   skillsSection,
-} from './skills.css'
+} from '@components/skills/skills.css'
 
 interface SkillsRateSectionProps {
   icon: LucideIcon
