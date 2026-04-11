@@ -34,36 +34,39 @@ export function HyperText({
   const iterations = text.length
 
   const triggerAnimation = () => {
-    if (isAnimating.current) return
+    if (isAnimating.current) {return}
     isAnimating.current = true
 
     let currentIteration = 0
 
-    const interval = setInterval(() => {
-      setDisplayText((currentText) =>
-        currentText.map((l, i) => {
-          if (l === ' ') return l
-          if (i < currentIteration) {
-            return text[i]
-          }
-          return characterSet[getRandomInt(characterSet.length)]
-        })
-      )
+    const interval = setInterval(
+      () => {
+        setDisplayText((currentText) =>
+          currentText.map((l, i) => {
+            if (l === ' ') {return l}
+            if (i < currentIteration) {
+              return text[i]
+            }
+            return characterSet[getRandomInt(characterSet.length)]
+          }),
+        )
 
-      currentIteration += 0.3
+        currentIteration += 0.3
 
-      if (currentIteration >= iterations) {
-        clearInterval(interval)
-        setDisplayText(text.split(''))
-        isAnimating.current = false
-      }
-    }, duration / (iterations * 4))
+        if (currentIteration >= iterations) {
+          clearInterval(interval)
+          setDisplayText(text.split(''))
+          isAnimating.current = false
+        }
+      },
+      duration / (iterations * 4),
+    )
 
     return interval
   }
 
   useEffect(() => {
-    if (!animateOnLoad) return
+    if (!animateOnLoad) {return}
     let interval: NodeJS.Timeout | undefined
 
     const timeout = setTimeout(() => {
@@ -72,7 +75,7 @@ export function HyperText({
 
     return () => {
       clearTimeout(timeout)
-      if (interval) clearInterval(interval)
+      if (interval) {clearInterval(interval)}
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [text, animateOnLoad, delay])
@@ -81,7 +84,7 @@ export function HyperText({
     <Component
       className={`${hyperTextContainer} ${className || ''}`}
       onMouseEnter={() => {
-        if (animateOnHover) triggerAnimation()
+        if (animateOnHover) {triggerAnimation()}
       }}
       {...props}
     >

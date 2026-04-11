@@ -146,11 +146,7 @@ export const Sidebar: React.FC = () => {
             animateOnLoad={true}
             animateOnHover={true}
             renderCharacter={(char, index) =>
-              index === 0 ? (
-                <span className={logoSpan}>{char}</span>
-              ) : (
-                char
-              )
+              index === 0 ? <span className={logoSpan}>{char}</span> : char
             }
           />
         </a>
