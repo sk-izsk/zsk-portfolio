@@ -177,6 +177,20 @@
         "MikroORM pour les opérations de base de données type-safe avec PostgreSQL",
         "Routes API complètes pour la génération d'IA et la gestion des utilisateurs"
       ]
+    },
+    {
+      "id": 5,
+      "title": "Auto Pause & Media Control : Extension Chrome",
+      "excerpt": "Une extension Chrome sans dépendance qui met automatiquement en pause les médias lors du changement d'onglet et offre un contrôle précis de la molette pour le volume, la vitesse de lecture et le défilement—sans librairie, uniquement des API navigateur natives.",
+      "shortDescription": "Une extension Chrome légère et respectueuse de la vie privée, construite en JavaScript vanilla pur et l'API Chrome Extensions. Elle met intelligemment en pause l'audio/vidéo lors du changement d'onglet et reprend à la position exacte au retour, avec des raccourcis molette pour le volume, la vitesse et le défilement. Comprend une interface popup Glassmorphism avec des bascules individuelles par fonctionnalité et un interrupteur général.",
+      "highlights": [
+        "Mise en pause automatique : suspend les médias lors du changement d'onglet et reprend précisément au retour",
+        "Défilement de précision via Shift+Alt+Molette avec adaptation trackpad",
+        "Contrôle du volume avec geste Alt+Molette au survol",
+        "Vitesse de lecture dynamique (0,25x–4,0x) via Ctrl+Alt+Molette",
+        "Interface popup Glassmorphism avec bascules par fonctionnalité et interrupteur principal",
+        "Zéro donnée collectée — JavaScript local pur sans dépendance externe"
+      ]
     }
   ]
 }
