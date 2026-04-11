@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { useTranslation } from '../../localization/localize'
 import { useEducation } from '../../stores/portfolioStore'
-import { TextReveal } from '../common/TextReveal'
+import { TextReveal } from '../common/textReveal/TextReveal'
 import { education } from './about.css'
 import { ActivityTimeline } from './ActivityTimeline'
 

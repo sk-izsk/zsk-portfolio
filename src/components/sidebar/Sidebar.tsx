@@ -5,7 +5,7 @@ import { trackGaEvent, trackMixpanelEvent } from '../../hooks/useAnalytics'
 import { useTranslation } from '../../localization/localize'
 import { usePersonalInfo, usePortfolioLoading } from '../../stores/portfolioStore'
 import { useSidebarStore } from '../../stores/sidebarStore'
-import { HyperText } from '../common/HyperText'
+import { HyperText } from '../common/hyperText/HyperText'
 import { SidebarNavItem } from './SidebarNavItem'
 import {
   aside,

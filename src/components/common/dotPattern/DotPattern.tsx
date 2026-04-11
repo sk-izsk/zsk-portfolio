@@ -1,6 +1,7 @@
 import type { SVGProps } from 'react'
 import { useId } from 'react'
-import { useThemeStore } from '../../stores/themeStore'
+import { useThemeStore } from '../../../stores/themeStore'
+import { dotPatternContainer } from './dotPattern.css'
 
 interface DotPatternProps extends SVGProps<SVGSVGElement> {
   width?: number
@@ -29,7 +30,7 @@ export const DotPattern = ({
 
   return (
     <svg
-      className={className}
+      className={`${dotPatternContainer} ${className ?? ''}`}
       style={{ opacity: isDarkMode ? 0.7 : 0.4, ...props.style }}
       {...props}
     >

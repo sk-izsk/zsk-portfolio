@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { useTranslation } from '../../localization/localize'
-import { Button } from './Button'
-import { Divider } from './Divider'
+import { useTranslation } from '../../../localization/localize'
+import { Button } from '../button/Button'
+import { Divider } from '../divider/Divider'
 import * as modalStyles from './modal.css'
-import * as modalExtra from './modalExtra.css'
 
 const modalRoot = typeof window !== 'undefined' ? document.body : null
 
@@ -72,7 +71,7 @@ export const Modal: ModalCompound = ({ open, onClose, children }) => {
 
   return createPortal(
     <div
-      className={`${modalExtra.overlay} ${open ? modalStyles.overlayAnimateIn : modalStyles.overlayAnimateOut}`}
+      className={`${modalStyles.overlay} ${open ? modalStyles.overlayAnimateIn : modalStyles.overlayAnimateOut}`}
     >
       <div
         ref={ref}
@@ -89,7 +88,7 @@ export const Modal: ModalCompound = ({ open, onClose, children }) => {
 Modal.Title = ({ children }) => (
   <>
     <div className={modalStyles.titleRowSticky}>
-      <h2 className={modalExtra.title}>{children}</h2>
+      <h2 className={modalStyles.title}>{children}</h2>
     </div>
     <Divider />
   </>
@@ -97,7 +96,7 @@ Modal.Title = ({ children }) => (
 
 Modal.Body = ({ children }) => <div className={modalStyles.modalBody}>{children}</div>
 
-Modal.Description = ({ children }) => <div className={modalExtra.desc}>{children}</div>
+Modal.Description = ({ children }) => <div className={modalStyles.desc}>{children}</div>
 
 Modal.Highlights = ({ children }) => <ul className={modalStyles.highlights}>{children}</ul>
 

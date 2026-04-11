@@ -73,7 +73,7 @@ export function HyperText({
     if (!animateOnLoad) {
       return
     }
-    let interval: NodeJS.Timeout | undefined
+    let interval: ReturnType<typeof setTimeout> | undefined
 
     const timeout = setTimeout(() => {
       interval = triggerAnimation()
