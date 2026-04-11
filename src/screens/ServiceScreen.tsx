@@ -13,12 +13,12 @@ import {
   Smartphone,
 } from 'lucide-react'
 import React from 'react'
-import { Screen } from '../components/Screen'
-import { ServiceCard } from '../components/services/ServiceCard'
-import { serviceRow } from '../components/services/services.css'
-import { useAnalytics } from '../hooks/useAnalytics'
-import { useTranslation } from '../localization/localize'
-import { usePortfolioError, usePortfolioLoading, useServices } from '../stores/portfolioStore'
+import { Screen } from '@components/Screen'
+import { ServiceCard } from '@components/services/ServiceCard'
+import { serviceRow } from '@components/services/services.css'
+import { useAnalytics } from '@hooks/useAnalytics'
+import { useTranslation } from '@localization/localize'
+import { usePortfolioError, usePortfolioLoading, useServices } from '@stores/portfolioStore'
 
 const serviceIconMap: Record<string, LucideIcon> = {
   code: Code,

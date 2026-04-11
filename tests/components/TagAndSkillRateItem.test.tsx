@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import { SkillRateItem } from '../../src/components/skills/SkillRateItem'
-import { Tag } from '../../src/components/tag/Tag'
+import { SkillRateItem } from '@components/skills/SkillRateItem'
+import { Tag } from '@components/tag/Tag'
 
 describe('Tag', () => {
   it('renders the label text', () => {

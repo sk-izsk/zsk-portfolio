@@ -1,5 +1,11 @@
 import React from 'react'
-import { col12, col6, formControl, formControlTextarea, formItem } from './contact.css'
+import {
+  col12,
+  col6,
+  formControl,
+  formControlTextarea,
+  formItem,
+} from '@components/contact/contact.css'
 
 interface ContactFormFieldProps {
   type: 'text' | 'email' | 'textarea'

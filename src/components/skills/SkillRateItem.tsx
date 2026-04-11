@@ -6,7 +6,7 @@ import {
   skillPercent,
   skillsItem,
   skillsItemH5,
-} from '../about/about.css'
+} from '@components/about/about.css'
 
 interface SkillRateItemProps {
   name: string

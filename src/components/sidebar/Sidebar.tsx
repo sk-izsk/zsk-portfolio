@@ -1,12 +1,12 @@
 import { Briefcase, Cog, House, List, MessageCircle, User } from 'lucide-react'
 import React, { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
-import { trackGaEvent, trackMixpanelEvent } from '../../hooks/useAnalytics'
-import { useTranslation } from '../../localization/localize'
-import { usePersonalInfo, usePortfolioLoading } from '../../stores/portfolioStore'
-import { useSidebarStore } from '../../stores/sidebarStore'
-import { HyperText } from '../common/hyperText/HyperText'
-import { SidebarNavItem } from './SidebarNavItem'
+import { useTranslation } from '@localization/localize'
+import { usePersonalInfo, usePortfolioLoading } from '@stores/portfolioStore'
+import { useSidebarStore } from '@stores/sidebarStore'
+import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
+import { HyperText } from '@components/common/hyperText/HyperText'
+import { SidebarNavItem } from '@components/sidebar/SidebarNavItem'
 import {
   aside,
   asideOpen,
@@ -22,8 +22,8 @@ import {
   navTogglerOpen,
   navTogglerOpenSpan,
   navTogglerSpan,
-} from './sidebar.css'
-import type { SidebarNavigationItem } from './sidebar.types'
+} from '@components/sidebar/sidebar.css'
+import type { SidebarNavigationItem } from '@components/sidebar/sidebar.types'
 
 const getCurrentSection = (path: string) => {
   if (path === '/' || path === '/home') {

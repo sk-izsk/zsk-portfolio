@@ -1,5 +1,5 @@
 import { globalStyle, keyframes, style } from '@vanilla-extract/css'
-import { vars } from '../../styles/theme.css'
+import { vars } from '@styles/theme.css'
 
 const rotateAnimation = keyframes({
   '0%': {

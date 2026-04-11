@@ -1,8 +1,8 @@
 import { Code, Cog, FlaskConical, GraduationCap, Laptop, Server } from 'lucide-react'
 import React from 'react'
-import { useTranslation } from '../../localization/localize'
-import { useSkills } from '../../stores/portfolioStore'
-import { SkillsTagSection } from './SkillsTagSection'
+import { useTranslation } from '@localization/localize'
+import { useSkills } from '@stores/portfolioStore'
+import { SkillsTagSection } from '@components/skills/SkillsTagSection'
 
 export const SkillsTag: React.FC = () => {
   const { t } = useTranslation()

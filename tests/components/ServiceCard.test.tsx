@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { Code } from 'lucide-react'
 import { describe, expect, it } from 'vitest'
-import { ServiceCard } from '../../src/components/services/ServiceCard'
+import { ServiceCard } from '@components/services/ServiceCard'
 
 describe('ServiceCard', () => {
   it('renders the title', () => {

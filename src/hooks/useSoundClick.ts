@@ -1,6 +1,6 @@
 import { useSound } from 'zsk-use-sound'
 
-import { useSoundStore } from '../stores/soundStore'
+import { useSoundStore } from '@stores/soundStore'
 import { useEffect } from 'react'
 
 export const useSoundClick = () => {

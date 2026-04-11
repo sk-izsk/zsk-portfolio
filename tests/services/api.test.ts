@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { portfolioApi, queryKeys } from '../../src/services/api'
-import { mockPortfolioData } from '../helpers/mockPortfolioData'
+import { portfolioApi, queryKeys } from '@services/api'
+import { mockPortfolioData } from '@tests/helpers/mockPortfolioData'
 
 // Mock the ky HTTP client
 vi.mock('ky', () => ({

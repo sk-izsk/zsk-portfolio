@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { usePortfolioStore } from '../stores/portfolioStore'
-import { useSoundStore } from '../stores/soundStore'
-import { useThemeStore } from '../stores/themeStore'
+import { usePortfolioStore } from '@stores/portfolioStore'
+import { useSoundStore } from '@stores/soundStore'
+import { useThemeStore } from '@stores/themeStore'
 
 export const useKeyboardShortcuts = () => {
   useEffect(() => {

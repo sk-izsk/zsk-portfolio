@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
 import { beforeEach, describe, expect, it } from 'vitest'
-import { HomeDetailBio } from '../../src/components/home/HomeDetailBio'
-import { HomeDownloadCv } from '../../src/components/home/HomeDownloadCv'
-import { usePortfolioStore } from '../../src/stores/portfolioStore'
-import { AllProviders } from '../helpers/AllProviders'
-import { mockPortfolioData } from '../helpers/mockPortfolioData'
+import { HomeDetailBio } from '@components/home/HomeDetailBio'
+import { HomeDownloadCv } from '@components/home/HomeDownloadCv'
+import { usePortfolioStore } from '@stores/portfolioStore'
+import { AllProviders } from '@tests/helpers/AllProviders'
+import { mockPortfolioData } from '@tests/helpers/mockPortfolioData'
 
 describe('HomeDetailBio', () => {
   beforeEach(() => usePortfolioStore.getState().reset())

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { AppWrapper } from './components/AppWrapper'
-import { initAnalytics } from './hooks/useAnalytics'
-import { AppRoutes } from './routes/AppRoutes'
+import { AppWrapper } from '@components/AppWrapper'
+import { AppRoutes } from '@routes/AppRoutes'
+import { initAnalytics } from '@utils/analytics'
 
 const App = () => {
   useEffect(() => {

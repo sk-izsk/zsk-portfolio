@@ -1,5 +1,5 @@
-import { en } from './en'
-import { fr } from './fr'
+import { en } from '@localization/en'
+import { fr } from '@localization/fr'
 
 export const resources = {
   en: {

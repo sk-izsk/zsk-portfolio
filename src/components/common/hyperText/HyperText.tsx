@@ -1,6 +1,6 @@
 import type { ElementType, HTMLAttributes, ReactNode } from 'react'
 import React, { useEffect, useRef, useState } from 'react'
-import { hyperTextChar, hyperTextContainer } from './hyperText.css'
+import { hyperTextChar, hyperTextContainer } from '@components/common/hyperText/hyperText.css'
 
 interface HyperTextProps extends Omit<HTMLAttributes<HTMLElement>, 'children'> {
   text: string

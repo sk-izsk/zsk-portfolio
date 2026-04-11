@@ -1,8 +1,8 @@
 import { useTitle } from 'ahooks'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
-import { SeoHead } from './common/SeoHead'
-import { DotPattern } from './common/dotPattern/DotPattern'
+import { SeoHead } from '@components/common/SeoHead'
+import { DotPattern } from '@components/common/dotPattern/DotPattern'
 
 interface ScreenProps extends PropsWithChildren {
   sectionId: string

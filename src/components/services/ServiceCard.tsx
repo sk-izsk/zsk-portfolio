@@ -10,7 +10,7 @@ import {
   serviceItemInner,
   serviceItemInnerHover,
   serviceP,
-} from './services.css'
+} from '@components/services/services.css'
 
 type ServiceCardRootProps = PropsWithChildren
 

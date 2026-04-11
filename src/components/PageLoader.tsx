@@ -1,5 +1,5 @@
 import { Bars } from 'react-loader-spinner'
-import { useThemeStore } from '../stores/themeStore'
+import { useThemeStore } from '@stores/themeStore'
 
 const colorThemes = {
   'color-1': '#ec1839',

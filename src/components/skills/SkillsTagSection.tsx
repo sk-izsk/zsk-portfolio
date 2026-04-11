@@ -1,13 +1,13 @@
 import type { LucideIcon } from 'lucide-react'
 import React from 'react'
-import { Tag } from '../tag/Tag'
+import { Tag } from '@components/tag/Tag'
 import {
   skillCategoryContainer,
   skillCategoryTitle,
   skillsHeadingIcon,
   skillsHeadingIconGapMd,
   skillsList,
-} from './skills.css'
+} from '@components/skills/skills.css'
 
 interface SkillsTagSectionProps {
   icon: LucideIcon

@@ -1,6 +1,6 @@
 import { Moon, Sun } from 'lucide-react'
 import React from 'react'
-import { dayNight, dayNightIcon, s_icon } from './styleSwitcher.css'
+import { dayNight, dayNightIcon, s_icon } from '@components/styleSwitcher/styleSwitcher.css'
 
 interface StyleSwitcherToggleThemeProps {
   isDarkMode: boolean

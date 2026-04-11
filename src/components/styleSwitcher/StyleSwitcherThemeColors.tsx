@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import type { ThemeColor } from '../../stores/themeStore'
-import { colorItem, colors, heading } from './styleSwitcher.css'
+import type { ThemeColor } from '@stores/themeStore'
+import { colorItem, colors, heading } from '@components/styleSwitcher/styleSwitcher.css'
 
 interface StyleSwitcherThemeColorsProps {
   currentColor: string

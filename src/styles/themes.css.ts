@@ -1,6 +1,6 @@
 import { createTheme } from '@vanilla-extract/css'
-import { createDarkThemeConfig, createLightThemeConfig } from '../utils/theme'
-import { vars } from './theme.css'
+import { createDarkThemeConfig, createLightThemeConfig } from '@utils/theme'
+import { vars } from '@styles/theme.css'
 
 const skinByColor = {
   'color-1': '#ec1839',

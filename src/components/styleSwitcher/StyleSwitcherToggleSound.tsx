@@ -1,6 +1,6 @@
 import { Volume2, VolumeX } from 'lucide-react'
 import React from 'react'
-import { dayNightIcon, s_icon, soundToggle } from './styleSwitcher.css'
+import { dayNightIcon, s_icon, soundToggle } from '@components/styleSwitcher/styleSwitcher.css'
 
 interface StyleSwitcherToggleSoundProps {
   isSoundEnabled: boolean

@@ -1,6 +1,6 @@
 import React from 'react'
 import AnimatedCursor from 'react-animated-cursor'
-import { useThemeStore, type ThemeColor } from '../../stores/themeStore'
+import { useThemeStore, type ThemeColor } from '@stores/themeStore'
 
 const cursorColorByTheme: Record<ThemeColor, string> = {
   'color-1': '236, 24, 57',

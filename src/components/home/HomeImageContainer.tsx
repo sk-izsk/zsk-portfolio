@@ -1,6 +1,6 @@
 import React from 'react'
-import { usePersonalInfo } from '../../stores/portfolioStore'
-import { homeImg, homeImgImg } from './home.css'
+import { usePersonalInfo } from '@stores/portfolioStore'
+import { homeImg, homeImgImg } from '@components/home/home.css'
 
 export const HomeImageContainer: React.FC = () => {
   const personalInfo = usePersonalInfo()

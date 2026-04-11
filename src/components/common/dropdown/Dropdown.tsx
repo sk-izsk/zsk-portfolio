@@ -1,6 +1,6 @@
 import { ChevronDown } from 'lucide-react'
 import { useEffect, useId, useRef, useState } from 'react'
-import * as styles from './dropdown.css'
+import * as styles from '@components/common/dropdown/dropdown.css'
 
 export interface DropdownOption<T extends string> {
   value: T

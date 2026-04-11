@@ -3,7 +3,7 @@ import type { PropsWithChildren } from 'react'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { LocalizeProvider } from 'zsk-react-i18n'
-import { localizeConfig } from '../../src/localization/localize'
+import { localizeConfig } from '@localization/localize'
 
 export const createTestQueryClient = () =>
   new QueryClient({

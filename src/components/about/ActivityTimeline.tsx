@@ -11,7 +11,7 @@ import {
   timelineText,
   timelineTitle,
   title,
-} from './about.css'
+} from '@components/about/about.css'
 
 interface ActivityTimelineProps extends PropsWithChildren {
   heading: string

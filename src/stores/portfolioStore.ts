@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { PortfolioData } from '../types/portfolio'
+import type { PortfolioData } from '@app-types/portfolio'
 
 interface PortfolioStore {
   // State

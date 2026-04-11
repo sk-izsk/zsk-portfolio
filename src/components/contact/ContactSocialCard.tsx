@@ -8,7 +8,7 @@ import {
   contactInfoItemLink,
   contactInfoItemP,
   contactInfoItemPLink,
-} from './contact.css'
+} from '@components/contact/contact.css'
 
 interface ContactSocialCardProps {
   icon: LucideIcon

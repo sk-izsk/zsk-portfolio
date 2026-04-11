@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { Mail } from 'lucide-react'
 import { describe, expect, it } from 'vitest'
-import { ContactSocialCard } from '../../src/components/contact/ContactSocialCard'
+import { ContactSocialCard } from '@components/contact/ContactSocialCard'
 
 describe('ContactSocialCard', () => {
   it('renders title and details', () => {
