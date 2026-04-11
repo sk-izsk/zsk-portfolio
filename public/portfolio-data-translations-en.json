@@ -13,7 +13,15 @@
       },
       { "text": "Expanding into full-stack system design", "mark": "highlight" },
       {
-        "text": ". Acted as technical lead and proxy PO to synchronize cross-functional delivery. Leverage AI as a critical peer for architectural pair-planning. Obsessive focus on Core Web Vitals and clean architecture.",
+        "text": ". Acted as technical lead and proxy PO to synchronize cross-functional delivery. ",
+        "mark": "none"
+      },
+      {
+        "text": "Leverage AI as a critical peer for architectural pair-planning",
+        "mark": "highlight"
+      },
+      {
+        "text": ". Obsessive focus on Core Web Vitals and clean architecture.",
         "mark": "none"
       }
     ],
@@ -165,6 +173,20 @@
         "Usage tracking and rate limiting for free tier users",
         "MikroORM for type-safe database operations with PostgreSQL",
         "Comprehensive API routes for AI generation and user management"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Auto Pause & Media Control: Chrome Extension",
+      "excerpt": "A zero-dependency Chrome extension that automatically pauses media when you switch tabs and gives you precise scroll-wheel control over volume, playback speed, and scrubbing—no library required, just clean browser APIs.",
+      "shortDescription": "A lightweight, privacy-first Chrome extension built on pure vanilla JavaScript and the Chrome Extensions API. It intelligently pauses audio/video on tab blur and resumes on return, with scroll-wheel shortcuts for volume, speed, and scrubbing. Includes a Glassmorphism popup UI with individual feature toggles and a master kill-switch.",
+      "highlights": [
+        "Smart Auto-Pause: pauses media on tab switch and resumes precisely on return",
+        "Precision Media Scrubbing via Shift+Alt+Scroll using smooth trackpad scaling",
+        "Master Volume Control with Alt+Scroll hover gesture",
+        "Dynamic Playback Speed (0.25x–4.0x) via Ctrl+Alt+Scroll",
+        "Glassmorphism popup UI with per-feature toggles and a master power switch",
+        "Zero data collected—pure local JavaScript with no external dependencies"
       ]
     }
   ]

@@ -314,6 +314,23 @@
         "AI Integration"
       ],
       "publishDate": "2026-04-01"
+    },
+    {
+      "id": 5,
+      "url": "https://github.com/sk-izsk/zsk-chrome-media-control",
+      "category": "Browser Extension",
+      "tags": [
+        "Chrome Extension",
+        "JavaScript",
+        "CSS",
+        "HTML",
+        "Chrome API",
+        "Manifest V3",
+        "Glassmorphism",
+        "Browser API",
+        "No Dependencies"
+      ],
+      "publishDate": "2026-04-11"
     }
   ],
   "experienceBase": [
