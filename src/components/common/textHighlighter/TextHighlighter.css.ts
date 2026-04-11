@@ -12,7 +12,6 @@ import {
 const squiggleMask =
   'url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 240 28%27 preserveAspectRatio=%27none%27%3E%3Cpath d=%27M2 18 C20 10 38 24 56 16 C74 8 92 22 110 15 C128 9 146 23 164 16 C182 9 200 21 218 14 C226 12 232 14 238 13%27 fill=%27none%27 stroke=%27black%27 stroke-width=%276%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E")'
 
-
 const skinMarkerRich = `color-mix(in srgb, ${vars.color.skin} 82%, black)`
 
 const darkThemeSelector = [

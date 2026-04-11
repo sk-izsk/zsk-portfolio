@@ -143,7 +143,6 @@ export const colorItem = style({
   },
 })
 
-
 globalStyle(`.${styleSwitcherToggler}:hover`, {
   color: `${vars.color.skin} !important`,
 })
