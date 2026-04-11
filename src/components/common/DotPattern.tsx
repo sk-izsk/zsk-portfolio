@@ -28,9 +28,9 @@ export const DotPattern = ({
   const isDarkMode = useThemeStore((state) => state.isDarkMode)
 
   return (
-    <svg 
-      className={className} 
-      style={{ opacity: isDarkMode ? 0.7 : 0.4, ...props.style }} 
+    <svg
+      className={className}
+      style={{ opacity: isDarkMode ? 0.7 : 0.4, ...props.style }}
       {...props}
     >
       <defs>

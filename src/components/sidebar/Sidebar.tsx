@@ -5,6 +5,7 @@ import { trackGaEvent, trackMixpanelEvent } from '../../hooks/useAnalytics'
 import { useTranslation } from '../../localization/localize'
 import { usePersonalInfo, usePortfolioLoading } from '../../stores/portfolioStore'
 import { useSidebarStore } from '../../stores/sidebarStore'
+import { HyperText } from '../common/HyperText'
 import { SidebarNavItem } from './SidebarNavItem'
 import {
   aside,
@@ -139,8 +140,19 @@ export const Sidebar: React.FC = () => {
     <div className={`${aside} ${isOpen ? asideOpen : ''}`}>
       <div className={logo}>
         <a href="#home" className={logoA}>
-          <span className={logoSpan}>{getLogoText().charAt(0)}</span>
-          {getLogoText().slice(1)}
+          <HyperText
+            text={getLogoText()}
+            as="span"
+            animateOnLoad={true}
+            animateOnHover={true}
+            renderCharacter={(char, index) =>
+              index === 0 ? (
+                <span className={logoSpan}>{char}</span>
+              ) : (
+                char
+              )
+            }
+          />
         </a>
         <div className={languageSwitcher}>
           <button
