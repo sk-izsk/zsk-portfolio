@@ -20,7 +20,10 @@ export const trigger = style({
   color: vars.color.text[900],
   cursor: 'pointer',
   textAlign: 'left',
+  fontFamily: vars.font.family.primary,
+  fontWeight: 500,
   fontSize: '15px',
+  lineHeight: 1.35,
   transition: 'border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease',
   selectors: {
     '&:focus-visible': {
@@ -75,7 +78,10 @@ export const option = style({
   color: vars.color.text[900],
   textAlign: 'left',
   cursor: 'pointer',
+  fontFamily: vars.font.family.primary,
+  fontWeight: 500,
   fontSize: '14px',
+  lineHeight: 1.35,
   transition: 'background-color 0.2s ease, color 0.2s ease',
   selectors: {
     '&:hover': {
