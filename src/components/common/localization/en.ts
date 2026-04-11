@@ -5,5 +5,6 @@ export const commonEn = {
   modal: {
     close: 'Close',
     projectLink: 'Project Link',
+    demoLink: 'Live Demo',
   },
 } as const

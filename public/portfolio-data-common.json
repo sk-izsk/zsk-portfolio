@@ -331,6 +331,27 @@
         "No Dependencies"
       ],
       "publishDate": "2026-04-11"
+    },
+    {
+      "id": 6,
+      "url": "https://github.com/sk-izsk/zsk-portfolio",
+      "demo_link": "https://izsk.netlify.app",
+      "category": "Portfolio",
+      "tags": [
+        "React 19",
+        "TypeScript",
+        "Vite 8",
+        "Vanilla Extract",
+        "Zustand",
+        "TanStack Query",
+        "Ky",
+        "Bun",
+        "PWA",
+        "Web Audio API",
+        "i18n",
+        "Compound Components"
+      ],
+      "publishDate": "2026-04-11"
     }
   ],
   "experienceBase": [

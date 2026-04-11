@@ -2,6 +2,7 @@ import { useTitle } from 'ahooks'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
 import { SeoHead } from './common/SeoHead'
+import { DotPattern } from './common/dotPattern/DotPattern'
 
 interface ScreenProps extends PropsWithChildren {
   sectionId: string
@@ -50,6 +51,7 @@ export const Screen: React.FC<ScreenProps> = ({
   return (
     <section className={`${sectionClassName ?? sectionId} section active`} id={sectionId}>
       <SeoHead title={resolvedPageTitle} description={description} canonical={canonical} />
+      <DotPattern />
       <div className={`container screen-container ${containerClassName ?? ''}`}>
         {title && (
           <div className="row">

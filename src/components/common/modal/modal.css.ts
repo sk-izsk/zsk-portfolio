@@ -1,5 +1,5 @@
 import { keyframes, style } from '@vanilla-extract/css'
-import { vars } from '../../styles/theme.css'
+import { vars } from '../../../styles/theme.css'
 
 const slideUp = keyframes({
   '0%': { transform: 'translateY(100vh)', opacity: 0 },
@@ -93,9 +93,8 @@ export const highlights = style({
 
 export const footerSticky = style({
   display: 'flex',
-  justifyContent: 'flex-end',
+  justifyContent: 'space-between',
   alignItems: 'center',
-  gap: 12,
   minHeight: '3.125rem',
   padding: '0 16px',
   position: 'sticky',
@@ -128,4 +127,100 @@ export const modalBody = style({
   selectors: {
     '&::-webkit-scrollbar': { display: 'none' },
   },
+})
+
+export const closeBtnTag = style({
+  padding: '5px 10px',
+  borderRadius: '999px',
+  fontSize: '18px',
+  fontWeight: 500,
+  lineHeight: 1,
+  height: '2.5rem',
+  minWidth: '2.5rem',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: `${vars.color.skin}15`,
+  color: vars.color.skin,
+  border: `1px solid ${vars.color.skin}`,
+  transition: 'all 0.3s ease',
+  cursor: 'pointer',
+  marginLeft: 8,
+  borderStyle: 'solid',
+  borderWidth: 1,
+  appearance: 'none',
+  alignSelf: 'center',
+  selectors: {
+    '&:hover': {
+      backgroundColor: vars.color.skin,
+      color: 'white',
+    },
+  },
+})
+
+export const overlay = style({
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  width: '100vw',
+  height: '100vh',
+  backgroundColor: 'rgba(0, 0, 0, 0.4)',
+  zIndex: 1000,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: 12,
+  boxSizing: 'border-box',
+  transform: 'translateZ(0)',
+  backdropFilter: 'blur(2px)',
+  WebkitBackdropFilter: 'blur(1px)',
+  willChange: 'backdrop-filter',
+  '@media': {
+    'screen and (max-width: 768px)': {
+      padding: 8,
+    },
+  },
+})
+
+export const title = style({
+  fontSize: 22,
+  fontWeight: 700,
+  margin: 0,
+  cursor: 'default',
+  userSelect: 'text',
+})
+
+export const closeBtn = style({
+  border: 'none',
+  background: 'transparent',
+  color: vars.color.text[900],
+  fontSize: 24,
+  cursor: 'pointer',
+  marginLeft: 8,
+  padding: 0,
+  lineHeight: 1,
+})
+
+export const desc = style({
+  marginBottom: 16,
+  color: vars.color.text[700],
+  fontSize: 16,
+})
+
+export const footerBtn = style({
+  padding: '7px 18px',
+  borderRadius: 6,
+  border: 'none',
+  background: '#eee',
+  color: '#222',
+  fontWeight: 500,
+  fontSize: 15,
+  cursor: 'pointer',
+  transition: 'background 0.2s',
+})
+
+export const linkBtn = style({
+  background: '#0078d4',
+  color: '#fff',
+  textDecoration: 'none',
 })

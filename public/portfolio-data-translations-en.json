@@ -188,6 +188,22 @@
         "Glassmorphism popup UI with per-feature toggles and a master power switch",
         "Zero data collected—pure local JavaScript with no external dependencies"
       ]
+    },
+    {
+      "id": 6,
+      "title": "zsk-portfolio: This Portfolio (over-engineered by design)",
+      "excerpt": "The site you're looking at right now. Built as a deliberate exercise in senior-level architecture using React 19, Vanilla Extract, Zustand, and a zero-runtime CSS design system. Every technology choice has a reason behind it — some practical, some intentionally ambitious.",
+      "shortDescription": "A fully interactive developer portfolio built to showcase architectural decision-making as much as UI craft. Uses a headless JSON data layer, type-safe CSS-in-JS compiled at build time, compound component patterns, PWA offline support, a synthetic Web Audio click engine, and hydration-safe state persistence. Purposefully over-engineered.",
+      "highlights": [
+        "Zero-runtime CSS via Vanilla Extract — styles are TypeScript, compiled to static .css at build time",
+        "15+ hot-swappable color themes built on a typed createThemeContract design system",
+        "React 19 Compiler integration — automatic memoization, no manual useMemo/useCallback",
+        "Headless JSON data layer in /public — fully decoupled from the UI, reusable across any future rebuild",
+        "Synthetic click sounds via Web Audio API (no .mp3 files, no network requests)",
+        "PWA-ready via vite-plugin-pwa with offline service worker caching",
+        "Keyboard accessibility: T (theme), M (mute), Cmd+D (download CV)",
+        "Custom NPM packages: zsk-react-error and zsk-react-i18n used in production"
+      ]
     }
   ]
 }

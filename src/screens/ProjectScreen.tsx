@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react'
-import { Modal } from '../components/common/Modal'
+import { Modal } from '../components/common/modal/Modal'
 import { ProjectCard } from '../components/projects/ProjectCard'
 import {
   projectGrid,
@@ -31,6 +31,7 @@ const ProjectScreen: React.FC = () => {
           ...project,
           projectHref,
           isExternal: projectHref.startsWith('http'),
+          demoLink: project.demo_link ?? '',
         }
       }),
     [projects],
@@ -94,6 +95,7 @@ const ProjectScreen: React.FC = () => {
               </Modal.Body>
               <Modal.Footer
                 link={selectedProject.projectHref}
+                demoLink={selectedProject.demoLink}
                 onClose={() => setModalOpen(false)}
               />
             </Modal>

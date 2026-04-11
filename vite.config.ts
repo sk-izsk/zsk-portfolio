@@ -1,6 +1,7 @@
 import babelPlugin from '@rolldown/plugin-babel'
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import react, { reactCompilerPreset } from '@vitejs/plugin-react'
+import { VitePWA } from 'vite-plugin-pwa'
 import { exec } from 'node:child_process'
 import type { ViteDevServer } from 'vite'
 import { defineConfig } from 'vitest/config'
@@ -53,6 +54,21 @@ export default defineConfig({
     react(),
     babelPlugin({ presets: [reactCompilerPreset()] }),
     vanillaExtractPlugin(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      injectRegister: 'auto',
+      manifest: {
+        name: 'Portfolio',
+        short_name: 'CV',
+        description: 'Interactive Developer Portfolio',
+        theme_color: '#151515',
+        background_color: '#151515',
+        display: 'standalone',
+      },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+      },
+    }),
     openBrowserOnStart(),
   ],
   test: {

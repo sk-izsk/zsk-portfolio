@@ -16,6 +16,7 @@ interface PortfolioCommonData {
   projectsBase: Array<{
     id: number
     url: string
+    demo_link?: string
     category: string
     tags: string[]
     publishDate: string
@@ -110,17 +111,21 @@ const mergePortfolioData = (
       icon: common.servicesBase.find((base) => base.id === trans.id)?.icon || '',
       description: trans.description,
     })),
-    projects: translations.projects.map((trans) => ({
-      id: trans.id,
-      url: common.projectsBase.find((base) => base.id === trans.id)?.url || '',
-      title: trans.title,
-      excerpt: trans.excerpt,
-      shortDescription: trans.shortDescription,
-      highlights: trans.highlights,
-      category: common.projectsBase.find((base) => base.id === trans.id)?.category || '',
-      tags: common.projectsBase.find((base) => base.id === trans.id)?.tags || [],
-      publishDate: common.projectsBase.find((base) => base.id === trans.id)?.publishDate || '',
-    })),
+    projects: translations.projects.map((trans) => {
+      const base = common.projectsBase.find((b) => b.id === trans.id)
+      return {
+        id: trans.id,
+        url: base?.url || '',
+        demo_link: base?.demo_link,
+        title: trans.title,
+        excerpt: trans.excerpt,
+        shortDescription: trans.shortDescription,
+        highlights: trans.highlights,
+        category: base?.category || '',
+        tags: base?.tags || [],
+        publishDate: base?.publishDate || '',
+      }
+    }),
   }
 }
 

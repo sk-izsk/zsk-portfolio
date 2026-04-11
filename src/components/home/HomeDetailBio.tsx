@@ -1,6 +1,6 @@
 import React from 'react'
 import { usePersonalInfo } from '../../stores/portfolioStore'
-import { TextHighlighter } from '../common/TextHighlighter'
+import { TextHighlighter } from '../common/textHighlighter/TextHighlighter'
 import { homeInfoP } from './home.css'
 
 export const HomeDetailBio: React.FC = () => {

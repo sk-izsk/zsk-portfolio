@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { Modal } from '../../src/components/common/Modal'
+import { Modal } from '../../src/components/common/modal/Modal'
 
 describe('Modal', () => {
   it('renders children when open', () => {

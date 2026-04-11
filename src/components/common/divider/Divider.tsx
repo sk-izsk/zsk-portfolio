@@ -1,5 +1,5 @@
 import React from 'react'
-import { divider, dividerVertical } from './modalExtra.css'
+import { divider, dividerVertical } from './divider.css'
 
 interface DividerProps {
   vertical?: boolean

@@ -1,9 +1,9 @@
 import { MessageCircle } from 'lucide-react'
 import { useState } from 'react'
 import { PopupModal } from 'react-calendly'
-import { trackGaEvent, trackMixpanelEvent } from '../hooks/useAnalytics'
-import { useTranslation } from '../localization/localize'
-import { useThemeStore } from '../stores/themeStore'
+import { trackGaEvent, trackMixpanelEvent } from '../../hooks/useAnalytics'
+import { useTranslation } from '../../localization/localize'
+import { useThemeStore } from '../../stores/themeStore'
 import { floatingContainer, triggerButton, triggerIcon, triggerLabelDesktop } from './canedly.css'
 
 const colorThemes = {

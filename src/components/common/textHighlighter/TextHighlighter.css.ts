@@ -1,5 +1,5 @@
 import { globalStyle, keyframes, style } from '@vanilla-extract/css'
-import { vars } from '../../styles/theme.css'
+import { vars } from '../../../styles/theme.css'
 import {
   darkColor1Theme,
   darkColor2Theme,
@@ -7,12 +7,11 @@ import {
   darkColor5Theme,
   darkColor7Theme,
   darkColor9Theme,
-} from '../../styles/themes.css'
+} from '../../../styles/themes.css'
 
 const squiggleMask =
   'url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 240 28%27 preserveAspectRatio=%27none%27%3E%3Cpath d=%27M2 18 C20 10 38 24 56 16 C74 8 92 22 110 15 C128 9 146 23 164 16 C182 9 200 21 218 14 C226 12 232 14 238 13%27 fill=%27none%27 stroke=%27black%27 stroke-width=%276%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E")'
 
-// Deepen light/pastel skins so all theme colors (not only blue) read with similar prominence.
 const skinMarkerRich = `color-mix(in srgb, ${vars.color.skin} 82%, black)`
 
 const darkThemeSelector = [
@@ -203,14 +202,12 @@ globalStyle(`.${underline} .${highlighterText}`, {
     '(max-width: 767px)': {
       WebkitBoxDecorationBreak: 'clone',
       boxDecorationBreak: 'clone',
-      paddingBottom: '0.2em',
-      backgroundImage: `
-        radial-gradient(circle at 0.12em -0.02em, transparent 0.13em, ${vars.color.skin} 0.135em, ${vars.color.skin} 0.16em, transparent 0.165em),
-        radial-gradient(circle at 0.12em 0.3em, transparent 0.13em, ${vars.color.skin} 0.135em, ${vars.color.skin} 0.16em, transparent 0.165em)
-      `,
-      backgroundRepeat: 'repeat-x',
-      backgroundSize: '0.24em 0.28em',
-      backgroundPosition: '0 calc(100% - 0.02em)',
+      paddingBottom: '0.1em',
+      textDecorationLine: 'underline',
+      textDecorationStyle: 'wavy',
+      textDecorationColor: vars.color.skin,
+      textDecorationThickness: '2px',
+      textUnderlineOffset: '0.15em',
     },
   },
 })

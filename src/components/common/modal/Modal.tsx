@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { useTranslation } from '../../localization/localize'
-import { Button } from './Button'
-import { Divider } from './Divider'
+import { useTranslation } from '../../../localization/localize'
+import { Button } from '../button/Button'
+import { Divider } from '../divider/Divider'
 import * as modalStyles from './modal.css'
-import * as modalExtra from './modalExtra.css'
 
 const modalRoot = typeof window !== 'undefined' ? document.body : null
 
@@ -19,7 +18,7 @@ type ModalCompound = React.FC<ModalProps> & {
   Body: React.FC<{ children: React.ReactNode }>
   Description: React.FC<{ children: React.ReactNode }>
   Highlights: React.FC<{ children: React.ReactNode }>
-  Footer: React.FC<{ link?: string; onClose: () => void }>
+  Footer: React.FC<{ link?: string; demoLink?: string; onClose: () => void }>
 }
 
 export const Modal: ModalCompound = ({ open, onClose, children }) => {
@@ -72,7 +71,7 @@ export const Modal: ModalCompound = ({ open, onClose, children }) => {
 
   return createPortal(
     <div
-      className={`${modalExtra.overlay} ${open ? modalStyles.overlayAnimateIn : modalStyles.overlayAnimateOut}`}
+      className={`${modalStyles.overlay} ${open ? modalStyles.overlayAnimateIn : modalStyles.overlayAnimateOut}`}
     >
       <div
         ref={ref}
@@ -89,7 +88,7 @@ export const Modal: ModalCompound = ({ open, onClose, children }) => {
 Modal.Title = ({ children }) => (
   <>
     <div className={modalStyles.titleRowSticky}>
-      <h2 className={modalExtra.title}>{children}</h2>
+      <h2 className={modalStyles.title}>{children}</h2>
     </div>
     <Divider />
   </>
@@ -97,38 +96,49 @@ Modal.Title = ({ children }) => (
 
 Modal.Body = ({ children }) => <div className={modalStyles.modalBody}>{children}</div>
 
-Modal.Description = ({ children }) => <div className={modalExtra.desc}>{children}</div>
+Modal.Description = ({ children }) => <div className={modalStyles.desc}>{children}</div>
 
 Modal.Highlights = ({ children }) => <ul className={modalStyles.highlights}>{children}</ul>
 
-Modal.Footer = ({ link, onClose }) => {
+Modal.Footer = ({ link, demoLink, onClose }) => {
   const { t } = useTranslation()
   return (
     <>
       <Divider />
       <div className={modalStyles.footerSticky}>
-        <Button
-          variant="secondary"
-          size="medium"
-          style={{ marginRight: 12 }}
-          onClick={onClose}
-          type="button"
-        >
-          {t('common.modal.close')}
-        </Button>
-        {link && link !== '' && (
-          <Button
-            as="a"
-            href={link}
-            variant="primary"
-            size="medium"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: 'none' }}
-          >
-            {t('common.modal.projectLink')}
+        <div>
+          {demoLink && demoLink !== '' && (
+            <Button
+              as="a"
+              href={demoLink}
+              variant="primary"
+              size="medium"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none' }}
+            >
+              {t('common.modal.demoLink')}
+            </Button>
+          )}
+        </div>
+        <div style={{ display: 'flex', gap: 12 }}>
+          <Button variant="secondary" size="medium" onClick={onClose} type="button">
+            {t('common.modal.close')}
           </Button>
-        )}
+          {link && link !== '' && (
+            <Button
+              as="a"
+              href={link}
+              variant="primary"
+              size="medium"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none' }}
+            >
+              {t('common.modal.projectLink')}
+            </Button>
+          )}
+        </div>
       </div>
     </>
   )
