@@ -71,6 +71,8 @@ Rather than depending solely on third-party libraries, I abstracted internal str
   Provides a completely self-contained, highly strict `ErrorBoundary` layout to safely capture rendering and networking crashes, preventing the catastrophic "White Screen of Death" in production.
 - **[zsk-react-i18n](https://github.com/sk-izsk/zsk-react-i18n)**
   A lightweight, context-driven localization wrapper utilized to seamlessly switch the application's internal text graphs between English and French with zero layout tearing.
+- **[zsk-use-sound](https://github.com/sk-izsk/zsk-use-sound)**
+  A custom React hook that abstracts the entire Web Audio API into a simple `useSound` interface, allowing any component to generate dynamic audio effects without needing to manage buffers or external libraries.
 
 ---
 
