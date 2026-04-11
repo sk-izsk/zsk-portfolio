@@ -191,6 +191,22 @@
         "Interface popup Glassmorphism avec bascules par fonctionnalité et interrupteur principal",
         "Zéro donnée collectée — JavaScript local pur sans dépendance externe"
       ]
+    },
+    {
+      "id": 6,
+      "title": "zsk-portfolio : Ce portfolio (sur-architecturé par choix)",
+      "excerpt": "Le site que vous regardez en ce moment. Construit comme un exercice délibéré d'architecture senior avec React 19, Vanilla Extract, Zustand et un système de design CSS à zéro coût runtime. Chaque choix technologique a une raison — certaines pratiques, d'autres intentionnellement ambitieuses.",
+      "shortDescription": "Un portfolio de développeur entièrement interactif conçu pour mettre en valeur autant les décisions d'architecture que le soin apporté à l'interface. Utilise une couche de données JSON headless, un CSS-in-JS compilé à build-time, des patterns de composants composés, le support PWA offline, un moteur de clic audio synthétique, et une persistance d'état sûre à l'hydration. Sur-architecturé intentionnellement.",
+      "highlights": [
+        "CSS zéro-runtime via Vanilla Extract — les styles sont en TypeScript, compilés en fichiers .css statiques",
+        "15+ thèmes de couleurs interchangeables basés sur un système createThemeContract typé",
+        "Intégration du compilateur React 19 — mémoisation automatique, sans useMemo/useCallback manuels",
+        "Couche de données JSON headless dans /public — totalement découplée de l'UI, réutilisable dans n'importe quel futur projet",
+        "Sons de clic synthétiques via Web Audio API (aucun fichier .mp3, aucune requête réseau)",
+        "Compatible PWA via vite-plugin-pwa avec mise en cache par service worker",
+        "Accessibilité clavier : T (thème), M (mute), Cmd+D (télécharger le CV)",
+        "Packages NPM personnalisés : zsk-react-error et zsk-react-i18n utilisés en production"
+      ]
     }
   ]
 }

@@ -31,6 +31,7 @@ const ProjectScreen: React.FC = () => {
           ...project,
           projectHref,
           isExternal: projectHref.startsWith('http'),
+          demoLink: project.demo_link ?? '',
         }
       }),
     [projects],
@@ -94,6 +95,7 @@ const ProjectScreen: React.FC = () => {
               </Modal.Body>
               <Modal.Footer
                 link={selectedProject.projectHref}
+                demoLink={selectedProject.demoLink}
                 onClose={() => setModalOpen(false)}
               />
             </Modal>

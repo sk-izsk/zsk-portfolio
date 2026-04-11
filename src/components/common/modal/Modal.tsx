@@ -18,7 +18,7 @@ type ModalCompound = React.FC<ModalProps> & {
   Body: React.FC<{ children: React.ReactNode }>
   Description: React.FC<{ children: React.ReactNode }>
   Highlights: React.FC<{ children: React.ReactNode }>
-  Footer: React.FC<{ link?: string; onClose: () => void }>
+  Footer: React.FC<{ link?: string; demoLink?: string; onClose: () => void }>
 }
 
 export const Modal: ModalCompound = ({ open, onClose, children }) => {
@@ -100,34 +100,50 @@ Modal.Description = ({ children }) => <div className={modalStyles.desc}>{childre
 
 Modal.Highlights = ({ children }) => <ul className={modalStyles.highlights}>{children}</ul>
 
-Modal.Footer = ({ link, onClose }) => {
+Modal.Footer = ({ link, demoLink, onClose }) => {
   const { t } = useTranslation()
   return (
     <>
       <Divider />
       <div className={modalStyles.footerSticky}>
-        <Button
-          variant="secondary"
-          size="medium"
-          style={{ marginRight: 12 }}
-          onClick={onClose}
-          type="button"
-        >
-          {t('common.modal.close')}
-        </Button>
-        {link && link !== '' && (
+        <div>
+          {demoLink && demoLink !== '' && (
+            <Button
+              as="a"
+              href={demoLink}
+              variant="primary"
+              size="medium"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none' }}
+            >
+              {t('common.modal.demoLink')}
+            </Button>
+          )}
+        </div>
+        <div style={{ display: 'flex', gap: 12 }}>
           <Button
-            as="a"
-            href={link}
-            variant="primary"
+            variant="secondary"
             size="medium"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: 'none' }}
+            onClick={onClose}
+            type="button"
           >
-            {t('common.modal.projectLink')}
+            {t('common.modal.close')}
           </Button>
-        )}
+          {link && link !== '' && (
+            <Button
+              as="a"
+              href={link}
+              variant="primary"
+              size="medium"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none' }}
+            >
+              {t('common.modal.projectLink')}
+            </Button>
+          )}
+        </div>
       </div>
     </>
   )

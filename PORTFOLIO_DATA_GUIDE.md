@@ -1,6 +1,72 @@
-# Portfolio Data Structure
+# Portfolio Data Structure Guide
 
-This document describes the portfolio data structure created for your React-Vite application, designed to be compatible with the Modern Portfolio Website template and your existing portfolio projects.
+This describes the actual data architecture used by this portfolio application.
+
+## Overview
+
+Portfolio data is split across three static JSON files in `/public/`. This separation keeps language-agnostic data (URLs, dates, tags) in one place and translated content (titles, descriptions) in separate files per locale. The files are merged at runtime via `usePortfolioData`.
+
+```text
+public/
+├── portfolio-data-common.json          # Language-agnostic data
+├── portfolio-data-translations-en.json # English content
+└── portfolio-data-translations-fr.json # French content
+```
+
+## Data Sections
+
+### `personalInfo`
+Basic identity fields. Non-translatable values (avatar URL, resume link, location, birthday) live in `common`. Translatable fields (bio, segments, name) live in translation files.
+
+### `contact`
+All in `common`. Social links keyed by platform (`github`, `linkedin`, etc.).
+
+### `skills`
+All in `common`. Contains `technical` (array of `{ name, level, category }`) and `categories` (grouped lists for UI rendering).
+
+### `education`
+Base duration in `common` (by `id`). Degree name and description in translation files (matched by `id`).
+
+### `experience`
+Base company/position/duration in `common`. Description and highlights array in translation files.
+
+### `services`
+Base icon in `common`. Title and description in translation files.
+
+### `projects`
+Base URL and tags in `common`. Title, excerpt, shortDescription, highlights in translation files.
+
+## Project Interface
+
+```ts
+interface Project {
+  id: number
+  title: string
+  url?: string        // GitHub or source link — drives the 'Project Link' button
+  demo_link?: string  // Optional live URL — drives the 'Live Demo' button (only shown if present)
+  excerpt: string
+  shortDescription: string
+  highlights: string[]
+  category: string
+  tags: string[]
+  publishDate: string
+}
+```
+
+The `demo_link` field is intentionally optional. Only the portfolio project (id 6) has a `demo_link` set to `https://izsk.netlify.app`. Any project without this field will simply not render the Demo button in the modal.
+
+## Updating Data
+
+1. Edit the relevant JSON file(s) in `/public/`.
+2. No code changes needed — React Query and the store automatically pick up the new data on next fetch.
+3. If adding a new project, add the base entry (url, tags, publishDate, demo_link if applicable) to `common` and the translatable content to both EN and FR files with a matching `id`.
+
+## Adding a New Language
+
+1. Create `portfolio-data-translations-[locale].json` following the same structure as `en.json`.
+2. Register the locale in `src/localization/localize.ts`.
+3. The merge logic in `usePortfolioData` will automatically compose the full data object.
+
 
 ## Overview
 

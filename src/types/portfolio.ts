@@ -86,6 +86,7 @@ export interface Project {
   id: number
   title: string
   url?: string
+  demo_link?: string
   excerpt: string
   shortDescription: string
   highlights: string[]

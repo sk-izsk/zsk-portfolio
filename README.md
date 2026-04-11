@@ -7,7 +7,7 @@
 
 > **Live Application Server**: [https://izsk.netlify.app](https://izsk.netlify.app)
 
-![Zeeshan Portfolio Interface](./screenshot.png)
+![Zeeshan Portfolio Interface](https://izsk.netlify.app/images/screenshot.png)
 
 This repository serves as my interactive full-stack developer portfolio. More importantly, it is a living showcase of modern system design, web performance optimization, and rigorous frontend architectural patterns.
 
@@ -99,4 +99,4 @@ bun install
 bun start
 ```
 
-_Code metrics formulated logically by Zeeshan Murshed._
+_Code metrics formulated logically by Shaikh Zeeshan Murshed._

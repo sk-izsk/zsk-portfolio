@@ -93,9 +93,8 @@ export const highlights = style({
 
 export const footerSticky = style({
   display: 'flex',
-  justifyContent: 'flex-end',
+  justifyContent: 'space-between',
   alignItems: 'center',
-  gap: 12,
   minHeight: '3.125rem',
   padding: '0 16px',
   position: 'sticky',
