@@ -10,11 +10,12 @@ import {
 } from '../components/projects/projects.css'
 import { ProjectTypeDropdown } from '../components/projects/ProjectTypeDropdown'
 import { Screen } from '../components/Screen'
-import { trackGaEvent, trackMixpanelEvent, useAnalytics } from '../hooks/useAnalytics'
+import { useAnalytics } from '../hooks/useAnalytics'
 import { useHandleParams } from '../hooks/useHandleParams'
 import { useTranslation } from '../localization/localize'
 import { usePortfolioError, usePortfolioLoading, useProjects } from '../stores/portfolioStore'
 import type { ProjectFilterType } from '../types/portfolio'
+import { trackGaEvent, trackMixpanelEvent } from '../utils/analytics'
 
 const projectFilterValues = [
   'all',

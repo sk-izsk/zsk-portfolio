@@ -1,10 +1,10 @@
 import { Briefcase, Cog, House, List, MessageCircle, User } from 'lucide-react'
 import React, { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
-import { trackGaEvent, trackMixpanelEvent } from '../../hooks/useAnalytics'
 import { useTranslation } from '../../localization/localize'
 import { usePersonalInfo, usePortfolioLoading } from '../../stores/portfolioStore'
 import { useSidebarStore } from '../../stores/sidebarStore'
+import { trackGaEvent, trackMixpanelEvent } from '../../utils/analytics'
 import { HyperText } from '../common/hyperText/HyperText'
 import { SidebarNavItem } from './SidebarNavItem'
 import {

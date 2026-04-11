@@ -1,7 +1,6 @@
 import { MessageCircle } from 'lucide-react'
 import { useState } from 'react'
 import { PopupModal } from 'react-calendly'
-import { trackGaEvent, trackMixpanelEvent } from '../../hooks/useAnalytics'
 import { useTranslation } from '../../localization/localize'
 import { useThemeStore } from '../../stores/themeStore'
 import {
@@ -16,6 +15,7 @@ import {
   triggerIcon,
   triggerLabelDesktop,
 } from './canedly.css'
+import { trackGaEvent, trackMixpanelEvent } from '../../utils/analytics'
 
 const colorThemes = {
   'color-1': '#ec1839',

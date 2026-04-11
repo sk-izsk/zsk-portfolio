@@ -1,8 +1,8 @@
 import React from 'react'
-import { trackGaEvent, trackMixpanelEvent } from '../../hooks/useAnalytics'
 import { useTranslation } from '../../localization/localize'
 import { usePersonalInfo } from '../../stores/portfolioStore'
 import { Button } from '../common/button/Button'
+import { trackGaEvent, trackMixpanelEvent } from '../../utils/analytics'
 
 export const HomeDownloadCv: React.FC = () => {
   const personalInfo = usePersonalInfo()

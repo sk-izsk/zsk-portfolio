@@ -1,6 +1,5 @@
 import dayjs from 'dayjs'
 import React from 'react'
-import { trackGaEvent, trackMixpanelEvent } from '../../hooks/useAnalytics'
 import { useTranslation } from '../../localization/localize'
 import { useContactInfo, usePersonalInfo } from '../../stores/portfolioStore'
 import { Button } from '../common/button/Button'
@@ -14,6 +13,7 @@ import {
   infoItemSpanLink,
   personalInfoSection,
 } from './about.css'
+import { trackGaEvent, trackMixpanelEvent } from '../../utils/analytics'
 
 export const AboutPersonalInfoSection: React.FC = () => {
   const { t, i18n } = useTranslation()

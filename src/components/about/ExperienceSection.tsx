@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { trackGaEvent, trackMixpanelEvent } from '../../hooks/useAnalytics'
 import { useTranslation } from '../../localization/localize'
 import { useExperience } from '../../stores/portfolioStore'
 import { Modal } from '../common/modal/Modal'
@@ -7,6 +6,7 @@ import { TextReveal } from '../common/textReveal/TextReveal'
 import { ProjectCard } from '../projects/ProjectCard'
 import { experience as experienceClass, readMoreTrigger } from './about.css'
 import { ActivityTimeline } from './ActivityTimeline'
+import { trackGaEvent, trackMixpanelEvent } from '../../utils/analytics'
 
 export const ExperienceSection: React.FC = () => {
   const experienceData = useExperience() || []
