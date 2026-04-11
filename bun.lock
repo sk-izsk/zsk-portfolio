@@ -23,6 +23,7 @@
         "react-router": "^7.14.0",
         "react-router-dom": "^7.14.0",
         "typed.js": "^3.0.0",
+        "zsk-react-error": "^0.0.4",
         "zsk-react-i18n": "^0.0.5",
         "zustand": "^5.0.12",
       },
@@ -795,6 +796,8 @@
     "yallist": ["yallist@3.1.1", "", {}, "sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g=="],
 
     "yocto-queue": ["yocto-queue@0.1.0", "", {}, "sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q=="],
+
+    "zsk-react-error": ["zsk-react-error@0.0.4", "", { "dependencies": { "zustand": "^5.0.12" }, "peerDependencies": { "react": ">=18" } }, "sha512-TkdC54kGWl54cdNwTtZpL88PSDWyK3RPkG4C0w83h/XZUkLheZukfgHyL3P0L9ZTAHeXDqLk/OK9EVTOr75ujA=="],
 
     "zsk-react-i18n": ["zsk-react-i18n@0.0.5", "", { "dependencies": { "i18next": "^25.0.0", "react-i18next": "^16.0.0" }, "peerDependencies": { "react": "^19.0.0" } }, "sha512-pxKyhh7KDb+E9GPzm7Lazx/gdx790wQlwm4kqw/pek8ExeHH3snZVVCxVKr8X3fTqF6ATfSNtWjr84Q5qiXZ+Q=="],
 

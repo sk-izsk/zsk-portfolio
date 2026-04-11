@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 import { LocalizeProvider } from 'zsk-react-i18n'
 import { useClickSound } from '../hooks/useClickSound'
+import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts'
 import { usePortfolioData } from '../hooks/usePortfolioData'
 import { localizeConfig, useTranslation } from '../localization/localize'
 import { usePortfolioStore } from '../stores/portfolioStore'
@@ -13,6 +14,7 @@ import { useSidebarStore } from '../stores/sidebarStore'
 import '../styles/global.css'
 import { Canedly } from './canedly/Canedly'
 import { ThemeAnimatedCursor } from './common/ThemeAnimatedCursor'
+import { ErrorBoundary } from './errorBoundary/ErrorBoundary'
 import { Sidebar } from './sidebar/Sidebar'
 import { StyleSwitcher } from './styleSwitcher/StyleSwitcher'
 
@@ -35,8 +37,8 @@ const AppLayout = ({ children }: PropsWithChildren) => {
   const portfolioQuery = usePortfolioData(currentLanguage)
   const { setData, setLoading, setError } = usePortfolioStore()
 
-  // Spin up global audio listening directly tied to the primary interaction tree
   useClickSound()
+  useKeyboardShortcuts()
 
   useEffect(() => {
     setLoading(portfolioQuery.isLoading)
@@ -73,14 +75,16 @@ const AppLayout = ({ children }: PropsWithChildren) => {
 
 export const AppWrapper = ({ children }: PropsWithChildren) => {
   return (
-    <HelmetProvider>
-      <LocalizeProvider config={localizeConfig}>
-        <QueryClientProvider client={queryClient}>
-          <Router>
-            <AppLayout>{children}</AppLayout>
-          </Router>
-        </QueryClientProvider>
-      </LocalizeProvider>
-    </HelmetProvider>
+    <ErrorBoundary>
+      <HelmetProvider>
+        <LocalizeProvider config={localizeConfig}>
+          <QueryClientProvider client={queryClient}>
+            <Router>
+              <AppLayout>{children}</AppLayout>
+            </Router>
+          </QueryClientProvider>
+        </LocalizeProvider>
+      </HelmetProvider>
+    </ErrorBoundary>
   )
 }
