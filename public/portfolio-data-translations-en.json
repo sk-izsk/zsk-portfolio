@@ -13,7 +13,15 @@
       },
       { "text": "Expanding into full-stack system design", "mark": "highlight" },
       {
-        "text": ". Acted as technical lead and proxy PO to synchronize cross-functional delivery. Leverage AI as a critical peer for architectural pair-planning. Obsessive focus on Core Web Vitals and clean architecture.",
+        "text": ". Acted as technical lead and proxy PO to synchronize cross-functional delivery. ",
+        "mark": "none"
+      },
+      {
+        "text": "Leverage AI as a critical peer for architectural pair-planning",
+        "mark": "highlight"
+      },
+      {
+        "text": ". Obsessive focus on Core Web Vitals and clean architecture.",
         "mark": "none"
       }
     ],

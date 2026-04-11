@@ -12,6 +12,9 @@ import {
 const squiggleMask =
   'url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 240 28%27 preserveAspectRatio=%27none%27%3E%3Cpath d=%27M2 18 C20 10 38 24 56 16 C74 8 92 22 110 15 C128 9 146 23 164 16 C182 9 200 21 218 14 C226 12 232 14 238 13%27 fill=%27none%27 stroke=%27black%27 stroke-width=%276%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E")'
 
+// Deepen light/pastel skins so all theme colors (not only blue) read with similar prominence.
+const skinMarkerRich = `color-mix(in srgb, ${vars.color.skin} 82%, black)`
+
 const darkThemeSelector = [
   darkColor1Theme,
   darkColor2Theme,
@@ -72,10 +75,19 @@ export const highlight = style({
   borderRadius: '0.2em',
   WebkitBoxDecorationBreak: 'clone',
   boxDecorationBreak: 'clone',
-  backgroundImage: `linear-gradient(color-mix(in srgb, ${vars.color.skin} 24%, transparent), color-mix(in srgb, ${vars.color.skin} 24%, transparent))`,
+  backgroundImage: `
+    linear-gradient(
+      color-mix(in srgb, ${skinMarkerRich} 36%, transparent),
+      color-mix(in srgb, ${skinMarkerRich} 36%, transparent)
+    ),
+    linear-gradient(
+      color-mix(in srgb, ${vars.color.skin} 20%, transparent),
+      color-mix(in srgb, ${vars.color.skin} 20%, transparent)
+    )
+  `,
   backgroundRepeat: 'no-repeat',
-  backgroundPosition: '0 88%',
-  backgroundSize: '100% 68%',
+  backgroundPosition: '0 88%, 0 84%',
+  backgroundSize: '100% 68%, 100% 56%',
   animation: `${markerReveal} 420ms cubic-bezier(0.22, 1, 0.36, 1) both`,
   paddingInline: '0.06em',
 })
@@ -132,12 +144,12 @@ globalStyle(`.${highlight}`, {
 globalStyle(`${darkThemeSelector} .${highlight}`, {
   backgroundImage: `
     linear-gradient(
-      color-mix(in srgb, ${vars.color.skin} 62%, transparent),
-      color-mix(in srgb, ${vars.color.skin} 62%, transparent)
+      color-mix(in srgb, ${skinMarkerRich} 74%, transparent),
+      color-mix(in srgb, ${skinMarkerRich} 74%, transparent)
     ),
     linear-gradient(
-      color-mix(in srgb, white 10%, transparent),
-      color-mix(in srgb, white 10%, transparent)
+      color-mix(in srgb, ${vars.color.skin} 42%, transparent),
+      color-mix(in srgb, ${vars.color.skin} 42%, transparent)
     )
   `,
   backgroundPosition: '0 88%, 0 84%',

@@ -13,7 +13,15 @@
       },
       { "text": "En pleine expansion vers le design de systemes full-stack", "mark": "highlight" },
       {
-        "text": ". A agi en tant que lead technique et proxy PO pour synchroniser la livraison interfonctionnelle. J'utilise l'IA comme pair critique pour la planification d'architecture. Focus absolu sur les Core Web Vitals et l'architecture propre.",
+        "text": ". A agi en tant que lead technique et proxy PO pour synchroniser la livraison interfonctionnelle. ",
+        "mark": "none"
+      },
+      {
+        "text": "J'utilise l'IA comme pair critique pour la planification d'architecture",
+        "mark": "highlight"
+      },
+      {
+        "text": ". Focus absolu sur les Core Web Vitals et l'architecture propre.",
         "mark": "none"
       }
     ],
