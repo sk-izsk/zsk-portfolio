@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { beforeEach, describe, expect, it } from 'vitest'
 import ProjectScreen from '../../src/screens/ProjectScreen'
 import { usePortfolioStore } from '../../src/stores/portfolioStore'
@@ -13,7 +14,10 @@ const renderScreen = () =>
   )
 
 describe('ProjectScreen', () => {
-  beforeEach(() => usePortfolioStore.getState().reset())
+  beforeEach(() => {
+    usePortfolioStore.getState().reset()
+    window.history.pushState({}, '', '/projects')
+  })
 
   it('renders loading state', () => {
     usePortfolioStore.getState().setLoading(true)
@@ -62,5 +66,45 @@ describe('ProjectScreen', () => {
     const { container } = renderScreen()
 
     expect(container.querySelector('#projects')).toBeInTheDocument()
+  })
+
+  it('filters projects from the project-type query string', () => {
+    window.history.pushState({}, '', '/projects?project-type=frontend')
+    usePortfolioStore.getState().setData(mockPortfolioData)
+    renderScreen()
+
+    expect(screen.getByText('Portfolio Website')).toBeInTheDocument()
+    expect(screen.queryByText('Open Source CLI Tool')).not.toBeInTheDocument()
+  })
+
+  it('updates the URL query string when a project type is selected', async () => {
+    const user = userEvent.setup()
+    usePortfolioStore.getState().setData(mockPortfolioData)
+    renderScreen()
+
+    await user.click(screen.getByRole('button', { name: 'Filter projects by type' }))
+    await user.click(screen.getByRole('option', { name: 'Frontend' }))
+
+    await waitFor(() => {
+      expect(window.location.search).toBe('?project-type=frontend')
+    })
+    expect(screen.getByText('Portfolio Website')).toBeInTheDocument()
+    expect(screen.queryByText('Open Source CLI Tool')).not.toBeInTheDocument()
+  })
+
+  it('clears the query string when All is selected', async () => {
+    const user = userEvent.setup()
+    window.history.pushState({}, '', '/projects?project-type=frontend')
+    usePortfolioStore.getState().setData(mockPortfolioData)
+    renderScreen()
+
+    await user.click(screen.getByRole('button', { name: 'Filter projects by type' }))
+    await user.click(screen.getByRole('option', { name: 'All' }))
+
+    await waitFor(() => {
+      expect(window.location.search).toBe('')
+    })
+    expect(screen.getByText('Portfolio Website')).toBeInTheDocument()
+    expect(screen.getByText('Open Source CLI Tool')).toBeInTheDocument()
   })
 })

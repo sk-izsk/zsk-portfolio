@@ -82,11 +82,16 @@ export interface Service {
   description: string
 }
 
+export type ProjectType = 'full-stack' | 'frontend' | 'backend' | 'library' | 'misc'
+
+export type ProjectFilterType = 'all' | ProjectType
+
 export interface Project {
   id: number
   title: string
   url?: string
   demo_link?: string
+  projectType: ProjectType
   excerpt: string
   shortDescription: string
   highlights: string[]

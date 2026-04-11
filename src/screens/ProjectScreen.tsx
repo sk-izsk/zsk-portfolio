@@ -1,15 +1,31 @@
+import { parseAsStringLiteral, useQueryState } from 'nuqs'
 import React, { useMemo, useState } from 'react'
 import { Modal } from '../components/common/modal/Modal'
 import { ProjectCard } from '../components/projects/ProjectCard'
 import {
+  projectFilter,
   projectGrid,
   projectHeading,
   projectHeadingTitle,
+  projectToolbar,
 } from '../components/projects/projects.css'
+import { ProjectTypeDropdown } from '../components/projects/ProjectTypeDropdown'
 import { Screen } from '../components/Screen'
 import { trackGaEvent, trackMixpanelEvent, useAnalytics } from '../hooks/useAnalytics'
 import { useTranslation } from '../localization/localize'
 import { usePortfolioError, usePortfolioLoading, useProjects } from '../stores/portfolioStore'
+import type { ProjectFilterType } from '../types/portfolio'
+
+const projectFilterValues = [
+  'all',
+  'full-stack',
+  'frontend',
+  'backend',
+  'library',
+  'misc',
+] as const satisfies readonly ProjectFilterType[]
+
+const projectFilterParser = parseAsStringLiteral(projectFilterValues).withDefault('all')
 
 const ProjectScreen: React.FC = () => {
   const projects = useProjects()
@@ -17,6 +33,14 @@ const ProjectScreen: React.FC = () => {
   const error = usePortfolioError()
   const { t } = useTranslation()
   useAnalytics()
+  const [selectedProjectType, setSelectedProjectType] = useQueryState(
+    'project-type',
+    projectFilterParser,
+  )
+
+  const handleProjectTypeChange = (value: ProjectFilterType) => {
+    void setSelectedProjectType(value === 'all' ? null : value)
+  }
 
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedProject, setSelectedProject] = useState(
@@ -37,6 +61,14 @@ const ProjectScreen: React.FC = () => {
     [projects],
   )
 
+  const filteredProjects = useMemo(() => {
+    if (selectedProjectType === 'all') {
+      return projectViewModels
+    }
+
+    return projectViewModels.filter((project) => project.projectType === selectedProjectType)
+  }, [projectViewModels, selectedProjectType])
+
   return (
     <Screen
       sectionId="projects"
@@ -51,11 +83,18 @@ const ProjectScreen: React.FC = () => {
         <>
           <div className="row">
             <div className={`${projectHeading} padd-15`}>
-              <h2 className={projectHeadingTitle}>{t('projects.heading')}</h2>
+              <div className={projectToolbar}>
+                <h2 className={projectHeadingTitle}>{t('projects.heading')}</h2>
+                <ProjectTypeDropdown
+                  value={selectedProjectType}
+                  onChange={handleProjectTypeChange}
+                  className={projectFilter}
+                />
+              </div>
             </div>
           </div>
           <div className={`${projectGrid} padd-15`}>
-            {projectViewModels.map((project) => {
+            {filteredProjects.map((project) => {
               return (
                 <ProjectCard key={project.id}>
                   <ProjectCard.TimeLink
