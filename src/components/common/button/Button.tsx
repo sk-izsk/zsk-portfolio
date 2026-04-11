@@ -1,5 +1,13 @@
 import React from 'react'
-import { button, large, link, medium, primary, secondary, small } from '@components/common/button/button.css.ts'
+import {
+  button,
+  large,
+  link,
+  medium,
+  primary,
+  secondary,
+  small,
+} from '@components/common/button/button.css.ts'
 
 export type ButtonVariant = 'primary' | 'secondary' | 'link'
 export type ButtonSize = 'small' | 'medium' | 'large'

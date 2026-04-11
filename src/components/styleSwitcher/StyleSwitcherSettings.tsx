@@ -1,7 +1,11 @@
 import { Settings } from 'lucide-react'
 import React from 'react'
 import type { ThemeColor } from '@stores/themeStore'
-import { s_icon, settingsIcon, styleSwitcherToggler } from '@components/styleSwitcher/styleSwitcher.css'
+import {
+  s_icon,
+  settingsIcon,
+  styleSwitcherToggler,
+} from '@components/styleSwitcher/styleSwitcher.css'
 import { StyleSwitcherThemeColors } from '@components/styleSwitcher/StyleSwitcherThemeColors'
 
 interface StyleSwitcherSettingsProps {
