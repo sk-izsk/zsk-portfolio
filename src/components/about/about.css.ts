@@ -217,6 +217,19 @@ export const timelineDate = style({
   fontWeight: 400,
   marginBottom: '12px',
   color: vars.color.text[700],
+  display: 'flex',
+  alignItems: 'center',
+  lineHeight: 1.4,
+})
+
+export const timelineDateIcon = style({
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexShrink: 0,
+  width: '14px',
+  height: '14px',
+  marginRight: '8px',
 })
 
 export const timelineTitle = style({

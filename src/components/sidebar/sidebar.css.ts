@@ -182,11 +182,13 @@ export const navLi = style({
 export const navA = style({
   fontSize: '16px',
   fontWeight: 600,
-  display: 'block',
+  display: 'flex',
+  alignItems: 'center',
   borderBottom: `1px solid ${vars.color.background[50]}`,
   color: vars.color.text[900],
   padding: '5px 15px',
   textDecoration: 'none',
+  lineHeight: 1.4,
 })
 
 export const navAActive = style({
@@ -194,5 +196,11 @@ export const navAActive = style({
 })
 
 export const navAI = style({
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexShrink: 0,
+  width: '16px',
+  height: '16px',
   marginRight: '15px',
 })
