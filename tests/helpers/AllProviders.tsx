@@ -1,5 +1,4 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { NuqsAdapter } from 'nuqs/adapters/react-router/v7'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
@@ -27,9 +26,7 @@ export const AllProviders: React.FC<WrapperProps> = ({ children, queryClient }) 
   return (
     <QueryClientProvider client={client}>
       <LocalizeProvider config={localizeConfig}>
-        <BrowserRouter>
-          <NuqsAdapter>{children}</NuqsAdapter>
-        </BrowserRouter>
+        <BrowserRouter>{children}</BrowserRouter>
       </LocalizeProvider>
     </QueryClientProvider>
   )

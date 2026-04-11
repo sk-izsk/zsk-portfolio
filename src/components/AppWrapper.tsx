@@ -1,5 +1,4 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { NuqsAdapter } from 'nuqs/adapters/react-router/v7'
 import type { PropsWithChildren } from 'react'
 import { useEffect } from 'react'
 import { HelmetProvider } from 'react-helmet-async'
@@ -81,9 +80,7 @@ export const AppWrapper = ({ children }: PropsWithChildren) => {
         <LocalizeProvider config={localizeConfig}>
           <QueryClientProvider client={queryClient}>
             <Router>
-              <NuqsAdapter>
-                <AppLayout>{children}</AppLayout>
-              </NuqsAdapter>
+              <AppLayout>{children}</AppLayout>
             </Router>
           </QueryClientProvider>
         </LocalizeProvider>

@@ -1,4 +1,3 @@
-import { parseAsStringLiteral, useQueryState } from 'nuqs'
 import React, { useMemo, useState } from 'react'
 import { Modal } from '../components/common/modal/Modal'
 import { ProjectCard } from '../components/projects/ProjectCard'
@@ -12,6 +11,7 @@ import {
 import { ProjectTypeDropdown } from '../components/projects/ProjectTypeDropdown'
 import { Screen } from '../components/Screen'
 import { trackGaEvent, trackMixpanelEvent, useAnalytics } from '../hooks/useAnalytics'
+import { useHandleParams } from '../hooks/useHandleParams'
 import { useTranslation } from '../localization/localize'
 import { usePortfolioError, usePortfolioLoading, useProjects } from '../stores/portfolioStore'
 import type { ProjectFilterType } from '../types/portfolio'
@@ -25,21 +25,29 @@ const projectFilterValues = [
   'misc',
 ] as const satisfies readonly ProjectFilterType[]
 
-const projectFilterParser = parseAsStringLiteral(projectFilterValues).withDefault('all')
-
 const ProjectScreen: React.FC = () => {
   const projects = useProjects()
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
   const { t } = useTranslation()
   useAnalytics()
-  const [selectedProjectType, setSelectedProjectType] = useQueryState(
-    'project-type',
-    projectFilterParser,
+  const { currentParams, updateParams, clearParams } = useHandleParams<{
+    projectType: ProjectFilterType
+  }>()
+
+  const selectedProjectType: ProjectFilterType = projectFilterValues.includes(
+    currentParams.projectType as ProjectFilterType,
   )
+    ? (currentParams.projectType as ProjectFilterType)
+    : 'all'
 
   const handleProjectTypeChange = (value: ProjectFilterType) => {
-    void setSelectedProjectType(value === 'all' ? null : value)
+    if (value === 'all') {
+      clearParams(['projectType'])
+      return
+    }
+
+    updateParams({ projectType: value })
   }
 
   const [modalOpen, setModalOpen] = useState(false)
