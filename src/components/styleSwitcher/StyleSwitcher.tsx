@@ -54,7 +54,6 @@ export const StyleSwitcher: React.FC = () => {
     setIsOpen((prevState) => !prevState)
   }
 
-  // Hide style switcher on mouse wheel or touch move
   useEffect(() => {
     if (!isOpen) {
       return
@@ -73,7 +72,6 @@ export const StyleSwitcher: React.FC = () => {
     }
   }, [isOpen])
 
-  // Apply selected theme class to body
   useEffect(() => {
     document.body.className = ''
 
@@ -84,7 +82,6 @@ export const StyleSwitcher: React.FC = () => {
     document.body.classList.add(themeClass)
   }, [isDarkMode, currentColor])
 
-  // Handle click outside to close style switcher
   useEffect(() => {
     if (!isOpen) {
       return

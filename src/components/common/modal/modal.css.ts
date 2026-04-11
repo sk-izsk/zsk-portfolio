@@ -165,18 +165,16 @@ export const overlay = style({
   left: 0,
   width: '100vw',
   height: '100vh',
-  // Always use a semi-opaque background for fallback
-  background: 'rgba(0,0,0,0.65)',
+  backgroundColor: 'rgba(0, 0, 0, 0.4)',
   zIndex: 1000,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   padding: 12,
   boxSizing: 'border-box',
-  // Guarantee both properties for all browsers and production builds
+  transform: 'translateZ(0)',
   backdropFilter: 'blur(2px)',
   WebkitBackdropFilter: 'blur(1px)',
-  // For Safari and iOS, force hardware acceleration for blur
   willChange: 'backdrop-filter',
   '@media': {
     'screen and (max-width: 768px)': {

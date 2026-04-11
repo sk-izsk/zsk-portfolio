@@ -143,7 +143,7 @@ export const colorItem = style({
   },
 })
 
-// Global hover styles using CSS custom properties for dynamic theme colors
+
 globalStyle(`.${styleSwitcherToggler}:hover`, {
   color: `${vars.color.skin} !important`,
 })

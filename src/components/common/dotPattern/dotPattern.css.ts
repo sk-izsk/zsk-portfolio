@@ -10,7 +10,7 @@ export const dotPatternContainer = style({
   width: '100%',
   height: '100%',
   pointerEvents: 'none',
-  zIndex: -1, // Behind the cards, above section background
+  zIndex: -1,
   fill: vars.color.skin,
   transition: 'opacity 0.3s ease',
   maskImage: 'radial-gradient(ellipse at center, white, transparent 80%)',

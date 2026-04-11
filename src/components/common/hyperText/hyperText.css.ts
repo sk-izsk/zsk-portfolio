@@ -1,10 +1,10 @@
 import { style } from '@vanilla-extract/css'
 
 export const hyperTextContainer = style({
-  // Removed inline-flex to restore baseline layout
+  position: 'relative',
 })
 
 export const hyperTextChar = style({
   display: 'inline-block',
-  whiteSpace: 'pre', // Preserves spaces accurately
+  whiteSpace: 'pre',
 })
