@@ -34,7 +34,9 @@ export function HyperText({
   const iterations = text.length
 
   const triggerAnimation = () => {
-    if (isAnimating.current) {return}
+    if (isAnimating.current) {
+      return
+    }
     isAnimating.current = true
 
     let currentIteration = 0
@@ -43,7 +45,9 @@ export function HyperText({
       () => {
         setDisplayText((currentText) =>
           currentText.map((l, i) => {
-            if (l === ' ') {return l}
+            if (l === ' ') {
+              return l
+            }
             if (i < currentIteration) {
               return text[i]
             }
@@ -66,7 +70,9 @@ export function HyperText({
   }
 
   useEffect(() => {
-    if (!animateOnLoad) {return}
+    if (!animateOnLoad) {
+      return
+    }
     let interval: NodeJS.Timeout | undefined
 
     const timeout = setTimeout(() => {
@@ -75,7 +81,9 @@ export function HyperText({
 
     return () => {
       clearTimeout(timeout)
-      if (interval) {clearInterval(interval)}
+      if (interval) {
+        clearInterval(interval)
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [text, animateOnLoad, delay])
@@ -84,7 +92,9 @@ export function HyperText({
     <Component
       className={`${hyperTextContainer} ${className || ''}`}
       onMouseEnter={() => {
-        if (animateOnHover) {triggerAnimation()}
+        if (animateOnHover) {
+          triggerAnimation()
+        }
       }}
       {...props}
     >
