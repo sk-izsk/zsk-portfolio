@@ -1,6 +1,6 @@
-import { createTheme } from '@vanilla-extract/css'
-import { createDarkThemeConfig, createLightThemeConfig } from '@utils/theme'
 import { vars } from '@styles/theme.css'
+import { createDarkThemeConfig, createLightThemeConfig } from '@utils/theme'
+import { createTheme } from '@vanilla-extract/css'
 
 const skinByColor = {
   'color-1': '#ec1839',
@@ -11,7 +11,7 @@ const skinByColor = {
   'color-9': '#00bfff',
 } as const
 
-export const lightTheme = createTheme(vars, createLightThemeConfig(skinByColor['color-1']))
+export const lightTheme = createTheme(vars, createLightThemeConfig(skinByColor['color-3']))
 
 // Color theme variations - light mode base
 export const color1Theme = createTheme(vars, createLightThemeConfig(skinByColor['color-1']))
@@ -41,5 +41,5 @@ export const darkColor7Theme = createTheme(vars, createDarkThemeConfig(skinByCol
 
 export const darkColor9Theme = createTheme(vars, createDarkThemeConfig(skinByColor['color-9']))
 
-// Default dark theme (alias for darkColor1Theme)
-export const darkTheme = darkColor1Theme
+// Default dark theme fallback (alias for darkColor3Theme)
+export const darkTheme = darkColor3Theme
