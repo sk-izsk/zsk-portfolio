@@ -1,8 +1,15 @@
 import { useProjects } from '@stores/portfolioStore'
 import { useMemo } from 'react'
 import { useSelectedProjectType } from './useSelectedProjectType'
+import type { Project } from '@app-types/portfolio'
 
-export const useProjectTypeFilteredProjects = () => {
+export type FilterProjectType = Project & {
+  projectHref: string
+  isExternal: boolean
+  demoLink: string
+}
+
+export const useProjectTypeFilteredProjects = () : FilterProjectType[] => {
   const projectsData = useProjects()
   const projects = useMemo(
     () =>
