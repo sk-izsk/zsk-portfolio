@@ -1,4 +1,3 @@
-import React, { useMemo, useState } from 'react'
 import { Modal } from '@components/common/modal/Modal'
 import { ProjectCard } from '@components/projects/ProjectCard'
 import {
@@ -11,20 +10,12 @@ import {
 import { ProjectTypeDropdown } from '@components/projects/ProjectTypeDropdown'
 import { Screen } from '@components/Screen'
 import { useAnalytics } from '@hooks/useAnalytics'
-import { useHandleParams } from '@hooks/useHandleParams'
 import { useTranslation } from '@localization/localize'
 import { usePortfolioError, usePortfolioLoading, useProjects } from '@stores/portfolioStore'
-import type { ProjectFilterType } from '@app-types/portfolio'
 import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
-
-const projectFilterValues = [
-  'all',
-  'full-stack',
-  'frontend',
-  'backend',
-  'library',
-  'misc',
-] as const satisfies readonly ProjectFilterType[]
+import React, { useState } from 'react'
+import { useProjectTypeFilteredProjects } from '../hooks/project/useProjectTypeFilteredProjects'
+import type { Project } from '../types/portfolio'
 
 const ProjectScreen: React.FC = () => {
   const projects = useProjects()
@@ -32,51 +23,11 @@ const ProjectScreen: React.FC = () => {
   const error = usePortfolioError()
   const { t } = useTranslation()
   useAnalytics()
-  const { currentParams, updateParams, clearParams } = useHandleParams<{
-    projectType: ProjectFilterType
-  }>()
-
-  const selectedProjectType: ProjectFilterType = projectFilterValues.includes(
-    currentParams.projectType as ProjectFilterType,
-  )
-    ? (currentParams.projectType as ProjectFilterType)
-    : 'all'
-
-  const handleProjectTypeChange = (value: ProjectFilterType) => {
-    if (value === 'all') {
-      clearParams(['projectType'])
-      return
-    }
-
-    updateParams({ projectType: value })
-  }
 
   const [modalOpen, setModalOpen] = useState(false)
-  const [selectedProject, setSelectedProject] = useState(
-    null as null | (typeof projectViewModels)[0],
-  )
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
-  const projectViewModels = useMemo(
-    () =>
-      (projects ?? []).map((project) => {
-        const projectHref = project.url || '#'
-        return {
-          ...project,
-          projectHref,
-          isExternal: projectHref.startsWith('http'),
-          demoLink: project.demo_link ?? '',
-        }
-      }),
-    [projects],
-  )
-
-  const filteredProjects = useMemo(() => {
-    if (selectedProjectType === 'all') {
-      return projectViewModels
-    }
-
-    return projectViewModels.filter((project) => project.projectType === selectedProjectType)
-  }, [projectViewModels, selectedProjectType])
+  const filteredProjects = useProjectTypeFilteredProjects()
 
   return (
     <Screen
@@ -94,11 +45,9 @@ const ProjectScreen: React.FC = () => {
             <div className={`${projectHeading} padd-15`}>
               <div className={projectToolbar}>
                 <h2 className={projectHeadingTitle}>{t('projects.heading')}</h2>
-                <ProjectTypeDropdown
-                  value={selectedProjectType}
-                  onChange={handleProjectTypeChange}
-                  className={projectFilter}
-                />
+                <div className={projectFilter}>
+                  <ProjectTypeDropdown />
+                </div>
               </div>
             </div>
           </div>
@@ -142,8 +91,8 @@ const ProjectScreen: React.FC = () => {
                 </Modal.Highlights>
               </Modal.Body>
               <Modal.Footer
-                link={selectedProject.projectHref}
-                demoLink={selectedProject.demoLink}
+                link={selectedProject.url}
+                demoLink={selectedProject.demo_link}
                 onClose={() => setModalOpen(false)}
               />
             </Modal>

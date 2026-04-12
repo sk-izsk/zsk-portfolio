@@ -1,6 +1,6 @@
+import { useThemeStore, type ThemeColor } from '@stores/themeStore'
 import React from 'react'
 import AnimatedCursor from 'react-animated-cursor'
-import { useThemeStore, type ThemeColor } from '@stores/themeStore'
 
 const cursorColorByTheme: Record<ThemeColor, string> = {
   'color-1': '236, 24, 57',
@@ -26,6 +26,14 @@ export const ThemeAnimatedCursor: React.FC = () => {
       outerAlpha={0.25}
       trailingSpeed={10}
       showSystemCursor={false}
+      innerStyle={{
+        zIndex: 2002,
+        pointerEvents: 'none',
+      }}
+      outerStyle={{
+        zIndex: 2002,
+        pointerEvents: 'none',
+      }}
       clickables={[
         'a',
         'button',

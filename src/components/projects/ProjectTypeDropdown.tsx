@@ -1,29 +1,11 @@
-import React from 'react'
-import { useTranslation } from '@localization/localize'
-import type { ProjectFilterType } from '@app-types/portfolio'
 import { Dropdown } from '@components/common/dropdown/Dropdown'
+import { projectFilterValues, useSelectedProjectType } from '@hooks/project/useSelectedProjectType'
+import { useTranslation } from '@localization/localize'
+import React from 'react'
 
-const projectFilterValues = [
-  'all',
-  'full-stack',
-  'frontend',
-  'backend',
-  'library',
-  'misc',
-] as const satisfies readonly ProjectFilterType[]
-
-interface ProjectTypeDropdownProps {
-  value: ProjectFilterType
-  onChange: (value: ProjectFilterType) => void
-  className?: string
-}
-
-export const ProjectTypeDropdown: React.FC<ProjectTypeDropdownProps> = ({
-  value,
-  onChange,
-  className,
-}) => {
+export const ProjectTypeDropdown: React.FC = () => {
   const { t } = useTranslation()
+  const [selectedProjectType, setSelectedProjectType] = useSelectedProjectType()
 
   const options = projectFilterValues.map((optionValue) => ({
     value: optionValue,
@@ -32,11 +14,10 @@ export const ProjectTypeDropdown: React.FC<ProjectTypeDropdownProps> = ({
 
   return (
     <Dropdown
-      value={value}
+      value={selectedProjectType}
       options={options}
-      onChange={onChange}
+      onChange={setSelectedProjectType}
       ariaLabel={t('projects.filter.label')}
-      className={className}
     />
   )
 }

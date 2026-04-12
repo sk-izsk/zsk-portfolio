@@ -63,6 +63,7 @@ export default defineConfig({
       '@app-types': path.resolve(__dirname, 'src/types'),
       '@utils': path.resolve(__dirname, 'src/utils'),
       '@tests': path.resolve(__dirname, 'tests'),
+
     },
   },
   server: {

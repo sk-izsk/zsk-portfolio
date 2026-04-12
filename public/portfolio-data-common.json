@@ -240,7 +240,7 @@
     {
       "id": 1,
       "url": "https://github.com/sk-izsk/productify",
-      "projectType": "full-stack",
+      "projectTypes": ["full-stack", "frontend", "backend"],
       "category": "Full Stack",
       "tags": [
         "React 19",
@@ -260,7 +260,7 @@
     {
       "id": 2,
       "url": "https://github.com/sk-izsk/zsk-react-i18n",
-      "projectType": "library",
+      "projectTypes": ["library"],
       "category": "Library",
       "tags": [
         "TypeScript",
@@ -279,7 +279,7 @@
     {
       "id": 3,
       "url": "https://github.com/sk-izsk/zsk-react-error",
-      "projectType": "library",
+      "projectTypes": ["library"],
       "category": "Library",
       "tags": [
         "React 19",
@@ -296,7 +296,7 @@
     {
       "id": 4,
       "url": "https://github.com/sk-izsk/smart-ai",
-      "projectType": "full-stack",
+      "projectTypes": ["full-stack", "frontend", "backend"],
       "category": "Full Stack",
       "tags": [
         "Express 5",
@@ -322,7 +322,7 @@
     {
       "id": 5,
       "url": "https://github.com/sk-izsk/zsk-chrome-media-control",
-      "projectType": "misc",
+      "projectTypes": ["misc"],
       "category": "Browser Extension",
       "tags": [
         "Chrome Extension",
@@ -341,7 +341,7 @@
       "id": 6,
       "url": "https://github.com/sk-izsk/zsk-portfolio",
       "demo_link": "https://izsk.netlify.app",
-      "projectType": "frontend",
+      "projectTypes": ["frontend"],
       "category": "Portfolio",
       "tags": [
         "React 19",
@@ -362,7 +362,7 @@
     {
       "id": 7,
       "url": "https://github.com/sk-izsk/zsk-use-sound",
-      "projectType": "library",
+      "projectTypes": ["library"],
       "category": "Library",
       "tags": [
         "React Hook",
