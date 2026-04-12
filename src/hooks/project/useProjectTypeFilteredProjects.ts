@@ -9,7 +9,7 @@ export type FilterProjectType = Project & {
   demoLink: string
 }
 
-export const useProjectTypeFilteredProjects = () : FilterProjectType[] => {
+export const useProjectTypeFilteredProjects = (): FilterProjectType[] => {
   const projectsData = useProjects()
   const projects = useMemo(
     () =>
