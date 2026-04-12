@@ -11,6 +11,12 @@ import { ErrorBoundary as ZskErrorBoundary } from 'zsk-react-error'
 
 const CHUNK_RELOAD_GUARD = 'zsk-chunk-reload-attempted'
 
+const buildCacheBustedUrl = () => {
+  const url = new URL(window.location.href)
+  url.searchParams.set('_reboot', Date.now().toString())
+  return url.toString()
+}
+
 const isChunkLoadError = (error: unknown) => {
   const message = (error as Error | undefined)?.message ?? String(error)
 
@@ -38,7 +44,7 @@ const ErrorFallback: React.FC<{
     }
 
     window.sessionStorage.setItem(CHUNK_RELOAD_GUARD, 'true')
-    window.location.reload()
+    window.location.replace(buildCacheBustedUrl())
   }, [chunkLoadError])
 
   const handleRecover = async () => {
@@ -62,7 +68,7 @@ const ErrorFallback: React.FC<{
       // Best effort only: do not block reload if cleanup fails.
     }
 
-    window.location.reload()
+    window.location.replace(buildCacheBustedUrl())
   }
 
   return (
