@@ -91,7 +91,7 @@ export interface Project {
   title: string
   url?: string
   demo_link?: string
-  projectType: ProjectType
+  projectTypes: ProjectType[]
   excerpt: string
   shortDescription: string
   highlights: string[]

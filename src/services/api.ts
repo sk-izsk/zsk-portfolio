@@ -17,7 +17,7 @@ interface PortfolioCommonData {
     id: number
     url: string
     demo_link?: string
-    projectType: ProjectType
+    projectTypes: ProjectType[]
     category: string
     tags: string[]
     publishDate: string
@@ -118,7 +118,7 @@ const mergePortfolioData = (
         id: trans.id,
         url: base?.url || '',
         demo_link: base?.demo_link,
-        projectType: base?.projectType || 'misc',
+        projectTypes: base?.projectTypes?.length ? base.projectTypes : ['misc'],
         title: trans.title,
         excerpt: trans.excerpt,
         shortDescription: trans.shortDescription,

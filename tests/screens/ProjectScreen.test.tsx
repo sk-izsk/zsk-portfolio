@@ -1,10 +1,10 @@
-import { render, screen, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import { beforeEach, describe, expect, it } from 'vitest'
 import ProjectScreen from '@screens/ProjectScreen'
 import { usePortfolioStore } from '@stores/portfolioStore'
+import { render, screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { AllProviders } from '@tests/helpers/AllProviders'
 import { mockPortfolioData } from '@tests/helpers/mockPortfolioData'
+import { beforeEach, describe, expect, it } from 'vitest'
 
 const renderScreen = () =>
   render(
@@ -70,6 +70,15 @@ describe('ProjectScreen', () => {
 
   it('filters projects from the project-type query string', () => {
     window.history.pushState({}, '', '/projects?project-type=frontend')
+    usePortfolioStore.getState().setData(mockPortfolioData)
+    renderScreen()
+
+    expect(screen.getByText('Portfolio Website')).toBeInTheDocument()
+    expect(screen.queryByText('Open Source CLI Tool')).not.toBeInTheDocument()
+  })
+
+  it('matches projects by any project type tag in the array', () => {
+    window.history.pushState({}, '', '/projects?project-type=backend')
     usePortfolioStore.getState().setData(mockPortfolioData)
     renderScreen()
 

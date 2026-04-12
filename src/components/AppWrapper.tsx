@@ -4,19 +4,19 @@ import { useEffect } from 'react'
 import { HelmetProvider } from 'react-helmet-async'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import { LocalizeProvider } from 'zsk-react-i18n'
+import { Canedly } from '@components/canedly/Canedly'
+import { ThemeAnimatedCursor } from '@components/common/ThemeAnimatedCursor'
+import { ErrorBoundary } from '@components/errorBoundary/ErrorBoundary'
+import { Sidebar } from '@components/sidebar/Sidebar'
+import { StyleSwitcher } from '@components/styleSwitcher/StyleSwitcher'
 import { useKeyboardShortcuts } from '@hooks/useKeyboardShortcuts'
 import { usePortfolioData } from '@hooks/usePortfolioData'
 import { useSoundClick } from '@hooks/useSoundClick'
 import { localizeConfig, useTranslation } from '@localization/localize'
 import { usePortfolioStore } from '@stores/portfolioStore'
 import { useSidebarStore } from '@stores/sidebarStore'
+import { LocalizeProvider } from 'zsk-react-i18n'
 import '../styles/global.css'
-import { Canedly } from '@components/canedly/Canedly'
-import { ThemeAnimatedCursor } from '@components/common/ThemeAnimatedCursor'
-import { ErrorBoundary } from '@components/errorBoundary/ErrorBoundary'
-import { Sidebar } from '@components/sidebar/Sidebar'
-import { StyleSwitcher } from '@components/styleSwitcher/StyleSwitcher'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -74,6 +74,7 @@ const AppLayout = ({ children }: PropsWithChildren) => {
 }
 
 export const AppWrapper = ({ children }: PropsWithChildren) => {
+  console.log('tick')
   return (
     <ErrorBoundary>
       <HelmetProvider>
