@@ -61,8 +61,8 @@ export const mockPortfolioData: PortfolioData = {
     },
   ],
   services: [
-    { id: 1, title: 'Web Development', icon: 'code', description: 'Building modern web apps.' },
-    { id: 2, title: 'Mobile Development', icon: 'mobile-alt', description: 'React Native apps.' },
+    { id: 1, title: 'Web Development', description: 'Building modern web apps.' },
+    { id: 2, title: 'Mobile Development', description: 'React Native apps.' },
   ],
   projects: [
     {

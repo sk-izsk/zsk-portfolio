@@ -1,42 +1,25 @@
-import type { LucideIcon } from 'lucide-react'
-import {
-  Briefcase,
-  Code,
-  Cuboid,
-  Laptop,
-  LineChart,
-  Megaphone,
-  MessageCircle,
-  Palette,
-  Search,
-  Server,
-  Smartphone,
-} from 'lucide-react'
-import React from 'react'
 import { Screen } from '@components/Screen'
 import { ServiceCard } from '@components/services/ServiceCard'
 import { serviceRow } from '@components/services/services.css'
 import { useAnalytics } from '@hooks/useAnalytics'
 import { useTranslation } from '@localization/localize'
 import { usePortfolioError, usePortfolioLoading, useServices } from '@stores/portfolioStore'
+import type { LucideIcon } from 'lucide-react'
+import { Briefcase, Code, Cuboid, Laptop, MessageCircle, Server, Smartphone } from 'lucide-react'
+import React from 'react'
 
-const serviceIconMap: Record<string, LucideIcon> = {
-  code: Code,
-  'laptop-code': Laptop,
-  server: Server,
-  comments: MessageCircle,
-  palette: Palette,
-  'chart-line': LineChart,
-  'mobile-alt': Smartphone,
-  search: Search,
-  bullhorn: Megaphone,
-  cubes: Cuboid,
-  briefcase: Briefcase,
+const serviceIconById: Record<number, LucideIcon> = {
+  1: Laptop,
+  2: Server,
+  3: Code,
+  4: Smartphone,
+  5: Cuboid,
+  6: MessageCircle,
+  7: Briefcase,
 }
 
-const toServiceIcon = (rawIcon: string): LucideIcon => {
-  const normalized = rawIcon.replace('fa-', '')
-  return serviceIconMap[normalized] ?? Code
+const toServiceIcon = (serviceId: number): LucideIcon => {
+  return serviceIconById[serviceId] ?? Code
 }
 
 const ServiceScreen: React.FC = () => {
@@ -59,7 +42,7 @@ const ServiceScreen: React.FC = () => {
         <div className={`row ${serviceRow}`}>
           {services.map((service) => (
             <ServiceCard key={service.id}>
-              <ServiceCard.Icon icon={toServiceIcon(service.icon)} />
+              <ServiceCard.Icon icon={toServiceIcon(service.id)} />
               <ServiceCard.Title>{service.title}</ServiceCard.Title>
               <ServiceCard.Body>{service.description}</ServiceCard.Body>
             </ServiceCard>

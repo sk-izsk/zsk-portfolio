@@ -1,4 +1,4 @@
-import type { PortfolioData, ProjectType, RichTextSegment } from '@app-types/portfolio'
+import type { PortfolioData } from '@app-types/portfolio'
 import type { AppLanguage } from '@localization/index'
 import ky from 'ky'
 
@@ -17,7 +17,7 @@ interface PortfolioCommonData {
     id: number
     url: string
     demo_link?: string
-    projectTypes: ProjectType[]
+    projectTypes: PortfolioData['projects'][number]['projectTypes']
     category: string
     tags: string[]
     publishDate: string
@@ -32,10 +32,6 @@ interface PortfolioCommonData {
     id: number
     duration: string
   }>
-  servicesBase: Array<{
-    id: number
-    icon: string
-  }>
 }
 
 interface PortfolioTranslations {
@@ -45,9 +41,9 @@ interface PortfolioTranslations {
     greeting: string
     profession: string
     bio: string
-    bioSegments?: RichTextSegment[]
+    bioSegments?: PortfolioData['personalInfo']['bioSegments']
     detailedBio: string
-    detailedBioSegments?: RichTextSegment[]
+    detailedBioSegments?: PortfolioData['personalInfo']['detailedBioSegments']
   }
   education: Array<{
     id: number
@@ -73,9 +69,6 @@ interface PortfolioTranslations {
   }>
 }
 
-/**
- * Merge common data with language-specific translations
- */
 const mergePortfolioData = (
   common: PortfolioCommonData,
   translations: PortfolioTranslations,
@@ -109,15 +102,14 @@ const mergePortfolioData = (
     services: translations.services.map((trans) => ({
       id: trans.id,
       title: trans.title,
-      icon: common.servicesBase.find((base) => base.id === trans.id)?.icon || '',
       description: trans.description,
     })),
     projects: translations.projects.map((trans) => {
       const base = common.projectsBase.find((b) => b.id === trans.id)
       return {
         id: trans.id,
-        url: base?.url || '',
-        demo_link: base?.demo_link,
+        ...(base?.url ? { url: base.url } : {}),
+        ...(base?.demo_link ? { demo_link: base.demo_link } : {}),
         projectTypes: base?.projectTypes?.length ? base.projectTypes : ['misc'],
         title: trans.title,
         excerpt: trans.excerpt,
@@ -132,17 +124,19 @@ const mergePortfolioData = (
 }
 
 /**
- * Simple API client for portfolio data
+ * API client for portfolio data
  */
 export const portfolioApi = {
   getPortfolioData: async (language: AppLanguage): Promise<PortfolioData> => {
-    const common = await ky.get('portfolio-data-common.json').json<PortfolioCommonData>()
-
     const translationPath =
       language === 'fr'
         ? 'portfolio-data-translations-fr.json'
         : 'portfolio-data-translations-en.json'
-    const translations = await ky.get(translationPath).json<PortfolioTranslations>()
+
+    const [common, translations] = await Promise.all([
+      ky.get('portfolio-data-common.json').json<PortfolioCommonData>(),
+      ky.get(translationPath).json<PortfolioTranslations>(),
+    ])
 
     return mergePortfolioData(common, translations)
   },

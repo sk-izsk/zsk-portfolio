@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import type { PropsWithChildren } from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { HelmetProvider } from 'react-helmet-async'
 import { BrowserRouter as Router } from 'react-router-dom'
 
@@ -18,6 +18,11 @@ import { useSidebarStore } from '@stores/sidebarStore'
 import { LocalizeProvider } from 'zsk-react-i18n'
 import '../styles/global.css'
 
+type IdleScheduler = {
+  requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number
+  cancelIdleCallback?: (handle: number) => void
+}
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -33,6 +38,7 @@ const AppLayout = ({ children }: PropsWithChildren) => {
   const { i18n } = useTranslation()
   const isSidebarOpen = useSidebarStore((state) => state.isOpen)
   const currentLanguage = i18n.resolvedLanguage === 'fr' ? 'fr' : 'en'
+  const [showEnhancements, setShowEnhancements] = useState(false)
 
   const portfolioQuery = usePortfolioData(currentLanguage)
   const { setData, setLoading, setError } = usePortfolioStore()
@@ -60,21 +66,52 @@ const AppLayout = ({ children }: PropsWithChildren) => {
     setError,
   ])
 
+  useEffect(() => {
+    const show = () => setShowEnhancements(true)
+    const scheduler = globalThis as typeof globalThis & IdleScheduler
+    const requestIdle = scheduler.requestIdleCallback?.bind(scheduler)
+    const cancelIdle = scheduler.cancelIdleCallback?.bind(scheduler)
+
+    if (document.readyState === 'complete') {
+      if (requestIdle) {
+        const idleId = requestIdle(show, { timeout: 1200 })
+        return () => cancelIdle?.(idleId)
+      }
+
+      const timeoutId = globalThis.setTimeout(show, 0)
+      return () => globalThis.clearTimeout(timeoutId)
+    }
+
+    const onLoad = () => {
+      if (requestIdle) {
+        requestIdle(show, { timeout: 1200 })
+        return
+      }
+
+      globalThis.setTimeout(show, 0)
+    }
+
+    window.addEventListener('load', onLoad, { once: true })
+
+    return () => {
+      window.removeEventListener('load', onLoad)
+    }
+  }, [])
+
   return (
     <div className="main-container">
-      <ThemeAnimatedCursor />
+      {showEnhancements && <ThemeAnimatedCursor />}
       <Sidebar />
 
       <div className={`main-content ${isSidebarOpen ? 'sidebar-open' : ''}`}>{children}</div>
 
       <StyleSwitcher />
-      <Canedly />
+      {showEnhancements && <Canedly />}
     </div>
   )
 }
 
 export const AppWrapper = ({ children }: PropsWithChildren) => {
-  console.log('tick')
   return (
     <ErrorBoundary>
       <HelmetProvider>
