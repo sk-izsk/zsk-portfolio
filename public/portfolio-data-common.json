@@ -406,35 +406,5 @@
       "id": 2,
       "duration": "Sept 2016 - Dec 2018"
     }
-  ],
-  "servicesBase": [
-    {
-      "id": 1,
-      "icon": "fa-laptop-code"
-    },
-    {
-      "id": 2,
-      "icon": "fa-server"
-    },
-    {
-      "id": 3,
-      "icon": "fa-code"
-    },
-    {
-      "id": 4,
-      "icon": "fa-mobile-alt"
-    },
-    {
-      "id": 5,
-      "icon": "fa-cubes"
-    },
-    {
-      "id": 6,
-      "icon": "fa-comments"
-    },
-    {
-      "id": 7,
-      "icon": "fa-briefcase"
-    }
   ]
 }
