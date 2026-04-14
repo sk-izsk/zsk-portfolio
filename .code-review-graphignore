@@ -1,0 +1,8 @@
+generated/**
+*.generated.ts
+vendor/**
+node_modules/**
+dist/
+.next/
+build/
+.git/

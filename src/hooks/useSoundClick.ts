@@ -16,7 +16,7 @@ export const useSoundClick = () => {
       playClick()
     }
 
-    document.addEventListener('mousedown', handleMouseDown)
+    document.addEventListener('mousedown', handleMouseDown, { passive: true })
 
     return () => {
       document.removeEventListener('mousedown', handleMouseDown)

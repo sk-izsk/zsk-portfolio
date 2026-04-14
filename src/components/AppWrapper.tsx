@@ -57,7 +57,6 @@ const AppLayout = ({ children }: PropsWithChildren) => {
       setError(portfolioQuery.error.message)
     }
   }, [
-    currentLanguage,
     portfolioQuery.isLoading,
     portfolioQuery.data,
     portfolioQuery.error,
@@ -100,13 +99,13 @@ const AppLayout = ({ children }: PropsWithChildren) => {
 
   return (
     <div className="main-container">
-      {showEnhancements && <ThemeAnimatedCursor />}
+      {showEnhancements ? <ThemeAnimatedCursor /> : null}
       <Sidebar />
 
       <div className={`main-content ${isSidebarOpen ? 'sidebar-open' : ''}`}>{children}</div>
 
       <StyleSwitcher />
-      {showEnhancements && <Canedly />}
+      {showEnhancements ? <Canedly /> : null}
     </div>
   )
 }
