@@ -4,11 +4,11 @@
     "title": "Full Stack Web Developer",
     "greeting": "Hello, my name is",
     "profession": "I'm a Full Stack Web Developer",
-    "bio": "Frontend Engineer with 6+ years architecting scalable web and mobile applications in React and TypeScript. Expanding into full-stack system design. Acted as technical lead and proxy PO to synchronize cross-functional delivery. Leverage AI as a critical peer for architectural pair-planning. Obsessive focus on Core Web Vitals and clean architecture.",
+    "bio": "Frontend Engineer with 7+ years architecting scalable web and mobile applications in React and TypeScript. Expanding into full-stack system design. Acted as technical lead and proxy PO to synchronize cross-functional delivery. Leverage AI as a critical peer for architectural pair-planning. Obsessive focus on Core Web Vitals and clean architecture.",
     "bioSegments": [
       { "text": "Frontend Engineer", "mark": "underline" },
       {
-        "text": " with 6+ years architecting scalable web and mobile applications in React and TypeScript. ",
+        "text": " with 7+ years architecting scalable web and mobile applications in React and TypeScript. ",
         "mark": "none"
       },
       { "text": "Expanding into full-stack system design", "mark": "highlight" },

@@ -4,11 +4,11 @@
     "title": "Developpeur Web Full Stack",
     "greeting": "Bonjour, je m'appelle",
     "profession": "Je suis Developpeur Web Full Stack",
-    "bio": "Ingenieur logiciel avec plus de 6 ans d'experience dans l'architecture d'applications web et mobiles evolutives en React et TypeScript. En pleine expansion vers le design de systemes full-stack. A agi en tant que lead technique et proxy PO pour synchroniser la livraison interfonctionnelle. J'utilise l'IA comme pair critique pour la planification d'architecture. Focus absolu sur les Core Web Vitals et l'architecture propre.",
+    "bio": "Ingenieur logiciel avec plus de 7 ans d'experience dans l'architecture d'applications web et mobiles evolutives en React et TypeScript. En pleine expansion vers le design de systemes full-stack. A agi en tant que lead technique et proxy PO pour synchroniser la livraison interfonctionnelle. J'utilise l'IA comme pair critique pour la planification d'architecture. Focus absolu sur les Core Web Vitals et l'architecture propre.",
     "bioSegments": [
       { "text": "Ingenieur logiciel", "mark": "underline" },
       {
-        "text": " avec plus de 6 ans d'experience dans l'architecture d'applications web et mobiles evolutives en React et TypeScript. ",
+        "text": " avec plus de 7 ans d'experience dans l'architecture d'applications web et mobiles evolutives en React et TypeScript. ",
         "mark": "none"
       },
       { "text": "En pleine expansion vers le design de systemes full-stack", "mark": "highlight" },

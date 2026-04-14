@@ -73,6 +73,10 @@ const mergePortfolioData = (
   common: PortfolioCommonData,
   translations: PortfolioTranslations,
 ): PortfolioData => {
+  const educationMap = new Map(common.educationBase.map((base) => [base.id, base]))
+  const experienceMap = new Map(common.experienceBase.map((base) => [base.id, base]))
+  const projectsMap = new Map(common.projectsBase.map((base) => [base.id, base]))
+
   return {
     personalInfo: {
       name: translations.personalInfo.name,
@@ -87,25 +91,31 @@ const mergePortfolioData = (
     },
     contact: common.contact,
     skills: common.skills,
-    education: translations.education.map((trans) => ({
-      degree: trans.degree,
-      duration: common.educationBase.find((base) => base.id === trans.id)?.duration || '',
-      description: trans.description,
-    })),
-    experience: translations.experience.map((trans) => ({
-      company: common.experienceBase.find((base) => base.id === trans.id)?.company || '',
-      position: common.experienceBase.find((base) => base.id === trans.id)?.position || '',
-      duration: common.experienceBase.find((base) => base.id === trans.id)?.duration || '',
-      description: trans.description,
-      highlights: trans.highlights,
-    })),
+    education: translations.education.map((trans) => {
+      const base = educationMap.get(trans.id)
+      return {
+        degree: trans.degree,
+        duration: base?.duration || '',
+        description: trans.description,
+      }
+    }),
+    experience: translations.experience.map((trans) => {
+      const base = experienceMap.get(trans.id)
+      return {
+        company: base?.company || '',
+        position: base?.position || '',
+        duration: base?.duration || '',
+        description: trans.description,
+        highlights: trans.highlights,
+      }
+    }),
     services: translations.services.map((trans) => ({
       id: trans.id,
       title: trans.title,
       description: trans.description,
     })),
     projects: translations.projects.map((trans) => {
-      const base = common.projectsBase.find((b) => b.id === trans.id)
+      const base = projectsMap.get(trans.id)
       return {
         id: trans.id,
         ...(base?.url ? { url: base.url } : {}),
