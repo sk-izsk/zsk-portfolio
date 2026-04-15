@@ -56,15 +56,15 @@
   "experience": [
     {
       "id": 1,
-      "description": "Double role d'Ingenieur Logiciel et de Chef de Produit — proprietaire de la feuille de route produit, definition des specifications techniques et pilotage des sprints, tout en construisant et maintenant des applications React/TypeScript. Liaison principale entre la direction, les parties prenantes et les equipes d'ingenierie. Architecture de bibliotheques NPM privees et optimisation des Core Web Vitals sur plusieurs lignes de produits.",
+      "description": "Ingenieur logiciel senior en charge du developpement et de la maintenance d'applications React/TypeScript a grande echelle , avec une responsabilite supplementaire en tant que Product Owner par interim quand l'equipe en avait besoin. Architecture frontend, construction de bibliotheques NPM privees et optimisation des Core Web Vitals, tout en pilotant les decisions de feuille de route et l'alignement inter-equipes lors des phases de livraison critiques.",
       "highlights": [
-        "Proprietaire de la feuille de route produit et du backlog, traduisant les exigences metier en specifications techniques et objectifs de sprint.",
-        "A agi en tant que proxy Product Owner, facilitant la planification des sprints, l'alignement des parties prenantes et la coordination interfonctionnelle.",
-        "Definition des criteres d'acceptation et collaboration avec design et QA pour garantir la qualite produit et la livraison dans les delais.",
-        "Pilotage du developpement et de la maintenance de projets React/TypeScript avec Styled Components, React Router, Redux Toolkit et React Query.",
-        "Architecture et maintenance de bibliotheques NPM privees pour composants UI et utilitaires, ameliorant la reutilisabilite et la productivite.",
-        "Conduite de revues de code et sessions de mentorat pour elever les standards d'ingenierie.",
-        "Optimisation des Core Web Vitals et application des bonnes pratiques d'accessibilite et de performance sur plusieurs lignes de produits."
+        "Construction et maintenance de fonctionnalites React/TypeScript en production avec Styled Components, React Router, Redux Toolkit et React Query comme role d'ingenierie principal.",
+        "Prise en charge du role de Product Owner au besoin, facilitation de la planification des sprints, traduction des exigences metier en specifications techniques et alignement des parties prenantes entre frontend, backend et design.",
+        "Definition des contrats d'API et des criteres d'acceptation en debut de cycle de fonctionnalite, evitant que les problemes d'integration inter-equipes n'apparaissent tardivement.",
+        "Architecture et maintenance de bibliotheques NPM privees pour composants UI et utilitaires, ameliorant la reutilisabilite du code et reduisant la duplication entre les equipes.",
+        "Conduite de revues de code et sessions de mentorat avec les developpeurs juniors, elevant les standards d'ingenierie et reduisant le delai de revue d'environ 25%.",
+        "Optimisation des Core Web Vitals et application des bonnes pratiques d'accessibilite et de performance sur plusieurs lignes de produits.",
+        "Maintien d'une documentation trimestrielle des decisions d'equipe, fonctionnalites livrees et direction architecturale — donnant une visibilite a la direction sans qu'elle ait besoin de demander."
       ]
     },
     {
@@ -101,9 +101,9 @@
   ],
   "services": [
     {
-      "id": 1,
-      "title": "Gestion de Produit",
-      "description": "Pilotage de la vision produit, planification de la feuille de route et priorisation du backlog pour aligner l'execution technique sur les objectifs metier. Experience en tant que Product Owner, gestion des sprints, facilitation de l'alignement des parties prenantes et liaison entre equipes techniques et business."
+      "id": 4,
+      "title": "Solutions Full Stack",
+      "description": "Developpement d'applications de bout en bout combinant technologies frontend et backend. Specialisation dans le developpement MERN/MEAN stack avec pratiques de deploiement modernes."
     },
     {
       "id": 2,
@@ -116,9 +116,9 @@
       "description": "Creation d'API robustes et d'applications serveur utilisant Node.js, Express et bases de donnees modernes. Experience dans la construction d'architectures backend scalables."
     },
     {
-      "id": 4,
-      "title": "Solutions Full Stack",
-      "description": "Developpement d'applications de bout en bout combinant technologies frontend et backend. Specialisation dans le developpement MERN/MEAN stack avec pratiques de deploiement modernes."
+      "id": 1,
+      "title": "Gestion de Produit",
+      "description": "Pilotage de la vision produit, planification de la feuille de route et priorisation du backlog pour aligner l'execution technique sur les objectifs metier. Experience en tant que Product Owner, gestion des sprints, facilitation de l'alignement des parties prenantes et liaison entre equipes techniques et business."
     },
     {
       "id": 5,

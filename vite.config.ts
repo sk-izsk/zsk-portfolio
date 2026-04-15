@@ -48,6 +48,9 @@ const openBrowserOnStart = () => {
 
 // https://vite.dev/config/
 export default defineConfig({
+  define: {
+    __APP_VERSION__: JSON.stringify(new Date().toISOString()),
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
@@ -85,6 +88,25 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+        cleanupOutdatedCaches: true,
+        runtimeCaching: [
+          {
+            // Keep portfolio JSON fresh for returning users while preserving offline fallback.
+            urlPattern: /\/portfolio-data-(common|translations-(en|fr))\.json$/,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'portfolio-data-runtime-v1',
+              networkTimeoutSeconds: 4,
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+              expiration: {
+                maxEntries: 6,
+                maxAgeSeconds: 60 * 60 * 24,
+              },
+            },
+          },
+        ],
       },
     }),
     openBrowserOnStart(),

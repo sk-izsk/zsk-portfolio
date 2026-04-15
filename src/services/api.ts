@@ -2,6 +2,8 @@ import type { PortfolioData } from '@app-types/portfolio'
 import type { AppLanguage } from '@localization/index'
 import ky from 'ky'
 
+declare const __APP_VERSION__: string
+
 interface PortfolioCommonData {
   personalInfo: {
     resume_link: string
@@ -144,8 +146,18 @@ export const portfolioApi = {
         : 'portfolio-data-translations-en.json'
 
     const [common, translations] = await Promise.all([
-      ky.get('portfolio-data-common.json').json<PortfolioCommonData>(),
-      ky.get(translationPath).json<PortfolioTranslations>(),
+      ky
+        .get('portfolio-data-common.json', {
+          searchParams: { v: __APP_VERSION__ },
+          cache: 'no-store',
+        })
+        .json<PortfolioCommonData>(),
+      ky
+        .get(translationPath, {
+          searchParams: { v: __APP_VERSION__ },
+          cache: 'no-store',
+        })
+        .json<PortfolioTranslations>(),
     ])
 
     return mergePortfolioData(common, translations)
