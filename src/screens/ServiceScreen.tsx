@@ -5,7 +5,17 @@ import { useAnalytics } from '@hooks/useAnalytics'
 import { useTranslation } from '@localization/localize'
 import { usePortfolioError, usePortfolioLoading, useServices } from '@stores/portfolioStore'
 import type { LucideIcon } from 'lucide-react'
-import { Briefcase, Code, Cuboid, Laptop, MessageCircle, Server, Smartphone } from 'lucide-react'
+import {
+  Briefcase,
+  ClipboardList,
+  Code,
+  Cuboid,
+  Headphones,
+  Laptop,
+  MessageCircle,
+  Server,
+  Smartphone,
+} from 'lucide-react'
 import React from 'react'
 
 const serviceIconById: Record<number, LucideIcon> = {
@@ -16,6 +26,8 @@ const serviceIconById: Record<number, LucideIcon> = {
   5: Cuboid,
   6: MessageCircle,
   7: Briefcase,
+  8: ClipboardList,
+  9: Headphones,
 }
 
 const toServiceIcon = (serviceId: number): LucideIcon => {

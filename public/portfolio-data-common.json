@@ -1,6 +1,6 @@
 {
   "personalInfo": {
-    "resume_link": "https://drive.google.com/file/d/1CAuPanBnMtTmxvLrrBIP-pZSfq5SFase/view?usp=sharing",
+    "resume_link": "https://drive.google.com/file/d/1y_6cR2k5cNUp9T6WA50f59k2uBhdiwf_/view?usp=sharing",
     "location": {
       "city": "Montréal",
       "country": "Canada"
@@ -381,7 +381,7 @@
     {
       "id": 1,
       "company": "SwiftConnect",
-      "position": "Software Engineer",
+      "position": "Software Engineer & Product Manager",
       "duration": "Nov 2020 - Present"
     },
     {
@@ -395,6 +395,12 @@
       "company": "Guiker Inc",
       "position": "Junior Software Developer",
       "duration": "July 2019 - June 2020"
+    },
+    {
+      "id": 4,
+      "company": "Fusion",
+      "position": "Technical Support Specialist",
+      "duration": "Feb 2017 - June 2019"
     }
   ],
   "educationBase": [
