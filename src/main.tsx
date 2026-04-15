@@ -7,8 +7,11 @@ const isLocalhost =
   globalThis.location.hostname === 'localhost' || globalThis.location.hostname === '127.0.0.1'
 
 if (import.meta.env.PROD && !isLocalhost) {
-  registerSW({
+  const updateSW = registerSW({
     immediate: true,
+    onNeedRefresh() {
+      void updateSW(true)
+    },
   })
 }
 

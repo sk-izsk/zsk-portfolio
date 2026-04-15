@@ -65,15 +65,15 @@
   "experience": [
     {
       "id": 1,
-      "description": "Dual-role as Software Engineer and Product Manager — owned product roadmap, defined technical specifications, and led sprint execution while building and maintaining React/TypeScript applications. Primary liaison between management, stakeholders, and engineering. Architected private NPM libraries and optimized Core Web Vitals across multiple product lines.",
+      "description": "Senior software engineer building and maintaining React/TypeScript applications at scale , with additional responsibility stepping into a Product Owner capacity when the team needed it. Owned frontend architecture, built private NPM libraries, and optimized Core Web Vitals, while also driving roadmap decisions and cross-team alignment during critical delivery phases.",
       "highlights": [
-        "Owned product roadmap and backlog, translating business requirements into actionable technical specifications and sprint goals.",
-        "Acted as proxy Product Owner, facilitating sprint planning, stakeholder alignment, and cross-functional delivery coordination.",
-        "Defined acceptance criteria and collaborated with design and QA to ensure product quality and on-time feature releases.",
-        "Led development and maintenance of React/TypeScript projects with Styled Components, React Router, Redux Toolkit, and React Query.",
-        "Architected and maintained private NPM libraries for UI components and utilities, improving code reuse and developer velocity.",
-        "Conducted code reviews and mentoring sessions to raise engineering standards across the team.",
-        "Optimized Core Web Vitals and enforced best practices for accessibility and performance across multiple product lines."
+        "Built and maintained production React/TypeScript features using Styled Components, React Router, Redux Toolkit, and React Query as the primary engineering role.",
+        "Stepped into a Product Owner capacity when needed, facilitating sprint planning, translating business requirements into technical specifications, and aligning stakeholders across frontend, backend, and design.",
+        "Set API contracts and acceptance criteria at the start of feature cycles, keeping cross-team integration issues from surfacing late in delivery.",
+        "Architected and maintained private NPM libraries for UI components and utilities, improving code reuse and reducing duplication across teams.",
+        "Ran code reviews and mentoring sessions with junior developers, raising engineering standards and cutting review turnaround time by ~25%.",
+        "Optimized Core Web Vitals and enforced accessibility and performance best practices across multiple product lines.",
+        "Kept quarterly documentation of team decisions, shipped features, and architectural direction — giving leadership visibility without needing to ask."
       ]
     },
     {
@@ -110,9 +110,9 @@
   ],
   "services": [
     {
-      "id": 1,
-      "title": "Product Management",
-      "description": "Driving product vision, roadmap planning, and backlog prioritization to align engineering execution with business goals. Experienced in acting as Product Owner, managing sprints, facilitating stakeholder alignment, and bridging the gap between technical teams and business stakeholders."
+      "id": 4,
+      "title": "Full Stack Solutions",
+      "description": "End-to-end application development combining frontend and backend technologies. Specializing in MERN/MEAN stack development with modern deployment practices."
     },
     {
       "id": 2,
@@ -125,9 +125,9 @@
       "description": "Creating robust APIs and server-side applications using Node.js, Express, and modern databases. Experienced in building scalable backend architectures."
     },
     {
-      "id": 4,
-      "title": "Full Stack Solutions",
-      "description": "End-to-end application development combining frontend and backend technologies. Specializing in MERN/MEAN stack development with modern deployment practices."
+      "id": 1,
+      "title": "Product Management",
+      "description": "Driving product vision, roadmap planning, and backlog prioritization to align engineering execution with business goals. Experienced in acting as Product Owner, managing sprints, facilitating stakeholder alignment, and bridging the gap between technical teams and business stakeholders."
     },
     {
       "id": 5,
