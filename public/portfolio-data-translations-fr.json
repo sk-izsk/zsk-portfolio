@@ -1,46 +1,54 @@
 {
   "personalInfo": {
     "name": "Shaikh Zeeshan Murshed",
-    "title": "Developpeur Web Full Stack",
+    "title": "Ingenieur Logiciel",
     "greeting": "Bonjour, je m'appelle",
-    "profession": "Je suis Developpeur Web Full Stack",
-    "bio": "Ingenieur logiciel avec plus de 7 ans d'experience dans l'architecture d'applications web et mobiles evolutives en React et TypeScript. En pleine expansion vers le design de systemes full-stack. A agi en tant que lead technique et proxy PO pour synchroniser la livraison interfonctionnelle. J'utilise l'IA comme pair critique pour la planification d'architecture. Focus absolu sur les Core Web Vitals et l'architecture propre.",
+    "profession": "Je suis Ingenieur Logiciel & Chef de Produit",
+    "bio": "Ingenieur logiciel et Chef de Produit avec plus de 7 ans dans la conception d'applications web et mobiles evolutives et dans la gestion de livraisons interfonctionnelles. Developpement full-stack, propriete de la feuille de route et support technique — avec un focus strict sur les Core Web Vitals et l'architecture propre.",
     "bioSegments": [
-      { "text": "Ingenieur logiciel", "mark": "underline" },
+      { "text": "Ingenieur Logiciel & Chef de Produit", "mark": "underline" },
       {
-        "text": " avec plus de 7 ans d'experience dans l'architecture d'applications web et mobiles evolutives en React et TypeScript. ",
+        "text": " avec plus de 7 ans dans la conception d'applications web et mobiles scalables et dans la ",
         "mark": "none"
       },
-      { "text": "En pleine expansion vers le design de systemes full-stack", "mark": "highlight" },
+      { "text": "gestion de livraisons interfonctionnelles", "mark": "highlight" },
       {
-        "text": ". A agi en tant que lead technique et proxy PO pour synchroniser la livraison interfonctionnelle. ",
+        "text": ". Developpement full-stack, feuille de route produit et support technique — avec un focus strict sur les ",
         "mark": "none"
       },
       {
-        "text": "J'utilise l'IA comme pair critique pour la planification d'architecture",
+        "text": "Core Web Vitals et l'architecture propre",
         "mark": "highlight"
       },
       {
-        "text": ". Focus absolu sur les Core Web Vitals et l'architecture propre.",
+        "text": ".",
         "mark": "none"
       }
     ],
-    "detailedBio": "Developpeur Frontend avec plus de 6 ans d'experience dans l'architecture d'applications web et mobiles performantes, basees sur React et TypeScript. Solide experience dans la gestion de projets de bout en bout, s'etendant au design de systemes backend full-stack (Node.js, Express, PostgreSQL). Capable de faire le pont entre l'ingenierie et le metier ; j'ai occupe avec succes des roles de Lead et Product Owner par interim pour definir les feuilles de route techniques et synchroniser la livraison entre les equipes frontend et backend. J'exploite les workflows diriges par l'IA comme un pair critique pour le pair-planning architectural et l'evaluation rapide de modeles, tout en maintenant un focus strict sur les internals du navigateur, les Core Web Vitals et l'execution.",
+    "detailedBio": "Ingenieur logiciel et Chef de Produit avec plus de 7 ans d'experience dans l'architecture d'applications web et mobiles performantes en React et TypeScript. Solide experience dans les roles de Product Owner et lead technique pour definir les feuilles de route, prioriser les backlogs et synchroniser la livraison entre les equipes frontend et backend. Expansion vers le design de systemes full-stack (Node.js, Express, PostgreSQL). Apporte egalement une experience concrete en support technique — diagnostic de problemes complexes, gestion des escalades clients et liaison entre l'ingenierie et les utilisateurs finaux. Exploitation des workflows IA comme pair critique pour la planification architecturale.",
     "detailedBioSegments": [
       {
-        "text": "Developpeur Frontend avec plus de 6 ans d'experience",
+        "text": "Ingenieur Logiciel & Chef de Produit",
         "mark": "highlight"
       },
       {
-        "text": " dans l'architecture d'applications web et mobiles performantes, basees sur React et TypeScript. Solide experience dans la gestion de projets de bout en bout, s'etendant au design de systemes backend full-stack (Node.js, Express, PostgreSQL). Capable de faire le pont entre l'ingenierie et le metier ; ",
+        "text": " avec plus de 7 ans dans l'architecture d'applications web et mobiles performantes. Solide experience dans les roles de ",
         "mark": "none"
       },
       {
-        "text": "j'ai occupe avec succes des roles de Lead et Product Owner par interim",
+        "text": "Product Owner et lead technique",
         "mark": "highlight"
       },
       {
-        "text": " pour definir les feuilles de route techniques et synchroniser la livraison entre les equipes frontend et backend. J'exploite les workflows diriges par l'IA comme un pair critique pour le pair-planning architectural et l'evaluation rapide de modeles, tout en maintenant un focus strict sur les internals du navigateur, les Core Web Vitals et l'execution.",
+        "text": " pour definir les feuilles de route et synchroniser la livraison. Expansion vers le design full-stack (Node.js, Express, PostgreSQL). Apporte une experience concrete en ",
+        "mark": "none"
+      },
+      {
+        "text": "support technique",
+        "mark": "highlight"
+      },
+      {
+        "text": " — diagnostic de problemes, gestion des escalades clients et liaison entre l'ingenierie et les besoins utilisateurs. Exploitation des workflows IA pour le pair-planning architectural.",
         "mark": "none"
       }
     ]
@@ -60,13 +68,15 @@
   "experience": [
     {
       "id": 1,
-      "description": "A agi en tant que lead technique et proxy Product Owner pour synchroniser la livraison. A dirige le developpement et la maintenance de divers projets utilisant React, Typescript, Styled components, React Router, la bibliotheque antd, Redux Toolkit et react-query. Developpe une expertise supplementaire dans la creation et la maintenance de bibliotheques NPM (privees).",
+      "description": "Double role d'Ingenieur Logiciel et de Chef de Produit — proprietaire de la feuille de route produit, definition des specifications techniques et pilotage des sprints, tout en construisant et maintenant des applications React/TypeScript. Liaison principale entre la direction, les parties prenantes et les equipes d'ingenierie. Architecture de bibliotheques NPM privees et optimisation des Core Web Vitals sur plusieurs lignes de produits.",
       "highlights": [
-        "A agi en tant que lead technique et proxy Product Owner, traduisant les exigences de la direction en plans d'architecture actionnables et coordonnant l'execution des sprints.",
+        "Proprietaire de la feuille de route produit et du backlog, traduisant les exigences metier en specifications techniques et objectifs de sprint.",
+        "A agi en tant que proxy Product Owner, facilitant la planification des sprints, l'alignement des parties prenantes et la coordination interfonctionnelle.",
+        "Definition des criteres d'acceptation et collaboration avec design et QA pour garantir la qualite produit et la livraison dans les delais.",
         "Pilotage du developpement et de la maintenance de projets React/TypeScript avec Styled Components, React Router, Redux Toolkit et React Query.",
-        "Architecture et maintenance de bibliotheques NPM privees pour UI et utilitaires, ameliorant la reutilisabilite et la productivite.",
-        "Collaboration avec des equipes pluridisciplinaires pour livrer des fonctionnalites dans les delais et ameliorer la qualite du code via revues et mentorat.",
-        "Optimisation des Core Web Vitals et mise en place des bonnes pratiques d'accessibilite et de performance."
+        "Architecture et maintenance de bibliotheques NPM privees pour composants UI et utilitaires, ameliorant la reutilisabilite et la productivite.",
+        "Conduite de revues de code et sessions de mentorat pour elever les standards d'ingenierie.",
+        "Optimisation des Core Web Vitals et application des bonnes pratiques d'accessibilite et de performance sur plusieurs lignes de produits."
       ]
     },
     {
@@ -88,43 +98,64 @@
         "Support d'une refonte majeure du site, ameliorant la maintenabilite et la performance.",
         "Acquisition d'experience pratique avec technologies backend et cloud."
       ]
+    },
+    {
+      "id": 4,
+      "description": "Fourniture d'un support technique complet pour des clients entreprises, diagnostic et resolution de problemes logiciels et materiels complexes. Gestion des flux de tickets de support, coordination avec les equipes de developpement pour l'escalade des bugs critiques, et garantie d'une satisfaction client elevee via une communication technique claire et rapide.",
+      "highlights": [
+        "Diagnostic et resolution de problemes logiciels et materiels complexes pour des clients entreprises, reduisant le delai moyen de resolution.",
+        "Gestion du cycle de vie des tickets — reception, triage, escalade et resolution — sur plusieurs comptes clients.",
+        "Liaison technique entre les clients et l'equipe de developpement, traduisant les problemes metier en rapports de bugs exploitables.",
+        "Maintenance d'une documentation detaillee pour les problemes recurrents et creation d'articles de base de connaissances interne.",
+        "Coordination des escalades inter-equipes pour les incidents critiques en production, assurant communication et resolution dans les delais."
+      ]
     }
   ],
   "services": [
     {
       "id": 1,
+      "title": "Gestion de Produit",
+      "description": "Pilotage de la vision produit, planification de la feuille de route et priorisation du backlog pour aligner l'execution technique sur les objectifs metier. Experience en tant que Product Owner, gestion des sprints, facilitation de l'alignement des parties prenantes et liaison entre equipes techniques et business."
+    },
+    {
+      "id": 2,
       "title": "Developpement Frontend",
       "description": "Construction d'applications frontend modernes, responsives et scalables utilisant React, Next.js, Vue.js et TypeScript. Focus sur l'architecture basee composants et l'optimisation de performance."
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "Developpement Backend",
       "description": "Creation d'API robustes et d'applications serveur utilisant Node.js, Express et bases de donnees modernes. Experience dans la construction d'architectures backend scalables."
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Solutions Full Stack",
       "description": "Developpement d'applications de bout en bout combinant technologies frontend et backend. Specialisation dans le developpement MERN/MEAN stack avec pratiques de deploiement modernes."
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "Developpement Mobile",
       "description": "Developpement mobile cross-platform avec React Native et Expo. Creation d'applications performantes pour iOS et Android."
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "Developpement de bibliotheques NPM",
       "description": "Creation et maintenance de bibliotheques NPM privees et publiques. Specialisation dans les composants reutilisables et bibliotheques utilitaires pour accelerer la productivite."
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Conseil technique",
       "description": "Accompagnement technique sur les decisions d'architecture, les revues de code et les bonnes pratiques. Aide aux equipes pour ameliorer la qualite du code et les processus."
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "Projets en Freelance",
       "description": "Services de freelance flexibles pour projets court et long terme. Disponible pour travail contractuel, missions basees sur projet et taches techniques specialisees en frontend, backend et full-stack."
+    },
+    {
+      "id": 9,
+      "title": "Support Technique",
+      "description": "Fourniture d'un support technique expert et resolution de problemes pour applications et systemes logiciels. Experience dans le diagnostic de problemes complexes, la gestion des flux de tickets et la liaison technique entre clients et equipes de developpement pour des resolutions rapides et fiables."
     }
   ],
   "projects": [

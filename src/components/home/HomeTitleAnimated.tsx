@@ -20,6 +20,7 @@ export const HomeTitleAnimated: React.FC = () => {
         t('home.roles.frontend'),
         t('home.roles.backend'),
         t('home.roles.mobile'),
+        t('home.roles.productManager'),
       ]
 
       typedInstance.current = new Typed(typingRef.current, {

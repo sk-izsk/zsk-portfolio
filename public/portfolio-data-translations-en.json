@@ -1,43 +1,51 @@
 {
   "personalInfo": {
     "name": "Shaikh Zeeshan Murshed",
-    "title": "Full Stack Web Developer",
+    "title": "Software Engineer",
     "greeting": "Hello, my name is",
-    "profession": "I'm a Full Stack Web Developer",
-    "bio": "Frontend Engineer with 7+ years architecting scalable web and mobile applications in React and TypeScript. Expanding into full-stack system design. Acted as technical lead and proxy PO to synchronize cross-functional delivery. Leverage AI as a critical peer for architectural pair-planning. Obsessive focus on Core Web Vitals and clean architecture.",
+    "profession": "I'm a Software Engineer & Product Manager",
+    "bio": "Software Engineer and Product Manager with 7+ years building scalable web and mobile applications and driving cross-functional product delivery. Full-stack development, roadmap ownership, and technical support — backed by a strict focus on Core Web Vitals and clean architecture.",
     "bioSegments": [
-      { "text": "Frontend Engineer", "mark": "underline" },
+      { "text": "Software Engineer & Product Manager", "mark": "underline" },
       {
-        "text": " with 7+ years architecting scalable web and mobile applications in React and TypeScript. ",
+        "text": " with 7+ years building scalable web and mobile applications and ",
         "mark": "none"
       },
-      { "text": "Expanding into full-stack system design", "mark": "highlight" },
+      { "text": "driving cross-functional product delivery", "mark": "highlight" },
       {
-        "text": ". Acted as technical lead and proxy PO to synchronize cross-functional delivery. ",
+        "text": ". Full-stack development, roadmap ownership, and technical support — backed by a strict focus on ",
         "mark": "none"
       },
       {
-        "text": "Leverage AI as a critical peer for architectural pair-planning",
+        "text": "Core Web Vitals and clean architecture",
         "mark": "highlight"
       },
       {
-        "text": ". Obsessive focus on Core Web Vitals and clean architecture.",
+        "text": ".",
         "mark": "none"
       }
     ],
-    "detailedBio": "Frontend Developer with over 6 years of experience architecting scalable, high-performance web and mobile applications, rooted in React and TypeScript. Proven track record of owning projects end-to-end, expanding into full-stack backend system design (Node.js, Express, PostgreSQL). Capable of bridging the gap between engineering and business; successfully stepped into acting Lead and Product Owner roles to define technical roadmaps and synchronize delivery across frontend and backend teams. Leverage AI-driven workflows as a critical peer for architectural pair-planning and rapid pattern evaluation, maintaining a strict focus on browser internals, Core Web Vitals, and execution.",
+    "detailedBio": "Software Engineer and Product Manager with over 7 years of experience architecting high-performance web and mobile applications in React and TypeScript. Proven track record stepping into Product Owner and technical lead roles to define roadmaps, prioritize backlogs, and synchronize cross-functional delivery across frontend and backend teams. Expanded into full-stack system design (Node.js, Express, PostgreSQL). Also brings hands-on technical support experience — diagnosing issues, managing client-facing escalations, and bridging engineering with end-user needs. Leverage AI-driven workflows as a critical peer for architectural pair-planning and rapid pattern evaluation.",
     "detailedBioSegments": [
-      { "text": "Frontend Developer with over 6 years of experience", "mark": "highlight" },
+      { "text": "Software Engineer & Product Manager", "mark": "highlight" },
       {
-        "text": " architecting scalable, high-performance web and mobile applications, rooted in React and TypeScript. Proven track record of owning projects end-to-end, expanding into full-stack backend system design (Node.js, Express, PostgreSQL). Capable of bridging the gap between engineering and business; ",
+        "text": " with over 7 years architecting high-performance web and mobile applications. Proven track record stepping into ",
         "mark": "none"
       },
       {
-        "text": "successfully stepped into acting Lead and Product Owner roles",
+        "text": "Product Owner and technical lead roles",
         "mark": "highlight"
       },
       {
-        "text": " to define technical roadmaps and synchronize delivery across frontend and backend teams. Leverage AI-driven workflows as a critical peer for architectural pair-planning and rapid pattern evaluation, maintaining a strict focus on browser internals, Core Web Vitals, and execution.",
+        "text": " to define roadmaps and synchronize delivery. Expanded into full-stack system design (Node.js, Express, PostgreSQL). Brings hands-on ",
+        "mark": "none"
+      },
+      {
+        "text": "technical support experience",
+        "mark": "highlight"
+      },
+      {
+        "text": " — diagnosing issues, managing client escalations, and bridging engineering with end-user needs. Leverage AI-driven workflows for architectural pair-planning.",
         "mark": "none"
       }
     ]
@@ -57,13 +65,15 @@
   "experience": [
     {
       "id": 1,
-      "description": "Acted as technical lead and proxy Product Owner to synchronize cross-functional delivery. Led development and maintenance of various projects using React, Typescript, Styled components, React Router, antd library, Redux Toolkit, and react-query. Developed expertise in additional skills such as building and maintain NPM(private) libraries.",
+      "description": "Dual-role as Software Engineer and Product Manager — owned product roadmap, defined technical specifications, and led sprint execution while building and maintaining React/TypeScript applications. Primary liaison between management, stakeholders, and engineering. Architected private NPM libraries and optimized Core Web Vitals across multiple product lines.",
       "highlights": [
-        "Acted as technical lead and proxy Product Owner, translating management requirements into actionable architecture plans and coordinating sprint execution.",
+        "Owned product roadmap and backlog, translating business requirements into actionable technical specifications and sprint goals.",
+        "Acted as proxy Product Owner, facilitating sprint planning, stakeholder alignment, and cross-functional delivery coordination.",
+        "Defined acceptance criteria and collaborated with design and QA to ensure product quality and on-time feature releases.",
         "Led development and maintenance of React/TypeScript projects with Styled Components, React Router, Redux Toolkit, and React Query.",
-        "Architected and maintained private NPM libraries for UI and utilities, improving code reuse and developer velocity.",
-        "Collaborated with cross-functional teams to deliver features on schedule and improve code quality via code reviews and mentoring.",
-        "Optimized Core Web Vitals and implemented best practices for accessibility and performance."
+        "Architected and maintained private NPM libraries for UI components and utilities, improving code reuse and developer velocity.",
+        "Conducted code reviews and mentoring sessions to raise engineering standards across the team.",
+        "Optimized Core Web Vitals and enforced best practices for accessibility and performance across multiple product lines."
       ]
     },
     {
@@ -85,43 +95,64 @@
         "Supported a major web app rebuild, improving maintainability and performance.",
         "Gained hands-on experience with backend and cloud technologies."
       ]
+    },
+    {
+      "id": 4,
+      "description": "Provided comprehensive technical support for enterprise clients, diagnosing and resolving complex software and hardware issues. Managed support ticket workflows, coordinated with development teams to escalate critical bugs, and ensured high client satisfaction through clear and timely technical communication.",
+      "highlights": [
+        "Diagnosed and resolved complex software and hardware issues for enterprise clients, reducing average resolution time.",
+        "Managed support ticket lifecycle — intake, triage, escalation, and resolution — across multiple client accounts.",
+        "Acted as technical liaison between clients and the development team, translating business issues into actionable bug reports.",
+        "Maintained detailed documentation for recurring issues and authored internal knowledge base articles for faster resolution.",
+        "Coordinated cross-team escalations for critical production incidents, ensuring timely communication and follow-through."
+      ]
     }
   ],
   "services": [
     {
       "id": 1,
+      "title": "Product Management",
+      "description": "Driving product vision, roadmap planning, and backlog prioritization to align engineering execution with business goals. Experienced in acting as Product Owner, managing sprints, facilitating stakeholder alignment, and bridging the gap between technical teams and business stakeholders."
+    },
+    {
+      "id": 2,
       "title": "Frontend Development",
       "description": "Building modern, responsive, and scalable frontend applications using React, Next.js, Vue.js, and TypeScript. Focus on component-based architecture and performance optimization."
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "Backend Development",
       "description": "Creating robust APIs and server-side applications using Node.js, Express, and modern databases. Experienced in building scalable backend architectures."
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "Full Stack Solutions",
       "description": "End-to-end application development combining frontend and backend technologies. Specializing in MERN/MEAN stack development with modern deployment practices."
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "Mobile Development",
       "description": "Cross-platform mobile application development using React Native and Expo. Creating performant mobile apps for both iOS and Android platforms."
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "NPM Library Development",
       "description": "Creating and maintaining private and public NPM libraries. Specialized in building reusable components and utility libraries for enhanced development productivity."
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Technical Consulting",
       "description": "Providing technical guidance on architecture decisions, code reviews, and best practices. Helping teams improve code quality and development processes."
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "Freelance Projects",
       "description": "Offering flexible freelance services for short-term and long-term projects. Available for contract work, project-based engagements, and specialized technical tasks across frontend, backend, and full-stack domains."
+    },
+    {
+      "id": 9,
+      "title": "Technical Support",
+      "description": "Providing expert technical support and troubleshooting for software applications and systems. Experienced in diagnosing complex issues, managing support ticket workflows, and acting as a technical liaison between clients and development teams to ensure fast and reliable resolution."
     }
   ],
   "projects": [
