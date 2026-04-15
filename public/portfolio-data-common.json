@@ -45,126 +45,30 @@
   },
   "skills": {
     "technical": [
-      {
-        "name": "React",
-        "level": 85,
-        "category": "frontend"
-      },
-      {
-        "name": "TypeScript",
-        "level": 80,
-        "category": "language"
-      },
-      {
-        "name": "JavaScript",
-        "level": 85,
-        "category": "language"
-      },
-      {
-        "name": "React Native",
-        "level": 85,
-        "category": "frontend"
-      },
-      {
-        "name": "Redux",
-        "level": 75,
-        "category": "frontend"
-      },
-      {
-        "name": "Vue.js",
-        "level": 75,
-        "category": "frontend"
-      },
-      {
-        "name": "Node.js",
-        "level": 70,
-        "category": "backend"
-      },
-      {
-        "name": "Express",
-        "level": 70,
-        "category": "backend"
-      },
-      {
-        "name": "MongoDB",
-        "level": 70,
-        "category": "backend"
-      },
-      {
-        "name": "Next.js",
-        "level": 80,
-        "category": "frontend"
-      },
-      {
-        "name": "GraphQL",
-        "level": 60,
-        "category": "backend"
-      },
-      {
-        "name": "Jest",
-        "level": 60,
-        "category": "testing"
-      },
-      {
-        "name": "Cypress",
-        "level": 75,
-        "category": "testing"
-      },
-      {
-        "name": "Storybook",
-        "level": 60,
-        "category": "tools"
-      },
-      {
-        "name": "NPM",
-        "level": 60,
-        "category": "tools"
-      },
-      {
-        "name": "Tanstack Query",
-        "level": 80,
-        "category": "frontend"
-      },
-      {
-        "name": "Zustand",
-        "level": 80,
-        "category": "frontend"
-      },
-      {
-        "name": "Tailwind CSS",
-        "level": 60,
-        "category": "frontend"
-      },
-      {
-        "name": "PostgreSQL",
-        "level": 60,
-        "category": "backend"
-      },
-      {
-        "name": "MikroORM",
-        "level": 50,
-        "category": "backend"
-      },
-      {
-        "name": "DrizzleORM",
-        "level": 50,
-        "category": "backend"
-      },
-      {
-        "name": "Vite",
-        "level": 75,
-        "category": "tools"
-      },
-      {
-        "name": "Vitest",
-        "level": 65,
-        "category": "testing"
-      },
-      {
-        "name": "Multer",
-        "level": 65,
-        "category": "backend"
-      }
+      { "name": "React", "level": 85, "category": "frontend" },
+      { "name": "TypeScript", "level": 80, "category": "language" },
+      { "name": "JavaScript", "level": 85, "category": "language" },
+      { "name": "React Native", "level": 85, "category": "frontend" },
+      { "name": "Redux", "level": 75, "category": "frontend" },
+      { "name": "Vue.js", "level": 75, "category": "frontend" },
+      { "name": "Node.js", "level": 70, "category": "backend" },
+      { "name": "Express", "level": 70, "category": "backend" },
+      { "name": "MongoDB", "level": 70, "category": "backend" },
+      { "name": "Next.js", "level": 80, "category": "frontend" },
+      { "name": "GraphQL", "level": 60, "category": "backend" },
+      { "name": "Jest", "level": 60, "category": "testing" },
+      { "name": "Cypress", "level": 75, "category": "testing" },
+      { "name": "Storybook", "level": 60, "category": "tools" },
+      { "name": "NPM", "level": 60, "category": "tools" },
+      { "name": "Tanstack Query", "level": 80, "category": "frontend" },
+      { "name": "Zustand", "level": 80, "category": "frontend" },
+      { "name": "Tailwind CSS", "level": 60, "category": "frontend" },
+      { "name": "PostgreSQL", "level": 60, "category": "backend" },
+      { "name": "MikroORM", "level": 50, "category": "backend" },
+      { "name": "DrizzleORM", "level": 50, "category": "backend" },
+      { "name": "Vite", "level": 75, "category": "tools" },
+      { "name": "Vitest", "level": 65, "category": "testing" },
+      { "name": "Multer", "level": 65, "category": "backend" }
     ],
     "categories": {
       "frontend": [
@@ -398,19 +302,13 @@
     },
     {
       "id": 4,
-      "company": "Fusion",
+      "company": "Fusion BPO Services",
       "position": "Technical Support Specialist",
       "duration": "Feb 2017 - June 2019"
     }
   ],
   "educationBase": [
-    {
-      "id": 1,
-      "duration": "April 2019 - May 2019"
-    },
-    {
-      "id": 2,
-      "duration": "Sept 2016 - Dec 2018"
-    }
+    { "id": 1, "duration": "April 2019 - May 2019" },
+    { "id": 2, "duration": "Sept 2016 - Dec 2018" }
   ]
 }

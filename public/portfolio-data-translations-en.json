@@ -6,7 +6,7 @@
     "profession": "I'm a Software Engineer & Product Manager",
     "bio": "Software Engineer and Product Manager with 7+ years building scalable web and mobile applications and driving cross-functional product delivery. Full-stack development, roadmap ownership, and technical support — backed by a strict focus on Core Web Vitals and clean architecture.",
     "bioSegments": [
-      { "text": "Software Engineer & Product Manager", "mark": "underline" },
+      { "text": "Software Engineer", "mark": "underline" },
       {
         "text": " with 7+ years building scalable web and mobile applications and ",
         "mark": "none"
@@ -25,11 +25,11 @@
         "mark": "none"
       }
     ],
-    "detailedBio": "Software Engineer and Product Manager with over 7 years of experience architecting high-performance web and mobile applications in React and TypeScript. Proven track record stepping into Product Owner and technical lead roles to define roadmaps, prioritize backlogs, and synchronize cross-functional delivery across frontend and backend teams. Expanded into full-stack system design (Node.js, Express, PostgreSQL). Also brings hands-on technical support experience — diagnosing issues, managing client-facing escalations, and bridging engineering with end-user needs. Leverage AI-driven workflows as a critical peer for architectural pair-planning and rapid pattern evaluation.",
+    "detailedBio": "Software Engineer and Product Manager with over 7 years architecting high-performance web and mobile applications in React and TypeScript. Stepped into Product Owner and technical lead roles to define roadmaps, prioritize backlogs, and synchronize cross-functional delivery across frontend and backend teams. Expanded into full-stack system design (Node.js, Express, PostgreSQL). Also brings hands-on technical support experience — diagnosing issues, managing client-facing escalations, and bridging engineering with end-user needs.",
     "detailedBioSegments": [
       { "text": "Software Engineer & Product Manager", "mark": "highlight" },
       {
-        "text": " with over 7 years architecting high-performance web and mobile applications. Proven track record stepping into ",
+        "text": " with over 7 years architecting high-performance web and mobile applications. Stepped into ",
         "mark": "none"
       },
       {
@@ -45,7 +45,7 @@
         "mark": "highlight"
       },
       {
-        "text": " — diagnosing issues, managing client escalations, and bridging engineering with end-user needs. Leverage AI-driven workflows for architectural pair-planning.",
+        "text": " — diagnosing issues, managing client escalations, and bridging engineering with end-user needs.",
         "mark": "none"
       }
     ]
@@ -98,13 +98,13 @@
     },
     {
       "id": 4,
-      "description": "Provided comprehensive technical support for enterprise clients, diagnosing and resolving complex software and hardware issues. Managed support ticket workflows, coordinated with development teams to escalate critical bugs, and ensured high client satisfaction through clear and timely technical communication.",
+      "description": "Provided technical support for clients across Windows and Mac environments — diagnosing software and hardware issues, configuring network equipment, resolving email issues, and managing the full support lifecycle from intake to resolution.",
       "highlights": [
-        "Diagnosed and resolved complex software and hardware issues for enterprise clients, reducing average resolution time.",
-        "Managed support ticket lifecycle — intake, triage, escalation, and resolution — across multiple client accounts.",
-        "Acted as technical liaison between clients and the development team, translating business issues into actionable bug reports.",
-        "Maintained detailed documentation for recurring issues and authored internal knowledge base articles for faster resolution.",
-        "Coordinated cross-team escalations for critical production incidents, ensuring timely communication and follow-through."
+        "Diagnosed and resolved software and hardware issues for clients across Windows and Mac environments, covering OS errors, corrupted installations, driver conflicts, and application failures.",
+        "Walked clients through router setup, port forwarding, and home network troubleshooting over the phone — translating technical steps into language non-technical users could follow without repeat calls.",
+        "Resolved email configuration issues across multiple providers — account setup, send/receive failures, access recovery, and sync problems on desktop and mobile.",
+        "Started in sales for the first six months, handling inbound calls to qualify needs and sell technical support packages in a high-volume phone environment.",
+        "Managed the full support lifecycle independently: gathering symptoms, replicating issues remotely, applying fixes, and confirming resolution before closing."
       ]
     }
   ],
@@ -160,7 +160,7 @@
       "id": 1,
       "title": "Productify: Full-Stack TypeScript Product Platform",
       "excerpt": "A real-world PERN-style build where I implemented end-to-end auth with Clerk, ownership-safe product/comment CRUD, and cache-aware React Query flows to keep UX fast without excessive refetching.",
-      "shortDescription": "Intensive full-stack web development bootcamp that teaches the fundamentals of programming across the front-end and back-end. Gained knowledge about React, Redux, Node, Express. Worked in a team of four members to build a meal delivery website.",
+      "shortDescription": "A full-stack TypeScript platform built with React 19, Express 5, Drizzle ORM, and PostgreSQL. Features end-to-end Clerk authentication, ownership-safe CRUD for products and comments, and cache-aware React Query mutations for a fast, low-refetch UX.",
       "highlights": [
         "End-to-end authentication with Clerk integration",
         "Ownership-safe CRUD for products and comments",
