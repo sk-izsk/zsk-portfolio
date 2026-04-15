@@ -6,7 +6,7 @@
     "profession": "Je suis Ingenieur Logiciel & Chef de Produit",
     "bio": "Ingenieur logiciel et Chef de Produit avec plus de 7 ans dans la conception d'applications web et mobiles evolutives et dans la gestion de livraisons interfonctionnelles. Developpement full-stack, propriete de la feuille de route et support technique — avec un focus strict sur les Core Web Vitals et l'architecture propre.",
     "bioSegments": [
-      { "text": "Ingenieur Logiciel & Chef de Produit", "mark": "underline" },
+      { "text": "Ingenieur Logiciel", "mark": "underline" },
       {
         "text": " avec plus de 7 ans dans la conception d'applications web et mobiles scalables et dans la ",
         "mark": "none"
@@ -20,35 +20,23 @@
         "text": "Core Web Vitals et l'architecture propre",
         "mark": "highlight"
       },
-      {
-        "text": ".",
-        "mark": "none"
-      }
+      { "text": ".", "mark": "none" }
     ],
-    "detailedBio": "Ingenieur logiciel et Chef de Produit avec plus de 7 ans d'experience dans l'architecture d'applications web et mobiles performantes en React et TypeScript. Solide experience dans les roles de Product Owner et lead technique pour definir les feuilles de route, prioriser les backlogs et synchroniser la livraison entre les equipes frontend et backend. Expansion vers le design de systemes full-stack (Node.js, Express, PostgreSQL). Apporte egalement une experience concrete en support technique — diagnostic de problemes complexes, gestion des escalades clients et liaison entre l'ingenierie et les utilisateurs finaux. Exploitation des workflows IA comme pair critique pour la planification architecturale.",
+    "detailedBio": "Ingenieur logiciel et Chef de Produit avec plus de 7 ans d'experience dans l'architecture d'applications web et mobiles performantes en React et TypeScript. A pris en charge des roles de Product Owner et lead technique pour definir les feuilles de route, prioriser les backlogs et synchroniser la livraison entre les equipes frontend et backend. Expansion vers le design de systemes full-stack (Node.js, Express, PostgreSQL). Apporte egalement une experience concrete en support technique — diagnostic de problemes complexes, gestion des escalades clients et liaison entre l'ingenierie et les utilisateurs finaux.",
     "detailedBioSegments": [
+      { "text": "Ingenieur Logiciel & Chef de Produit", "mark": "highlight" },
       {
-        "text": "Ingenieur Logiciel & Chef de Produit",
-        "mark": "highlight"
-      },
-      {
-        "text": " avec plus de 7 ans dans l'architecture d'applications web et mobiles performantes. Solide experience dans les roles de ",
+        "text": " avec plus de 7 ans dans l'architecture d'applications web et mobiles performantes. A pris en charge des roles de ",
         "mark": "none"
       },
-      {
-        "text": "Product Owner et lead technique",
-        "mark": "highlight"
-      },
+      { "text": "Product Owner et lead technique", "mark": "highlight" },
       {
         "text": " pour definir les feuilles de route et synchroniser la livraison. Expansion vers le design full-stack (Node.js, Express, PostgreSQL). Apporte une experience concrete en ",
         "mark": "none"
       },
+      { "text": "support technique", "mark": "highlight" },
       {
-        "text": "support technique",
-        "mark": "highlight"
-      },
-      {
-        "text": " — diagnostic de problemes, gestion des escalades clients et liaison entre l'ingenierie et les besoins utilisateurs. Exploitation des workflows IA pour le pair-planning architectural.",
+        "text": " — diagnostic de problemes, gestion des escalades clients et liaison entre l'ingenierie et les besoins utilisateurs.",
         "mark": "none"
       }
     ]
@@ -81,7 +69,7 @@
     },
     {
       "id": 2,
-      "description": "A travaillé en collaboration dans une équipe de 4 personnes pour développer des applications web avec React, Material-UI pour le frontend, et Express, Node, MongoDB, Cloudinary Image uploader et authentification JWT pour le backend.",
+      "description": "A travaille en collaboration dans une equipe de 4 personnes pour developper des applications web avec React, Material-UI pour le frontend, et Express, Node, MongoDB, Cloudinary Image uploader et authentification JWT pour le backend.",
       "highlights": [
         "Developpement frontend avec React et Material-UI, focus sur composants modulaires et design responsive.",
         "Creation et integration d'API REST avec Node.js, Express et MongoDB, incluant authentification et upload de fichiers.",
@@ -101,13 +89,13 @@
     },
     {
       "id": 4,
-      "description": "Fourniture d'un support technique complet pour des clients entreprises, diagnostic et resolution de problemes logiciels et materiels complexes. Gestion des flux de tickets de support, coordination avec les equipes de developpement pour l'escalade des bugs critiques, et garantie d'une satisfaction client elevee via une communication technique claire et rapide.",
+      "description": "Fourniture d'un support technique pour des clients sur environnements Windows et Mac — diagnostic de problemes logiciels et materiels, configuration d'equipements reseau, resolution de problemes email et gestion du cycle complet du support de la prise en charge a la resolution.",
       "highlights": [
-        "Diagnostic et resolution de problemes logiciels et materiels complexes pour des clients entreprises, reduisant le delai moyen de resolution.",
-        "Gestion du cycle de vie des tickets — reception, triage, escalade et resolution — sur plusieurs comptes clients.",
-        "Liaison technique entre les clients et l'equipe de developpement, traduisant les problemes metier en rapports de bugs exploitables.",
-        "Maintenance d'une documentation detaillee pour les problemes recurrents et creation d'articles de base de connaissances interne.",
-        "Coordination des escalades inter-equipes pour les incidents critiques en production, assurant communication et resolution dans les delais."
+        "Diagnostic et resolution de problemes logiciels et materiels pour des clients sur Windows et Mac, couvrant erreurs OS, installations corrompues, conflits de pilotes et defaillances d'applications.",
+        "Accompagnement des clients dans la configuration de routeurs, le port forwarding et le depannage reseau par telephone — en traduisant les etapes techniques en langage accessible sans rappels repetitifs.",
+        "Resolution de problemes de configuration email multi-fournisseurs — creation de comptes, echecs d'envoi/reception, recuperation d'acces et problemes de synchronisation.",
+        "Debut en vente pendant les six premiers mois, gestion des appels entrants pour qualifier les besoins et vendre des forfaits de support technique dans un environnement telephonique a volume eleve.",
+        "Gestion du cycle de support complet de maniere autonome : recueil des symptomes, reproduction des problemes a distance, application des correctifs et confirmation de la resolution avant cloture."
       ]
     }
   ],
@@ -163,7 +151,7 @@
       "id": 1,
       "title": "Productify : plateforme produit Full Stack en TypeScript",
       "excerpt": "Un projet de type PERN en conditions reelles, avec authentification de bout en bout via Clerk, CRUD securise par proprietaire pour produits/commentaires, et flux React Query orientes cache pour une UX rapide sans refetch excessif.",
-      "shortDescription": "Bootcamp intensif de développement web full stack couvrant les fondamentaux du front-end et du back-end. Acquisition de compétences sur React, Redux, Node et Express. Projet réalisé en équipe de quatre pour construire un site de livraison de repas.",
+      "shortDescription": "Une plateforme TypeScript full-stack construite avec React 19, Express 5, Drizzle ORM et PostgreSQL. Authentification Clerk de bout en bout, CRUD securise par proprietaire pour produits et commentaires, et mutations React Query orientees cache pour une UX rapide et sans refetch excessif.",
       "highlights": [
         "Authentification de bout en bout avec Clerk",
         "CRUD securise par proprietaire pour produits/commentaires",
@@ -174,7 +162,7 @@
       "id": 2,
       "title": "zsk-react-i18n : wrapper de localisation type-safe pour React",
       "excerpt": "Un package npm reutilisable qui encapsule i18next/react-i18next avec une API type-safe pour les applications React. J'y ai construit les modes factory et direct-provider, des gardes runtime pour les langues, la persistance via localStorage, la prise en charge de plusieurs langues et la securite compile-time des cles de traduction, valides par des tests.",
-      "shortDescription": "Un package npm réutilisable qui encapsule i18next/react-i18next avec une API type-safe pour les applications React. J'y ai construit les modes factory et direct-provider, des gardes runtime pour les langues, la persistance via localStorage, la prise en charge de plusieurs langues et la sécurité compile-time des clés de traduction, validées par des tests.",
+      "shortDescription": "Un package npm reutilisable qui encapsule i18next/react-i18next avec une API type-safe pour les applications React. Modes factory et direct-provider, gardes runtime, persistance localStorage, prise en charge multi-langues et securite compile-time des cles de traduction, valides par des tests.",
       "highlights": [
         "Modes factory et direct-provider pour la flexibilite",
         "Securite compile-time des cles de traduction",
@@ -184,72 +172,72 @@
     {
       "id": 3,
       "title": "zsk-react-error : Error Boundary & Reporter pour React",
-      "excerpt": "Un package Error Boundary et reporter pour React, orienté TypeScript, avec gestion avancée de l'état d'erreur, logique de reset et intégration analytics. Conçu pour une gestion d'erreurs évolutive et robuste en production.",
-      "shortDescription": "Un package Error Boundary et reporter robuste pour React, prenant en charge l'état d'erreur global et local, des hooks composables, le reset impératif et une UI de fallback flexible. S'intègre facilement avec Zustand et les outils analytics pour une visibilité complète des erreurs.",
+      "excerpt": "Un package Error Boundary et reporter pour React, oriente TypeScript, avec gestion avancee de l'etat d'erreur, logique de reset et integration analytics. Concu pour une gestion d'erreurs evolutive et robuste en production.",
+      "shortDescription": "Un package Error Boundary et reporter robuste pour React, prenant en charge l'etat d'erreur global et local, des hooks composables, le reset imperatif et une UI de fallback flexible. S'integre facilement avec Zustand et les outils analytics pour une visibilite complete des erreurs.",
       "highlights": [
-        "Gestion globale et locale de l'état d'erreur avec hooks composables",
-        "Isolation par clé et support du reset impératif",
-        "UI de fallback personnalisable et intégration reporting",
-        "Optimisé pour la performance et la gestion d'erreurs à grande échelle",
-        "Intégration facile avec Zustand et outils analytics"
+        "Gestion globale et locale de l'etat d'erreur avec hooks composables",
+        "Isolation par cle et support du reset imperatif",
+        "UI de fallback personnalisable et integration reporting",
+        "Optimise pour la performance et la gestion d'erreurs a grande echelle",
+        "Integration facile avec Zustand et outils analytics"
       ]
     },
     {
       "id": 4,
       "title": "Smart AI: Plateforme SaaS IA Full-Stack",
-      "excerpt": "Une plateforme SaaS complète démocratisant l'accès aux capacités d'IA. Fournit des fonctionnalités de génération d'articles, de création/édition d'images, d'analyse de CV et d'interaction communautaire—avec distinction de tiers freemium appliquée à la limite de l'API.",
-      "shortDescription": "Application SaaS full-stack propulsée par l'IA intégrant de multiples services d'IA (Gemini, ClipDrop) et traitement médias (Cloudinary) avec contrôle d'accès basé sur le forfait. Dispose de tableaux de bord utilisateurs, historique des créations et flux communautaire.",
+      "excerpt": "Une plateforme SaaS complete democratisant l'acces aux capacites d'IA. Fournit des fonctionnalites de generation d'articles, de creation/edition d'images, d'analyse de CV et d'interaction communautaire — avec distinction de tiers freemium appliquee a la limite de l'API.",
+      "shortDescription": "Application SaaS full-stack propulsee par l'IA integrant de multiples services d'IA (Gemini, ClipDrop) et traitement medias (Cloudinary) avec controle d'acces base sur le forfait. Dispose de tableaux de bord utilisateurs, historique des creations et flux communautaire.",
       "highlights": [
         "Architecture full-stack avec backend Express et frontend React",
-        "Services IA intégrés : Google Gemini (texte), ClipDrop (images), Cloudinary (stockage)",
-        "Contrôle d'accès basé sur le forfait appliqué côté serveur avec authentification Clerk",
-        "Historique des créations utilisateur, flux communautaire et système de like/publication",
+        "Services IA integres : Google Gemini (texte), ClipDrop (images), Cloudinary (stockage)",
+        "Controle d'acces base sur le forfait applique cote serveur avec authentification Clerk",
+        "Historique des creations utilisateur, flux communautaire et systeme de like/publication",
         "Suivi d'usage et limitation de taux pour les utilisateurs du tiers gratuit",
-        "MikroORM pour les opérations de base de données type-safe avec PostgreSQL",
-        "Routes API complètes pour la génération d'IA et la gestion des utilisateurs"
+        "MikroORM pour les operations de base de donnees type-safe avec PostgreSQL",
+        "Routes API completes pour la generation d'IA et la gestion des utilisateurs"
       ]
     },
     {
       "id": 5,
       "title": "Auto Pause & Media Control : Extension Chrome",
-      "excerpt": "Une extension Chrome sans dépendance qui met automatiquement en pause les médias lors du changement d'onglet et offre un contrôle précis de la molette pour le volume, la vitesse de lecture et le défilement—sans librairie, uniquement des API navigateur natives.",
-      "shortDescription": "Une extension Chrome légère et respectueuse de la vie privée, construite en JavaScript vanilla pur et l'API Chrome Extensions. Elle met intelligemment en pause l'audio/vidéo lors du changement d'onglet et reprend à la position exacte au retour, avec des raccourcis molette pour le volume, la vitesse et le défilement. Comprend une interface popup Glassmorphism avec des bascules individuelles par fonctionnalité et un interrupteur général.",
+      "excerpt": "Une extension Chrome sans dependance qui met automatiquement en pause les medias lors du changement d'onglet et offre un controle precis de la molette pour le volume, la vitesse de lecture et le defilement — sans librairie, uniquement des API navigateur natives.",
+      "shortDescription": "Une extension Chrome legere et respectueuse de la vie privee, construite en JavaScript vanilla pur et l'API Chrome Extensions. Elle met intelligemment en pause l'audio/video lors du changement d'onglet et reprend a la position exacte au retour, avec des raccourcis molette pour le volume, la vitesse et le defilement.",
       "highlights": [
-        "Mise en pause automatique : suspend les médias lors du changement d'onglet et reprend précisément au retour",
-        "Défilement de précision via Shift+Alt+Molette avec adaptation trackpad",
-        "Contrôle du volume avec geste Alt+Molette au survol",
+        "Mise en pause automatique : suspend les medias lors du changement d'onglet et reprend precisement au retour",
+        "Defilement de precision via Shift+Alt+Molette avec adaptation trackpad",
+        "Controle du volume avec geste Alt+Molette au survol",
         "Vitesse de lecture dynamique (0,25x–4,0x) via Ctrl+Alt+Molette",
-        "Interface popup Glassmorphism avec bascules par fonctionnalité et interrupteur principal",
-        "Zéro donnée collectée — JavaScript local pur sans dépendance externe"
+        "Interface popup Glassmorphism avec bascules par fonctionnalite et interrupteur principal",
+        "Zero donnee collectee — JavaScript local pur sans dependance externe"
       ]
     },
     {
       "id": 6,
-      "title": "zsk-portfolio : Ce portfolio (sur-architecturé par choix)",
-      "excerpt": "Le site que vous regardez en ce moment. Construit comme un exercice délibéré d'architecture senior avec React 19, Vanilla Extract, Zustand et un système de design CSS à zéro coût runtime. Chaque choix technologique a une raison — certaines pratiques, d'autres intentionnellement ambitieuses.",
-      "shortDescription": "Un portfolio de développeur entièrement interactif conçu pour mettre en valeur autant les décisions d'architecture que le soin apporté à l'interface. Utilise une couche de données JSON headless, un CSS-in-JS compilé à build-time, des patterns de composants composés, le support PWA offline, un moteur de clic audio synthétique, et une persistance d'état sûre à l'hydration. Sur-architecturé intentionnellement.",
+      "title": "zsk-portfolio : Ce portfolio (sur-architecture par choix)",
+      "excerpt": "Le site que vous regardez en ce moment. Construit comme un exercice delibere d'architecture senior avec React 19, Vanilla Extract, Zustand et un systeme de design CSS a zero cout runtime. Chaque choix technologique a une raison — certaines pratiques, d'autres intentionnellement ambitieuses.",
+      "shortDescription": "Un portfolio de developpeur entierement interactif concu pour mettre en valeur autant les decisions d'architecture que le soin apporte a l'interface. Utilise une couche de donnees JSON headless, un CSS-in-JS compile a build-time, des patterns de composants composes, le support PWA offline, un moteur de clic audio synthetique, et une persistance d'etat sure a l'hydration.",
       "highlights": [
-        "CSS zéro-runtime via Vanilla Extract — les styles sont en TypeScript, compilés en fichiers .css statiques",
-        "15+ thèmes de couleurs interchangeables basés sur un système createThemeContract typé",
-        "Intégration du compilateur React 19 — mémoisation automatique, sans useMemo/useCallback manuels",
-        "Couche de données JSON headless dans /public — totalement découplée de l'UI, réutilisable dans n'importe quel futur projet",
-        "Sons de clic synthétiques via Web Audio API (aucun fichier .mp3, aucune requête réseau)",
+        "CSS zero-runtime via Vanilla Extract — les styles sont en TypeScript, compiles en fichiers .css statiques",
+        "15+ themes de couleurs interchangeables bases sur un systeme createThemeContract type",
+        "Integration du compilateur React 19 — memorisation automatique, sans useMemo/useCallback manuels",
+        "Couche de donnees JSON headless dans /public — totalement decouplée de l'UI, reutilisable dans n'importe quel futur projet",
+        "Sons de clic synthetiques via Web Audio API (aucun fichier .mp3, aucune requete reseau)",
         "Compatible PWA via vite-plugin-pwa avec mise en cache par service worker",
-        "Accessibilité clavier : T (thème), M (mute), Cmd+D (télécharger le CV)",
-        "Packages NPM personnalisés : zsk-react-error et zsk-react-i18n utilisés en production"
+        "Accessibilite clavier : T (theme), M (mute), Cmd+D (telecharger le CV)",
+        "Packages NPM personnalises : zsk-react-error et zsk-react-i18n utilises en production"
       ]
     },
     {
       "id": 7,
-      "title": "zsk-use-sound : Hook React pour sons fichier + générés",
-      "excerpt": "Un hook React orienté TypeScript, inspiré de use-sound, qui prend en charge à la fois la lecture de fichiers audio via Howler et des clics générés dans le navigateur via une API unique. Idéal pour ajouter du feedback sonore sans imposer des assets audio embarqués.",
-      "shortDescription": "zsk-use-sound réunit deux stratégies audio dans un seul hook ergonomique : un mode fichier pour mp3/wav via Howler, et un mode généré qui synthétise des profils de clic intégrés dans le navigateur quand aucun fichier n'est fourni. Le hook expose une API en tuple familière avec play, contrôles utilitaires, indication du mode runtime et compatibilité avec un toggle mute global.",
+      "title": "zsk-use-sound : Hook React pour sons fichier + generes",
+      "excerpt": "Un hook React oriente TypeScript, inspire de use-sound, qui prend en charge a la fois la lecture de fichiers audio via Howler et des clics generes dans le navigateur via une API unique. Ideal pour ajouter du feedback sonore sans imposer des assets audio embarques.",
+      "shortDescription": "zsk-use-sound reunit deux strategies audio dans un seul hook ergonomique : un mode fichier pour mp3/wav via Howler, et un mode genere qui synthetise des profils de clic integres dans le navigateur quand aucun fichier n'est fourni.",
       "highlights": [
-        "Moteur audio double mode : lecture de fichiers (Howler) et presets de clic Web Audio générés",
-        "API TypeScript-first avec types exportés pour options, lecture et contrôles",
-        "Profils générés intégrés (click, soft-click, tick) avec réglage volume et vitesse",
-        "Compatibilité mute global via soundEnabled et override ponctuel via forceSoundEnabled",
-        "Retour en tuple inspiré de use-sound avec stop, pause, durée et métadonnées du mode runtime"
+        "Moteur audio double mode : lecture de fichiers (Howler) et presets de clic Web Audio generes",
+        "API TypeScript-first avec types exportes pour options, lecture et controles",
+        "Profils generes integres (click, soft-click, tick) avec reglage volume et vitesse",
+        "Compatibilite mute global via soundEnabled et override ponctuel via forceSoundEnabled",
+        "Retour en tuple inspire de use-sound avec stop, pause, duree et metadonnees du mode runtime"
       ]
     }
   ]
