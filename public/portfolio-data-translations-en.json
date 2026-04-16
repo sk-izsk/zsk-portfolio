@@ -248,6 +248,21 @@
         "Supports global mute flow via soundEnabled and per-play override via forceSoundEnabled",
         "use-sound-inspired tuple return shape with stop, pause, duration, and runtime mode metadata"
       ]
+    },
+    {
+      "id": 8,
+      "title": "zsk-jd: AI-Powered Resume Tailoring Skill",
+      "excerpt": "A portable LLM skill that performs ATS gap analysis, interview probability scoring, and full LaTeX resume tailoring against any job description — with a mandatory warning gate before output and bilingual cover letter generation.",
+      "shortDescription": "A structured prompt skill for Claude and other LLMs that automates resume tailoring end-to-end: JD parsing, skill gap scoring, ATS keyword injection, and compilable LaTeX output with optional cover letters. Built with strict ATS writing rules, fabrication guardrails, and support for patch-mode diffs.",
+      "highlights": [
+        "Performs weighted skill gap analysis (hard skills 60%, seniority 25%, domain fit 15%) with interview probability estimate",
+        "Mandatory warning gate blocks output if match score < 50 or majority of required skills are missing — prevents false confidence",
+        "Rewrites professional summary, reorders skills, and injects JD keywords into bullet points without fabricating any experience",
+        "Generates standalone compilable LaTeX cover letters in 4 length modes (short, default, long, cover-only) with formal/casual tone flags",
+        "Patch mode outputs only changed LaTeX blocks — clean diffs for version control workflows",
+        "Strict ATS writing rules: 15+ banned words/phrases, no em dashes, no repetitive bullet structures, no robotic summary openers",
+        "Portable across Claude, Cursor, Copilot, ChatGPT, Gemini CLI, and any markdown-capable LLM"
+      ]
     }
   ]
 }

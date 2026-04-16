@@ -279,6 +279,27 @@
         "Sound Effects"
       ],
       "publishDate": "2026-04-11"
+    },
+    {
+      "id": 8,
+      "url": "https://github.com/sk-izsk",
+      "projectTypes": ["ai-skill"],
+      "category": "AI Skills",
+      "tags": [
+        "Claude",
+        "LLM",
+        "Prompt Engineering",
+        "ATS Optimization",
+        "Resume Tailoring",
+        "LaTeX",
+        "Job Search Automation",
+        "Skill Gap Analysis",
+        "Cover Letter",
+        "AI Workflow",
+        "Portable Skill",
+        "TypeScript"
+      ],
+      "publishDate": "2026-04-15"
     }
   ],
   "experienceBase": [

@@ -1,7 +1,7 @@
+import type { Project } from '@app-types/portfolio'
 import { useProjects } from '@stores/portfolioStore'
 import { useMemo } from 'react'
 import { useSelectedProjectType } from './useSelectedProjectType'
-import type { Project } from '@app-types/portfolio'
 
 export type FilterProjectType = Project & {
   projectHref: string
@@ -26,11 +26,26 @@ export const useProjectTypeFilteredProjects = (): FilterProjectType[] => {
   )
   const [selectedProjectType] = useSelectedProjectType()
 
+  const sortedProjects = useMemo(
+    () =>
+      [...projects].sort((a, b) => {
+        const aIsAiSkill = a.projectTypes.includes('ai-skill')
+        const bIsAiSkill = b.projectTypes.includes('ai-skill')
+
+        if (aIsAiSkill !== bIsAiSkill) {
+          return aIsAiSkill ? -1 : 1
+        }
+
+        return new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
+      }),
+    [projects],
+  )
+
   return useMemo(() => {
     if (selectedProjectType === 'all') {
-      return projects
+      return sortedProjects
     }
 
-    return projects.filter((project) => project.projectTypes.includes(selectedProjectType))
-  }, [projects, selectedProjectType])
+    return sortedProjects.filter((project) => project.projectTypes.includes(selectedProjectType))
+  }, [sortedProjects, selectedProjectType])
 }
