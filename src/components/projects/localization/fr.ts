@@ -12,6 +12,7 @@ export const projectsFr = {
       frontend: 'Frontend',
       backend: 'Backend',
       library: 'Bibliothèque',
+      'ai-skill': 'Ai Skills',
       misc: 'Divers',
     },
   },

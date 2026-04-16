@@ -81,7 +81,7 @@ export interface Service {
   description: string
 }
 
-export type ProjectType = 'full-stack' | 'frontend' | 'backend' | 'library' | 'misc'
+export type ProjectType = 'full-stack' | 'frontend' | 'backend' | 'library' | 'ai-skill' | 'misc'
 
 export type ProjectFilterType = 'all' | ProjectType
 

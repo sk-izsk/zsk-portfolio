@@ -239,6 +239,21 @@
         "Compatibilite mute global via soundEnabled et override ponctuel via forceSoundEnabled",
         "Retour en tuple inspire de use-sound avec stop, pause, duree et metadonnees du mode runtime"
       ]
+    },
+    {
+      "id": 8,
+      "title": "zsk-jd : Skill IA de personnalisation de CV",
+      "excerpt": "Un skill LLM portable qui effectue une analyse d'écart ATS, un score de probabilité d'entretien et une personnalisation complète de CV en LaTeX pour n'importe quelle offre d'emploi — avec une validation obligatoire avant toute sortie et génération de lettres de motivation bilingues.",
+      "shortDescription": "Un skill de prompt structuré pour Claude et autres LLMs qui automatise la personnalisation de CV de bout en bout : analyse d'offre, scoring d'écart de compétences, injection de mots-clés ATS et sortie LaTeX compilable avec lettres de motivation optionnelles. Conçu avec des règles d'écriture ATS strictes, des garde-fous anti-fabrication et support du mode patch.",
+      "highlights": [
+        "Analyse d'écart de compétences pondérée (compétences techniques 60%, séniorité 25%, adéquation domaine 15%) avec estimation du taux d'entretien",
+        "Porte de validation obligatoire bloquant toute sortie si le score est inférieur à 50 ou si la majorité des compétences requises sont absentes",
+        "Réécrit le résumé professionnel, réordonne les compétences et injecte les mots-clés de l'offre sans fabriquer d'expériences",
+        "Génère des lettres de motivation LaTeX compilables en 4 modes de longueur avec indicateurs de ton (formel/décontracté)",
+        "Mode patch : ne produit que les blocs LaTeX modifiés pour des workflows de contrôle de version propres",
+        "Règles d'écriture ATS strictes : 15+ mots/phrases interdits, sans tiret cadratin, sans structures de puces répétitives",
+        "Portable sur Claude, Cursor, Copilot, ChatGPT, Gemini CLI et tout LLM compatible Markdown"
+      ]
     }
   ]
 }
