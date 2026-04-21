@@ -4,11 +4,13 @@ import { contactEn } from '@components/contact/localization/en'
 import { homeEn } from '@components/home/localization/en'
 import { projectsEn } from '@components/projects/localization/en'
 import { servicesEn } from '@components/services/localization/en'
+import { blogEn } from '@components/blog/localization/en'
 import { sidebarEn } from '@components/sidebar/localization/en'
 import { skillsEn } from '@components/skills/localization/en'
 
 export const en = {
   about: aboutEn,
+  blog: blogEn,
   common: commonEn,
   contact: contactEn,
   home: homeEn,

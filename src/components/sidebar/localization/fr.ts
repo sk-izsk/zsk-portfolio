@@ -5,6 +5,7 @@ export const sidebarFr = {
     services: 'Services',
     skills: 'Competences',
     projects: 'Projets',
+    blog: 'Blog',
     contact: 'Contact',
   },
   language: {
