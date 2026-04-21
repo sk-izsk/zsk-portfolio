@@ -1,5 +1,5 @@
-import { globalStyle, keyframes } from '@vanilla-extract/css'
 import { vars } from '@styles/theme.css'
+import { globalStyle, keyframes } from '@vanilla-extract/css'
 
 const slideSection = keyframes({
   '0%': {
@@ -28,6 +28,7 @@ globalStyle('body', {
   fontSize: '16px',
   fontFamily: vars.font.family.primary,
   margin: 0,
+  background: vars.color.background[900],
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
 })

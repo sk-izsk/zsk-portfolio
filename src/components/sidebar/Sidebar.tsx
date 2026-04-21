@@ -1,4 +1,4 @@
-import { Briefcase, Cog, House, List, MessageCircle, User } from 'lucide-react'
+import { BookOpen, Briefcase, Cog, House, List, MessageCircle, User } from 'lucide-react'
 import React, { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useTranslation } from '@localization/localize'
@@ -40,6 +40,9 @@ const getCurrentSection = (path: string) => {
   }
   if (path === '/projects') {
     return 'projects'
+  }
+  if (path === '/blog') {
+    return 'blog'
   }
   if (path === '/contact') {
     return 'contact'
@@ -83,6 +86,12 @@ export const Sidebar: React.FC = () => {
       label: t('sidebar.nav.projects'),
       icon: Briefcase,
       path: '/projects',
+    },
+    {
+      id: 'blog',
+      label: t('sidebar.nav.blog'),
+      icon: BookOpen,
+      path: '/blog',
     },
     {
       id: 'contact',
