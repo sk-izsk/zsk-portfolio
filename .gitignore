@@ -25,3 +25,5 @@ dist-ssr
 *.sw?
 coverage/
 graphify-out/
+.omc/*
+.code-review-graph/*
