@@ -72,16 +72,18 @@ export const projectItem = style({
 export const projectItemInner = style({
   backgroundColor: vars.color.background[100],
   border: `1px solid ${vars.color.background[50]}`,
-  borderRadius: '10px',
+  borderRadius: '22px',
   padding: '30px 10px',
   textAlign: 'center',
-  transition: 'all 0.3s ease',
+  boxShadow: '0 18px 42px rgba(15, 23, 42, 0.07)',
+  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
   display: 'flex',
   flexDirection: 'column',
   height: '100%',
   minHeight: '700px',
   ':hover': {
-    boxShadow: '0 0 20px rgba(48, 46, 77, 0.15)',
+    transform: 'translateY(-6px)',
+    boxShadow: '0 24px 56px rgba(15, 23, 42, 0.12)',
   },
   '@media': {
     '(max-width: 991px)': {
@@ -99,7 +101,7 @@ export const projectImage = style({
 
 export const projectImageImg = style({
   width: '100%',
-  borderRadius: '10px',
+  borderRadius: '16px',
   display: 'block',
   margin: '0 auto 20px',
   transition: 'all 0.3s ease',

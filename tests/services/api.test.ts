@@ -89,8 +89,18 @@ describe('portfolioApi', () => {
 
     await portfolioApi.getPortfolioData('en')
 
-    expect(ky.get).toHaveBeenCalledWith('portfolio-data-common.json')
-    expect(ky.get).toHaveBeenCalledWith('portfolio-data-translations-en.json')
+    expect(ky.get).toHaveBeenCalledWith(
+      'portfolio-data-common.json',
+      expect.objectContaining({
+        cache: 'no-store',
+      }),
+    )
+    expect(ky.get).toHaveBeenCalledWith(
+      'portfolio-data-translations-en.json',
+      expect.objectContaining({
+        cache: 'no-store',
+      }),
+    )
   })
 
   it('requests common + French translation files for fr locale', async () => {
@@ -101,8 +111,18 @@ describe('portfolioApi', () => {
 
     await portfolioApi.getPortfolioData('fr')
 
-    expect(ky.get).toHaveBeenCalledWith('portfolio-data-common.json')
-    expect(ky.get).toHaveBeenCalledWith('portfolio-data-translations-fr.json')
+    expect(ky.get).toHaveBeenCalledWith(
+      'portfolio-data-common.json',
+      expect.objectContaining({
+        cache: 'no-store',
+      }),
+    )
+    expect(ky.get).toHaveBeenCalledWith(
+      'portfolio-data-translations-fr.json',
+      expect.objectContaining({
+        cache: 'no-store',
+      }),
+    )
   })
 
   it('returns merged portfolio data', async () => {

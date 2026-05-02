@@ -1,11 +1,9 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import type { PropsWithChildren } from 'react'
-import { useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { HelmetProvider } from 'react-helmet-async'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import { Canedly } from '@components/canedly/Canedly'
-import { ThemeAnimatedCursor } from '@components/common/ThemeAnimatedCursor'
 import { ErrorBoundary } from '@components/errorBoundary/ErrorBoundary'
 import { Sidebar } from '@components/sidebar/Sidebar'
 import { StyleSwitcher } from '@components/styleSwitcher/StyleSwitcher'
@@ -17,6 +15,15 @@ import { usePortfolioStore } from '@stores/portfolioStore'
 import { useSidebarStore } from '@stores/sidebarStore'
 import { LocalizeProvider } from 'zsk-react-i18n'
 import '../styles/global.css'
+
+const LazyCanedly = lazy(() =>
+  import('@components/canedly/Canedly').then((module) => ({ default: module.Canedly })),
+)
+const LazyThemeAnimatedCursor = lazy(() =>
+  import('@components/common/ThemeAnimatedCursor').then((module) => ({
+    default: module.ThemeAnimatedCursor,
+  })),
+)
 
 type IdleScheduler = {
   requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number
@@ -37,10 +44,10 @@ const queryClient = new QueryClient({
 const AppLayout = ({ children }: PropsWithChildren) => {
   const { i18n } = useTranslation()
   const isSidebarOpen = useSidebarStore((state) => state.isOpen)
-  const currentLanguage = i18n.resolvedLanguage === 'fr' ? 'fr' : 'en'
+  const isSidebarCollapsed = useSidebarStore((state) => state.isDesktopCollapsed)
   const [showEnhancements, setShowEnhancements] = useState(false)
 
-  const portfolioQuery = usePortfolioData(currentLanguage)
+  const portfolioQuery = usePortfolioData(i18n.resolvedLanguage === 'fr' ? 'fr' : 'en')
   const { setData, setLoading, setError } = usePortfolioStore()
 
   useKeyboardShortcuts()
@@ -99,13 +106,27 @@ const AppLayout = ({ children }: PropsWithChildren) => {
 
   return (
     <div className="main-container">
-      {showEnhancements ? <ThemeAnimatedCursor /> : null}
+      {showEnhancements ? (
+        <Suspense fallback={null}>
+          <LazyThemeAnimatedCursor />
+        </Suspense>
+      ) : null}
       <Sidebar />
 
-      <div className={`main-content ${isSidebarOpen ? 'sidebar-open' : ''}`}>{children}</div>
+      <div
+        className={`main-content ${isSidebarOpen ? 'sidebar-mobile-open' : ''} ${
+          isSidebarCollapsed ? 'sidebar-collapsed' : 'sidebar-expanded'
+        }`}
+      >
+        {children}
+      </div>
 
-      <StyleSwitcher />
-      {showEnhancements ? <Canedly /> : null}
+      {showEnhancements ? <StyleSwitcher /> : null}
+      {showEnhancements ? (
+        <Suspense fallback={null}>
+          <LazyCanedly />
+        </Suspense>
+      ) : null}
     </div>
   )
 }

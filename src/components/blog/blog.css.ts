@@ -61,7 +61,7 @@ export const blogFilterControl = style({
 
 export const blogGrid = style({
   display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 320px))',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 300px))',
   gap: '30px',
   alignItems: 'stretch',
   justifyContent: 'start',
@@ -98,7 +98,7 @@ export const blogStateError = style({
 export const blogCard = style({
   position: 'relative',
   width: '100%',
-  maxWidth: '320px',
+  maxWidth: '300px',
   minHeight: '100%',
   borderRadius: '22px',
   overflow: 'hidden',

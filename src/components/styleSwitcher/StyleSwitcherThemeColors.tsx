@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { useTranslation } from '@localization/localize'
 import type { ThemeColor } from '@stores/themeStore'
 import { colorItem, colors, heading } from '@components/styleSwitcher/styleSwitcher.css'
 
@@ -20,28 +21,21 @@ export const StyleSwitcherThemeColors: React.FC<StyleSwitcherThemeColorsProps> =
   currentColor,
   onChangeColor,
 }) => {
-  const [activeColor, setActiveColor] = useState(currentColor)
-
-  useEffect(() => {
-    setActiveColor(currentColor)
-  }, [currentColor])
-
-  const handleColorChange = (colorName: ThemeColor) => {
-    setActiveColor(colorName)
-    onChangeColor(colorName)
-  }
+  const { t } = useTranslation()
 
   return (
     <>
-      <h4 className={heading}>Theme Colors</h4>
+      <h4 className={heading}>{t('common.controls.themeColors')}</h4>
       <div className={colors}>
         {colorOptions.map((color) => (
-          <span
+          <button
             key={color.name}
-            className={`${colorItem} ${color.name} ${activeColor === color.name ? 'active' : ''}`}
-            onClick={() => handleColorChange(color.name)}
+            type="button"
+            className={`${colorItem} ${color.name} ${currentColor === color.name ? 'active' : ''}`}
+            onClick={() => onChangeColor(color.name)}
+            aria-label={color.name}
             title={color.color}
-          ></span>
+          />
         ))}
       </div>
     </>

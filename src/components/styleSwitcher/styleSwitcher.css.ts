@@ -1,118 +1,107 @@
-import { globalStyle, keyframes, style } from '@vanilla-extract/css'
+import { style } from '@vanilla-extract/css'
 import { vars } from '@styles/theme.css'
-
-const rotateAnimation = keyframes({
-  '0%': {
-    transform: 'rotate(0deg)',
-  },
-  '100%': {
-    transform: 'rotate(360deg)',
-  },
-})
 
 export const styleSwitcher = style({
   position: 'fixed',
-  right: 0,
-  top: '60px',
-  padding: '15px',
-  width: '200px',
-  border: `1px solid ${vars.color.background[50]}`,
-  background: vars.color.background[100],
-  zIndex: 101,
-  borderRadius: '5px',
-  transition: 'all 0.3s ease',
-  transform: 'translateX(100%)',
+  right: '24px',
+  top: '24px',
+  zIndex: 120,
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-end',
+  gap: '12px',
   '@media': {
     '(max-width: 767px)': {
-      width: '180px',
-      top: '20px',
-      padding: '15px 20px',
+      right: '16px',
+      top: '16px',
     },
   },
 })
 
-export const styleSwitcherOpen = style({
-  transform: 'translateX(-25px)',
-})
-
-export const sIcon = style({
-  position: 'absolute',
-  height: '40px',
-  width: '40px',
-  textAlign: 'center',
-  fontSize: '20px',
+export const styleSwitcherTrigger = style({
+  height: '46px',
+  width: '46px',
+  borderRadius: '16px',
+  border: `1px solid ${vars.color.background[50]}`,
   background: vars.color.background[100],
   color: vars.color.text[900],
-  right: '100%',
-  border: `1px solid ${vars.color.background[50]}`,
-  marginRight: '25px',
-  cursor: 'pointer',
-  transition: 'all 0.3s ease',
-  borderRadius: '50%',
-  display: 'flex',
+  display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
+  cursor: 'pointer',
+  boxShadow: '0 18px 45px rgba(15, 23, 42, 0.1)',
+  transition: 'transform 0.25s ease, color 0.25s ease, border-color 0.25s ease',
+  selectors: {
+    '&:hover': {
+      transform: 'translateY(-1px)',
+      color: vars.color.skin,
+      borderColor: vars.color.skin,
+    },
+  },
 })
 
-export const styleSwitcherToggler = style([
-  sIcon,
-  {
-    top: 0,
-  },
-])
-
-export const dayNight = style([
-  sIcon,
-  {
-    top: '55px',
-  },
-])
-
-export const soundToggle = style([
-  sIcon,
-  {
-    top: '110px',
-  },
-])
-
-export const s_icon = style({
-  width: '16px',
-  height: '16px',
-  transition: 'all 0.3s ease',
+export const styleSwitcherPanel = style({
+  width: 'min(280px, calc(100vw - 32px))',
+  padding: '18px',
+  borderRadius: '22px',
+  border: `1px solid ${vars.color.background[50]}`,
+  background: vars.color.background[100],
+  boxShadow: '0 28px 70px rgba(15, 23, 42, 0.14)',
+  opacity: 0,
+  pointerEvents: 'none',
+  transform: 'translateY(-8px) scale(0.98)',
+  transition: 'opacity 0.22s ease, transform 0.22s ease',
 })
 
-export const settingsIcon = style({
-  animation: `${rotateAnimation} 2s linear infinite`,
+export const styleSwitcherOpen = style({
+  opacity: 1,
+  pointerEvents: 'auto',
+  transform: 'translateY(0) scale(1)',
 })
 
-export const dayNightIcon = style({
-  color: vars.color.text[700],
+export const panelEyebrow = style({
+  color: vars.color.skin,
+  fontSize: '11px',
+  fontWeight: 700,
+  letterSpacing: '0.12em',
+  textTransform: 'uppercase',
+  marginBottom: '6px',
+})
+
+export const panelHeading = style({
+  color: vars.color.text[900],
+  fontSize: '18px',
+  fontWeight: 700,
+  lineHeight: 1.3,
+  marginBottom: '16px',
 })
 
 export const heading = style({
-  margin: '2px 0 8px',
+  margin: '0 0 10px',
   color: vars.color.text[700],
-  fontSize: '16px',
-  fontWeight: 600,
-  textTransform: 'capitalize',
+  fontSize: '13px',
+  fontWeight: 700,
+  letterSpacing: '0.08em',
+  textTransform: 'uppercase',
 })
 
 export const colors = style({
   display: 'flex',
   flexWrap: 'wrap',
-  gap: '8px',
-  justifyContent: 'flex-start',
-  alignItems: 'center',
+  gap: '10px',
   width: '100%',
+  marginBottom: '18px',
 })
 
 export const colorItem = style({
+  border: 'none',
+  padding: 0,
   display: 'inline-block',
-  height: '28px',
-  width: '28px',
-  borderRadius: '50%',
+  height: '30px',
+  width: '30px',
+  borderRadius: '999px',
   cursor: 'pointer',
-  transition: 'all 0.3s ease',
+  transition: 'transform 0.22s ease, box-shadow 0.22s ease',
   selectors: {
     '&.color-1': {
       background: '#ec1839',
@@ -133,9 +122,8 @@ export const colorItem = style({
       background: '#00bfff',
     },
     '&.active': {
-      border: '2px solid #fff',
-      boxShadow: '0 0 10px rgba(0,0,0,0.3)',
-      transform: 'scale(1.1)',
+      boxShadow: `0 0 0 3px ${vars.color.background[100]}, 0 0 0 5px ${vars.color.skin}`,
+      transform: 'scale(1.04)',
     },
     '&:hover': {
       transform: 'scale(1.05)',
@@ -143,22 +131,46 @@ export const colorItem = style({
   },
 })
 
-globalStyle(`.${styleSwitcherToggler}:hover`, {
-  color: `${vars.color.skin} !important`,
+export const toggleGrid = style({
+  display: 'grid',
+  gridTemplateColumns: '1fr 1fr',
+  gap: '10px',
 })
 
-globalStyle(`.${dayNight}:hover`, {
-  color: `${vars.color.skin} !important`,
+export const toggleButton = style({
+  border: `1px solid ${vars.color.background[50]}`,
+  borderRadius: '16px',
+  background: vars.color.background[900],
+  color: vars.color.text[900],
+  padding: '12px 14px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  gap: '10px',
+  cursor: 'pointer',
+  transition: 'border-color 0.22s ease, color 0.22s ease, transform 0.22s ease',
+  selectors: {
+    '&:hover': {
+      transform: 'translateY(-1px)',
+      borderColor: vars.color.skin,
+      color: vars.color.skin,
+    },
+  },
 })
 
-globalStyle(`.${dayNight}:hover .${dayNightIcon}`, {
-  color: `${vars.color.skin} !important`,
+export const toggleButtonActive = style({
+  borderColor: vars.color.skin + '55',
+  background: vars.color.skin + '12',
+  color: vars.color.skin,
 })
 
-globalStyle(`.${soundToggle}:hover`, {
-  color: `${vars.color.skin} !important`,
+export const toggleButtonLabel = style({
+  fontSize: '13px',
+  fontWeight: 600,
 })
 
-globalStyle(`.${soundToggle}:hover .${dayNightIcon}`, {
-  color: `${vars.color.skin} !important`,
+export const toggleButtonIcon = style({
+  width: '16px',
+  height: '16px',
+  flexShrink: 0,
 })

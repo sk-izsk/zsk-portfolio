@@ -11,7 +11,7 @@ const renderItem = (isActive = false, onClick = vi.fn()) =>
   render(
     <BrowserRouter>
       <ul>
-        <SidebarNavItem item={homeItem} isActive={isActive} onClick={onClick} />
+        <SidebarNavItem item={homeItem} isActive={isActive} isCollapsed={false} onClick={onClick} />
       </ul>
     </BrowserRouter>,
   )

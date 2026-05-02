@@ -1,4 +1,6 @@
+import { Moon, Settings2, Sun, Volume2, VolumeX } from 'lucide-react'
 import React, { useEffect, useRef, useState } from 'react'
+import { useTranslation } from '@localization/localize'
 import { useSoundStore } from '@stores/soundStore'
 import { useThemeStore } from '@stores/themeStore'
 import {
@@ -17,10 +19,20 @@ import {
   darkTheme,
   lightTheme,
 } from '@styles/themes.css'
-import { styleSwitcher, styleSwitcherOpen } from '@components/styleSwitcher/styleSwitcher.css'
-import { StyleSwitcherSettings } from '@components/styleSwitcher/StyleSwitcherSettings'
-import { StyleSwitcherToggleSound } from '@components/styleSwitcher/StyleSwitcherToggleSound'
-import { StyleSwitcherToggleTheme } from '@components/styleSwitcher/StyleSwitcherToggleTheme'
+import {
+  panelEyebrow,
+  panelHeading,
+  styleSwitcher,
+  styleSwitcherOpen,
+  styleSwitcherPanel,
+  styleSwitcherTrigger,
+  toggleButton,
+  toggleButtonActive,
+  toggleButtonIcon,
+  toggleButtonLabel,
+  toggleGrid,
+} from '@components/styleSwitcher/styleSwitcher.css'
+import { StyleSwitcherThemeColors } from '@components/styleSwitcher/StyleSwitcherThemeColors'
 
 const lightThemeByColor = {
   'color-1': color1Theme,
@@ -41,6 +53,7 @@ const darkThemeByColor = {
 } as const
 
 export const StyleSwitcher: React.FC = () => {
+  const { t } = useTranslation()
   const isDarkMode = useThemeStore((state) => state.isDarkMode)
   const isSoundEnabled = useSoundStore((state) => state.isSoundEnabled)
   const toggleSound = useSoundStore((state) => state.toggleSound)
@@ -101,15 +114,51 @@ export const StyleSwitcher: React.FC = () => {
   }, [isOpen])
 
   return (
-    <div ref={styleSwitcherRef} className={`${styleSwitcher} ${isOpen ? styleSwitcherOpen : ''}`}>
-      <StyleSwitcherSettings
-        currentColor={currentColor}
-        isOpen={isOpen}
-        onToggleOpen={toggleSwitcher}
-        onChangeColor={setCurrentColor}
-      />
-      <StyleSwitcherToggleTheme isDarkMode={isDarkMode} onToggleDarkMode={toggleDarkMode} />
-      <StyleSwitcherToggleSound isSoundEnabled={isSoundEnabled} onToggleSound={toggleSound} />
+    <div ref={styleSwitcherRef} className={styleSwitcher}>
+      <button
+        className={styleSwitcherTrigger}
+        type="button"
+        onClick={toggleSwitcher}
+        aria-expanded={isOpen}
+        aria-label={t('common.controls.openAppearance')}
+      >
+        <Settings2 size={18} />
+      </button>
+      <div className={`${styleSwitcherPanel} ${isOpen ? styleSwitcherOpen : ''}`}>
+        <p className={panelEyebrow}>{t('common.controls.appearance')}</p>
+        <h3 className={panelHeading}>{t('common.controls.personalize')}</h3>
+        <StyleSwitcherThemeColors currentColor={currentColor} onChangeColor={setCurrentColor} />
+        <div className={toggleGrid}>
+          <button
+            className={`${toggleButton} ${isDarkMode ? toggleButtonActive : ''}`}
+            type="button"
+            onClick={toggleDarkMode}
+          >
+            <span className={toggleButtonLabel}>
+              {isDarkMode ? t('common.controls.lightMode') : t('common.controls.darkMode')}
+            </span>
+            {isDarkMode ? (
+              <Sun className={toggleButtonIcon} size={16} />
+            ) : (
+              <Moon className={toggleButtonIcon} size={16} />
+            )}
+          </button>
+          <button
+            className={`${toggleButton} ${isSoundEnabled ? toggleButtonActive : ''}`}
+            type="button"
+            onClick={toggleSound}
+          >
+            <span className={toggleButtonLabel}>
+              {isSoundEnabled ? t('common.controls.soundOn') : t('common.controls.soundOff')}
+            </span>
+            {isSoundEnabled ? (
+              <Volume2 className={toggleButtonIcon} size={16} />
+            ) : (
+              <VolumeX className={toggleButtonIcon} size={16} />
+            )}
+          </button>
+        </div>
+      </div>
     </div>
   )
 }

@@ -1,5 +1,18 @@
-import { BookOpen, Briefcase, Cog, House, List, MessageCircle, User } from 'lucide-react'
+import {
+  BookOpen,
+  Briefcase,
+  ChevronLeft,
+  ChevronRight,
+  Cog,
+  House,
+  List,
+  Menu,
+  MessageCircle,
+  User,
+  X,
+} from 'lucide-react'
 import React, { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import { useTranslation } from '@localization/localize'
 import { usePersonalInfo, usePortfolioLoading } from '@stores/portfolioStore'
@@ -9,19 +22,21 @@ import { HyperText } from '@components/common/hyperText/HyperText'
 import { SidebarNavItem } from '@components/sidebar/SidebarNavItem'
 import {
   aside,
+  asideCollapsed,
   asideOpen,
   languageButton,
   languageButtonActive,
   languageDivider,
   languageSwitcher,
+  languageSwitcherHidden,
   logo,
   logoA,
+  logoACompact,
+  logoCollapsed,
   logoSpan,
   nav,
   navToggler,
   navTogglerOpen,
-  navTogglerOpenSpan,
-  navTogglerSpan,
 } from '@components/sidebar/sidebar.css'
 import type { SidebarNavigationItem } from '@components/sidebar/sidebar.types'
 
@@ -56,10 +71,14 @@ export const Sidebar: React.FC = () => {
   const personalInfo = usePersonalInfo()
   const loading = usePortfolioLoading()
   const isOpen = useSidebarStore((state) => state.isOpen)
+  const isDesktopCollapsed = useSidebarStore((state) => state.isDesktopCollapsed)
   const toggleSidebar = useSidebarStore((state) => state.toggle)
   const closeSidebar = useSidebarStore((state) => state.close)
+  const toggleDesktopCollapsed = useSidebarStore((state) => state.toggleDesktopCollapsed)
   const activeSection = getCurrentSection(location.pathname)
   const currentLanguage = i18n.resolvedLanguage === 'fr' ? 'fr' : 'en'
+  const isDesktopViewport = window.innerWidth >= 1200
+  const isCollapsed = isDesktopViewport && isDesktopCollapsed
 
   const navigationItems: SidebarNavigationItem[] = [
     { id: 'home', label: t('sidebar.nav.home'), icon: House, path: '/' },
@@ -103,17 +122,27 @@ export const Sidebar: React.FC = () => {
 
   const getLogoText = () => {
     if (loading || !personalInfo) {
-      return 'Zeeshan'
+      return isCollapsed ? 'Z' : 'Zeeshan'
     }
     const firstName = personalInfo.name.split(' ')[1]
-    return `${firstName.charAt(0).toUpperCase()}${firstName.slice(1).toLowerCase()}`
+    const normalized = `${firstName.charAt(0).toUpperCase()}${firstName.slice(1).toLowerCase()}`
+    return isCollapsed ? normalized.charAt(0) : normalized
   }
 
   const handleNavClick = (itemId: string, event: React.MouseEvent) => {
-    if (activeSection === itemId && isOpen) {
+    if (window.innerWidth < 1200 && activeSection === itemId && isOpen) {
       event.preventDefault()
       toggleSidebar()
     }
+  }
+
+  const handleSidebarToggle = () => {
+    if (window.innerWidth < 1200) {
+      toggleSidebar()
+      return
+    }
+
+    toggleDesktopCollapsed()
   }
 
   const handleLanguageChange = (language: 'en' | 'fr') => {
@@ -146,9 +175,11 @@ export const Sidebar: React.FC = () => {
   }, [location.pathname, closeSidebar])
 
   return (
-    <div className={`${aside} ${isOpen ? asideOpen : ''}`}>
-      <div className={logo}>
-        <a href="#home" className={logoA}>
+    <div
+      className={`${aside} ${isOpen ? asideOpen : ''} ${isDesktopCollapsed ? asideCollapsed : ''}`}
+    >
+      <div className={`${logo} ${isCollapsed ? logoCollapsed : ''}`}>
+        <Link to="/" className={`${logoA} ${isCollapsed ? logoACompact : ''}`}>
           <HyperText
             text={getLogoText()}
             as="span"
@@ -158,8 +189,8 @@ export const Sidebar: React.FC = () => {
               index === 0 ? <span className={logoSpan}>{char}</span> : char
             }
           />
-        </a>
-        <div className={languageSwitcher}>
+        </Link>
+        <div className={`${languageSwitcher} ${isCollapsed ? languageSwitcherHidden : ''}`}>
           <button
             className={`${languageButton} ${currentLanguage === 'en' ? languageButtonActive : ''}`}
             type="button"
@@ -177,15 +208,39 @@ export const Sidebar: React.FC = () => {
           </button>
         </div>
       </div>
-      <div className={`${navToggler} ${isOpen ? navTogglerOpen : ''}`} onClick={toggleSidebar}>
-        <span className={`${navTogglerSpan} ${isOpen ? navTogglerOpenSpan : ''}`}></span>
-      </div>
+      <button
+        className={`${navToggler} ${isOpen ? navTogglerOpen : ''}`}
+        type="button"
+        onClick={handleSidebarToggle}
+        aria-label={
+          window.innerWidth < 1200
+            ? isOpen
+              ? t('sidebar.toggle.close')
+              : t('sidebar.toggle.open')
+            : isCollapsed
+              ? t('sidebar.toggle.expand')
+              : t('sidebar.toggle.collapse')
+        }
+      >
+        {window.innerWidth < 1200 ? (
+          isOpen ? (
+            <X size={18} />
+          ) : (
+            <Menu size={18} />
+          )
+        ) : isCollapsed ? (
+          <ChevronRight size={18} />
+        ) : (
+          <ChevronLeft size={18} />
+        )}
+      </button>
       <ul className={nav}>
         {navigationItems.map((item) => (
           <SidebarNavItem
             key={item.id}
             item={item}
             isActive={activeSection === item.id}
+            isCollapsed={isCollapsed}
             onClick={(e) => handleNavClick(item.id, e)}
           />
         ))}

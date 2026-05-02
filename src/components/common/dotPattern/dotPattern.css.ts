@@ -13,8 +13,8 @@ export const dotPatternContainer = style({
   zIndex: -1,
   fill: vars.color.skin,
   transition: 'opacity 0.3s ease',
-  maskImage: 'radial-gradient(ellipse at center, white, transparent 80%)',
-  WebkitMaskImage: 'radial-gradient(ellipse at center, white, transparent 80%)',
+  maskImage: 'radial-gradient(ellipse at center, white, transparent 82%)',
+  WebkitMaskImage: 'radial-gradient(ellipse at center, white, transparent 82%)',
   '@media': {
     '(max-width: 1199px)': {
       left: 0,
@@ -23,9 +23,9 @@ export const dotPatternContainer = style({
 })
 
 export const dotPatternLight = style({
-  opacity: 0.4,
+  opacity: 0.22,
 })
 
 export const dotPatternDark = style({
-  opacity: 0.7,
+  opacity: 0.4,
 })

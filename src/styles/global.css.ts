@@ -3,10 +3,12 @@ import { globalStyle, keyframes } from '@vanilla-extract/css'
 
 const slideSection = keyframes({
   '0%': {
-    transform: 'translateX(100%)',
+    opacity: 0,
+    transform: 'translate3d(28px, 0, 0)',
   },
   '100%': {
-    transform: 'translateX(0%)',
+    opacity: 1,
+    transform: 'translate3d(0, 0, 0)',
   },
 })
 
@@ -33,6 +35,15 @@ globalStyle('body', {
   MozOsxFontSmoothing: 'grayscale',
 })
 
+globalStyle('.main-container', {
+  minHeight: '100vh',
+  background: vars.color.background[900],
+})
+
+globalStyle('.main-content', {
+  minHeight: '100vh',
+})
+
 globalStyle('::before, ::after', {
   boxSizing: 'border-box',
 })
@@ -46,7 +57,7 @@ globalStyle('.section', {
   background: vars.color.background[900],
   minHeight: '100vh',
   display: 'block',
-  padding: '0 30px',
+  padding: '0 32px',
   opacity: 1,
   position: 'fixed',
   left: '270px',
@@ -55,23 +66,54 @@ globalStyle('.section', {
   bottom: 0,
   overflowX: 'hidden',
   overflowY: 'auto',
-  transition: 'all 0.3s ease',
+  isolation: 'isolate',
+  transition: 'left 0.35s ease, opacity 0.3s ease',
   '@media': {
     '(max-width: 1199px)': {
       left: 0,
+      right: 'auto',
+      bottom: 'auto',
+      position: 'relative',
+      minHeight: '100dvh',
+      overflowY: 'visible',
+      padding: '0 20px 48px',
     },
   },
 })
 
-globalStyle('.section.open', {
+globalStyle('.section::before', {
+  content: '""',
+  position: 'absolute',
+  inset: '40px auto auto -120px',
+  width: '340px',
+  height: '340px',
+  borderRadius: '999px',
+  background: `radial-gradient(circle, ${vars.color.skin}18 0%, transparent 72%)`,
+  pointerEvents: 'none',
+  zIndex: -2,
+})
+
+globalStyle('.section::after', {
+  content: '""',
+  position: 'absolute',
+  inset: 'auto -110px 60px auto',
+  width: '360px',
+  height: '360px',
+  borderRadius: '999px',
+  background: `radial-gradient(circle, ${vars.color.skin}12 0%, transparent 74%)`,
+  pointerEvents: 'none',
+  zIndex: -2,
+})
+
+globalStyle('.sidebar-collapsed .section', {
   '@media': {
-    '(max-width: 1199px)': {
-      left: '270px',
+    '(min-width: 1200px)': {
+      left: '96px',
     },
   },
 })
 
-globalStyle('.sidebar-open .section', {
+globalStyle('.sidebar-mobile-open .section', {
   '@media': {
     '(max-width: 1199px)': {
       left: '0',
@@ -88,7 +130,7 @@ globalStyle('.section.back-section', {
 globalStyle('.section.active', {
   zIndex: 2,
   opacity: 1,
-  animation: `${slideSection} 1s ease`,
+  animation: `${slideSection} 0.45s cubic-bezier(0.22, 1, 0.36, 1)`,
 })
 
 globalStyle('.hidden', {
@@ -101,14 +143,14 @@ globalStyle('.padd-15', {
 })
 
 globalStyle('.container', {
-  maxWidth: '1100px',
+  maxWidth: '1180px',
   width: '100%',
   margin: 'auto',
 })
 
 globalStyle('.section .container', {
-  paddingTop: '60px',
-  paddingBottom: '70px',
+  paddingTop: '72px',
+  paddingBottom: '84px',
 })
 
 globalStyle('.screen-container', {
@@ -137,16 +179,18 @@ globalStyle('.section-title', {
 })
 
 globalStyle('.section-title h2', {
-  fontSize: '40px',
+  fontSize: 'clamp(36px, 4vw, 54px)',
   color: vars.color.text[900],
   fontWeight: 700,
   position: 'relative',
+  letterSpacing: '-0.03em',
+  lineHeight: 1,
 })
 
 globalStyle('.section-title h2::before', {
   content: '""',
   height: '4px',
-  width: '50px',
+  width: '56px',
   background: vars.color.skin,
   position: 'absolute',
   left: 0,
@@ -156,7 +200,7 @@ globalStyle('.section-title h2::before', {
 globalStyle('.section-title h2::after', {
   content: '""',
   height: '4px',
-  width: '25px',
+  width: '28px',
   background: vars.color.skin,
   position: 'absolute',
   left: 0,
@@ -187,7 +231,7 @@ globalStyle('.btn', {
 })
 
 globalStyle('.btn:hover', {
-  transform: 'scale(1.05)',
+  transform: 'translateY(-1px)',
 })
 
 globalStyle('.shadow-dark', {
