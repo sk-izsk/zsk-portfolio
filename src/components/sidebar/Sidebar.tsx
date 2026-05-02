@@ -2,6 +2,7 @@ import { HyperText } from '@components/common/hyperText/HyperText'
 import { SidebarNavItem } from '@components/sidebar/SidebarNavItem'
 import {
   aside,
+  asideContent,
   asideOpen,
   languageButton,
   languageButtonActive,
@@ -10,6 +11,7 @@ import {
   logo,
   logoA,
   logoSpan,
+  mobileBackdrop,
   nav,
   navToggler,
   navTogglerOpen,
@@ -144,55 +146,67 @@ export const Sidebar: React.FC = () => {
   }, [location.pathname, closeSidebar])
 
   return (
-    <div className={`${aside} ${isOpen ? asideOpen : ''}`}>
-      <div className={logo}>
-        <Link to="/" className={logoA}>
-          <HyperText
-            text={getLogoText()}
-            as="span"
-            animateOnLoad={true}
-            animateOnHover={true}
-            renderCharacter={(char, index) =>
-              index === 0 ? <span className={logoSpan}>{char}</span> : char
-            }
-          />
-        </Link>
-        <div className={languageSwitcher}>
-          <button
-            className={`${languageButton} ${currentLanguage === 'en' ? languageButtonActive : ''}`}
-            type="button"
-            onClick={() => handleLanguageChange('en')}
-          >
-            {t('sidebar.language.en')}
-          </button>
-          <span className={languageDivider}>|</span>
-          <button
-            className={`${languageButton} ${currentLanguage === 'fr' ? languageButtonActive : ''}`}
-            type="button"
-            onClick={() => handleLanguageChange('fr')}
-          >
-            {t('sidebar.language.fr')}
-          </button>
-        </div>
-      </div>
+    <>
+      {isOpen ? (
+        <button
+          className={mobileBackdrop}
+          type="button"
+          onClick={closeSidebar}
+          aria-label={t('sidebar.toggle.close')}
+        />
+      ) : null}
       <button
         className={`${navToggler} ${isOpen ? navTogglerOpen : ''}`}
         type="button"
         onClick={toggleSidebar}
         aria-label={isOpen ? t('sidebar.toggle.close') : t('sidebar.toggle.open')}
       >
-        {isOpen ? <X size={18} /> : <Menu size={18} />}
+        {isOpen ? <X size={22} /> : <Menu size={22} />}
       </button>
-      <ul className={nav}>
-        {navigationItems.map((item) => (
-          <SidebarNavItem
-            key={item.id}
-            item={item}
-            isActive={activeSection === item.id}
-            onClick={(e) => handleNavClick(item.id, e)}
-          />
-        ))}
-      </ul>
-    </div>
+      <div className={`${aside} ${isOpen ? asideOpen : ''}`}>
+        <div className={asideContent}>
+          <div className={logo}>
+            <Link to="/" className={logoA}>
+              <HyperText
+                text={getLogoText()}
+                as="span"
+                animateOnLoad={true}
+                animateOnHover={true}
+                renderCharacter={(char, index) =>
+                  index === 0 ? <span className={logoSpan}>{char}</span> : char
+                }
+              />
+            </Link>
+            <div className={languageSwitcher}>
+              <button
+                className={`${languageButton} ${currentLanguage === 'en' ? languageButtonActive : ''}`}
+                type="button"
+                onClick={() => handleLanguageChange('en')}
+              >
+                {t('sidebar.language.en')}
+              </button>
+              <span className={languageDivider}>|</span>
+              <button
+                className={`${languageButton} ${currentLanguage === 'fr' ? languageButtonActive : ''}`}
+                type="button"
+                onClick={() => handleLanguageChange('fr')}
+              >
+                {t('sidebar.language.fr')}
+              </button>
+            </div>
+          </div>
+          <ul className={nav}>
+            {navigationItems.map((item) => (
+              <SidebarNavItem
+                key={item.id}
+                item={item}
+                isActive={activeSection === item.id}
+                onClick={(e) => handleNavClick(item.id, e)}
+              />
+            ))}
+          </ul>
+        </div>
+      </div>
+    </>
   )
 }

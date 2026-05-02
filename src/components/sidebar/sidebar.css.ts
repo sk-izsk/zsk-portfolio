@@ -35,11 +35,47 @@ export const asideOpen = style({
   },
 })
 
+export const mobileBackdrop = style({
+  display: 'none',
+  '@media': {
+    '(max-width: 1199px)': {
+      display: 'block',
+      position: 'fixed',
+      inset: 0,
+      background: 'rgba(15, 23, 42, 0.32)',
+      zIndex: 999,
+      border: 'none',
+      margin: 0,
+      padding: 0,
+      cursor: 'pointer',
+    },
+  },
+})
+
+export const asideContent = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '28px',
+  width: '100%',
+  height: '100%',
+  '@media': {
+    '(max-width: 767px)': {
+      maxWidth: '360px',
+      margin: '0 auto',
+    },
+  },
+})
+
 export const logo = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '12px',
   paddingTop: '10px',
+  '@media': {
+    '(max-width: 767px)': {
+      alignItems: 'center',
+    },
+  },
 })
 
 export const logoA = style({
@@ -50,6 +86,12 @@ export const logoA = style({
   letterSpacing: '4px',
   position: 'relative',
   alignSelf: 'flex-start',
+  textAlign: 'center',
+  '@media': {
+    '(max-width: 767px)': {
+      alignSelf: 'center',
+    },
+  },
   '::before': {
     content: '""',
     position: 'absolute',
@@ -114,12 +156,12 @@ export const navToggler = style({
       position: 'fixed',
       top: '20px',
       left: '20px',
-      height: '42px',
-      width: '42px',
-      border: `1px solid ${vars.color.background[50]}`,
+      height: '46px',
+      width: '46px',
+      border: `1px solid ${vars.color.skin}66`,
       borderRadius: '14px',
       background: vars.color.background[100],
-      color: vars.color.text[900],
+      color: vars.color.skin,
       alignItems: 'center',
       justifyContent: 'center',
       cursor: 'pointer',
@@ -127,6 +169,12 @@ export const navToggler = style({
       boxShadow: '0 20px 40px rgba(15, 23, 42, 0.14)',
       transition:
         'transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease',
+      selectors: {
+        '&:hover': {
+          background: vars.color.skin + '10',
+          borderColor: vars.color.skin,
+        },
+      },
     },
   },
 })

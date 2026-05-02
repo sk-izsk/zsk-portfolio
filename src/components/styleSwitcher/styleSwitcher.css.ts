@@ -1,5 +1,14 @@
-import { style } from '@vanilla-extract/css'
 import { vars } from '@styles/theme.css'
+import { keyframes, style } from '@vanilla-extract/css'
+
+const rotateAnimation = keyframes({
+  '0%': {
+    transform: 'rotate(0deg)',
+  },
+  '100%': {
+    transform: 'rotate(360deg)',
+  },
+})
 
 export const styleSwitcher = style({
   position: 'fixed',
@@ -19,12 +28,12 @@ export const styleSwitcher = style({
 })
 
 export const styleSwitcherTrigger = style({
-  height: '46px',
-  width: '46px',
+  height: '48px',
+  width: '48px',
   borderRadius: '16px',
-  border: `1px solid ${vars.color.background[50]}`,
+  border: `1px solid ${vars.color.skin}66`,
   background: vars.color.background[100],
-  color: vars.color.text[900],
+  color: vars.color.skin,
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -34,8 +43,19 @@ export const styleSwitcherTrigger = style({
   selectors: {
     '&:hover': {
       transform: 'translateY(-1px)',
-      color: vars.color.skin,
       borderColor: vars.color.skin,
+      background: vars.color.skin + '10',
+    },
+  },
+})
+
+export const styleSwitcherSpinIcon = style({
+  width: '22px',
+  height: '22px',
+  animation: `${rotateAnimation} 2s linear infinite`,
+  '@media': {
+    '(prefers-reduced-motion: reduce)': {
+      animation: 'none',
     },
   },
 })
