@@ -1,17 +1,17 @@
 import {
-  hashnodeApi,
-  mapHashnodePostToBlogPostSummary,
-  mapHashnodePublicationPostsResponse,
-} from '@services/hashnode/hashnode.api'
-import { hashnodeQueryKeys } from '@services/hashnode/hashnode.queryKeys'
-import type { HashnodePostNode } from '@services/hashnode/hashnode.types'
+  hashNodeApi,
+  mapHashNodePostToBlogPostSummary,
+  mapHashNodePublicationPostsResponse,
+} from '@/services/hash-node/api'
+import { hashNodeQueryKeys } from '@/services/hash-node/queryKeys'
+import type { HashNodePostNode } from '@/services/hash-node/types'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 vi.mock('@services/hashnode/hashnode.client', () => ({
   hashnodeGraphqlRequest: vi.fn(),
 }))
 
-const makePostNode = (): HashnodePostNode => ({
+const makePostNode = (): HashNodePostNode => ({
   id: 'post-1',
   title: 'I Ditched Axios for Ky',
   brief: 'Short post summary',
@@ -36,7 +36,7 @@ describe('hashnodeApi', () => {
   })
 
   it('maps a Hashnode post to a blog summary', () => {
-    expect(mapHashnodePostToBlogPostSummary(makePostNode())).toEqual({
+    expect(mapHashNodePostToBlogPostSummary(makePostNode())).toEqual({
       id: 'post-1',
       title: 'I Ditched Axios for Ky',
       brief: 'Short post summary',
@@ -59,7 +59,7 @@ describe('hashnodeApi', () => {
     post.coverImage = null
     post.tags = []
 
-    expect(mapHashnodePostToBlogPostSummary(post)).toEqual({
+    expect(mapHashNodePostToBlogPostSummary(post)).toEqual({
       id: 'post-1',
       title: 'I Ditched Axios for Ky',
       brief: 'Short post summary',
@@ -73,14 +73,15 @@ describe('hashnodeApi', () => {
 
   it('throws when publication is missing', () => {
     expect(() =>
-      mapHashnodePublicationPostsResponse({
+      mapHashNodePublicationPostsResponse({
         publication: null,
       }),
     ).toThrowError('Hashnode publication not found')
   })
 
   it('returns mapped posts from API response', async () => {
-    const { hashnodeGraphqlRequest } = await import('@services/hashnode/hashnode.client')
+    const { hashNodeGraphqlRequest: hashnodeGraphqlRequest } =
+      await import('@/services/hash-node/client')
 
     vi.mocked(hashnodeGraphqlRequest).mockResolvedValue({
       publication: {
@@ -97,7 +98,7 @@ describe('hashnodeApi', () => {
     })
 
     await expect(
-      hashnodeApi.getPublicationPostsPage({
+      hashNodeApi.getPublicationPostsPage({
         host: 'izsk.hashnode.dev',
         first: 6,
         after: 'cursor-0',
@@ -132,7 +133,7 @@ describe('hashnodeApi', () => {
 
 describe('hashnodeQueryKeys', () => {
   it('returns stable query key tuples', () => {
-    expect(hashnodeQueryKeys.publicationPosts('izsk.hashnode.dev', 6, 'all')).toEqual([
+    expect(hashNodeQueryKeys.publicationPosts('izsk.hashnode.dev', 6, 'all')).toEqual([
       'hashnode',
       'publication-posts',
       'izsk.hashnode.dev',

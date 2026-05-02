@@ -1,4 +1,4 @@
-export const HASHNODE_PUBLICATION_POSTS_QUERY = `
+export const HASH_NODE_PUBLICATION_POSTS_QUERY = `
   query PublicationPosts(
     $host: String!
     $first: Int!

@@ -1,5 +1,5 @@
+import { useHashnodePosts } from '@/hooks/useHashNodePosts'
 import { QueryClientProvider } from '@tanstack/react-query'
-import { useHashnodePosts } from '@hooks/useHashnodePosts'
 import { renderHook, waitFor } from '@testing-library/react'
 import { createTestQueryClient } from '@tests/helpers/AllProviders'
 import type { PropsWithChildren } from 'react'
@@ -26,7 +26,7 @@ describe('useHashnodePosts', () => {
   })
 
   it('returns posts on success', async () => {
-    const { hashnodeApi } = await import('@services/hashnode/hashnode.api')
+    const { hashNodeApi: hashnodeApi } = await import('@/services/hash-node/api')
 
     vi.mocked(hashnodeApi.getPublicationPostsPage).mockResolvedValue({
       posts: [
@@ -63,7 +63,7 @@ describe('useHashnodePosts', () => {
   })
 
   it('returns error state when request fails', async () => {
-    const { hashnodeApi } = await import('@services/hashnode/hashnode.api')
+    const { hashNodeApi: hashnodeApi } = await import('@/services/hash-node/api')
 
     vi.mocked(hashnodeApi.getPublicationPostsPage).mockRejectedValue(new Error('Request failed'))
 
@@ -76,7 +76,7 @@ describe('useHashnodePosts', () => {
   })
 
   it('returns an empty array when Hashnode has no posts', async () => {
-    const { hashnodeApi } = await import('@services/hashnode/hashnode.api')
+    const { hashNodeApi: hashnodeApi } = await import('@/services/hash-node/api')
 
     vi.mocked(hashnodeApi.getPublicationPostsPage).mockResolvedValue({
       posts: [],

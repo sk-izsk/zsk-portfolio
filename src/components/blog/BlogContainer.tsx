@@ -1,5 +1,4 @@
-import type { DropdownOption } from '@components/common/dropdown/Dropdown'
-import React from 'react'
+import { HASH_NODE_DEFAULT_POSTS_LIMIT, HASH_NODE_PUBLICATION_HOST } from '@/services/hash-node/api'
 import { BlogCardContainer } from '@components/blog/BlogCardContainer'
 import { BlogFilterBar } from '@components/blog/BlogFilterBar'
 import {
@@ -12,31 +11,12 @@ import {
   blogToolbar,
 } from '@components/blog/blog.css'
 import { blogSortValues, type BlogSortValue } from '@hooks/blog/useSelectedBlogSort'
-import { useHashnodePosts } from '@hooks/useHashnodePosts'
-import { usePagination } from '@hooks/usePagination'
 import { useHandleParams } from '@hooks/useHandleParams'
+import { useHashNodePosts } from '@hooks/useHashNodePosts'
+import { usePagination } from '@hooks/usePagination'
 import { useTranslation } from '@localization/localize'
-import {
-  HASHNODE_DEFAULT_POSTS_LIMIT,
-  HASHNODE_PUBLICATION_HOST,
-} from '@services/hashnode/hashnode.api'
-import type { BlogPostSummary } from '@services/hashnode/hashnode.types'
-
-const sortBlogPosts = (posts: BlogPostSummary[], sortValue: BlogSortValue) => {
-  const nextPosts = [...posts]
-
-  if (sortValue === 'oldest') {
-    return nextPosts.sort(
-      (left, right) => new Date(left.publishedAt).getTime() - new Date(right.publishedAt).getTime(),
-    )
-  }
-
-  if (sortValue === 'title-asc') {
-    return nextPosts.sort((left, right) => left.title.localeCompare(right.title))
-  }
-
-  return nextPosts
-}
+import { sortBlogPosts } from '@utils/sortBlogPosts'
+import React from 'react'
 
 export const BlogContainer: React.FC = () => {
   const { t } = useTranslation()
@@ -49,40 +29,13 @@ export const BlogContainer: React.FC = () => {
     ? (currentParams.blogSort as BlogSortValue)
     : 'latest'
 
-  const { posts, hasNextPage, isFetchingNextPage, fetchNextPage } = useHashnodePosts(
-    HASHNODE_PUBLICATION_HOST,
-    HASHNODE_DEFAULT_POSTS_LIMIT,
-    selectedTag,
-  )
+  const { posts, hasNextPage, isFetchingNextPage, fetchNextPage } = useHashNodePosts({
+    host: HASH_NODE_PUBLICATION_HOST,
+    first: HASH_NODE_DEFAULT_POSTS_LIMIT,
+    tagFilter: selectedTag,
+  })
 
   const sortedPosts = sortBlogPosts(posts, selectedSort)
-  const tagMap = new Map<string, string>()
-
-  for (const post of posts) {
-    for (const tag of post.tags) {
-      tagMap.set(tag.slug, tag.name)
-    }
-  }
-
-  const tagOptions: DropdownOption<string>[] = [
-    {
-      value: 'all',
-      label: t('blog.filter.options.all'),
-    },
-    ...Array.from(tagMap.entries())
-      .sort((left, right) => left[1].localeCompare(right[1]))
-      .map(([slug, name]) => ({
-        value: slug,
-        label: name,
-      })),
-  ]
-
-  if (selectedTag !== 'all' && !tagOptions.some((option) => option.value === selectedTag)) {
-    tagOptions.push({
-      value: selectedTag,
-      label: selectedTag,
-    })
-  }
 
   const loadMoreRef = usePagination({
     hasNextPage: Boolean(hasNextPage),
@@ -97,7 +50,7 @@ export const BlogContainer: React.FC = () => {
       <div className="row">
         <div className={`${blogHeading} padd-15`}>
           <div className={blogToolbar}>
-            <BlogFilterBar tagOptions={tagOptions} />
+            <BlogFilterBar posts={sortedPosts} />
           </div>
         </div>
       </div>

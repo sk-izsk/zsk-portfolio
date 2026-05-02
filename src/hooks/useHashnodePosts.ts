@@ -1,20 +1,26 @@
-import { useInfiniteQuery } from '@tanstack/react-query'
 import {
-  HASHNODE_DEFAULT_POSTS_LIMIT,
-  HASHNODE_PUBLICATION_HOST,
-  hashnodeApi,
-} from '@services/hashnode/hashnode.api'
-import { hashnodeQueryKeys } from '@services/hashnode/hashnode.queryKeys'
+  HASH_NODE_DEFAULT_POSTS_LIMIT,
+  HASH_NODE_PUBLICATION_HOST,
+  hashNodeApi,
+} from '@/services/hash-node/api'
+import { hashNodeQueryKeys } from '@/services/hash-node/queryKeys'
+import { useInfiniteQuery } from '@tanstack/react-query'
 
-export const useHashnodePosts = (
-  host = HASHNODE_PUBLICATION_HOST,
-  first = HASHNODE_DEFAULT_POSTS_LIMIT,
+interface UseHashNodePostsOptions {
+  host?: string
+  first?: number
+  tagFilter?: string
+}
+
+export const useHashNodePosts = ({
+  host = HASH_NODE_PUBLICATION_HOST,
+  first = HASH_NODE_DEFAULT_POSTS_LIMIT,
   tagFilter = 'all',
-) => {
+}: UseHashNodePostsOptions) => {
   const query = useInfiniteQuery({
-    queryKey: hashnodeQueryKeys.publicationPosts(host, first, tagFilter),
+    queryKey: hashNodeQueryKeys.publicationPosts(host, first, tagFilter),
     queryFn: ({ pageParam }) =>
-      hashnodeApi.getPublicationPostsPage({
+      hashNodeApi.getPublicationPostsPage({
         host,
         first,
         after: pageParam,

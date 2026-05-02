@@ -1,14 +1,14 @@
-export interface HashnodeGraphQLError {
+export interface HashNodeGraphQLError {
   message: string
 }
 
-export interface HashnodeTagNode {
+export interface HashNodeTagNode {
   id: string
   name: string
   slug: string
 }
 
-export interface HashnodePostNode {
+export interface HashNodePostNode {
   id: string
   title: string
   brief: string
@@ -18,30 +18,30 @@ export interface HashnodePostNode {
   coverImage: {
     url: string
   } | null
-  tags: HashnodeTagNode[]
+  tags: HashNodeTagNode[]
 }
 
-export interface HashnodePageInfo {
+export interface HashNodePageInfo {
   hasNextPage: boolean
   endCursor: string | null
 }
 
-export interface HashnodePublicationPostsResponse {
+export interface HashNodePublicationPostsResponse {
   publication: {
     id: string
     title: string
     posts: {
-      pageInfo: HashnodePageInfo
+      pageInfo: HashNodePageInfo
       edges: Array<{
-        node: HashnodePostNode
+        node: HashNodePostNode
       }>
     }
   } | null
 }
 
-export interface HashnodeGraphQLResponse<TData> {
+export interface HashNodeGraphQLResponse<TData> {
   data?: TData
-  errors?: HashnodeGraphQLError[]
+  errors?: HashNodeGraphQLError[]
 }
 
 export interface BlogPostSummary {
@@ -52,15 +52,15 @@ export interface BlogPostSummary {
   slug: string
   publishedAt: string
   coverImageUrl: string | null
-  tags: HashnodeTagNode[]
+  tags: HashNodeTagNode[]
 }
 
 export interface BlogPostsPage {
   posts: BlogPostSummary[]
-  pageInfo: HashnodePageInfo
+  pageInfo: HashNodePageInfo
 }
 
-export interface HashnodePostsPageParams {
+export interface HashNodePostsPageParams {
   host: string
   first?: number
   after?: string | null

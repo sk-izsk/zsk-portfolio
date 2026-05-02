@@ -12,7 +12,7 @@ vi.mock('@hooks/useHashnodePosts', () => ({
 }))
 
 const makeHookResult = (value: Record<string, unknown>) =>
-  value as unknown as ReturnType<typeof import('@hooks/useHashnodePosts').useHashnodePosts>
+  value as unknown as ReturnType<typeof import('@/hooks/useHashNodePosts').useHashnodePosts>
 
 const renderScreen = () =>
   render(
@@ -28,7 +28,7 @@ describe('BlogScreen', () => {
   })
 
   it('renders loading state', async () => {
-    const { useHashnodePosts } = await import('@hooks/useHashnodePosts')
+    const { useHashnodePosts } = await import('@/hooks/useHashNodePosts')
 
     vi.mocked(useHashnodePosts).mockReturnValue({
       posts: [],
@@ -45,7 +45,7 @@ describe('BlogScreen', () => {
   })
 
   it('renders error state when query fails', async () => {
-    const { useHashnodePosts } = await import('@hooks/useHashnodePosts')
+    const { useHashnodePosts } = await import('@/hooks/useHashNodePosts')
 
     vi.mocked(useHashnodePosts).mockReturnValue({
       posts: [],
@@ -62,7 +62,7 @@ describe('BlogScreen', () => {
   })
 
   it('renders empty state when there are no posts', async () => {
-    const { useHashnodePosts } = await import('@hooks/useHashnodePosts')
+    const { useHashnodePosts } = await import('@/hooks/useHashNodePosts')
 
     vi.mocked(useHashnodePosts).mockReturnValue(
       makeHookResult({
@@ -83,7 +83,7 @@ describe('BlogScreen', () => {
   })
 
   it('renders blog post content and links to Hashnode from read-article CTA', async () => {
-    const { useHashnodePosts } = await import('@hooks/useHashnodePosts')
+    const { useHashnodePosts } = await import('@/hooks/useHashNodePosts')
 
     vi.mocked(useHashnodePosts).mockReturnValue(
       makeHookResult({

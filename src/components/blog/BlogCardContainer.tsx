@@ -1,7 +1,7 @@
-import React from 'react'
+import type { BlogPostSummary } from '@/services/hash-node/types'
 import { useTranslation } from '@localization/localize'
-import type { BlogPostSummary } from '@services/hashnode/hashnode.types'
 import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
+import React from 'react'
 import { BlogCard, BlogCardBody } from './BlogCard'
 
 interface BlogCardContainerProps {
