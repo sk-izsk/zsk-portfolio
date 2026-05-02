@@ -1,5 +1,18 @@
-import { Moon, Settings2, Sun, Volume2, VolumeX } from 'lucide-react'
-import React, { useEffect, useRef, useState } from 'react'
+import {
+  panelEyebrow,
+  panelHeading,
+  styleSwitcher,
+  styleSwitcherOpen,
+  styleSwitcherPanel,
+  styleSwitcherSpinIcon,
+  styleSwitcherTrigger,
+  toggleButton,
+  toggleButtonActive,
+  toggleButtonIcon,
+  toggleButtonLabel,
+  toggleGrid,
+} from '@components/styleSwitcher/styleSwitcher.css'
+import { StyleSwitcherThemeColors } from '@components/styleSwitcher/StyleSwitcherThemeColors'
 import { useTranslation } from '@localization/localize'
 import { useSoundStore } from '@stores/soundStore'
 import { useThemeStore } from '@stores/themeStore'
@@ -19,20 +32,8 @@ import {
   darkTheme,
   lightTheme,
 } from '@styles/themes.css'
-import {
-  panelEyebrow,
-  panelHeading,
-  styleSwitcher,
-  styleSwitcherOpen,
-  styleSwitcherPanel,
-  styleSwitcherTrigger,
-  toggleButton,
-  toggleButtonActive,
-  toggleButtonIcon,
-  toggleButtonLabel,
-  toggleGrid,
-} from '@components/styleSwitcher/styleSwitcher.css'
-import { StyleSwitcherThemeColors } from '@components/styleSwitcher/StyleSwitcherThemeColors'
+import { Moon, Settings, Sun, Volume2, VolumeX } from 'lucide-react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const lightThemeByColor = {
   'color-1': color1Theme,
@@ -122,7 +123,7 @@ export const StyleSwitcher: React.FC = () => {
         aria-expanded={isOpen}
         aria-label={t('common.controls.openAppearance')}
       >
-        <Settings2 size={18} />
+        <Settings className={styleSwitcherSpinIcon} size={22} />
       </button>
       <div className={`${styleSwitcherPanel} ${isOpen ? styleSwitcherOpen : ''}`}>
         <p className={panelEyebrow}>{t('common.controls.appearance')}</p>
