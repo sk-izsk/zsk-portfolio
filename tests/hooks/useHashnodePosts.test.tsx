@@ -1,4 +1,4 @@
-import { useHashNodePosts } from '@/hooks/useHashNodePosts'
+import { useHashNodePosts } from '@/hooks/useHashnodePosts'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { renderHook, waitFor } from '@testing-library/react'
 import { createTestQueryClient } from '@tests/helpers/AllProviders'

@@ -1,11 +1,11 @@
+import { HASH_NODE_DEFAULT_POSTS_LIMIT, HASH_NODE_PUBLICATION_HOST } from '@/services/hash-node/api'
 import { BlogContainer } from '@components/blog/BlogContainer'
 import { Screen } from '@components/Screen'
 import { blogSortValues, type BlogSortValue } from '@hooks/blog/useSelectedBlogSort'
 import { useAnalytics } from '@hooks/useAnalytics'
 import { useHandleParams } from '@hooks/useHandleParams'
-import { useHashNodePosts } from '@hooks/useHashNodePosts'
+import { useHashNodePosts } from '@hooks/useHashnodePosts'
 import { useTranslation } from '@localization/localize'
-import { HASH_NODE_DEFAULT_POSTS_LIMIT, HASH_NODE_PUBLICATION_HOST } from '@/services/hash-node/api'
 import React from 'react'
 
 const BlogScreen: React.FC = () => {
