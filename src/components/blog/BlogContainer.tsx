@@ -1,4 +1,3 @@
-import { HASH_NODE_DEFAULT_POSTS_LIMIT, HASH_NODE_PUBLICATION_HOST } from '@/services/hash-node/api'
 import { BlogCardContainer } from '@components/blog/BlogCardContainer'
 import { BlogFilterBar } from '@components/blog/BlogFilterBar'
 import {
@@ -10,39 +9,35 @@ import {
   blogState,
   blogToolbar,
 } from '@components/blog/blog.css'
-import { blogSortValues, type BlogSortValue } from '@hooks/blog/useSelectedBlogSort'
-import { useHandleParams } from '@hooks/useHandleParams'
-import { useHashNodePosts } from '@hooks/useHashNodePosts'
 import { usePagination } from '@hooks/usePagination'
 import { useTranslation } from '@localization/localize'
 import { sortBlogPosts } from '@utils/sortBlogPosts'
-import React from 'react'
+import type { BlogSortValue } from '@hooks/blog/useSelectedBlogSort'
+import type { BlogPostSummary } from '@services/hash-node/types'
+import React, { useMemo } from 'react'
 
-export const BlogContainer: React.FC = () => {
+interface BlogContainerProps {
+  posts: BlogPostSummary[]
+  selectedSort: BlogSortValue
+  hasNextPage: boolean
+  isFetchingNextPage: boolean
+  fetchNextPage: () => void
+}
+
+export const BlogContainer: React.FC<BlogContainerProps> = ({
+  posts,
+  selectedSort,
+  hasNextPage,
+  isFetchingNextPage,
+  fetchNextPage,
+}) => {
   const { t } = useTranslation()
-  const { currentParams } = useHandleParams<{
-    blogTag: string
-    blogSort: BlogSortValue
-  }>()
-  const selectedTag = currentParams.blogTag || 'all'
-  const selectedSort = blogSortValues.includes(currentParams.blogSort as BlogSortValue)
-    ? (currentParams.blogSort as BlogSortValue)
-    : 'latest'
-
-  const { posts, hasNextPage, isFetchingNextPage, fetchNextPage } = useHashNodePosts({
-    host: HASH_NODE_PUBLICATION_HOST,
-    first: HASH_NODE_DEFAULT_POSTS_LIMIT,
-    tagFilter: selectedTag,
-  })
-
-  const sortedPosts = sortBlogPosts(posts, selectedSort)
+  const sortedPosts = useMemo(() => sortBlogPosts(posts, selectedSort), [posts, selectedSort])
 
   const loadMoreRef = usePagination({
-    hasNextPage: Boolean(hasNextPage),
+    hasNextPage,
     isFetchingNextPage,
-    fetchNextPage: () => {
-      void fetchNextPage()
-    },
+    fetchNextPage,
   })
 
   return (
@@ -50,7 +45,7 @@ export const BlogContainer: React.FC = () => {
       <div className="row">
         <div className={`${blogHeading} padd-15`}>
           <div className={blogToolbar}>
-            <BlogFilterBar posts={sortedPosts} />
+            <BlogFilterBar posts={posts} />
           </div>
         </div>
       </div>

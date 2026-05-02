@@ -7,8 +7,8 @@ import { hashNodeQueryKeys } from '@/services/hash-node/queryKeys'
 import type { HashNodePostNode } from '@/services/hash-node/types'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-vi.mock('@services/hashnode/hashnode.client', () => ({
-  hashnodeGraphqlRequest: vi.fn(),
+vi.mock('@/services/hash-node/client', () => ({
+  hashNodeGraphqlRequest: vi.fn(),
 }))
 
 const makePostNode = (): HashNodePostNode => ({
@@ -76,14 +76,14 @@ describe('hashnodeApi', () => {
       mapHashNodePublicationPostsResponse({
         publication: null,
       }),
-    ).toThrowError('Hashnode publication not found')
+    ).toThrowError('HashNode publication not found')
   })
 
   it('returns mapped posts from API response', async () => {
-    const { hashNodeGraphqlRequest: hashnodeGraphqlRequest } =
+    const { hashNodeGraphqlRequest } =
       await import('@/services/hash-node/client')
 
-    vi.mocked(hashnodeGraphqlRequest).mockResolvedValue({
+    vi.mocked(hashNodeGraphqlRequest).mockResolvedValue({
       publication: {
         id: 'publication-1',
         title: 'Blog',
@@ -134,7 +134,7 @@ describe('hashnodeApi', () => {
 describe('hashnodeQueryKeys', () => {
   it('returns stable query key tuples', () => {
     expect(hashNodeQueryKeys.publicationPosts('izsk.hashnode.dev', 6, 'all')).toEqual([
-      'hashnode',
+      'hash-node',
       'publication-posts',
       'izsk.hashnode.dev',
       6,

@@ -1,13 +1,13 @@
-import { useHashnodePosts } from '@/hooks/useHashNodePosts'
+import { useHashNodePosts } from '@/hooks/useHashNodePosts'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { renderHook, waitFor } from '@testing-library/react'
 import { createTestQueryClient } from '@tests/helpers/AllProviders'
 import type { PropsWithChildren } from 'react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-vi.mock('@services/hashnode/hashnode.api', () => ({
-  HASHNODE_DEFAULT_POSTS_LIMIT: 6,
-  hashnodeApi: {
+vi.mock('@/services/hash-node/api', () => ({
+  HASH_NODE_DEFAULT_POSTS_LIMIT: 6,
+  hashNodeApi: {
     getPublicationPostsPage: vi.fn(),
   },
 }))
@@ -20,15 +20,15 @@ const createWrapper = () => {
   )
 }
 
-describe('useHashnodePosts', () => {
+describe('useHashNodePosts', () => {
   beforeEach(() => {
     vi.clearAllMocks()
   })
 
   it('returns posts on success', async () => {
-    const { hashNodeApi: hashnodeApi } = await import('@/services/hash-node/api')
+    const { hashNodeApi } = await import('@/services/hash-node/api')
 
-    vi.mocked(hashnodeApi.getPublicationPostsPage).mockResolvedValue({
+    vi.mocked(hashNodeApi.getPublicationPostsPage).mockResolvedValue({
       posts: [
         {
           id: 'post-1',
@@ -47,14 +47,17 @@ describe('useHashnodePosts', () => {
       },
     })
 
-    const { result } = renderHook(() => useHashnodePosts('izsk.hashnode.dev', 6, 'all'), {
-      wrapper: createWrapper(),
-    })
+    const { result } = renderHook(
+      () => useHashNodePosts({ host: 'izsk.hashnode.dev', first: 6, tagFilter: 'all' }),
+      {
+        wrapper: createWrapper(),
+      },
+    )
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true))
 
     expect(result.current.posts).toHaveLength(1)
-    expect(hashnodeApi.getPublicationPostsPage).toHaveBeenCalledWith({
+    expect(hashNodeApi.getPublicationPostsPage).toHaveBeenCalledWith({
       host: 'izsk.hashnode.dev',
       first: 6,
       after: null,
@@ -63,22 +66,25 @@ describe('useHashnodePosts', () => {
   })
 
   it('returns error state when request fails', async () => {
-    const { hashNodeApi: hashnodeApi } = await import('@/services/hash-node/api')
+    const { hashNodeApi } = await import('@/services/hash-node/api')
 
-    vi.mocked(hashnodeApi.getPublicationPostsPage).mockRejectedValue(new Error('Request failed'))
+    vi.mocked(hashNodeApi.getPublicationPostsPage).mockRejectedValue(new Error('Request failed'))
 
-    const { result } = renderHook(() => useHashnodePosts('izsk.hashnode.dev', 6, 'all'), {
-      wrapper: createWrapper(),
-    })
+    const { result } = renderHook(
+      () => useHashNodePosts({ host: 'izsk.hashnode.dev', first: 6, tagFilter: 'all' }),
+      {
+        wrapper: createWrapper(),
+      },
+    )
 
     await waitFor(() => expect(result.current.isError).toBe(true), { timeout: 3000 })
     expect(result.current.error?.message).toBe('Request failed')
   })
 
   it('returns an empty array when Hashnode has no posts', async () => {
-    const { hashNodeApi: hashnodeApi } = await import('@/services/hash-node/api')
+    const { hashNodeApi } = await import('@/services/hash-node/api')
 
-    vi.mocked(hashnodeApi.getPublicationPostsPage).mockResolvedValue({
+    vi.mocked(hashNodeApi.getPublicationPostsPage).mockResolvedValue({
       posts: [],
       pageInfo: {
         hasNextPage: false,
@@ -86,9 +92,12 @@ describe('useHashnodePosts', () => {
       },
     })
 
-    const { result } = renderHook(() => useHashnodePosts('izsk.hashnode.dev', 6, 'all'), {
-      wrapper: createWrapper(),
-    })
+    const { result } = renderHook(
+      () => useHashNodePosts({ host: 'izsk.hashnode.dev', first: 6, tagFilter: 'all' }),
+      {
+        wrapper: createWrapper(),
+      },
+    )
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true))
     expect(result.current.posts).toEqual([])
