@@ -2,7 +2,9 @@ import { hashnodeGraphqlRequest } from './hashnode.client'
 import { HASHNODE_PUBLICATION_POSTS_QUERY } from './hashnode.queries'
 import type {
   BlogPostSummary,
+  BlogPostsPage,
   HashnodePostNode,
+  HashnodePostsPageParams,
   HashnodePublicationPostsResponse,
 } from './hashnode.types'
 
@@ -17,29 +19,49 @@ export const mapHashnodePostToBlogPostSummary = (post: HashnodePostNode): BlogPo
   slug: post.slug,
   publishedAt: post.publishedAt,
   coverImageUrl: post.coverImage?.url ?? null,
-  tags: post.tags.map((tag) => tag.name),
+  tags: post.tags.map((tag) => ({
+    id: tag.id,
+    name: tag.name,
+    slug: tag.slug,
+  })),
 })
 
 export const mapHashnodePublicationPostsResponse = (
   response: HashnodePublicationPostsResponse,
-): BlogPostSummary[] => {
+): BlogPostsPage => {
   if (!response.publication) {
     throw new Error('Hashnode publication not found')
   }
 
-  return response.publication.posts.edges.map((edge) => mapHashnodePostToBlogPostSummary(edge.node))
+  return {
+    posts: response.publication.posts.edges.map((edge) =>
+      mapHashnodePostToBlogPostSummary(edge.node),
+    ),
+    pageInfo: response.publication.posts.pageInfo,
+  }
 }
 
 export const hashnodeApi = {
-  getPublicationPosts: async (
-    host: string,
+  getPublicationPostsPage: async ({
+    host,
     first = HASHNODE_DEFAULT_POSTS_LIMIT,
-  ): Promise<BlogPostSummary[]> => {
+    after,
+    tagSlugs,
+  }: HashnodePostsPageParams): Promise<BlogPostsPage> => {
     const response = await hashnodeGraphqlRequest<HashnodePublicationPostsResponse>({
       query: HASHNODE_PUBLICATION_POSTS_QUERY,
       variables: {
         host,
         first,
+        after,
+        filter: tagSlugs?.length
+          ? {
+              tagSlugs,
+              excludePinnedPost: true,
+            }
+          : {
+              excludePinnedPost: true,
+            },
       },
     })
 

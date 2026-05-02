@@ -133,7 +133,7 @@ const BlogCardTags: React.FC<BlogCardTagsProps> = ({ postId, tags }) => {
   return (
     <div className={blogTags}>
       {tags.map((tag) => (
-        <Tag key={`${postId}-${tag}`} label={tag} />
+        <Tag key={`${postId}-${tag.slug}`} label={tag.name} />
       ))}
     </div>
   )

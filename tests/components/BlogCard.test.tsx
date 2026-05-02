@@ -15,7 +15,13 @@ describe('BlogCard', () => {
           <BlogCard.Meta publishedAt="2026-05-02T19:30:53.107Z" sourceLabel="Hashnode" />
           <BlogCard.Title>Hashnode Post</BlogCard.Title>
           <BlogCard.Excerpt brief="Useful excerpt text" />
-          <BlogCard.Tags postId="1" tags={['React', 'TypeScript']} />
+          <BlogCard.Tags
+            postId="1"
+            tags={[
+              { id: 'tag-1', name: 'React', slug: 'react' },
+              { id: 'tag-2', name: 'TypeScript', slug: 'typescript' },
+            ]}
+          />
           <BlogCard.Footer>
             <BlogCard.ReadMore
               href="https://izsk.hashnode.dev/post"

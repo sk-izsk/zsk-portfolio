@@ -31,9 +31,12 @@ describe('BlogScreen', () => {
     const { useHashnodePosts } = await import('@hooks/useHashnodePosts')
 
     vi.mocked(useHashnodePosts).mockReturnValue({
-      data: undefined,
+      posts: [],
       isLoading: true,
       isError: false,
+      hasNextPage: false,
+      isFetchingNextPage: false,
+      fetchNextPage: vi.fn(),
     } as unknown as ReturnType<typeof useHashnodePosts>)
 
     renderScreen()
@@ -45,9 +48,12 @@ describe('BlogScreen', () => {
     const { useHashnodePosts } = await import('@hooks/useHashnodePosts')
 
     vi.mocked(useHashnodePosts).mockReturnValue({
-      data: undefined,
+      posts: [],
       isLoading: false,
       isError: true,
+      hasNextPage: false,
+      isFetchingNextPage: false,
+      fetchNextPage: vi.fn(),
     } as unknown as ReturnType<typeof useHashnodePosts>)
 
     renderScreen()
@@ -60,9 +66,12 @@ describe('BlogScreen', () => {
 
     vi.mocked(useHashnodePosts).mockReturnValue(
       makeHookResult({
-        data: [],
+        posts: [],
         isLoading: false,
         isError: false,
+        hasNextPage: false,
+        isFetchingNextPage: false,
+        fetchNextPage: vi.fn(),
       }),
     )
 
@@ -78,7 +87,7 @@ describe('BlogScreen', () => {
 
     vi.mocked(useHashnodePosts).mockReturnValue(
       makeHookResult({
-        data: [
+        posts: [
           {
             id: 'post-1',
             title: 'I Ditched Axios for Ky',
@@ -87,11 +96,17 @@ describe('BlogScreen', () => {
             slug: 'post',
             publishedAt: '2026-05-02T19:30:53.107Z',
             coverImageUrl: null,
-            tags: ['ky', 'react-query'],
+            tags: [
+              { id: 'tag-1', name: 'ky', slug: 'ky' },
+              { id: 'tag-2', name: 'react-query', slug: 'react-query' },
+            ],
           },
         ],
         isLoading: false,
         isError: false,
+        hasNextPage: false,
+        isFetchingNextPage: false,
+        fetchNextPage: vi.fn(),
       }),
     )
 

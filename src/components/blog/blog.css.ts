@@ -6,6 +6,59 @@ export const blogContent = style({
   maxWidth: '100%',
 })
 
+export const blogHeading = style({
+  flex: '0 0 100%',
+  maxWidth: '100%',
+})
+
+export const blogToolbar = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  gap: '20px',
+  marginBottom: '40px',
+  '@media': {
+    '(max-width: 767px)': {
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      gap: '16px',
+    },
+  },
+})
+
+export const blogHeadingTitle = style({
+  color: vars.color.text[900],
+  fontWeight: 500,
+  whiteSpace: 'nowrap',
+})
+
+export const blogFilterBar = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '12px',
+  width: '100%',
+  justifyContent: 'flex-end',
+  '@media': {
+    '(max-width: 767px)': {
+      flexDirection: 'column',
+      alignItems: 'stretch',
+    },
+  },
+})
+
+export const blogFilterControl = style({
+  width: '100%',
+  maxWidth: '300px',
+  flexShrink: 0,
+  '@media': {
+    '(max-width: 767px)': {
+      width: 'min(300px, 100%)',
+      maxWidth: '100%',
+      margin: '0 auto',
+    },
+  },
+})
+
 export const blogGrid = style({
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 320px))',
@@ -204,6 +257,9 @@ export const blogTags = style({
   display: 'flex',
   flexWrap: 'wrap',
   gap: '8px',
+  justifyContent: 'center',
+  marginTop: 'auto',
+  marginBottom: '18px',
 })
 
 export const blogFooter = style({
@@ -237,4 +293,15 @@ export const blogReadMoreIcon = style({
       transform: 'translateX(3px) translateY(-3px)',
     },
   },
+})
+
+export const blogLoadMoreTrigger = style({
+  width: '100%',
+  height: '1px',
+})
+
+export const blogLoadMoreState = style({
+  marginTop: '18px',
+  color: vars.color.text[700],
+  fontSize: '14px',
 })

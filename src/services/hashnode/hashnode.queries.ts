@@ -1,9 +1,18 @@
 export const HASHNODE_PUBLICATION_POSTS_QUERY = `
-  query PublicationPosts($host: String!, $first: Int!) {
+  query PublicationPosts(
+    $host: String!
+    $first: Int!
+    $after: String
+    $filter: PublicationPostConnectionFilter
+  ) {
     publication(host: $host) {
       id
       title
-      posts(first: $first) {
+      posts(first: $first, after: $after, filter: $filter) {
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
         edges {
           node {
             id

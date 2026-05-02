@@ -44,7 +44,13 @@ describe('hashnodeApi', () => {
       slug: 'post',
       publishedAt: '2026-05-02T19:30:53.107Z',
       coverImageUrl: 'https://cdn.hashnode.com/cover.jpg',
-      tags: ['React'],
+      tags: [
+        {
+          id: 'tag-1',
+          name: 'React',
+          slug: 'react',
+        },
+      ],
     })
   })
 
@@ -81,33 +87,57 @@ describe('hashnodeApi', () => {
         id: 'publication-1',
         title: 'Blog',
         posts: {
+          pageInfo: {
+            hasNextPage: true,
+            endCursor: 'cursor-1',
+          },
           edges: [{ node: makePostNode() }],
         },
       },
     })
 
-    await expect(hashnodeApi.getPublicationPosts('izsk.hashnode.dev', 6)).resolves.toEqual([
-      {
-        id: 'post-1',
-        title: 'I Ditched Axios for Ky',
-        brief: 'Short post summary',
-        url: 'https://izsk.hashnode.dev/post',
-        slug: 'post',
-        publishedAt: '2026-05-02T19:30:53.107Z',
-        coverImageUrl: 'https://cdn.hashnode.com/cover.jpg',
-        tags: ['React'],
+    await expect(
+      hashnodeApi.getPublicationPostsPage({
+        host: 'izsk.hashnode.dev',
+        first: 6,
+        after: 'cursor-0',
+        tagSlugs: ['react'],
+      }),
+    ).resolves.toEqual({
+      posts: [
+        {
+          id: 'post-1',
+          title: 'I Ditched Axios for Ky',
+          brief: 'Short post summary',
+          url: 'https://izsk.hashnode.dev/post',
+          slug: 'post',
+          publishedAt: '2026-05-02T19:30:53.107Z',
+          coverImageUrl: 'https://cdn.hashnode.com/cover.jpg',
+          tags: [
+            {
+              id: 'tag-1',
+              name: 'React',
+              slug: 'react',
+            },
+          ],
+        },
+      ],
+      pageInfo: {
+        hasNextPage: true,
+        endCursor: 'cursor-1',
       },
-    ])
+    })
   })
 })
 
 describe('hashnodeQueryKeys', () => {
   it('returns stable query key tuples', () => {
-    expect(hashnodeQueryKeys.publicationPosts('izsk.hashnode.dev', 6)).toEqual([
+    expect(hashnodeQueryKeys.publicationPosts('izsk.hashnode.dev', 6, 'all')).toEqual([
       'hashnode',
       'publication-posts',
       'izsk.hashnode.dev',
       6,
+      'all',
     ])
   })
 })
