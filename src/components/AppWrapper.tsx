@@ -44,7 +44,6 @@ const queryClient = new QueryClient({
 const AppLayout = ({ children }: PropsWithChildren) => {
   const { i18n } = useTranslation()
   const isSidebarOpen = useSidebarStore((state) => state.isOpen)
-  const isSidebarCollapsed = useSidebarStore((state) => state.isDesktopCollapsed)
   const [showEnhancements, setShowEnhancements] = useState(false)
 
   const portfolioQuery = usePortfolioData(i18n.resolvedLanguage === 'fr' ? 'fr' : 'en')
@@ -113,13 +112,7 @@ const AppLayout = ({ children }: PropsWithChildren) => {
       ) : null}
       <Sidebar />
 
-      <div
-        className={`main-content ${isSidebarOpen ? 'sidebar-mobile-open' : ''} ${
-          isSidebarCollapsed ? 'sidebar-collapsed' : 'sidebar-expanded'
-        }`}
-      >
-        {children}
-      </div>
+      <div className={`main-content ${isSidebarOpen ? 'sidebar-mobile-open' : ''}`}>{children}</div>
 
       {showEnhancements ? <StyleSwitcher /> : null}
       {showEnhancements ? (

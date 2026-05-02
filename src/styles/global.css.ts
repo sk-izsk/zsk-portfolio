@@ -105,14 +105,6 @@ globalStyle('.section::after', {
   zIndex: -2,
 })
 
-globalStyle('.sidebar-collapsed .section', {
-  '@media': {
-    '(min-width: 1200px)': {
-      left: '96px',
-    },
-  },
-})
-
 globalStyle('.sidebar-mobile-open .section', {
   '@media': {
     '(max-width: 1199px)': {

@@ -1,7 +1,3 @@
-import { MessageCircle } from 'lucide-react'
-import { useEffect, useState } from 'react'
-import { useTranslation } from '@localization/localize'
-import { useThemeStore } from '@stores/themeStore'
 import {
   floatingContainer,
   modalLoadingState,
@@ -15,7 +11,11 @@ import {
   triggerIcon,
   triggerLabelDesktop,
 } from '@components/canedly/canedly.css'
+import { useTranslation } from '@localization/localize'
+import { useThemeStore } from '@stores/themeStore'
 import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
+import { MessageCircle } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
 const colorThemes = {
   'color-1': '#ec1839',
@@ -63,6 +63,30 @@ export const Canedly = () => {
     })
   }, [PopupModalComponent, isOpen])
 
+  useEffect(() => {
+    const sections = document.querySelectorAll<HTMLElement>('.section')
+    if (isOpen) {
+      document.documentElement.style.overflowY = 'hidden'
+      document.body.style.overflowY = 'hidden'
+      sections.forEach((el) => {
+        el.style.overflowY = 'hidden'
+      })
+    } else {
+      document.documentElement.style.overflowY = ''
+      document.body.style.overflowY = ''
+      sections.forEach((el) => {
+        el.style.overflowY = ''
+      })
+    }
+    return () => {
+      document.documentElement.style.overflowY = ''
+      document.body.style.overflowY = ''
+      sections.forEach((el) => {
+        el.style.overflowY = ''
+      })
+    }
+  }, [isOpen])
+
   return (
     <>
       <div className={floatingContainer}>
@@ -81,7 +105,9 @@ export const Canedly = () => {
         </button>
       </div>
 
-      {isOpen && !PopupModalComponent ? <div className={modalLoadingState}>Loading scheduler...</div> : null}
+      {isOpen && !PopupModalComponent ? (
+        <div className={modalLoadingState}>Loading scheduler...</div>
+      ) : null}
       {PopupModalComponent ? (
         <PopupModalComponent
           url="https://calendly.com/izsk/60min"

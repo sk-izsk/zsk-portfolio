@@ -1,5 +1,5 @@
-import { style } from '@vanilla-extract/css'
 import { vars } from '@styles/theme.css'
+import { style } from '@vanilla-extract/css'
 
 export const aside = style({
   width: '272px',
@@ -35,27 +35,11 @@ export const asideOpen = style({
   },
 })
 
-export const asideCollapsed = style({
-  '@media': {
-    '(min-width: 1200px)': {
-      width: '96px',
-      paddingLeft: '14px',
-      paddingRight: '14px',
-    },
-  },
-})
-
 export const logo = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '12px',
   paddingTop: '10px',
-  paddingRight: '56px',
-})
-
-export const logoCollapsed = style({
-  paddingRight: 0,
-  alignItems: 'center',
 })
 
 export const logoA = style({
@@ -88,14 +72,6 @@ export const logoA = style({
   },
 })
 
-export const logoACompact = style({
-  alignSelf: 'center',
-  fontSize: '24px',
-  letterSpacing: '2px',
-  paddingLeft: '16px',
-  paddingRight: '16px',
-})
-
 export const logoSpan = style({
   fontFamily: vars.font.family.script,
   fontSize: '38px',
@@ -104,12 +80,8 @@ export const logoSpan = style({
 export const languageSwitcher = style({
   display: 'flex',
   alignItems: 'center',
+  justifyContent: 'center',
   gap: '8px',
-  paddingLeft: '18px',
-})
-
-export const languageSwitcherHidden = style({
-  display: 'none',
 })
 
 export const languageButton = style({
@@ -135,35 +107,26 @@ export const languageDivider = style({
 })
 
 export const navToggler = style({
-  position: 'absolute',
-  top: '20px',
-  right: '18px',
-  height: '42px',
-  width: '42px',
-  border: `1px solid ${vars.color.background[50]}`,
-  borderRadius: '14px',
-  background: vars.color.background[100],
-  color: vars.color.text[900],
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  cursor: 'pointer',
-  transition: 'transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease',
-  selectors: {
-    '&:hover': {
-      transform: 'translateY(-1px)',
-      color: vars.color.skin,
-      borderColor: vars.color.skin,
-    },
-  },
+  display: 'none',
   '@media': {
     '(max-width: 1199px)': {
+      display: 'inline-flex',
       position: 'fixed',
       top: '20px',
       left: '20px',
-      right: 'auto',
+      height: '42px',
+      width: '42px',
+      border: `1px solid ${vars.color.background[50]}`,
+      borderRadius: '14px',
+      background: vars.color.background[100],
+      color: vars.color.text[900],
+      alignItems: 'center',
+      justifyContent: 'center',
+      cursor: 'pointer',
       zIndex: 1001,
       boxShadow: '0 20px 40px rgba(15, 23, 42, 0.14)',
+      transition:
+        'transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease',
     },
   },
 })
@@ -199,7 +162,8 @@ export const navA = style({
   lineHeight: 1.2,
   borderRadius: '18px',
   border: `1px solid transparent`,
-  transition: 'background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease',
+  transition:
+    'background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease',
   selectors: {
     '&:hover': {
       transform: 'translateX(2px)',
@@ -207,12 +171,6 @@ export const navA = style({
       borderColor: vars.color.background[50],
     },
   },
-})
-
-export const navACompact = style({
-  justifyContent: 'center',
-  paddingLeft: '12px',
-  paddingRight: '12px',
 })
 
 export const navAActive = style({
@@ -234,8 +192,4 @@ export const navLabel = style({
   whiteSpace: 'nowrap',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
-})
-
-export const navLabelHidden = style({
-  display: 'none',
 })
