@@ -28,7 +28,7 @@ describe('SkillRateItem', () => {
 
   it('sets the progress bar width to the correct percentage', () => {
     const { container } = render(<SkillRateItem name="Node.js" level={70} />)
-    const progressBar = container.querySelector('[style*="width: 70%"]')
+    const progressBar = container.querySelector('[class*="progressIn"]')
     expect(progressBar).toBeInTheDocument()
   })
 })

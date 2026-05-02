@@ -12,4 +12,10 @@ export const sidebarEn = {
     en: 'en',
     fr: 'fr',
   },
+  toggle: {
+    open: 'Open navigation',
+    close: 'Close navigation',
+    expand: 'Expand sidebar',
+    collapse: 'Collapse sidebar',
+  },
 } as const

@@ -1,13 +1,23 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { getReactGA } from '@utils/analytics'
+import { getReactGA, initAnalytics } from '@utils/analytics'
 
 export const useAnalytics = () => {
   const location = useLocation()
 
   useEffect(() => {
-    void getReactGA().then((reactGa) => {
-      reactGa.send({ hitType: 'pageview', page: location.pathname })
-    })
+    if (!import.meta.env.VITE_GA_MEASUREMENT_ID) {
+      return
+    }
+
+    void initAnalytics(
+      import.meta.env.VITE_GA_MEASUREMENT_ID,
+      import.meta.env.VITE_MIXPANEL_PROJECT_TOKEN,
+      import.meta.env.DEV,
+    ).then(() =>
+      getReactGA().then((reactGa) => {
+        reactGa.send({ hitType: 'pageview', page: location.pathname })
+      }),
+    )
   }, [location.pathname])
 }

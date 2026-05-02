@@ -1,7 +1,7 @@
+import { navA, navAActive, navAI, navLabel, navLi } from '@components/sidebar/sidebar.css'
+import type { SidebarNavigationItem } from '@components/sidebar/sidebar.types'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { navA, navAActive, navAI, navLi } from '@components/sidebar/sidebar.css'
-import type { SidebarNavigationItem } from '@components/sidebar/sidebar.types'
 
 interface SidebarNavItemProps {
   item: SidebarNavigationItem
@@ -14,8 +14,15 @@ export const SidebarNavItem: React.FC<SidebarNavItemProps> = ({ item, isActive, 
 
   return (
     <li className={navLi}>
-      <Link to={item.path} className={`${navA} ${isActive ? navAActive : ''}`} onClick={onClick}>
-        <Icon className={navAI} size={16} /> {item.label}
+      <Link
+        to={item.path}
+        title={item.label}
+        aria-label={item.label}
+        className={`${navA} ${isActive ? navAActive : ''}`}
+        onClick={onClick}
+      >
+        <Icon className={navAI} size={16} />
+        <span className={navLabel}>{item.label}</span>
       </Link>
     </li>
   )

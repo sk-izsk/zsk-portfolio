@@ -60,6 +60,7 @@ export const projectItem = style({
   flexDirection: 'column',
   width: '100%',
   maxWidth: '300px',
+  height: '100%',
   margin: 0,
   '@media': {
     '(max-width: 767px)': {
@@ -71,15 +72,26 @@ export const projectItem = style({
 export const projectItemInner = style({
   backgroundColor: vars.color.background[100],
   border: `1px solid ${vars.color.background[50]}`,
-  borderRadius: '10px',
+  borderRadius: '22px',
   padding: '30px 10px',
   textAlign: 'center',
-  transition: 'all 0.3s ease',
+  boxShadow: '0 18px 42px rgba(15, 23, 42, 0.07)',
+  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
   display: 'flex',
   flexDirection: 'column',
   height: '100%',
+  minHeight: '700px',
   ':hover': {
-    boxShadow: '0 0 20px rgba(48, 46, 77, 0.15)',
+    transform: 'translateY(-6px)',
+    boxShadow: '0 24px 56px rgba(15, 23, 42, 0.12)',
+  },
+  '@media': {
+    '(max-width: 991px)': {
+      minHeight: '660px',
+    },
+    '(max-width: 767px)': {
+      minHeight: '620px',
+    },
   },
 })
 
@@ -89,7 +101,7 @@ export const projectImage = style({
 
 export const projectImageImg = style({
   width: '100%',
-  borderRadius: '10px',
+  borderRadius: '16px',
   display: 'block',
   margin: '0 auto 20px',
   transition: 'all 0.3s ease',
@@ -132,6 +144,13 @@ export const projectTitle = style({
   color: vars.color.text[900],
   fontWeight: 700,
   textTransform: 'capitalize',
+  lineHeight: 1.5,
+  minHeight: '81px',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  display: '-webkit-box',
+  WebkitLineClamp: 3,
+  WebkitBoxOrient: 'vertical',
 })
 
 export const projectContent = style({
@@ -140,6 +159,27 @@ export const projectContent = style({
   lineHeight: '25px',
   marginBottom: '15px',
   flex: 1,
+  minHeight: '225px',
+  maxHeight: '225px',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  display: '-webkit-box',
+  WebkitLineClamp: 9,
+  WebkitBoxOrient: 'vertical',
+  position: 'relative',
+  paddingBottom: '0',
+  selectors: {
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      bottom: 0,
+      height: '56px',
+      pointerEvents: 'none',
+      background: `linear-gradient(180deg, transparent 0%, ${vars.color.background[100]} 100%)`,
+    },
+  },
 })
 
 export const projectTags = style({
@@ -147,6 +187,7 @@ export const projectTags = style({
   flexWrap: 'wrap',
   gap: '8px',
   justifyContent: 'center',
+  marginTop: 'auto',
   marginBottom: '18px',
 })
 

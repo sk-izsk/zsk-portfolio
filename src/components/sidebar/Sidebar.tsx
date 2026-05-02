@@ -1,10 +1,3 @@
-import { BookOpen, Briefcase, Cog, House, List, MessageCircle, User } from 'lucide-react'
-import React, { useEffect, useRef } from 'react'
-import { useLocation } from 'react-router-dom'
-import { useTranslation } from '@localization/localize'
-import { usePersonalInfo, usePortfolioLoading } from '@stores/portfolioStore'
-import { useSidebarStore } from '@stores/sidebarStore'
-import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
 import { HyperText } from '@components/common/hyperText/HyperText'
 import { SidebarNavItem } from '@components/sidebar/SidebarNavItem'
 import {
@@ -20,10 +13,15 @@ import {
   nav,
   navToggler,
   navTogglerOpen,
-  navTogglerOpenSpan,
-  navTogglerSpan,
 } from '@components/sidebar/sidebar.css'
 import type { SidebarNavigationItem } from '@components/sidebar/sidebar.types'
+import { useTranslation } from '@localization/localize'
+import { usePersonalInfo, usePortfolioLoading } from '@stores/portfolioStore'
+import { useSidebarStore } from '@stores/sidebarStore'
+import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
+import { BookOpen, Briefcase, Cog, House, List, Menu, MessageCircle, User, X } from 'lucide-react'
+import React, { useEffect, useRef } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
 const getCurrentSection = (path: string) => {
   if (path === '/' || path === '/home') {
@@ -110,7 +108,7 @@ export const Sidebar: React.FC = () => {
   }
 
   const handleNavClick = (itemId: string, event: React.MouseEvent) => {
-    if (activeSection === itemId && isOpen) {
+    if (window.innerWidth < 1200 && activeSection === itemId && isOpen) {
       event.preventDefault()
       toggleSidebar()
     }
@@ -148,7 +146,7 @@ export const Sidebar: React.FC = () => {
   return (
     <div className={`${aside} ${isOpen ? asideOpen : ''}`}>
       <div className={logo}>
-        <a href="#home" className={logoA}>
+        <Link to="/" className={logoA}>
           <HyperText
             text={getLogoText()}
             as="span"
@@ -158,7 +156,7 @@ export const Sidebar: React.FC = () => {
               index === 0 ? <span className={logoSpan}>{char}</span> : char
             }
           />
-        </a>
+        </Link>
         <div className={languageSwitcher}>
           <button
             className={`${languageButton} ${currentLanguage === 'en' ? languageButtonActive : ''}`}
@@ -177,9 +175,14 @@ export const Sidebar: React.FC = () => {
           </button>
         </div>
       </div>
-      <div className={`${navToggler} ${isOpen ? navTogglerOpen : ''}`} onClick={toggleSidebar}>
-        <span className={`${navTogglerSpan} ${isOpen ? navTogglerOpenSpan : ''}`}></span>
-      </div>
+      <button
+        className={`${navToggler} ${isOpen ? navTogglerOpen : ''}`}
+        type="button"
+        onClick={toggleSidebar}
+        aria-label={isOpen ? t('sidebar.toggle.close') : t('sidebar.toggle.open')}
+      >
+        {isOpen ? <X size={18} /> : <Menu size={18} />}
+      </button>
       <ul className={nav}>
         {navigationItems.map((item) => (
           <SidebarNavItem

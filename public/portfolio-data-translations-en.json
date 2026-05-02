@@ -158,17 +158,28 @@
   "projects": [
     {
       "id": 1,
-      "title": "Productify: Full-Stack TypeScript Product Platform",
-      "excerpt": "A real-world PERN-style build where I implemented end-to-end auth with Clerk, ownership-safe product/comment CRUD, and cache-aware React Query flows to keep UX fast without excessive refetching.",
-      "shortDescription": "A full-stack TypeScript platform built with React 19, Express 5, Drizzle ORM, and PostgreSQL. Features end-to-end Clerk authentication, ownership-safe CRUD for products and comments, and cache-aware React Query mutations for a fast, low-refetch UX.",
+      "title": "ZTable: Interactive Chemistry Platform",
+      "excerpt": "A frontend-heavy React and TypeScript chemistry app with a searchable 118-element periodic table, a 3D atom model, exact-math equation balancing, and Web Worker offloading to keep complex tools responsive in the browser.",
+      "shortDescription": "A modern chemistry platform built with React 19, TypeScript, and Vite. It combines dense reference UI with computation-heavy tools including a molar mass calculator, chemical equation balancer, solubility lookup, worksheet generation, and a Three.js-powered 3D atom model. I separated UI, domain logic, and background compute so the app stays maintainable and fast as feature complexity grows.",
       "highlights": [
-        "End-to-end authentication with Clerk integration",
-        "Ownership-safe CRUD for products and comments",
-        "Cache-aware React Query flows for optimal performance (with unit testing)"
+        "Interactive 118-element periodic table with detailed chemistry reference views",
+        "Exact BigInt fraction math for equation balancing plus shared formula parsing and caching",
+        "Web Worker offloading, lazy loading, and granular Zustand selectors to keep heavy UI responsive"
       ]
     },
     {
       "id": 2,
+      "title": "Productify: Full-Stack Product Showcase Platform",
+      "excerpt": "A deployable full-stack TypeScript app where I built Clerk-based authentication, ownership-safe product and comment CRUD, paginated REST APIs, and cache-aware React Query updates that keep the UI snappy without unnecessary refetching.",
+      "shortDescription": "A full-stack product showcase application built with React, Vite, Express, Drizzle ORM, and PostgreSQL on Neon. It supports sign up and sign in with Clerk, protected routes, synced user records, product and comment CRUD, ownership-based authorization, pagination, and centralized auth token handling. I also worked through deployment-specific issues such as Linux case-sensitive imports, CORS setup, and DATABASE_URL formatting to get the stack running cleanly on Vercel and Render.",
+      "highlights": [
+        "Clerk authentication with protected routes, user sync, and centralized token handling",
+        "Ownership-based authorization for product and comment CRUD with paginated REST endpoints",
+        "Cache-aware React Query mutations plus deployment fixes for CORS, env config, and Linux import paths"
+      ]
+    },
+    {
+      "id": 3,
       "title": "zsk-react-i18n: Typed React Localization Wrapper",
       "excerpt": "A reusable npm package that wraps i18next/react-i18next with a type-safe API for React apps. I built both factory and direct-provider modes, runtime language guards, localStorage persistence, multi-language scaling, and compile-time translation-key safety backed by tests.",
       "shortDescription": "A reusable npm package that wraps i18next/react-i18next with a type-safe API for React apps. I built both factory and direct-provider modes, runtime language guards, localStorage persistence, multi-language scaling, and compile-time translation-key safety backed by tests.",
@@ -179,7 +190,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "zsk-react-error: React Error Boundary & Reporter",
       "excerpt": "A TypeScript-first React error boundary and reporter package with advanced error state control, reset logic, and analytics integration. Designed for scalable, production-grade error handling in React apps.",
       "shortDescription": "A robust React error boundary and reporter package supporting both global and local error state, composable hooks, imperative resets, and flexible fallback UI. Integrates easily with Zustand and analytics tools for complete error visibility.",
@@ -192,7 +203,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "Smart AI: Full-Stack SaaS AI Platform",
       "excerpt": "A comprehensive SaaS platform democratizing access to AI capabilities. Provides features for article generation, image creation/editing, resume analysis, and community interaction—with freemium tier distinction enforced at the API boundary.",
       "shortDescription": "Full-stack AI-powered SaaS application integrating multiple AI services (Gemini, ClipDrop) and media processing (Cloudinary) with plan-based access control. Features user dashboards, creation history, community feed, and usage tracking.",
@@ -207,7 +218,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "Auto Pause & Media Control: Chrome Extension",
       "excerpt": "A zero-dependency Chrome extension that automatically pauses media when you switch tabs and gives you precise scroll-wheel control over volume, playback speed, and scrubbing—no library required, just clean browser APIs.",
       "shortDescription": "A lightweight, privacy-first Chrome extension built on pure vanilla JavaScript and the Chrome Extensions API. It intelligently pauses audio/video on tab blur and resumes on return, with scroll-wheel shortcuts for volume, speed, and scrubbing. Includes a Glassmorphism popup UI with individual feature toggles and a master kill-switch.",
@@ -221,7 +232,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "zsk-portfolio: This Portfolio (over-engineered by design)",
       "excerpt": "The site you're looking at right now. Built as a deliberate exercise in senior-level architecture using React 19, Vanilla Extract, Zustand, and a zero-runtime CSS design system. Every technology choice has a reason behind it — some practical, some intentionally ambitious.",
       "shortDescription": "A fully interactive developer portfolio built to showcase architectural decision-making as much as UI craft. Uses a headless JSON data layer, type-safe CSS-in-JS compiled at build time, compound component patterns, PWA offline support, a synthetic Web Audio click engine, and hydration-safe state persistence. Purposefully over-engineered.",
@@ -237,7 +248,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "zsk-use-sound: React Hook for File + Generated Sound",
       "excerpt": "A TypeScript-first React hook inspired by use-sound that supports both Howler-powered file playback and browser-generated click sounds through one API. Designed for UI feedback without forcing bundled audio assets.",
       "shortDescription": "zsk-use-sound unifies two sound strategies in one ergonomic hook: file mode for mp3/wav assets via Howler, and generated mode that synthesizes built-in click profiles in the browser when no file is provided. It exposes a familiar tuple API with play controls, mode visibility, and sound-enabled toggling for app-wide mute workflows.",
@@ -250,7 +261,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "zsk-jd: AI-Powered Resume Tailoring Skill",
       "excerpt": "A portable LLM skill that performs ATS gap analysis, interview probability scoring, and full LaTeX resume tailoring against any job description — with a mandatory warning gate before output and bilingual cover letter generation.",
       "shortDescription": "A structured prompt skill for Claude and other LLMs that automates resume tailoring end-to-end: JD parsing, skill gap scoring, ATS keyword injection, and compilable LaTeX output with optional cover letters. Built with strict ATS writing rules, fabrication guardrails, and support for patch-mode diffs.",

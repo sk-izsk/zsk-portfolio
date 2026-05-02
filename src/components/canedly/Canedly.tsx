@@ -1,10 +1,6 @@
-import { MessageCircle } from 'lucide-react'
-import { useState } from 'react'
-import { PopupModal } from 'react-calendly'
-import { useTranslation } from '@localization/localize'
-import { useThemeStore } from '@stores/themeStore'
 import {
   floatingContainer,
+  modalLoadingState,
   triggerButton,
   triggerColor1,
   triggerColor2,
@@ -15,7 +11,11 @@ import {
   triggerIcon,
   triggerLabelDesktop,
 } from '@components/canedly/canedly.css'
+import { useTranslation } from '@localization/localize'
+import { useThemeStore } from '@stores/themeStore'
 import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
+import { MessageCircle } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
 const colorThemes = {
   'color-1': '#ec1839',
@@ -37,11 +37,14 @@ const triggerColorClassByTheme = {
   'color-9': triggerColor9,
 } as const
 
+type PopupModalComponent = typeof import('react-calendly').PopupModal
+
 export const Canedly = () => {
   const { t } = useTranslation()
   const isDarkMode = useThemeStore((state) => state.isDarkMode)
   const currentColor = useThemeStore((state) => state.currentColor)
   const [isOpen, setIsOpen] = useState(false)
+  const [PopupModalComponent, setPopupModalComponent] = useState<PopupModalComponent | null>(null)
 
   const currentAccentColor =
     colorThemes[currentColor as keyof typeof colorThemes] ?? colorThemes['color-1']
@@ -49,6 +52,40 @@ export const Canedly = () => {
     triggerColorClassByTheme[currentColor as keyof typeof triggerColorClassByTheme] ?? triggerColor1
   const rootElement = document.getElementById('root') ?? document.body
   const desktopText = t('common.calendly.cta')
+
+  useEffect(() => {
+    if (!isOpen || PopupModalComponent) {
+      return
+    }
+
+    void import('react-calendly').then((module) => {
+      setPopupModalComponent(() => module.PopupModal)
+    })
+  }, [PopupModalComponent, isOpen])
+
+  useEffect(() => {
+    const sections = document.querySelectorAll<HTMLElement>('.section')
+    if (isOpen) {
+      document.documentElement.style.overflowY = 'hidden'
+      document.body.style.overflowY = 'hidden'
+      sections.forEach((el) => {
+        el.style.overflowY = 'hidden'
+      })
+    } else {
+      document.documentElement.style.overflowY = ''
+      document.body.style.overflowY = ''
+      sections.forEach((el) => {
+        el.style.overflowY = ''
+      })
+    }
+    return () => {
+      document.documentElement.style.overflowY = ''
+      document.body.style.overflowY = ''
+      sections.forEach((el) => {
+        el.style.overflowY = ''
+      })
+    }
+  }, [isOpen])
 
   return (
     <>
@@ -68,17 +105,22 @@ export const Canedly = () => {
         </button>
       </div>
 
-      <PopupModal
-        url="https://calendly.com/izsk/60min"
-        rootElement={rootElement}
-        open={isOpen}
-        onModalClose={() => setIsOpen(false)}
-        pageSettings={{
-          primaryColor: stripHexPrefix(currentAccentColor),
-          backgroundColor: isDarkMode ? '151515' : 'fdf9ff',
-          textColor: isDarkMode ? 'ffffff' : '302e4d',
-        }}
-      />
+      {isOpen && !PopupModalComponent ? (
+        <div className={modalLoadingState}>Loading scheduler...</div>
+      ) : null}
+      {PopupModalComponent ? (
+        <PopupModalComponent
+          url="https://calendly.com/izsk/60min"
+          rootElement={rootElement}
+          open={isOpen}
+          onModalClose={() => setIsOpen(false)}
+          pageSettings={{
+            primaryColor: stripHexPrefix(currentAccentColor),
+            backgroundColor: isDarkMode ? '151515' : 'fdf9ff',
+            textColor: isDarkMode ? 'ffffff' : '302e4d',
+          }}
+        />
+      ) : null}
     </>
   )
 }
