@@ -1,9 +1,9 @@
+import { SidebarNavItem } from '@components/sidebar/SidebarNavItem'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { House } from 'lucide-react'
 import { BrowserRouter } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
-import { SidebarNavItem } from '@components/sidebar/SidebarNavItem'
 
 const homeItem = { id: 'home', label: 'Home', icon: House, path: '/' }
 
@@ -11,7 +11,7 @@ const renderItem = (isActive = false, onClick = vi.fn()) =>
   render(
     <BrowserRouter>
       <ul>
-        <SidebarNavItem item={homeItem} isActive={isActive} isCollapsed={false} onClick={onClick} />
+        <SidebarNavItem item={homeItem} isActive={isActive} onClick={onClick} />
       </ul>
     </BrowserRouter>,
   )
