@@ -1,8 +1,3 @@
-import dayjs from 'dayjs'
-import React from 'react'
-import { useTranslation } from '@localization/localize'
-import { useContactInfo, usePersonalInfo } from '@stores/portfolioStore'
-import { Button } from '@components/common/button/Button'
 import {
   btnMargin,
   buttons,
@@ -13,7 +8,12 @@ import {
   infoItemSpanLink,
   personalInfoSection,
 } from '@components/about/about.css'
+import { Button } from '@components/common/button/Button'
+import { useTranslation } from '@localization/localize'
+import { useContactInfo, usePersonalInfo } from '@stores/portfolioStore'
 import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
+import dayjs from 'dayjs'
+import React from 'react'
 
 export const AboutPersonalInfoSection: React.FC = () => {
   const { t, i18n } = useTranslation()

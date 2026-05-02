@@ -45,7 +45,7 @@ Base URL and tags in `common`. Title, excerpt, shortDescription, highlights in t
 
 ## Project Interface
 
-```ts
+```TypeScript
 interface Project {
   id: number
   title: string
@@ -66,7 +66,7 @@ The `demo_link` field is intentionally optional. Only the portfolio project (id 
 
 1. Edit the relevant JSON file(s) in `/public/`.
 2. No code changes needed — React Query and the store automatically pick up the new data on next fetch.
-3. If adding a new project, add the base entry (url, tags, publishDate, demo_link if applicable) to `common` and the translatable content to both EN and FR files with a matching `id`.
+3. If adding a new project, add the base entry (url, tags, publishDate, demo\_link if applicable) to `common` and the translatable content to both EN and FR files with a matching `id`.
 
 ## Adding a New Language
 
@@ -112,7 +112,7 @@ public/
 
 ### Basic Usage
 
-```tsx
+```TSX
 import React from 'react'
 import { usePortfolioData } from '../hooks/usePortfolioData'
 
@@ -134,7 +134,7 @@ export const MyComponent: React.FC = () => {
 
 ### Using Utility Functions
 
-```tsx
+```TSX
 import {
   usePortfolioData,
   getCurrentExperience,
@@ -187,7 +187,7 @@ export const Dashboard: React.FC = () => {
 
 ### Working with Skills
 
-```tsx
+```TSX
 // Get all skills
 const allSkills = data.skills.technical;
 
@@ -217,7 +217,7 @@ const skillCategories = data.skills.categories;
 
 ### Working with Experience
 
-```tsx
+```TSX
 // Get all experience
 const allExperience = data.experience
 
@@ -250,7 +250,7 @@ const fullTimeJobs = data.experience.filter((exp) => exp.type === 'full-time')
 
 ### Working with Services
 
-```tsx
+```TSX
 // Render services grid
 {
   data.services.map((service) => (
@@ -270,7 +270,7 @@ const fullTimeJobs = data.experience.filter((exp) => exp.type === 'full-time')
 
 ### Working with Blog Posts
 
-```tsx
+```TSX
 // Get recent posts
 const recentPosts = data.blog.slice(0, 3)
 
@@ -304,14 +304,14 @@ const typescriptPosts = data.blog.filter((post) => post.tags.includes('TypeScrip
 
 The data structure includes comprehensive TypeScript interfaces:
 
-- `PortfolioData` - Main interface for the entire data structure
-- `PersonalInfo` - Personal information section
-- `ContactInfo` - Contact details and social links
-- `Skill` - Individual skill with progress and color
-- `Experience` - Work experience entry
-- `Service` - Service offering
-- `BlogPost` - Blog post entry
-- And many more...
+* `PortfolioData` - Main interface for the entire data structure
+* `PersonalInfo` - Personal information section
+* `ContactInfo` - Contact details and social links
+* `Skill` - Individual skill with progress and color
+* `Experience` - Work experience entry
+* `Service` - Service offering
+* `BlogPost` - Blog post entry
+* And many more...
 
 ## Customization
 
@@ -326,7 +326,7 @@ The data structure includes comprehensive TypeScript interfaces:
 
 Update theme colors in the `meta.theme` section:
 
-```json
+```JSON
 {
   "meta": {
     "theme": {
@@ -345,7 +345,7 @@ Update theme colors in the `meta.theme` section:
 
 Update SEO settings in `meta.seo`:
 
-```json
+```JSON
 {
   "meta": {
     "seo": {

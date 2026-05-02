@@ -149,17 +149,28 @@
   "projects": [
     {
       "id": 1,
-      "title": "Productify : plateforme produit Full Stack en TypeScript",
-      "excerpt": "Un projet de type PERN en conditions reelles, avec authentification de bout en bout via Clerk, CRUD securise par proprietaire pour produits/commentaires, et flux React Query orientes cache pour une UX rapide sans refetch excessif.",
-      "shortDescription": "Une plateforme TypeScript full-stack construite avec React 19, Express 5, Drizzle ORM et PostgreSQL. Authentification Clerk de bout en bout, CRUD securise par proprietaire pour produits et commentaires, et mutations React Query orientees cache pour une UX rapide et sans refetch excessif.",
+      "title": "ZTable : plateforme de chimie interactive",
+      "excerpt": "Une application de chimie frontend-heavy en React et TypeScript avec tableau periodique consultable des 118 elements, modele atomique 3D, equilibrage d'equations en mathematiques exactes, et calculs delegues a des Web Workers pour garder une interface fluide.",
+      "shortDescription": "Une plateforme de chimie moderne construite avec React 19, TypeScript et Vite. Elle combine une interface de reference dense avec des outils de calcul comme un calculateur de masse molaire, un equilibreur d'equations chimiques, une recherche de solubilite, une generation de fiches d'exercices et un modele atomique 3D base sur Three.js. J'ai separe UI, logique metier et calcul en arriere-plan pour garder codebase maintenable et rapide a mesure que complexite fonctionnelle augmente.",
       "highlights": [
-        "Authentification de bout en bout avec Clerk",
-        "CRUD securise par proprietaire pour produits/commentaires",
-        "Flux React Query optimises (avec tests unitaires)"
+        "Tableau periodique interactif des 118 elements avec vues de reference detaillees",
+        "Equilibrage d'equations avec fractions exactes en BigInt, plus parsing de formules partage et mis en cache",
+        "Web Workers, lazy loading et selecteurs Zustand granulaires pour garder UI reactive malgre calculs lourds"
       ]
     },
     {
       "id": 2,
+      "title": "Productify : plateforme full-stack de presentation de produits",
+      "excerpt": "Une application TypeScript full-stack deployable ou j'ai construit authentification Clerk, CRUD securise par proprietaire pour produits et commentaires, API REST paginees, et mises a jour React Query orientees cache pour garder interface rapide sans refetch inutile.",
+      "shortDescription": "Une application full-stack de presentation de produits construite avec React, Vite, Express, Drizzle ORM et PostgreSQL sur Neon. Elle prend en charge inscription et connexion via Clerk, routes protegees, synchronisation des utilisateurs, CRUD sur produits et commentaires, autorisation basee sur le proprietaire, pagination, et gestion centralisee des tokens d'authentification. J'ai aussi resolu des problemes de deploiement concrets comme les imports sensibles a la casse sous Linux, la configuration CORS et le formatage de DATABASE_URL pour faire tourner proprement stack sur Vercel et Render.",
+      "highlights": [
+        "Authentification Clerk avec routes protegees, synchronisation utilisateur et gestion centralisee des tokens",
+        "Autorisation basee sur proprietaire pour CRUD produits/commentaires avec endpoints REST pagines",
+        "Mutations React Query orientees cache plus correctifs de deploiement pour CORS, variables d'environnement et imports Linux"
+      ]
+    },
+    {
+      "id": 3,
       "title": "zsk-react-i18n : wrapper de localisation type-safe pour React",
       "excerpt": "Un package npm reutilisable qui encapsule i18next/react-i18next avec une API type-safe pour les applications React. J'y ai construit les modes factory et direct-provider, des gardes runtime pour les langues, la persistance via localStorage, la prise en charge de plusieurs langues et la securite compile-time des cles de traduction, valides par des tests.",
       "shortDescription": "Un package npm reutilisable qui encapsule i18next/react-i18next avec une API type-safe pour les applications React. Modes factory et direct-provider, gardes runtime, persistance localStorage, prise en charge multi-langues et securite compile-time des cles de traduction, valides par des tests.",
@@ -170,7 +181,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": 4,
       "title": "zsk-react-error : Error Boundary & Reporter pour React",
       "excerpt": "Un package Error Boundary et reporter pour React, oriente TypeScript, avec gestion avancee de l'etat d'erreur, logique de reset et integration analytics. Concu pour une gestion d'erreurs evolutive et robuste en production.",
       "shortDescription": "Un package Error Boundary et reporter robuste pour React, prenant en charge l'etat d'erreur global et local, des hooks composables, le reset imperatif et une UI de fallback flexible. S'integre facilement avec Zustand et les outils analytics pour une visibilite complete des erreurs.",
@@ -183,7 +194,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": 5,
       "title": "Smart AI: Plateforme SaaS IA Full-Stack",
       "excerpt": "Une plateforme SaaS complete democratisant l'acces aux capacites d'IA. Fournit des fonctionnalites de generation d'articles, de creation/edition d'images, d'analyse de CV et d'interaction communautaire — avec distinction de tiers freemium appliquee a la limite de l'API.",
       "shortDescription": "Application SaaS full-stack propulsee par l'IA integrant de multiples services d'IA (Gemini, ClipDrop) et traitement medias (Cloudinary) avec controle d'acces base sur le forfait. Dispose de tableaux de bord utilisateurs, historique des creations et flux communautaire.",
@@ -198,7 +209,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "Auto Pause & Media Control : Extension Chrome",
       "excerpt": "Une extension Chrome sans dependance qui met automatiquement en pause les medias lors du changement d'onglet et offre un controle precis de la molette pour le volume, la vitesse de lecture et le defilement — sans librairie, uniquement des API navigateur natives.",
       "shortDescription": "Une extension Chrome legere et respectueuse de la vie privee, construite en JavaScript vanilla pur et l'API Chrome Extensions. Elle met intelligemment en pause l'audio/video lors du changement d'onglet et reprend a la position exacte au retour, avec des raccourcis molette pour le volume, la vitesse et le defilement.",
@@ -212,7 +223,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "zsk-portfolio : Ce portfolio (sur-architecture par choix)",
       "excerpt": "Le site que vous regardez en ce moment. Construit comme un exercice delibere d'architecture senior avec React 19, Vanilla Extract, Zustand et un systeme de design CSS a zero cout runtime. Chaque choix technologique a une raison — certaines pratiques, d'autres intentionnellement ambitieuses.",
       "shortDescription": "Un portfolio de developpeur entierement interactif concu pour mettre en valeur autant les decisions d'architecture que le soin apporte a l'interface. Utilise une couche de donnees JSON headless, un CSS-in-JS compile a build-time, des patterns de composants composes, le support PWA offline, un moteur de clic audio synthetique, et une persistance d'etat sure a l'hydration.",
@@ -228,7 +239,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": 8,
       "title": "zsk-use-sound : Hook React pour sons fichier + generes",
       "excerpt": "Un hook React oriente TypeScript, inspire de use-sound, qui prend en charge a la fois la lecture de fichiers audio via Howler et des clics generes dans le navigateur via une API unique. Ideal pour ajouter du feedback sonore sans imposer des assets audio embarques.",
       "shortDescription": "zsk-use-sound reunit deux strategies audio dans un seul hook ergonomique : un mode fichier pour mp3/wav via Howler, et un mode genere qui synthetise des profils de clic integres dans le navigateur quand aucun fichier n'est fourni.",
@@ -241,7 +252,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": 9,
       "title": "zsk-jd : Skill IA de personnalisation de CV",
       "excerpt": "Un skill LLM portable qui effectue une analyse d'écart ATS, un score de probabilité d'entretien et une personnalisation complète de CV en LaTeX pour n'importe quelle offre d'emploi — avec une validation obligatoire avant toute sortie et génération de lettres de motivation bilingues.",
       "shortDescription": "Un skill de prompt structuré pour Claude et autres LLMs qui automatise la personnalisation de CV de bout en bout : analyse d'offre, scoring d'écart de compétences, injection de mots-clés ATS et sortie LaTeX compilable avec lettres de motivation optionnelles. Conçu avec des règles d'écriture ATS strictes, des garde-fous anti-fabrication et support du mode patch.",

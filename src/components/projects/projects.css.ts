@@ -60,6 +60,7 @@ export const projectItem = style({
   flexDirection: 'column',
   width: '100%',
   maxWidth: '300px',
+  height: '100%',
   margin: 0,
   '@media': {
     '(max-width: 767px)': {
@@ -78,8 +79,17 @@ export const projectItemInner = style({
   display: 'flex',
   flexDirection: 'column',
   height: '100%',
+  minHeight: '700px',
   ':hover': {
     boxShadow: '0 0 20px rgba(48, 46, 77, 0.15)',
+  },
+  '@media': {
+    '(max-width: 991px)': {
+      minHeight: '660px',
+    },
+    '(max-width: 767px)': {
+      minHeight: '620px',
+    },
   },
 })
 
@@ -132,6 +142,13 @@ export const projectTitle = style({
   color: vars.color.text[900],
   fontWeight: 700,
   textTransform: 'capitalize',
+  lineHeight: 1.5,
+  minHeight: '81px',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  display: '-webkit-box',
+  WebkitLineClamp: 3,
+  WebkitBoxOrient: 'vertical',
 })
 
 export const projectContent = style({
@@ -140,6 +157,27 @@ export const projectContent = style({
   lineHeight: '25px',
   marginBottom: '15px',
   flex: 1,
+  minHeight: '225px',
+  maxHeight: '225px',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  display: '-webkit-box',
+  WebkitLineClamp: 9,
+  WebkitBoxOrient: 'vertical',
+  position: 'relative',
+  paddingBottom: '0',
+  selectors: {
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      bottom: 0,
+      height: '56px',
+      pointerEvents: 'none',
+      background: `linear-gradient(180deg, transparent 0%, ${vars.color.background[100]} 100%)`,
+    },
+  },
 })
 
 export const projectTags = style({
@@ -147,6 +185,7 @@ export const projectTags = style({
   flexWrap: 'wrap',
   gap: '8px',
   justifyContent: 'center',
+  marginTop: 'auto',
   marginBottom: '18px',
 })
 

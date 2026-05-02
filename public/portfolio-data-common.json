@@ -143,7 +143,30 @@
   "projectsBase": [
     {
       "id": 1,
+      "url": "https://github.com/sk-izsk/zsk-periodic",
+      "demo_link": "https://zsk-periodic.vercel.app",
+      "projectTypes": ["frontend"],
+      "category": "Frontend",
+      "tags": [
+        "React 19",
+        "TypeScript",
+        "Vite",
+        "TanStack Router",
+        "Zustand",
+        "Tailwind CSS",
+        "vanilla-extract",
+        "Three.js",
+        "React Three Fiber",
+        "Web Workers",
+        "Vitest",
+        "i18n"
+      ],
+      "publishDate": "2026-05-02"
+    },
+    {
+      "id": 2,
       "url": "https://github.com/sk-izsk/productify",
+      "demo_link": "https://productify-kappa.vercel.app",
       "projectTypes": ["full-stack", "frontend", "backend"],
       "category": "Full Stack",
       "tags": [
@@ -162,7 +185,7 @@
       "publishDate": "2026-03-14"
     },
     {
-      "id": 2,
+      "id": 3,
       "url": "https://github.com/sk-izsk/zsk-react-i18n",
       "projectTypes": ["library"],
       "category": "Library",
@@ -181,7 +204,7 @@
       "publishDate": "2026-03-16"
     },
     {
-      "id": 3,
+      "id": 4,
       "url": "https://github.com/sk-izsk/zsk-react-error",
       "projectTypes": ["library"],
       "category": "Library",
@@ -198,7 +221,7 @@
       "publishDate": "2026-03-21"
     },
     {
-      "id": 4,
+      "id": 5,
       "url": "https://github.com/sk-izsk/smart-ai",
       "projectTypes": ["full-stack", "frontend", "backend"],
       "category": "Full Stack",
@@ -224,7 +247,7 @@
       "publishDate": "2026-04-01"
     },
     {
-      "id": 5,
+      "id": 6,
       "url": "https://github.com/sk-izsk/zsk-chrome-media-control",
       "projectTypes": ["misc"],
       "category": "Browser Extension",
@@ -242,7 +265,7 @@
       "publishDate": "2026-04-11"
     },
     {
-      "id": 6,
+      "id": 7,
       "url": "https://github.com/sk-izsk/zsk-portfolio",
       "demo_link": "https://izsk.netlify.app",
       "projectTypes": ["frontend"],
@@ -264,7 +287,7 @@
       "publishDate": "2026-04-11"
     },
     {
-      "id": 7,
+      "id": 8,
       "url": "https://github.com/sk-izsk/zsk-use-sound",
       "projectTypes": ["library"],
       "category": "Library",
@@ -281,7 +304,7 @@
       "publishDate": "2026-04-11"
     },
     {
-      "id": 8,
+      "id": 9,
       "url": "https://github.com/sk-izsk",
       "projectTypes": ["ai-skill"],
       "category": "AI Skills",
