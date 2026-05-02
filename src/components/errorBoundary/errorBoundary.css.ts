@@ -1,3 +1,4 @@
+import { vars } from '@styles/theme.css'
 import { style } from '@vanilla-extract/css'
 
 export const errorContainer = style({
@@ -14,7 +15,7 @@ export const errorContainer = style({
 })
 
 export const errorHeading = style({
-  color: '#37b182',
+  color: vars.color.skin,
   marginBottom: '1rem',
 })
 
@@ -43,7 +44,7 @@ export const errorHint = style({
 
 export const errorButton = style({
   padding: '12px 24px',
-  backgroundColor: '#37b182',
+  backgroundColor: vars.color.skin,
   color: '#ffffff',
   border: 'none',
   cursor: 'pointer',
