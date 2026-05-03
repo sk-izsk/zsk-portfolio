@@ -9,7 +9,7 @@ interface SoundState {
 export const useSoundStore = create<SoundState>()(
   persist(
     (set) => ({
-      isSoundEnabled: true,
+      isSoundEnabled: false,
       toggleSound: () => set((state) => ({ isSoundEnabled: !state.isSoundEnabled })),
     }),
     {

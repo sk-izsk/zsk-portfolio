@@ -1,7 +1,7 @@
 import { navA, navAActive, navAI, navLabel, navLi } from '@components/sidebar/sidebar.css'
 import type { SidebarNavigationItem } from '@components/sidebar/sidebar.types'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 
 interface SidebarNavItemProps {
   item: SidebarNavigationItem

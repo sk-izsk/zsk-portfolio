@@ -12,6 +12,9 @@ export const blogFr = {
   openArticleAriaLabel: "Ouvrir l'article : {{title}}",
   filter: {
     label: 'Filtrer les articles par tag',
+    placeholder: 'Rechercher des tags',
+    empty: 'Aucun tag correspondant.',
+    loading: 'Chargement des tags...',
     options: {
       all: 'Tous les tags',
     },

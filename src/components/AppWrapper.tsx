@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import type { PropsWithChildren } from 'react'
 import { lazy, Suspense, useEffect, useState } from 'react'
 import { HelmetProvider } from 'react-helmet-async'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router'
 
 import { ErrorBoundary } from '@components/errorBoundary/ErrorBoundary'
 import { Sidebar } from '@components/sidebar/Sidebar'

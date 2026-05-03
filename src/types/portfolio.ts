@@ -1,13 +1,13 @@
 // Types for portfolio data structure
 
-export type TextMark = 'none' | 'underline' | 'highlight'
+type TextMark = 'none' | 'underline' | 'highlight'
 
-export interface RichTextSegment {
+interface RichTextSegment {
   text: string
   mark?: TextMark
 }
 
-export interface PersonalInfo {
+interface PersonalInfo {
   name: string
   title: string
   greeting: string
@@ -30,7 +30,7 @@ export interface PersonalInfo {
   availability: string[]
 }
 
-export interface ContactInfo {
+interface ContactInfo {
   email: string
   phone: string
   social: {
@@ -41,13 +41,13 @@ export interface ContactInfo {
   }
 }
 
-export interface Skill {
+interface Skill {
   name: string
   level: number
   category: 'frontend' | 'backend' | 'language' | 'tools' | 'testing'
 }
 
-export interface SkillCategories {
+interface SkillCategories {
   frontend: string[]
   backend: string[]
   languages: string[]
@@ -56,18 +56,18 @@ export interface SkillCategories {
   learning: string[]
 }
 
-export interface Skills {
+interface Skills {
   technical: Skill[]
   categories: SkillCategories
 }
 
-export interface Education {
+interface Education {
   degree: string
   duration: string
   description: string
 }
 
-export interface Experience {
+interface Experience {
   company: string
   position: string
   duration: string
@@ -75,13 +75,13 @@ export interface Experience {
   highlights: string[]
 }
 
-export interface Service {
+interface Service {
   id: number
   title: string
   description: string
 }
 
-export type ProjectType = 'full-stack' | 'frontend' | 'backend' | 'library' | 'ai-skill' | 'misc'
+type ProjectType = 'full-stack' | 'frontend' | 'backend' | 'library' | 'ai-skill' | 'misc'
 
 export type ProjectFilterType = 'all' | ProjectType
 

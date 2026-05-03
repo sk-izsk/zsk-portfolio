@@ -1,11 +1,13 @@
 import { hashNodeGraphqlRequest } from './client'
-import { HASH_NODE_PUBLICATION_POSTS_QUERY } from './queries'
+import { HASH_NODE_PUBLICATION_POSTS_QUERY, HASH_NODE_TAG_BY_SLUG_QUERY } from './queries'
 import type {
   BlogPostsPage,
   BlogPostSummary,
   HashNodePostNode,
   HashNodePostsPageParams,
   HashNodePublicationPostsResponse,
+  HashNodeTagNode,
+  HashNodeTagResponse,
 } from './types'
 
 export const HASH_NODE_PUBLICATION_HOST = 'izsk.hashnode.dev'
@@ -66,5 +68,15 @@ export const hashNodeApi = {
     })
 
     return mapHashNodePublicationPostsResponse(response)
+  },
+  getTagBySlug: async (slug: string): Promise<HashNodeTagNode | null> => {
+    const response = await hashNodeGraphqlRequest<HashNodeTagResponse>({
+      query: HASH_NODE_TAG_BY_SLUG_QUERY,
+      variables: {
+        slug,
+      },
+    })
+
+    return response.tag
   },
 }

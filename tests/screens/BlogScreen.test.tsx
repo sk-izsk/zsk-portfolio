@@ -120,4 +120,29 @@ describe('BlogScreen', () => {
     expect(link).toHaveAttribute('target', '_blank')
     expect(screen.getAllByRole('link')).toHaveLength(1)
   })
+
+  it('reads selected tags from url and passes them to blog query hook', async () => {
+    const { useHashNodePosts } = await import('@/hooks/useHashnodePosts')
+
+    vi.mocked(useHashNodePosts).mockReturnValue(
+      makeHookResult({
+        posts: [],
+        isLoading: false,
+        isError: false,
+        hasNextPage: false,
+        isFetchingNextPage: false,
+        fetchNextPage: vi.fn(),
+      }),
+    )
+
+    window.history.pushState({}, '', '/blog?blog-tags=react,typescript')
+
+    renderScreen()
+
+    expect(useHashNodePosts).toHaveBeenCalledWith(
+      expect.objectContaining({
+        tagFilter: ['react', 'typescript'],
+      }),
+    )
+  })
 })

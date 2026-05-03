@@ -23,7 +23,7 @@ import { useSidebarStore } from '@stores/sidebarStore'
 import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
 import { BookOpen, Briefcase, Cog, House, List, Menu, MessageCircle, User, X } from 'lucide-react'
 import React, { useEffect, useRef } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router'
 
 const getCurrentSection = (path: string) => {
   if (path === '/' || path === '/home') {

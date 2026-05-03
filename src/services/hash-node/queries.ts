@@ -35,3 +35,13 @@ export const HASH_NODE_PUBLICATION_POSTS_QUERY = `
     }
   }
 `
+
+export const HASH_NODE_TAG_BY_SLUG_QUERY = `
+  query TagBySlug($slug: String!) {
+    tag(slug: $slug) {
+      id
+      name
+      slug
+    }
+  }
+`
