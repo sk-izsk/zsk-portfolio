@@ -59,7 +59,6 @@ export const ExperienceSection: React.FC = () => {
                   setModalOpen(true)
                 }}
               >
-                {' '}
                 {t('projects.readMore')}
               </ProjectCard.Button>
             </div>
