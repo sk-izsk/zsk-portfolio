@@ -191,6 +191,21 @@ export const projectTags = style({
   marginBottom: '18px',
 })
 
+export const projectActions = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '12px',
+  minHeight: '30px',
+})
+
+export const projectActionsSplit = style({
+  justifyContent: 'space-between',
+})
+
+export const projectActionsCenter = style({
+  justifyContent: 'center',
+})
+
 export const projectTag = style({
   padding: '5px 10px',
   borderRadius: '999px',

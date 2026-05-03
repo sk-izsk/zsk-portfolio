@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import { useTranslation } from '@localization/localize'
-import { useExperience } from '@stores/portfolioStore'
+import { experience as experienceClass, readMoreTrigger } from '@components/about/about.css'
+import { ActivityTimeline } from '@components/about/ActivityTimeline'
 import { Modal } from '@components/common/modal/Modal'
 import { TextReveal } from '@components/common/textReveal/TextReveal'
 import { ProjectCard } from '@components/projects/ProjectCard'
-import { experience as experienceClass, readMoreTrigger } from '@components/about/about.css'
-import { ActivityTimeline } from '@components/about/ActivityTimeline'
+import { useTranslation } from '@localization/localize'
+import { useExperience } from '@stores/portfolioStore'
 import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
+import React, { useState } from 'react'
 
 export const ExperienceSection: React.FC = () => {
   const experienceData = useExperience() || []
@@ -47,7 +47,7 @@ export const ExperienceSection: React.FC = () => {
                 }
               }}
             >
-              <ProjectCard.ReadMore
+              <ProjectCard.Button
                 href="#"
                 isExternal={false}
                 onClick={(e) => {
@@ -58,7 +58,9 @@ export const ExperienceSection: React.FC = () => {
                   setSelectedExperience(item)
                   setModalOpen(true)
                 }}
-              />
+              >
+                {t('projects.readMore')}
+              </ProjectCard.Button>
             </div>
           </ActivityTimeline.Item>
         ))}

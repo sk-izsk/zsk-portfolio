@@ -16,5 +16,6 @@ export const projectsEn = {
       misc: 'Misc',
     },
   },
+  demoLink: 'Live Demo',
   readMore: 'Read More...',
 } as const
