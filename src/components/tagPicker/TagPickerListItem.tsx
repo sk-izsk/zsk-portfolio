@@ -8,6 +8,7 @@ interface TagPickerListItemProps {
   isSelected: boolean
   isDisabled: boolean
   onSelect: (value: string) => void
+  onRemove: (value: string) => void
 }
 
 export const TagPickerListItem: React.FC<TagPickerListItemProps> = ({
@@ -15,6 +16,7 @@ export const TagPickerListItem: React.FC<TagPickerListItemProps> = ({
   isSelected,
   isDisabled,
   onSelect,
+  onRemove,
 }) => {
   return (
     <button
@@ -29,7 +31,7 @@ export const TagPickerListItem: React.FC<TagPickerListItemProps> = ({
       ]
         .filter(Boolean)
         .join(' ')}
-      onClick={() => onSelect(option.value)}
+      onClick={() => (isSelected ? onRemove(option.value) : onSelect(option.value))}
     >
       <span className={styles.optionLabel}>{option.label}</span>
       {isSelected ? <Check size={16} className={styles.optionCheck} aria-hidden="true" /> : null}

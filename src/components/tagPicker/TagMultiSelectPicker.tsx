@@ -166,6 +166,7 @@ export const TagMultiSelectPicker: React.FC<TagMultiSelectPickerProps> = ({
                     isSelected={isSelected}
                     isDisabled={isDisabled}
                     onSelect={handleSelect}
+                    onRemove={handleRemove}
                   />
                 )
               })
