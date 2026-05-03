@@ -1,5 +1,5 @@
-import { style } from '@vanilla-extract/css'
 import { vars } from '@styles/theme.css'
+import { style } from '@vanilla-extract/css'
 
 export const blogContent = style({
   flex: '0 0 100%',
@@ -267,6 +267,8 @@ export const blogFooter = style({
   paddingTop: '2px',
   position: 'relative',
   zIndex: 2,
+  display: 'flex',
+  justifyContent: 'center',
 })
 
 export const blogReadMore = style({
