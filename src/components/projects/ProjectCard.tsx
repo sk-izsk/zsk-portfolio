@@ -8,6 +8,9 @@ import {
   projectInfo,
   projectInfoIcon,
   projectInfoText,
+  projectActions,
+  projectActionsCenter,
+  projectActionsSplit,
   projectItem,
   projectItemInner,
   projectLink,
@@ -37,7 +40,11 @@ interface ProjectCardTagsProps {
   tags?: string[]
 }
 
-interface ProjectCardReadMoreProps {
+interface ProjectCardActionsProps extends PropsWithChildren {
+  layout: 'split' | 'center'
+}
+
+interface ProjectCardButtonProps {
   href: string
   isExternal: boolean
   onClick?: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
@@ -48,7 +55,8 @@ type ProjectCardCompound = React.FC<ProjectCardRootProps> & {
   Title: React.FC<ProjectCardTitleProps>
   Body: React.FC<ProjectCardBodyProps>
   Tags: React.FC<ProjectCardTagsProps>
-  ReadMore: React.FC<ProjectCardReadMoreProps>
+  Actions: React.FC<ProjectCardActionsProps>
+  Button: React.FC<ProjectCardButtonProps & PropsWithChildren>
 }
 
 const getLinkAttrs = (isExternal: boolean) => ({
@@ -110,13 +118,37 @@ const ProjectCardTags: React.FC<ProjectCardTagsProps> = ({ projectId, tags }) =>
   )
 }
 
-const ProjectCardReadMore: React.FC<ProjectCardReadMoreProps> = ({ href, isExternal, onClick }) => {
+const ProjectCardActions: React.FC<ProjectCardActionsProps> = ({ children, layout }) => {
+  const layoutClass = layout === 'split' ? projectActionsSplit : projectActionsCenter
+
+  return (
+    <div className={`${projectActions} ${layoutClass}`} data-layout={layout}>
+      {children}
+    </div>
+  )
+}
+
+// const ProjectCardDemoLink: React.FC<ProjectCardDemoLinkProps> = ({ href }) => {
+//   const { t } = useTranslation()
+
+//   return (
+//     <a href={href} className={projectDemoLink} target="_blank" rel="noopener noreferrer">
+//       {t('projects.demoLink')}
+//     </a>
+//   )
+// }
+
+const ProjectCardButton: React.FC<ProjectCardButtonProps & PropsWithChildren> = ({
+  href,
+  isExternal,
+  onClick,
+  children,
+}) => {
   const linkAttrs = getLinkAttrs(isExternal)
-  const { t } = useTranslation()
 
   return (
     <a href={href} className={projectLink} {...linkAttrs} onClick={onClick}>
-      {t('projects.readMore')}
+      {children}
     </a>
   )
 }
@@ -126,5 +158,7 @@ export const ProjectCard: ProjectCardCompound = Object.assign(ProjectCardRoot, {
   Title: ProjectCardTitle,
   Body: ProjectCardBody,
   Tags: ProjectCardTags,
-  ReadMore: ProjectCardReadMore,
+  Actions: ProjectCardActions,
+  // DemoLink: ProjectCardDemoLink,
+  Button: ProjectCardButton,
 })
