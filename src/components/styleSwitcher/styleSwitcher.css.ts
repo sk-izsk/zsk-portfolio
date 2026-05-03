@@ -61,6 +61,9 @@ export const styleSwitcherSpinIcon = style({
 })
 
 export const styleSwitcherPanel = style({
+  position: 'absolute',
+  top: 'calc(100% + 12px)',
+  right: 0,
   width: 'min(280px, calc(100vw - 32px))',
   padding: '18px',
   borderRadius: '22px',
@@ -69,6 +72,7 @@ export const styleSwitcherPanel = style({
   boxShadow: '0 28px 70px rgba(15, 23, 42, 0.14)',
   opacity: 0,
   pointerEvents: 'none',
+  transformOrigin: 'top right',
   transform: 'translateY(-8px) scale(0.98)',
   transition: 'opacity 0.22s ease, transform 0.22s ease',
 })
