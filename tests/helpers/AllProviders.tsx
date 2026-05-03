@@ -1,9 +1,9 @@
+import { localizeConfig } from '@localization/localize'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router'
 import { LocalizeProvider } from 'zsk-react-i18n'
-import { localizeConfig } from '@localization/localize'
 
 export const createTestQueryClient = () =>
   new QueryClient({

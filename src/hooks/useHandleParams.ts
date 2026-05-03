@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router'
 
 type ParamValue = string | number | boolean | null | undefined
 type ParamShape = Record<string, ParamValue>

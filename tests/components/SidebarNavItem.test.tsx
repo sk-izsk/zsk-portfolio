@@ -2,7 +2,7 @@ import { SidebarNavItem } from '@components/sidebar/SidebarNavItem'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { House } from 'lucide-react'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router'
 import { describe, expect, it, vi } from 'vitest'
 
 const homeItem = { id: 'home', label: 'Home', icon: House, path: '/' }
