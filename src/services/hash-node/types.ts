@@ -1,4 +1,4 @@
-export interface HashNodeGraphQLError {
+interface HashNodeGraphQLError {
   message: string
 }
 
@@ -21,7 +21,7 @@ export interface HashNodePostNode {
   tags: HashNodeTagNode[]
 }
 
-export interface HashNodePageInfo {
+interface HashNodePageInfo {
   hasNextPage: boolean
   endCursor: string | null
 }

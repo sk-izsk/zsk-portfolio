@@ -9,8 +9,8 @@ import {
   small,
 } from '@components/common/button/button.css.ts'
 
-export type ButtonVariant = 'primary' | 'secondary' | 'link'
-export type ButtonSize = 'small' | 'medium' | 'large'
+type ButtonVariant = 'primary' | 'secondary' | 'link'
+type ButtonSize = 'small' | 'medium' | 'large'
 
 type ButtonBaseProps = {
   variant?: ButtonVariant

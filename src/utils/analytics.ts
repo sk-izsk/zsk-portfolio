@@ -1,13 +1,11 @@
 let reactGaPromise: Promise<typeof import('react-ga4').default> | null = null
 let mixpanelPromise: Promise<typeof import('mixpanel-browser').default> | null = null
 let analyticsInitPromise: Promise<void> | null = null
-let analyticsConfig:
-  | {
-      gaMeasurementId: string | undefined
-      mixpanelProjectToken: string | undefined
-      isDev: boolean
-    }
-  | null = null
+let analyticsConfig: {
+  gaMeasurementId: string | undefined
+  mixpanelProjectToken: string | undefined
+  isDev: boolean
+} | null = null
 
 type IdleScheduler = {
   requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number
@@ -47,24 +45,24 @@ export const initAnalytics = async (
   }
 
   analyticsInitPromise = (async () => {
-  if (gaMeasurementId) {
-    const reactGa = await getReactGA()
-    reactGa.initialize(gaMeasurementId)
-  }
+    if (gaMeasurementId) {
+      const reactGa = await getReactGA()
+      reactGa.initialize(gaMeasurementId)
+    }
 
-  if (mixpanelProjectToken) {
-    const mixpanel = await getMixpanel()
-    mixpanel.init(mixpanelProjectToken, {
-      debug: isDev,
-      track_pageview: false,
-    })
-  }
+    if (mixpanelProjectToken) {
+      const mixpanel = await getMixpanel()
+      mixpanel.init(mixpanelProjectToken, {
+        debug: isDev,
+        track_pageview: false,
+      })
+    }
   })()
 
   await analyticsInitPromise
 }
 
-export const ensureAnalyticsReady = async () => {
+const ensureAnalyticsReady = async () => {
   if (!analyticsConfig) {
     return
   }
@@ -124,10 +122,13 @@ export const scheduleAnalyticsBootstrap = (
   }
 
   if (requestIdle) {
-    idleId = requestIdle(() => {
-      cleanup()
-      run()
-    }, { timeout: 2000 })
+    idleId = requestIdle(
+      () => {
+        cleanup()
+        run()
+      },
+      { timeout: 2000 },
+    )
 
     return cleanup
   }
