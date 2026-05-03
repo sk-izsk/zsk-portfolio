@@ -69,13 +69,9 @@ export const asideContent = style({
 export const logo = style({
   display: 'flex',
   flexDirection: 'column',
+  alignItems: 'center',
   gap: '12px',
   paddingTop: '10px',
-  '@media': {
-    '(max-width: 767px)': {
-      alignItems: 'center',
-    },
-  },
 })
 
 export const logoA = style({
@@ -85,13 +81,8 @@ export const logoA = style({
   fontSize: '28px',
   letterSpacing: '4px',
   position: 'relative',
-  alignSelf: 'flex-start',
+  alignSelf: 'center',
   textAlign: 'center',
-  '@media': {
-    '(max-width: 767px)': {
-      alignSelf: 'center',
-    },
-  },
   '::before': {
     content: '""',
     position: 'absolute',
