@@ -9,16 +9,16 @@ import {
   blogState,
   blogToolbar,
 } from '@components/blog/blog.css'
+import { useSelectedBlogSort } from '@hooks/blog/useSelectedBlogSort'
 import { usePagination } from '@hooks/usePagination'
 import { useTranslation } from '@localization/localize'
-import { sortBlogPosts } from '@utils/sortBlogPosts'
-import type { BlogSortValue } from '@hooks/blog/useSelectedBlogSort'
 import type { BlogPostSummary } from '@services/hash-node/types'
+import { sortBlogPosts } from '@utils/sortBlogPosts'
 import React, { useMemo } from 'react'
+import { useSelectedBlogTagFilters } from '../../hooks/blog/useSelectedBlogTagFilters'
 
 interface BlogContainerProps {
   posts: BlogPostSummary[]
-  selectedSort: BlogSortValue
   hasNextPage: boolean
   isFetchingNextPage: boolean
   fetchNextPage: () => void
@@ -26,13 +26,27 @@ interface BlogContainerProps {
 
 export const BlogContainer: React.FC<BlogContainerProps> = ({
   posts,
-  selectedSort,
   hasNextPage,
   isFetchingNextPage,
   fetchNextPage,
 }) => {
+  const [selectedTags, setSelectedTags] = useSelectedBlogTagFilters()
+  const [selectedSort, setSelectedSort] = useSelectedBlogSort()
   const { t } = useTranslation()
-  const sortedPosts = useMemo(() => sortBlogPosts(posts, selectedSort), [posts, selectedSort])
+  const filteredPosts = useMemo(() => {
+    if (selectedTags.length === 0) {
+      return posts
+    }
+
+    return posts.filter((post) =>
+      selectedTags.every((selectedTag) => post.tags.some((tag) => tag.slug === selectedTag)),
+    )
+  }, [posts, selectedTags])
+
+  const sortedPosts = useMemo(
+    () => sortBlogPosts(filteredPosts, selectedSort),
+    [filteredPosts, selectedSort],
+  )
 
   const loadMoreRef = usePagination({
     hasNextPage,
@@ -45,7 +59,13 @@ export const BlogContainer: React.FC<BlogContainerProps> = ({
       <div className="row">
         <div className={`${blogHeading} padd-15`}>
           <div className={blogToolbar}>
-            <BlogFilterBar posts={posts} />
+            <BlogFilterBar
+              posts={posts}
+              selectedTags={selectedTags}
+              onSelectedTagsChange={setSelectedTags}
+              selectedSort={selectedSort}
+              onSelectedSortChange={setSelectedSort}
+            />
           </div>
         </div>
       </div>

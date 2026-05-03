@@ -11,6 +11,9 @@ export const blogEn = {
   openArticleAriaLabel: 'Open article: {{title}}',
   filter: {
     label: 'Filter posts by tag',
+    placeholder: 'Search tags',
+    empty: 'No matching tags found.',
+    loading: 'Loading tags...',
     options: {
       all: 'All tags',
     },

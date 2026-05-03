@@ -39,6 +39,10 @@ export interface HashNodePublicationPostsResponse {
   } | null
 }
 
+export interface HashNodeTagResponse {
+  tag: HashNodeTagNode | null
+}
+
 export interface HashNodeGraphQLResponse<TData> {
   data?: TData
   errors?: HashNodeGraphQLError[]

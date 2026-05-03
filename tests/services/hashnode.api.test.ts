@@ -129,16 +129,35 @@ describe('hashnodeApi', () => {
       },
     })
   })
+
+  it('returns tag by slug when requested', async () => {
+    const { hashNodeGraphqlRequest } =
+      await import('@/services/hash-node/client')
+
+    vi.mocked(hashNodeGraphqlRequest).mockResolvedValue({
+      tag: {
+        id: 'tag-2',
+        name: 'TypeScript',
+        slug: 'typescript',
+      },
+    })
+
+    await expect(hashNodeApi.getTagBySlug('typescript')).resolves.toEqual({
+      id: 'tag-2',
+      name: 'TypeScript',
+      slug: 'typescript',
+    })
+  })
 })
 
 describe('hashnodeQueryKeys', () => {
   it('returns stable query key tuples', () => {
-    expect(hashNodeQueryKeys.publicationPosts('izsk.hashnode.dev', 6, 'all')).toEqual([
+    expect(hashNodeQueryKeys.publicationPosts('izsk.hashnode.dev', 6, ['react', 'typescript'])).toEqual([
       'hash-node',
       'publication-posts',
       'izsk.hashnode.dev',
       6,
-      'all',
+      'react,typescript',
     ])
   })
 })

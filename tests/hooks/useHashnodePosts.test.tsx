@@ -48,7 +48,7 @@ describe('useHashNodePosts', () => {
     })
 
     const { result } = renderHook(
-      () => useHashNodePosts({ host: 'izsk.hashnode.dev', first: 6, tagFilter: 'all' }),
+      () => useHashNodePosts({ host: 'izsk.hashnode.dev', first: 6, tagFilter: [] }),
       {
         wrapper: createWrapper(),
       },
@@ -71,7 +71,7 @@ describe('useHashNodePosts', () => {
     vi.mocked(hashNodeApi.getPublicationPostsPage).mockRejectedValue(new Error('Request failed'))
 
     const { result } = renderHook(
-      () => useHashNodePosts({ host: 'izsk.hashnode.dev', first: 6, tagFilter: 'all' }),
+      () => useHashNodePosts({ host: 'izsk.hashnode.dev', first: 6, tagFilter: [] }),
       {
         wrapper: createWrapper(),
       },
@@ -93,7 +93,7 @@ describe('useHashNodePosts', () => {
     })
 
     const { result } = renderHook(
-      () => useHashNodePosts({ host: 'izsk.hashnode.dev', first: 6, tagFilter: 'all' }),
+      () => useHashNodePosts({ host: 'izsk.hashnode.dev', first: 6, tagFilter: [] }),
       {
         wrapper: createWrapper(),
       },
@@ -101,5 +101,38 @@ describe('useHashNodePosts', () => {
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true))
     expect(result.current.posts).toEqual([])
+  })
+
+  it('normalizes tag filters before querying', async () => {
+    const { hashNodeApi } = await import('@/services/hash-node/api')
+
+    vi.mocked(hashNodeApi.getPublicationPostsPage).mockResolvedValue({
+      posts: [],
+      pageInfo: {
+        hasNextPage: false,
+        endCursor: null,
+      },
+    })
+
+    const { result } = renderHook(
+      () =>
+        useHashNodePosts({
+          host: 'izsk.hashnode.dev',
+          first: 6,
+          tagFilter: ['react', 'typescript', 'react', ''],
+        }),
+      {
+        wrapper: createWrapper(),
+      },
+    )
+
+    await waitFor(() => expect(result.current.isSuccess).toBe(true))
+
+    expect(hashNodeApi.getPublicationPostsPage).toHaveBeenCalledWith({
+      host: 'izsk.hashnode.dev',
+      first: 6,
+      after: null,
+      tagSlugs: ['react', 'typescript'],
+    })
   })
 })
