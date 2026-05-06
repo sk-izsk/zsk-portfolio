@@ -274,6 +274,17 @@
         "Strict ATS writing rules: 15+ banned words/phrases, no em dashes, no repetitive bullet structures, no robotic summary openers",
         "Portable across Claude, Cursor, Copilot, ChatGPT, Gemini CLI, and any markdown-capable LLM"
       ]
+    },
+    {
+      "id": 10,
+      "title": "Coin Gate: Live Crypto Market Dashboard",
+      "excerpt": "A production-style crypto dashboard built with Next.js 16, React 19, and TypeScript. It combines server-rendered CoinGecko market data with live websocket updates for pricing, trades, OHLC charts, search, and coin conversion in one responsive interface.",
+      "shortDescription": "Coin Gate is a crypto market dashboard built with Next.js App Router, Tailwind CSS, shadcn/ui, Base UI primitives, and lightweight-charts. It includes a home dashboard with featured market views, a paginated coins page, and dynamic coin detail screens with live pricing, recent trades, OHLC charting, and conversion tools. I used server components, client components, route handlers, and websocket subscriptions together so the app can load stable market snapshots first, then layer in live updates without losing responsiveness.",
+      "highlights": [
+        "Home dashboard with featured coin overview, trending assets, and top categories",
+        "Paginated coins listing plus dynamic coin pages with live pricing, trades, OHLC charts, and conversion",
+        "Shared CoinGecko data layer handling REST, websocket streams, demo/pro API differences, and OHLC fallback logic"
+      ]
     }
   ]
 }
