@@ -323,6 +323,28 @@
         "TypeScript"
       ],
       "publishDate": "2026-04-15"
+    },
+    {
+      "id": 10,
+      "url": "https://github.com/sk-izsk/coin-gate",
+      "demo_link": "https://coin-gate-sand.vercel.app",
+      "projectTypes": ["frontend"],
+      "category": "Frontend",
+      "tags": [
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Base UI",
+        "lightweight-charts",
+        "CoinGecko API",
+        "WebSockets",
+        "App Router",
+        "Server Components",
+        "Route Handlers"
+      ],
+      "publishDate": "2026-05-05"
     }
   ],
   "experienceBase": [

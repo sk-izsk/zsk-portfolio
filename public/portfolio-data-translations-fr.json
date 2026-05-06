@@ -265,6 +265,17 @@
         "Règles d'écriture ATS strictes : 15+ mots/phrases interdits, sans tiret cadratin, sans structures de puces répétitives",
         "Portable sur Claude, Cursor, Copilot, ChatGPT, Gemini CLI et tout LLM compatible Markdown"
       ]
+    },
+    {
+      "id": 10,
+      "title": "Coin Gate : tableau de bord crypto en direct",
+      "excerpt": "Un tableau de bord crypto au style production construit avec Next.js 16, React 19 et TypeScript. Il combine donnees marche server-rendered depuis CoinGecko et mises a jour websocket en direct pour les prix, trades, graphiques OHLC, recherche et conversion dans une interface responsive.",
+      "shortDescription": "Coin Gate est un tableau de bord crypto construit avec Next.js App Router, Tailwind CSS, shadcn/ui, les primitives Base UI et lightweight-charts. Il comprend une page d'accueil avec vues de marche mises en avant, une liste paginee des coins, et des pages detail dynamiques avec prix en direct, trades recents, graphiques OHLC et outils de conversion. J'ai combine server components, client components, route handlers et abonnements websocket pour charger d'abord un snapshot stable du marche, puis ajouter le flux live sans perdre en reactivite.",
+      "highlights": [
+        "Dashboard d'accueil avec vue mise en avant d'un coin, actifs tendance et top categories",
+        "Liste paginee des coins plus pages detail dynamiques avec prix live, trades, graphiques OHLC et conversion",
+        "Couche de donnees CoinGecko partagee qui gere REST, flux websocket, differences demo/pro et fallback sur l'historique OHLC"
+      ]
     }
   ]
 }
