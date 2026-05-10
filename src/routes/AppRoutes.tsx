@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 import { Route, Routes } from 'react-router'
 
 import { PageLoader } from '@components/PageLoader'
-import { About, Blog, Contact, Home, Projects, Services, Skills } from '@routes/lazyScreens'
+import { About, Blog, Contact, Home, NotFound, Projects, Services, Skills } from '@routes/lazyScreens'
 
 export const AppRoutes = () => {
   return (
@@ -16,6 +16,7 @@ export const AppRoutes = () => {
         <Route path="/projects" element={<Projects />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
   )
