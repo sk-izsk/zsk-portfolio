@@ -8,12 +8,20 @@ import { blogFr } from '@components/blog/localization/fr'
 import { sidebarFr } from '@components/sidebar/localization/fr'
 import { skillsFr } from '@components/skills/localization/fr'
 
+const notFoundFr = {
+  pageTitle: 'Page Introuvable',
+  title: 'Oups ! Page introuvable',
+  description: "La page que vous recherchez n'existe pas ou a été déplacée.",
+  redirectButton: "Retour à l'accueil",
+}
+
 export const fr = {
   about: aboutFr,
   blog: blogFr,
   common: commonFr,
   contact: contactFr,
   home: homeFr,
+  notFound: notFoundFr,
   projects: projectsFr,
   sidebar: sidebarFr,
   services: servicesFr,
