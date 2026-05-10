@@ -39,7 +39,7 @@ export const BlogContainer: React.FC<BlogContainerProps> = ({
     }
 
     return posts.filter((post) =>
-      selectedTags.every((selectedTag) => post.tags.some((tag) => tag.slug === selectedTag)),
+      selectedTags.some((selectedTag) => post.tags.some((tag) => tag.slug === selectedTag)),
     )
   }, [posts, selectedTags])
 
