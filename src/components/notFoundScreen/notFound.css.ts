@@ -1,3 +1,4 @@
+import { vars } from '@styles/theme.css'
 import { style } from '@vanilla-extract/css'
 
 export const notFoundContainer = style({
@@ -14,6 +15,7 @@ export const notFoundBanner = style({
   justifyContent: 'center',
   textAlign: 'center',
   padding: '40px 20px',
+  color: vars.color.text[900],
 })
 
 export const notFoundCode = style({
@@ -21,13 +23,15 @@ export const notFoundCode = style({
   fontWeight: 700,
   lineHeight: 1,
   marginBottom: '16px',
-  opacity: 0.15,
+  color: vars.color.skin,
+  opacity: 0.36,
 })
 
 export const notFoundTitle = style({
   fontSize: '32px',
   fontWeight: 700,
   marginBottom: '12px',
+  color: 'inherit',
 })
 
 export const notFoundDescription = style({
@@ -35,4 +39,5 @@ export const notFoundDescription = style({
   marginBottom: '28px',
   maxWidth: '420px',
   lineHeight: 1.5,
+  color: vars.color.text[700],
 })
