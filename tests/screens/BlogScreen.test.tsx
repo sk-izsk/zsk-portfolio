@@ -145,4 +145,58 @@ describe('BlogScreen', () => {
       }),
     )
   })
+
+  it('shows posts that match any selected tag', async () => {
+    const { useHashNodePosts } = await import('@/hooks/useHashnodePosts')
+
+    vi.mocked(useHashNodePosts).mockReturnValue(
+      makeHookResult({
+        posts: [
+          {
+            id: 'post-1',
+            title: 'Axios Patterns',
+            brief: 'Working with axios in production.',
+            url: 'https://izsk.hashnode.dev/axios-patterns',
+            slug: 'axios-patterns',
+            publishedAt: '2026-05-02T19:30:53.107Z',
+            coverImageUrl: null,
+            tags: [{ id: 'tag-1', name: 'axios', slug: 'axios' }],
+          },
+          {
+            id: 'post-2',
+            title: 'Zustand in React',
+            brief: 'State management with zustand.',
+            url: 'https://izsk.hashnode.dev/zustand-react',
+            slug: 'zustand-react',
+            publishedAt: '2026-05-01T19:30:53.107Z',
+            coverImageUrl: null,
+            tags: [{ id: 'tag-2', name: 'zustand', slug: 'zustand' }],
+          },
+          {
+            id: 'post-3',
+            title: 'Vue Intro',
+            brief: 'Unrelated post.',
+            url: 'https://izsk.hashnode.dev/vue-intro',
+            slug: 'vue-intro',
+            publishedAt: '2026-04-30T19:30:53.107Z',
+            coverImageUrl: null,
+            tags: [{ id: 'tag-3', name: 'vue', slug: 'vue' }],
+          },
+        ],
+        isLoading: false,
+        isError: false,
+        hasNextPage: false,
+        isFetchingNextPage: false,
+        fetchNextPage: vi.fn(),
+      }),
+    )
+
+    window.history.pushState({}, '', '/blog?blog-tags=axios,zustand')
+
+    renderScreen()
+
+    expect(screen.getByRole('heading', { name: 'Axios Patterns' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Zustand in React' })).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: 'Vue Intro' })).not.toBeInTheDocument()
+  })
 })
