@@ -7,6 +7,7 @@ import {
   skillsItem,
   skillsItemH5,
 } from '@components/about/about.css'
+import { cx } from '@utils/cn'
 
 interface SkillRateItemProps {
   name: string
@@ -17,10 +18,10 @@ export const SkillRateItem: React.FC<SkillRateItemProps> = ({ name, level }) => 
   const boundedLevel = Math.max(0, Math.min(100, Math.round(level)))
 
   return (
-    <div className={`${skillsItem} padd-15`}>
+    <div className={cx(skillsItem, 'padd-15')}>
       <h5 className={skillsItemH5}>{name}</h5>
       <div className={progress}>
-        <div className={`${progressIn} ${progressInWidth[boundedLevel]}`}></div>
+        <div className={cx(progressIn, progressInWidth[boundedLevel])}></div>
         <div className={skillPercent}>{level}%</div>
       </div>
     </div>

@@ -8,6 +8,7 @@ import { Screen } from '@components/Screen'
 import { useAnalytics } from '@hooks/useAnalytics'
 import { useTranslation } from '@localization/localize'
 import { usePortfolioError, usePortfolioLoading } from '@stores/portfolioStore'
+import { cx } from '@utils/cn'
 
 const HomeScreen: React.FC = () => {
   const loading = usePortfolioLoading()
@@ -25,8 +26,8 @@ const HomeScreen: React.FC = () => {
       description={t('home.seoDescription')}
       canonical="/"
     >
-      <div className={`row ${homeRow}`}>
-        <div className={`${homeInfo} padd-15`}>
+      <div className={cx('row', homeRow)}>
+        <div className={cx(homeInfo, 'padd-15')}>
           <HomeTitleAnimated />
           <HomeDetailBio />
           <HomeDownloadCv />

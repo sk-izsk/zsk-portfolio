@@ -14,6 +14,7 @@ import {
 import { useTranslation } from '@localization/localize'
 import { useThemeStore } from '@stores/themeStore'
 import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
+import { cx } from '@utils/cn'
 import { MessageCircle } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
@@ -91,7 +92,7 @@ export const Canedly = () => {
     <>
       <div className={floatingContainer}>
         <button
-          className={`${triggerButton} ${triggerColorClass}`}
+          className={cx(triggerButton, triggerColorClass)}
           type="button"
           onClick={() => {
             trackGaEvent('Calendly', 'book_meeting_click', 'Want to book a meeting')

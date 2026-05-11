@@ -3,6 +3,7 @@ import type { PropsWithChildren } from 'react'
 import React from 'react'
 import { SeoHead } from '@components/common/SeoHead'
 import { DotPattern } from '@components/common/dotPattern/DotPattern'
+import { cx } from '@utils/cn'
 
 interface ScreenProps extends PropsWithChildren {
   sectionId: string
@@ -49,10 +50,10 @@ export const Screen: React.FC<ScreenProps> = ({
       : null
 
   return (
-    <section className={`${sectionClassName ?? sectionId} section active`} id={sectionId}>
+    <section className={cx(sectionClassName ?? sectionId, 'section', 'active')} id={sectionId}>
       <SeoHead title={resolvedPageTitle} description={description} canonical={canonical} />
       <DotPattern />
-      <div className={`container screen-container ${containerClassName ?? ''}`}>
+      <div className={cx('container', 'screen-container', containerClassName)}>
         {title && (
           <div className="row">
             <div className="section-title padd-15">

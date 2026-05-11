@@ -7,6 +7,7 @@ import { Screen } from '@components/Screen'
 import { useAnalytics } from '@hooks/useAnalytics'
 import { useTranslation } from '@localization/localize'
 import { usePortfolioError, usePortfolioLoading } from '@stores/portfolioStore'
+import { cx } from '@utils/cn'
 
 const AboutScreen: React.FC = () => {
   const loading = usePortfolioLoading()
@@ -24,7 +25,7 @@ const AboutScreen: React.FC = () => {
       canonical="/about"
     >
       <div className="row">
-        <div className={`${aboutContent} padd-15`}>
+        <div className={cx(aboutContent, 'padd-15')}>
           <AboutPersonalIntro />
           <AboutPersonalInfoSection />
           <ActivitiesSection />

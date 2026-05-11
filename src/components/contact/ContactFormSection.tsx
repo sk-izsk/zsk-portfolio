@@ -3,6 +3,7 @@ import { useTranslation } from '@localization/localize'
 import { Button } from '@components/common/button/Button'
 import { contactForm, contactTitle, formItem } from '@components/contact/contact.css'
 import { ContactFormField } from '@components/contact/ContactFormField'
+import { cx } from '@utils/cn'
 
 export const ContactFormSection: React.FC = () => {
   const { t } = useTranslation()
@@ -27,9 +28,9 @@ export const ContactFormSection: React.FC = () => {
 
   return (
     <>
-      <h3 className={`${contactTitle} padd-15`}>{t('contact.form.heading')}</h3>
+      <h3 className={cx(contactTitle, 'padd-15')}>{t('contact.form.heading')}</h3>
       <div className="row">
-        <div className={`${contactForm} padd-15`}>
+        <div className={cx(contactForm, 'padd-15')}>
           <form onSubmit={handleSubmit}>
             <div className="row">
               <ContactFormField
@@ -68,7 +69,7 @@ export const ContactFormSection: React.FC = () => {
               />
             </div>
             <div className="row">
-              <div className={`${formItem} padd-15`}>
+              <div className={cx(formItem, 'padd-15')}>
                 <div className="form-group">
                   <Button type="submit" variant="primary" size="large">
                     {t('contact.form.submit')}

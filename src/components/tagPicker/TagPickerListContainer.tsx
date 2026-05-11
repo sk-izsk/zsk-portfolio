@@ -1,6 +1,7 @@
 import { ChevronDown } from 'lucide-react'
 import React, { type RefObject } from 'react'
 import * as styles from './tagMultiSelectPicker.css'
+import { createCn } from '@utils/cn'
 
 interface TagPickerListContainerProps {
   ariaLabel: string
@@ -13,6 +14,7 @@ interface TagPickerListContainerProps {
   onScrollCueClick: () => void
   children: React.ReactNode
 }
+const cn = createCn(styles)
 
 export const TagPickerListContainer: React.FC<TagPickerListContainerProps> = ({
   ariaLabel,
@@ -45,13 +47,11 @@ export const TagPickerListContainer: React.FC<TagPickerListContainerProps> = ({
         aria-label="Scroll for more tags"
         aria-hidden={!hasMoreBelow}
         data-visible={hasMoreBelow ? 'true' : 'false'}
-        className={[
-          styles.scrollCue,
-          hasMoreBelow ? styles.scrollCueVisible : styles.scrollCueHidden,
-          prefersReducedMotion ? styles.scrollCueReducedMotion : '',
-        ]
-          .filter(Boolean)
-          .join(' ')}
+        className={cn('scrollCue', {
+          scrollCueVisible: hasMoreBelow,
+          scrollCueHidden: !hasMoreBelow,
+          scrollCueReducedMotion: prefersReducedMotion,
+        })}
         onClick={onScrollCueClick}
         tabIndex={hasMoreBelow ? 0 : -1}
       >

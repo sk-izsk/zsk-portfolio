@@ -38,15 +38,29 @@
       body,
       #root {
         min-height: 100%;
+        background: var(--boot-bg, #f2f2fc);
+        color: var(--boot-text, #302e4d);
       }
 
       body {
         margin: 0;
-        background: #dcdad7;
-        color: #302e4d;
         font-family: 'JetBrains Mono', monospace;
       }
     </style>
+    <script>
+      (()=> {
+        try {
+          var isDarkMode = window.localStorage.getItem('portfolio-dark-mode') === 'true'
+          var root = document.documentElement
+
+          root.style.setProperty('--boot-bg', isDarkMode ? '#151515' : '#f2f2fc')
+          root.style.setProperty('--boot-text', isDarkMode ? '#ffffff' : '#302e4d')
+        } catch (error) {
+          document.documentElement.style.setProperty('--boot-bg', '#f2f2fc')
+          document.documentElement.style.setProperty('--boot-text', '#302e4d')
+        }
+      })()
+    </script>
     <title>zsk-portfolio</title>
   </head>
   <body>

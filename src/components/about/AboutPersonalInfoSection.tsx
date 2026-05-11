@@ -12,6 +12,7 @@ import { Button } from '@components/common/button/Button'
 import { useTranslation } from '@localization/localize'
 import { useContactInfo, usePersonalInfo } from '@stores/portfolioStore'
 import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
+import { cx } from '@utils/cn'
 import dayjs from 'dayjs'
 import React from 'react'
 
@@ -67,10 +68,10 @@ export const AboutPersonalInfoSection: React.FC = () => {
 
   return (
     <div className="row">
-      <div className={`${personalInfoSection} padd-15`}>
+      <div className={cx(personalInfoSection, 'padd-15')}>
         <div className="row">
           {personalInfoData.map((item) => (
-            <div key={item.label} className={`${infoItem} padd-15`}>
+            <div key={item.label} className={cx(infoItem, 'padd-15')}>
               <p className={infoItemP}>
                 {item.label} :{' '}
                 {item.href ? (
@@ -89,7 +90,7 @@ export const AboutPersonalInfoSection: React.FC = () => {
             </div>
           ))}
         </div>
-        <div className={`${buttons} ${buttonsCompactTop}`}>
+        <div className={cx(buttons, buttonsCompactTop)}>
           <Button
             as="a"
             href={personalInfo.resume_link}
@@ -110,7 +111,7 @@ export const AboutPersonalInfoSection: React.FC = () => {
             href="#contact"
             variant="secondary"
             size="large"
-            className={`hire-me ${btnMargin}`}
+            className={cx('hire-me', btnMargin)}
             onClick={() => {
               trackGaEvent('About', 'hire_me_click', 'Hire Me')
               trackMixpanelEvent('hire_me_click', 'About', 'Hire Me')

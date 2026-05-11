@@ -1,13 +1,6 @@
 import React from 'react'
-import {
-  button,
-  large,
-  link,
-  medium,
-  primary,
-  secondary,
-  small,
-} from '@components/common/button/button.css.ts'
+import * as styles from '@components/common/button/button.css.ts'
+import { createCn, raw } from '@utils/cn'
 
 type ButtonVariant = 'primary' | 'secondary' | 'link'
 type ButtonSize = 'small' | 'medium' | 'large'
@@ -29,6 +22,7 @@ type ButtonAsAnchor = ButtonBaseProps &
     href: string
   }
 type ButtonProps = ButtonAsButton | ButtonAsAnchor
+const cn = createCn(styles)
 
 export const Button: React.FC<ButtonProps> = (props) => {
   const {
@@ -40,18 +34,18 @@ export const Button: React.FC<ButtonProps> = (props) => {
     ...rest
   } = props as ButtonProps & { as?: 'button' | 'a' }
 
-  const classes = [
-    button,
-    variant === 'primary' && primary,
-    variant === 'secondary' && secondary,
-    variant === 'link' && link,
-    size === 'small' && small,
-    size === 'medium' && medium,
-    size === 'large' && large,
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ')
+  const classes = cn(
+    'button',
+    {
+      primary: variant === 'primary',
+      secondary: variant === 'secondary',
+      link: variant === 'link',
+      small: size === 'small',
+      medium: size === 'medium',
+      large: size === 'large',
+    },
+    raw(className),
+  )
 
   if (as === 'a' && 'href' in props) {
     return (

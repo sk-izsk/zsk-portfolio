@@ -1,18 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
-import {
-  reducedMotionReveal,
-  revealDelay,
-  revealRoot,
-  revealWord,
-  revealWordGhost,
-  revealWordText,
-  revealWordVisible,
-} from '@components/common/textReveal/TextReveal.css'
+import * as styles from '@components/common/textReveal/TextReveal.css'
+import { createCn, raw } from '@utils/cn'
 
 interface TextRevealProps {
   children: string
   className?: string
 }
+const cn = createCn(styles)
 
 export const TextReveal: React.FC<TextRevealProps> = ({ children, className }) => {
   const rootRef = useRef<HTMLSpanElement>(null)
@@ -47,21 +41,19 @@ export const TextReveal: React.FC<TextRevealProps> = ({ children, className }) =
   }, [])
 
   return (
-    <span ref={rootRef} className={[revealRoot, className].filter(Boolean).join(' ')}>
+    <span ref={rootRef} className={cn('revealRoot', raw(className))}>
       {words.map((word, index) => {
-        const delayClass = revealDelay[Math.min(index, revealDelay.length - 1)]
-        const textClasses = [
-          revealWordText,
-          delayClass,
-          reducedMotionReveal,
-          isVisible ? revealWordVisible : '',
-        ]
-          .filter(Boolean)
-          .join(' ')
+        const delayClass = styles.revealDelay[Math.min(index, styles.revealDelay.length - 1)]
+        const textClasses = cn(
+          'revealWordText',
+          'reducedMotionReveal',
+          raw(delayClass),
+          { revealWordVisible: isVisible },
+        )
 
         return (
-          <span key={`${word}-${index}`} className={revealWord}>
-            <span aria-hidden="true" className={revealWordGhost}>
+          <span key={`${word}-${index}`} className={styles.revealWord}>
+            <span aria-hidden="true" className={styles.revealWordGhost}>
               {word}
             </span>
             <span className={textClasses}>{word}</span>

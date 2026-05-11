@@ -12,6 +12,7 @@ import {
   timelineTitle,
   title,
 } from '@components/about/about.css'
+import { cx } from '@utils/cn'
 
 interface ActivityTimelineProps extends PropsWithChildren {
   heading: string
@@ -75,8 +76,8 @@ const ActivityTimelineRoot: React.FC<ActivityTimelineProps> = ({
     <div className={containerClassName}>
       <h3 className={title}>{heading}</h3>
       <div className="row">
-        <div className={`${timelineBox} padd-15`}>
-          <div className={`${timeline} shadow-dark`}>{children}</div>
+        <div className={cx(timelineBox, 'padd-15')}>
+          <div className={cx(timeline, 'shadow-dark')}>{children}</div>
         </div>
       </div>
     </div>

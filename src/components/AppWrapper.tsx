@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import type { PropsWithChildren } from 'react'
-import { lazy, Suspense, useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useLayoutEffect, useState } from 'react'
 import { HelmetProvider } from 'react-helmet-async'
 import { BrowserRouter as Router } from 'react-router'
 
@@ -13,6 +13,9 @@ import { useSoundClick } from '@hooks/useSoundClick'
 import { localizeConfig, useTranslation } from '@localization/localize'
 import { usePortfolioStore } from '@stores/portfolioStore'
 import { useSidebarStore } from '@stores/sidebarStore'
+import { useThemeStore } from '@stores/themeStore'
+import { cx } from '@utils/cn'
+import { applyThemeClassToBody } from '@utils/themeClass'
 import { LocalizeProvider } from 'zsk-react-i18n'
 import '../styles/global.css'
 
@@ -44,6 +47,8 @@ const queryClient = new QueryClient({
 const AppLayout = ({ children }: PropsWithChildren) => {
   const { i18n } = useTranslation()
   const isSidebarOpen = useSidebarStore((state) => state.isOpen)
+  const isDarkMode = useThemeStore((state) => state.isDarkMode)
+  const currentColor = useThemeStore((state) => state.currentColor)
   const [showEnhancements, setShowEnhancements] = useState(false)
 
   const portfolioQuery = usePortfolioData(i18n.resolvedLanguage === 'fr' ? 'fr' : 'en')
@@ -51,6 +56,10 @@ const AppLayout = ({ children }: PropsWithChildren) => {
 
   useKeyboardShortcuts()
   useSoundClick()
+
+  useLayoutEffect(() => {
+    applyThemeClassToBody(isDarkMode, currentColor)
+  }, [currentColor, isDarkMode])
 
   useEffect(() => {
     setLoading(portfolioQuery.isLoading)
@@ -112,7 +121,7 @@ const AppLayout = ({ children }: PropsWithChildren) => {
       ) : null}
       <Sidebar />
 
-      <div className={`main-content ${isSidebarOpen ? 'sidebar-mobile-open' : ''}`}>{children}</div>
+      <div className={cx('main-content', isSidebarOpen && 'sidebar-mobile-open')}>{children}</div>
 
       {showEnhancements ? <StyleSwitcher /> : null}
       {showEnhancements ? (

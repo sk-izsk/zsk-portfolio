@@ -17,6 +17,7 @@ import {
   Smartphone,
 } from 'lucide-react'
 import React from 'react'
+import { cx } from '@utils/cn'
 
 const serviceIconById: Record<number, LucideIcon> = {
   1: Laptop,
@@ -51,7 +52,7 @@ const ServiceScreen: React.FC = () => {
       canonical="/services"
     >
       {services && (
-        <div className={`row ${serviceRow}`}>
+        <div className={cx('row', serviceRow)}>
           {services.map((service) => (
             <ServiceCard key={service.id}>
               <ServiceCard.Icon icon={toServiceIcon(service.id)} />

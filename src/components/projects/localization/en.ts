@@ -16,6 +16,11 @@ export const projectsEn = {
       misc: 'Misc',
     },
   },
+  tagFilter: {
+    label: 'Filter projects by tag',
+    placeholder: 'Search tags',
+    empty: 'No matching tags found.',
+  },
   demoLink: 'Live Demo',
   readMore: 'Read More...',
 } as const

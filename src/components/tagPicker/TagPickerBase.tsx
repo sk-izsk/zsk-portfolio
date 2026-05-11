@@ -3,6 +3,7 @@ import { ChevronDown, X } from 'lucide-react'
 import React from 'react'
 import type { TagPickerOption } from '../../types/tagPickerTypes'
 import * as styles from './tagMultiSelectPicker.css'
+import { createCn, raw } from '@utils/cn'
 
 interface TagPickerBaseProps {
   ariaLabel: string
@@ -15,6 +16,7 @@ interface TagPickerBaseProps {
   onRemove: (value: string) => void
   onToggle: () => void
 }
+const cn = createCn(styles)
 
 export const TagPickerBase: React.FC<TagPickerBaseProps> = ({
   ariaLabel,
@@ -30,9 +32,7 @@ export const TagPickerBase: React.FC<TagPickerBaseProps> = ({
   return (
     <button
       type="button"
-      className={[styles.fieldButton, isOpen ? styles.fieldButtonOpen : '']
-        .filter(Boolean)
-        .join(' ')}
+      className={cn('fieldButton', { fieldButtonOpen: isOpen })}
       aria-haspopup="listbox"
       aria-expanded={isOpen}
       aria-label={ariaLabel}
@@ -45,8 +45,8 @@ export const TagPickerBase: React.FC<TagPickerBaseProps> = ({
               const selectedOption = selectedOptionMap.get(value)
 
               return (
-                <span key={value} className={[tagBase, styles.selectedChip].join(' ')}>
-                  <span className={[tagLabel, styles.selectedChipLabel].join(' ')}>
+                <span key={value} className={cn(raw(tagBase), 'selectedChip')}>
+                  <span className={cn('selectedChipLabel', raw(tagLabel))}>
                     {selectedOption?.label ?? value}
                   </span>
                   <span
@@ -72,9 +72,7 @@ export const TagPickerBase: React.FC<TagPickerBaseProps> = ({
               )
             })}
             {hiddenSelectedCount > 0 ? (
-              <span
-                className={[tagBase, styles.selectedChip, styles.selectedChipSummary].join(' ')}
-              >
+              <span className={cn(raw(tagBase), 'selectedChip', 'selectedChipSummary')}>
                 +{hiddenSelectedCount}
               </span>
             ) : null}
@@ -84,7 +82,7 @@ export const TagPickerBase: React.FC<TagPickerBaseProps> = ({
         )}
       </div>
       <ChevronDown
-        className={[styles.chevron, isOpen ? styles.chevronOpen : ''].filter(Boolean).join(' ')}
+        className={cn('chevron', { chevronOpen: isOpen })}
         size={18}
         aria-hidden="true"
       />

@@ -4,6 +4,7 @@ import { useTranslation } from '@localization/localize'
 import { Button } from '@components/common/button/Button'
 import { Divider } from '@components/common/divider/Divider'
 import * as modalStyles from '@components/common/modal/modal.css'
+import { createCn } from '@utils/cn'
 
 const modalRoot = typeof window !== 'undefined' ? document.body : null
 
@@ -20,6 +21,7 @@ type ModalCompound = React.FC<ModalProps> & {
   Highlights: React.FC<{ children: React.ReactNode }>
   Footer: React.FC<{ link?: string; demoLink?: string; onClose: () => void }>
 }
+const cn = createCn(modalStyles)
 
 export const Modal: ModalCompound = ({ open, onClose, children }) => {
   const ref = useRef<HTMLDivElement>(null)
@@ -70,12 +72,10 @@ export const Modal: ModalCompound = ({ open, onClose, children }) => {
   }
 
   return createPortal(
-    <div
-      className={`${modalStyles.overlay} ${open ? modalStyles.overlayAnimateIn : modalStyles.overlayAnimateOut}`}
-    >
+    <div className={cn('overlay', { overlayAnimateIn: open, overlayAnimateOut: !open })}>
       <div
         ref={ref}
-        className={`${modalStyles.modal} ${open ? modalStyles.modalAnimateIn : modalStyles.modalAnimateOut}`}
+        className={cn('modal', { modalAnimateIn: open, modalAnimateOut: !open })}
         onAnimationEnd={handleAnimationEnd}
       >
         {children}
@@ -113,7 +113,7 @@ Modal.Footer = ({ link, demoLink, onClose }) => {
               href={demoLink}
               variant="primary"
               size="medium"
-              className={`${modalStyles.footerButton} ${modalStyles.footerLinkButton}`}
+              className={cn('footerButton', 'footerLinkButton')}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -137,7 +137,7 @@ Modal.Footer = ({ link, demoLink, onClose }) => {
               href={link}
               variant="primary"
               size="medium"
-              className={`${modalStyles.footerButton} ${modalStyles.footerLinkButton}`}
+              className={cn('footerButton', 'footerLinkButton')}
               target="_blank"
               rel="noopener noreferrer"
             >

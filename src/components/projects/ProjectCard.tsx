@@ -17,6 +17,7 @@ import {
   projectTags,
   projectTitle,
 } from '@components/projects/projects.css'
+import { cx } from '@utils/cn'
 
 type ProjectCardRootProps = PropsWithChildren
 
@@ -122,7 +123,7 @@ const ProjectCardActions: React.FC<ProjectCardActionsProps> = ({ children, layou
   const layoutClass = layout === 'split' ? projectActionsSplit : projectActionsCenter
 
   return (
-    <div className={`${projectActions} ${layoutClass}`} data-layout={layout}>
+    <div className={cx(projectActions, layoutClass)} data-layout={layout}>
       {children}
     </div>
   )
