@@ -6,6 +6,7 @@ import {
   dotPatternDark,
   dotPatternLight,
 } from '@components/common/dotPattern/dotPattern.css'
+import { cx as joinClassNames } from '@utils/cn'
 
 interface DotPatternProps extends SVGProps<SVGSVGElement> {
   width?: number
@@ -34,7 +35,7 @@ export const DotPattern = ({
   const opacityClass = isDarkMode ? dotPatternDark : dotPatternLight
 
   return (
-    <svg className={`${dotPatternContainer} ${opacityClass} ${className ?? ''}`} {...props}>
+    <svg className={joinClassNames(dotPatternContainer, opacityClass, className)} {...props}>
       <defs>
         <pattern
           id={id}

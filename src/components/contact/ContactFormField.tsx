@@ -6,6 +6,7 @@ import {
   formControlTextarea,
   formItem,
 } from '@components/contact/contact.css'
+import { cx } from '@utils/cn'
 
 interface ContactFormFieldProps {
   type: 'text' | 'email' | 'textarea'
@@ -27,11 +28,11 @@ export const ContactFormField: React.FC<ContactFormFieldProps> = ({
   const widthClass = halfWidth ? col6 : col12
 
   return (
-    <div className={`${formItem} ${widthClass} padd-15`}>
+    <div className={cx(formItem, widthClass, 'padd-15')}>
       <div className="form-group">
         {type === 'textarea' ? (
           <textarea
-            className={`${formControl} ${formControlTextarea}`}
+            className={cx(formControl, formControlTextarea)}
             placeholder={placeholder}
             name={name}
             value={value}

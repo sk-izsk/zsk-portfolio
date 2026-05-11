@@ -9,6 +9,7 @@ import {
   skillsHeadingIconGapSm,
   skillsSection,
 } from '@components/skills/skills.css'
+import { cx } from '@utils/cn'
 
 interface SkillsRateSectionProps {
   icon: LucideIcon
@@ -26,13 +27,9 @@ export const SkillsRateSection: React.FC<SkillsRateSectionProps> = ({
   const skills = skillsData?.technical?.filter((skill) => skill.category === category) ?? []
 
   return (
-    <div className={`${skillsSection} padd-15`}>
-      <h3 className={`${title} ${skillsHeading}`}>
-        <Icon
-          className={`${skillsHeadingIcon} ${skillsHeadingIconGapSm}`}
-          size={22}
-          strokeWidth={2.25}
-        />
+    <div className={cx(skillsSection, 'padd-15')}>
+      <h3 className={cx(title, skillsHeading)}>
+        <Icon className={cx(skillsHeadingIcon, skillsHeadingIconGapSm)} size={22} strokeWidth={2.25} />
         {titleText}
       </h3>
       <div className="row">

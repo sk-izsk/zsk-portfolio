@@ -1,6 +1,7 @@
 import App from '@/App'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { applyStoredThemeClass } from '@utils/themeClass'
 import { registerSW } from 'virtual:pwa-register'
 
 const isLocalhost =
@@ -14,6 +15,8 @@ if (import.meta.env.PROD && !isLocalhost) {
     },
   })
 }
+
+applyStoredThemeClass()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

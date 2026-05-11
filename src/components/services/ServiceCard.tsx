@@ -11,6 +11,7 @@ import {
   serviceItemInnerHover,
   serviceP,
 } from '@components/services/services.css'
+import { cx } from '@utils/cn'
 
 type ServiceCardRootProps = PropsWithChildren
 
@@ -30,7 +31,7 @@ type ServiceCardCompound = React.FC<ServiceCardRootProps> & {
 
 const ServiceCardRoot: React.FC<ServiceCardRootProps> = ({ children }) => {
   return (
-    <div className={`${serviceItem} padd-15`}>
+    <div className={cx(serviceItem, 'padd-15')}>
       <div className={serviceItemInner}>{children}</div>
     </div>
   )
@@ -40,8 +41,8 @@ const ServiceCardIcon: React.FC<ServiceCardIconProps> = ({ icon }) => {
   const Icon = icon
 
   return (
-    <div className={`${serviceIcon} ${serviceItemInnerHover}`}>
-      <Icon className={`${serviceIconFA} ${serviceIconFAHover}`} size={40} />
+    <div className={cx(serviceIcon, serviceItemInnerHover)}>
+      <Icon className={cx(serviceIconFA, serviceIconFAHover)} size={40} />
     </div>
   )
 }

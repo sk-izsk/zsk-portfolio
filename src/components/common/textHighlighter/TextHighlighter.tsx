@@ -1,10 +1,6 @@
 import React from 'react'
-import {
-  highlight,
-  highlighterRoot,
-  highlighterText,
-  underline,
-} from '@components/common/textHighlighter/TextHighlighter.css'
+import * as styles from '@components/common/textHighlighter/TextHighlighter.css'
+import { createCn, raw } from '@utils/cn'
 
 type TextHighlighterAction = 'highlight' | 'underline'
 
@@ -13,16 +9,15 @@ interface TextHighlighterProps {
   action?: TextHighlighterAction
   className?: string
 }
+const cn = createCn(styles)
 
 export const TextHighlighter: React.FC<TextHighlighterProps> = ({
   children,
   action = 'highlight',
   className,
 }) => {
-  const rootActionClass = action === 'underline' ? underline : undefined
-  const textActionClass = action === 'highlight' ? highlight : undefined
-  const classes = [highlighterRoot, rootActionClass, className].filter(Boolean).join(' ')
-  const textClasses = [highlighterText, textActionClass].filter(Boolean).join(' ')
+  const classes = cn('highlighterRoot', { underline: action === 'underline' }, raw(className))
+  const textClasses = cn('highlighterText', { highlight: action === 'highlight' })
 
   return (
     <span className={classes}>

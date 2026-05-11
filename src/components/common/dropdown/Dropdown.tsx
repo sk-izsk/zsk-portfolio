@@ -1,6 +1,7 @@
+import * as styles from '@components/common/dropdown/dropdown.css'
+import { createCn, raw } from '@utils/cn'
 import { ChevronDown } from 'lucide-react'
 import { useEffect, useId, useRef, useState } from 'react'
-import * as styles from '@components/common/dropdown/dropdown.css'
 
 interface DropdownOption<T extends string> {
   value: T
@@ -14,6 +15,7 @@ interface DropdownProps<T extends string> {
   ariaLabel: string
   className?: string
 }
+const cn = createCn(styles)
 
 export const Dropdown = <T extends string>({
   value,
@@ -55,10 +57,10 @@ export const Dropdown = <T extends string>({
   }, [isOpen])
 
   return (
-    <div ref={rootRef} className={[styles.root, className].filter(Boolean).join(' ')}>
+    <div ref={rootRef} className={cn('root', raw(className))}>
       <button
         type="button"
-        className={[styles.trigger, isOpen ? styles.triggerOpen : ''].filter(Boolean).join(' ')}
+        className={cn('trigger', { triggerOpen: isOpen })}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
         aria-controls={listboxId}
@@ -67,7 +69,7 @@ export const Dropdown = <T extends string>({
       >
         <span className={styles.triggerLabel}>{selectedOption?.label ?? ''}</span>
         <ChevronDown
-          className={[styles.chevron, isOpen ? styles.chevronOpen : ''].filter(Boolean).join(' ')}
+          className={cn('chevron', { chevronOpen: isOpen })}
           size={18}
           aria-hidden="true"
         />
@@ -84,9 +86,7 @@ export const Dropdown = <T extends string>({
                 type="button"
                 role="option"
                 aria-selected={isSelected}
-                className={[styles.option, isSelected ? styles.optionSelected : '']
-                  .filter(Boolean)
-                  .join(' ')}
+                className={cn('option', { optionSelected: isSelected })}
                 onClick={() => {
                   onChange(option.value)
                   setIsOpen(false)

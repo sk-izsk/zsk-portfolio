@@ -2,6 +2,7 @@ import React from 'react'
 import { useTranslation } from '@localization/localize'
 import type { ThemeColor } from '@stores/themeStore'
 import { colorItem, colors, heading } from '@components/styleSwitcher/styleSwitcher.css'
+import { cx } from '@utils/cn'
 
 interface StyleSwitcherThemeColorsProps {
   currentColor: string
@@ -31,7 +32,7 @@ export const StyleSwitcherThemeColors: React.FC<StyleSwitcherThemeColorsProps> =
           <button
             key={color.name}
             type="button"
-            className={`${colorItem} ${color.name} ${currentColor === color.name ? 'active' : ''}`}
+            className={cx(colorItem, color.name, currentColor === color.name && 'active')}
             onClick={() => onChangeColor(color.name)}
             aria-label={color.name}
             title={color.color}

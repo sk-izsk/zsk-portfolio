@@ -1,26 +1,12 @@
 import { HyperText } from '@components/common/hyperText/HyperText'
 import { SidebarNavItem } from '@components/sidebar/SidebarNavItem'
-import {
-  aside,
-  asideContent,
-  asideOpen,
-  languageButton,
-  languageButtonActive,
-  languageDivider,
-  languageSwitcher,
-  logo,
-  logoA,
-  logoSpan,
-  mobileBackdrop,
-  nav,
-  navToggler,
-  navTogglerHidden,
-} from '@components/sidebar/sidebar.css'
+import * as styles from '@components/sidebar/sidebar.css'
 import type { SidebarNavigationItem } from '@components/sidebar/sidebar.types'
 import { useTranslation } from '@localization/localize'
 import { usePersonalInfo, usePortfolioLoading } from '@stores/portfolioStore'
 import { useSidebarStore } from '@stores/sidebarStore'
 import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
+import { createCn } from '@utils/cn'
 import { BookOpen, Briefcase, Cog, House, List, Menu, MessageCircle, User } from 'lucide-react'
 import React, { useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router'
@@ -49,6 +35,7 @@ const getCurrentSection = (path: string) => {
   }
   return 'home'
 }
+const cn = createCn(styles)
 
 export const Sidebar: React.FC = () => {
   const { t, i18n } = useTranslation()
@@ -149,14 +136,14 @@ export const Sidebar: React.FC = () => {
     <>
       {isOpen ? (
         <button
-          className={mobileBackdrop}
+          className={styles.mobileBackdrop}
           type="button"
           onClick={closeSidebar}
           aria-label={t('sidebar.toggle.close')}
         />
       ) : null}
       <button
-        className={`${navToggler} ${isOpen ? navTogglerHidden : ''}`}
+        className={cn('navToggler', { navTogglerHidden: isOpen })}
         type="button"
         onClick={toggleSidebar}
         aria-label={t('sidebar.toggle.open')}
@@ -165,31 +152,35 @@ export const Sidebar: React.FC = () => {
       >
         <Menu size={22} />
       </button>
-      <div className={`${aside} ${isOpen ? asideOpen : ''}`}>
-        <div className={asideContent}>
-          <div className={logo}>
-            <Link to="/" className={logoA}>
+      <div className={cn('aside', { asideOpen: isOpen })}>
+        <div className={styles.asideContent}>
+          <div className={styles.logo}>
+            <Link to="/" className={styles.logoA}>
               <HyperText
                 text={getLogoText()}
                 as="span"
                 animateOnLoad={true}
                 animateOnHover={true}
                 renderCharacter={(char, index) =>
-                  index === 0 ? <span className={logoSpan}>{char}</span> : char
+                  index === 0 ? <span className={styles.logoSpan}>{char}</span> : char
                 }
               />
             </Link>
-            <div className={languageSwitcher}>
+            <div className={styles.languageSwitcher}>
               <button
-                className={`${languageButton} ${currentLanguage === 'en' ? languageButtonActive : ''}`}
+                className={cn('languageButton', {
+                  languageButtonActive: currentLanguage === 'en',
+                })}
                 type="button"
                 onClick={() => handleLanguageChange('en')}
               >
                 {t('sidebar.language.en')}
               </button>
-              <span className={languageDivider}>|</span>
+              <span className={styles.languageDivider}>|</span>
               <button
-                className={`${languageButton} ${currentLanguage === 'fr' ? languageButtonActive : ''}`}
+                className={cn('languageButton', {
+                  languageButtonActive: currentLanguage === 'fr',
+                })}
                 type="button"
                 onClick={() => handleLanguageChange('fr')}
               >
@@ -197,7 +188,7 @@ export const Sidebar: React.FC = () => {
               </button>
             </div>
           </div>
-          <ul className={nav}>
+          <ul className={styles.nav}>
             {navigationItems.map((item) => (
               <SidebarNavItem
                 key={item.id}

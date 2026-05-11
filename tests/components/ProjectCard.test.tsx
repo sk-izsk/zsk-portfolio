@@ -135,7 +135,7 @@ describe('ProjectCard', () => {
     )
 
     expect(container.querySelector('[data-layout="center"]')).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Read More...' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Read More ...' })).toBeInTheDocument()
     expect(screen.queryByRole('link', { name: 'Live Demo' })).not.toBeInTheDocument()
   })
 
@@ -153,7 +153,7 @@ describe('ProjectCard', () => {
       </ProjectCard>,
     )
 
-    fireEvent.click(screen.getByRole('link', { name: 'Read More...' }))
+    fireEvent.click(screen.getByRole('link', { name: 'Read More ...' }))
 
     expect(handleReadMore).toHaveBeenCalledTimes(1)
   })

@@ -9,6 +9,7 @@ import {
   contactInfoItemP,
   contactInfoItemPLink,
 } from '@components/contact/contact.css'
+import { cx } from '@utils/cn'
 
 interface ContactSocialCardProps {
   icon: LucideIcon
@@ -51,12 +52,12 @@ export const ContactSocialCard: React.FC<ContactSocialCardProps> = ({
         onClick={handleClick}
         target={openInNewTab ? '_blank' : undefined}
         rel={openInNewTab ? 'noopener noreferrer' : undefined}
-        className={`${contactInfoItem} ${contactInfoItemLink} padd-15`}
+        className={cx(contactInfoItem, contactInfoItemLink, 'padd-15')}
       >
         {inner}
       </a>
     )
   }
 
-  return <div className={`${contactInfoItem} padd-15`}>{inner}</div>
+  return <div className={cx(contactInfoItem, 'padd-15')}>{inner}</div>
 }

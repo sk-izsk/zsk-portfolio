@@ -14,6 +14,7 @@ import { usePortfolioError, usePortfolioLoading, useProjects } from '@stores/por
 import React, { useState } from 'react'
 import { ProjectCardContainer } from '@components/projects/ProjectCardContainer'
 import { ProjectModalContainer } from '@components/projects/ProjectModalContainer'
+import { cx } from '@utils/cn'
 import type { FilterProjectType } from '../hooks/project/useProjectTypeFilteredProjects'
 
 const ProjectScreen: React.FC = () => {
@@ -42,7 +43,7 @@ const ProjectScreen: React.FC = () => {
       {projects && (
         <>
           <div className="row">
-            <div className={`${projectHeading} padd-15`}>
+            <div className={cx(projectHeading, 'padd-15')}>
               <div className={projectToolbar}>
                 <h2 className={projectHeadingTitle}>{t('projects.heading')}</h2>
                 <ProjectFilterBar
@@ -53,7 +54,7 @@ const ProjectScreen: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className={`${projectGrid} padd-15`}>
+          <div className={cx(projectGrid, 'padd-15')}>
             {filteredProjects.map((project) => {
               return (
                 <ProjectCardContainer

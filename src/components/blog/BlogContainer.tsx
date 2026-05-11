@@ -14,6 +14,7 @@ import { usePagination } from '@hooks/usePagination'
 import { useTranslation } from '@localization/localize'
 import type { BlogPostSummary } from '@services/hash-node/types'
 import { sortBlogPosts } from '@utils/sortBlogPosts'
+import { cx } from '@utils/cn'
 import React, { useMemo } from 'react'
 import { useSelectedBlogTagFilters } from '../../hooks/blog/useSelectedBlogTagFilters'
 
@@ -57,7 +58,7 @@ export const BlogContainer: React.FC<BlogContainerProps> = ({
   return (
     <>
       <div className="row">
-        <div className={`${blogHeading} padd-15`}>
+        <div className={cx(blogHeading, 'padd-15')}>
           <div className={blogToolbar}>
             <BlogFilterBar
               posts={posts}
@@ -70,7 +71,7 @@ export const BlogContainer: React.FC<BlogContainerProps> = ({
         </div>
       </div>
       <div className="row">
-        <div className={`${blogContent} padd-15`}>
+        <div className={cx(blogContent, 'padd-15')}>
           {sortedPosts.length === 0 ? <div className={blogState}>{t('blog.empty')}</div> : null}
           {sortedPosts.length ? (
             <>

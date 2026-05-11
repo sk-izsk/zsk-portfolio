@@ -15,6 +15,7 @@ import { useTranslation } from '@localization/localize'
 import { useContactInfo, usePersonalInfo } from '@stores/portfolioStore'
 import { contactSubTitle, contactTitle } from '@components/contact/contact.css'
 import { ContactSocialCard } from '@components/contact/ContactSocialCard'
+import { cx } from '@utils/cn'
 
 interface ContactSocialItem {
   icon: LucideIcon
@@ -89,8 +90,8 @@ export const ContactSocialsSection: React.FC = () => {
 
   return (
     <>
-      <h3 className={`${contactTitle} padd-15`}>{t('contact.socials.heading')}</h3>
-      <h4 className={`${contactSubTitle} padd-15`}>{t('contact.socials.subHeading')}</h4>
+      <h3 className={cx(contactTitle, 'padd-15')}>{t('contact.socials.heading')}</h3>
+      <h4 className={cx(contactSubTitle, 'padd-15')}>{t('contact.socials.subHeading')}</h4>
       <div className="row">
         {contactInfo.map((item) => (
           <ContactSocialCard

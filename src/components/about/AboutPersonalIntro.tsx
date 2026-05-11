@@ -3,6 +3,7 @@ import { useTranslation } from '@localization/localize'
 import { usePersonalInfo } from '@stores/portfolioStore'
 import { TextHighlighter } from '@components/common/textHighlighter/TextHighlighter'
 import { aboutText, aboutTextH3, aboutTextP, aboutTextSpan } from '@components/about/about.css'
+import { cx } from '@utils/cn'
 
 export const AboutPersonalIntro: React.FC = () => {
   const { t } = useTranslation()
@@ -14,7 +15,7 @@ export const AboutPersonalIntro: React.FC = () => {
 
   return (
     <div className="row">
-      <div className={`${aboutText} padd-15`}>
+      <div className={cx(aboutText, 'padd-15')}>
         <h3 className={aboutTextH3}>
           {t('about.introPrefix', { name: personalInfo.name })}{' '}
           <TextHighlighter action="underline" className={aboutTextSpan}>

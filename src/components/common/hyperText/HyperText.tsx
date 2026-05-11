@@ -1,6 +1,7 @@
 import type { ElementType, HTMLAttributes, ReactNode } from 'react'
 import React, { useEffect, useRef, useState } from 'react'
-import { hyperTextChar, hyperTextContainer } from '@components/common/hyperText/hyperText.css'
+import * as styles from '@components/common/hyperText/hyperText.css'
+import { createCn, raw } from '@utils/cn'
 
 interface HyperTextProps extends Omit<HTMLAttributes<HTMLElement>, 'children'> {
   text: string
@@ -14,6 +15,7 @@ interface HyperTextProps extends Omit<HTMLAttributes<HTMLElement>, 'children'> {
 }
 
 const DEFAULT_CHARACTER_SET = Object.freeze('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''))
+const cn = createCn(styles)
 
 const getRandomInt = (max: number) => Math.floor(Math.random() * max)
 
@@ -90,7 +92,7 @@ export function HyperText({
 
   return (
     <Component
-      className={`${hyperTextContainer} ${className || ''}`}
+      className={cn('hyperTextContainer', raw(className))}
       onMouseEnter={() => {
         if (animateOnHover) {
           triggerAnimation()
@@ -103,7 +105,7 @@ export function HyperText({
           {renderCharacter ? (
             renderCharacter(letter, i)
           ) : (
-            <span className={hyperTextChar}>{letter}</span>
+            <span className={styles.hyperTextChar}>{letter}</span>
           )}
         </React.Fragment>
       ))}
