@@ -77,11 +77,6 @@ export const projectFilterControl = style({
   },
 })
 
-export const projectHeadingTitle = style({
-  color: vars.color.text[900],
-  fontWeight: 500,
-})
-
 export const projectItem = style({
   display: 'flex',
   flexDirection: 'column',
