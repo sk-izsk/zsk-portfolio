@@ -42,17 +42,18 @@ describe('Sidebar', () => {
     expect(screen.getByText(secondWord.slice(1))).toBeInTheDocument()
   })
 
-  it('toggles sidebar open/close when the hamburger button is clicked', async () => {
+  it('opens from the hamburger button and closes from the backdrop', async () => {
     const user = userEvent.setup()
-    const { container } = renderSidebar()
+    renderSidebar()
 
-    // The nav toggler is a div element (not a button)
-    const toggler = container.querySelector('[class*="navToggler"]')!
+    const toggler = screen.getByRole('button', { name: /open navigation/i })
     await user.click(toggler)
 
     expect(useSidebarStore.getState().isOpen).toBe(true)
 
-    await user.click(toggler)
+    const backdrop = screen.getByRole('button', { name: /close navigation/i })
+    await user.click(backdrop)
+
     expect(useSidebarStore.getState().isOpen).toBe(false)
   })
 

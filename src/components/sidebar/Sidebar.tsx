@@ -14,14 +14,14 @@ import {
   mobileBackdrop,
   nav,
   navToggler,
-  navTogglerOpen,
+  navTogglerHidden,
 } from '@components/sidebar/sidebar.css'
 import type { SidebarNavigationItem } from '@components/sidebar/sidebar.types'
 import { useTranslation } from '@localization/localize'
 import { usePersonalInfo, usePortfolioLoading } from '@stores/portfolioStore'
 import { useSidebarStore } from '@stores/sidebarStore'
 import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
-import { BookOpen, Briefcase, Cog, House, List, Menu, MessageCircle, User, X } from 'lucide-react'
+import { BookOpen, Briefcase, Cog, House, List, Menu, MessageCircle, User } from 'lucide-react'
 import React, { useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router'
 
@@ -156,12 +156,14 @@ export const Sidebar: React.FC = () => {
         />
       ) : null}
       <button
-        className={`${navToggler} ${isOpen ? navTogglerOpen : ''}`}
+        className={`${navToggler} ${isOpen ? navTogglerHidden : ''}`}
         type="button"
         onClick={toggleSidebar}
-        aria-label={isOpen ? t('sidebar.toggle.close') : t('sidebar.toggle.open')}
+        aria-label={t('sidebar.toggle.open')}
+        aria-hidden={isOpen}
+        tabIndex={isOpen ? -1 : 0}
       >
-        {isOpen ? <X size={22} /> : <Menu size={22} />}
+        <Menu size={22} />
       </button>
       <div className={`${aside} ${isOpen ? asideOpen : ''}`}>
         <div className={asideContent}>

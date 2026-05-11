@@ -170,10 +170,13 @@ export const navToggler = style({
   },
 })
 
-export const navTogglerOpen = style({
+export const navTogglerHidden = style({
   '@media': {
     '(max-width: 1199px)': {
-      left: 'calc(min(320px, 86vw) - 62px)',
+      opacity: 0,
+      visibility: 'hidden',
+      pointerEvents: 'none',
+      transform: 'translateY(-8px)',
     },
   },
 })

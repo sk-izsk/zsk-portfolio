@@ -1,22 +1,20 @@
+import { ProjectFilterBar } from '@components/projects/ProjectFilterBar'
 import {
-  projectFilter,
   projectGrid,
   projectHeading,
   projectHeadingTitle,
   projectToolbar,
 } from '@components/projects/projects.css'
-import { ProjectTypeDropdown } from '@components/projects/ProjectTypeDropdown'
 import { Screen } from '@components/Screen'
 import { useAnalytics } from '@hooks/useAnalytics'
+import { useProjectTagFilteredProjects } from '@hooks/project/useProjectTagFilteredProjects'
+import { useSelectedProjectTagFilters } from '@hooks/project/useSelectedProjectTagFilters'
 import { useTranslation } from '@localization/localize'
 import { usePortfolioError, usePortfolioLoading, useProjects } from '@stores/portfolioStore'
 import React, { useState } from 'react'
 import { ProjectCardContainer } from '@components/projects/ProjectCardContainer'
 import { ProjectModalContainer } from '@components/projects/ProjectModalContainer'
-import {
-  useProjectTypeFilteredProjects,
-  type FilterProjectType,
-} from '../hooks/project/useProjectTypeFilteredProjects'
+import type { FilterProjectType } from '../hooks/project/useProjectTypeFilteredProjects'
 
 const ProjectScreen: React.FC = () => {
   const projects = useProjects()
@@ -28,7 +26,8 @@ const ProjectScreen: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedProject, setSelectedProject] = useState<FilterProjectType | null>(null)
 
-  const filteredProjects = useProjectTypeFilteredProjects()
+  const [selectedTags, setSelectedTags] = useSelectedProjectTagFilters()
+  const filteredProjects = useProjectTagFilteredProjects(selectedTags)
 
   return (
     <Screen
@@ -46,9 +45,11 @@ const ProjectScreen: React.FC = () => {
             <div className={`${projectHeading} padd-15`}>
               <div className={projectToolbar}>
                 <h2 className={projectHeadingTitle}>{t('projects.heading')}</h2>
-                <div className={projectFilter}>
-                  <ProjectTypeDropdown />
-                </div>
+                <ProjectFilterBar
+                  projects={projects}
+                  selectedTags={selectedTags}
+                  onSelectedTagsChange={setSelectedTags}
+                />
               </div>
             </div>
           </div>

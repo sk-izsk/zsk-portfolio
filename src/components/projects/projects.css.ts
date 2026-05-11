@@ -50,6 +50,33 @@ export const projectFilter = style({
   },
 })
 
+export const projectFilterBar = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '12px',
+  width: '100%',
+  justifyContent: 'flex-end',
+  '@media': {
+    '(max-width: 767px)': {
+      flexDirection: 'column',
+      alignItems: 'stretch',
+    },
+  },
+})
+
+export const projectFilterControl = style({
+  width: '100%',
+  maxWidth: '300px',
+  flexShrink: 0,
+  '@media': {
+    '(max-width: 767px)': {
+      width: 'min(300px, 100%)',
+      maxWidth: '100%',
+      margin: '0 auto',
+    },
+  },
+})
+
 export const projectHeadingTitle = style({
   color: vars.color.text[900],
   fontWeight: 500,
