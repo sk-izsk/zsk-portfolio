@@ -1,20 +1,15 @@
+import { ProjectCardContainer } from '@components/projects/ProjectCardContainer'
 import { ProjectFilterBar } from '@components/projects/ProjectFilterBar'
-import {
-  projectGrid,
-  projectHeading,
-  projectHeadingTitle,
-  projectToolbar,
-} from '@components/projects/projects.css'
+import { ProjectModalContainer } from '@components/projects/ProjectModalContainer'
+import { projectGrid, projectHeading, projectToolbar } from '@components/projects/projects.css'
 import { Screen } from '@components/Screen'
-import { useAnalytics } from '@hooks/useAnalytics'
 import { useProjectTagFilteredProjects } from '@hooks/project/useProjectTagFilteredProjects'
 import { useSelectedProjectTagFilters } from '@hooks/project/useSelectedProjectTagFilters'
+import { useAnalytics } from '@hooks/useAnalytics'
 import { useTranslation } from '@localization/localize'
 import { usePortfolioError, usePortfolioLoading, useProjects } from '@stores/portfolioStore'
-import React, { useState } from 'react'
-import { ProjectCardContainer } from '@components/projects/ProjectCardContainer'
-import { ProjectModalContainer } from '@components/projects/ProjectModalContainer'
 import { cx } from '@utils/cn'
+import React, { useState } from 'react'
 import type { FilterProjectType } from '../hooks/project/useProjectTypeFilteredProjects'
 
 const ProjectScreen: React.FC = () => {
@@ -45,7 +40,6 @@ const ProjectScreen: React.FC = () => {
           <div className="row">
             <div className={cx(projectHeading, 'padd-15')}>
               <div className={projectToolbar}>
-                <h2 className={projectHeadingTitle}>{t('projects.heading')}</h2>
                 <ProjectFilterBar
                   projects={projects}
                   selectedTags={selectedTags}
