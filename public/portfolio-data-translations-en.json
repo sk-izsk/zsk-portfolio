@@ -285,6 +285,17 @@
         "Paginated coins listing plus dynamic coin pages with live pricing, trades, OHLC charts, and conversion",
         "Shared CoinGecko data layer handling REST, websocket streams, demo/pro API differences, and OHLC fallback logic"
       ]
+    },
+    {
+      "id": 11,
+      "title": "Z Gym: Premium Fitness Brand SPA",
+      "excerpt": "A production-style fitness SPA built with React, TypeScript, Vite, Tailwind CSS, Radix UI, and Motion. I treated it like a real frontend system, with scroll-driven sections, reusable UI primitives, typed content, and theme support instead of one-off page styling.",
+      "shortDescription": "Z Gym is a premium fitness brand experience built as a section-based single-page app. It uses React, TypeScript, Vite, Tailwind CSS, Radix UI primitives, and Motion for scroll-driven storytelling, responsive layout, and polished dark and light themes. For me, this project is a good example of building more than a modern-looking website. It is also structured to be scalable, reusable, and maintainable, with isolated section components, reusable hooks, shared animation variants, direct imports, and a centralized typed content layer that keeps the codebase held to a high standard.",
+      "highlights": [
+        "Scroll-driven single-page experience with responsive section architecture and premium visual pacing",
+        "Reusable UI primitives, shared animation variants, and isolated section components instead of page-specific one-offs",
+        "Centralized typed content plus theme support and accessible interactions built for maintainability, not only presentation"
+      ]
     }
   ]
 }

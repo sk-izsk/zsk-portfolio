@@ -345,6 +345,28 @@
         "Route Handlers"
       ],
       "publishDate": "2026-05-05"
+    },
+    {
+      "id": 11,
+      "url": "https://github.com/sk-izsk/z-gym",
+      "demo_link": "https://zed-gym.netlify.app/",
+      "projectTypes": ["frontend"],
+      "category": "Frontend",
+      "tags": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "Radix UI",
+        "Motion",
+        "SPA",
+        "Responsive Design",
+        "Dark Mode",
+        "Light Mode",
+        "Accessibility",
+        "Design System"
+      ],
+      "publishDate": "2026-05-11"
     }
   ],
   "experienceBase": [
