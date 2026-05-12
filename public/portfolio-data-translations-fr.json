@@ -276,6 +276,17 @@
         "Liste paginee des coins plus pages detail dynamiques avec prix live, trades, graphiques OHLC et conversion",
         "Couche de donnees CoinGecko partagee qui gere REST, flux websocket, differences demo/pro et fallback sur l'historique OHLC"
       ]
+    },
+    {
+      "id": 11,
+      "title": "Z Gym : SPA fitness au rendu premium",
+      "excerpt": "Une SPA fitness construite avec React, TypeScript, Vite, Tailwind CSS, Radix UI et Motion. Je l'ai pensee comme un vrai systeme frontend, avec sections guidees par le scroll, primitives UI reutilisables, contenu type, et gestion de themes au lieu d'un simple habillage visuel.",
+      "shortDescription": "Z Gym est une experience de marque fitness premium construite comme une application single-page organisee par sections. Elle utilise React, TypeScript, Vite, Tailwind CSS, les primitives Radix UI et Motion pour narration guidee par le scroll, layout responsive, et themes dark/light soignes. Pour moi, ce projet montre qu'il ne s'agit pas seulement d'obtenir un site moderne visuellement. Il est aussi structure pour rester evolutif, reutilisable et maintenable, avec composants de section isoles, hooks reutilisables, variantes d'animation partagees, imports directs, et couche de contenu typee centralisee qui aide a garder un haut niveau de qualite de code.",
+      "highlights": [
+        "Experience single-page guidee par le scroll avec architecture par sections responsive et rythme visuel premium",
+        "Primitives UI reutilisables, variantes d'animation partagees, et composants de section isoles au lieu de blocs jetables",
+        "Contenu type centralise, support des themes, et interactions accessibles penses pour maintenance autant que presentation"
+      ]
     }
   ]
 }
