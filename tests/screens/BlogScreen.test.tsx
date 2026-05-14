@@ -51,7 +51,7 @@ describe('BlogScreen', () => {
     renderScreen()
 
     for (const post of mockPortfolioData.blog) {
-      expect(screen.getByText(post.excerpt)).toBeInTheDocument()
+      expect(screen.getByText(post.shortDescription)).toBeInTheDocument()
     }
   })
 
@@ -109,10 +109,10 @@ describe('BlogScreen', () => {
     await user.click(screen.getAllByRole('link', { name: 'Read More...' })[0]!)
 
     expect(
-      screen.getByText(
+      screen.getAllByText(
         "A production-minded comparison of React Context, Redux Toolkit, and Zustand, focused on re-render behavior, boilerplate, team scaling, and the tradeoffs that matter months after launch.",
       ),
-    ).toBeInTheDocument()
+    ).toHaveLength(2)
     expect(screen.getByRole('link', { name: 'Read article' })).toHaveAttribute(
       'href',
       'https://izsk.hashnode.dev/context-vs-redux-toolkit-vs-zustand-picking-the-right-state-tool-for-the-job',

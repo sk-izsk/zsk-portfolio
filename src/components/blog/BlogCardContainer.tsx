@@ -3,6 +3,7 @@ import { useTranslation } from '@localization/localize'
 import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
 import React from 'react'
 import { ProjectCard } from '@components/projects/ProjectCard'
+import { compactBlogCard } from './blogCard.css'
 
 interface BlogCardContainerProps {
   post: FilterBlogPostType
@@ -13,12 +14,12 @@ export const BlogCardContainer: React.FC<BlogCardContainerProps> = ({ post, onRe
   const { t } = useTranslation()
 
   return (
-    <ProjectCard key={post.id}>
+    <ProjectCard key={post.id} className={compactBlogCard}>
       <ProjectCard.TimeLink category={post.category} publishDate={post.publishDate} />
       <ProjectCard.Title href={post.articleHref} isExternal={true}>
         {post.title}
       </ProjectCard.Title>
-      <ProjectCard.Body shortDescription={post.excerpt} highlights={[]} />
+      <ProjectCard.Body shortDescription={post.shortDescription} highlights={[]} />
       <ProjectCard.Tags projectId={post.id} tags={post.tags} />
       <ProjectCard.Actions layout="center">
         <ProjectCard.Button
