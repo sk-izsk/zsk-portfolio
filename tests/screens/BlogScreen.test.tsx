@@ -1,18 +1,14 @@
 import BlogScreen from '@screens/BlogScreen'
-import { render, screen } from '@testing-library/react'
+import { usePortfolioStore } from '@stores/portfolioStore'
+import { render, screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { AllProviders } from '@tests/helpers/AllProviders'
+import { mockPortfolioData } from '@tests/helpers/mockPortfolioData'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 vi.mock('@hooks/useAnalytics', () => ({
   useAnalytics: vi.fn(),
 }))
-
-vi.mock('@hooks/useHashnodePosts', () => ({
-  useHashNodePosts: vi.fn(),
-}))
-
-const makeHookResult = (value: Record<string, unknown>) =>
-  value as unknown as ReturnType<typeof import('@/hooks/useHashnodePosts').useHashNodePosts>
 
 const renderScreen = () =>
   render(
@@ -23,180 +19,103 @@ const renderScreen = () =>
 
 describe('BlogScreen', () => {
   beforeEach(() => {
-    vi.clearAllMocks()
+    usePortfolioStore.getState().reset()
     window.history.pushState({}, '', '/blog')
   })
 
-  it('renders loading state', async () => {
-    const { useHashNodePosts } = await import('@/hooks/useHashnodePosts')
-
-    vi.mocked(useHashNodePosts).mockReturnValue({
-      posts: [],
-      isLoading: true,
-      isError: false,
-      hasNextPage: false,
-      isFetchingNextPage: false,
-      fetchNextPage: vi.fn(),
-    } as unknown as ReturnType<typeof useHashNodePosts>)
-
+  it('renders loading state', () => {
+    usePortfolioStore.getState().setLoading(true)
     renderScreen()
 
     expect(screen.getByText('Loading...')).toBeInTheDocument()
   })
 
-  it('renders error state when query fails', async () => {
-    const { useHashNodePosts } = await import('@/hooks/useHashnodePosts')
-
-    vi.mocked(useHashNodePosts).mockReturnValue({
-      posts: [],
-      isLoading: false,
-      isError: true,
-      hasNextPage: false,
-      isFetchingNextPage: false,
-      fetchNextPage: vi.fn(),
-    } as unknown as ReturnType<typeof useHashNodePosts>)
-
+  it('renders error state when there is an error', () => {
+    usePortfolioStore.getState().setError('error')
     renderScreen()
 
     expect(screen.getByText('Could not load blog posts right now.')).toBeInTheDocument()
   })
 
-  it('renders empty state when there are no posts', async () => {
-    const { useHashNodePosts } = await import('@/hooks/useHashnodePosts')
+  it('renders all blog titles when data is loaded', () => {
+    usePortfolioStore.getState().setData(mockPortfolioData)
+    renderScreen()
 
-    vi.mocked(useHashNodePosts).mockReturnValue(
-      makeHookResult({
-        posts: [],
-        isLoading: false,
-        isError: false,
-        hasNextPage: false,
-        isFetchingNextPage: false,
-        fetchNextPage: vi.fn(),
-      }),
-    )
+    for (const post of mockPortfolioData.blog) {
+      expect(screen.getByText(post.title)).toBeInTheDocument()
+    }
+  })
 
+  it('renders all blog excerpts when data is loaded', () => {
+    usePortfolioStore.getState().setData(mockPortfolioData)
+    renderScreen()
+
+    for (const post of mockPortfolioData.blog) {
+      expect(screen.getByText(post.excerpt)).toBeInTheDocument()
+    }
+  })
+
+  it('renders the blog section element', () => {
+    usePortfolioStore.getState().setData(mockPortfolioData)
+    const { container } = renderScreen()
+
+    expect(container.querySelector('#blog')).toBeInTheDocument()
+  })
+
+  it('filters posts from the blog-type query string', () => {
+    window.history.pushState({}, '', '/blog?blog-type=state-management')
+    usePortfolioStore.getState().setData(mockPortfolioData)
     renderScreen()
 
     expect(
-      screen.getByText('No published posts yet. New write-ups will show here automatically.'),
+      screen.getByText('Context vs Redux Toolkit vs Zustand: Picking the Right State Tool for the Job'),
+    ).toBeInTheDocument()
+    expect(
+      screen.queryByText('I Ditched Axios for Ky And My Dependabot Finally Stopped Screaming'),
+    ).not.toBeInTheDocument()
+  })
+
+  it('shows posts that match any selected tag', () => {
+    window.history.pushState({}, '', '/blog?blog-tags=ky,zustand')
+    usePortfolioStore.getState().setData(mockPortfolioData)
+    renderScreen()
+
+    expect(
+      screen.getByText('I Ditched Axios for Ky And My Dependabot Finally Stopped Screaming'),
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText('Context vs Redux Toolkit vs Zustand: Picking the Right State Tool for the Job'),
     ).toBeInTheDocument()
   })
 
-  it('renders blog post content and links to Hashnode from read-article CTA', async () => {
-    const { useHashNodePosts } = await import('@/hooks/useHashnodePosts')
-
-    vi.mocked(useHashNodePosts).mockReturnValue(
-      makeHookResult({
-        posts: [
-          {
-            id: 'post-1',
-            title: 'I Ditched Axios for Ky',
-            brief: 'Network layer notes from a real migration.',
-            url: 'https://izsk.hashnode.dev/post',
-            slug: 'post',
-            publishedAt: '2026-05-02T19:30:53.107Z',
-            coverImageUrl: null,
-            tags: [
-              { id: 'tag-1', name: 'ky', slug: 'ky' },
-              { id: 'tag-2', name: 'react-query', slug: 'react-query' },
-            ],
-          },
-        ],
-        isLoading: false,
-        isError: false,
-        hasNextPage: false,
-        isFetchingNextPage: false,
-        fetchNextPage: vi.fn(),
-      }),
-    )
-
+  it('updates the URL query string when a blog category is selected', async () => {
+    const user = userEvent.setup()
+    usePortfolioStore.getState().setData(mockPortfolioData)
     renderScreen()
 
-    expect(screen.getByRole('heading', { name: 'I Ditched Axios for Ky' })).toBeInTheDocument()
-    expect(screen.getByText('Network layer notes from a real migration.')).toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: 'Filter blog posts by category' }))
+    await user.click(screen.getByRole('option', { name: 'State Management' }))
 
-    const link = screen.getByRole('link', { name: 'Open article: I Ditched Axios for Ky' })
-    expect(link).toHaveAttribute('href', 'https://izsk.hashnode.dev/post')
-    expect(link).toHaveAttribute('target', '_blank')
-    expect(screen.getAllByRole('link')).toHaveLength(1)
+    await waitFor(() => {
+      expect(window.location.search).toBe('?blog-type=state-management')
+    })
   })
 
-  it('reads selected tags from url and passes them to blog query hook', async () => {
-    const { useHashNodePosts } = await import('@/hooks/useHashnodePosts')
-
-    vi.mocked(useHashNodePosts).mockReturnValue(
-      makeHookResult({
-        posts: [],
-        isLoading: false,
-        isError: false,
-        hasNextPage: false,
-        isFetchingNextPage: false,
-        fetchNextPage: vi.fn(),
-      }),
-    )
-
-    window.history.pushState({}, '', '/blog?blog-tags=react,typescript')
-
+  it('opens the modal and exposes the article link from the footer', async () => {
+    const user = userEvent.setup()
+    usePortfolioStore.getState().setData(mockPortfolioData)
     renderScreen()
 
-    expect(useHashNodePosts).toHaveBeenCalledWith(
-      expect.objectContaining({
-        tagFilter: ['react', 'typescript'],
-      }),
+    await user.click(screen.getAllByRole('link', { name: 'Read More...' })[0]!)
+
+    expect(
+      screen.getByText(
+        "A production-minded comparison of React Context, Redux Toolkit, and Zustand, focused on re-render behavior, boilerplate, team scaling, and the tradeoffs that matter months after launch.",
+      ),
+    ).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Read article' })).toHaveAttribute(
+      'href',
+      'https://izsk.hashnode.dev/context-vs-redux-toolkit-vs-zustand-picking-the-right-state-tool-for-the-job',
     )
-  })
-
-  it('shows posts that match any selected tag', async () => {
-    const { useHashNodePosts } = await import('@/hooks/useHashnodePosts')
-
-    vi.mocked(useHashNodePosts).mockReturnValue(
-      makeHookResult({
-        posts: [
-          {
-            id: 'post-1',
-            title: 'Axios Patterns',
-            brief: 'Working with axios in production.',
-            url: 'https://izsk.hashnode.dev/axios-patterns',
-            slug: 'axios-patterns',
-            publishedAt: '2026-05-02T19:30:53.107Z',
-            coverImageUrl: null,
-            tags: [{ id: 'tag-1', name: 'axios', slug: 'axios' }],
-          },
-          {
-            id: 'post-2',
-            title: 'Zustand in React',
-            brief: 'State management with zustand.',
-            url: 'https://izsk.hashnode.dev/zustand-react',
-            slug: 'zustand-react',
-            publishedAt: '2026-05-01T19:30:53.107Z',
-            coverImageUrl: null,
-            tags: [{ id: 'tag-2', name: 'zustand', slug: 'zustand' }],
-          },
-          {
-            id: 'post-3',
-            title: 'Vue Intro',
-            brief: 'Unrelated post.',
-            url: 'https://izsk.hashnode.dev/vue-intro',
-            slug: 'vue-intro',
-            publishedAt: '2026-04-30T19:30:53.107Z',
-            coverImageUrl: null,
-            tags: [{ id: 'tag-3', name: 'vue', slug: 'vue' }],
-          },
-        ],
-        isLoading: false,
-        isError: false,
-        hasNextPage: false,
-        isFetchingNextPage: false,
-        fetchNextPage: vi.fn(),
-      }),
-    )
-
-    window.history.pushState({}, '', '/blog?blog-tags=axios,zustand')
-
-    renderScreen()
-
-    expect(screen.getByRole('heading', { name: 'Axios Patterns' })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: 'Zustand in React' })).toBeInTheDocument()
-    expect(screen.queryByRole('heading', { name: 'Vue Intro' })).not.toBeInTheDocument()
   })
 })

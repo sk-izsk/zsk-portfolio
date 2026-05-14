@@ -1,5 +1,5 @@
 import type { Project } from '@app-types/portfolio'
-import { useProjectTagOptions } from '@hooks/project/useProjectTagOptions'
+import { useTagOptions } from '@hooks/tagPicker/useTagOptions'
 import { useTranslation } from '@localization/localize'
 import React from 'react'
 import { TagMultiSelectPicker } from '../tagPicker/TagMultiSelectPicker'
@@ -17,7 +17,7 @@ export const ProjectTagPickerContainer: React.FC<Props> = ({
   onSelectedTagsChange,
 }) => {
   const { t } = useTranslation()
-  const tagOptions = useProjectTagOptions({ selectedTags, projects })
+  const tagOptions = useTagOptions({ selectedTags, items: projects })
 
   const showTagFilter = tagOptions.length > 0 || selectedTags.length > 0
 

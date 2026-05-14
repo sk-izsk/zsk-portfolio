@@ -1,16 +1,13 @@
 import { useTagOptions } from '@/hooks/tagPicker/useTagOptions'
-import { hashNodeApi } from '@/services/hash-node/api'
-import { hashNodeQueryKeys } from '@/services/hash-node/queryKeys'
-import type { BlogPostSummary } from '@/services/hash-node/types'
-import { useQueryClient } from '@tanstack/react-query'
+import type { BlogPost } from '@app-types/portfolio'
 import React from 'react'
-import { useAppTranslation } from 'zsk-react-i18n'
+import { useTranslation } from '@localization/localize'
 import { TagMultiSelectPicker } from '../tagPicker/TagMultiSelectPicker'
-import { blogFilterBar, blogFilterControl } from './blog.css'
+import { projectFilterBar, projectFilterControl } from '../projects/projects.css'
 
 interface Props {
   selectedTags: string[]
-  posts: BlogPostSummary[]
+  posts: BlogPost[]
   onSelectedTagsChange: (values: string[]) => void
 }
 
@@ -19,44 +16,24 @@ export const BlogTagPickerContainer: React.FC<Props> = ({
   posts,
   onSelectedTagsChange,
 }) => {
-  const { t } = useAppTranslation()
-  const queryClient = useQueryClient()
+  const { t } = useTranslation()
 
-  const tagOptions = useTagOptions({ selectedTags, posts })
+  const tagOptions = useTagOptions({ selectedTags, items: posts })
 
   const showTagFilter = tagOptions.length > 0 || selectedTags.length > 0
 
-  const handleResolveOptionByQuery = async (query: string) => {
-    const tag = await queryClient.fetchQuery({
-      queryKey: hashNodeQueryKeys.tagBySlug(query),
-      queryFn: () => hashNodeApi.getTagBySlug(query),
-      staleTime: 1000 * 60 * 10,
-      gcTime: 1000 * 60 * 15,
-    })
-
-    if (!tag) {
-      return null
-    }
-
-    return {
-      value: tag.slug,
-      label: tag.name,
-    }
-  }
   return (
-    <div className={blogFilterBar}>
+    <div className={projectFilterBar}>
       {showTagFilter ? (
-        <div className={blogFilterControl}>
+        <div className={projectFilterControl}>
           <TagMultiSelectPicker
             options={tagOptions}
             selectedValues={selectedTags}
             onChange={onSelectedTagsChange}
             maxVisibleTags={3}
-            placeholder={t('blog.filter.placeholder')}
-            ariaLabel={t('blog.filter.label')}
-            emptyLabel={t('blog.filter.empty')}
-            loadingLabel={t('blog.filter.loading')}
-            resolveOptionByQuery={handleResolveOptionByQuery}
+            placeholder={t('blog.tagFilter.placeholder')}
+            ariaLabel={t('blog.tagFilter.label')}
+            emptyLabel={t('blog.tagFilter.empty')}
           />
         </div>
       ) : null}

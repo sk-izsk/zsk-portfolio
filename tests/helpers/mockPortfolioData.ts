@@ -89,4 +89,40 @@ export const mockPortfolioData: PortfolioData = {
       publishDate: '2023-06-15',
     },
   ],
+  blog: [
+    {
+      id: 1,
+      title: 'I Ditched Axios for Ky And My Dependabot Finally Stopped Screaming',
+      url: 'https://izsk.hashnode.dev/i-ditched-axios-for-ky-and-my-dependabot-finally-stopped-screaming',
+      blogTypes: ['frontend', 'backend', 'architecture'],
+      excerpt: 'A personal breakdown of Fetch, Axios, and why Ky quietly became my go-to HTTP client in React.',
+      shortDescription:
+        'A practical comparison of Fetch, Axios, and Ky through the lens of bundle weight, retries, timeouts, TypeScript ergonomics, and the security cost of unnecessary dependencies.',
+      highlights: [
+        'Compares Fetch, Axios, and Ky through real React and TanStack Query usage',
+        'Breaks down Axios security incidents and supply-chain risk as a decision factor',
+        'Explains why Ky became the default request layer for modern React projects',
+      ],
+      category: 'Frontend Architecture',
+      tags: ['React', 'TypeScript', 'Ky', 'Axios', 'Fetch API', 'TanStack Query', 'Security'],
+      publishDate: '2026-05-02',
+    },
+    {
+      id: 2,
+      title: 'Context vs Redux Toolkit vs Zustand: Picking the Right State Tool for the Job',
+      url: 'https://izsk.hashnode.dev/context-vs-redux-toolkit-vs-zustand-picking-the-right-state-tool-for-the-job',
+      blogTypes: ['frontend', 'state-management', 'architecture'],
+      excerpt: "You don't need the most powerful state manager. You need the right one.",
+      shortDescription:
+        'A production-minded comparison of React Context, Redux Toolkit, and Zustand, focused on re-render behavior, boilerplate, team scaling, and the tradeoffs that matter months after launch.',
+      highlights: [
+        'Maps the strengths and weaknesses of Context, Redux Toolkit, and Zustand',
+        'Explains the Context re-render trap and why selector-based stores feel better at scale',
+        'Shows when scoped Zustand plus Context is the right hybrid pattern',
+      ],
+      category: 'State Management',
+      tags: ['React', 'TypeScript', 'Zustand', 'Redux Toolkit', 'React Context', 'State Management'],
+      publishDate: '2026-05-10',
+    },
+  ],
 }

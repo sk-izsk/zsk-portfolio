@@ -1,34 +1,29 @@
-import type { BlogSortValue } from '@hooks/blog/useSelectedBlogSort'
-import type { BlogPostSummary } from '@services/hash-node/types'
+import type { BlogPost } from '@app-types/portfolio'
 import React from 'react'
-import { blogFilterBar, blogFilterControl } from './blog.css'
-import { BlogSortDropdown } from './BlogSortDropdown'
+import { projectFilterBar, projectFilterControl } from '@components/projects/projects.css'
+import { BlogTypeDropdown } from './BlogTypeDropdown'
 import { BlogTagPickerContainer } from './BlogTagPickerContainer'
 
 interface BlogFilterBarProps {
-  posts: BlogPostSummary[]
+  posts: BlogPost[]
   selectedTags: string[]
   onSelectedTagsChange: (values: string[]) => void
-  selectedSort: BlogSortValue
-  onSelectedSortChange: (value: BlogSortValue) => void
 }
 
 export const BlogFilterBar: React.FC<BlogFilterBarProps> = ({
   posts,
   selectedTags,
   onSelectedTagsChange,
-  selectedSort,
-  onSelectedSortChange,
 }) => {
   return (
-    <div className={blogFilterBar}>
+    <div className={projectFilterBar}>
       <BlogTagPickerContainer
         selectedTags={selectedTags}
         posts={posts}
         onSelectedTagsChange={onSelectedTagsChange}
       />
-      <div className={blogFilterControl}>
-        <BlogSortDropdown value={selectedSort} onChange={onSelectedSortChange} />
+      <div className={projectFilterControl}>
+        <BlogTypeDropdown />
       </div>
     </div>
   )

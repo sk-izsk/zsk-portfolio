@@ -1,92 +1,41 @@
+import type { BlogPost } from '@app-types/portfolio'
 import { BlogCardContainer } from '@components/blog/BlogCardContainer'
 import { BlogFilterBar } from '@components/blog/BlogFilterBar'
-import {
-  blogContent,
-  blogGrid,
-  blogHeading,
-  blogLoadMoreState,
-  blogLoadMoreTrigger,
-  blogState,
-  blogToolbar,
-} from '@components/blog/blog.css'
-import { useSelectedBlogSort } from '@hooks/blog/useSelectedBlogSort'
-import { usePagination } from '@hooks/usePagination'
+import { projectGrid, projectHeading, projectToolbar } from '@components/projects/projects.css'
 import { useTranslation } from '@localization/localize'
-import type { BlogPostSummary } from '@services/hash-node/types'
-import { sortBlogPosts } from '@utils/sortBlogPosts'
 import { cx } from '@utils/cn'
-import React, { useMemo } from 'react'
+import React from 'react'
 import { useSelectedBlogTagFilters } from '../../hooks/blog/useSelectedBlogTagFilters'
+import type { FilterBlogPostType } from '@hooks/blog/useBlogTypeFilteredPosts'
 
 interface BlogContainerProps {
-  posts: BlogPostSummary[]
-  hasNextPage: boolean
-  isFetchingNextPage: boolean
-  fetchNextPage: () => void
+  posts: FilterBlogPostType[]
+  allPosts: BlogPost[]
+  onReadMoreClick: (post: FilterBlogPostType) => void
 }
 
-export const BlogContainer: React.FC<BlogContainerProps> = ({
-  posts,
-  hasNextPage,
-  isFetchingNextPage,
-  fetchNextPage,
-}) => {
+export const BlogContainer: React.FC<BlogContainerProps> = ({ posts, allPosts, onReadMoreClick }) => {
   const [selectedTags, setSelectedTags] = useSelectedBlogTagFilters()
-  const [selectedSort, setSelectedSort] = useSelectedBlogSort()
   const { t } = useTranslation()
-  const filteredPosts = useMemo(() => {
-    if (selectedTags.length === 0) {
-      return posts
-    }
-
-    return posts.filter((post) =>
-      selectedTags.some((selectedTag) => post.tags.some((tag) => tag.slug === selectedTag)),
-    )
-  }, [posts, selectedTags])
-
-  const sortedPosts = useMemo(
-    () => sortBlogPosts(filteredPosts, selectedSort),
-    [filteredPosts, selectedSort],
-  )
-
-  const loadMoreRef = usePagination({
-    hasNextPage,
-    isFetchingNextPage,
-    fetchNextPage,
-  })
 
   return (
     <>
       <div className="row">
-        <div className={cx(blogHeading, 'padd-15')}>
-          <div className={blogToolbar}>
+        <div className={cx(projectHeading, 'padd-15')}>
+          <div className={projectToolbar}>
             <BlogFilterBar
-              posts={posts}
+              posts={allPosts}
               selectedTags={selectedTags}
               onSelectedTagsChange={setSelectedTags}
-              selectedSort={selectedSort}
-              onSelectedSortChange={setSelectedSort}
             />
           </div>
         </div>
       </div>
-      <div className="row">
-        <div className={cx(blogContent, 'padd-15')}>
-          {sortedPosts.length === 0 ? <div className={blogState}>{t('blog.empty')}</div> : null}
-          {sortedPosts.length ? (
-            <>
-              <div className={blogGrid}>
-                {sortedPosts.map((post) => (
-                  <BlogCardContainer key={post.id} post={post} />
-                ))}
-              </div>
-              {hasNextPage ? <div ref={loadMoreRef} className={blogLoadMoreTrigger} /> : null}
-              {isFetchingNextPage ? (
-                <div className={blogLoadMoreState}>{t('blog.loadingMore')}</div>
-              ) : null}
-            </>
-          ) : null}
-        </div>
+      <div className={cx(projectGrid, 'padd-15')}>
+        {posts.length === 0 ? <div>{t('blog.empty')}</div> : null}
+        {posts.map((post) => (
+          <BlogCardContainer key={post.id} post={post} onReadMoreClick={onReadMoreClick} />
+        ))}
       </div>
     </>
   )

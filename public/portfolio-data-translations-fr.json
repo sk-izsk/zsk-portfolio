@@ -288,5 +288,29 @@
         "Contenu type centralise, support des themes, et interactions accessibles penses pour maintenance autant que presentation"
       ]
     }
+  ],
+  "blog": [
+    {
+      "id": 1,
+      "title": "I Ditched Axios for Ky And My Dependabot Finally Stopped Screaming",
+      "excerpt": "Un retour personnel sur Fetch, Axios, et pourquoi Ky est devenu discrètement mon client HTTP par défaut dans React.",
+      "shortDescription": "Une comparaison concrète de Fetch, Axios et Ky à travers le poids bundle, les retries, les timeouts, l'ergonomie TypeScript et le coût sécurité des dépendances inutiles.",
+      "highlights": [
+        "Compare Fetch, Axios et Ky à partir d'un usage réel avec React et TanStack Query",
+        "Explique les incidents de sécurité Axios et le risque supply chain comme facteur de décision",
+        "Montre pourquoi Ky est devenu la couche réseau par défaut sur des projets React modernes"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Context vs Redux Toolkit vs Zustand: Picking the Right State Tool for the Job",
+      "excerpt": "Vous n'avez pas besoin du state manager le plus puissant. Vous avez besoin du bon outil.",
+      "shortDescription": "Une comparaison orientée production entre React Context, Redux Toolkit et Zustand, centrée sur les re-renders, le boilerplate, l'échelle d'équipe et les compromis qui comptent encore plusieurs mois après le lancement.",
+      "highlights": [
+        "Cartographie les forces et limites de Context, Redux Toolkit et Zustand",
+        "Explique le piège des re-renders de Context et pourquoi les stores à sélecteurs tiennent mieux à l'échelle",
+        "Montre quand un Zustand scoped combiné à Context devient le bon pattern hybride"
+      ]
+    }
   ]
 }

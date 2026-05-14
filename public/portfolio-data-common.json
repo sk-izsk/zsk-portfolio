@@ -369,6 +369,43 @@
       "publishDate": "2026-05-11"
     }
   ],
+  "blogBase": [
+    {
+      "id": 1,
+      "url": "https://izsk.hashnode.dev/i-ditched-axios-for-ky-and-my-dependabot-finally-stopped-screaming",
+      "blogTypes": ["frontend", "backend", "architecture"],
+      "category": "Frontend Architecture",
+      "tags": [
+        "React",
+        "TypeScript",
+        "Ky",
+        "Axios",
+        "Fetch API",
+        "TanStack Query",
+        "Dependabot",
+        "Security",
+        "Zod"
+      ],
+      "publishDate": "2026-05-02"
+    },
+    {
+      "id": 2,
+      "url": "https://izsk.hashnode.dev/context-vs-redux-toolkit-vs-zustand-picking-the-right-state-tool-for-the-job",
+      "blogTypes": ["frontend", "state-management", "architecture"],
+      "category": "State Management",
+      "tags": [
+        "React",
+        "TypeScript",
+        "React Context",
+        "Redux Toolkit",
+        "Zustand",
+        "State Management",
+        "React Native",
+        "Architecture"
+      ],
+      "publishDate": "2026-05-10"
+    }
+  ],
   "experienceBase": [
     {
       "id": 1,
