@@ -2,28 +2,23 @@ export const blogEn = {
   title: 'Blog',
   seoDescription:
     'Blog posts and articles by Shaikh Zeeshan Murshed on software engineering, web development, and technology.',
+  readMore: 'Read More...',
   readArticle: 'Read article',
-  sourceLabel: 'Hashnode',
-  coverFallback: 'New post',
-  empty: 'No published posts yet. New write-ups will show here automatically.',
+  empty: 'No published posts available right now.',
   error: 'Could not load blog posts right now.',
-  loadingMore: 'Loading more posts...',
-  openArticleAriaLabel: 'Open article: {{title}}',
   filter: {
-    label: 'Filter posts by tag',
-    placeholder: 'Search tags',
-    empty: 'No matching tags found.',
-    loading: 'Loading tags...',
+    label: 'Filter blog posts by category',
     options: {
-      all: 'All tags',
+      all: 'All',
+      frontend: 'Frontend',
+      backend: 'Backend',
+      architecture: 'Architecture',
+      'state-management': 'State Management',
     },
   },
-  sort: {
-    label: 'Sort blog posts',
-    options: {
-      latest: 'Latest first',
-      oldest: 'Oldest first',
-      'title-asc': 'Title A-Z',
-    },
+  tagFilter: {
+    label: 'Filter blog posts by tag',
+    placeholder: 'Search tags',
+    empty: 'No matching tags found.',
   },
 } as const

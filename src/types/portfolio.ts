@@ -85,12 +85,29 @@ type ProjectType = 'full-stack' | 'frontend' | 'backend' | 'library' | 'ai-skill
 
 export type ProjectFilterType = 'all' | ProjectType
 
+type BlogType = 'frontend' | 'backend' | 'architecture' | 'state-management'
+
+export type BlogFilterType = 'all' | BlogType
+
 export interface Project {
   id: number
   title: string
   url?: string
   demo_link?: string
   projectTypes: ProjectType[]
+  excerpt: string
+  shortDescription: string
+  highlights: string[]
+  category: string
+  tags: string[]
+  publishDate: string
+}
+
+export interface BlogPost {
+  id: number
+  title: string
+  url: string
+  blogTypes: BlogType[]
   excerpt: string
   shortDescription: string
   highlights: string[]
@@ -107,4 +124,5 @@ export interface PortfolioData {
   experience: Experience[]
   services: Service[]
   projects: Project[]
+  blog: BlogPost[]
 }

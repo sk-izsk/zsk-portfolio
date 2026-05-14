@@ -1,22 +1,17 @@
 import { useHandleParams } from '@hooks/useHandleParams'
+import { normalizeTagSlug, normalizeTagSlugs } from '@utils/tagFilters'
 
-export const normalizeProjectTag = (value: string) =>
-  value.trim().toLowerCase().replace(/\s+/g, '-')
-
-const normalizeTags = (values: string[]) =>
-  [...new Set(values.map(normalizeProjectTag).filter(Boolean))].sort((a, b) =>
-    a.localeCompare(b),
-  )
+export const normalizeProjectTag = normalizeTagSlug
 
 export const useSelectedProjectTagFilters = (): [string[], (values: string[]) => void] => {
   const { currentParams, updateParams, clearParams } = useHandleParams<{
     projectTags: string
   }>()
 
-  const selectedTags = normalizeTags((currentParams.projectTags || '').split(','))
+  const selectedTags = normalizeTagSlugs((currentParams.projectTags || '').split(','))
 
   const setSelectedTags = (values: string[]) => {
-    const normalized = normalizeTags(values)
+    const normalized = normalizeTagSlugs(values)
 
     if (normalized.length === 0) {
       clearParams(['projectTags'])

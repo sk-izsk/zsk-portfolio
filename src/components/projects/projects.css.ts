@@ -140,9 +140,10 @@ export const projectImageImgHover = style({
 
 export const projectInfo = style({
   display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'space-around',
+  flexWrap: 'nowrap',
+  justifyContent: 'space-between',
   alignItems: 'center',
+  gap: '12px',
   paddingBottom: '15px',
 })
 
@@ -153,6 +154,13 @@ export const projectInfoText = style({
   display: 'flex',
   alignItems: 'center',
   gap: '4px',
+})
+
+export const projectInfoLabel = style({
+  minWidth: 0,
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
 })
 
 export const projectInfoIcon = style({

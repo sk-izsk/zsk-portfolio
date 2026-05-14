@@ -1,46 +1,49 @@
-import { HASH_NODE_DEFAULT_POSTS_LIMIT, HASH_NODE_PUBLICATION_HOST } from '@/services/hash-node/api'
 import { BlogContainer } from '@components/blog/BlogContainer'
+import { BlogModalContainer } from '@components/blog/BlogModalContainer'
 import { Screen } from '@components/Screen'
+import { useBlogTagFilteredPosts } from '@hooks/blog/useBlogTagFilteredPosts'
 import { useSelectedBlogTagFilters } from '@hooks/blog/useSelectedBlogTagFilters'
+import type { FilterBlogPostType } from '@hooks/blog/useBlogTypeFilteredPosts'
 import { useAnalytics } from '@hooks/useAnalytics'
-import { useHashNodePosts } from '@hooks/useHashnodePosts'
 import { useTranslation } from '@localization/localize'
-import React from 'react'
+import { useBlogPosts, usePortfolioError, usePortfolioLoading } from '@stores/portfolioStore'
+import React, { useState } from 'react'
 
 const BlogScreen: React.FC = () => {
   const { t } = useTranslation()
-  const [selectedTags] = useSelectedBlogTagFilters()
-  const { posts, isLoading, isError, hasNextPage, isFetchingNextPage, fetchNextPage } =
-    useHashNodePosts({
-      host: HASH_NODE_PUBLICATION_HOST,
-      first: HASH_NODE_DEFAULT_POSTS_LIMIT,
-      tagFilter: selectedTags,
-    })
-  useAnalytics()
+  const blogPosts = useBlogPosts()
+  const loading = usePortfolioLoading()
+  const error = usePortfolioError()
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedPost, setSelectedPost] = useState<FilterBlogPostType | null>(null)
 
-  const isInitialLoading = isLoading && posts.length === 0
-  const isInitialError = isError && posts.length === 0
+  const [selectedTags] = useSelectedBlogTagFilters()
+  const filteredPosts = useBlogTagFilteredPosts(selectedTags)
+  useAnalytics()
 
   return (
     <Screen
       sectionId="blog"
-      isLoading={isInitialLoading}
-      isError={isInitialError}
+      isLoading={loading}
+      isError={Boolean(error || !blogPosts)}
       title={t('blog.title')}
       description={t('blog.seoDescription')}
       canonical="/blog"
       errorMessage={t('blog.error')}
     >
-      {!isInitialLoading && !isInitialError ? (
+      {blogPosts && (
         <BlogContainer
-          posts={posts}
-          hasNextPage={Boolean(hasNextPage)}
-          isFetchingNextPage={isFetchingNextPage}
-          fetchNextPage={() => {
-            void fetchNextPage()
+          posts={filteredPosts}
+          allPosts={blogPosts}
+          onReadMoreClick={(post) => {
+            setSelectedPost(post)
+            setModalOpen(true)
           }}
         />
-      ) : null}
+      )}
+      {selectedPost && (
+        <BlogModalContainer open={modalOpen} onClose={() => setModalOpen(false)} post={selectedPost} />
+      )}
     </Screen>
   )
 }

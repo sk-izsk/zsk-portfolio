@@ -7,6 +7,7 @@ import {
   projectContent,
   projectInfo,
   projectInfoIcon,
+  projectInfoLabel,
   projectInfoText,
   projectActions,
   projectActionsCenter,
@@ -19,7 +20,9 @@ import {
 } from '@components/projects/projects.css'
 import { cx } from '@utils/cn'
 
-type ProjectCardRootProps = PropsWithChildren
+interface ProjectCardRootProps extends PropsWithChildren {
+  className?: string
+}
 
 interface ProjectCardTimeLinkProps {
   category: string
@@ -65,9 +68,9 @@ const getLinkAttrs = (isExternal: boolean) => ({
   rel: isExternal ? 'noopener noreferrer' : undefined,
 })
 
-const ProjectCardRoot: React.FC<ProjectCardRootProps> = ({ children }) => {
+const ProjectCardRoot: React.FC<ProjectCardRootProps> = ({ children, className }) => {
   return (
-    <div className={projectItem}>
+    <div className={cx(projectItem, className)}>
       <div className={projectItemInner}>{children}</div>
     </div>
   )
@@ -81,16 +84,16 @@ const ProjectCardTimeLink: React.FC<ProjectCardTimeLinkProps> = ({ category, pub
 
   return (
     <div className={projectInfo}>
-      <div className="category">
+      <div className="category" style={{ minWidth: 0, flex: '1 1 auto' }}>
         <p className={projectInfoText}>
           <BookOpenText className={projectInfoIcon} size={16} />
-          {category}
+          <span className={projectInfoLabel}>{category}</span>
         </p>
       </div>
-      <div className="date">
+      <div className="date" style={{ flex: '0 0 auto' }}>
         <p className={projectInfoText}>
           <CalendarDays className={projectInfoIcon} size={16} />
-          {readableDate}
+          <span>{readableDate}</span>
         </p>
       </div>
     </div>

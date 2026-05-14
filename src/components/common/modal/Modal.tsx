@@ -19,7 +19,13 @@ type ModalCompound = React.FC<ModalProps> & {
   Body: React.FC<{ children: React.ReactNode }>
   Description: React.FC<{ children: React.ReactNode }>
   Highlights: React.FC<{ children: React.ReactNode }>
-  Footer: React.FC<{ link?: string; demoLink?: string; onClose: () => void }>
+  Footer: React.FC<{
+    link?: string
+    demoLink?: string
+    linkLabel?: string
+    demoLinkLabel?: string
+    onClose: () => void
+  }>
 }
 const cn = createCn(modalStyles)
 
@@ -100,7 +106,7 @@ Modal.Description = ({ children }) => <div className={modalStyles.desc}>{childre
 
 Modal.Highlights = ({ children }) => <ul className={modalStyles.highlights}>{children}</ul>
 
-Modal.Footer = ({ link, demoLink, onClose }) => {
+Modal.Footer = ({ link, demoLink, linkLabel, demoLinkLabel, onClose }) => {
   const { t } = useTranslation()
   return (
     <>
@@ -117,7 +123,7 @@ Modal.Footer = ({ link, demoLink, onClose }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {t('common.modal.demoLink')}
+              {demoLinkLabel ?? t('common.modal.demoLink')}
             </Button>
           )}
         </div>
@@ -141,7 +147,7 @@ Modal.Footer = ({ link, demoLink, onClose }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {t('common.modal.projectLink')}
+              {linkLabel ?? t('common.modal.projectLink')}
             </Button>
           )}
         </div>

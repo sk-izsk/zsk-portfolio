@@ -31,6 +31,14 @@ const makeCommonPayload = () => ({
     tags: project.tags,
     publishDate: project.publishDate,
   })),
+  blogBase: mockPortfolioData.blog.map((post) => ({
+    id: post.id,
+    url: post.url,
+    blogTypes: post.blogTypes,
+    category: post.category,
+    tags: post.tags,
+    publishDate: post.publishDate,
+  })),
   experienceBase: mockPortfolioData.experience.map((experience, index) => ({
     id: index + 1,
     company: experience.company,
@@ -75,6 +83,13 @@ const makeTranslationsPayload = () => ({
     excerpt: project.excerpt,
     shortDescription: project.shortDescription,
     highlights: project.highlights,
+  })),
+  blog: mockPortfolioData.blog.map((post) => ({
+    id: post.id,
+    title: post.title,
+    excerpt: post.excerpt,
+    shortDescription: post.shortDescription,
+    highlights: post.highlights,
   })),
 })
 

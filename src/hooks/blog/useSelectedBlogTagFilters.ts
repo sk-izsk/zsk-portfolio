@@ -1,15 +1,5 @@
 import { useHandleParams } from '@hooks/useHandleParams'
-
-const normalizeTagSlug = (value: string) =>
-  value
-    .trim()
-    .toLowerCase()
-    .replace(/\s+/g, '-')
-
-const normalizeTagSlugs = (values: string[]) =>
-  [...new Set(values.map(normalizeTagSlug).filter(Boolean))].sort((left, right) =>
-    left.localeCompare(right),
-  )
+import { normalizeTagSlugs } from '@utils/tagFilters'
 
 export const useSelectedBlogTagFilters = (): [string[], (values: string[]) => void] => {
   const { currentParams, updateParams, clearParams } = useHandleParams<{

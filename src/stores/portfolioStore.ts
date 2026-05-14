@@ -42,6 +42,8 @@ export const useServices = () => usePortfolioStore((state) => state.data?.servic
 
 export const useProjects = () => usePortfolioStore((state) => state.data?.projects)
 
+export const useBlogPosts = () => usePortfolioStore((state) => state.data?.blog)
+
 // Loading state selectors
 export const usePortfolioLoading = () => usePortfolioStore((state) => state.loading)
 

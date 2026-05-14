@@ -24,6 +24,14 @@ interface PortfolioCommonData {
     tags: string[]
     publishDate: string
   }>
+  blogBase: Array<{
+    id: number
+    url: string
+    blogTypes: PortfolioData['blog'][number]['blogTypes']
+    category: string
+    tags: string[]
+    publishDate: string
+  }>
   experienceBase: Array<{
     id: number
     company: string
@@ -69,6 +77,13 @@ interface PortfolioTranslations {
     shortDescription: string
     highlights: string[]
   }>
+  blog: Array<{
+    id: number
+    title: string
+    excerpt: string
+    shortDescription: string
+    highlights: string[]
+  }>
 }
 
 const mergePortfolioData = (
@@ -78,6 +93,7 @@ const mergePortfolioData = (
   const educationMap = new Map(common.educationBase.map((base) => [base.id, base]))
   const experienceMap = new Map(common.experienceBase.map((base) => [base.id, base]))
   const projectsMap = new Map(common.projectsBase.map((base) => [base.id, base]))
+  const blogMap = new Map(common.blogBase.map((base) => [base.id, base]))
 
   return {
     personalInfo: {
@@ -123,6 +139,21 @@ const mergePortfolioData = (
         ...(base?.url ? { url: base.url } : {}),
         ...(base?.demo_link ? { demo_link: base.demo_link } : {}),
         projectTypes: base?.projectTypes?.length ? base.projectTypes : ['misc'],
+        title: trans.title,
+        excerpt: trans.excerpt,
+        shortDescription: trans.shortDescription,
+        highlights: trans.highlights,
+        category: base?.category || '',
+        tags: base?.tags || [],
+        publishDate: base?.publishDate || '',
+      }
+    }),
+    blog: translations.blog.map((trans) => {
+      const base = blogMap.get(trans.id)
+      return {
+        id: trans.id,
+        url: base?.url || '',
+        blogTypes: base?.blogTypes?.length ? base.blogTypes : ['architecture'],
         title: trans.title,
         excerpt: trans.excerpt,
         shortDescription: trans.shortDescription,
