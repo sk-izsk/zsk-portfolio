@@ -18,6 +18,7 @@ import {
   githubStatsEyebrow,
   githubStatsGrid,
   githubStatsHeader,
+  githubStatsImage,
   githubStatsLink,
   githubStatsMedia,
   githubStatsSelect,
@@ -27,6 +28,7 @@ import {
   githubStatsTitle,
 } from '@components/about/about.css'
 import { Button } from '@components/common/button/Button'
+import { Dropdown } from '@components/common/dropdown/Dropdown'
 import { useTranslation } from '@localization/localize'
 import { useContactInfo } from '@stores/portfolioStore'
 import { useThemeStore } from '@stores/themeStore'
@@ -52,6 +54,11 @@ type ContributionLayout = {
   contentWidth: number
   monthLabels: Array<{ key: string; label: string; x: number }>
   dayLabels: Array<{ key: string; label: string; y: number }>
+}
+
+type ContributionGraphMetrics = {
+  cellSize: number
+  gap: number
 }
 
 type ContributionDay = {
@@ -206,12 +213,23 @@ const getContributionRange = (selectedYear: number, yearData?: ContributionYearD
   }
 }
 
+const getGraphMetrics = (isCompact: boolean): ContributionGraphMetrics =>
+  isCompact
+    ? {
+        cellSize: 9,
+        gap: 2,
+      }
+    : {
+        cellSize: 13,
+        gap: 3,
+      }
+
 const buildContributionLayout = (
   selectedYear: number,
+  isCompact: boolean,
   yearData?: ContributionYearData,
 ): ContributionLayout => {
-  const cellSize = 13
-  const gap = 3
+  const { cellSize, gap } = getGraphMetrics(isCompact)
   const colWidth = cellSize + gap
   const rowHeight = cellSize + gap
   const { startDate, endDate } = getContributionRange(selectedYear, yearData)
@@ -256,10 +274,10 @@ const buildContributionCalendarSvg = (
   selectedYear: number,
   palette: ThemePalette,
   isDarkMode: boolean,
+  isCompact: boolean,
   yearData?: ContributionYearData,
 ) => {
-  const cellSize = 13
-  const gap = 3
+  const { cellSize, gap } = getGraphMetrics(isCompact)
   const colWidth = cellSize + gap
   const rowHeight = cellSize + gap
   const { startDate, endDate } = getContributionRange(selectedYear, yearData)
@@ -320,7 +338,7 @@ export const AboutGithubHighlights: React.FC = () => {
   const currentColor = useThemeStore((state) => state.currentColor)
   const githubUrl = contact?.social.github?.url
   const githubUsername = getGithubUsername(githubUrl)
-  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear())
+  const [selectedYear, setSelectedYear] = useState(String(new Date().getFullYear()))
   const [selectedQuote] = useState<QuoteItem>(() => {
     const index = Math.floor(Math.random() * DEV_QUOTES.length)
     return DEV_QUOTES[index] ?? DEV_QUOTES[0]
@@ -328,6 +346,7 @@ export const AboutGithubHighlights: React.FC = () => {
   const [contributionArchive, setContributionArchive] = useState<ContributionArchive | null>(null)
   const [isGraphLoading, setIsGraphLoading] = useState(true)
   const [graphError, setGraphError] = useState(false)
+  const [isMobileGraph, setIsMobileGraph] = useState(false)
 
   if (!githubUrl || !githubUsername) {
     return null
@@ -336,32 +355,41 @@ export const AboutGithubHighlights: React.FC = () => {
   const yearOptions = useMemo(() => {
     if (contributionArchive) {
       return Object.keys(contributionArchive.years)
-        .map(Number)
-        .sort((left, right) => right - left)
+        .map(String)
+        .sort((left, right) => Number(right) - Number(left))
     }
 
     const currentYear = new Date().getFullYear()
-    return Array.from({ length: currentYear - 2018 + 1 }, (_, index) => currentYear - index)
+    return Array.from({ length: currentYear - 2018 + 1 }, (_, index) => String(currentYear - index))
   }, [contributionArchive])
 
   const palette = getPaletteFromTheme(isDarkMode, currentColor)
   const contributionColors = getContributionShades(palette, isDarkMode)
-  const selectedYearData = contributionArchive?.years[String(selectedYear)]
+  const selectedYearNumber = Number(selectedYear)
+  const selectedYearData = contributionArchive?.years[selectedYear]
   const contributionDays = selectedYearData?.days ?? []
   const contributionLayout = useMemo(
-    () => buildContributionLayout(selectedYear, selectedYearData),
-    [selectedYear, selectedYearData],
+    () => buildContributionLayout(selectedYearNumber, isMobileGraph, selectedYearData),
+    [selectedYearNumber, isMobileGraph, selectedYearData],
   )
   const contributionGraphSvg = useMemo(
     () =>
       buildContributionCalendarSvg(
         contributionDays,
-        selectedYear,
+        selectedYearNumber,
         palette,
         isDarkMode,
+        isMobileGraph,
         selectedYearData,
       ),
-    [contributionDays, selectedYear, palette, isDarkMode, selectedYearData],
+    [
+      contributionDays,
+      selectedYearNumber,
+      palette,
+      isDarkMode,
+      isMobileGraph,
+      selectedYearData,
+    ],
   )
   const streakStatsUrl = `https://streak-stats.demolab.com?user=${githubUsername}&hide_border=true&background=${toParamColor(
     palette.surface,
@@ -376,6 +404,24 @@ export const AboutGithubHighlights: React.FC = () => {
   )}&dates=${toParamColor(palette.textMuted)}&excludeDaysLabel=${toParamColor(
     palette.textMuted,
   )}&locale=en`
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
+      return
+    }
+
+    const mediaQuery = window.matchMedia('(max-width: 767px)')
+    const syncCompactGraph = (event?: MediaQueryList | MediaQueryListEvent) => {
+      setIsMobileGraph(event?.matches ?? mediaQuery.matches)
+    }
+
+    syncCompactGraph(mediaQuery)
+    mediaQuery.addEventListener('change', syncCompactGraph)
+
+    return () => {
+      mediaQuery.removeEventListener('change', syncCompactGraph)
+    }
+  }, [])
 
   useEffect(() => {
     let cancelled = false
@@ -444,33 +490,32 @@ export const AboutGithubHighlights: React.FC = () => {
         <article className={githubStatsCard}>
           <div className={githubStatsCardHeader}>
             <h4 className={githubStatsCardTitle}>{t('about.github.cards.contributions')}</h4>
-            <select
-              className={githubStatsSelect}
-              value={selectedYear}
-              onChange={(event) => setSelectedYear(Number(event.target.value))}
-              aria-label={t('about.github.yearSelector')}
-            >
-              {yearOptions.map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
-            </select>
+            <div className={githubStatsSelect}>
+              <Dropdown
+                value={selectedYear}
+                options={yearOptions.map((year) => ({
+                  value: year,
+                  label: year,
+                }))}
+                onChange={setSelectedYear}
+                ariaLabel={t('about.github.yearSelector')}
+              />
+            </div>
           </div>
           <div className={githubStatsMedia}>
             <div className={githubContributionPanel}>
               {isGraphLoading ? (
                 <div className={githubContributionLoading}>
-                  {t('about.github.loadingYear', { year: selectedYear })}
+                  {t('about.github.loadingYear', { year: selectedYearNumber })}
                 </div>
               ) : null}
               {graphError ? (
                 <div className={githubContributionLoading}>{t('about.github.loadFailed')}</div>
               ) : (
-                <div
-                  className={githubContributionFrame}
-                  style={{ width: `${contributionLayout.contentWidth + 34}px` }}
-                >
+                  <div
+                    className={githubContributionFrame}
+                    style={{ width: `${contributionLayout.contentWidth + (isMobileGraph ? 24 : 34)}px` }}
+                  >
                   <div className={githubContributionMonths}>
                     {contributionLayout.monthLabels.map((month) => (
                       <span
@@ -534,7 +579,13 @@ export const AboutGithubHighlights: React.FC = () => {
             <h4 className={githubStatsCardTitle}>{card.title}</h4>
             {'imageUrl' in card ? (
               <div className={githubStatsMedia}>
-                <img src={card.imageUrl} alt={card.alt} loading="lazy" decoding="async" />
+                <img
+                  src={card.imageUrl}
+                  alt={card.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className={githubStatsImage}
+                />
               </div>
             ) : (
               <div className={githubQuoteBox}>

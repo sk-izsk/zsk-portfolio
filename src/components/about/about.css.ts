@@ -1,5 +1,4 @@
-import { style } from '@vanilla-extract/css'
-import { keyframes } from '@vanilla-extract/css'
+import { keyframes, style } from '@vanilla-extract/css'
 import { vars } from '@styles/theme.css'
 
 export const aboutContent = style({
@@ -179,6 +178,12 @@ export const githubStatsCard = style({
   borderRadius: '18px',
   padding: '18px',
   boxShadow: '0 10px 30px rgba(15, 23, 42, 0.06)',
+  minWidth: 0,
+  '@media': {
+    '(max-width: 767px)': {
+      padding: '16px',
+    },
+  },
 })
 
 export const githubStatsCardTitle = style({
@@ -193,6 +198,14 @@ export const githubStatsMedia = style({
   overflow: 'hidden',
   borderRadius: '14px',
   background: vars.color.background[100],
+  minWidth: 0,
+})
+
+export const githubStatsImage = style({
+  display: 'block',
+  width: '100%',
+  height: 'auto',
+  maxWidth: '100%',
 })
 
 export const githubContributionPanel = style({
@@ -202,6 +215,12 @@ export const githubContributionPanel = style({
   padding: '18px 16px 10px',
   minHeight: '178px',
   overflowX: 'auto',
+  '@media': {
+    '(max-width: 767px)': {
+      padding: '12px 10px 8px',
+      minHeight: '172px',
+    },
+  },
 })
 
 export const githubContributionSvg = style({
@@ -234,18 +253,19 @@ export const githubContributionLoading = style({
   color: vars.color.text[700],
   fontSize: '14px',
   animation: `${githubLoadingPulse} 1.2s ease-in-out infinite`,
+  '@media': {
+    '(max-width: 767px)': {
+      inset: '12px 10px 8px',
+      fontSize: '12px',
+    },
+  },
 })
 
 export const githubContributionImage = style({
   display: 'block',
   width: '100%',
-  minWidth: '820px',
+  minWidth: 0,
   height: 'auto',
-  '@media': {
-    '(max-width: 767px)': {
-      minWidth: '640px',
-    },
-  },
 })
 
 export const githubContributionImageHidden = style({
@@ -258,6 +278,13 @@ export const githubContributionFrame = style({
   minWidth: '100%',
   paddingTop: '28px',
   paddingLeft: '34px',
+  '@media': {
+    '(max-width: 767px)': {
+      paddingTop: '20px',
+      paddingLeft: '24px',
+      minWidth: '560px',
+    },
+  },
 })
 
 export const githubContributionMonths = style({
@@ -267,6 +294,12 @@ export const githubContributionMonths = style({
   right: 0,
   height: '20px',
   pointerEvents: 'none',
+  '@media': {
+    '(max-width: 767px)': {
+      left: '24px',
+      height: '16px',
+    },
+  },
 })
 
 export const githubContributionMonthLabel = style({
@@ -276,6 +309,11 @@ export const githubContributionMonthLabel = style({
   lineHeight: 1,
   color: vars.color.text[700],
   whiteSpace: 'nowrap',
+  '@media': {
+    '(max-width: 767px)': {
+      fontSize: '11px',
+    },
+  },
 })
 
 export const githubContributionDays = style({
@@ -284,6 +322,12 @@ export const githubContributionDays = style({
   left: 0,
   width: '28px',
   pointerEvents: 'none',
+  '@media': {
+    '(max-width: 767px)': {
+      top: '20px',
+      width: '20px',
+    },
+  },
 })
 
 export const githubContributionDayLabel = style({
@@ -294,6 +338,11 @@ export const githubContributionDayLabel = style({
   lineHeight: 1,
   color: vars.color.text[700],
   whiteSpace: 'nowrap',
+  '@media': {
+    '(max-width: 767px)': {
+      fontSize: '11px',
+    },
+  },
 })
 
 export const githubContributionLegend = style({
@@ -304,6 +353,14 @@ export const githubContributionLegend = style({
   paddingLeft: '34px',
   fontSize: '11px',
   color: vars.color.text[700],
+  '@media': {
+    '(max-width: 767px)': {
+      gap: '6px',
+      marginTop: '8px',
+      paddingLeft: '24px',
+      fontSize: '11px',
+    },
+  },
 })
 
 export const githubContributionLegendSwatches = style({
@@ -317,6 +374,12 @@ export const githubContributionLegendSwatch = style({
   height: '13px',
   borderRadius: '3px',
   border: `1px solid ${vars.color.background[50]}`,
+  '@media': {
+    '(max-width: 767px)': {
+      width: '11px',
+      height: '11px',
+    },
+  },
 })
 
 export const githubStatsCardHeader = style({
@@ -329,22 +392,22 @@ export const githubStatsCardHeader = style({
     '(max-width: 767px)': {
       flexDirection: 'column',
       alignItems: 'stretch',
+      marginBottom: '10px',
     },
   },
 })
 
 export const githubStatsSelect = style({
   alignSelf: 'flex-start',
-  minWidth: '120px',
-  height: '40px',
-  borderRadius: '12px',
-  border: `1px solid ${vars.color.background[50]}`,
-  background: vars.color.background[100],
-  color: vars.color.text[900],
-  padding: '0 14px',
-  fontFamily: vars.font.family.primary,
-  fontSize: '14px',
-  cursor: 'pointer',
+  width: '140px',
+  minWidth: '140px',
+  '@media': {
+    '(max-width: 767px)': {
+      alignSelf: 'stretch',
+      width: '100%',
+      minWidth: '100%',
+    },
+  },
 })
 
 export const githubQuoteBox = style({
@@ -356,6 +419,13 @@ export const githubQuoteBox = style({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
+  minWidth: 0,
+  '@media': {
+    '(max-width: 767px)': {
+      minHeight: 'auto',
+      padding: '16px',
+    },
+  },
 })
 
 export const githubQuoteText = style({
@@ -363,6 +433,13 @@ export const githubQuoteText = style({
   lineHeight: 1.55,
   color: vars.color.text[900],
   fontStyle: 'italic',
+  overflowWrap: 'anywhere',
+  '@media': {
+    '(max-width: 767px)': {
+      fontSize: '15px',
+      lineHeight: 1.45,
+    },
+  },
 })
 
 export const githubQuoteAuthor = style({
@@ -371,6 +448,15 @@ export const githubQuoteAuthor = style({
   color: vars.color.skin,
   fontSize: '16px',
   lineHeight: 1.4,
+  maxWidth: '100%',
+  overflowWrap: 'anywhere',
+  textAlign: 'right',
+  '@media': {
+    '(max-width: 767px)': {
+      marginTop: '14px',
+      fontSize: '14px',
+    },
+  },
 })
 
 export const githubStatsImageLink = style({
