@@ -1,335 +1,24 @@
-import {
-  githubContributionDayLabel,
-  githubContributionDays,
-  githubContributionFrame,
-  githubStatsBottomGrid,
-  githubStatsCard,
-  githubStatsCardHeader,
-  githubStatsCardTitle,
-  githubContributionImage,
-  githubContributionLegend,
-  githubContributionLegendSwatch,
-  githubContributionLegendSwatches,
-  githubContributionLoading,
-  githubContributionMonthLabel,
-  githubContributionMonths,
-  githubContributionPanel,
-  githubStatsDescription,
-  githubStatsEyebrow,
-  githubStatsGrid,
-  githubStatsHeader,
-  githubStatsImage,
-  githubStatsLink,
-  githubStatsMedia,
-  githubStatsSelect,
-  githubQuoteAuthor,
-  githubQuoteBox,
-  githubQuoteText,
-  githubStatsTitle,
-} from '@components/about/about.css'
-import { Button } from '@components/common/button/Button'
-import { Dropdown } from '@components/common/dropdown/Dropdown'
+import { githubStatsGrid } from '@components/about/about.css'
+import { GithubContributionCard } from '@components/about/github/GithubContributionCard'
+import { GithubHighlightsHeader } from '@components/about/github/GithubHighlightsHeader'
+import { GithubSupplementaryCards } from '@components/about/github/GithubSupplementaryCards'
+import { useGithubContributionData } from '@hooks/useGithubContributionData'
 import { useTranslation } from '@localization/localize'
 import { useContactInfo } from '@stores/portfolioStore'
 import { useThemeStore } from '@stores/themeStore'
-import React, { useEffect, useMemo, useState } from 'react'
+import {
+  DEV_QUOTES,
+  buildContributionCalendarSvg,
+  buildContributionLayout,
+  type ContributionDay,
+  getContributionShades,
+  getGithubUsername,
+  getPaletteFromTheme,
+  toParamColor,
+} from '@utils/githubHighlights'
+import React, { useMemo, useState } from 'react'
 
-type ThemePalette = {
-  skin: string
-  background: string
-  surface: string
-  border: string
-  text: string
-  textMuted: string
-  emptyCell: string
-  quoteBackground: string
-}
-
-type QuoteItem = {
-  text: string
-  author: string
-}
-
-type ContributionLayout = {
-  contentWidth: number
-  monthLabels: Array<{ key: string; label: string; x: number }>
-  dayLabels: Array<{ key: string; label: string; y: number }>
-}
-
-type ContributionGraphMetrics = {
-  cellSize: number
-  gap: number
-}
-
-type ContributionDay = {
-  date: string
-  contributionCount: number
-}
-
-type ContributionYearData = {
-  startDate: string
-  endDate: string
-  days: ContributionDay[]
-}
-
-type ContributionArchive = {
-  generatedAt: string
-  username: string
-  years: Record<string, ContributionYearData>
-}
-
-const DEFAULT_LIGHT_PALETTE: ThemePalette = {
-  skin: '#37b182',
-  background: '#f2f2fc',
-  surface: '#fdf9ff',
-  border: '#e8dfec',
-  text: '#302e4d',
-  textMuted: '#504e70',
-  emptyCell: '#e8dfec',
-  quoteBackground: '#ffffff',
-}
-
-const DEFAULT_DARK_PALETTE: ThemePalette = {
-  skin: '#37b182',
-  background: '#151515',
-  surface: '#222222',
-  border: '#393939',
-  text: '#ffffff',
-  textMuted: '#e9e9e9',
-  emptyCell: '#393939',
-  quoteBackground: '#1b1b1b',
-}
-
-const skinByColor = {
-  'color-1': '#ec1839',
-  'color-2': '#fa5b0f',
-  'color-3': '#37b182',
-  'color-5': '#f021b2',
-  'color-7': '#daa520',
-  'color-9': '#00bfff',
-} as const
-
-const hexToRgb = (hex: string) => {
-  const normalized = hex.replace('#', '')
-  const safeHex =
-    normalized.length === 3
-      ? normalized
-          .split('')
-          .map((value) => value + value)
-          .join('')
-      : normalized
-
-  const numeric = Number.parseInt(safeHex, 16)
-
-  return {
-    r: (numeric >> 16) & 255,
-    g: (numeric >> 8) & 255,
-    b: numeric & 255,
-  }
-}
-
-const rgbToHex = ({ r, g, b }: { r: number; g: number; b: number }) =>
-  `#${[r, g, b]
-    .map((value) => Math.max(0, Math.min(255, Math.round(value))).toString(16).padStart(2, '0'))
-    .join('')}`
-
-const mixHex = (baseHex: string, targetHex: string, amount: number) => {
-  const base = hexToRgb(baseHex)
-  const target = hexToRgb(targetHex)
-
-  return rgbToHex({
-    r: base.r + (target.r - base.r) * amount,
-    g: base.g + (target.g - base.g) * amount,
-    b: base.b + (target.b - base.b) * amount,
-  })
-}
-
-const toParamColor = (hex: string) => hex.replace('#', '')
-
-const getPaletteFromTheme = (
-  isDarkMode: boolean,
-  currentColor: keyof typeof skinByColor,
-): ThemePalette => {
-  const base = isDarkMode ? DEFAULT_DARK_PALETTE : DEFAULT_LIGHT_PALETTE
-  const skin = skinByColor[currentColor] ?? DEFAULT_LIGHT_PALETTE.skin
-
-  return {
-    ...base,
-    skin,
-    emptyCell: mixHex(base.surface, base.border, isDarkMode ? 0.78 : 0.52),
-    quoteBackground: mixHex(base.surface, base.background, isDarkMode ? 0.2 : 0.06),
-  }
-}
-
-const DEV_QUOTES: QuoteItem[] = [
-  {
-    text: 'Simplicity is prerequisite for reliability.',
-    author: 'Edsger W. Dijkstra',
-  },
-  {
-    text: 'Programs must be written for people to read, and only incidentally for machines to execute.',
-    author: 'Harold Abelson',
-  },
-  {
-    text: 'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
-    author: 'Martin Fowler',
-  },
-  {
-    text: 'The most disastrous thing that you can ever learn is your first programming language.',
-    author: 'Alan Kay',
-  },
-  {
-    text: 'First, solve the problem. Then, write the code.',
-    author: 'John Johnson',
-  },
-]
-
-const getContributionShades = (palette: ThemePalette, isDarkMode: boolean) => {
-  const blendTarget = isDarkMode ? '#ffffff' : '#0f172a'
-
-  return [
-    mixHex(palette.skin, blendTarget, isDarkMode ? 0.12 : 0.05),
-    mixHex(palette.skin, blendTarget, isDarkMode ? 0.22 : 0.16),
-    mixHex(palette.skin, blendTarget, isDarkMode ? 0.34 : 0.28),
-    mixHex(palette.skin, blendTarget, isDarkMode ? 0.46 : 0.4),
-  ]
-}
-
-const getCalendarRangeForYear = (selectedYear: number) => {
-  return {
-    startDate: new Date(Date.UTC(selectedYear, 0, 1)),
-    endDate: new Date(Date.UTC(selectedYear, 11, 31)),
-  }
-}
-
-const getContributionRange = (selectedYear: number, yearData?: ContributionYearData) => {
-  if (!yearData) {
-    return getCalendarRangeForYear(selectedYear)
-  }
-
-  return {
-    startDate: new Date(`${yearData.startDate}T00:00:00Z`),
-    endDate: new Date(`${yearData.endDate}T00:00:00Z`),
-  }
-}
-
-const getGraphMetrics = (isCompact: boolean): ContributionGraphMetrics =>
-  isCompact
-    ? {
-        cellSize: 9,
-        gap: 2,
-      }
-    : {
-        cellSize: 13,
-        gap: 3,
-      }
-
-const buildContributionLayout = (
-  selectedYear: number,
-  isCompact: boolean,
-  yearData?: ContributionYearData,
-): ContributionLayout => {
-  const { cellSize, gap } = getGraphMetrics(isCompact)
-  const colWidth = cellSize + gap
-  const rowHeight = cellSize + gap
-  const { startDate, endDate } = getContributionRange(selectedYear, yearData)
-  const firstGridDate = new Date(startDate)
-  firstGridDate.setUTCDate(firstGridDate.getUTCDate() - firstGridDate.getUTCDay())
-  const lastGridDate = new Date(endDate)
-  lastGridDate.setUTCDate(lastGridDate.getUTCDate() + (6 - lastGridDate.getUTCDay()))
-  const totalDays =
-    Math.floor((lastGridDate.getTime() - firstGridDate.getTime()) / (24 * 60 * 60 * 1000)) + 1
-  const totalWeeks = Math.ceil(totalDays / 7)
-  const monthFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' })
-  const monthLabels: Array<{ key: string; label: string; x: number }> = []
-
-  let cursor = new Date(Date.UTC(selectedYear, 0, 1))
-  while (cursor <= endDate) {
-    const weekIndex = Math.floor(
-      (cursor.getTime() - firstGridDate.getTime()) / (7 * 24 * 60 * 60 * 1000),
-    )
-
-    monthLabels.push({
-      key: cursor.toISOString().slice(0, 7),
-      label: monthFormatter.format(cursor),
-      x: Math.max(0, weekIndex) * colWidth,
-    })
-
-    cursor = new Date(Date.UTC(cursor.getUTCFullYear(), cursor.getUTCMonth() + 1, 1))
-  }
-
-  return {
-    contentWidth: totalWeeks * colWidth,
-    monthLabels,
-    dayLabels: [
-      { key: 'mon', label: 'Mon', y: rowHeight * 1 + cellSize / 2 },
-      { key: 'wed', label: 'Wed', y: rowHeight * 3 + cellSize / 2 },
-      { key: 'fri', label: 'Fri', y: rowHeight * 5 + cellSize / 2 },
-    ],
-  }
-}
-
-const buildContributionCalendarSvg = (
-  contributionDays: ContributionDay[],
-  selectedYear: number,
-  palette: ThemePalette,
-  isDarkMode: boolean,
-  isCompact: boolean,
-  yearData?: ContributionYearData,
-) => {
-  const { cellSize, gap } = getGraphMetrics(isCompact)
-  const colWidth = cellSize + gap
-  const rowHeight = cellSize + gap
-  const { startDate, endDate } = getContributionRange(selectedYear, yearData)
-  const firstGridDate = new Date(startDate)
-  firstGridDate.setUTCDate(firstGridDate.getUTCDate() - firstGridDate.getUTCDay())
-  const lastGridDate = new Date(endDate)
-  lastGridDate.setUTCDate(lastGridDate.getUTCDate() + (6 - lastGridDate.getUTCDay()))
-  const totalDays =
-    Math.floor((lastGridDate.getTime() - firstGridDate.getTime()) / (24 * 60 * 60 * 1000)) + 1
-  const totalWeeks = Math.ceil(totalDays / 7)
-  const width = totalWeeks * colWidth
-  const height = 7 * rowHeight
-  const countsByDate = new Map(contributionDays.map((day) => [day.date, day.contributionCount]))
-  const shades = [palette.emptyCell, ...getContributionShades(palette, isDarkMode)]
-  const cells: string[] = []
-
-  for (let weekIndex = 0; weekIndex < totalWeeks; weekIndex += 1) {
-    const weekDate = new Date(firstGridDate)
-    weekDate.setUTCDate(firstGridDate.getUTCDate() + weekIndex * 7)
-
-    for (let dayIndex = 0; dayIndex < 7; dayIndex += 1) {
-      const currentDate = new Date(weekDate)
-      currentDate.setUTCDate(weekDate.getUTCDate() + dayIndex)
-      const isoDate = currentDate.toISOString().slice(0, 10)
-      const count = countsByDate.get(isoDate) ?? 0
-      const shadeIndex =
-        count === 0 ? 0 : count >= 12 ? 4 : count >= 8 ? 3 : count >= 4 ? 2 : 1
-
-      cells.push(
-        `<rect x="${weekIndex * colWidth}" y="${dayIndex * rowHeight}" width="${cellSize}" height="${cellSize}" rx="2" ry="2" fill="${shades[shadeIndex]}" />`,
-      )
-    }
-  }
-
-  return `<svg viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMinYMin meet" role="img" aria-label="GitHub contribution heatmap"><g>${cells.join(
-    '',
-  )}</g></svg>`
-}
-
-const getGithubUsername = (githubUrl?: string): string | null => {
-  if (!githubUrl) {
-    return null
-  }
-
-  try {
-    const { pathname } = new URL(githubUrl)
-    const username = pathname.split('/').filter(Boolean)[0]
-    return username || null
-  } catch {
-    return null
-  }
-}
+const EMPTY_CONTRIBUTION_DAYS: ContributionDay[] = []
 
 export const AboutGithubHighlights: React.FC = () => {
   const { t } = useTranslation()
@@ -339,37 +28,24 @@ export const AboutGithubHighlights: React.FC = () => {
   const githubUrl = contact?.social.github?.url
   const githubUsername = getGithubUsername(githubUrl)
   const [selectedYear, setSelectedYear] = useState(String(new Date().getFullYear()))
-  const [selectedQuote] = useState<QuoteItem>(() => {
+  const [selectedQuote] = useState(() => {
     const index = Math.floor(Math.random() * DEV_QUOTES.length)
     return DEV_QUOTES[index] ?? DEV_QUOTES[0]
   })
-  const [contributionArchive, setContributionArchive] = useState<ContributionArchive | null>(null)
-  const [isGraphLoading, setIsGraphLoading] = useState(true)
-  const [graphError, setGraphError] = useState(false)
-  const [isMobileGraph, setIsMobileGraph] = useState(false)
+
+  const { isGraphLoading, graphError, isMobileGraph, selectedYearData, yearOptions } =
+    useGithubContributionData(githubUsername, selectedYear)
 
   if (!githubUrl || !githubUsername) {
     return null
   }
 
-  const yearOptions = useMemo(() => {
-    if (contributionArchive) {
-      return Object.keys(contributionArchive.years)
-        .map(String)
-        .sort((left, right) => Number(right) - Number(left))
-    }
-
-    const currentYear = new Date().getFullYear()
-    return Array.from({ length: currentYear - 2018 + 1 }, (_, index) => String(currentYear - index))
-  }, [contributionArchive])
-
+  const selectedYearNumber = Number(selectedYear)
   const palette = getPaletteFromTheme(isDarkMode, currentColor)
   const contributionColors = getContributionShades(palette, isDarkMode)
-  const selectedYearNumber = Number(selectedYear)
-  const selectedYearData = contributionArchive?.years[selectedYear]
-  const contributionDays = selectedYearData?.days ?? []
+  const contributionDays = selectedYearData?.days ?? EMPTY_CONTRIBUTION_DAYS
   const contributionLayout = useMemo(
-    () => buildContributionLayout(selectedYearNumber, isMobileGraph, selectedYearData),
+    () => buildContributionLayout(selectedYearNumber, isMobileGraph, selectedYearData ?? undefined),
     [selectedYearNumber, isMobileGraph, selectedYearData],
   )
   const contributionGraphSvg = useMemo(
@@ -380,7 +56,7 @@ export const AboutGithubHighlights: React.FC = () => {
         palette,
         isDarkMode,
         isMobileGraph,
-        selectedYearData,
+        selectedYearData ?? undefined,
       ),
     [
       contributionDays,
@@ -405,197 +81,46 @@ export const AboutGithubHighlights: React.FC = () => {
     palette.textMuted,
   )}&locale=en`
 
-  useEffect(() => {
-    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
-      return
-    }
-
-    const mediaQuery = window.matchMedia('(max-width: 767px)')
-    const syncCompactGraph = (event?: MediaQueryList | MediaQueryListEvent) => {
-      setIsMobileGraph(event?.matches ?? mediaQuery.matches)
-    }
-
-    syncCompactGraph(mediaQuery)
-    mediaQuery.addEventListener('change', syncCompactGraph)
-
-    return () => {
-      mediaQuery.removeEventListener('change', syncCompactGraph)
-    }
-  }, [])
-
-  useEffect(() => {
-    let cancelled = false
-
-    const loadContributionArchive = async () => {
-      setIsGraphLoading(true)
-      setGraphError(false)
-
-      try {
-        const response = await fetch(`/github-contributions/${githubUsername}.json`, {
-          cache: 'no-store',
-        })
-
-        if (!response.ok) {
-          throw new Error(`Contribution archive request failed: ${response.status}`)
-        }
-
-        const raw = (await response.json()) as ContributionArchive
-
-        if (cancelled) {
-          return
-        }
-
-        setContributionArchive(raw)
-        setGraphError(false)
-      } catch {
-        if (!cancelled) {
-          setContributionArchive(null)
-          setGraphError(true)
-        }
-      } finally {
-        if (!cancelled) {
-          setIsGraphLoading(false)
-        }
-      }
-    }
-
-    void loadContributionArchive()
-
-    return () => {
-      cancelled = true
-    }
-  }, [githubUsername])
-
   return (
     <>
-      <div className={githubStatsHeader}>
-        <div>
-          <p className={githubStatsEyebrow}>{t('about.github.eyebrow')}</p>
-          <h3 className={githubStatsTitle}>{t('about.github.title')}</h3>
-          <p className={githubStatsDescription}>{t('about.github.description')}</p>
-        </div>
-        <Button
-          as="a"
-          href={githubUrl}
-          variant="secondary"
-          size="small"
-          className={githubStatsLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {t('about.github.profileLink')}
-        </Button>
-      </div>
+      <GithubHighlightsHeader
+        eyebrow={t('about.github.eyebrow')}
+        title={t('about.github.title')}
+        description={t('about.github.description')}
+        profileLabel={t('about.github.profileLink')}
+        githubUrl={githubUrl}
+      />
       <div className={githubStatsGrid}>
-        <article className={githubStatsCard}>
-          <div className={githubStatsCardHeader}>
-            <h4 className={githubStatsCardTitle}>{t('about.github.cards.contributions')}</h4>
-            <div className={githubStatsSelect}>
-              <Dropdown
-                value={selectedYear}
-                options={yearOptions.map((year) => ({
-                  value: year,
-                  label: year,
-                }))}
-                onChange={setSelectedYear}
-                ariaLabel={t('about.github.yearSelector')}
-              />
-            </div>
-          </div>
-          <div className={githubStatsMedia}>
-            <div className={githubContributionPanel}>
-              {isGraphLoading ? (
-                <div className={githubContributionLoading}>
-                  {t('about.github.loadingYear', { year: selectedYearNumber })}
-                </div>
-              ) : null}
-              {graphError ? (
-                <div className={githubContributionLoading}>{t('about.github.loadFailed')}</div>
-              ) : (
-                  <div
-                    className={githubContributionFrame}
-                    style={{ width: `${contributionLayout.contentWidth + (isMobileGraph ? 24 : 34)}px` }}
-                  >
-                  <div className={githubContributionMonths}>
-                    {contributionLayout.monthLabels.map((month) => (
-                      <span
-                        key={month.key}
-                        className={githubContributionMonthLabel}
-                        style={{ left: `${month.x}px` }}
-                      >
-                        {month.label}
-                      </span>
-                    ))}
-                  </div>
-                  <div className={githubContributionDays}>
-                    {contributionLayout.dayLabels.map((day) => (
-                      <span
-                        key={day.key}
-                        className={githubContributionDayLabel}
-                        style={{ top: `${day.y}px` }}
-                      >
-                        {day.label}
-                      </span>
-                    ))}
-                  </div>
-                  <div
-                    className={githubContributionImage}
-                    dangerouslySetInnerHTML={{ __html: contributionGraphSvg }}
-                  />
-                  <div className={githubContributionLegend}>
-                    <span>Less</span>
-                    <div className={githubContributionLegendSwatches}>
-                      {[palette.emptyCell, ...contributionColors].map((shade, index) => (
-                        <span
-                          key={`${shade}-${index}`}
-                          className={githubContributionLegendSwatch}
-                          style={{ backgroundColor: shade }}
-                        />
-                      ))}
-                    </div>
-                    <span>More</span>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </article>
+        <GithubContributionCard
+          title={t('about.github.cards.contributions')}
+          picker={{
+            selectedYear,
+            yearOptions,
+            yearSelectorLabel: t('about.github.yearSelector'),
+            onYearChange: setSelectedYear,
+          }}
+          status={{
+            isLoading: isGraphLoading,
+            hasError: graphError,
+            loadingText: t('about.github.loadingYear', { year: selectedYearNumber }),
+            errorText: t('about.github.loadFailed'),
+          }}
+          graph={{
+            contributionLayout,
+            contributionGraphSvg,
+            contributionColors,
+            emptyCellColor: palette.emptyCell,
+            isMobileGraph,
+          }}
+        />
       </div>
-      <div className={githubStatsBottomGrid}>
-        {[
-          {
-            title: t('about.github.cards.streak'),
-            href: githubUrl,
-            imageUrl: streakStatsUrl,
-            alt: t('about.github.alt.streak', { username: githubUsername }),
-          },
-          {
-            title: t('about.github.cards.quote'),
-            href: githubUrl,
-            quote: selectedQuote,
-          },
-        ].map((card) => (
-          <article key={card.title} className={githubStatsCard}>
-            <h4 className={githubStatsCardTitle}>{card.title}</h4>
-            {'imageUrl' in card ? (
-              <div className={githubStatsMedia}>
-                <img
-                  src={card.imageUrl}
-                  alt={card.alt}
-                  loading="lazy"
-                  decoding="async"
-                  className={githubStatsImage}
-                />
-              </div>
-            ) : (
-              <div className={githubQuoteBox}>
-                <p className={githubQuoteText}>&ldquo;{card.quote.text}&rdquo;</p>
-                <p className={githubQuoteAuthor}>- {card.quote.author}</p>
-              </div>
-            )}
-          </article>
-        ))}
-      </div>
+      <GithubSupplementaryCards
+        streakTitle={t('about.github.cards.streak')}
+        streakAlt={t('about.github.alt.streak', { username: githubUsername })}
+        streakStatsUrl={streakStatsUrl}
+        quoteTitle={t('about.github.cards.quote')}
+        quote={selectedQuote}
+      />
     </>
   )
 }

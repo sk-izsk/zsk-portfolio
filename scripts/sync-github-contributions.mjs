@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -9,24 +9,12 @@ const usernames = ['sk-izsk']
 const startYear = 2018
 const levelToContributionCount = [0, 2, 6, 12, 20]
 
-const getCalendarRangeForYear = (selectedYear) => {
-  return {
-    startDate: new Date(Date.UTC(selectedYear, 0, 1)),
-    endDate: new Date(Date.UTC(selectedYear, 11, 31)),
-  }
-}
+const getCalendarRangeForYear = (selectedYear) => ({
+  startDate: new Date(Date.UTC(selectedYear, 0, 1)),
+  endDate: new Date(Date.UTC(selectedYear, 11, 31)),
+})
 
 const formatDate = (date) => date.toISOString().slice(0, 10)
-
-const readExistingArchive = async (username) => {
-  try {
-    const filePath = path.join(outputDirectory, `${username}.json`)
-    const file = await readFile(filePath, 'utf8')
-    return JSON.parse(file)
-  } catch {
-    return null
-  }
-}
 
 const parseGithubCalendar = (html) => {
   const dayMatches = html.matchAll(/data-date="([^"]+)"[^>]*data-level="([^"]+)"/g)
@@ -56,6 +44,16 @@ const fetchGithubCalendarYear = async (username, year) => {
   return parseGithubCalendar(html)
 }
 
+const readExistingYearData = async (username, year) => {
+  try {
+    const filePath = path.join(outputDirectory, username, `${year}.json`)
+    const file = await readFile(filePath, 'utf8')
+    return JSON.parse(file)
+  } catch {
+    return null
+  }
+}
+
 const fetchYearData = async (username, year) => {
   const { startDate, endDate } = getCalendarRangeForYear(year)
   const from = formatDate(startDate)
@@ -71,41 +69,44 @@ const fetchYearData = async (username, year) => {
   }
 }
 
-const syncUserArchive = async (username) => {
+const syncUserDirectory = async (username) => {
   const currentYear = new Date().getFullYear()
-  const existingArchive = await readExistingArchive(username)
-  const years = { ...(existingArchive?.years ?? {}) }
-  let fetchedAnyYear = false
+  const userDirectory = path.join(outputDirectory, username)
+  const years = []
+
+  await mkdir(userDirectory, { recursive: true })
 
   for (let year = startYear; year <= currentYear; year += 1) {
+    const yearKey = String(year)
+    years.push(yearKey)
+
     try {
-      years[String(year)] = await fetchYearData(username, year)
-      fetchedAnyYear = true
+      const yearData = await fetchYearData(username, year)
+      await writeFile(path.join(userDirectory, `${year}.json`), `${JSON.stringify(yearData, null, 2)}\n`)
     } catch (error) {
-      if (!years[String(year)]) {
+      const existingYearData = await readExistingYearData(username, year)
+
+      if (!existingYearData) {
         throw error
       }
     }
   }
 
-  if (!fetchedAnyYear && existingArchive) {
-    return existingArchive
-  }
-
-  return {
+  const yearIndex = {
     generatedAt: new Date().toISOString(),
     username,
     years,
   }
+
+  await writeFile(path.join(userDirectory, 'index.json'), `${JSON.stringify(yearIndex, null, 2)}\n`)
 }
 
 const main = async () => {
   await mkdir(outputDirectory, { recursive: true })
 
   for (const username of usernames) {
-    const archive = await syncUserArchive(username)
-    const outputPath = path.join(outputDirectory, `${username}.json`)
-    await writeFile(outputPath, `${JSON.stringify(archive, null, 2)}\n`, 'utf8')
+    await rm(path.join(outputDirectory, `${username}.json`), { force: true })
+    await syncUserDirectory(username)
   }
 }
 
