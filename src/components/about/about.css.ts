@@ -103,11 +103,13 @@ export const skills = style({
 })
 
 export const githubStatsSection = style([
-  skills,
   {
+    flex: '0 0 100%',
+    maxWidth: '100%',
+    marginTop: '36px',
     display: 'flex',
     flexDirection: 'column',
-    gap: '18px',
+    gap: '22px',
   },
 ])
 
@@ -159,6 +161,17 @@ export const githubStatsGrid = style({
   gap: '18px',
 })
 
+export const githubStatsBottomGrid = style({
+  display: 'grid',
+  gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+  gap: '18px',
+  '@media': {
+    '(max-width: 991px)': {
+      gridTemplateColumns: '1fr',
+    },
+  },
+})
+
 export const githubStatsCard = style({
   background: vars.color.background[100],
   border: `1px solid ${vars.color.background[50]}`,
@@ -174,6 +187,13 @@ export const githubStatsCardTitle = style({
   color: vars.color.text[900],
 })
 
+export const githubStatsMedia = style({
+  width: '100%',
+  overflow: 'hidden',
+  borderRadius: '14px',
+  background: vars.color.background[100],
+})
+
 export const githubStatsImageLink = style({
   display: 'block',
   textDecoration: 'none',
@@ -184,6 +204,11 @@ export const githubStatsImage = style({
   width: '100%',
   height: 'auto',
   borderRadius: '12px',
+})
+
+export const githubStatsInlineSvg = style({
+  width: '100%',
+  lineHeight: 0,
 })
 
 export const skillsItem = style({
