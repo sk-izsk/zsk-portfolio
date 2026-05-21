@@ -102,6 +102,90 @@ export const skills = style({
   },
 })
 
+export const githubStatsSection = style([
+  skills,
+  {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '18px',
+  },
+])
+
+export const githubStatsHeader = style({
+  display: 'flex',
+  alignItems: 'flex-start',
+  justifyContent: 'space-between',
+  gap: '16px',
+  marginBottom: '2px',
+  '@media': {
+    '(max-width: 767px)': {
+      flexDirection: 'column',
+      alignItems: 'stretch',
+    },
+  },
+})
+
+export const githubStatsEyebrow = style({
+  margin: 0,
+  fontSize: '13px',
+  letterSpacing: '0.08em',
+  textTransform: 'uppercase',
+  color: vars.color.skin,
+  fontWeight: 700,
+})
+
+export const githubStatsTitle = style({
+  margin: '6px 0 0',
+  fontSize: '24px',
+  lineHeight: 1.2,
+  color: vars.color.text[900],
+})
+
+export const githubStatsDescription = style({
+  margin: '8px 0 0',
+  fontSize: '14px',
+  lineHeight: '22px',
+  color: vars.color.text[700],
+})
+
+export const githubStatsLink = style({
+  flexShrink: 0,
+  alignSelf: 'flex-start',
+})
+
+export const githubStatsGrid = style({
+  display: 'grid',
+  gridTemplateColumns: '1fr',
+  gap: '18px',
+})
+
+export const githubStatsCard = style({
+  background: vars.color.background[100],
+  border: `1px solid ${vars.color.background[50]}`,
+  borderRadius: '18px',
+  padding: '18px',
+  boxShadow: '0 10px 30px rgba(15, 23, 42, 0.06)',
+})
+
+export const githubStatsCardTitle = style({
+  margin: '0 0 12px',
+  fontSize: '16px',
+  lineHeight: 1.4,
+  color: vars.color.text[900],
+})
+
+export const githubStatsImageLink = style({
+  display: 'block',
+  textDecoration: 'none',
+})
+
+export const githubStatsImage = style({
+  display: 'block',
+  width: '100%',
+  height: 'auto',
+  borderRadius: '12px',
+})
+
 export const skillsItem = style({
   flex: '0 0 100%',
   maxWidth: '100%',
