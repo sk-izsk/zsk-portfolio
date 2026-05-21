@@ -249,6 +249,7 @@
     {
       "id": 6,
       "url": "https://github.com/sk-izsk/zsk-chrome-media-control",
+      "demo_link": "https://chromewebstore.google.com/detail/auto-pause-volume-control/acelidkmecggioloalgjphjpdjhmgejd",
       "projectTypes": ["misc"],
       "category": "Browser Extension",
       "tags": [

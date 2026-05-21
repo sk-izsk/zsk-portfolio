@@ -2,12 +2,14 @@ import {
   btnMargin,
   buttons,
   buttonsCompactTop,
+  githubStatsSection,
   infoItem,
   infoItemP,
   infoItemSpan,
   infoItemSpanLink,
   personalInfoSection,
 } from '@components/about/about.css'
+import { AboutGithubHighlights } from '@components/about/AboutGithubHighlights'
 import { Button } from '@components/common/button/Button'
 import { useTranslation } from '@localization/localize'
 import { useContactInfo, usePersonalInfo } from '@stores/portfolioStore'
@@ -120,6 +122,9 @@ export const AboutPersonalInfoSection: React.FC = () => {
             {t('about.actions.hireMe')}
           </Button>
         </div>
+      </div>
+      <div className={cx(githubStatsSection, 'padd-15')}>
+        <AboutGithubHighlights />
       </div>
     </div>
   )

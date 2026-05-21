@@ -57,4 +57,15 @@ describe('AboutScreen', () => {
 
     expect(screen.getByText(mockPortfolioData.contact.email)).toBeInTheDocument()
   })
+
+  it('shows the GitHub activity block when GitHub data is available', () => {
+    usePortfolioStore.getState().setData(mockPortfolioData)
+    renderScreen()
+
+    expect(screen.getByText('Code activity and dev signals')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'View Profile' })).toHaveAttribute(
+      'href',
+      mockPortfolioData.contact.social.github.url,
+    )
+  })
 })
