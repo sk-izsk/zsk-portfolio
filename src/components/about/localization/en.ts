@@ -14,6 +14,9 @@ export const aboutEn = {
     description:
       'A live view of contributions, streak history, and one rotating dev quote pulled from the public GitHub widgets.',
     profileLink: 'View Profile',
+    yearSelector: 'Select contribution year',
+    loadingYear: 'Loading {{year}} contributions...',
+    loadFailed: 'Unable to load contribution graph right now.',
     cards: {
       contributions: 'Contribution Graph',
       streak: 'Streak Snapshot',

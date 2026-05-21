@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css'
+import { keyframes } from '@vanilla-extract/css'
 import { vars } from '@styles/theme.css'
 
 export const aboutContent = style({
@@ -106,10 +107,10 @@ export const githubStatsSection = style([
   {
     flex: '0 0 100%',
     maxWidth: '100%',
-    marginTop: '36px',
+    marginTop: '44px',
     display: 'flex',
     flexDirection: 'column',
-    gap: '22px',
+    gap: '30px',
   },
 ])
 
@@ -118,7 +119,7 @@ export const githubStatsHeader = style({
   alignItems: 'flex-start',
   justifyContent: 'space-between',
   gap: '16px',
-  marginBottom: '2px',
+  marginBottom: '6px',
   '@media': {
     '(max-width: 767px)': {
       flexDirection: 'column',
@@ -158,13 +159,13 @@ export const githubStatsLink = style({
 export const githubStatsGrid = style({
   display: 'grid',
   gridTemplateColumns: '1fr',
-  gap: '18px',
+  gap: '24px',
 })
 
 export const githubStatsBottomGrid = style({
   display: 'grid',
   gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-  gap: '18px',
+  gap: '24px',
   '@media': {
     '(max-width: 991px)': {
       gridTemplateColumns: '1fr',
@@ -194,21 +195,188 @@ export const githubStatsMedia = style({
   background: vars.color.background[100],
 })
 
+export const githubContributionPanel = style({
+  position: 'relative',
+  borderRadius: '14px',
+  background: vars.color.background[100],
+  padding: '18px 16px 10px',
+  minHeight: '178px',
+  overflowX: 'auto',
+})
+
+export const githubContributionSvg = style({
+  display: 'block',
+  width: '100%',
+  minWidth: '880px',
+  height: 'auto',
+  '@media': {
+    '(max-width: 767px)': {
+      minWidth: '640px',
+    },
+  },
+})
+
+const githubLoadingPulse = keyframes({
+  '0%': { opacity: 0.45 },
+  '50%': { opacity: 0.95 },
+  '100%': { opacity: 0.45 },
+})
+
+export const githubContributionLoading = style({
+  position: 'absolute',
+  inset: '18px 16px 10px',
+  borderRadius: '14px',
+  background: vars.color.background[100],
+  border: `1px solid ${vars.color.background[50]}`,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: vars.color.text[700],
+  fontSize: '14px',
+  animation: `${githubLoadingPulse} 1.2s ease-in-out infinite`,
+})
+
+export const githubContributionImage = style({
+  display: 'block',
+  width: '100%',
+  minWidth: '820px',
+  height: 'auto',
+  '@media': {
+    '(max-width: 767px)': {
+      minWidth: '640px',
+    },
+  },
+})
+
+export const githubContributionImageHidden = style({
+  opacity: 0,
+})
+
+export const githubContributionFrame = style({
+  position: 'relative',
+  width: 'fit-content',
+  minWidth: '100%',
+  paddingTop: '28px',
+  paddingLeft: '34px',
+})
+
+export const githubContributionMonths = style({
+  position: 'absolute',
+  top: 0,
+  left: '34px',
+  right: 0,
+  height: '20px',
+  pointerEvents: 'none',
+})
+
+export const githubContributionMonthLabel = style({
+  position: 'absolute',
+  top: 0,
+  transform: 'translateX(-50%)',
+  fontSize: '11px',
+  lineHeight: 1,
+  color: vars.color.text[700],
+  whiteSpace: 'nowrap',
+})
+
+export const githubContributionDays = style({
+  position: 'absolute',
+  top: '28px',
+  left: 0,
+  width: '28px',
+  pointerEvents: 'none',
+})
+
+export const githubContributionDayLabel = style({
+  position: 'absolute',
+  right: 0,
+  transform: 'translateY(-50%)',
+  fontSize: '11px',
+  lineHeight: 1,
+  color: vars.color.text[700],
+  whiteSpace: 'nowrap',
+})
+
+export const githubContributionLegend = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '8px',
+  marginTop: '10px',
+  paddingLeft: '34px',
+  fontSize: '11px',
+  color: vars.color.text[700],
+})
+
+export const githubContributionLegendSwatches = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '4px',
+})
+
+export const githubContributionLegendSwatch = style({
+  width: '13px',
+  height: '13px',
+  borderRadius: '3px',
+  border: `1px solid ${vars.color.background[50]}`,
+})
+
+export const githubStatsCardHeader = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  gap: '16px',
+  marginBottom: '14px',
+  '@media': {
+    '(max-width: 767px)': {
+      flexDirection: 'column',
+      alignItems: 'stretch',
+    },
+  },
+})
+
+export const githubStatsSelect = style({
+  alignSelf: 'flex-start',
+  minWidth: '120px',
+  height: '40px',
+  borderRadius: '12px',
+  border: `1px solid ${vars.color.background[50]}`,
+  background: vars.color.background[100],
+  color: vars.color.text[900],
+  padding: '0 14px',
+  fontFamily: vars.font.family.primary,
+  fontSize: '14px',
+  cursor: 'pointer',
+})
+
+export const githubQuoteBox = style({
+  borderRadius: '14px',
+  padding: '22px 22px 18px',
+  border: `2px solid ${vars.color.skin}`,
+  background: vars.color.background[100],
+  minHeight: '190px',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+})
+
+export const githubQuoteText = style({
+  fontSize: '18px',
+  lineHeight: 1.55,
+  color: vars.color.text[900],
+  fontStyle: 'italic',
+})
+
+export const githubQuoteAuthor = style({
+  marginTop: '20px',
+  alignSelf: 'flex-end',
+  color: vars.color.skin,
+  fontSize: '16px',
+  lineHeight: 1.4,
+})
+
 export const githubStatsImageLink = style({
   display: 'block',
   textDecoration: 'none',
-})
-
-export const githubStatsImage = style({
-  display: 'block',
-  width: '100%',
-  height: 'auto',
-  borderRadius: '12px',
-})
-
-export const githubStatsInlineSvg = style({
-  width: '100%',
-  lineHeight: 0,
 })
 
 export const skillsItem = style({

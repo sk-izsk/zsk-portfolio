@@ -1,24 +1,38 @@
 import {
+  githubContributionDayLabel,
+  githubContributionDays,
+  githubContributionFrame,
   githubStatsBottomGrid,
   githubStatsCard,
+  githubStatsCardHeader,
   githubStatsCardTitle,
+  githubContributionImage,
+  githubContributionImageHidden,
+  githubContributionLegend,
+  githubContributionLegendSwatch,
+  githubContributionLegendSwatches,
+  githubContributionLoading,
+  githubContributionMonthLabel,
+  githubContributionMonths,
+  githubContributionPanel,
   githubStatsDescription,
   githubStatsEyebrow,
   githubStatsGrid,
   githubStatsHeader,
-  githubStatsImage,
-  githubStatsImageLink,
-  githubStatsInlineSvg,
   githubStatsLink,
   githubStatsMedia,
+  githubStatsSelect,
+  githubQuoteAuthor,
+  githubQuoteBox,
+  githubQuoteText,
   githubStatsTitle,
 } from '@components/about/about.css'
 import { Button } from '@components/common/button/Button'
 import { useTranslation } from '@localization/localize'
 import { useContactInfo } from '@stores/portfolioStore'
 import { useThemeStore } from '@stores/themeStore'
-import { vars } from '@styles/theme.css'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
+import { cx } from '@utils/cn'
 
 type ThemePalette = {
   skin: string
@@ -29,6 +43,17 @@ type ThemePalette = {
   textMuted: string
   emptyCell: string
   quoteBackground: string
+}
+
+type QuoteItem = {
+  text: string
+  author: string
+}
+
+type ContributionLayout = {
+  contentWidth: number
+  monthLabels: Array<{ key: string; label: string; x: number }>
+  dayLabels: Array<{ key: string; label: string; y: number }>
 }
 
 const DEFAULT_LIGHT_PALETTE: ThemePalette = {
@@ -52,6 +77,15 @@ const DEFAULT_DARK_PALETTE: ThemePalette = {
   emptyCell: '#393939',
   quoteBackground: '#1b1b1b',
 }
+
+const skinByColor = {
+  'color-1': '#ec1839',
+  'color-2': '#fa5b0f',
+  'color-3': '#37b182',
+  'color-5': '#f021b2',
+  'color-7': '#daa520',
+  'color-9': '#00bfff',
+} as const
 
 const hexToRgb = (hex: string) => {
   const normalized = hex.replace('#', '')
@@ -88,58 +122,45 @@ const mixHex = (baseHex: string, targetHex: string, amount: number) => {
   })
 }
 
-const normalizeCssColorToHex = (value: string) => {
-  const color = value.trim()
-
-  if (color.startsWith('#')) {
-    return color
-  }
-
-  const matched = color.match(/\d+(\.\d+)?/g)
-
-  if (!matched || matched.length < 3) {
-    return color
-  }
-
-  return rgbToHex({
-    r: Number(matched[0]),
-    g: Number(matched[1]),
-    b: Number(matched[2]),
-  })
-}
-
 const toParamColor = (hex: string) => hex.replace('#', '')
 
-const getPaletteFromTheme = (isDarkMode: boolean): ThemePalette => {
-  if (typeof document === 'undefined') {
-    return isDarkMode ? DEFAULT_DARK_PALETTE : DEFAULT_LIGHT_PALETTE
-  }
-
-  const styles = getComputedStyle(document.body)
-  const fallback = isDarkMode ? DEFAULT_DARK_PALETTE : DEFAULT_LIGHT_PALETTE
-
-  const skin = normalizeCssColorToHex(styles.getPropertyValue(vars.color.skin)) || fallback.skin
-  const background =
-    normalizeCssColorToHex(styles.getPropertyValue(vars.color.background[900])) || fallback.background
-  const surface =
-    normalizeCssColorToHex(styles.getPropertyValue(vars.color.background[100])) || fallback.surface
-  const border =
-    normalizeCssColorToHex(styles.getPropertyValue(vars.color.background[50])) || fallback.border
-  const text = normalizeCssColorToHex(styles.getPropertyValue(vars.color.text[900])) || fallback.text
-  const textMuted =
-    normalizeCssColorToHex(styles.getPropertyValue(vars.color.text[700])) || fallback.textMuted
+const getPaletteFromTheme = (
+  isDarkMode: boolean,
+  currentColor: keyof typeof skinByColor,
+): ThemePalette => {
+  const base = isDarkMode ? DEFAULT_DARK_PALETTE : DEFAULT_LIGHT_PALETTE
+  const skin = skinByColor[currentColor] ?? DEFAULT_LIGHT_PALETTE.skin
 
   return {
+    ...base,
     skin,
-    background,
-    surface,
-    border,
-    text,
-    textMuted,
-    emptyCell: mixHex(surface, border, isDarkMode ? 0.78 : 0.52),
-    quoteBackground: mixHex(surface, background, isDarkMode ? 0.2 : 0.06),
+    emptyCell: mixHex(base.surface, base.border, isDarkMode ? 0.78 : 0.52),
+    quoteBackground: mixHex(base.surface, base.background, isDarkMode ? 0.2 : 0.06),
   }
 }
+
+const DEV_QUOTES: QuoteItem[] = [
+  {
+    text: 'Simplicity is prerequisite for reliability.',
+    author: 'Edsger W. Dijkstra',
+  },
+  {
+    text: 'Programs must be written for people to read, and only incidentally for machines to execute.',
+    author: 'Harold Abelson',
+  },
+  {
+    text: 'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
+    author: 'Martin Fowler',
+  },
+  {
+    text: 'The most disastrous thing that you can ever learn is your first programming language.',
+    author: 'Alan Kay',
+  },
+  {
+    text: 'First, solve the problem. Then, write the code.',
+    author: 'John Johnson',
+  },
+]
 
 const getContributionShades = (palette: ThemePalette, isDarkMode: boolean) => {
   const blendTarget = isDarkMode ? '#ffffff' : '#0f172a'
@@ -152,71 +173,42 @@ const getContributionShades = (palette: ThemePalette, isDarkMode: boolean) => {
   ]
 }
 
-const getBrightness = (hex: string) => {
-  const { r, g, b } = hexToRgb(hex)
-  return 0.299 * r + 0.587 * g + 0.114 * b
-}
+const buildContributionLayout = (year: number): ContributionLayout => {
+  const cellSize = 13
+  const gap = 3
+  const colWidth = cellSize + gap
+  const rowHeight = cellSize + gap
+  const yearStart = new Date(Date.UTC(year, 0, 1))
+  const yearEnd = new Date(Date.UTC(year, 11, 31))
+  const firstGridDate = new Date(yearStart)
+  firstGridDate.setUTCDate(firstGridDate.getUTCDate() - firstGridDate.getUTCDay())
+  const lastGridDate = new Date(yearEnd)
+  lastGridDate.setUTCDate(lastGridDate.getUTCDate() + (6 - lastGridDate.getUTCDay()))
+  const totalDays =
+    Math.floor((lastGridDate.getTime() - firstGridDate.getTime()) / (24 * 60 * 60 * 1000)) + 1
+  const totalWeeks = Math.ceil(totalDays / 7)
+  const monthFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' })
 
-const transformContributionSvg = (
-  svgMarkup: string,
-  palette: ThemePalette,
-  isDarkMode: boolean,
-) => {
-  if (typeof DOMParser === 'undefined') {
-    return null
+  return {
+    contentWidth: totalWeeks * colWidth,
+    monthLabels: Array.from({ length: 12 }, (_, month) => {
+      const monthDate = new Date(Date.UTC(year, month, 1))
+      const weekIndex = Math.floor(
+        (monthDate.getTime() - firstGridDate.getTime()) / (7 * 24 * 60 * 60 * 1000),
+      )
+
+      return {
+        key: `${year}-${month}`,
+        label: monthFormatter.format(monthDate),
+        x: weekIndex * colWidth + cellSize / 2,
+      }
+    }),
+    dayLabels: [
+      { key: 'mon', label: 'Mon', y: rowHeight * 1 + cellSize / 2 },
+      { key: 'wed', label: 'Wed', y: rowHeight * 3 + cellSize / 2 },
+      { key: 'fri', label: 'Fri', y: rowHeight * 5 + cellSize / 2 },
+    ],
   }
-
-  const parser = new DOMParser()
-  const parsed = parser.parseFromString(svgMarkup, 'image/svg+xml')
-  const svg = parsed.querySelector('svg')
-
-  if (!svg) {
-    return null
-  }
-
-  const shades = getContributionShades(palette, isDarkMode)
-  const cellFillValues = Array.from(svg.querySelectorAll('rect'))
-    .map((rect) => rect.getAttribute('fill'))
-    .filter((fill): fill is string => Boolean(fill) && fill !== 'none')
-
-  const uniqueCellFills = Array.from(new Set(cellFillValues)).sort(
-    (left, right) => getBrightness(left) - getBrightness(right),
-  )
-
-  const remapped = new Map<string, string>()
-
-  uniqueCellFills.forEach((fill, index) => {
-    if (index === 0) {
-      remapped.set(fill, palette.emptyCell)
-      return
-    }
-
-    const shadeIndex = Math.min(index - 1, shades.length - 1)
-    remapped.set(fill, shades[shadeIndex])
-  })
-
-  svg.setAttribute('style', `max-width: 100%; height: auto; background: transparent;`)
-  svg.setAttribute('preserveAspectRatio', 'xMidYMid meet')
-
-  parsed.querySelectorAll('rect').forEach((rect) => {
-    const fill = rect.getAttribute('fill')
-
-    if (fill && remapped.has(fill)) {
-      rect.setAttribute('fill', remapped.get(fill) ?? fill)
-    }
-  })
-
-  parsed.querySelectorAll('text').forEach((textNode) => {
-    textNode.setAttribute('fill', palette.textMuted)
-  })
-
-  parsed.querySelectorAll('line, path').forEach((node) => {
-    if (node.getAttribute('stroke')) {
-      node.setAttribute('stroke', palette.border)
-    }
-  })
-
-  return svg.outerHTML
 }
 
 const getGithubUsername = (githubUrl?: string): string | null => {
@@ -240,14 +232,38 @@ export const AboutGithubHighlights: React.FC = () => {
   const currentColor = useThemeStore((state) => state.currentColor)
   const githubUrl = contact?.social.github?.url
   const githubUsername = getGithubUsername(githubUrl)
-  const [contributionSvg, setContributionSvg] = useState<string | null>(null)
+  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear())
+  const [selectedQuote] = useState<QuoteItem>(() => {
+    const index = Math.floor(Math.random() * DEV_QUOTES.length)
+    return DEV_QUOTES[index] ?? DEV_QUOTES[0]
+  })
+  const [isGraphLoading, setIsGraphLoading] = useState(true)
+  const [graphError, setGraphError] = useState(false)
 
   if (!githubUrl || !githubUsername) {
     return null
   }
 
-  const palette = getPaletteFromTheme(isDarkMode)
-  const contributionChartUrl = `https://ghchart.rshah.org/${toParamColor(palette.skin)}/${githubUsername}`
+  const yearOptions = useMemo(() => {
+    const currentYear = new Date().getFullYear()
+
+    return Array.from({ length: currentYear - 2018 + 1 }, (_, index) => currentYear - index)
+  }, [])
+
+  const palette = getPaletteFromTheme(isDarkMode, currentColor)
+  const contributionColors = getContributionShades(palette, isDarkMode)
+  const contributionLayout = useMemo(() => buildContributionLayout(selectedYear), [selectedYear])
+  const graphCacheKey = `${selectedYear}-${currentColor}-${isDarkMode ? 'dark' : 'light'}-v3`
+  const contributionChartUrl = `https://gh-heat.anishroy.com/api/${githubUsername}/svg?v=${selectedYear}&darkMode=${String(
+    isDarkMode,
+  )}&transparent=true&showLegend=false&showDayLabels=false&showMonthLabels=false&textColor=${toParamColor(
+    isDarkMode ? '#f3f4f6' : palette.textMuted,
+  )}&fontSize=12&fontWeight=700&radius=2&borderWidth=1&cellSize=13&cellGap=3&padding=0&colors=${[
+    palette.emptyCell,
+    ...contributionColors,
+  ]
+    .map(toParamColor)
+    .join(',')}&cb=${graphCacheKey}`
   const streakStatsUrl = `https://streak-stats.demolab.com?user=${githubUsername}&hide_border=true&background=${toParamColor(
     palette.surface,
   )}&border=${toParamColor(palette.border)}&stroke=${toParamColor(
@@ -261,40 +277,11 @@ export const AboutGithubHighlights: React.FC = () => {
   )}&dates=${toParamColor(palette.textMuted)}&excludeDaysLabel=${toParamColor(
     palette.textMuted,
   )}&locale=en`
-  const randomQuoteUrl = `https://quotes-github-readme.vercel.app/api?type=horizontal&border=false&quoteColor=${toParamColor(
-    palette.text,
-  )}&authorColor=${toParamColor(palette.skin)}&backgroundColor=${toParamColor(
-    palette.quoteBackground,
-  )}&symbolColor=${toParamColor(palette.skin)}`
 
   useEffect(() => {
-    let cancelled = false
-
-    const loadContributionSvg = async () => {
-      try {
-        const nextPalette = getPaletteFromTheme(isDarkMode)
-        const response = await fetch(contributionChartUrl)
-        const svgMarkup = await response.text()
-
-        if (cancelled) {
-          return
-        }
-
-        const transformedSvg = transformContributionSvg(svgMarkup, nextPalette, isDarkMode)
-        setContributionSvg(transformedSvg)
-      } catch {
-        if (!cancelled) {
-          setContributionSvg(null)
-        }
-      }
-    }
-
-    void loadContributionSvg()
-
-    return () => {
-      cancelled = true
-    }
-  }, [contributionChartUrl, currentColor, isDarkMode])
+    setIsGraphLoading(true)
+    setGraphError(false)
+  }, [selectedYear, currentColor, isDarkMode])
 
   return (
     <>
@@ -318,30 +305,95 @@ export const AboutGithubHighlights: React.FC = () => {
       </div>
       <div className={githubStatsGrid}>
         <article className={githubStatsCard}>
-          <h4 className={githubStatsCardTitle}>{t('about.github.cards.contributions')}</h4>
-          <a
-            href={githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={githubStatsImageLink}
-          >
-            <div className={githubStatsMedia}>
-              {contributionSvg ? (
+          <div className={githubStatsCardHeader}>
+            <h4 className={githubStatsCardTitle}>{t('about.github.cards.contributions')}</h4>
+            <select
+              className={githubStatsSelect}
+              value={selectedYear}
+              onChange={(event) => setSelectedYear(Number(event.target.value))}
+              aria-label={t('about.github.yearSelector')}
+            >
+              {yearOptions.map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className={githubStatsMedia}>
+            {graphError ? (
+              <div className={githubContributionLoading}>
+                {t('about.github.loadFailed')}
+              </div>
+            ) : (
+              <div className={githubContributionPanel}>
+                {isGraphLoading ? (
+                  <div className={githubContributionLoading}>
+                    {t('about.github.loadingYear', { year: selectedYear })}
+                  </div>
+                ) : null}
                 <div
-                  className={githubStatsInlineSvg}
-                  dangerouslySetInnerHTML={{ __html: contributionSvg }}
-                />
-              ) : (
-                <img
-                  src={contributionChartUrl}
-                  alt={t('about.github.alt.contributions', { username: githubUsername })}
-                  loading="lazy"
-                  decoding="async"
-                  className={githubStatsImage}
-                />
-              )}
-            </div>
-          </a>
+                  className={githubContributionFrame}
+                  style={{ width: `${contributionLayout.contentWidth + 34}px` }}
+                >
+                  <div className={githubContributionMonths}>
+                    {contributionLayout.monthLabels.map((month) => (
+                      <span
+                        key={month.key}
+                        className={githubContributionMonthLabel}
+                        style={{ left: `${month.x}px` }}
+                      >
+                        {month.label}
+                      </span>
+                    ))}
+                  </div>
+                  <div className={githubContributionDays}>
+                    {contributionLayout.dayLabels.map((day) => (
+                      <span
+                        key={day.key}
+                        className={githubContributionDayLabel}
+                        style={{ top: `${day.y}px` }}
+                      >
+                        {day.label}
+                      </span>
+                    ))}
+                  </div>
+                  <img
+                    key={graphCacheKey}
+                    src={contributionChartUrl}
+                    alt={t('about.github.alt.contributions', { username: githubUsername })}
+                    loading="lazy"
+                    decoding="async"
+                    className={cx(
+                      githubContributionImage,
+                      isGraphLoading && githubContributionImageHidden,
+                    )}
+                    onLoad={() => {
+                      setIsGraphLoading(false)
+                      setGraphError(false)
+                    }}
+                    onError={() => {
+                      setIsGraphLoading(false)
+                      setGraphError(true)
+                    }}
+                  />
+                  <div className={githubContributionLegend}>
+                    <span>Less</span>
+                    <div className={githubContributionLegendSwatches}>
+                      {[palette.emptyCell, ...contributionColors].map((shade, index) => (
+                        <span
+                          key={`${shade}-${index}`}
+                          className={githubContributionLegendSwatch}
+                          style={{ backgroundColor: shade }}
+                        />
+                      ))}
+                    </div>
+                    <span>More</span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </article>
       </div>
       <div className={githubStatsBottomGrid}>
@@ -355,28 +407,21 @@ export const AboutGithubHighlights: React.FC = () => {
           {
             title: t('about.github.cards.quote'),
             href: githubUrl,
-            imageUrl: randomQuoteUrl,
-            alt: t('about.github.alt.quote'),
+            quote: selectedQuote,
           },
         ].map((card) => (
           <article key={card.title} className={githubStatsCard}>
             <h4 className={githubStatsCardTitle}>{card.title}</h4>
-            <a
-              href={card.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={githubStatsImageLink}
-            >
+            {'imageUrl' in card ? (
               <div className={githubStatsMedia}>
-                <img
-                  src={card.imageUrl}
-                  alt={card.alt}
-                  loading="lazy"
-                  decoding="async"
-                  className={githubStatsImage}
-                />
+                <img src={card.imageUrl} alt={card.alt} loading="lazy" decoding="async" />
               </div>
-            </a>
+            ) : (
+              <div className={githubQuoteBox}>
+                <p className={githubQuoteText}>&ldquo;{card.quote.text}&rdquo;</p>
+                <p className={githubQuoteAuthor}>- {card.quote.author}</p>
+              </div>
+            )}
           </article>
         ))}
       </div>
