@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "start": "portless zsk-portfolio vite",
-    "build": "tsc -b && vite build",
+    "sync:github": "node scripts/sync-github-contributions.mjs",
+    "build": "node scripts/sync-github-contributions.mjs && tsc -b && vite build",
     "lint": "oxlint .",
     "knip": "knip --config knip.config.ts --tsConfig tsconfig.app.json",
     "knip:exports": "knip --config knip.config.ts --tsConfig tsconfig.app.json --include exports",
