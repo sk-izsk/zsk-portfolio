@@ -7,18 +7,13 @@ const projectRoot = path.resolve(__dirname, '..')
 const outputDirectory = path.join(projectRoot, 'public', 'github-contributions')
 const usernames = ['sk-izsk']
 const startYear = 2018
+const levelToContributionCount = [0, 2, 6, 12, 20]
 
-const getRollingRangeForYear = (selectedYear) => {
-  const today = new Date()
-  const month = today.getMonth()
-  const day = today.getDate()
-  const endDate = new Date(Date.UTC(selectedYear, month + 1, 0))
-  endDate.setUTCDate(Math.min(day, endDate.getUTCDate()))
-
-  const startDate = new Date(endDate)
-  startDate.setUTCDate(endDate.getUTCDate() - 364)
-
-  return { startDate, endDate }
+const getCalendarRangeForYear = (selectedYear) => {
+  return {
+    startDate: new Date(Date.UTC(selectedYear, 0, 1)),
+    endDate: new Date(Date.UTC(selectedYear, 11, 31)),
+  }
 }
 
 const formatDate = (date) => date.toISOString().slice(0, 10)
@@ -33,27 +28,41 @@ const readExistingArchive = async (username) => {
   }
 }
 
-const fetchYearData = async (username, year) => {
-  const { startDate, endDate } = getRollingRangeForYear(year)
-  const from = formatDate(startDate)
-  const to = formatDate(endDate)
-  const response = await fetch(
-    `https://github-commit-map.yzzi.icu/api/contributions/${username}?from=${from}&to=${to}`,
-  )
+const parseGithubCalendar = (html) => {
+  const dayMatches = html.matchAll(/data-date="([^"]+)"[^>]*data-level="([^"]+)"/g)
+  const days = []
 
-  if (!response.ok) {
-    throw new Error(`GitHub contribution sync failed for ${username} ${year}: ${response.status}`)
+  for (const match of dayMatches) {
+    const date = match[1]
+    const level = Number(match[2] ?? 0)
+
+    days.push({
+      date,
+      contributionCount: levelToContributionCount[level] ?? 0,
+    })
   }
 
-  const payload = await response.json()
-  const days = Array.isArray(payload?.contributions)
-    ? payload.contributions
-        .map((item) => ({
-          date: typeof item?.date === 'string' ? item.date : '',
-          contributionCount: typeof item?.count === 'number' ? item.count : 0,
-        }))
-        .filter((item) => item.date >= from && item.date <= to)
-    : []
+  return days
+}
+
+const fetchGithubCalendarYear = async (username, year) => {
+  const response = await fetch(`https://github.com/users/${username}/contributions?to=${year}-12-31`)
+
+  if (!response.ok) {
+    throw new Error(`GitHub calendar request failed for ${username} ${year}: ${response.status}`)
+  }
+
+  const html = await response.text()
+  return parseGithubCalendar(html)
+}
+
+const fetchYearData = async (username, year) => {
+  const { startDate, endDate } = getCalendarRangeForYear(year)
+  const from = formatDate(startDate)
+  const to = formatDate(endDate)
+  const days = (await fetchGithubCalendarYear(username, year))
+    .filter((item) => item.date >= from && item.date <= to)
+    .sort((left, right) => left.date.localeCompare(right.date))
 
   return {
     startDate: from,

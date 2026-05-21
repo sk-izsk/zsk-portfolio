@@ -188,22 +188,16 @@ const getContributionShades = (palette: ThemePalette, isDarkMode: boolean) => {
   ]
 }
 
-const getRollingRangeForYear = (selectedYear: number) => {
-  const today = new Date()
-  const month = today.getMonth()
-  const day = today.getDate()
-  const endDate = new Date(Date.UTC(selectedYear, month + 1, 0))
-  endDate.setUTCDate(Math.min(day, endDate.getUTCDate()))
-
-  const startDate = new Date(endDate)
-  startDate.setUTCDate(endDate.getUTCDate() - 364)
-
-  return { startDate, endDate }
+const getCalendarRangeForYear = (selectedYear: number) => {
+  return {
+    startDate: new Date(Date.UTC(selectedYear, 0, 1)),
+    endDate: new Date(Date.UTC(selectedYear, 11, 31)),
+  }
 }
 
 const getContributionRange = (selectedYear: number, yearData?: ContributionYearData) => {
   if (!yearData) {
-    return getRollingRangeForYear(selectedYear)
+    return getCalendarRangeForYear(selectedYear)
   }
 
   return {
@@ -231,7 +225,7 @@ const buildContributionLayout = (
   const monthFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' })
   const monthLabels: Array<{ key: string; label: string; x: number }> = []
 
-  let cursor = new Date(Date.UTC(startDate.getUTCFullYear(), startDate.getUTCMonth(), 1))
+  let cursor = new Date(Date.UTC(selectedYear, 0, 1))
   while (cursor <= endDate) {
     const weekIndex = Math.floor(
       (cursor.getTime() - firstGridDate.getTime()) / (7 * 24 * 60 * 60 * 1000),
@@ -240,7 +234,7 @@ const buildContributionLayout = (
     monthLabels.push({
       key: cursor.toISOString().slice(0, 7),
       label: monthFormatter.format(cursor),
-      x: Math.max(0, weekIndex) * colWidth + cellSize / 2,
+      x: Math.max(0, weekIndex) * colWidth,
     })
 
     cursor = new Date(Date.UTC(cursor.getUTCFullYear(), cursor.getUTCMonth() + 1, 1))

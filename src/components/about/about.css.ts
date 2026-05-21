@@ -272,7 +272,6 @@ export const githubContributionMonths = style({
 export const githubContributionMonthLabel = style({
   position: 'absolute',
   top: 0,
-  transform: 'translateX(-50%)',
   fontSize: '11px',
   lineHeight: 1,
   color: vars.color.text[700],
