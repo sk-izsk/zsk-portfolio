@@ -89,6 +89,8 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
         cleanupOutdatedCaches: true,
+        // Do not serve SPA fallback for direct file navigations (e.g. /Zeeshan-Resume.pdf).
+        navigateFallbackDenylist: [/\/[^/?]+\.[^/]+$/],
         runtimeCaching: [
           {
             // Keep portfolio JSON fresh for returning users while preserving offline fallback.
