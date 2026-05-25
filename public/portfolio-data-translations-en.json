@@ -320,6 +320,17 @@
         "Explains the Context re-render trap and why selector-based stores feel better at scale",
         "Shows when scoped Zustand plus Context is the right hybrid pattern"
       ]
+    },
+    {
+      "id": 3,
+      "title": "React Query vs SWR vs the `use` Hook: Why You're Fetching Data Wrong",
+      "excerpt": "You already know how to fetch data. What you're missing is everything that happens after.",
+      "shortDescription": "A production-focused comparison of raw fetch, SWR, React 19's `use` hook, and TanStack Query, centered on caching, mutations, race conditions, and why client-side data fetching is really a state synchronization problem.",
+      "highlights": [
+        "Explains where raw fetch and Axios break down once caching, deduplication, and stale data enter the picture",
+        "Shows why the React 19 `use` hook is powerful in server components but limited as a client-side data fetching strategy",
+        "Compares SWR and TanStack Query through mutations, optimistic updates, DevTools, infinite queries, and real production tradeoffs"
+      ]
     }
   ]
 }

@@ -405,6 +405,25 @@
         "Architecture"
       ],
       "publishDate": "2026-05-10"
+    },
+    {
+      "id": 3,
+      "url": "https://izsk.hashnode.dev/react-query-vs-swr-vs-the-use-hook-why-you-re-fetching-data-wrong",
+      "blogTypes": ["frontend", "architecture", "state-management"],
+      "category": "Data Fetching",
+      "tags": [
+        "React",
+        "TypeScript",
+        "React Query",
+        "TanStack Query",
+        "SWR",
+        "React 19",
+        "use Hook",
+        "Suspense",
+        "Data Fetching",
+        "State Synchronization"
+      ],
+      "publishDate": "2026-05-25"
     }
   ],
   "experienceBase": [
