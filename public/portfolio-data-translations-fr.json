@@ -311,6 +311,17 @@
         "Explique le piège des re-renders de Context et pourquoi les stores à sélecteurs tiennent mieux à l'échelle",
         "Montre quand un Zustand scoped combiné à Context devient le bon pattern hybride"
       ]
+    },
+    {
+      "id": 3,
+      "title": "React Query vs SWR vs the `use` Hook: Why You're Fetching Data Wrong",
+      "excerpt": "Vous savez déjà récupérer des données. Ce qui manque, c'est tout ce qui se passe ensuite.",
+      "shortDescription": "Une comparaison orientée production entre fetch brut, SWR, le hook `use` de React 19 et TanStack Query, centrée sur le cache, les mutations, les race conditions et le fait que le data fetching côté client est surtout un problème de synchronisation d'état.",
+      "highlights": [
+        "Explique où fetch brut et Axios montrent leurs limites dès que le cache, la déduplication et la donnée obsolète entrent en jeu",
+        "Montre pourquoi le hook `use` de React 19 est pertinent dans les server components mais limité comme stratégie de data fetching côté client",
+        "Compare SWR et TanStack Query à travers les mutations, les mises à jour optimistes, les DevTools, les requêtes infinies et les compromis réels en production"
+      ]
     }
   ]
 }

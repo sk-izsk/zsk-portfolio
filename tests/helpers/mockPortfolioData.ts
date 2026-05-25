@@ -124,5 +124,34 @@ export const mockPortfolioData: PortfolioData = {
       tags: ['React', 'TypeScript', 'Zustand', 'Redux Toolkit', 'React Context', 'State Management'],
       publishDate: '2026-05-10',
     },
+    {
+      id: 3,
+      title: "React Query vs SWR vs the `use` Hook: Why You're Fetching Data Wrong",
+      url: 'https://izsk.hashnode.dev/react-query-vs-swr-vs-the-use-hook-why-you-re-fetching-data-wrong',
+      blogTypes: ['frontend', 'architecture', 'state-management'],
+      excerpt:
+        "You already know how to fetch data. What you're missing is everything that happens after.",
+      shortDescription:
+        "A production-focused comparison of raw fetch, SWR, React 19's `use` hook, and TanStack Query, centered on caching, mutations, race conditions, and why client-side data fetching is really a state synchronization problem.",
+      highlights: [
+        'Explains where raw fetch and Axios break down once caching, deduplication, and stale data enter the picture',
+        'Shows why the React 19 `use` hook is powerful in server components but limited as a client-side data fetching strategy',
+        'Compares SWR and TanStack Query through mutations, optimistic updates, DevTools, infinite queries, and real production tradeoffs',
+      ],
+      category: 'Data Fetching',
+      tags: [
+        'React',
+        'TypeScript',
+        'React Query',
+        'TanStack Query',
+        'SWR',
+        'React 19',
+        'use Hook',
+        'Suspense',
+        'Data Fetching',
+        'State Synchronization',
+      ],
+      publishDate: '2026-05-25',
+    },
   ],
 }
