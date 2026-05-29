@@ -163,7 +163,8 @@ export const githubStatsGrid = style({
 
 export const githubStatsBottomGrid = style({
   display: 'grid',
-  gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+  gridTemplateColumns: 'minmax(320px, 580px)',
+  justifyContent: 'start',
   gap: '24px',
   '@media': {
     '(max-width: 991px)': {

@@ -7,7 +7,6 @@ import { useTranslation } from '@localization/localize'
 import { useContactInfo } from '@stores/portfolioStore'
 import { useThemeStore } from '@stores/themeStore'
 import {
-  DEV_QUOTES,
   buildContributionCalendarSvg,
   buildContributionLayout,
   type ContributionDay,
@@ -21,17 +20,13 @@ import React, { useMemo, useState } from 'react'
 const EMPTY_CONTRIBUTION_DAYS: ContributionDay[] = []
 
 export const AboutGithubHighlights: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const contact = useContactInfo()
   const isDarkMode = useThemeStore((state) => state.isDarkMode)
   const currentColor = useThemeStore((state) => state.currentColor)
   const githubUrl = contact?.social.github?.url
   const githubUsername = getGithubUsername(githubUrl)
   const [selectedYear, setSelectedYear] = useState(String(new Date().getFullYear()))
-  const [selectedQuote] = useState(() => {
-    const index = Math.floor(Math.random() * DEV_QUOTES.length)
-    return DEV_QUOTES[index] ?? DEV_QUOTES[0]
-  })
 
   const { isGraphLoading, graphError, isMobileGraph, selectedYearData, yearOptions } =
     useGithubContributionData(githubUsername, selectedYear)
@@ -67,6 +62,7 @@ export const AboutGithubHighlights: React.FC = () => {
       selectedYearData,
     ],
   )
+  const streakLocale = i18n.resolvedLanguage === 'fr' ? 'fr' : 'en'
   const streakStatsUrl = `https://streak-stats.demolab.com?user=${githubUsername}&hide_border=true&background=${toParamColor(
     palette.surface,
   )}&border=${toParamColor(palette.border)}&stroke=${toParamColor(
@@ -79,7 +75,7 @@ export const AboutGithubHighlights: React.FC = () => {
     palette.text,
   )}&dates=${toParamColor(palette.textMuted)}&excludeDaysLabel=${toParamColor(
     palette.textMuted,
-  )}&locale=en`
+  )}&locale=${streakLocale}`
 
   return (
     <>
@@ -118,8 +114,6 @@ export const AboutGithubHighlights: React.FC = () => {
         streakTitle={t('about.github.cards.streak')}
         streakAlt={t('about.github.alt.streak', { username: githubUsername })}
         streakStatsUrl={streakStatsUrl}
-        quoteTitle={t('about.github.cards.quote')}
-        quote={selectedQuote}
       />
     </>
   )

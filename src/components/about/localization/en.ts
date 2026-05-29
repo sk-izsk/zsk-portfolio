@@ -9,10 +9,10 @@ export const aboutEn = {
     hireMe: 'Hire Me',
   },
   github: {
-    eyebrow: 'GitHub Snapshot',
-    title: 'Code activity and dev signals',
+    eyebrow: 'GitHub Activity',
+    title: 'Code activity and contribution history',
     description:
-      'A live view of contributions, streak history, and one rotating dev quote pulled from the public GitHub widgets.',
+      'A live view of contribution history and streak activity pulled from the public GitHub widgets.',
     profileLink: 'View Profile',
     yearSelector: 'Select contribution year',
     loadingYear: 'Loading {{year}} contributions...',
@@ -20,12 +20,10 @@ export const aboutEn = {
     cards: {
       contributions: 'Contribution Graph',
       streak: 'Streak Snapshot',
-      quote: 'Random Dev Quote',
     },
     alt: {
       contributions: '{{username}} GitHub contribution chart',
       streak: '{{username}} GitHub streak stats',
-      quote: 'Random developer quote card',
     },
   },
   info: {

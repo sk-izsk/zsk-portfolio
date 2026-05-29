@@ -144,6 +144,11 @@
       "id": 9,
       "title": "Support Technique",
       "description": "Fourniture d'un support technique expert et resolution de problemes pour applications et systemes logiciels. Experience dans le diagnostic de problemes complexes, la gestion des flux de tickets et la liaison technique entre clients et equipes de developpement pour des resolutions rapides et fiables."
+    },
+    {
+      "id": 10,
+      "title": "Redaction de blogs techniques",
+      "description": "Redaction d'articles techniques qui transforment les details d'implementation en contenus clairs et utiles. Adapte aux blogs d'ingenierie, explications produit, notes de migration, analyses d'architecture et documentation orientee developpeurs avec vrai contexte de code."
     }
   ],
   "projects": [
@@ -292,7 +297,7 @@
   "blog": [
     {
       "id": 1,
-      "title": "I Ditched Axios for Ky And My Dependabot Finally Stopped Screaming",
+      "title": "J'ai remplace Axios par Ky et Dependabot a enfin arrete de hurler",
       "excerpt": "Un retour personnel sur Fetch, Axios, et pourquoi Ky est devenu discrètement mon client HTTP par défaut dans React.",
       "shortDescription": "Une comparaison concrète de Fetch, Axios et Ky à travers le poids bundle, les retries, les timeouts, l'ergonomie TypeScript et le coût sécurité des dépendances inutiles.",
       "highlights": [
@@ -303,7 +308,7 @@
     },
     {
       "id": 2,
-      "title": "Context vs Redux Toolkit vs Zustand: Picking the Right State Tool for the Job",
+      "title": "Context vs Redux Toolkit vs Zustand : choisir le bon outil de state pour le bon besoin",
       "excerpt": "Vous n'avez pas besoin du state manager le plus puissant. Vous avez besoin du bon outil.",
       "shortDescription": "Une comparaison orientée production entre React Context, Redux Toolkit et Zustand, centrée sur les re-renders, le boilerplate, l'échelle d'équipe et les compromis qui comptent encore plusieurs mois après le lancement.",
       "highlights": [
@@ -314,7 +319,7 @@
     },
     {
       "id": 3,
-      "title": "React Query vs SWR vs the `use` Hook: Why You're Fetching Data Wrong",
+      "title": "React Query vs SWR vs le hook `use` : pourquoi votre data fetching part dans la mauvaise direction",
       "excerpt": "Vous savez déjà récupérer des données. Ce qui manque, c'est tout ce qui se passe ensuite.",
       "shortDescription": "Une comparaison orientée production entre fetch brut, SWR, le hook `use` de React 19 et TanStack Query, centrée sur le cache, les mutations, les race conditions et le fait que le data fetching côté client est surtout un problème de synchronisation d'état.",
       "highlights": [

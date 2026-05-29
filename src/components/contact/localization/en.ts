@@ -11,6 +11,7 @@ export const contactEn = {
     email: 'Email',
     website: 'Website',
     github: 'GitHub',
+    blog: 'Technical Blog',
     linkedin: 'LinkedIn',
     twitter: 'Twitter',
     instagram: 'Instagram',

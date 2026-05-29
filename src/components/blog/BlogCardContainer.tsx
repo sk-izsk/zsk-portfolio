@@ -12,10 +12,18 @@ interface BlogCardContainerProps {
 
 export const BlogCardContainer: React.FC<BlogCardContainerProps> = ({ post, onReadMoreClick }) => {
   const { t } = useTranslation()
+  const localizedCategory =
+    post.category === 'Frontend Architecture'
+      ? t('blog.categories.frontendArchitecture')
+      : post.category === 'State Management'
+        ? t('blog.categories.stateManagement')
+        : post.category === 'Data Fetching'
+          ? t('blog.categories.dataFetching')
+          : post.category
 
   return (
     <ProjectCard key={post.id} className={compactBlogCard}>
-      <ProjectCard.TimeLink category={post.category} publishDate={post.publishDate} />
+      <ProjectCard.TimeLink category={localizedCategory} publishDate={post.publishDate} />
       <ProjectCard.Title href={post.articleHref} isExternal={true}>
         {post.title}
       </ProjectCard.Title>

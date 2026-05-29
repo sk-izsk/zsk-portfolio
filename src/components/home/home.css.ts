@@ -1,5 +1,11 @@
-import { globalStyle, style } from '@vanilla-extract/css'
+import { globalStyle, keyframes, style } from '@vanilla-extract/css'
 import { vars } from '@styles/theme.css'
+
+const quoteDrift = keyframes({
+  '0%': { transform: 'translateY(0px)' },
+  '50%': { transform: 'translateY(-3px)' },
+  '100%': { transform: 'translateY(0px)' },
+})
 
 export const home = style({
   minHeight: '100vh',
@@ -10,17 +16,51 @@ export const home = style({
 export const homeInfo = style({
   flex: '0 0 60%',
   maxWidth: '60%',
+  display: 'flex',
+  flexDirection: 'column',
+  minHeight: '620px',
   '@media': {
     '(max-width: 991px)': {
       flex: '0 0 100%',
       maxWidth: '100%',
+      minHeight: 'auto',
       marginBottom: '30px',
     },
   },
 })
 
+export const homeIntroBlock = style({
+  marginTop: 'auto',
+  paddingTop: '96px',
+  '@media': {
+    '(max-width: 991px)': {
+      marginTop: 0,
+      paddingTop: 0,
+    },
+  },
+})
+
+export const homeQuoteShelf = style({
+  marginTop: 'auto',
+  paddingTop: '88px',
+  width: 'min(980px, calc(100% - 56px))',
+  '@media': {
+    '(max-width: 991px)': {
+      paddingTop: '32px',
+      width: '100%',
+    },
+  },
+})
+
 export const homeRow = style({
-  alignItems: 'flex-start',
+  alignItems: 'center',
+  minHeight: 'calc(100vh - 140px)',
+  '@media': {
+    '(max-width: 991px)': {
+      alignItems: 'flex-start',
+      minHeight: 'auto',
+    },
+  },
 })
 
 export const hello = style({
@@ -48,6 +88,69 @@ export const homeInfoP = style({
   fontSize: '20px',
   marginBottom: '70px',
   color: vars.color.text[700],
+})
+
+export const homeQuoteBottom = style({
+  width: '100%',
+  minHeight: '160px',
+  display: 'flex',
+  alignItems: 'flex-start',
+  animation: `${quoteDrift} 9s ease-in-out infinite`,
+  '@media': {
+    '(max-width: 991px)': {
+      width: '100%',
+      minHeight: 'auto',
+    },
+  },
+})
+
+export const homeQuoteBottomBody = style({
+  display: 'grid',
+  gap: '10px',
+  width: 'min(100%, 860px)',
+  paddingLeft: '18px',
+  paddingRight: '12px',
+  borderLeft: `3px solid ${vars.color.skin}`,
+  gridTemplateColumns: 'minmax(0, 1fr)',
+  '@media': {
+    '(max-width: 767px)': {
+      paddingLeft: '14px',
+      paddingRight: 0,
+      width: '100%',
+    },
+  },
+})
+
+export const homeQuoteText = style({
+  margin: 0,
+  fontSize: '20px',
+  lineHeight: 1.55,
+  color: vars.color.text[900],
+  maxWidth: '52ch',
+  '@media': {
+    '(max-width: 767px)': {
+      fontSize: '17px',
+      maxWidth: '100%',
+    },
+  },
+})
+
+export const homeQuoteHighlight = style({
+  color: vars.color.skin,
+  fontWeight: 700,
+  background: `${vars.color.skin}1a`,
+  boxShadow: `0 0 0 3px ${vars.color.skin}1a`,
+})
+
+export const homeQuoteAuthor = style({
+  fontSize: '14px',
+  lineHeight: 1.5,
+  color: vars.color.text[700],
+})
+
+export const homeQuoteAuthorHighlight = style({
+  color: vars.color.skin,
+  fontWeight: 700,
 })
 
 export const homeImg = style({

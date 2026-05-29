@@ -1,8 +1,9 @@
 import React from 'react'
-import { home, homeInfo, homeRow } from '@components/home/home.css'
+import { home, homeInfo, homeIntroBlock, homeQuoteShelf, homeRow } from '@components/home/home.css'
 import { HomeDetailBio } from '@components/home/HomeDetailBio'
 import { HomeDownloadCv } from '@components/home/HomeDownloadCv'
 import { HomeImageContainer } from '@components/home/HomeImageContainer'
+import { HomeQuotePlacements } from '@components/home/HomeQuotePlacements'
 import { HomeTitleAnimated } from '@components/home/HomeTitleAnimated'
 import { Screen } from '@components/Screen'
 import { useAnalytics } from '@hooks/useAnalytics'
@@ -28,9 +29,14 @@ const HomeScreen: React.FC = () => {
     >
       <div className={cx('row', homeRow)}>
         <div className={cx(homeInfo, 'padd-15')}>
-          <HomeTitleAnimated />
-          <HomeDetailBio />
-          <HomeDownloadCv />
+          <div className={homeIntroBlock}>
+            <HomeTitleAnimated />
+            <HomeDetailBio />
+            <HomeDownloadCv />
+          </div>
+          <div className={homeQuoteShelf}>
+            <HomeQuotePlacements />
+          </div>
         </div>
         <HomeImageContainer />
       </div>
