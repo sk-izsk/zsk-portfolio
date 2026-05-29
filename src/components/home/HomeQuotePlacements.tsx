@@ -1,63 +1,39 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useState } from 'react'
 import {
   homeQuoteAuthor,
   homeQuoteAuthorHighlight,
   homeQuoteBottom,
   homeQuoteBottomBody,
-  homeQuoteHighlight,
+  homeQuoteMark,
   homeQuoteText,
 } from '@components/home/home.css'
+import { useRandomDeveloperQuote } from '@hooks/useRandomDeveloperQuote'
 import { DEV_QUOTES } from '@utils/githubHighlights'
 
-const ROTATE_INTERVAL_MS = 5600
-
-const HIGHLIGHT_BY_TEXT: Record<string, string> = {
-  'Simplicity is prerequisite for reliability.': 'Simplicity',
-  'Programs must be written for people to read, and only incidentally for machines to execute.':
-    'for people to read',
-  'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.':
-    'humans can understand',
-  'The most disastrous thing that you can ever learn is your first programming language.':
-    'first programming language',
-  'First, solve the problem. Then, write the code.': 'solve the problem',
-}
-
-const renderHighlightedQuote = (text: string) => {
-  const highlight = HIGHLIGHT_BY_TEXT[text]
-
-  if (!highlight || !text.includes(highlight)) {
-    return text
-  }
-
-  const [before, after] = text.split(highlight)
-
-  return (
-    <>
-      {before}
-      <span className={homeQuoteHighlight}>{highlight}</span>
-      {after}
-    </>
-  )
-}
+const getRandomFallbackQuote = () => DEV_QUOTES[Math.floor(Math.random() * DEV_QUOTES.length)] ?? DEV_QUOTES[0]
 
 export const HomeQuotePlacements: React.FC = () => {
-  const [quoteIndex, setQuoteIndex] = useState(2 % DEV_QUOTES.length)
+  const [fallbackQuote] = useState(getRandomFallbackQuote)
+  const quoteQuery = useRandomDeveloperQuote()
 
-  useEffect(() => {
-    const interval = window.setInterval(() => {
-      setQuoteIndex((current) => (current + 1) % DEV_QUOTES.length)
-    }, ROTATE_INTERVAL_MS)
+  if (!quoteQuery.data && !quoteQuery.isError) {
+    return null
+  }
 
-    return () => window.clearInterval(interval)
-  }, [])
-
-  const quote = DEV_QUOTES[quoteIndex] ?? DEV_QUOTES[0]
-  const renderedQuote = useMemo(() => renderHighlightedQuote(quote.text), [quote.text])
+  const quote = quoteQuery.data ?? fallbackQuote
 
   return (
     <div className={homeQuoteBottom}>
       <div className={homeQuoteBottomBody}>
-        <p className={homeQuoteText}>&ldquo;{renderedQuote}&rdquo;</p>
+        <p className={homeQuoteText}>
+          <span className={homeQuoteMark} aria-hidden="true">
+            &ldquo;
+          </span>{' '}
+          {quote.text}{' '}
+          <span className={homeQuoteMark} aria-hidden="true">
+            &rdquo;
+          </span>
+        </p>
         <div className={homeQuoteAuthor}>
           <span className={homeQuoteAuthorHighlight}>- {quote.author}</span>
         </div>

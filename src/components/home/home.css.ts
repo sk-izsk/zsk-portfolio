@@ -106,10 +106,12 @@ export const homeQuoteBottom = style({
 
 export const homeQuoteBottomBody = style({
   display: 'grid',
-  gap: '10px',
+  gap: '12px',
   width: 'min(100%, 860px)',
   paddingLeft: '18px',
-  paddingRight: '12px',
+  paddingRight: '18px',
+  paddingTop: '6px',
+  paddingBottom: '4px',
   borderLeft: `3px solid ${vars.color.skin}`,
   gridTemplateColumns: 'minmax(0, 1fr)',
   '@media': {
@@ -127,6 +129,8 @@ export const homeQuoteText = style({
   lineHeight: 1.55,
   color: vars.color.text[900],
   maxWidth: '52ch',
+  fontStyle: 'italic',
+  letterSpacing: '0.01em',
   '@media': {
     '(max-width: 767px)': {
       fontSize: '17px',
@@ -135,22 +139,28 @@ export const homeQuoteText = style({
   },
 })
 
-export const homeQuoteHighlight = style({
+export const homeQuoteMark = style({
   color: vars.color.skin,
+  fontSize: '1.8em',
+  lineHeight: 0,
+  fontStyle: 'normal',
   fontWeight: 700,
-  background: `${vars.color.skin}1a`,
-  boxShadow: `0 0 0 3px ${vars.color.skin}1a`,
+  opacity: 0.95,
+  verticalAlign: '-0.18em',
 })
 
 export const homeQuoteAuthor = style({
   fontSize: '14px',
   lineHeight: 1.5,
   color: vars.color.text[700],
+  letterSpacing: '0.08em',
+  textTransform: 'uppercase',
 })
 
 export const homeQuoteAuthorHighlight = style({
   color: vars.color.skin,
   fontWeight: 700,
+  fontStyle: 'normal',
 })
 
 export const homeImg = style({
