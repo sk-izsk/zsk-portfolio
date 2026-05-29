@@ -9,10 +9,10 @@ export const aboutFr = {
     hireMe: 'Embauchez-moi',
   },
   github: {
-    eyebrow: 'Apercu GitHub',
-    title: 'Activite code et signaux dev',
+    eyebrow: 'Activite GitHub',
+    title: 'Activite de code et historique de contributions',
     description:
-      "Une vue en direct des contributions, de l'historique des streaks et d'une citation dev rotative provenant des widgets publics GitHub.",
+      "Une vue en direct de l'historique des contributions et de l'activite de streak provenant des widgets publics GitHub.",
     profileLink: 'Voir le profil',
     yearSelector: "Selectionner l'annee de contribution",
     loadingYear: 'Chargement des contributions de {{year}}...',
@@ -20,12 +20,10 @@ export const aboutFr = {
     cards: {
       contributions: 'Graphe des contributions',
       streak: 'Apercu du streak',
-      quote: 'Citation dev aleatoire',
     },
     alt: {
       contributions: 'Graphique des contributions GitHub de {{username}}',
       streak: 'Statistiques de streak GitHub de {{username}}',
-      quote: 'Carte de citation de developpeur aleatoire',
     },
   },
   info: {

@@ -16,6 +16,11 @@ export const blogFr = {
       'state-management': 'Gestion d état',
     },
   },
+  categories: {
+    frontendArchitecture: 'Architecture frontend',
+    stateManagement: 'Gestion d etat',
+    dataFetching: 'Recuperation de donnees',
+  },
   tagFilter: {
     label: 'Filtrer les articles par tag',
     placeholder: 'Rechercher des tags',

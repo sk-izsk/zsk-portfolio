@@ -16,6 +16,11 @@ export const blogEn = {
       'state-management': 'State Management',
     },
   },
+  categories: {
+    frontendArchitecture: 'Frontend Architecture',
+    stateManagement: 'State Management',
+    dataFetching: 'Data Fetching',
+  },
   tagFilter: {
     label: 'Filter blog posts by tag',
     placeholder: 'Search tags',
