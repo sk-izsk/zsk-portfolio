@@ -1,4 +1,4 @@
-import { portfolioApi, queryKeys } from '@services/api'
+import { portfolioApi, queryKeys, quoteApi } from '@services/api'
 import { mockPortfolioData } from '@tests/helpers/mockPortfolioData'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
@@ -156,5 +156,45 @@ describe('queryKeys', () => {
   it('returns a stable key tuple for the given language', () => {
     expect(queryKeys.portfolioData('en')).toEqual(['portfolio-data', 'en'])
     expect(queryKeys.portfolioData('fr')).toEqual(['portfolio-data', 'fr'])
+  })
+
+  it('returns a stable key for the live random developer quote', () => {
+    expect(queryKeys.developerQuotes()).toEqual(['developer-quotes'])
+  })
+})
+
+describe('quoteApi', () => {
+  beforeEach(() => vi.clearAllMocks())
+
+  it('requests the developer quote catalog and normalizes the payload', async () => {
+    const ky = (await import('ky')).default
+    vi.mocked(ky.get).mockReturnValueOnce({
+      json: vi.fn().mockResolvedValue([
+        {
+          author: 'Linus Torvalds',
+          text: 'Talk is cheap. Show me the code. ',
+        },
+        {
+          author: '  ',
+          text: '  ',
+        },
+      ]),
+    } as never)
+
+    const result = await quoteApi()
+
+    expect(ky.get).toHaveBeenCalledWith(
+      'https://raw.githubusercontent.com/mudroljub/programming-quotes-api/master/data/quotes.json',
+      expect.objectContaining({
+        cache: 'no-store',
+        timeout: 4000,
+      }),
+    )
+    expect(result).toEqual([
+      {
+        text: 'Talk is cheap. Show me the code.',
+        author: 'Linus Torvalds',
+      },
+    ])
   })
 })

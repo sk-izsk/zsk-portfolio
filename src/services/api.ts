@@ -1,5 +1,6 @@
 import type { PortfolioData } from '@app-types/portfolio'
 import type { AppLanguage } from '@localization/index'
+import type { QuoteItem } from '@utils/githubHighlights'
 import ky from 'ky'
 
 declare const __APP_VERSION__: string
@@ -84,6 +85,12 @@ interface PortfolioTranslations {
     shortDescription: string
     highlights: string[]
   }>
+}
+
+interface RandomProgrammingQuoteResponse {
+  _id?: { $oid?: string }
+  author: string
+  text: string
 }
 
 const mergePortfolioData = (
@@ -195,6 +202,26 @@ export const portfolioApi = {
   },
 }
 
+export const quoteApi = async (): Promise<QuoteItem[]> => {
+  const response = await ky
+    .get(
+      'https://raw.githubusercontent.com/mudroljub/programming-quotes-api/master/data/quotes.json',
+      {
+        cache: 'no-store',
+        timeout: 4000,
+      },
+    )
+    .json<RandomProgrammingQuoteResponse[]>()
+
+  return response
+    .map((item) => ({
+      text: item.text?.trim(),
+      author: item.author?.trim(),
+    }))
+    .filter((item): item is QuoteItem => Boolean(item.text && item.author))
+}
+
 export const queryKeys = {
   portfolioData: (language: AppLanguage) => ['portfolio-data', language] as const,
+  developerQuotes: () => ['developer-quotes'] as const,
 }
