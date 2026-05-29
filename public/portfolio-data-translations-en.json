@@ -153,6 +153,11 @@
       "id": 9,
       "title": "Technical Support",
       "description": "Providing expert technical support and troubleshooting for software applications and systems. Experienced in diagnosing complex issues, managing support ticket workflows, and acting as a technical liaison between clients and development teams to ensure fast and reliable resolution."
+    },
+    {
+      "id": 10,
+      "title": "Technical Blog Writing",
+      "description": "Writing technical blog posts that turn implementation details into clear, practical articles. Best suited for engineering blogs, product explainers, migration notes, architecture breakdowns, and developer-facing documentation with real code context."
     }
   ],
   "projects": [

@@ -10,6 +10,7 @@ import {
   ClipboardList,
   Code,
   Cuboid,
+  FileText,
   Headphones,
   Laptop,
   MessageCircle,
@@ -29,6 +30,7 @@ const serviceIconById: Record<number, LucideIcon> = {
   7: Briefcase,
   8: ClipboardList,
   9: Headphones,
+  10: FileText,
 }
 
 const toServiceIcon = (serviceId: number): LucideIcon => {

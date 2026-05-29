@@ -144,6 +144,11 @@
       "id": 9,
       "title": "Support Technique",
       "description": "Fourniture d'un support technique expert et resolution de problemes pour applications et systemes logiciels. Experience dans le diagnostic de problemes complexes, la gestion des flux de tickets et la liaison technique entre clients et equipes de developpement pour des resolutions rapides et fiables."
+    },
+    {
+      "id": 10,
+      "title": "Redaction de blogs techniques",
+      "description": "Redaction d'articles techniques qui transforment les details d'implementation en contenus clairs et utiles. Adapte aux blogs d'ingenierie, explications produit, notes de migration, analyses d'architecture et documentation orientee developpeurs avec vrai contexte de code."
     }
   ],
   "projects": [

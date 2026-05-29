@@ -2,6 +2,7 @@ import type { LucideIcon } from 'lucide-react'
 import {
   Briefcase,
   Camera,
+  FileText,
   GitBranch,
   Globe,
   Mail,
@@ -61,6 +62,12 @@ export const ContactSocialsSection: React.FC = () => {
       title: t('contact.socials.github'),
       details: contact.social.github.label,
       url: contact.social.github.url,
+    },
+    {
+      icon: FileText,
+      title: t('contact.socials.blog'),
+      details: contact.social.blog.label,
+      url: contact.social.blog.url,
     },
     {
       icon: Briefcase,
