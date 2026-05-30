@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   homeQuoteAuthor,
   homeQuoteAuthorHighlight,
@@ -8,19 +8,15 @@ import {
   homeQuoteText,
 } from '@components/home/home.css'
 import { useRandomDeveloperQuote } from '@hooks/useRandomDeveloperQuote'
-import { DEV_QUOTES } from '@utils/githubHighlights'
-
-const getRandomFallbackQuote = () => DEV_QUOTES[Math.floor(Math.random() * DEV_QUOTES.length)] ?? DEV_QUOTES[0]
 
 export const HomeQuotePlacements: React.FC = () => {
-  const [fallbackQuote] = useState(getRandomFallbackQuote)
   const quoteQuery = useRandomDeveloperQuote()
 
-  if (!quoteQuery.data && !quoteQuery.isError) {
+  if (!quoteQuery.data) {
     return null
   }
 
-  const quote = quoteQuery.data ?? fallbackQuote
+  const quote = quoteQuery.data
 
   return (
     <div className={homeQuoteBottom}>

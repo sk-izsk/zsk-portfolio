@@ -202,23 +202,24 @@ export const portfolioApi = {
   },
 }
 
-export const quoteApi = async (): Promise<QuoteItem[]> => {
+export const quoteApi = async (): Promise<QuoteItem> => {
   const response = await ky
-    .get(
-      'https://raw.githubusercontent.com/mudroljub/programming-quotes-api/master/data/quotes.json',
-      {
-        cache: 'no-store',
-        timeout: 4000,
-      },
-    )
-    .json<RandomProgrammingQuoteResponse[]>()
+    .get('/api/quote', {
+      cache: 'no-store',
+      timeout: 4000,
+    })
+    .json<RandomProgrammingQuoteResponse>()
 
-  return response
-    .map((item) => ({
-      text: item.text?.trim(),
-      author: item.author?.trim(),
-    }))
-    .filter((item): item is QuoteItem => Boolean(item.text && item.author))
+  const quote = {
+    text: response.text?.trim(),
+    author: response.author?.trim(),
+  }
+
+  if (!quote.text || !quote.author) {
+    throw new Error('Quote API returned an invalid quote')
+  }
+
+  return quote
 }
 
 export const queryKeys = {

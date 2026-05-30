@@ -166,35 +166,39 @@ describe('queryKeys', () => {
 describe('quoteApi', () => {
   beforeEach(() => vi.clearAllMocks())
 
-  it('requests the developer quote catalog and normalizes the payload', async () => {
+  it('requests a single developer quote from the local API and normalizes the payload', async () => {
     const ky = (await import('ky')).default
     vi.mocked(ky.get).mockReturnValueOnce({
-      json: vi.fn().mockResolvedValue([
-        {
-          author: 'Linus Torvalds',
-          text: 'Talk is cheap. Show me the code. ',
-        },
-        {
-          author: '  ',
-          text: '  ',
-        },
-      ]),
+      json: vi.fn().mockResolvedValue({
+        author: 'Linus Torvalds',
+        text: 'Talk is cheap. Show me the code. ',
+      }),
     } as never)
 
     const result = await quoteApi()
 
     expect(ky.get).toHaveBeenCalledWith(
-      'https://raw.githubusercontent.com/mudroljub/programming-quotes-api/master/data/quotes.json',
+      '/api/quote',
       expect.objectContaining({
         cache: 'no-store',
         timeout: 4000,
       }),
     )
-    expect(result).toEqual([
-      {
-        text: 'Talk is cheap. Show me the code.',
-        author: 'Linus Torvalds',
-      },
-    ])
+    expect(result).toEqual({
+      text: 'Talk is cheap. Show me the code.',
+      author: 'Linus Torvalds',
+    })
+  })
+
+  it('throws when the local quote API returns an invalid quote', async () => {
+    const ky = (await import('ky')).default
+    vi.mocked(ky.get).mockReturnValueOnce({
+      json: vi.fn().mockResolvedValue({
+        author: '   ',
+        text: '   ',
+      }),
+    } as never)
+
+    await expect(quoteApi()).rejects.toThrow('Quote API returned an invalid quote')
   })
 })
