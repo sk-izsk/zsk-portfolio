@@ -7,7 +7,7 @@ export default async () => {
     return new Response(JSON.stringify(quotes), {
       status: 200,
       headers: {
-        'cache-control': 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400',
+        'cache-control': 'public, max-age=0, s-maxage=900, stale-while-revalidate=86400',
         'content-type': 'application/json; charset=utf-8',
       },
     })
