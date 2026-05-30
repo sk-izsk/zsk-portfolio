@@ -13,13 +13,19 @@ describe('useRandomDeveloperQuote', () => {
     vi.clearAllMocks()
   })
 
-  it('fetches one remote quote through React Query', async () => {
-    const quote: QuoteItem = {
-      text: 'Talk is cheap. Show me the code.',
-      author: 'Linus Torvalds',
-    }
+  it('fetches one quote batch and exposes the first rotated quote', async () => {
+    const quotes: QuoteItem[] = [
+      {
+        text: 'Talk is cheap. Show me the code.',
+        author: 'Linus Torvalds',
+      },
+      {
+        text: 'First, solve the problem. Then, write the code.',
+        author: 'John Johnson',
+      },
+    ]
 
-    vi.spyOn(api, 'quoteApi').mockResolvedValueOnce(quote)
+    vi.spyOn(api, 'quoteApi').mockResolvedValueOnce(quotes)
 
     const queryClient = createTestQueryClient()
     const wrapper = ({ children }: React.PropsWithChildren) =>
@@ -29,7 +35,7 @@ describe('useRandomDeveloperQuote', () => {
 
     await waitFor(() => {
       expect(api.quoteApi).toHaveBeenCalledTimes(1)
-      expect(result.current.data).toEqual(quote)
+      expect(result.current.data).toEqual(quotes[0])
     })
   })
 })

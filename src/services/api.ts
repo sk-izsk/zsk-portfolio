@@ -93,6 +93,19 @@ interface RandomProgrammingQuoteResponse {
   text: string
 }
 
+const normalizeQuote = (response: RandomProgrammingQuoteResponse) => {
+  const quote = {
+    text: response.text?.trim(),
+    author: response.author?.trim(),
+  }
+
+  if (!quote.text || !quote.author) {
+    throw new Error('Quote API returned an invalid quote')
+  }
+
+  return quote
+}
+
 const mergePortfolioData = (
   common: PortfolioCommonData,
   translations: PortfolioTranslations,
@@ -202,24 +215,19 @@ export const portfolioApi = {
   },
 }
 
-export const quoteApi = async (): Promise<QuoteItem> => {
+export const quoteApi = async (): Promise<QuoteItem[]> => {
   const response = await ky
     .get('/api/quote', {
       cache: 'no-store',
       timeout: 4000,
     })
-    .json<RandomProgrammingQuoteResponse>()
+    .json<RandomProgrammingQuoteResponse[]>()
 
-  const quote = {
-    text: response.text?.trim(),
-    author: response.author?.trim(),
+  if (!Array.isArray(response) || !response.length) {
+    throw new Error('Quote API returned an invalid quote batch')
   }
 
-  if (!quote.text || !quote.author) {
-    throw new Error('Quote API returned an invalid quote')
-  }
-
-  return quote
+  return response.map(normalizeQuote)
 }
 
 export const queryKeys = {

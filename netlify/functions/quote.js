@@ -1,10 +1,10 @@
-import { getRandomQuote } from '../../server/random-quote.js'
+import { getRandomQuoteBatch } from '../../server/random-quote.js'
 
 export default async () => {
   try {
-    const quote = await getRandomQuote()
+    const quotes = await getRandomQuoteBatch()
 
-    return new Response(JSON.stringify(quote), {
+    return new Response(JSON.stringify(quotes), {
       status: 200,
       headers: {
         'cache-control': 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400',
