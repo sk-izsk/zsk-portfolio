@@ -52,6 +52,7 @@ export const ContactSocialCard: React.FC<ContactSocialCardProps> = ({
         onClick={handleClick}
         target={openInNewTab ? '_blank' : undefined}
         rel={openInNewTab ? 'noopener noreferrer' : undefined}
+        aria-label={`${title}: ${details}`}
         className={cx(contactInfoItem, contactInfoItemLink, 'padd-15')}
       >
         {inner}

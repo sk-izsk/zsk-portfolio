@@ -3,6 +3,7 @@ import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import react, { reactCompilerPreset } from '@vitejs/plugin-react'
 import { exec } from 'node:child_process'
 import path from 'node:path'
+import { getRandomQuote } from './server/random-quote.js'
 import type { ViteDevServer } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import { defineConfig } from 'vitest/config'
@@ -45,6 +46,28 @@ const openBrowserOnStart = () => {
     },
   }
 }
+
+const quoteApiDevRoute = () => ({
+  name: 'quote-api-dev-route',
+  configureServer(server: ViteDevServer) {
+    server.middlewares.use('/api/quote', async (_request, response) => {
+      try {
+        const quote = await getRandomQuote()
+
+        response.statusCode = 200
+        response.setHeader('Cache-Control', 'no-store')
+        response.setHeader('Content-Type', 'application/json; charset=utf-8')
+        response.end(JSON.stringify(quote))
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Unknown quote API error'
+
+        response.statusCode = 502
+        response.setHeader('Content-Type', 'application/json; charset=utf-8')
+        response.end(JSON.stringify({ message }))
+      }
+    })
+  },
+})
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -111,6 +134,7 @@ export default defineConfig({
         ],
       },
     }),
+    quoteApiDevRoute(),
     openBrowserOnStart(),
   ],
   test: {

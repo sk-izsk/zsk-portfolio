@@ -1,63 +1,35 @@
 import type { QuoteItem } from '@utils/githubHighlights'
 import { useRandomDeveloperQuote } from '@hooks/useRandomDeveloperQuote'
-import { queryKeys, quoteApi } from '@services/api'
-import { useQuery } from '@tanstack/react-query'
-import { act, renderHook } from '@testing-library/react'
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-
-vi.mock('@tanstack/react-query', () => ({
-  useQuery: vi.fn(),
-}))
-
-const quoteCatalog: QuoteItem[] = [
-  {
-    text: 'Talk is cheap. Show me the code.',
-    author: 'Linus Torvalds',
-  },
-  {
-    text: 'Programs must be written for people to read.',
-    author: 'Harold Abelson',
-  },
-]
+import * as api from '@services/api'
+import { createTestQueryClient } from '@tests/helpers/AllProviders'
+import { QueryClientProvider } from '@tanstack/react-query'
+import { renderHook, waitFor } from '@testing-library/react'
+import React from 'react'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 describe('useRandomDeveloperQuote', () => {
-  beforeEach(() => {
-    vi.useFakeTimers()
-  })
-
   afterEach(() => {
-    vi.useRealTimers()
     vi.restoreAllMocks()
     vi.clearAllMocks()
   })
 
-  it('configures React Query for the quote catalog and rotates quotes locally', () => {
-    vi.spyOn(Math, 'random')
-      .mockReturnValueOnce(0)
-      .mockReturnValueOnce(0)
+  it('fetches one remote quote through React Query', async () => {
+    const quote: QuoteItem = {
+      text: 'Talk is cheap. Show me the code.',
+      author: 'Linus Torvalds',
+    }
 
-    vi.mocked(useQuery).mockReturnValue({
-      data: quoteCatalog,
-      isLoading: false,
-      error: null,
-    } as never)
+    vi.spyOn(api, 'quoteApi').mockResolvedValueOnce(quote)
 
-    const { result } = renderHook(() => useRandomDeveloperQuote())
+    const queryClient = createTestQueryClient()
+    const wrapper = ({ children }: React.PropsWithChildren) =>
+      React.createElement(QueryClientProvider, { client: queryClient }, children)
 
-    expect(useQuery).toHaveBeenCalledWith({
-      queryKey: queryKeys.developerQuotes(),
-      queryFn: quoteApi,
-      staleTime: 1000 * 60 * 60,
-      gcTime: 1000 * 60 * 10,
-      retry: 1,
-      refetchOnWindowFocus: false,
+    const { result } = renderHook(() => useRandomDeveloperQuote(), { wrapper })
+
+    await waitFor(() => {
+      expect(api.quoteApi).toHaveBeenCalledTimes(1)
+      expect(result.current.data).toEqual(quote)
     })
-    expect(result.current.data).toEqual(quoteCatalog[0])
-
-    act(() => {
-      vi.advanceTimersByTime(10000)
-    })
-
-    expect(result.current.data).toEqual(quoteCatalog[1])
   })
 })

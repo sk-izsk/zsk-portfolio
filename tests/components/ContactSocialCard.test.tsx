@@ -32,6 +32,19 @@ describe('ContactSocialCard', () => {
     expect(screen.getByRole('link')).toHaveAttribute('href', 'mailto:john@example.com')
   })
 
+  it('adds an accessible label to linked contact items', () => {
+    render(
+      <ContactSocialCard
+        icon={Mail}
+        title="Email"
+        details="john@example.com"
+        url="mailto:john@example.com"
+      />,
+    )
+
+    expect(screen.getByRole('link')).toHaveAttribute('aria-label', 'Email: john@example.com')
+  })
+
   it('opens external URLs in a new tab', () => {
     render(
       <ContactSocialCard

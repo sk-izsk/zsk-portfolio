@@ -186,7 +186,7 @@ globalStyle('.section-title h2::before', {
   background: vars.color.skin,
   position: 'absolute',
   left: 0,
-  top: '100%',
+  top: 'calc(100% + 10px)',
 })
 
 globalStyle('.section-title h2::after', {
@@ -196,8 +196,7 @@ globalStyle('.section-title h2::after', {
   background: vars.color.skin,
   position: 'absolute',
   left: 0,
-  top: '100%',
-  marginTop: '8px',
+  top: 'calc(100% + 22px)',
 })
 
 globalStyle('.row', {

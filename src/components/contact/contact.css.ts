@@ -26,8 +26,9 @@ export const contactInfoItem = style({
       maxWidth: '50%',
     },
     '(max-width: 767px)': {
-      flex: '0 0 100%',
-      maxWidth: '100%',
+      flex: '0 0 50%',
+      maxWidth: '50%',
+      marginBottom: '40px',
     },
   },
 })
@@ -69,6 +70,11 @@ export const contactInfoItemPLink = style({
   lineHeight: '25px',
   color: vars.color.skin,
   fontWeight: 400,
+  '@media': {
+    '(max-width: 767px)': {
+      display: 'none',
+    },
+  },
 })
 
 export const contactForm = style({
