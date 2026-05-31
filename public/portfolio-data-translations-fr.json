@@ -327,6 +327,17 @@
         "Montre pourquoi le hook `use` de React 19 est pertinent dans les server components mais limité comme stratégie de data fetching côté client",
         "Compare SWR et TanStack Query à travers les mutations, les mises à jour optimistes, les DevTools, les requêtes infinies et les compromis réels en production"
       ]
+    },
+    {
+      "id": 4,
+      "title": "Vous utilisez probablement mal la memoization React (moi aussi, avant)",
+      "excerpt": "La memoization est un outil de performance, pas un reflexe de code. La plupart du temps, la version la plus simple est la meilleure.",
+      "shortDescription": "Un guide pratique sur `useMemo`, `useCallback` et `React.memo`, centré sur les cas ou ils résolvent un vrai probleme de performance, ceux ou ils ajoutent seulement du bruit, et la maniere dont React 19 change les compromis.",
+      "highlights": [
+        "Explique quand `useMemo`, `useCallback` et `React.memo` evitent vraiment du travail utile",
+        "Detaille les pieges d'egalite de reference qui rendent la memoization manuelle inefficace",
+        "Montre comment React 19, `useDeferredValue` et `useTransition` deplacent la discussion performance au-dela de la memoization systematique"
+      ]
     }
   ]
 }

@@ -428,6 +428,25 @@
         "State Synchronization"
       ],
       "publishDate": "2026-05-25"
+    },
+    {
+      "id": 4,
+      "url": "https://izsk.hashnode.dev/you-re-probably-using-react-memoization-wrong-and-so-was-i",
+      "blogTypes": ["frontend", "architecture"],
+      "category": "Frontend Architecture",
+      "tags": [
+        "React",
+        "React 19",
+        "useMemo",
+        "useCallback",
+        "React.memo",
+        "Memoization",
+        "Performance",
+        "Profiler",
+        "useDeferredValue",
+        "useTransition"
+      ],
+      "publishDate": "2026-05-31"
     }
   ],
   "experienceBase": [

@@ -153,5 +153,34 @@ export const mockPortfolioData: PortfolioData = {
       ],
       publishDate: '2026-05-25',
     },
+    {
+      id: 4,
+      title: "You're Probably Using React Memoization Wrong (And So Was I)",
+      url: 'https://izsk.hashnode.dev/you-re-probably-using-react-memoization-wrong-and-so-was-i',
+      blogTypes: ['frontend', 'architecture'],
+      excerpt:
+        'Memoization is a performance tool, not a coding habit. Most of the time, the simpler version is the better version.',
+      shortDescription:
+        'A practical guide to `useMemo`, `useCallback`, and `React.memo`, focused on when they solve real performance problems, when they add noise, and how React 19 changes the tradeoffs.',
+      highlights: [
+        'Explains when `useMemo`, `useCallback`, and `React.memo` actually save meaningful work',
+        'Breaks down the reference equality traps that make manual memoization ineffective',
+        'Shows how React 19, `useDeferredValue`, and `useTransition` shift the performance conversation beyond blanket memoization',
+      ],
+      category: 'Frontend Architecture',
+      tags: [
+        'React',
+        'React 19',
+        'useMemo',
+        'useCallback',
+        'React.memo',
+        'Memoization',
+        'Performance',
+        'Profiler',
+        'useDeferredValue',
+        'useTransition',
+      ],
+      publishDate: '2026-05-31',
+    },
   ],
 }
