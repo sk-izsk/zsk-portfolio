@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 
-const SITE_URL = 'https://izsk.netlify.app'
+const SITE_URL = 'https://izsk.dev'
 const SITE_NAME = 'Shaikh Zeeshan Murshed | Portfolio'
 const DEFAULT_DESCRIPTION =
   'Full Stack Developer portfolio of Shaikh Zeeshan Murshed – React, TypeScript, and Node.js expert.'

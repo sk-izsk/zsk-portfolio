@@ -6,7 +6,7 @@
       "country": "Canada"
     },
     "avatar": {
-      "primary": "https://izsk.netlify.app/.netlify/images?url=/images/zeeshan.jpg&w=800&q=80",
+      "primary": "https://izsk.dev/images/zeeshan.jpg",
       "alt": "Shaikh Zeeshan Murshed"
     },
     "languages": ["English", "Bengali", "Hindi"],
@@ -18,8 +18,8 @@
     "phone": "NA",
     "social": {
       "website": {
-        "label": "izsk.netlify.app",
-        "url": "https://izsk.netlify.app"
+        "label": "izsk.dev",
+        "url": "https://izsk.dev"
       },
       "github": {
         "label": "sk-izsk",
@@ -55,9 +55,9 @@
       { "name": "React Native", "level": 85, "category": "frontend" },
       { "name": "Redux", "level": 75, "category": "frontend" },
       { "name": "Vue.js", "level": 75, "category": "frontend" },
-      { "name": "Node.js", "level": 70, "category": "backend" },
-      { "name": "Express", "level": 70, "category": "backend" },
-      { "name": "MongoDB", "level": 70, "category": "backend" },
+      { "name": "Node.js", "level": 75, "category": "backend" },
+      { "name": "Express", "level": 75, "category": "backend" },
+      { "name": "MongoDB", "level": 75, "category": "backend" },
       { "name": "Next.js", "level": 80, "category": "frontend" },
       { "name": "GraphQL", "level": 60, "category": "backend" },
       { "name": "Jest", "level": 60, "category": "testing" },
@@ -66,13 +66,19 @@
       { "name": "NPM", "level": 60, "category": "tools" },
       { "name": "Tanstack Query", "level": 80, "category": "frontend" },
       { "name": "Zustand", "level": 80, "category": "frontend" },
-      { "name": "Tailwind CSS", "level": 60, "category": "frontend" },
+      { "name": "Tailwind CSS", "level": 70, "category": "frontend" },
       { "name": "PostgreSQL", "level": 60, "category": "backend" },
       { "name": "MikroORM", "level": 50, "category": "backend" },
       { "name": "DrizzleORM", "level": 50, "category": "backend" },
       { "name": "Vite", "level": 75, "category": "tools" },
       { "name": "Vitest", "level": 65, "category": "testing" },
-      { "name": "Multer", "level": 65, "category": "backend" }
+      { "name": "Multer", "level": 65, "category": "backend" },
+      { "name": "Expo", "level": 80, "category": "frontend" },
+      { "name": "Socket.IO", "level": 75, "category": "backend" },
+      { "name": "Three.js", "level": 70, "category": "frontend" },
+      { "name": "React Three Fiber", "level": 70, "category": "frontend" },
+      { "name": "NativeWind", "level": 70, "category": "frontend" },
+      { "name": "Bun", "level": 70, "category": "tools" }
     ],
     "categories": {
       "frontend": [
@@ -90,6 +96,16 @@
         "i18n",
         "react-i18n",
         "Tailwind CSS",
+        "Expo",
+        "Expo Router",
+        "NativeWind",
+        "React Hook Form",
+        "Zod",
+        "Radix UI",
+        "Framer Motion",
+        "Three.js",
+        "React Three Fiber",
+        "Mafs",
         "Clerk Auth",
         "Bootstrap",
         "CSS3",
@@ -104,6 +120,9 @@
         "MikroORM",
         "Drizzle ORM",
         "Clerk Auth",
+        "Socket.IO",
+        "WebSockets",
+        "Mongoose",
         "JWT",
         "RESTful API",
         "GraphQL",
@@ -128,7 +147,12 @@
         "Cloudinary",
         "Jira",
         "Storybook",
-        "Vite"
+        "Vite",
+        "Bun",
+        "oxlint",
+        "oxfmt",
+        "Vercel",
+        "Render"
       ],
       "testing": [
         "Jest",
@@ -139,73 +163,93 @@
         "Mocha",
         "Chai",
         "Cypress",
-        "Vitest"
+        "Vitest",
+        "Bun Test"
       ],
-      "learning": ["SASS", "Socket.IO", "Firebase", "GraphQL"]
+      "learning": ["SASS", "Firebase", "GraphQL", "WebGL"]
     }
   },
   "projectsBase": [
     {
       "id": 1,
-      "url": "https://github.com/sk-izsk/zsk-periodic",
-      "demo_link": "https://zsk-periodic.vercel.app",
+      "url": "https://github.com/sk-izsk/z-graph",
+      "demo_link": "https://z-graph.vercel.app",
       "projectTypes": ["frontend"],
       "category": "Frontend",
       "tags": [
-        "React 19",
+        "React 18",
         "TypeScript",
         "Vite",
-        "TanStack Router",
         "Zustand",
-        "Tailwind CSS",
-        "vanilla-extract",
+        "React Hook Form",
+        "Zod",
+        "Mafs",
         "Three.js",
         "React Three Fiber",
+        "Drei",
+        "mathjs",
         "Web Workers",
-        "Vitest",
+        "Tailwind CSS",
+        "Radix UI",
+        "Framer Motion",
+        "Lucide React",
+        "html-to-image",
         "i18n"
       ],
-      "publishDate": "2026-05-02"
+      "publishDate": "2026-06-07"
     },
     {
       "id": 2,
-      "url": "https://github.com/sk-izsk/productify",
-      "demo_link": "https://productify-kappa.vercel.app",
-      "projectTypes": ["full-stack", "frontend", "backend"],
-      "category": "Full Stack",
+      "url": "https://github.com/sk-izsk/rn-z-table",
+      "projectTypes": ["frontend"],
+      "category": "Frontend",
       "tags": [
-        "React 19",
+        "Expo",
+        "React Native",
         "TypeScript",
-        "Express 5",
-        "Drizzle ORM",
-        "PostgreSQL (Neon)",
-        "Clerk Auth",
-        "React Query",
-        "Ky",
-        "Tailwind CSS 4",
-        "DaisyUI",
-        "Jest"
+        "Expo Router",
+        "Zustand",
+        "NativeWind",
+        "Tailwind CSS",
+        "React Native Reanimated",
+        "React Native SVG",
+        "i18next",
+        "react-i18next",
+        "Bun",
+        "oxlint",
+        "oxfmt",
+        "Chemistry Tools"
       ],
-      "publishDate": "2026-03-14"
+      "publishDate": "2026-06-07"
     },
     {
       "id": 3,
-      "url": "https://github.com/sk-izsk/zsk-react-i18n",
-      "projectTypes": ["library"],
-      "category": "Library",
+      "url": "https://github.com/sk-izsk/react-native-fullstack-whisper-chat",
+      "demo_link": "https://react-native-fullstack-whisper-chat.onrender.com",
+      "projectTypes": ["full-stack", "frontend", "backend"],
+      "category": "Full Stack",
       "tags": [
         "TypeScript",
         "React 19",
-        "i18n",
-        "i18next",
-        "react-i18next",
-        "Localization",
-        "NPM",
-        "Library",
-        "Type Safety",
-        "Jest"
+        "React Native",
+        "Expo",
+        "Vite",
+        "Express 5",
+        "Socket.IO",
+        "WebSockets",
+        "MongoDB",
+        "Mongoose",
+        "Clerk Auth",
+        "TanStack Query",
+        "Zustand",
+        "Tailwind CSS",
+        "NativeWind",
+        "DaisyUI",
+        "Sentry",
+        "Bun",
+        "Ky"
       ],
-      "publishDate": "2026-03-16"
+      "publishDate": "2026-06-07"
     },
     {
       "id": 4,
@@ -272,7 +316,7 @@
     {
       "id": 7,
       "url": "https://github.com/sk-izsk/zsk-portfolio",
-      "demo_link": "https://izsk.netlify.app",
+      "demo_link": "https://izsk.dev",
       "projectTypes": ["frontend"],
       "category": "Portfolio",
       "tags": [
@@ -447,6 +491,26 @@
         "useTransition"
       ],
       "publishDate": "2026-05-31"
+    },
+    {
+      "id": 5,
+      "url": "https://izsk.hashnode.dev/react-compound-components-the-pattern-that-makes-component-apis-actually-good",
+      "blogTypes": ["frontend", "architecture", "state-management"],
+      "category": "Frontend Architecture",
+      "tags": [
+        "React",
+        "TypeScript",
+        "Compound Components",
+        "Context API",
+        "Component API Design",
+        "Design Systems",
+        "Radix UI",
+        "Headless UI",
+        "Ant Design",
+        "Controlled Components",
+        "Uncontrolled Components"
+      ],
+      "publishDate": "2026-06-07"
     }
   ],
   "experienceBase": [
