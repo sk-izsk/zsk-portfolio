@@ -163,35 +163,35 @@
   "projects": [
     {
       "id": 1,
-      "title": "ZTable: Interactive Chemistry Platform",
-      "excerpt": "A frontend-heavy React and TypeScript chemistry app with a searchable 118-element periodic table, a 3D atom model, exact-math equation balancing, and Web Worker offloading to keep complex tools responsive in the browser.",
-      "shortDescription": "A modern chemistry platform built with React 19, TypeScript, and Vite. It combines dense reference UI with computation-heavy tools including a molar mass calculator, chemical equation balancer, solubility lookup, worksheet generation, and a Three.js-powered 3D atom model. I separated UI, domain logic, and background compute so the app stays maintainable and fast as feature complexity grows.",
+      "title": "Z-Graph: Interactive Math Visualization Platform",
+      "excerpt": "An interactive math visualization product built to explore equations, curves, fields, fractals, and surfaces across both 2D and 3D, with live formula editing and immediate visual feedback.",
+      "shortDescription": "Z-Graph is a graphics-heavy React and TypeScript application for exploring mathematical behavior visually instead of treating equations as static text. It combines Cartesian graphs, trigonometric and logarithmic functions, implicit curves, calculus visuals, polar and parametric systems, vector and slope fields, Fourier-style expressions, complex-plane visuals, fractals, parametric surfaces, and implicit 3D surfaces in one consistent interface. I structured it around reusable category definitions, configurable parameters, and worker-assisted computation so the app stays extensible and responsive as the rendering workload gets heavier.",
       "highlights": [
-        "Interactive 118-element periodic table with detailed chemistry reference views",
-        "Exact BigInt fraction math for equation balancing plus shared formula parsing and caching",
-        "Web Worker offloading, lazy loading, and granular Zustand selectors to keep heavy UI responsive"
+        "Supports a wide range of graphing modes including algebra, calculus, polar, parametric, vector-field, fractal, and 3D surface exploration",
+        "Live formula editing, presets, parameter controls, animation, fullscreen mode, and PNG export turn equations into interactive systems",
+        "Reusable category-based architecture plus worker-assisted computation keeps graphics-heavy visualization maintainable and responsive"
       ]
     },
     {
       "id": 2,
-      "title": "Productify: Full-Stack Product Showcase Platform",
-      "excerpt": "A deployable full-stack TypeScript app where I built Clerk-based authentication, ownership-safe product and comment CRUD, paginated REST APIs, and cache-aware React Query updates that keep the UI snappy without unnecessary refetching.",
-      "shortDescription": "A full-stack product showcase application built with React, Vite, Express, Drizzle ORM, and PostgreSQL on Neon. It supports sign up and sign in with Clerk, protected routes, synced user records, product and comment CRUD, ownership-based authorization, pagination, and centralized auth token handling. I also worked through deployment-specific issues such as Linux case-sensitive imports, CORS setup, and DATABASE_URL formatting to get the stack running cleanly on Vercel and Render.",
+      "title": "ZTable: React Native Chemistry Reference App",
+      "excerpt": "A production-minded Expo and React Native chemistry app that combines a periodic table, localized element detail screens, atom-shell visualization, ion references, and classroom-oriented tools in a cleaner feature-based architecture.",
+      "shortDescription": "ZTable is a React Native chemistry reference and learning app built with Expo, TypeScript, Expo Router, Zustand, and NativeWind. The codebase was heavily refactored to move oversized TSX screens and chemistry utilities into feature-based modules, with thin route shells in `app/`, domain logic in `features/chemistry`, reusable UI in `components/`, and structured translations in `i18n/`. The result is a mobile app that stays readable, scalable, and maintainable while preserving public behavior across the periodic table, localized element profiles, atomic visualization, ion references, worksheets, and chemistry utilities.",
       "highlights": [
-        "Clerk authentication with protected routes, user sync, and centralized token handling",
-        "Ownership-based authorization for product and comment CRUD with paginated REST endpoints",
-        "Cache-aware React Query mutations plus deployment fixes for CORS, env config, and Linux import paths"
+        "Feature-based refactor split large route components, chemistry logic, and locale files into smaller focused modules",
+        "Periodic table, localized element details, atom visualization, ion references, worksheet tooling, and chemistry helpers live behind clearer reusable boundaries",
+        "Typecheck, lint, formatting, and Bun-based chemistry tests were stabilized so the refactor improved structure without regressing behavior"
       ]
     },
     {
       "id": 3,
-      "title": "zsk-react-i18n: Typed React Localization Wrapper",
-      "excerpt": "A reusable npm package that wraps i18next/react-i18next with a type-safe API for React apps. I built both factory and direct-provider modes, runtime language guards, localStorage persistence, multi-language scaling, and compile-time translation-key safety backed by tests.",
-      "shortDescription": "A reusable npm package that wraps i18next/react-i18next with a type-safe API for React apps. I built both factory and direct-provider modes, runtime language guards, localStorage persistence, multi-language scaling, and compile-time translation-key safety backed by tests.",
+      "title": "Whisper Chat: Cross-Platform Real-Time Messaging App",
+      "excerpt": "A full-stack real-time messaging platform with Expo mobile, React web, and an Express plus Socket.IO backend, built to show production-style chat behavior instead of tutorial-level fake messaging.",
+      "shortDescription": "Whisper Chat is a full-stack TypeScript messaging system with three coordinated parts: a mobile client built with Expo and React Native, a web client built with React and Vite, and a backend API built with Express, Socket.IO, MongoDB, and Mongoose. It uses Clerk for authentication across web, mobile, and backend, TanStack Query for server state, Zustand for transient realtime state, and refactored socket modules for connection state, events, cache updates, unread markers, typing indicators, and online presence. The project focuses on real architecture: authenticated REST plus websocket flows, optimistic message sending, cross-platform product consistency, and maintainable state boundaries.",
       "highlights": [
-        "Factory and direct-provider modes for flexibility",
-        "Compile-time translation key safety",
-        "Comprehensive unit testing with Jest and React Testing Library"
+        "Shared backend supports authenticated REST APIs and authenticated websocket connections for both web and mobile clients",
+        "Realtime features include one-to-one chat creation, optimistic messaging, typing indicators, online presence, unread state, and chat preview updates",
+        "TanStack Query and Zustand are separated by responsibility so server state and realtime UI state stay maintainable as the app grows"
       ]
     },
     {
@@ -346,6 +346,17 @@
         "Explains when `useMemo`, `useCallback`, and `React.memo` actually save meaningful work",
         "Breaks down the reference equality traps that make manual memoization ineffective",
         "Shows how React 19, `useDeferredValue`, and `useTransition` shift the performance conversation beyond blanket memoization"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "React Compound Components: The Pattern That Makes Component APIs Actually Good",
+      "excerpt": "A long-form React architecture article on why prop-heavy components break down at scale and how compound components produce cleaner, more maintainable APIs.",
+      "shortDescription": "A practical deep dive into the compound components pattern in React, covering why monolithic prop-driven APIs become unmaintainable, how Context-based composition gives consumers layout control without losing shared state, and how to design the pattern correctly in TypeScript for real component libraries and design systems.",
+      "highlights": [
+        "Builds Tabs and Accordion compound components from scratch with Context-based state sharing",
+        "Explains controlled vs uncontrolled APIs, namespaced TypeScript sub-components, and why Context beats `React.Children.map` here",
+        "Covers real-world usage, common mistakes, and lighter alternatives such as render props, config objects, and named slots"
       ]
     }
   ]

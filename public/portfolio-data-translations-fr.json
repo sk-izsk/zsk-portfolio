@@ -154,35 +154,35 @@
   "projects": [
     {
       "id": 1,
-      "title": "ZTable : plateforme de chimie interactive",
-      "excerpt": "Une application de chimie frontend-heavy en React et TypeScript avec tableau periodique consultable des 118 elements, modele atomique 3D, equilibrage d'equations en mathematiques exactes, et calculs delegues a des Web Workers pour garder une interface fluide.",
-      "shortDescription": "Une plateforme de chimie moderne construite avec React 19, TypeScript et Vite. Elle combine une interface de reference dense avec des outils de calcul comme un calculateur de masse molaire, un equilibreur d'equations chimiques, une recherche de solubilite, une generation de fiches d'exercices et un modele atomique 3D base sur Three.js. J'ai separe UI, logique metier et calcul en arriere-plan pour garder codebase maintenable et rapide a mesure que complexite fonctionnelle augmente.",
+      "title": "Z-Graph : plateforme interactive de visualisation mathematique",
+      "excerpt": "Un produit interactif de visualisation mathematique concu pour explorer equations, courbes, champs, fractales et surfaces en 2D comme en 3D, avec edition de formules en direct et retour visuel immediat.",
+      "shortDescription": "Z-Graph est une application React et TypeScript orientee rendu graphique, construite pour explorer le comportement mathematique de maniere visuelle au lieu de traiter les equations comme du texte statique. Elle regroupe graphes cartesiens, fonctions trigonometriques et logarithmiques, courbes implicites, visuels de calcul, systemes polaires et parametriques, champs de vecteurs et de pentes, expressions de type Fourier, visuels du plan complexe, fractales, surfaces parametriques et surfaces implicites 3D dans une interface coherente. J'ai structure le produit autour de definitions de categories reutilisables, de parametres configurables et de calculs delegues a des workers pour garder l'application extensible et reactive.",
       "highlights": [
-        "Tableau periodique interactif des 118 elements avec vues de reference detaillees",
-        "Equilibrage d'equations avec fractions exactes en BigInt, plus parsing de formules partage et mis en cache",
-        "Web Workers, lazy loading et selecteurs Zustand granulaires pour garder UI reactive malgre calculs lourds"
+        "Prend en charge de nombreux modes de graphes, de l'algebre et du calcul aux fractales et surfaces 3D",
+        "Edition de formules en direct, presets, controles de parametres, animation, plein ecran et export PNG pour explorer les equations comme des systemes interactifs",
+        "Architecture basee sur categories reutilisables et calcul delegue a des workers pour garder rendu et maintenabilite sous controle"
       ]
     },
     {
       "id": 2,
-      "title": "Productify : plateforme full-stack de presentation de produits",
-      "excerpt": "Une application TypeScript full-stack deployable ou j'ai construit authentification Clerk, CRUD securise par proprietaire pour produits et commentaires, API REST paginees, et mises a jour React Query orientees cache pour garder interface rapide sans refetch inutile.",
-      "shortDescription": "Une application full-stack de presentation de produits construite avec React, Vite, Express, Drizzle ORM et PostgreSQL sur Neon. Elle prend en charge inscription et connexion via Clerk, routes protegees, synchronisation des utilisateurs, CRUD sur produits et commentaires, autorisation basee sur le proprietaire, pagination, et gestion centralisee des tokens d'authentification. J'ai aussi resolu des problemes de deploiement concrets comme les imports sensibles a la casse sous Linux, la configuration CORS et le formatage de DATABASE_URL pour faire tourner proprement stack sur Vercel et Render.",
+      "title": "ZTable : application mobile de reference en chimie",
+      "excerpt": "Une application de chimie orientee production avec Expo et React Native qui combine tableau periodique, fiches detaillees localisees, visualisation atomique, references d'ions et outils pedagogiques dans une architecture plus propre et modulaire.",
+      "shortDescription": "ZTable est une application mobile de reference et d'apprentissage en chimie construite avec Expo, React Native, TypeScript, Expo Router, Zustand et NativeWind. La codebase a ete largement refactorisee pour deplacer les grands ecrans TSX et la logique metier de chimie vers des modules par fonctionnalite, avec des routes fines dans `app/`, la logique domaine dans `features/chemistry`, les composants reutilisables dans `components/` et les traductions structurees dans `i18n/`. Le resultat est une application plus lisible, evolutive et maintenable sans changer le comportement public autour du tableau periodique, des profils d'elements, de la visualisation atomique, des references d'ions, des feuilles d'exercices et des outils de chimie.",
       "highlights": [
-        "Authentification Clerk avec routes protegees, synchronisation utilisateur et gestion centralisee des tokens",
-        "Autorisation basee sur proprietaire pour CRUD produits/commentaires avec endpoints REST pagines",
-        "Mutations React Query orientees cache plus correctifs de deploiement pour CORS, variables d'environnement et imports Linux"
+        "Refactorisation par fonctionnalite des grands composants d'ecran, de la logique de chimie et des fichiers de locale",
+        "Tableau periodique, details d'elements, visualisation atomique, references d'ions et outils pedagogiques separent mieux UI reutilisable et logique domaine",
+        "Typecheck, lint, formatage et tests Bun axes chimie ont ete remis dans un etat stable sans regression fonctionnelle"
       ]
     },
     {
       "id": 3,
-      "title": "zsk-react-i18n : wrapper de localisation type-safe pour React",
-      "excerpt": "Un package npm reutilisable qui encapsule i18next/react-i18next avec une API type-safe pour les applications React. J'y ai construit les modes factory et direct-provider, des gardes runtime pour les langues, la persistance via localStorage, la prise en charge de plusieurs langues et la securite compile-time des cles de traduction, valides par des tests.",
-      "shortDescription": "Un package npm reutilisable qui encapsule i18next/react-i18next avec une API type-safe pour les applications React. Modes factory et direct-provider, gardes runtime, persistance localStorage, prise en charge multi-langues et securite compile-time des cles de traduction, valides par des tests.",
+      "title": "Whisper Chat : application de messagerie temps reel cross-platform",
+      "excerpt": "Une plateforme de messagerie temps reel full-stack avec mobile Expo, web React et backend Express + Socket.IO, construite pour montrer un vrai comportement de chat en production plutot qu'une demo tutorial simplifiee.",
+      "shortDescription": "Whisper Chat est un systeme de messagerie full-stack en TypeScript compose de trois parties coordonnees : un client mobile avec Expo et React Native, un client web avec React et Vite, et une API backend avec Express, Socket.IO, MongoDB et Mongoose. Le projet utilise Clerk pour l'authentification sur web, mobile et backend, TanStack Query pour le server state, Zustand pour le state temps reel transitoire, et des modules socket refactorises pour la connexion, les evenements, les mises a jour de cache, les unread markers, les indicateurs de saisie et la presence en ligne. L'objectif etait de construire une architecture reelle : REST et websockets auth, envoi optimiste, comportement coherent entre plateformes et limites de responsabilite claires entre les etats.",
       "highlights": [
-        "Modes factory et direct-provider pour la flexibilite",
-        "Securite compile-time des cles de traduction",
-        "Tests unitaires complets avec Jest et React Testing Library"
+        "Backend partage avec API REST authentifiees et connexions websocket authentifiees pour clients web et mobile",
+        "Fonctionnalites temps reel : creation de chats one-to-one, envoi optimiste, typing indicators, presence en ligne, unread state et mise a jour des apercus de conversation",
+        "Separation claire entre TanStack Query et Zustand pour que server state et state temps reel restent maintenables a mesure que l'application grandit"
       ]
     },
     {
@@ -337,6 +337,17 @@
         "Explique quand `useMemo`, `useCallback` et `React.memo` evitent vraiment du travail utile",
         "Detaille les pieges d'egalite de reference qui rendent la memoization manuelle inefficace",
         "Montre comment React 19, `useDeferredValue` et `useTransition` deplacent la discussion performance au-dela de la memoization systematique"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "React Compound Components : le pattern qui rend enfin les API de composants vraiment bonnes",
+      "excerpt": "Un article d'architecture React sur la raison pour laquelle les composants charges en props se degradent a l'echelle, et sur la facon dont les compound components permettent des API plus propres et plus maintenables.",
+      "shortDescription": "Une analyse pratique du pattern compound components en React, centree sur les limites des API monolithiques basees sur les props, la maniere dont la composition via Context redonne le controle du layout sans perdre l'etat partage, et les bonnes decisions de design a prendre en TypeScript pour des design systems et bibliotheques de composants reelles.",
+      "highlights": [
+        "Construit Tabs et Accordion from scratch avec partage d'etat via Context",
+        "Explique les API controlled vs uncontrolled, les sous-composants namespaced en TypeScript, et pourquoi Context est preferable a `React.Children.map` ici",
+        "Couvre usages reels, erreurs frequentes et alternatives plus legeres comme render props, config objects et named slots"
       ]
     }
   ]
