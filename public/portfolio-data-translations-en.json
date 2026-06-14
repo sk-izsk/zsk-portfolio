@@ -301,6 +301,19 @@
         "Reusable UI primitives, shared animation variants, and isolated section components instead of page-specific one-offs",
         "Centralized typed content plus theme support and accessible interactions built for maintainability, not only presentation"
       ]
+    },
+    {
+      "id": 12,
+      "title": "WC26: Open-Source World Cup 2026 macOS Menu Bar App",
+      "excerpt": "A small open-source macOS menu bar app built in SwiftUI to track World Cup 2026 fixtures, standings, and live scores without repeatedly opening a website or paying for a seasonal score app.",
+      "shortDescription": "WC26 is a practical native macOS side project I built as my first real Swift and SwiftUI app. I came into it from a senior frontend and full-stack background in React and TypeScript, using the project as a way to learn native app structure by shipping something genuinely useful for myself during the tournament season. The app runs from the menu bar using MenuBarExtra, fetches match data from the open-source `worldcup2026` API by Reza Rahiminia, normalizes raw match payloads into UI-friendly models, keeps live matches at the top, preserves stoppage-time formatting like 90'+8', and supports favorites, pinned live matches, notifications, refresh controls, start at login, and local preference persistence. It is intentionally small in scope, open source, and distributed unsigned because I did not want to pay the Apple developer fee for a fun side project.",
+      "highlights": [
+        "Built as a native SwiftUI menu bar utility with fixtures, standings, team sheets, favorites, and live scores available in one click",
+        "Added a central AppViewModel, match normalization layer, and live-first ordering so messy API data becomes a cleaner real-time product experience",
+        "Improved timer parsing and notification handling to support meaningful details such as stoppage time, kickoff, goal, and full-time events",
+        "Stored user preferences locally for pinned matches, refresh interval, transparency, favorites, and notification behavior",
+        "Open-source project that credits the `worldcup2026` API provider directly and ships with honest unsigned-distribution tradeoffs"
+      ]
     }
   ],
   "blog": [
@@ -357,6 +370,19 @@
         "Builds Tabs and Accordion compound components from scratch with Context-based state sharing",
         "Explains controlled vs uncontrolled APIs, namespaced TypeScript sub-components, and why Context beats `React.Children.map` here",
         "Covers real-world usage, common mistakes, and lighter alternatives such as render props, config objects, and named slots"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "React Virtualization: Fast Tables With Thousands of Rows",
+      "excerpt": "A practical, opinionated deep dive into React list and table virtualization focused on large datasets, real bottlenecks, and the tradeoffs behind adding windowing at all.",
+      "shortDescription": "This article treats virtualization as a DOM scaling problem first and a React implementation detail second. It starts with a DevTools-based workflow to confirm whether rendering cost is actually the bottleneck before reaching for a library, then walks through how windowing works under the hood, when it is the right call, when it is unnecessary, and how to implement it with TanStack Virtual, react-window, react-virtuoso, TanStack Table, and TanStack Query. It also covers variable row height strategies, infinite scroll, sticky headers, accessibility limitations, and the CSS and state-management mistakes that usually make virtualized tables feel fragile.",
+      "highlights": [
+        "Explains virtualization from first principles: DOM recycling, scroll math, overscan, and why the browser usually fails before React does",
+        "Shows when to use virtualization and when to skip it for simpler options such as pagination, server-side filtering, or append-only lists",
+        "Includes practical implementations with TanStack Virtual, react-window, react-virtuoso, TanStack Table, and `useInfiniteQuery`",
+        "Covers variable-height rows, sticky header setup, refetch scroll-loss issues, and other failure modes that appear in real tables",
+        "Ends with the same rule as the rest of the series: measure first, then add complexity only when the evidence says you need it"
       ]
     }
   ]

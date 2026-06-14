@@ -292,6 +292,19 @@
         "Primitives UI reutilisables, variantes d'animation partagees, et composants de section isoles au lieu de blocs jetables",
         "Contenu type centralise, support des themes, et interactions accessibles penses pour maintenance autant que presentation"
       ]
+    },
+    {
+      "id": 12,
+      "title": "WC26 : application macOS open source pour suivre la Coupe du Monde 2026",
+      "excerpt": "Une petite application macOS open source dans la barre de menus, construite avec SwiftUI pour suivre les matchs, classements et scores en direct sans rouvrir un site en boucle ni payer pour une app saisonniere.",
+      "shortDescription": "WC26 est un side project natif macOS pragmatique que j'ai construit comme premiere vraie application Swift et SwiftUI. J'y suis arrive avec mon bagage d'ingenieur frontend/full-stack senior en React et TypeScript, en utilisant le projet pour apprendre la structure d'une app native tout en livrant un outil reellement utile pour moi pendant la saison du tournoi. L'application tourne dans la barre de menus via MenuBarExtra, recupere les donnees depuis l'API open source `worldcup2026` de Reza Rahiminia, normalise les payloads bruts de matchs en modeles plus propres pour l'UI, garde les matchs en direct en haut, preserve l'affichage du temps additionnel comme 90'+8', et ajoute favoris, match live epingle, notifications, controle du rafraichissement, lancement au demarrage, et persistance locale des preferences. Le scope reste volontairement petit, open source, et distribue sans signature parce que je ne voulais pas payer les frais Apple Developer pour un projet fun.",
+      "highlights": [
+        "Application utilitaire native SwiftUI en barre de menus avec calendrier, classements, fiches equipes, favoris, et scores live en un clic",
+        "Ajout d'un AppViewModel central, d'une couche de normalisation des matchs, et d'un tri live-first pour transformer des donnees API brutes en meilleure experience produit",
+        "Amelioration du parsing des timers et du systeme de notifications pour gerer proprement temps additionnel, coup d'envoi, buts, et fin de match",
+        "Preferences locales pour match epingle, intervalle de rafraichissement, transparence, favoris, et comportement des notifications",
+        "Projet open source qui credite explicitement le fournisseur de l'API `worldcup2026` et assume honnetement les compromis d'une distribution non signee"
+      ]
     }
   ],
   "blog": [
@@ -348,6 +361,19 @@
         "Construit Tabs et Accordion from scratch avec partage d'etat via Context",
         "Explique les API controlled vs uncontrolled, les sous-composants namespaced en TypeScript, et pourquoi Context est preferable a `React.Children.map` ici",
         "Couvre usages reels, erreurs frequentes et alternatives plus legeres comme render props, config objects et named slots"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "React Virtualization : des tableaux rapides avec des milliers de lignes",
+      "excerpt": "Une analyse pratique et tranchee de la virtualisation des listes et tableaux React, pensee pour les devs qui gerent de gros volumes de donnees et veulent savoir s'il faut vraiment ajouter cette complexite.",
+      "shortDescription": "Cet article traite d'abord la virtualisation comme un probleme de DOM, puis seulement comme un detail d'implementation React. Il commence par une demarche basee sur DevTools pour verifier que le rendu est bien le vrai goulot d'etranglement avant d'ajouter une librairie, puis detaille le fonctionnement du windowing, les cas ou c'est le bon choix, ceux ou c'est excessif, et les implementations avec TanStack Virtual, react-window, react-virtuoso, TanStack Table, et TanStack Query. Il couvre aussi les strategies pour les hauteurs variables, l'infinite scroll, les sticky headers, les limites d'accessibilite, et les erreurs CSS ou de gestion d'etat qui rendent souvent les tables virtualisees fragiles.",
+      "highlights": [
+        "Explique la virtualisation a partir des mecanismes reels : recyclage du DOM, calcul de scroll, overscan, et limites du navigateur avant celles de React",
+        "Montre quand la virtualisation est le bon choix et quand il vaut mieux rester sur pagination, filtrage cote serveur, ou listes append-only",
+        "Donne des implementations concretes avec TanStack Virtual, react-window, react-virtuoso, TanStack Table, et `useInfiniteQuery`",
+        "Couvre les lignes a hauteur variable, les sticky headers, la perte de position au refetch, et d'autres pieges observes sur de vraies tables",
+        "Se termine sur le meme principe que le reste de la serie : mesurer d'abord, puis n'ajouter de la complexite que si les preuves le justifient"
       ]
     }
   ]
