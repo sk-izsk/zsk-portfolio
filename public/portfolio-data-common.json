@@ -416,6 +416,26 @@
         "Design System"
       ],
       "publishDate": "2026-05-11"
+    },
+    {
+      "id": 12,
+      "url": "https://github.com/sk-izsk/WC26",
+      "projectTypes": ["misc"],
+      "category": "macOS App",
+      "tags": [
+        "Swift",
+        "SwiftUI",
+        "macOS",
+        "MenuBarExtra",
+        "Native App",
+        "API Integration",
+        "App State",
+        "Notifications",
+        "UserDefaults",
+        "Menu Bar Utility",
+        "Open Source"
+      ],
+      "publishDate": "2026-06-14"
     }
   ],
   "blogBase": [
@@ -511,6 +531,27 @@
         "Uncontrolled Components"
       ],
       "publishDate": "2026-06-07"
+    },
+    {
+      "id": 6,
+      "url": "https://izsk.hashnode.dev/your-table-has-10-000-rows-your-browser-has-one-dom-let-s-talk-about-virtualization",
+      "blogTypes": ["frontend", "architecture"],
+      "category": "Frontend Performance",
+      "tags": [
+        "React",
+        "TypeScript",
+        "Virtualization",
+        "TanStack Virtual",
+        "react-window",
+        "react-virtuoso",
+        "TanStack Table",
+        "TanStack Query",
+        "Performance",
+        "DOM",
+        "DevTools",
+        "Infinite Scroll"
+      ],
+      "publishDate": "2026-06-14"
     }
   ],
   "experienceBase": [
