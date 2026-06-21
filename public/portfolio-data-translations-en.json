@@ -384,6 +384,18 @@
         "Covers variable-height rows, sticky header setup, refetch scroll-loss issues, and other failure modes that appear in real tables",
         "Ends with the same rule as the rest of the series: measure first, then add complexity only when the evidence says you need it"
       ]
+    },
+    {
+      "id": 7,
+      "title": "Concurrent Rendering in React: What It Actually Is, And When It's Just Hiding a Problem",
+      "excerpt": "Concurrent rendering is not multi-threading. It's React's way of rescheduling render work so urgent updates stay responsive.",
+      "shortDescription": "A technical deep dive into React's concurrent rendering model, focused on what Fiber actually enables, how urgent and non-urgent updates shape the API surface, when `startTransition`, `useTransition`, and `useDeferredValue` genuinely help, and when they are just masking a slower underlying problem.",
+      "highlights": [
+        "Explains why concurrent rendering stays single-threaded and what Fiber actually makes interruptible",
+        "Breaks down `startTransition`, `useTransition`, and `useDeferredValue` through real UI cases and a clear decision table",
+        "Shows how concurrent rendering and Suspense fit together in data-heavy flows such as product detail navigation",
+        "Ends with a practical diagnosis framework so you measure the real bottleneck before reaching for any concurrent API"
+      ]
     }
   ]
 }

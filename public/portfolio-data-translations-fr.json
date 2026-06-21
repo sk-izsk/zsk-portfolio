@@ -375,6 +375,18 @@
         "Couvre les lignes a hauteur variable, les sticky headers, la perte de position au refetch, et d'autres pieges observes sur de vraies tables",
         "Se termine sur le meme principe que le reste de la serie : mesurer d'abord, puis n'ajouter de la complexite que si les preuves le justifient"
       ]
+    },
+    {
+      "id": 7,
+      "title": "Concurrent Rendering en React : ce que c'est vraiment, et quand ca masque juste un vrai probleme",
+      "excerpt": "Le concurrent rendering n'est pas du multithreading. C'est surtout une facon pour React de replanifier le rendu afin que les mises a jour urgentes restent fluides.",
+      "shortDescription": "Une analyse technique du modele de concurrent rendering de React, centree sur ce que Fiber rend reellement possible, sur la difference entre mises a jour urgentes et non urgentes, sur les cas ou `startTransition`, `useTransition` et `useDeferredValue` aident vraiment, et sur les cas ou ils cachent seulement un probleme de performance plus fondamental.",
+      "highlights": [
+        "Explique pourquoi le concurrent rendering reste single-threaded et ce que Fiber rend vraiment interruptible",
+        "Detaille `startTransition`, `useTransition` et `useDeferredValue` avec des cas UI reels et un tableau de decision clair",
+        "Montre comment concurrent rendering et Suspense s'articulent dans des parcours data-heavy comme une navigation vers une fiche produit",
+        "Se termine par un cadre de diagnostic pratique pour mesurer le vrai goulot d'etranglement avant d'utiliser une API concurrente"
+      ]
     }
   ]
 }
