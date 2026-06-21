@@ -552,6 +552,25 @@
         "Infinite Scroll"
       ],
       "publishDate": "2026-06-14"
+    },
+    {
+      "id": 7,
+      "url": "https://izsk.hashnode.dev/concurrent-rendering-in-react-what-it-actually-is-and-when-it-s-just-hiding-a-problem",
+      "blogTypes": ["frontend", "architecture"],
+      "category": "Frontend Performance",
+      "tags": [
+        "React",
+        "React 19",
+        "Concurrent Rendering",
+        "Fiber",
+        "startTransition",
+        "useTransition",
+        "useDeferredValue",
+        "Suspense",
+        "Performance",
+        "Scheduling"
+      ],
+      "publishDate": "2026-06-21"
     }
   ],
   "experienceBase": [
