@@ -275,5 +275,35 @@ export const mockPortfolioData: PortfolioData = {
       ],
       publishDate: '2026-06-21',
     },
+    {
+      id: 8,
+      title: "React Reconciliation and Keys: What's Actually Happening When Your Component Re-Renders",
+      url: 'https://izsk.hashnode.dev/react-reconciliation-and-keys-what-s-actually-happening-when-your-component-re-renders',
+      blogTypes: ['frontend', 'architecture'],
+      excerpt:
+        'Keys do not magically fix list bugs. They tell React which child identity should survive the next diff.',
+      shortDescription:
+        'A deep dive into React reconciliation focused on how the diffing heuristic actually matches elements, when a component updates versus remounts, why unstable keys corrupt stateful lists, and how Fiber makes selective reuse possible.',
+      highlights: [
+        "Explains React's two core diffing rules: type changes tear down subtrees, and same-type siblings are matched by key",
+        'Shows step by step why removing an item from a stateful list breaks under positional diffing and why index keys behave the same way',
+        'Clarifies the exact difference between a re-render and a remount, including what state survives and what resets',
+        'Connects reconciliation to Fiber internals, current versus work-in-progress trees, and practical DevTools debugging for unexpected remounts',
+      ],
+      category: 'Frontend Performance',
+      tags: [
+        'React',
+        'React 19',
+        'Reconciliation',
+        'Keys',
+        'Fiber',
+        'Component Lifecycle',
+        'State Preservation',
+        'Remounting',
+        'Profiler',
+        'DevTools',
+      ],
+      publishDate: '2026-06-28',
+    },
   ],
 }

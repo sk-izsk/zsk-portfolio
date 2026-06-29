@@ -571,6 +571,25 @@
         "Scheduling"
       ],
       "publishDate": "2026-06-21"
+    },
+    {
+      "id": 8,
+      "url": "https://izsk.hashnode.dev/react-reconciliation-and-keys-what-s-actually-happening-when-your-component-re-renders",
+      "blogTypes": ["frontend", "architecture"],
+      "category": "Frontend Performance",
+      "tags": [
+        "React",
+        "React 19",
+        "Reconciliation",
+        "Keys",
+        "Fiber",
+        "Component Lifecycle",
+        "State Preservation",
+        "Remounting",
+        "Profiler",
+        "DevTools"
+      ],
+      "publishDate": "2026-06-28"
     }
   ],
   "experienceBase": [

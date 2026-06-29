@@ -387,6 +387,18 @@
         "Montre comment concurrent rendering et Suspense s'articulent dans des parcours data-heavy comme une navigation vers une fiche produit",
         "Se termine par un cadre de diagnostic pratique pour mesurer le vrai goulot d'etranglement avant d'utiliser une API concurrente"
       ]
+    },
+    {
+      "id": 8,
+      "title": "Reconciliation et keys en React : ce qui se passe vraiment quand votre composant se re-render",
+      "excerpt": "Les keys ne corrigent pas magiquement les bugs de liste. Elles indiquent a React quelle identite d'enfant doit survivre au prochain diff.",
+      "shortDescription": "Une analyse approfondie de la reconciliation React, centree sur la facon dont l'heuristique de diff associe vraiment les elements, sur la difference entre update et remount, sur les raisons pour lesquelles des keys instables corrompent les listes stateful, et sur ce que Fiber rend possible en reutilisation selective.",
+      "highlights": [
+        "Explique les deux regles centrales du diff React : un changement de type detruit le sous-arbre, et des siblings de meme type sont apparies via la key",
+        "Montre pas a pas pourquoi retirer un element d'une liste stateful casse avec un diff positionnel, et pourquoi les index comme key produisent le meme resultat",
+        "Clarifie precisement la difference entre re-render et remount, y compris ce qui preserve l'etat et ce qui le reinitialise",
+        "Relie la reconciliation aux internals de Fiber, aux arbres current et work-in-progress, et a un usage concret de DevTools pour diagnostiquer les remounts inattendus"
+      ]
     }
   ]
 }
