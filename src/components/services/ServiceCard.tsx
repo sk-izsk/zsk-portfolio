@@ -1,6 +1,7 @@
 import type { LucideIcon } from 'lucide-react'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
+import { RichText } from '@components/common/richText/RichText'
 import {
   serviceH4,
   serviceIcon,
@@ -21,7 +22,9 @@ interface ServiceCardIconProps {
 
 type ServiceCardTitleProps = PropsWithChildren
 
-type ServiceCardBodyProps = PropsWithChildren
+interface ServiceCardBodyProps {
+  children: string
+}
 
 type ServiceCardCompound = React.FC<ServiceCardRootProps> & {
   Icon: React.FC<ServiceCardIconProps>
@@ -52,7 +55,11 @@ const ServiceCardTitle: React.FC<ServiceCardTitleProps> = ({ children }) => {
 }
 
 const ServiceCardBody: React.FC<ServiceCardBodyProps> = ({ children }) => {
-  return <p className={serviceP}>{children}</p>
+  return (
+    <p className={serviceP}>
+      <RichText content={children} variant="inline" />
+    </p>
+  )
 }
 
 export const ServiceCard: ServiceCardCompound = Object.assign(ServiceCardRoot, {

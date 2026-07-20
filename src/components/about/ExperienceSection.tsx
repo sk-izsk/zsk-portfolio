@@ -1,6 +1,7 @@
 import { experience as experienceClass, readMoreTrigger } from '@components/about/about.css'
 import { ActivityTimeline } from '@components/about/ActivityTimeline'
 import { Modal } from '@components/common/modal/Modal'
+import { RichText } from '@components/common/richText/RichText'
 import { TextReveal } from '@components/common/textReveal/TextReveal'
 import { ProjectCard } from '@components/projects/ProjectCard'
 import { useTranslation } from '@localization/localize'
@@ -74,11 +75,15 @@ export const ExperienceSection: React.FC = () => {
           >
             <Modal.Title>{`${selectedExperience.position} at ${selectedExperience.company}`}</Modal.Title>
             <Modal.Body>
-              <Modal.Description>{selectedExperience.description}</Modal.Description>
+              <Modal.Description>
+                <RichText content={selectedExperience.description} />
+              </Modal.Description>
               {selectedExperience.highlights && selectedExperience.highlights.length > 0 && (
                 <Modal.Highlights>
                   {selectedExperience.highlights.map((h) => (
-                    <li key={h}>{h}</li>
+                    <li key={h}>
+                      <RichText content={h} />
+                    </li>
                   ))}
                 </Modal.Highlights>
               )}

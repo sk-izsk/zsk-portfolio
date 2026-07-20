@@ -28,6 +28,18 @@ describe('ServiceCard', () => {
     expect(screen.getByText('We build modern web applications.')).toBeInTheDocument()
   })
 
+  it('renders inline code inside body text', () => {
+    render(
+      <ServiceCard>
+        <ServiceCard.Icon icon={Code} />
+        <ServiceCard.Title>Web Development</ServiceCard.Title>
+        <ServiceCard.Body>We build with `React`.</ServiceCard.Body>
+      </ServiceCard>,
+    )
+
+    expect(screen.getByText('React').tagName).toBe('CODE')
+  })
+
   it('renders an SVG icon', () => {
     const { container } = render(
       <ServiceCard>

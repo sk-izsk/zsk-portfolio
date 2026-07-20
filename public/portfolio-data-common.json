@@ -590,6 +590,19 @@
         "DevTools"
       ],
       "publishDate": "2026-06-28"
+    },
+    {
+      "id": 9,
+      "url": "https://izsk.hashnode.dev/javascript-loops-stop-using-map-for-everything",
+      "blogTypes": ["frontend", "architecture"],
+      "category": "Frontend Architecture",
+      "tags": [
+        "JavaScript",
+        "Frontend",
+        "WebDevelopment",
+        "Programming"
+      ],
+      "publishDate": "2026-07-19"
     }
   ],
   "experienceBase": [

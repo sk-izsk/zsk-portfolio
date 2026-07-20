@@ -3,6 +3,7 @@ import type { PropsWithChildren } from 'react'
 import React from 'react'
 import { useTranslation } from '@localization/localize'
 import { Tag } from '@components/tag/Tag'
+import { RichText } from '@components/common/richText/RichText'
 import {
   projectContent,
   projectInfo,
@@ -105,7 +106,7 @@ const ProjectCardTitle: React.FC<ProjectCardTitleProps> = ({ children }) => {
 }
 
 const ProjectCardBody: React.FC<ProjectCardBodyProps> = ({ shortDescription }) => {
-  return <div className={projectContent}>{shortDescription}</div>
+  return <RichText content={shortDescription} className={projectContent} variant="inline" />
 }
 
 const ProjectCardTags: React.FC<ProjectCardTagsProps> = ({ projectId, tags }) => {
