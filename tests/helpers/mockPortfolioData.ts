@@ -305,5 +305,23 @@ export const mockPortfolioData: PortfolioData = {
       ],
       publishDate: '2026-06-28',
     },
+    {
+      id: 9,
+      title: 'JavaScript Loops: Stop Using map() for Everything',
+      url: 'https://izsk.hashnode.dev/javascript-loops-stop-using-map-for-everything',
+      blogTypes: ['frontend', 'architecture'],
+      excerpt:
+        "Most loop mistakes are not style choices. They're cases where the code is saying one thing and doing another.",
+      shortDescription:
+        'A practical guide to choosing the right JavaScript loop based on intent, control flow, return value, async behavior, and readability, with concrete reasons to use `for`, `while`, `for...of`, `forEach`, `map`, `filter`, `reduce`, `find`, `some`, `every`, and `flatMap`.',
+      highlights: [
+        'Separates imperative loops from functional array methods so the first decision is obvious',
+        'Explains the real tradeoffs behind `for`, `for...of`, `forEach`, `map`, `filter`, and `reduce` instead of treating them as style preferences',
+        'Calls out common production mistakes such as `forEach` with `async`/`await`, `map` for side effects, and `filter` where `some` or `find` should short-circuit',
+      ],
+      category: 'Frontend Architecture',
+      tags: ['JavaScript', 'Frontend', 'WebDevelopment', 'Programming'],
+      publishDate: '2026-07-19',
+    },
   ],
 }

@@ -399,6 +399,17 @@
         "Clarifie precisement la difference entre re-render et remount, y compris ce qui preserve l'etat et ce qui le reinitialise",
         "Relie la reconciliation aux internals de Fiber, aux arbres current et work-in-progress, et a un usage concret de DevTools pour diagnostiquer les remounts inattendus"
       ]
+    },
+    {
+      "id": 9,
+      "title": "Boucles JavaScript : arretez d'utiliser map() pour tout",
+      "excerpt": "La plupart des erreurs de boucle ne sont pas des preferences de style. Ce sont des cas ou le code dit une chose et en fait une autre.",
+      "shortDescription": "Un guide pratique pour choisir la bonne boucle JavaScript selon l'intention, le controle du flux, la valeur de retour, le comportement async et la lisibilite, avec des raisons concretes d'utiliser `for`, `while`, `for...of`, `forEach`, `map`, `filter`, `reduce`, `find`, `some`, `every` et `flatMap`.",
+      "highlights": [
+        "Separe les boucles imperatives des methodes fonctionnelles de tableau pour rendre le premier choix immediat",
+        "Explique les vrais compromis de `for`, `for...of`, `forEach`, `map`, `filter` et `reduce` au lieu de les traiter comme de simples preferences de style",
+        "Pointe des erreurs frequentes en production comme `forEach` avec `async`/`await`, `map` pour les effets de bord, et `filter` la ou `some` ou `find` devraient court-circuiter"
+      ]
     }
   ]
 }

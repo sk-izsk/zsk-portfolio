@@ -1,4 +1,5 @@
 import type { FilterBlogPostType } from '@hooks/blog/useBlogTypeFilteredPosts'
+import { RichText } from '@components/common/richText/RichText'
 import { useTranslation } from '@localization/localize'
 import React from 'react'
 import { Modal } from '../common/modal/Modal'
@@ -16,10 +17,14 @@ export const BlogModalContainer: React.FC<Props> = ({ open, onClose, post }) => 
     <Modal open={open} onClose={onClose}>
       <Modal.Title onClose={onClose}>{post.title}</Modal.Title>
       <Modal.Body>
-        <Modal.Description>{post.shortDescription}</Modal.Description>
+        <Modal.Description>
+          <RichText content={post.shortDescription} />
+        </Modal.Description>
         <Modal.Highlights>
           {post.highlights.map((highlight) => (
-            <li key={highlight}>{highlight}</li>
+            <li key={highlight}>
+              <RichText content={highlight} />
+            </li>
           ))}
         </Modal.Highlights>
       </Modal.Body>

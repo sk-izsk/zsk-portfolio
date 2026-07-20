@@ -408,6 +408,17 @@
         "Clarifies the exact difference between a re-render and a remount, including what state survives and what resets",
         "Connects reconciliation to Fiber internals, current versus work-in-progress trees, and practical DevTools debugging for unexpected remounts"
       ]
+    },
+    {
+      "id": 9,
+      "title": "JavaScript Loops: Stop Using map() for Everything",
+      "excerpt": "Most loop mistakes are not style choices. They're cases where the code is saying one thing and doing another.",
+      "shortDescription": "A practical guide to choosing the right JavaScript loop based on intent, control flow, return value, async behavior, and readability, with concrete reasons to use `for`, `while`, `for...of`, `forEach`, `map`, `filter`, `reduce`, `find`, `some`, `every`, and `flatMap`.",
+      "highlights": [
+        "Separates imperative loops from functional array methods so the first decision is obvious",
+        "Explains the real tradeoffs behind `for`, `for...of`, `forEach`, `map`, `filter`, and `reduce` instead of treating them as style preferences",
+        "Calls out common production mistakes such as `forEach` with `async`/`await`, `map` for side effects, and `filter` where `some` or `find` should short-circuit"
+      ]
     }
   ]
 }
