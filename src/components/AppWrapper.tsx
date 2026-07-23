@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from 'react-router'
 import { ErrorBoundary } from '@components/errorBoundary/ErrorBoundary'
 import { Sidebar } from '@components/sidebar/Sidebar'
 import { StyleSwitcher } from '@components/styleSwitcher/StyleSwitcher'
+import { ContentProtectionProvider } from '@components/ContentProtectionProvider'
 import { useKeyboardShortcuts } from '@hooks/useKeyboardShortcuts'
 import { usePortfolioData } from '@hooks/usePortfolioData'
 import { useSoundClick } from '@hooks/useSoundClick'
@@ -138,11 +139,13 @@ export const AppWrapper = ({ children }: PropsWithChildren) => {
     <ErrorBoundary>
       <HelmetProvider>
         <LocalizeProvider config={localizeConfig}>
-          <QueryClientProvider client={queryClient}>
-            <Router>
-              <AppLayout>{children}</AppLayout>
-            </Router>
-          </QueryClientProvider>
+          <ContentProtectionProvider enabled={!import.meta.env.DEV}>
+            <QueryClientProvider client={queryClient}>
+              <Router>
+                <AppLayout>{children}</AppLayout>
+              </Router>
+            </QueryClientProvider>
+          </ContentProtectionProvider>
         </LocalizeProvider>
       </HelmetProvider>
     </ErrorBoundary>

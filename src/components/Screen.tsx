@@ -9,6 +9,7 @@ interface ScreenProps extends PropsWithChildren {
   sectionId: string
   sectionClassName?: string
   containerClassName?: string
+  contentProtected?: boolean
   isLoading: boolean
   isError: boolean
   title?: string
@@ -23,6 +24,7 @@ export const Screen: React.FC<ScreenProps> = ({
   sectionId,
   sectionClassName,
   containerClassName,
+  contentProtected = false,
   isLoading,
   isError,
   title,
@@ -53,7 +55,10 @@ export const Screen: React.FC<ScreenProps> = ({
     <section className={cx(sectionClassName ?? sectionId, 'section', 'active')} id={sectionId}>
       <SeoHead title={resolvedPageTitle} description={description} canonical={canonical} />
       <DotPattern />
-      <div className={cx('container', 'screen-container', containerClassName)}>
+      <div
+        className={cx('container', 'screen-container', containerClassName)}
+        data-content-protected={contentProtected || undefined}
+      >
         {title && (
           <div className="row">
             <div className="section-title padd-15">

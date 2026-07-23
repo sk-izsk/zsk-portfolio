@@ -14,7 +14,7 @@ export const BlogModalContainer: React.FC<Props> = ({ open, onClose, post }) => 
   const { t } = useTranslation()
 
   return (
-    <Modal open={open} onClose={onClose}>
+    <Modal open={open} onClose={onClose} contentProtected>
       <Modal.Title onClose={onClose}>{post.title}</Modal.Title>
       <Modal.Body>
         <Modal.Description>

@@ -24,6 +24,7 @@ const BlogScreen: React.FC = () => {
   return (
     <Screen
       sectionId="blog"
+      contentProtected
       isLoading={loading}
       isError={Boolean(error || !blogPosts)}
       title={t('blog.title')}

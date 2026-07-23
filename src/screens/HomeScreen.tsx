@@ -21,6 +21,7 @@ const HomeScreen: React.FC = () => {
     <Screen
       sectionId="home"
       sectionClassName={home}
+      contentProtected
       isLoading={loading}
       isError={Boolean(error)}
       pageTitle={t('home.pageTitle')}
