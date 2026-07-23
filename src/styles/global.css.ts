@@ -52,6 +52,27 @@ globalStyle('ul', {
   listStyle: 'none',
 })
 
+globalStyle('[data-content-protected="true"]', {
+  WebkitTouchCallout: 'none',
+  WebkitUserSelect: 'none',
+  userSelect: 'none',
+})
+
+globalStyle(
+  [
+    '[data-content-protected="true"] input',
+    '[data-content-protected="true"] textarea',
+    '[data-content-protected="true"] select',
+    '[data-content-protected="true"] option',
+    '[data-content-protected="true"] [contenteditable="true"]',
+    '[data-content-protected="true"] [data-content-protection-ignore="true"]',
+  ].join(', '),
+  {
+    WebkitUserSelect: 'text',
+    userSelect: 'text',
+  },
+)
+
 // Section styles
 globalStyle('.section', {
   background: vars.color.background[900],

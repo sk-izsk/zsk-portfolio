@@ -29,6 +29,7 @@ const ProjectScreen: React.FC = () => {
     <Screen
       sectionId="projects"
       sectionClassName="projects"
+      contentProtected
       isLoading={loading}
       isError={Boolean(error || !projects)}
       title={t('projects.title')}

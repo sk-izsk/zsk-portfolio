@@ -11,7 +11,7 @@ interface Props {
 
 export const ProjectModalContainer: React.FC<Props> = ({ open, onClose, project }) => {
   return (
-    <Modal open={open} onClose={onClose}>
+    <Modal open={open} onClose={onClose} contentProtected>
       <Modal.Title onClose={onClose}>{project.title}</Modal.Title>
       <Modal.Body>
         <Modal.Description>

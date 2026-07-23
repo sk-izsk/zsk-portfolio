@@ -47,6 +47,7 @@ const ServiceScreen: React.FC = () => {
   return (
     <Screen
       sectionId="service"
+      contentProtected
       isLoading={loading}
       isError={Boolean(error || !services)}
       title={t('services.title')}

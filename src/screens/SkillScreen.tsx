@@ -15,6 +15,7 @@ const SkillScreen: React.FC = () => {
   return (
     <Screen
       sectionId="portfolio"
+      contentProtected
       isLoading={loading}
       isError={Boolean(error)}
       title={t('skills.title')}

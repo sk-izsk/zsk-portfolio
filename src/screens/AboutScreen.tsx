@@ -18,6 +18,7 @@ const AboutScreen: React.FC = () => {
   return (
     <Screen
       sectionId="about"
+      contentProtected
       isLoading={loading}
       isError={Boolean(error)}
       title={t('about.title')}

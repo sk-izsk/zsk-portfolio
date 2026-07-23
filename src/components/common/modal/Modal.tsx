@@ -12,6 +12,7 @@ interface ModalProps {
   open: boolean
   onClose: () => void
   children: React.ReactNode
+  contentProtected?: boolean
 }
 
 type ModalCompound = React.FC<ModalProps> & {
@@ -29,7 +30,7 @@ type ModalCompound = React.FC<ModalProps> & {
 }
 const cn = createCn(modalStyles)
 
-export const Modal: ModalCompound = ({ open, onClose, children }) => {
+export const Modal: ModalCompound = ({ open, onClose, children, contentProtected = false }) => {
   const ref = useRef<HTMLDivElement>(null)
   const [shouldRender, setShouldRender] = useState(open)
 
@@ -82,6 +83,7 @@ export const Modal: ModalCompound = ({ open, onClose, children }) => {
       <div
         ref={ref}
         className={cn('modal', { modalAnimateIn: open, modalAnimateOut: !open })}
+        data-content-protected={contentProtected || undefined}
         onAnimationEnd={handleAnimationEnd}
       >
         {children}
