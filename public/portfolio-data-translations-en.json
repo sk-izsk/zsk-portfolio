@@ -419,6 +419,18 @@
         "Explains the real tradeoffs behind `for`, `for...of`, `forEach`, `map`, `filter`, and `reduce` instead of treating them as style preferences",
         "Calls out common production mistakes such as `forEach` with `async`/`await`, `map` for side effects, and `filter` where `some` or `find` should short-circuit"
       ]
+    },
+    {
+      "id": 10,
+      "title": "Debugging React Apps Like a Senior Dev",
+      "excerpt": "Senior debugging starts before the first console.log. The difference is whether you form a hypothesis before touching anything.",
+      "shortDescription": "A practical, opinionated guide to debugging React applications systematically instead of randomly. Built around a four-part bug taxonomy, it covers React DevTools, the Profiler, `useEffect` failure patterns, re-render diagnostics, state and network debugging, memory leaks, production observability, and a six-step checklist for forming and testing hypotheses.",
+      "highlights": [
+        "Opens with a four-category bug taxonomy: wrong state, wrong render logic, wrong effect, or wrong external input",
+        "Shows how to use React DevTools, the Profiler, why-did-you-render, and browser tooling to validate a debugging hypothesis fast",
+        "Covers the highest-frequency React bug classes including unstable effect dependencies, stale closures, render storms, cache confusion, and memory leaks",
+        "Includes practical production debugging guidance for source maps in Vite, Sentry with React error boundaries, feature flags, and structured console breadcrumbs"
+      ]
     }
   ]
 }
