@@ -410,6 +410,18 @@
         "Explique les vrais compromis de `for`, `for...of`, `forEach`, `map`, `filter` et `reduce` au lieu de les traiter comme de simples preferences de style",
         "Pointe des erreurs frequentes en production comme `forEach` avec `async`/`await`, `map` pour les effets de bord, et `filter` la ou `some` ou `find` devraient court-circuiter"
       ]
+    },
+    {
+      "id": 10,
+      "title": "Deboguer des apps React comme un dev senior",
+      "excerpt": "Le debogage senior commence avant le premier `console.log`. La vraie difference, c'est de formuler une hypothese avant de toucher a quoi que ce soit.",
+      "shortDescription": "Un guide pratique et tranche pour deboguer des applications React de maniere systematique plutot qu'au hasard. Construit autour d'une taxonomie en quatre categories de bugs, il couvre React DevTools, le Profiler, les patterns de bugs `useEffect`, le diagnostic des re-renders, le debogage du state et du reseau, les memory leaks, l'observabilite en production, et une checklist en six etapes pour formuler puis verifier une hypothese.",
+      "highlights": [
+        "Commence par une taxonomie en quatre categories : mauvais state, mauvaise logique de rendu, mauvais effet, ou mauvaise entree externe",
+        "Montre comment utiliser React DevTools, le Profiler, why-did-you-render, et les outils navigateur pour valider rapidement une hypothese de debogage",
+        "Couvre les classes de bugs React les plus frequentes, dont les dependances d'effet instables, les stale closures, les tempetes de re-render, la confusion de cache, et les memory leaks",
+        "Ajoute un volet de debogage production avec source maps dans Vite, Sentry avec error boundaries React, feature flags, et breadcrumbs `console` structures"
+      ]
     }
   ]
 }

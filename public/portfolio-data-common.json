@@ -603,6 +603,27 @@
         "Programming"
       ],
       "publishDate": "2026-07-19"
+    },
+    {
+      "id": 10,
+      "url": "https://izsk.hashnode.dev/debugging-react-apps-like-a-senior-dev",
+      "blogTypes": ["frontend", "architecture", "state-management"],
+      "category": "Frontend Debugging",
+      "tags": [
+        "React",
+        "React DevTools",
+        "Profiler",
+        "useEffect",
+        "Debugging",
+        "Zustand",
+        "TanStack Query",
+        "Sentry",
+        "Vite",
+        "Memory Leaks",
+        "Chrome DevTools",
+        "why-did-you-render"
+      ],
+      "publishDate": "2026-07-26"
     }
   ],
   "experienceBase": [
