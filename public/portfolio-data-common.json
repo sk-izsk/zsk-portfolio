@@ -624,6 +624,27 @@
         "why-did-you-render"
       ],
       "publishDate": "2026-07-26"
+    },
+    {
+      "id": 11,
+      "url": "https://izsk.hashnode.dev/web-performance-beyond-lighthouse-what-actually-moves-the-needle",
+      "blogTypes": ["frontend", "architecture"],
+      "category": "Frontend Performance",
+      "tags": [
+        "Web Performance",
+        "Lighthouse",
+        "Core Web Vitals",
+        "CrUX",
+        "INP",
+        "LCP",
+        "CLS",
+        "WebPageTest",
+        "DevTools",
+        "Performance Budgets",
+        "Sentry",
+        "React"
+      ],
+      "publishDate": "2026-08-03"
     }
   ],
   "experienceBase": [
