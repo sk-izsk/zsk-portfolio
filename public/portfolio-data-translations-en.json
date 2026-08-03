@@ -431,6 +431,18 @@
         "Covers the highest-frequency React bug classes including unstable effect dependencies, stale closures, render storms, cache confusion, and memory leaks",
         "Includes practical production debugging guidance for source maps in Vite, Sentry with React error boundaries, feature flags, and structured console breadcrumbs"
       ]
+    },
+    {
+      "id": 11,
+      "title": "Web Performance Beyond Lighthouse: What Actually Moves the Needle",
+      "excerpt": "A high Lighthouse score and a fast real-user experience are related, but they are not the same thing.",
+      "shortDescription": "A technical deep dive into modern web performance that separates lab scores from field reality, explains Core Web Vitals by mechanism, and focuses on the changes that materially improve what users actually feel across devices, networks, and full sessions.",
+      "highlights": [
+        "Explains the difference between Lighthouse lab data and CrUX field data, including where each fits in a real performance workflow",
+        "Breaks down LCP, CLS, and INP through root causes, DevTools diagnosis, and the browser mechanics behind each metric",
+        "Covers practical fixes across bundles, images, fonts, third-party scripts, long tasks, and main-thread congestion",
+        "Ends with a pragmatic stack: Lighthouse CI, web-vitals, CrUX, WebPageTest, and Sentry Performance, with guidance on when to add each one"
+      ]
     }
   ]
 }

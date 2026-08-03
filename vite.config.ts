@@ -8,6 +8,8 @@ import type { ViteDevServer } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import { defineConfig } from 'vitest/config'
 
+const rootDir = import.meta.dirname
+
 const openUrl = (url: string) => {
   const quotedUrl = JSON.stringify(url)
 
@@ -76,19 +78,19 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
-      '@assets': path.resolve(__dirname, 'src/assets'),
-      '@components': path.resolve(__dirname, 'src/components'),
-      '@hooks': path.resolve(__dirname, 'src/hooks'),
-      '@localization': path.resolve(__dirname, 'src/localization'),
-      '@routes': path.resolve(__dirname, 'src/routes'),
-      '@screens': path.resolve(__dirname, 'src/screens'),
-      '@services': path.resolve(__dirname, 'src/services'),
-      '@stores': path.resolve(__dirname, 'src/stores'),
-      '@styles': path.resolve(__dirname, 'src/styles'),
-      '@app-types': path.resolve(__dirname, 'src/types'),
-      '@utils': path.resolve(__dirname, 'src/utils'),
-      '@tests': path.resolve(__dirname, 'tests'),
+      '@': path.resolve(rootDir, 'src'),
+      '@assets': path.resolve(rootDir, 'src/assets'),
+      '@components': path.resolve(rootDir, 'src/components'),
+      '@hooks': path.resolve(rootDir, 'src/hooks'),
+      '@localization': path.resolve(rootDir, 'src/localization'),
+      '@routes': path.resolve(rootDir, 'src/routes'),
+      '@screens': path.resolve(rootDir, 'src/screens'),
+      '@services': path.resolve(rootDir, 'src/services'),
+      '@stores': path.resolve(rootDir, 'src/stores'),
+      '@styles': path.resolve(rootDir, 'src/styles'),
+      '@app-types': path.resolve(rootDir, 'src/types'),
+      '@utils': path.resolve(rootDir, 'src/utils'),
+      '@tests': path.resolve(rootDir, 'tests'),
     },
   },
   server: {

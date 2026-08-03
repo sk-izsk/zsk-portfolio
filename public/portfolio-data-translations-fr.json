@@ -422,6 +422,18 @@
         "Couvre les classes de bugs React les plus frequentes, dont les dependances d'effet instables, les stale closures, les tempetes de re-render, la confusion de cache, et les memory leaks",
         "Ajoute un volet de debogage production avec source maps dans Vite, Sentry avec error boundaries React, feature flags, et breadcrumbs `console` structures"
       ]
+    },
+    {
+      "id": 11,
+      "title": "Performance web au-dela de Lighthouse : ce qui change vraiment l'experience",
+      "excerpt": "Un bon score Lighthouse et une experience rapide pour de vrais utilisateurs sont lies, mais ce n'est pas la meme chose.",
+      "shortDescription": "Une analyse technique de la performance web moderne qui separe les scores de labo de la realite terrain, explique les Core Web Vitals par leur mecanisme, et se concentre sur les changements qui ameliorent reellement ce que les utilisateurs ressentent selon l'appareil, le reseau et la duree complete de session.",
+      "highlights": [
+        "Explique la difference entre les donnees labo de Lighthouse et les donnees terrain de CrUX, avec le role concret de chaque source dans un vrai workflow performance",
+        "Detaille LCP, CLS et INP a partir des causes racines, du diagnostic dans DevTools, et des mecanismes navigateur derriere chaque metrique",
+        "Couvre des corrections concretes sur les bundles, images, polices, scripts tiers, longues taches et la congestion du main thread",
+        "Se termine par une stack pragmatique : Lighthouse CI, web-vitals, CrUX, WebPageTest et Sentry Performance, avec quand ajouter chaque outil"
+      ]
     }
   ]
 }
