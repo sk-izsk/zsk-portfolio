@@ -239,7 +239,9 @@ interface AskAiResponse {
   cached: boolean
 }
 
-const askAiBaseUrl = import.meta.env.VITE_ASK_AI_API_URL || 'http://127.0.0.1:8000'
+const askAiBaseUrl = import.meta.env.DEV
+  ? import.meta.env.VITE_ASK_AI_API_URL || 'http://127.0.0.1:8000'
+  : '/api/ask-ai'
 
 export const askAiHealthApi = async (): Promise<void> => {
   await ky
