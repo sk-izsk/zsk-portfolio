@@ -14,6 +14,7 @@ export const askAiFr = {
   emptyTitle: 'Commencez par une question',
   emptyBody: 'Essayez un exemple ci-dessous ou posez une question sur mon profil technique.',
   remaining: 'Requetes restantes',
+  resetsIn: 'Reinitialisation dans {{time}}',
   localMode: 'Le mode local peut etre illimite',
   healthCheck: 'Verification du backend...',
   evidence: 'Sources',
@@ -22,7 +23,7 @@ export const askAiFr = {
   offline: "Le backend IA local n'est pas lance. Demarrez FastAPI sur le port 8000 puis reessayez.",
   rateLimited: "Limite horaire atteinte. Reessayez apres la reinitialisation.",
   prompts: {
-    reactProjects: 'Quels sont les meilleurs projets React de Zeeshan ?',
+    reactProjects: 'Quel travail professionnel et quels projets montrent le mieux son niveau en React ?',
     fullStack: 'Resume son experience full-stack.',
     aiProjects: 'Quels projets IA a-t-il construits ?',
     reactNative: 'Est-il adapte a un role React Native ?',

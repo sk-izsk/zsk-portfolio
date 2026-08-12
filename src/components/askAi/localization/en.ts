@@ -14,6 +14,7 @@ export const askAiEn = {
   emptyTitle: 'Start with a question',
   emptyBody: 'Try one of the prompts below or ask directly about my technical background.',
   remaining: 'Requests left',
+  resetsIn: 'Resets in {{time}}',
   localMode: 'Local dev may be unlimited',
   healthCheck: 'Checking backend health...',
   evidence: 'Evidence',
@@ -22,7 +23,7 @@ export const askAiEn = {
   offline: 'Local AI backend is not running. Start FastAPI on port 8000 and try again.',
   rateLimited: 'Hourly limit reached. Try again after the reset.',
   prompts: {
-    reactProjects: 'What are Zeeshan strongest React projects?',
+    reactProjects: "What professional React work and projects best show Zeeshan's skill?",
     fullStack: 'Summarize his full-stack experience.',
     aiProjects: 'What AI projects has he built?',
     reactNative: 'Is he a good fit for a React Native role?',

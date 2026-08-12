@@ -27,27 +27,47 @@ type ChatMessage =
 
 const toMessageId = () => `${Date.now()}-${Math.random().toString(36).slice(2)}`
 
-const readErrorMessage = async (
+type AskAiErrorDetail = {
+  message?: string
+  remaining?: number
+  reset_in_seconds?: number
+}
+
+const formatResetTime = (seconds: number) => {
+  const totalMinutes = Math.max(1, Math.ceil(seconds / 60))
+  const hours = Math.floor(totalMinutes / 60)
+  const minutes = totalMinutes % 60
+
+  if (!hours) {
+    return `${totalMinutes}m`
+  }
+
+  return minutes ? `${hours}h ${minutes}m` : `${hours}h`
+}
+
+const readAskAiError = async (
   error: unknown,
   fallback: string,
   rateLimited: string,
   offline: string,
 ) => {
   if (!(error instanceof HTTPError)) {
-    return error instanceof TypeError ? offline : fallback
+    return { message: error instanceof TypeError ? offline : fallback }
   }
 
   if (error.response.status === 429) {
     const payload = (await error.response.json().catch(() => null)) as {
-      detail?: { message?: string }
+      detail?: AskAiErrorDetail
     } | null
-    if (payload?.detail?.message) {
-      return payload.detail.message
+
+    return {
+      message: payload?.detail?.message || rateLimited,
+      remaining: payload?.detail?.remaining,
+      resetInSeconds: payload?.detail?.reset_in_seconds,
     }
-    return rateLimited
   }
 
-  return fallback
+  return { message: fallback }
 }
 
 const AskAiScreen: React.FC = () => {
@@ -59,6 +79,7 @@ const AskAiScreen: React.FC = () => {
   const [isSending, setIsSending] = useState(false)
   const [isCheckingHealth, setIsCheckingHealth] = useState(false)
   const [remaining, setRemaining] = useState<number | null>(null)
+  const [resetInSeconds, setResetInSeconds] = useState(0)
   const [status, setStatus] = useState('')
   const inputRef = useRef<HTMLTextAreaElement | null>(null)
   useAnalytics()
@@ -97,6 +118,7 @@ const AskAiScreen: React.FC = () => {
       setIsCheckingHealth(false)
       const response = await askAiApi(text)
       setRemaining(response.remaining)
+      setResetInSeconds(response.reset_in_seconds)
       setMessages((current) => [
         ...current,
         {
@@ -109,13 +131,25 @@ const AskAiScreen: React.FC = () => {
       ])
     } catch (requestError) {
       setIsCheckingHealth(false)
-      const errorMessage = await readErrorMessage(
+      const askAiError = await readAskAiError(
         requestError,
         t('askAi.error'),
         t('askAi.rateLimited'),
         t('askAi.offline'),
       )
-      setStatus(errorMessage)
+      if (typeof askAiError.remaining === 'number') {
+        setRemaining(askAiError.remaining)
+      }
+      if (typeof askAiError.resetInSeconds === 'number') {
+        setResetInSeconds(askAiError.resetInSeconds)
+      }
+      setStatus(
+        askAiError.resetInSeconds
+          ? `${askAiError.message} ${t('askAi.resetsIn', {
+              time: formatResetTime(askAiError.resetInSeconds),
+            })}.`
+          : askAiError.message,
+      )
     } finally {
       setIsSending(false)
     }
@@ -146,6 +180,11 @@ const AskAiScreen: React.FC = () => {
           <div className={styles.meter} aria-live="polite">
             <span className={styles.meterLabel}>{t('askAi.remaining')}</span>
             <span className={styles.meterValue}>{remaining ?? 3}</span>
+            {remaining === 0 && resetInSeconds > 0 ? (
+              <span className={styles.meterReset}>
+                {t('askAi.resetsIn', { time: formatResetTime(resetInSeconds) })}
+              </span>
+            ) : null}
           </div>
         </header>
 
