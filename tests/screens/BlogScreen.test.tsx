@@ -1,6 +1,6 @@
 import BlogScreen from '@screens/BlogScreen'
 import { usePortfolioStore } from '@stores/portfolioStore'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { AllProviders } from '@tests/helpers/AllProviders'
 import { mockPortfolioData } from '@tests/helpers/mockPortfolioData'
@@ -48,10 +48,10 @@ describe('BlogScreen', () => {
 
   it('renders all blog excerpts when data is loaded', () => {
     usePortfolioStore.getState().setData(mockPortfolioData)
-    renderScreen()
+    const { container } = renderScreen()
 
     for (const post of mockPortfolioData.blog) {
-      expect(screen.getByText(post.shortDescription)).toBeInTheDocument()
+      expect(container).toHaveTextContent(post.shortDescription.replaceAll('`', ''))
     }
   })
 
@@ -106,7 +106,13 @@ describe('BlogScreen', () => {
     usePortfolioStore.getState().setData(mockPortfolioData)
     renderScreen()
 
-    await user.click(screen.getAllByRole('link', { name: 'Read More...' })[0]!)
+    const targetCard = screen
+      .getByText('Context vs Redux Toolkit vs Zustand: Picking the Right State Tool for the Job')
+      .closest('div')
+
+    expect(targetCard).not.toBeNull()
+
+    await user.click(within(targetCard!).getByRole('link', { name: 'Read More...' }))
 
     expect(
       screen.getAllByText(

@@ -387,5 +387,33 @@ export const mockPortfolioData: PortfolioData = {
       ],
       publishDate: '2026-08-03',
     },
+    {
+      id: 12,
+      title: 'Prompt Engineering Is Just Common Sense With Structure',
+      url: 'https://izsk.hashnode.dev/prompt-engineering-is-just-common-sense-with-structure',
+      blogTypes: ['backend', 'architecture'],
+      excerpt: 'Inconsistent LLM output is usually a prompt problem, not a model problem.',
+      shortDescription:
+        'A practical, developer-focused guide to writing production-ready LLM prompts with six structural components: role, task, constraints, output format, examples, and fallback.',
+      highlights: [
+        'Shows why vague prompts produce plausible but parser-breaking output across repeated runs',
+        'Breaks down a reusable six-part prompt structure with Python examples using Groq and Llama 3.3',
+        'Covers structured JSON output, prompt injection defenses, prompt testing, and production failure patterns',
+      ],
+      category: 'AI Engineering',
+      tags: [
+        'Prompt Engineering',
+        'LLMs',
+        'AI Engineering',
+        'Python',
+        'Groq',
+        'Llama 3.3',
+        'Structured Output',
+        'Prompt Injection',
+        'JSON Schema',
+        'Few-Shot Prompting',
+      ],
+      publishDate: '2026-08-12',
+    },
   ],
 }

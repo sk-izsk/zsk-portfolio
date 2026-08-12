@@ -434,6 +434,17 @@
         "Couvre des corrections concretes sur les bundles, images, polices, scripts tiers, longues taches et la congestion du main thread",
         "Se termine par une stack pragmatique : Lighthouse CI, web-vitals, CrUX, WebPageTest et Sentry Performance, avec quand ajouter chaque outil"
       ]
+    },
+    {
+      "id": 12,
+      "title": "Le prompt engineering, c'est surtout du bon sens structure",
+      "excerpt": "Quand un LLM repond de facon incoherente, le probleme vient le plus souvent du prompt, pas du modele.",
+      "shortDescription": "Un guide pratique, pense pour les developpeurs, pour ecrire des prompts LLM fiables en production autour de six blocs : role, tache, contraintes, format de sortie, exemples et fallback.",
+      "highlights": [
+        "Montre pourquoi des prompts vagues produisent des sorties plausibles mais impossibles a parser de facon fiable",
+        "Detaille une structure de prompt reusable en six parties avec des exemples Python bases sur Groq et Llama 3.3",
+        "Couvre la sortie JSON structuree, les defenses contre la prompt injection, les tests de prompt et les pannes frequentes en production"
+      ]
     }
   ]
 }
