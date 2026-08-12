@@ -1,6 +1,7 @@
 import { lazy } from 'react'
 
 export const Home = lazy(() => import('@screens/HomeScreen'))
+export const AskAi = lazy(() => import('@screens/AskAiScreen'))
 export const About = lazy(() => import('@screens/AboutScreen'))
 export const Services = lazy(() => import('@screens/ServiceScreen'))
 export const Skills = lazy(() => import('@screens/SkillScreen'))

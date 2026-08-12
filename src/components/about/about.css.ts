@@ -202,11 +202,15 @@ export const githubStatsMedia = style({
   minWidth: 0,
 })
 
-export const githubStatsImage = style({
-  display: 'block',
-  width: '100%',
-  height: 'auto',
-  maxWidth: '100%',
+export const githubStatsFallback = style({
+  display: 'flex',
+  minHeight: '140px',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '24px',
+  color: vars.color.text[700],
+  textAlign: 'center',
+  fontSize: '14px',
 })
 
 export const githubContributionPanel = style({

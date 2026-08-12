@@ -12,11 +12,12 @@ export const aboutEn = {
     eyebrow: 'GitHub Activity',
     title: 'Code activity and contribution history',
     description:
-      'A live view of contribution history and streak activity pulled from the public GitHub widgets.',
+      'A local view of contribution history from cached GitHub activity data.',
     profileLink: 'View Profile',
     yearSelector: 'Select contribution year',
     loadingYear: 'Loading {{year}} contributions...',
     loadFailed: 'Unable to load contribution graph right now.',
+    streakUnavailable: 'GitHub streak snapshot is temporarily unavailable.',
     cards: {
       contributions: 'Contribution Graph',
       streak: 'Streak Snapshot',

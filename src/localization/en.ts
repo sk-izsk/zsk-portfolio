@@ -7,6 +7,7 @@ import { servicesEn } from '@components/services/localization/en'
 import { blogEn } from '@components/blog/localization/en'
 import { sidebarEn } from '@components/sidebar/localization/en'
 import { skillsEn } from '@components/skills/localization/en'
+import { askAiEn } from '@components/askAi/localization/en'
 
 const notFoundEn = {
   pageTitle: 'Page Not Found',
@@ -17,6 +18,7 @@ const notFoundEn = {
 
 export const en = {
   about: aboutEn,
+  askAi: askAiEn,
   blog: blogEn,
   common: commonEn,
   contact: contactEn,

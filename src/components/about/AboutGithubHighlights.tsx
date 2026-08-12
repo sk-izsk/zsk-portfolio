@@ -13,14 +13,13 @@ import {
   getContributionShades,
   getGithubUsername,
   getPaletteFromTheme,
-  toParamColor,
 } from '@utils/githubHighlights'
 import React, { useMemo, useState } from 'react'
 
 const EMPTY_CONTRIBUTION_DAYS: ContributionDay[] = []
 
 export const AboutGithubHighlights: React.FC = () => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const contact = useContactInfo()
   const isDarkMode = useThemeStore((state) => state.isDarkMode)
   const currentColor = useThemeStore((state) => state.currentColor)
@@ -62,21 +61,6 @@ export const AboutGithubHighlights: React.FC = () => {
       selectedYearData,
     ],
   )
-  const streakLocale = i18n.resolvedLanguage === 'fr' ? 'fr' : 'en'
-  const streakStatsUrl = `https://streak-stats.demolab.com?user=${githubUsername}&hide_border=true&background=${toParamColor(
-    palette.surface,
-  )}&border=${toParamColor(palette.border)}&stroke=${toParamColor(
-    palette.border,
-  )}&ring=${toParamColor(palette.skin)}&fire=${toParamColor(
-    palette.skin,
-  )}&currStreakNum=${toParamColor(palette.skin)}&sideNums=${toParamColor(
-    palette.skin,
-  )}&currStreakLabel=${toParamColor(palette.skin)}&sideLabels=${toParamColor(
-    palette.text,
-  )}&dates=${toParamColor(palette.textMuted)}&excludeDaysLabel=${toParamColor(
-    palette.textMuted,
-  )}&locale=${streakLocale}`
-
   return (
     <>
       <GithubHighlightsHeader
@@ -112,8 +96,7 @@ export const AboutGithubHighlights: React.FC = () => {
       </div>
       <GithubSupplementaryCards
         streakTitle={t('about.github.cards.streak')}
-        streakAlt={t('about.github.alt.streak', { username: githubUsername })}
-        streakStatsUrl={streakStatsUrl}
+        streakUnavailableText={t('about.github.streakUnavailable')}
       />
     </>
   )
