@@ -7,6 +7,12 @@
   status = 200
 
 [[redirects]]
+  from = "/api/ask-ai/*"
+  to = "https://zsk-ai-resume-api.onrender.com/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

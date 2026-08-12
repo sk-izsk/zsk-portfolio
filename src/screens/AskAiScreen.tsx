@@ -131,6 +131,7 @@ const AskAiScreen: React.FC = () => {
       pageTitle={t('askAi.pageTitle')}
       description={t('askAi.seoDescription')}
       canonical="/ask-ai"
+      contentProtected
     >
       <div className={styles.shell}>
         <header className={styles.hero}>
