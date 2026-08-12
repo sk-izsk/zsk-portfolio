@@ -98,6 +98,14 @@ export const meterValue = style({
   marginTop: '6px',
 })
 
+export const meterReset = style({
+  display: 'block',
+  color: vars.color.text[700],
+  fontSize: '11px',
+  lineHeight: 1.3,
+  marginTop: '6px',
+})
+
 export const chatPanel = style({
   position: 'relative',
   display: 'flex',
