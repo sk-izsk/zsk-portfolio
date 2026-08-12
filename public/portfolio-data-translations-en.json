@@ -443,6 +443,17 @@
         "Covers practical fixes across bundles, images, fonts, third-party scripts, long tasks, and main-thread congestion",
         "Ends with a pragmatic stack: Lighthouse CI, web-vitals, CrUX, WebPageTest, and Sentry Performance, with guidance on when to add each one"
       ]
+    },
+    {
+      "id": 12,
+      "title": "Prompt Engineering Is Just Common Sense With Structure",
+      "excerpt": "Inconsistent LLM output is usually a prompt problem, not a model problem.",
+      "shortDescription": "A practical, developer-focused guide to writing production-ready LLM prompts with six structural components: role, task, constraints, output format, examples, and fallback.",
+      "highlights": [
+        "Shows why vague prompts produce plausible but parser-breaking output across repeated runs",
+        "Breaks down a reusable six-part prompt structure with Python examples using Groq and Llama 3.3",
+        "Covers structured JSON output, prompt injection defenses, prompt testing, and production failure patterns"
+      ]
     }
   ]
 }

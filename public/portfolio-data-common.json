@@ -645,6 +645,25 @@
         "React"
       ],
       "publishDate": "2026-08-03"
+    },
+    {
+      "id": 12,
+      "url": "https://izsk.hashnode.dev/prompt-engineering-is-just-common-sense-with-structure",
+      "blogTypes": ["backend", "architecture"],
+      "category": "AI Engineering",
+      "tags": [
+        "Prompt Engineering",
+        "LLMs",
+        "AI Engineering",
+        "Python",
+        "Groq",
+        "Llama 3.3",
+        "Structured Output",
+        "Prompt Injection",
+        "JSON Schema",
+        "Few-Shot Prompting"
+      ],
+      "publishDate": "2026-08-12"
     }
   ],
   "experienceBase": [
