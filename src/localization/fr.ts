@@ -7,6 +7,7 @@ import { servicesFr } from '@components/services/localization/fr'
 import { blogFr } from '@components/blog/localization/fr'
 import { sidebarFr } from '@components/sidebar/localization/fr'
 import { skillsFr } from '@components/skills/localization/fr'
+import { askAiFr } from '@components/askAi/localization/fr'
 
 const notFoundFr = {
   pageTitle: 'Page Introuvable',
@@ -17,6 +18,7 @@ const notFoundFr = {
 
 export const fr = {
   about: aboutFr,
+  askAi: askAiFr,
   blog: blogFr,
   common: commonFr,
   contact: contactFr,

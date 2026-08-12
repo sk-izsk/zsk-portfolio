@@ -230,6 +230,34 @@ export const quoteApi = async (): Promise<QuoteItem[]> => {
   return response.map(normalizeQuote)
 }
 
+interface AskAiResponse {
+  answer: string
+  sources: string[]
+  blocked: boolean
+  remaining: number
+  reset_in_seconds: number
+  cached: boolean
+}
+
+const askAiBaseUrl = import.meta.env.VITE_ASK_AI_API_URL || 'http://127.0.0.1:8000'
+
+export const askAiHealthApi = async (): Promise<void> => {
+  await ky
+    .get(`${askAiBaseUrl}/health`, {
+      timeout: 60000,
+    })
+    .json<{ status: string }>()
+}
+
+export const askAiApi = async (message: string): Promise<AskAiResponse> => {
+  return ky
+    .post(`${askAiBaseUrl}/chat`, {
+      json: { message },
+      timeout: 30000,
+    })
+    .json<AskAiResponse>()
+}
+
 export const queryKeys = {
   portfolioData: (language: AppLanguage) => ['portfolio-data', language] as const,
   developerQuotes: () => ['developer-quotes'] as const,

@@ -1,6 +1,7 @@
 export const sidebarFr = {
   nav: {
     home: 'Accueil',
+    askAi: 'Ask AI',
     about: 'A Propos',
     services: 'Services',
     skills: 'Competences',

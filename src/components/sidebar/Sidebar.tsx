@@ -7,7 +7,7 @@ import { usePersonalInfo, usePortfolioLoading } from '@stores/portfolioStore'
 import { useSidebarStore } from '@stores/sidebarStore'
 import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
 import { createCn } from '@utils/cn'
-import { BookOpen, Briefcase, Cog, House, List, Menu, MessageCircle, User } from 'lucide-react'
+import { BookOpen, Briefcase, Cog, House, List, Menu, MessageCircle, Sparkles, User } from 'lucide-react'
 import React, { useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router'
 
@@ -17,6 +17,9 @@ const getCurrentSection = (path: string) => {
   }
   if (path === '/about') {
     return 'about'
+  }
+  if (path === '/ask-ai') {
+    return 'askAi'
   }
   if (path === '/services') {
     return 'service'
@@ -50,6 +53,7 @@ export const Sidebar: React.FC = () => {
 
   const navigationItems: SidebarNavigationItem[] = [
     { id: 'home', label: t('sidebar.nav.home'), icon: House, path: '/' },
+    { id: 'askAi', label: t('sidebar.nav.askAi'), icon: Sparkles, path: '/ask-ai' },
     {
       id: 'about',
       label: t('sidebar.nav.about'),

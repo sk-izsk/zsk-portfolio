@@ -1,0 +1,1186 @@
+{
+  "identity": {
+    "name": "Shaikh Zeeshan Murshed",
+    "title": "Software Engineer",
+    "profession": "I'm a Software Engineer & Product Manager",
+    "location": {
+      "city": "Montréal",
+      "country": "Canada"
+    },
+    "languages": [
+      "English",
+      "Bengali",
+      "Hindi"
+    ],
+    "availability": [
+      "Full time",
+      "Remote"
+    ],
+    "resume": "/Zeeshan-Resume.pdf"
+  },
+  "summary": {
+    "short": "Software Engineer and Product Manager with 7+ years building scalable web and mobile applications and driving cross-functional product delivery. Full-stack development, roadmap ownership, and technical support backed by a strict focus on Core Web Vitals and clean architecture.",
+    "detailed": "Software Engineer and Product Manager with over 7 years architecting high-performance web and mobile applications in React and TypeScript. Stepped into Product Owner and technical lead roles to define roadmaps, prioritize backlogs, and synchronize cross-functional delivery across frontend and backend teams. Expanded into full-stack system design (Node.js, Express, PostgreSQL) and recently built a FastAPI plus Groq-powered portfolio AI assistant with Redis caching, rate limiting, and prompt controls. Also brings hands-on technical support experience  diagnosing issues, managing client-facing escalations, and bridging engineering with end-user needs."
+  },
+  "contact": {
+    "email": "sk.zeeshan1992@gmail.com",
+    "phone": "NA",
+    "social": {
+      "website": {
+        "label": "izsk.dev",
+        "url": "https://izsk.dev"
+      },
+      "github": {
+        "label": "sk-izsk",
+        "url": "https://github.com/sk-izsk"
+      },
+      "blog": {
+        "label": "izsk.hashnode.dev",
+        "url": "https://izsk.hashnode.dev"
+      },
+      "linkedin": {
+        "label": "skizsk",
+        "url": "https://www.linkedin.com/in/skizsk/"
+      },
+      "twitter": {
+        "label": "@Sk_iZsk",
+        "url": "https://www.twitter.com/sk_izsk"
+      },
+      "instagram": {
+        "label": "sk_izsk",
+        "url": "https://www.instagram.com/sk_izsk/"
+      },
+      "telegram": {
+        "label": "sk_izsk",
+        "url": "https://t.me/sk_izsk"
+      }
+    }
+  },
+  "skills": {
+    "technical": [
+      {
+        "name": "React",
+        "level": 85,
+        "category": "frontend"
+      },
+      {
+        "name": "TypeScript",
+        "level": 80,
+        "category": "language"
+      },
+      {
+        "name": "JavaScript",
+        "level": 85,
+        "category": "language"
+      },
+      {
+        "name": "React Native",
+        "level": 85,
+        "category": "frontend"
+      },
+      {
+        "name": "Redux",
+        "level": 75,
+        "category": "frontend"
+      },
+      {
+        "name": "Vue.js",
+        "level": 75,
+        "category": "frontend"
+      },
+      {
+        "name": "Node.js",
+        "level": 75,
+        "category": "backend"
+      },
+      {
+        "name": "Express",
+        "level": 75,
+        "category": "backend"
+      },
+      {
+        "name": "MongoDB",
+        "level": 75,
+        "category": "backend"
+      },
+      {
+        "name": "Next.js",
+        "level": 80,
+        "category": "frontend"
+      },
+      {
+        "name": "GraphQL",
+        "level": 60,
+        "category": "backend"
+      },
+      {
+        "name": "Jest",
+        "level": 60,
+        "category": "testing"
+      },
+      {
+        "name": "Cypress",
+        "level": 75,
+        "category": "testing"
+      },
+      {
+        "name": "Storybook",
+        "level": 60,
+        "category": "tools"
+      },
+      {
+        "name": "NPM",
+        "level": 60,
+        "category": "tools"
+      },
+      {
+        "name": "Tanstack Query",
+        "level": 80,
+        "category": "frontend"
+      },
+      {
+        "name": "Zustand",
+        "level": 80,
+        "category": "frontend"
+      },
+      {
+        "name": "Tailwind CSS",
+        "level": 70,
+        "category": "frontend"
+      },
+      {
+        "name": "PostgreSQL",
+        "level": 60,
+        "category": "backend"
+      },
+      {
+        "name": "MikroORM",
+        "level": 50,
+        "category": "backend"
+      },
+      {
+        "name": "DrizzleORM",
+        "level": 50,
+        "category": "backend"
+      },
+      {
+        "name": "Vite",
+        "level": 75,
+        "category": "tools"
+      },
+      {
+        "name": "Vitest",
+        "level": 65,
+        "category": "testing"
+      },
+      {
+        "name": "Multer",
+        "level": 65,
+        "category": "backend"
+      },
+      {
+        "name": "Expo",
+        "level": 80,
+        "category": "frontend"
+      },
+      {
+        "name": "Socket.IO",
+        "level": 75,
+        "category": "backend"
+      },
+      {
+        "name": "Three.js",
+        "level": 70,
+        "category": "frontend"
+      },
+      {
+        "name": "React Three Fiber",
+        "level": 70,
+        "category": "frontend"
+      },
+      {
+        "name": "NativeWind",
+        "level": 70,
+        "category": "frontend"
+      },
+      {
+        "name": "Bun",
+        "level": 70,
+        "category": "tools"
+      },
+      {
+        "name": "FastAPI",
+        "level": 65,
+        "category": "backend"
+      },
+      {
+        "name": "Groq API",
+        "level": 70,
+        "category": "backend"
+      },
+      {
+        "name": "LLM Integration",
+        "level": 70,
+        "category": "backend"
+      },
+      {
+        "name": "Prompt Engineering",
+        "level": 75,
+        "category": "tools"
+      },
+      {
+        "name": "Upstash Redis",
+        "level": 65,
+        "category": "backend"
+      }
+    ],
+    "categories": {
+      "frontend": [
+        "React",
+        "Redux",
+        "Next.js",
+        "Vue",
+        "Vuex",
+        "Vue-Router",
+        "React Native",
+        "Material-UI",
+        "Antd",
+        "Tanstack Query",
+        "Zustand",
+        "i18n",
+        "react-i18n",
+        "Tailwind CSS",
+        "Expo",
+        "Expo Router",
+        "NativeWind",
+        "React Hook Form",
+        "Zod",
+        "Radix UI",
+        "Framer Motion",
+        "Three.js",
+        "React Three Fiber",
+        "Mafs",
+        "Clerk Auth",
+        "Bootstrap",
+        "CSS3",
+        "HTML5",
+        "JSS"
+      ],
+      "backend": [
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "PostgreSQL",
+        "MikroORM",
+        "Drizzle ORM",
+        "Clerk Auth",
+        "Socket.IO",
+        "WebSockets",
+        "Mongoose",
+        "JWT",
+        "RESTful API",
+        "GraphQL",
+        "Mocha",
+        "Chai",
+        "Multer",
+        "Google Gemini API",
+        "ClipDrop",
+        "FastAPI",
+        "Groq API",
+        "LLM Integration",
+        "Upstash Redis",
+        "Redis Rate Limiting"
+      ],
+      "languages": [
+        "JavaScript",
+        "TypeScript",
+        "Python"
+      ],
+      "tools": [
+        "Git",
+        "Yarn/NPM",
+        "NPM",
+        "VS Code",
+        "Postman",
+        "Figma",
+        "Asana",
+        "Notion",
+        "GitLab CI/CD",
+        "ClickUp",
+        "Cloudinary",
+        "Jira",
+        "Storybook",
+        "Vite",
+        "Bun",
+        "oxlint",
+        "oxfmt",
+        "Vercel",
+        "Render",
+        "Prompt Engineering",
+        "Groq",
+        "Upstash"
+      ],
+      "testing": [
+        "Jest",
+        "Enzyme",
+        "React Native Testing Library",
+        "React Testing Library",
+        "Nock",
+        "Mocha",
+        "Chai",
+        "Cypress",
+        "Vitest",
+        "Bun Test"
+      ],
+      "learning": [
+        "SASS",
+        "Firebase",
+        "GraphQL",
+        "WebGL"
+      ]
+    }
+  },
+  "education": [
+    {
+      "degree": "Fullstack Web Development",
+      "duration": "April 2019 - May 2019",
+      "description": "Intensive full-stack web development bootcamp that teaches the fundamentals of programming across the front-end and back-end. Gained knowledge about React, Redux, Node, Express. Worked in a team of four members to build a meal delivery website."
+    },
+    {
+      "degree": "Master's of Electrical & Computer Engineering",
+      "duration": "Sept 2016 - Dec 2018",
+      "description": "Studied many engineering topics, including digital communication, digital signal processing, real-time applications, robotics, and nanotechnology. Also studied computer science topics, such as computer architecture design, microprocessor applications, model-driven software, and formal hardware verification."
+    }
+  ],
+  "experience": [
+    {
+      "company": "SwiftConnect",
+      "position": "Software Engineer & Product Manager",
+      "duration": "Nov 2020 - Present",
+      "description": "Senior software engineer building and maintaining React/TypeScript applications at scale , with additional responsibility stepping into a Product Owner capacity when the team needed it. Owned frontend architecture, built private NPM libraries, and optimized Core Web Vitals, while also driving roadmap decisions and cross-team alignment during critical delivery phases.",
+      "highlights": [
+        "Built and maintained production React/TypeScript features using Styled Components, React Router, Redux Toolkit, and React Query as the primary engineering role.",
+        "Stepped into a Product Owner capacity when needed, facilitating sprint planning, translating business requirements into technical specifications, and aligning stakeholders across frontend, backend, and design.",
+        "Set API contracts and acceptance criteria at the start of feature cycles, keeping cross-team integration issues from surfacing late in delivery.",
+        "Architected and maintained private NPM libraries for UI components and utilities, improving code reuse and reducing duplication across teams.",
+        "Ran code reviews and mentoring sessions with junior developers, raising engineering standards and cutting review turnaround time by ~25%.",
+        "Optimized Core Web Vitals and enforced accessibility and performance best practices across multiple product lines.",
+        "Kept quarterly documentation of team decisions, shipped features, and architectural direction — giving leadership visibility without needing to ask."
+      ]
+    },
+    {
+      "company": "Hatchways",
+      "position": "Fullstack Web Developer (Co-Op)",
+      "duration": "Oct 2020 - Nov 2020",
+      "description": "Worked collaboratively in a team of 4 to develop web applications using React, Material-UI for the frontend, and Express, Node, MongoDB, Cloudinary Image uploader, and JWT authentication for the backend.",
+      "highlights": [
+        "Developed frontend with React and Material-UI, focusing on modular components and responsive design.",
+        "Built and integrated REST APIs using Node.js, Express, and MongoDB, including authentication and file uploads.",
+        "Implemented JWT authentication and secure user flows.",
+        "Participated in agile sprints, code reviews, and collaborative problem-solving."
+      ]
+    },
+    {
+      "company": "Guiker Inc",
+      "position": "Junior Software Developer",
+      "duration": "July 2019 - June 2020",
+      "description": "Assisted in developing iOS and Android mobile apps using Expo, TypeScript, Jest, and React Native. Gained hands-on backend experience with Node.js and Express by building and consuming REST APIs and applying core patterns like routing, controllers, and middleware to support the web app rebuild.",
+      "highlights": [
+        "Developed iOS and Android apps using Expo, TypeScript, Jest, and React Native.",
+        "Built and consumed REST APIs with Node.js and Express, applying routing, controllers, and middleware patterns.",
+        "Supported a major web app rebuild, improving maintainability and performance.",
+        "Gained hands-on experience with backend and cloud technologies."
+      ]
+    },
+    {
+      "company": "Fusion BPO Services",
+      "position": "Technical Support Specialist",
+      "duration": "Feb 2017 - June 2019",
+      "description": "Provided technical support for clients across Windows and Mac environments — diagnosing software and hardware issues, configuring network equipment, resolving email issues, and managing the full support lifecycle from intake to resolution.",
+      "highlights": [
+        "Diagnosed and resolved software and hardware issues for clients across Windows and Mac environments, covering OS errors, corrupted installations, driver conflicts, and application failures.",
+        "Walked clients through router setup, port forwarding, and home network troubleshooting over the phone — translating technical steps into language non-technical users could follow without repeat calls.",
+        "Resolved email configuration issues across multiple providers — account setup, send/receive failures, access recovery, and sync problems on desktop and mobile.",
+        "Started in sales for the first six months, handling inbound calls to qualify needs and sell technical support packages in a high-volume phone environment.",
+        "Managed the full support lifecycle independently: gathering symptoms, replicating issues remotely, applying fixes, and confirming resolution before closing."
+      ]
+    }
+  ],
+  "services": [
+    {
+      "id": 4,
+      "title": "Full Stack Solutions",
+      "description": "End-to-end application development combining frontend and backend technologies. Specializing in MERN/MEAN stack development with modern deployment practices."
+    },
+    {
+      "id": 2,
+      "title": "Frontend Development",
+      "description": "Building modern, responsive, and scalable frontend applications using React, Next.js, Vue.js, and TypeScript. Focus on component-based architecture and performance optimization."
+    },
+    {
+      "id": 3,
+      "title": "Backend Development",
+      "description": "Creating robust APIs and server-side applications using Node.js, Express, and modern databases. Experienced in building scalable backend architectures."
+    },
+    {
+      "id": 1,
+      "title": "Product Management",
+      "description": "Driving product vision, roadmap planning, and backlog prioritization to align engineering execution with business goals. Experienced in acting as Product Owner, managing sprints, facilitating stakeholder alignment, and bridging the gap between technical teams and business stakeholders."
+    },
+    {
+      "id": 5,
+      "title": "Mobile Development",
+      "description": "Cross-platform mobile application development using React Native and Expo. Creating performant mobile apps for both iOS and Android platforms."
+    },
+    {
+      "id": 6,
+      "title": "NPM Library Development",
+      "description": "Creating and maintaining private and public NPM libraries. Specialized in building reusable components and utility libraries for enhanced development productivity."
+    },
+    {
+      "id": 7,
+      "title": "Technical Consulting",
+      "description": "Providing technical guidance on architecture decisions, code reviews, and best practices. Helping teams improve code quality and development processes."
+    },
+    {
+      "id": 8,
+      "title": "Freelance Projects",
+      "description": "Offering flexible freelance services for short-term and long-term projects. Available for contract work, project-based engagements, and specialized technical tasks across frontend, backend, and full-stack domains."
+    },
+    {
+      "id": 9,
+      "title": "Technical Support",
+      "description": "Providing expert technical support and troubleshooting for software applications and systems. Experienced in diagnosing complex issues, managing support ticket workflows, and acting as a technical liaison between clients and development teams to ensure fast and reliable resolution."
+    },
+    {
+      "id": 10,
+      "title": "Technical Blog Writing",
+      "description": "Writing technical blog posts that turn implementation details into clear, practical articles. Best suited for engineering blogs, product explainers, migration notes, architecture breakdowns, and developer-facing documentation with real code context."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Z-Graph: Interactive Math Visualization Platform",
+      "url": "https://github.com/sk-izsk/z-graph",
+      "demo": "https://z-graph.vercel.app",
+      "category": "Frontend",
+      "tags": [
+        "React 18",
+        "TypeScript",
+        "Vite",
+        "Zustand",
+        "React Hook Form",
+        "Zod",
+        "Mafs",
+        "Three.js",
+        "React Three Fiber",
+        "Drei",
+        "mathjs",
+        "Web Workers",
+        "Tailwind CSS",
+        "Radix UI",
+        "Framer Motion",
+        "Lucide React",
+        "html-to-image",
+        "i18n"
+      ],
+      "publishDate": "2026-06-07",
+      "excerpt": "An interactive math visualization product built to explore equations, curves, fields, fractals, and surfaces across both 2D and 3D, with live formula editing and immediate visual feedback.",
+      "description": "Z-Graph is a graphics-heavy React and TypeScript application for exploring mathematical behavior visually instead of treating equations as static text. It combines Cartesian graphs, trigonometric and logarithmic functions, implicit curves, calculus visuals, polar and parametric systems, vector and slope fields, Fourier-style expressions, complex-plane visuals, fractals, parametric surfaces, and implicit 3D surfaces in one consistent interface. I structured it around reusable category definitions, configurable parameters, and worker-assisted computation so the app stays extensible and responsive as the rendering workload gets heavier.",
+      "highlights": [
+        "Supports a wide range of graphing modes including algebra, calculus, polar, parametric, vector-field, fractal, and 3D surface exploration",
+        "Live formula editing, presets, parameter controls, animation, fullscreen mode, and PNG export turn equations into interactive systems",
+        "Reusable category-based architecture plus worker-assisted computation keeps graphics-heavy visualization maintainable and responsive"
+      ]
+    },
+    {
+      "title": "ZTable: React Native Chemistry Reference App",
+      "url": "https://github.com/sk-izsk/rn-z-table",
+      "demo": "",
+      "category": "Frontend",
+      "tags": [
+        "Expo",
+        "React Native",
+        "TypeScript",
+        "Expo Router",
+        "Zustand",
+        "NativeWind",
+        "Tailwind CSS",
+        "React Native Reanimated",
+        "React Native SVG",
+        "i18next",
+        "react-i18next",
+        "Bun",
+        "oxlint",
+        "oxfmt",
+        "Chemistry Tools"
+      ],
+      "publishDate": "2026-06-07",
+      "excerpt": "A production-minded Expo and React Native chemistry app that combines a periodic table, localized element detail screens, atom-shell visualization, ion references, and classroom-oriented tools in a cleaner feature-based architecture.",
+      "description": "ZTable is a React Native chemistry reference and learning app built with Expo, TypeScript, Expo Router, Zustand, and NativeWind. The codebase was heavily refactored to move oversized TSX screens and chemistry utilities into feature-based modules, with thin route shells in `app/`, domain logic in `features/chemistry`, reusable UI in `components/`, and structured translations in `i18n/`. The result is a mobile app that stays readable, scalable, and maintainable while preserving public behavior across the periodic table, localized element profiles, atomic visualization, ion references, worksheets, and chemistry utilities.",
+      "highlights": [
+        "Feature-based refactor split large route components, chemistry logic, and locale files into smaller focused modules",
+        "Periodic table, localized element details, atom visualization, ion references, worksheet tooling, and chemistry helpers live behind clearer reusable boundaries",
+        "Typecheck, lint, formatting, and Bun-based chemistry tests were stabilized so the refactor improved structure without regressing behavior"
+      ]
+    },
+    {
+      "title": "Whisper Chat: Cross-Platform Real-Time Messaging App",
+      "url": "https://github.com/sk-izsk/react-native-fullstack-whisper-chat",
+      "demo": "https://react-native-fullstack-whisper-chat.onrender.com",
+      "category": "Full Stack",
+      "tags": [
+        "TypeScript",
+        "React 19",
+        "React Native",
+        "Expo",
+        "Vite",
+        "Express 5",
+        "Socket.IO",
+        "WebSockets",
+        "MongoDB",
+        "Mongoose",
+        "Clerk Auth",
+        "TanStack Query",
+        "Zustand",
+        "Tailwind CSS",
+        "NativeWind",
+        "DaisyUI",
+        "Sentry",
+        "Bun",
+        "Ky"
+      ],
+      "publishDate": "2026-06-07",
+      "excerpt": "A full-stack real-time messaging platform with Expo mobile, React web, and an Express plus Socket.IO backend, built to show production-style chat behavior instead of tutorial-level fake messaging.",
+      "description": "Whisper Chat is a full-stack TypeScript messaging system with three coordinated parts: a mobile client built with Expo and React Native, a web client built with React and Vite, and a backend API built with Express, Socket.IO, MongoDB, and Mongoose. It uses Clerk for authentication across web, mobile, and backend, TanStack Query for server state, Zustand for transient realtime state, and refactored socket modules for connection state, events, cache updates, unread markers, typing indicators, and online presence. The project focuses on real architecture: authenticated REST plus websocket flows, optimistic message sending, cross-platform product consistency, and maintainable state boundaries.",
+      "highlights": [
+        "Shared backend supports authenticated REST APIs and authenticated websocket connections for both web and mobile clients",
+        "Realtime features include one-to-one chat creation, optimistic messaging, typing indicators, online presence, unread state, and chat preview updates",
+        "TanStack Query and Zustand are separated by responsibility so server state and realtime UI state stay maintainable as the app grows"
+      ]
+    },
+    {
+      "title": "zsk-react-error: React Error Boundary & Reporter",
+      "url": "https://github.com/sk-izsk/zsk-react-error",
+      "demo": "",
+      "category": "Library",
+      "tags": [
+        "React 19",
+        "TypeScript",
+        "Error Boundary",
+        "Error Reporting",
+        "Zustand",
+        "NPM",
+        "Jest",
+        "Library"
+      ],
+      "publishDate": "2026-03-21",
+      "excerpt": "A TypeScript-first React error boundary and reporter package with advanced error state control, reset logic, and analytics integration. Designed for scalable, production-grade error handling in React apps.",
+      "description": "A robust React error boundary and reporter package supporting both global and local error state, composable hooks, imperative resets, and flexible fallback UI. Integrates easily with Zustand and analytics tools for complete error visibility.",
+      "highlights": [
+        "Global and local error state management with composable hooks",
+        "Keyed error isolation and imperative reset support",
+        "Customizable fallback UI and error reporting integration",
+        "Optimized for performance and scalable error handling",
+        "Easy integration with Zustand and analytics tools"
+      ]
+    },
+    {
+      "title": "Smart AI: Full-Stack SaaS AI Platform",
+      "url": "https://github.com/sk-izsk/smart-ai",
+      "demo": "",
+      "category": "Full Stack",
+      "tags": [
+        "Express 5",
+        "React 19",
+        "TypeScript",
+        "PostgreSQL",
+        "MikroORM",
+        "Clerk Auth",
+        "Google Gemini API",
+        "ClipDrop",
+        "Cloudinary",
+        "Multer",
+        "Vite",
+        "TanStack Query",
+        "React Router",
+        "Tailwind CSS",
+        "Vitest",
+        "SaaS",
+        "AI Integration"
+      ],
+      "publishDate": "2026-04-01",
+      "excerpt": "A comprehensive SaaS platform democratizing access to AI capabilities. Provides features for article generation, image creation/editing, resume analysis, and community interaction—with freemium tier distinction enforced at the API boundary.",
+      "description": "Full-stack AI-powered SaaS application integrating multiple AI services (Gemini, ClipDrop) and media processing (Cloudinary) with plan-based access control. Features user dashboards, creation history, community feed, and usage tracking.",
+      "highlights": [
+        "Full-stack architecture with Express backend and React frontend",
+        "Integrated AI services: Google Gemini (text), ClipDrop (images), Cloudinary (storage)",
+        "Plan-based access control enforced server-side with Clerk authentication",
+        "User creation history, community feed, and like/publish system",
+        "Usage tracking and rate limiting for free tier users",
+        "MikroORM for type-safe database operations with PostgreSQL",
+        "Comprehensive API routes for AI generation and user management"
+      ]
+    },
+    {
+      "title": "Auto Pause & Media Control: Chrome Extension",
+      "url": "https://github.com/sk-izsk/zsk-chrome-media-control",
+      "demo": "https://chromewebstore.google.com/detail/auto-pause-volume-control/acelidkmecggioloalgjphjpdjhmgejd",
+      "category": "Browser Extension",
+      "tags": [
+        "Chrome Extension",
+        "JavaScript",
+        "CSS",
+        "HTML",
+        "Chrome API",
+        "Manifest V3",
+        "Glassmorphism",
+        "Browser API",
+        "No Dependencies"
+      ],
+      "publishDate": "2026-04-11",
+      "excerpt": "A zero-dependency Chrome extension that automatically pauses media when you switch tabs and gives you precise scroll-wheel control over volume, playback speed, and scrubbing—no library required, just clean browser APIs.",
+      "description": "A lightweight, privacy-first Chrome extension built on pure vanilla JavaScript and the Chrome Extensions API. It intelligently pauses audio/video on tab blur and resumes on return, with scroll-wheel shortcuts for volume, speed, and scrubbing. Includes a Glassmorphism popup UI with individual feature toggles and a master kill-switch.",
+      "highlights": [
+        "Smart Auto-Pause: pauses media on tab switch and resumes precisely on return",
+        "Precision Media Scrubbing via Shift+Alt+Scroll using smooth trackpad scaling",
+        "Master Volume Control with Alt+Scroll hover gesture",
+        "Dynamic Playback Speed (0.25x–4.0x) via Ctrl+Alt+Scroll",
+        "Glassmorphism popup UI with per-feature toggles and a master power switch",
+        "Zero data collected—pure local JavaScript with no external dependencies"
+      ]
+    },
+    {
+      "title": "zsk-portfolio: This Portfolio (over-engineered by design)",
+      "url": "https://github.com/sk-izsk/zsk-portfolio",
+      "demo": "https://izsk.dev",
+      "category": "Portfolio",
+      "tags": [
+        "React 19",
+        "TypeScript",
+        "Vite 8",
+        "Vanilla Extract",
+        "Zustand",
+        "TanStack Query",
+        "Ky",
+        "Bun",
+        "PWA",
+        "Web Audio API",
+        "i18n",
+        "Compound Components",
+        "FastAPI",
+        "Groq",
+        "Llama 3.3",
+        "Prompt Engineering",
+        "LLM Integration",
+        "Upstash Redis",
+        "Rate Limiting",
+        "AI Chat"
+      ],
+      "publishDate": "2026-04-11",
+      "excerpt": "The site you're looking at right now. Built as a deliberate exercise in senior-level architecture using React 19, Vanilla Extract, Zustand, a zero-runtime CSS design system, and a focused AI resume assistant backed by FastAPI, Groq, and Redis rate limiting.",
+      "description": "A fully interactive developer portfolio built to showcase architectural decision-making as much as UI craft. Uses a headless JSON data layer, type-safe CSS-in-JS compiled at build time, compound component patterns, PWA offline support, a synthetic Web Audio click engine, hydration-safe state persistence, and an Ask AI experience. The AI feature connects the React frontend to a separate FastAPI backend that reads a structured resume profile JSON, calls Groq with a strict prompt, prioritizes professional experience before project evidence, caches repeated questions with Upstash Redis, and supports IP-based production rate limiting.",
+      "highlights": [
+        "Added an Ask AI portfolio assistant with React chat UI, FastAPI backend, Groq Llama integration, strict prompt rules, and JSON-only responses",
+        "Implemented Upstash Redis caching and IP-based rate limiting, with local development bypass and production controls",
+        "Reduced LLM token usage by compacting the resume profile before each Groq request and versioning Redis cache keys when prompt behavior changes",
+        "Zero-runtime CSS via Vanilla Extract — styles are TypeScript, compiled to static .css at build time",
+        "15+ hot-swappable color themes built on a typed createThemeContract design system",
+        "React 19 Compiler integration — automatic memoization, no manual useMemo/useCallback",
+        "Headless JSON data layer in /public — fully decoupled from the UI, reusable across any future rebuild",
+        "Synthetic click sounds via Web Audio API (no .mp3 files, no network requests)",
+        "PWA-ready via vite-plugin-pwa with offline service worker caching",
+        "Keyboard accessibility: T (theme), M (mute), Cmd+D (download CV)",
+        "Custom NPM packages: zsk-react-error and zsk-react-i18n used in production"
+      ]
+    },
+    {
+      "title": "zsk-use-sound: React Hook for File + Generated Sound",
+      "url": "https://github.com/sk-izsk/zsk-use-sound",
+      "demo": "",
+      "category": "Library",
+      "tags": [
+        "React Hook",
+        "TypeScript",
+        "Howler",
+        "Web Audio API",
+        "NPM",
+        "Library",
+        "Dual Mode Audio",
+        "Sound Effects"
+      ],
+      "publishDate": "2026-04-11",
+      "excerpt": "A TypeScript-first React hook inspired by use-sound that supports both Howler-powered file playback and browser-generated click sounds through one API. Designed for UI feedback without forcing bundled audio assets.",
+      "description": "zsk-use-sound unifies two sound strategies in one ergonomic hook: file mode for mp3/wav assets via Howler, and generated mode that synthesizes built-in click profiles in the browser when no file is provided. It exposes a familiar tuple API with play controls, mode visibility, and sound-enabled toggling for app-wide mute workflows.",
+      "highlights": [
+        "Dual-mode audio engine: file playback (Howler) and generated Web Audio click presets",
+        "TypeScript-first API with exported option/play/control types for consumer safety",
+        "Built-in generated profiles (click, soft-click, tick) with volume and playback controls",
+        "Supports global mute flow via soundEnabled and per-play override via forceSoundEnabled",
+        "use-sound-inspired tuple return shape with stop, pause, duration, and runtime mode metadata"
+      ]
+    },
+    {
+      "title": "zsk-jd: AI-Powered Resume Tailoring Skill",
+      "url": "https://github.com/sk-izsk",
+      "demo": "",
+      "category": "AI Skills",
+      "tags": [
+        "Claude",
+        "LLM",
+        "Prompt Engineering",
+        "ATS Optimization",
+        "Resume Tailoring",
+        "LaTeX",
+        "Job Search Automation",
+        "Skill Gap Analysis",
+        "Cover Letter",
+        "AI Workflow",
+        "Portable Skill",
+        "TypeScript"
+      ],
+      "publishDate": "2026-04-15",
+      "excerpt": "A portable LLM skill that performs ATS gap analysis, interview probability scoring, and full LaTeX resume tailoring against any job description — with a mandatory warning gate before output and bilingual cover letter generation.",
+      "description": "A structured prompt skill for Claude and other LLMs that automates resume tailoring end-to-end: JD parsing, skill gap scoring, ATS keyword injection, and compilable LaTeX output with optional cover letters. Built with strict ATS writing rules, fabrication guardrails, and support for patch-mode diffs.",
+      "highlights": [
+        "Performs weighted skill gap analysis (hard skills 60%, seniority 25%, domain fit 15%) with interview probability estimate",
+        "Mandatory warning gate blocks output if match score < 50 or majority of required skills are missing — prevents false confidence",
+        "Rewrites professional summary, reorders skills, and injects JD keywords into bullet points without fabricating any experience",
+        "Generates standalone compilable LaTeX cover letters in 4 length modes (short, default, long, cover-only) with formal/casual tone flags",
+        "Patch mode outputs only changed LaTeX blocks — clean diffs for version control workflows",
+        "Strict ATS writing rules: 15+ banned words/phrases, no em dashes, no repetitive bullet structures, no robotic summary openers",
+        "Portable across Claude, Cursor, Copilot, ChatGPT, Gemini CLI, and any markdown-capable LLM"
+      ]
+    },
+    {
+      "title": "Coin Gate: Live Crypto Market Dashboard",
+      "url": "https://github.com/sk-izsk/coin-gate",
+      "demo": "https://coin-gate-sand.vercel.app",
+      "category": "Frontend",
+      "tags": [
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Base UI",
+        "lightweight-charts",
+        "CoinGecko API",
+        "WebSockets",
+        "App Router",
+        "Server Components",
+        "Route Handlers"
+      ],
+      "publishDate": "2026-05-05",
+      "excerpt": "A production-style crypto dashboard built with Next.js 16, React 19, and TypeScript. It combines server-rendered CoinGecko market data with live websocket updates for pricing, trades, OHLC charts, search, and coin conversion in one responsive interface.",
+      "description": "Coin Gate is a crypto market dashboard built with Next.js App Router, Tailwind CSS, shadcn/ui, Base UI primitives, and lightweight-charts. It includes a home dashboard with featured market views, a paginated coins page, and dynamic coin detail screens with live pricing, recent trades, OHLC charting, and conversion tools. I used server components, client components, route handlers, and websocket subscriptions together so the app can load stable market snapshots first, then layer in live updates without losing responsiveness.",
+      "highlights": [
+        "Home dashboard with featured coin overview, trending assets, and top categories",
+        "Paginated coins listing plus dynamic coin pages with live pricing, trades, OHLC charts, and conversion",
+        "Shared CoinGecko data layer handling REST, websocket streams, demo/pro API differences, and OHLC fallback logic"
+      ]
+    },
+    {
+      "title": "Z Gym: Premium Fitness Brand SPA",
+      "url": "https://github.com/sk-izsk/z-gym",
+      "demo": "https://zed-gym.netlify.app/",
+      "category": "Frontend",
+      "tags": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "Radix UI",
+        "Motion",
+        "SPA",
+        "Responsive Design",
+        "Dark Mode",
+        "Light Mode",
+        "Accessibility",
+        "Design System"
+      ],
+      "publishDate": "2026-05-11",
+      "excerpt": "A production-style fitness SPA built with React, TypeScript, Vite, Tailwind CSS, Radix UI, and Motion. I treated it like a real frontend system, with scroll-driven sections, reusable UI primitives, typed content, and theme support instead of one-off page styling.",
+      "description": "Z Gym is a premium fitness brand experience built as a section-based single-page app. It uses React, TypeScript, Vite, Tailwind CSS, Radix UI primitives, and Motion for scroll-driven storytelling, responsive layout, and polished dark and light themes. For me, this project is a good example of building more than a modern-looking website. It is also structured to be scalable, reusable, and maintainable, with isolated section components, reusable hooks, shared animation variants, direct imports, and a centralized typed content layer that keeps the codebase held to a high standard.",
+      "highlights": [
+        "Scroll-driven single-page experience with responsive section architecture and premium visual pacing",
+        "Reusable UI primitives, shared animation variants, and isolated section components instead of page-specific one-offs",
+        "Centralized typed content plus theme support and accessible interactions built for maintainability, not only presentation"
+      ]
+    },
+    {
+      "title": "WC26: Open-Source World Cup 2026 macOS Menu Bar App",
+      "url": "https://github.com/sk-izsk/WC26",
+      "demo": "",
+      "category": "macOS App",
+      "tags": [
+        "Swift",
+        "SwiftUI",
+        "macOS",
+        "MenuBarExtra",
+        "Native App",
+        "API Integration",
+        "App State",
+        "Notifications",
+        "UserDefaults",
+        "Menu Bar Utility",
+        "Open Source"
+      ],
+      "publishDate": "2026-06-14",
+      "excerpt": "A small open-source macOS menu bar app built in SwiftUI to track World Cup 2026 fixtures, standings, and live scores without repeatedly opening a website or paying for a seasonal score app.",
+      "description": "WC26 is a practical native macOS side project I built as my first real Swift and SwiftUI app. I came into it from a senior frontend and full-stack background in React and TypeScript, using the project as a way to learn native app structure by shipping something genuinely useful for myself during the tournament season. The app runs from the menu bar using MenuBarExtra, fetches match data from the open-source `worldcup2026` API by Reza Rahiminia, normalizes raw match payloads into UI-friendly models, keeps live matches at the top, preserves stoppage-time formatting like 90'+8', and supports favorites, pinned live matches, notifications, refresh controls, start at login, and local preference persistence. It is intentionally small in scope, open source, and distributed unsigned because I did not want to pay the Apple developer fee for a fun side project.",
+      "highlights": [
+        "Built as a native SwiftUI menu bar utility with fixtures, standings, team sheets, favorites, and live scores available in one click",
+        "Added a central AppViewModel, match normalization layer, and live-first ordering so messy API data becomes a cleaner real-time product experience",
+        "Improved timer parsing and notification handling to support meaningful details such as stoppage time, kickoff, goal, and full-time events",
+        "Stored user preferences locally for pinned matches, refresh interval, transparency, favorites, and notification behavior",
+        "Open-source project that credits the `worldcup2026` API provider directly and ships with honest unsigned-distribution tradeoffs"
+      ]
+    },
+    {
+      "title": "zsk-ai-resume-api: FastAPI Backend for Portfolio Ask AI",
+      "url": "https://github.com/sk-izsk/zsk-ai-resume-api",
+      "demo": "",
+      "category": "AI Backend",
+      "tags": [
+        "Python",
+        "FastAPI",
+        "Groq",
+        "Llama 3.3",
+        "Prompt Engineering",
+        "LLM Integration",
+        "Structured JSON Output",
+        "Upstash Redis",
+        "Rate Limiting",
+        "Caching",
+        "Pydantic",
+        "Render",
+        "CORS",
+        "REST API"
+      ],
+      "publishDate": "2026-08-12",
+      "excerpt": "A focused Python FastAPI backend that powers the portfolio Ask AI feature with Groq, strict prompt engineering, structured JSON responses, Redis caching, and production rate limiting.",
+      "description": "zsk-ai-resume-api is the separate backend service for my portfolio's Ask AI experience. It uses FastAPI, Pydantic settings, Groq's Llama 3.3 model, and a structured resume profile JSON to answer questions about my professional background. The backend includes strict prompt rules that keep answers scoped to my resume, prioritize professional experience before personal projects, return JSON-only responses, cache repeated questions in Upstash Redis, and enforce IP-based rate limiting in production while allowing unlimited local development. I also added compact profile context to reduce Groq token usage after seeing how quickly full-profile prompts can hit provider limits.",
+      "highlights": [
+        "Built a Python FastAPI service with `/chat` and `/health` endpoints for the portfolio Ask AI feature",
+        "Integrated Groq Llama 3.3 with strict prompt engineering, JSON-only output, professional-experience-first evidence rules, and unrelated-question refusal",
+        "Used Upstash Redis for repeated-question caching, cache versioning, and IP-based production rate limiting",
+        "Added local development controls so rate limits can be disabled locally while remaining enabled in production",
+        "Reduced LLM token usage by compacting the resume profile before each Groq request instead of sending the full public JSON every time",
+        "Handled Groq provider rate-limit errors cleanly so the frontend can show a meaningful message instead of a generic failure"
+      ]
+    }
+  ],
+  "blog": [
+    {
+      "title": "I Ditched Axios for Ky And My Dependabot Finally Stopped Screaming",
+      "url": "https://izsk.hashnode.dev/i-ditched-axios-for-ky-and-my-dependabot-finally-stopped-screaming",
+      "category": "Frontend Architecture",
+      "tags": [
+        "React",
+        "TypeScript",
+        "Ky",
+        "Axios",
+        "Fetch API",
+        "TanStack Query",
+        "Dependabot",
+        "Security",
+        "Zod"
+      ],
+      "publishDate": "2026-05-02",
+      "excerpt": "A personal breakdown of Fetch, Axios, and why Ky quietly became my go-to HTTP client in React.",
+      "description": "A practical comparison of Fetch, Axios, and Ky through the lens of bundle weight, retries, timeouts, TypeScript ergonomics, and the security cost of unnecessary dependencies.",
+      "highlights": [
+        "Compares Fetch, Axios, and Ky through real React and TanStack Query usage",
+        "Breaks down Axios security incidents and supply-chain risk as a decision factor",
+        "Explains why Ky became the default request layer for modern React projects"
+      ]
+    },
+    {
+      "title": "Context vs Redux Toolkit vs Zustand: Picking the Right State Tool for the Job",
+      "url": "https://izsk.hashnode.dev/context-vs-redux-toolkit-vs-zustand-picking-the-right-state-tool-for-the-job",
+      "category": "State Management",
+      "tags": [
+        "React",
+        "TypeScript",
+        "React Context",
+        "Redux Toolkit",
+        "Zustand",
+        "State Management",
+        "React Native",
+        "Architecture"
+      ],
+      "publishDate": "2026-05-10",
+      "excerpt": "You don't need the most powerful state manager. You need the right one.",
+      "description": "A production-minded comparison of React Context, Redux Toolkit, and Zustand, focused on re-render behavior, boilerplate, team scaling, and the tradeoffs that matter months after launch.",
+      "highlights": [
+        "Maps the strengths and weaknesses of Context, Redux Toolkit, and Zustand",
+        "Explains the Context re-render trap and why selector-based stores feel better at scale",
+        "Shows when scoped Zustand plus Context is the right hybrid pattern"
+      ]
+    },
+    {
+      "title": "React Query vs SWR vs the `use` Hook: Why You're Fetching Data Wrong",
+      "url": "https://izsk.hashnode.dev/react-query-vs-swr-vs-the-use-hook-why-you-re-fetching-data-wrong",
+      "category": "Data Fetching",
+      "tags": [
+        "React",
+        "TypeScript",
+        "React Query",
+        "TanStack Query",
+        "SWR",
+        "React 19",
+        "use Hook",
+        "Suspense",
+        "Data Fetching",
+        "State Synchronization"
+      ],
+      "publishDate": "2026-05-25",
+      "excerpt": "You already know how to fetch data. What you're missing is everything that happens after.",
+      "description": "A production-focused comparison of raw fetch, SWR, React 19's `use` hook, and TanStack Query, centered on caching, mutations, race conditions, and why client-side data fetching is really a state synchronization problem.",
+      "highlights": [
+        "Explains where raw fetch and Axios break down once caching, deduplication, and stale data enter the picture",
+        "Shows why the React 19 `use` hook is powerful in server components but limited as a client-side data fetching strategy",
+        "Compares SWR and TanStack Query through mutations, optimistic updates, DevTools, infinite queries, and real production tradeoffs"
+      ]
+    },
+    {
+      "title": "You're Probably Using React Memoization Wrong (And So Was I)",
+      "url": "https://izsk.hashnode.dev/you-re-probably-using-react-memoization-wrong-and-so-was-i",
+      "category": "Frontend Architecture",
+      "tags": [
+        "React",
+        "React 19",
+        "useMemo",
+        "useCallback",
+        "React.memo",
+        "Memoization",
+        "Performance",
+        "Profiler",
+        "useDeferredValue",
+        "useTransition"
+      ],
+      "publishDate": "2026-05-31",
+      "excerpt": "Memoization is a performance tool, not a coding habit. Most of the time, the simpler version is the better version.",
+      "description": "A practical guide to `useMemo`, `useCallback`, and `React.memo`, focused on when they solve real performance problems, when they add noise, and how React 19 changes the tradeoffs.",
+      "highlights": [
+        "Explains when `useMemo`, `useCallback`, and `React.memo` actually save meaningful work",
+        "Breaks down the reference equality traps that make manual memoization ineffective",
+        "Shows how React 19, `useDeferredValue`, and `useTransition` shift the performance conversation beyond blanket memoization"
+      ]
+    },
+    {
+      "title": "React Compound Components: The Pattern That Makes Component APIs Actually Good",
+      "url": "https://izsk.hashnode.dev/react-compound-components-the-pattern-that-makes-component-apis-actually-good",
+      "category": "Frontend Architecture",
+      "tags": [
+        "React",
+        "TypeScript",
+        "Compound Components",
+        "Context API",
+        "Component API Design",
+        "Design Systems",
+        "Radix UI",
+        "Headless UI",
+        "Ant Design",
+        "Controlled Components",
+        "Uncontrolled Components"
+      ],
+      "publishDate": "2026-06-07",
+      "excerpt": "A long-form React architecture article on why prop-heavy components break down at scale and how compound components produce cleaner, more maintainable APIs.",
+      "description": "A practical deep dive into the compound components pattern in React, covering why monolithic prop-driven APIs become unmaintainable, how Context-based composition gives consumers layout control without losing shared state, and how to design the pattern correctly in TypeScript for real component libraries and design systems.",
+      "highlights": [
+        "Builds Tabs and Accordion compound components from scratch with Context-based state sharing",
+        "Explains controlled vs uncontrolled APIs, namespaced TypeScript sub-components, and why Context beats `React.Children.map` here",
+        "Covers real-world usage, common mistakes, and lighter alternatives such as render props, config objects, and named slots"
+      ]
+    },
+    {
+      "title": "React Virtualization: Fast Tables With Thousands of Rows",
+      "url": "https://izsk.hashnode.dev/your-table-has-10-000-rows-your-browser-has-one-dom-let-s-talk-about-virtualization",
+      "category": "Frontend Performance",
+      "tags": [
+        "React",
+        "TypeScript",
+        "Virtualization",
+        "TanStack Virtual",
+        "react-window",
+        "react-virtuoso",
+        "TanStack Table",
+        "TanStack Query",
+        "Performance",
+        "DOM",
+        "DevTools",
+        "Infinite Scroll"
+      ],
+      "publishDate": "2026-06-14",
+      "excerpt": "A practical, opinionated deep dive into React list and table virtualization focused on large datasets, real bottlenecks, and the tradeoffs behind adding windowing at all.",
+      "description": "This article treats virtualization as a DOM scaling problem first and a React implementation detail second. It starts with a DevTools-based workflow to confirm whether rendering cost is actually the bottleneck before reaching for a library, then walks through how windowing works under the hood, when it is the right call, when it is unnecessary, and how to implement it with TanStack Virtual, react-window, react-virtuoso, TanStack Table, and TanStack Query. It also covers variable row height strategies, infinite scroll, sticky headers, accessibility limitations, and the CSS and state-management mistakes that usually make virtualized tables feel fragile.",
+      "highlights": [
+        "Explains virtualization from first principles: DOM recycling, scroll math, overscan, and why the browser usually fails before React does",
+        "Shows when to use virtualization and when to skip it for simpler options such as pagination, server-side filtering, or append-only lists",
+        "Includes practical implementations with TanStack Virtual, react-window, react-virtuoso, TanStack Table, and `useInfiniteQuery`",
+        "Covers variable-height rows, sticky header setup, refetch scroll-loss issues, and other failure modes that appear in real tables",
+        "Ends with the same rule as the rest of the series: measure first, then add complexity only when the evidence says you need it"
+      ]
+    },
+    {
+      "title": "Concurrent Rendering in React: What It Actually Is, And When It's Just Hiding a Problem",
+      "url": "https://izsk.hashnode.dev/concurrent-rendering-in-react-what-it-actually-is-and-when-it-s-just-hiding-a-problem",
+      "category": "Frontend Performance",
+      "tags": [
+        "React",
+        "React 19",
+        "Concurrent Rendering",
+        "Fiber",
+        "startTransition",
+        "useTransition",
+        "useDeferredValue",
+        "Suspense",
+        "Performance",
+        "Scheduling"
+      ],
+      "publishDate": "2026-06-21",
+      "excerpt": "Concurrent rendering is not multi-threading. It's React's way of rescheduling render work so urgent updates stay responsive.",
+      "description": "A technical deep dive into React's concurrent rendering model, focused on what Fiber actually enables, how urgent and non-urgent updates shape the API surface, when `startTransition`, `useTransition`, and `useDeferredValue` genuinely help, and when they are just masking a slower underlying problem.",
+      "highlights": [
+        "Explains why concurrent rendering stays single-threaded and what Fiber actually makes interruptible",
+        "Breaks down `startTransition`, `useTransition`, and `useDeferredValue` through real UI cases and a clear decision table",
+        "Shows how concurrent rendering and Suspense fit together in data-heavy flows such as product detail navigation",
+        "Ends with a practical diagnosis framework so you measure the real bottleneck before reaching for any concurrent API"
+      ]
+    },
+    {
+      "title": "React Reconciliation and Keys: What's Actually Happening When Your Component Re-Renders",
+      "url": "https://izsk.hashnode.dev/react-reconciliation-and-keys-what-s-actually-happening-when-your-component-re-renders",
+      "category": "Frontend Performance",
+      "tags": [
+        "React",
+        "React 19",
+        "Reconciliation",
+        "Keys",
+        "Fiber",
+        "Component Lifecycle",
+        "State Preservation",
+        "Remounting",
+        "Profiler",
+        "DevTools"
+      ],
+      "publishDate": "2026-06-28",
+      "excerpt": "Keys do not magically fix list bugs. They tell React which child identity should survive the next diff.",
+      "description": "A deep dive into React reconciliation focused on how the diffing heuristic actually matches elements, when a component updates versus remounts, why unstable keys corrupt stateful lists, and how Fiber makes selective reuse possible.",
+      "highlights": [
+        "Explains React's two core diffing rules: type changes tear down subtrees, and same-type siblings are matched by key",
+        "Shows step by step why removing an item from a stateful list breaks under positional diffing and why index keys behave the same way",
+        "Clarifies the exact difference between a re-render and a remount, including what state survives and what resets",
+        "Connects reconciliation to Fiber internals, current versus work-in-progress trees, and practical DevTools debugging for unexpected remounts"
+      ]
+    },
+    {
+      "title": "JavaScript Loops: Stop Using map() for Everything",
+      "url": "https://izsk.hashnode.dev/javascript-loops-stop-using-map-for-everything",
+      "category": "Frontend Architecture",
+      "tags": [
+        "JavaScript",
+        "Frontend",
+        "WebDevelopment",
+        "Programming"
+      ],
+      "publishDate": "2026-07-19",
+      "excerpt": "Most loop mistakes are not style choices. They're cases where the code is saying one thing and doing another.",
+      "description": "A practical guide to choosing the right JavaScript loop based on intent, control flow, return value, async behavior, and readability, with concrete reasons to use `for`, `while`, `for...of`, `forEach`, `map`, `filter`, `reduce`, `find`, `some`, `every`, and `flatMap`.",
+      "highlights": [
+        "Separates imperative loops from functional array methods so the first decision is obvious",
+        "Explains the real tradeoffs behind `for`, `for...of`, `forEach`, `map`, `filter`, and `reduce` instead of treating them as style preferences",
+        "Calls out common production mistakes such as `forEach` with `async`/`await`, `map` for side effects, and `filter` where `some` or `find` should short-circuit"
+      ]
+    },
+    {
+      "title": "Debugging React Apps Like a Senior Dev",
+      "url": "https://izsk.hashnode.dev/debugging-react-apps-like-a-senior-dev",
+      "category": "Frontend Debugging",
+      "tags": [
+        "React",
+        "React DevTools",
+        "Profiler",
+        "useEffect",
+        "Debugging",
+        "Zustand",
+        "TanStack Query",
+        "Sentry",
+        "Vite",
+        "Memory Leaks",
+        "Chrome DevTools",
+        "why-did-you-render"
+      ],
+      "publishDate": "2026-07-26",
+      "excerpt": "Senior debugging starts before the first console.log. The difference is whether you form a hypothesis before touching anything.",
+      "description": "A practical, opinionated guide to debugging React applications systematically instead of randomly. Built around a four-part bug taxonomy, it covers React DevTools, the Profiler, `useEffect` failure patterns, re-render diagnostics, state and network debugging, memory leaks, production observability, and a six-step checklist for forming and testing hypotheses.",
+      "highlights": [
+        "Opens with a four-category bug taxonomy: wrong state, wrong render logic, wrong effect, or wrong external input",
+        "Shows how to use React DevTools, the Profiler, why-did-you-render, and browser tooling to validate a debugging hypothesis fast",
+        "Covers the highest-frequency React bug classes including unstable effect dependencies, stale closures, render storms, cache confusion, and memory leaks",
+        "Includes practical production debugging guidance for source maps in Vite, Sentry with React error boundaries, feature flags, and structured console breadcrumbs"
+      ]
+    },
+    {
+      "title": "Web Performance Beyond Lighthouse: What Actually Moves the Needle",
+      "url": "https://izsk.hashnode.dev/web-performance-beyond-lighthouse-what-actually-moves-the-needle",
+      "category": "Frontend Performance",
+      "tags": [
+        "Web Performance",
+        "Lighthouse",
+        "Core Web Vitals",
+        "CrUX",
+        "INP",
+        "LCP",
+        "CLS",
+        "WebPageTest",
+        "DevTools",
+        "Performance Budgets",
+        "Sentry",
+        "React"
+      ],
+      "publishDate": "2026-08-03",
+      "excerpt": "A high Lighthouse score and a fast real-user experience are related, but they are not the same thing.",
+      "description": "A technical deep dive into modern web performance that separates lab scores from field reality, explains Core Web Vitals by mechanism, and focuses on the changes that materially improve what users actually feel across devices, networks, and full sessions.",
+      "highlights": [
+        "Explains the difference between Lighthouse lab data and CrUX field data, including where each fits in a real performance workflow",
+        "Breaks down LCP, CLS, and INP through root causes, DevTools diagnosis, and the browser mechanics behind each metric",
+        "Covers practical fixes across bundles, images, fonts, third-party scripts, long tasks, and main-thread congestion",
+        "Ends with a pragmatic stack: Lighthouse CI, web-vitals, CrUX, WebPageTest, and Sentry Performance, with guidance on when to add each one"
+      ]
+    },
+    {
+      "title": "Prompt Engineering Is Just Common Sense With Structure",
+      "url": "https://izsk.hashnode.dev/prompt-engineering-is-just-common-sense-with-structure",
+      "category": "AI Engineering",
+      "tags": [
+        "Prompt Engineering",
+        "LLMs",
+        "AI Engineering",
+        "Python",
+        "Groq",
+        "Llama 3.3",
+        "Structured Output",
+        "Prompt Injection",
+        "JSON Schema",
+        "Few-Shot Prompting"
+      ],
+      "publishDate": "2026-08-12",
+      "excerpt": "Inconsistent LLM output is usually a prompt problem, not a model problem.",
+      "description": "A practical, developer-focused guide to writing production-ready LLM prompts with six structural components: role, task, constraints, output format, examples, and fallback.",
+      "highlights": [
+        "Shows why vague prompts produce plausible but parser-breaking output across repeated runs",
+        "Breaks down a reusable six-part prompt structure with Python examples using Groq and Llama 3.3",
+        "Covers structured JSON output, prompt injection defenses, prompt testing, and production failure patterns"
+      ]
+    }
+  ],
+  "assistantRules": [
+    "Answer only about Zeeshan Shaikh Murshed and his professional profile.",
+    "Use only facts contained in this JSON.",
+    "If information is missing, say the portfolio does not include that detail.",
+    "For unrelated questions, politely redirect the user to ask about Zeeshan work."
+  ]
+}

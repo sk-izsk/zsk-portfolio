@@ -4,7 +4,7 @@
     "title": "Software Engineer",
     "greeting": "Hello, my name is",
     "profession": "I'm a Software Engineer & Product Manager",
-    "bio": "Software Engineer and Product Manager with 7+ years building scalable web and mobile applications and driving cross-functional product delivery. Full-stack development, roadmap ownership, and technical support — backed by a strict focus on Core Web Vitals and clean architecture.",
+    "bio": "Software Engineer and Product Manager with 7+ years building scalable web and mobile applications and driving cross-functional product delivery. Full-stack development, roadmap ownership, and technical support backed by a strict focus on Core Web Vitals and clean architecture.",
     "bioSegments": [
       { "text": "Software Engineer", "mark": "underline" },
       {
@@ -25,7 +25,7 @@
         "mark": "none"
       }
     ],
-    "detailedBio": "Software Engineer and Product Manager with over 7 years architecting high-performance web and mobile applications in React and TypeScript. Stepped into Product Owner and technical lead roles to define roadmaps, prioritize backlogs, and synchronize cross-functional delivery across frontend and backend teams. Expanded into full-stack system design (Node.js, Express, PostgreSQL). Also brings hands-on technical support experience — diagnosing issues, managing client-facing escalations, and bridging engineering with end-user needs.",
+    "detailedBio": "Software Engineer and Product Manager with over 7 years architecting high-performance web and mobile applications in React and TypeScript. Stepped into Product Owner and technical lead roles to define roadmaps, prioritize backlogs, and synchronize cross-functional delivery across frontend and backend teams. Expanded into full-stack system design (Node.js, Express, PostgreSQL) and recently built a FastAPI plus Groq-powered portfolio AI assistant with Redis caching, rate limiting, and prompt controls. Also brings hands-on technical support experience  diagnosing issues, managing client-facing escalations, and bridging engineering with end-user needs.",
     "detailedBioSegments": [
       { "text": "Software Engineer & Product Manager", "mark": "highlight" },
       {
@@ -37,7 +37,15 @@
         "mark": "highlight"
       },
       {
-        "text": " to define roadmaps and synchronize delivery. Expanded into full-stack system design (Node.js, Express, PostgreSQL). Brings hands-on ",
+        "text": " to define roadmaps and synchronize delivery. Expanded into full-stack system design (Node.js, Express, PostgreSQL) and recently built a ",
+        "mark": "none"
+      },
+      {
+        "text": "FastAPI plus Groq-powered portfolio AI assistant",
+        "mark": "highlight"
+      },
+      {
+        "text": " with Redis caching, rate limiting, and prompt controls. Brings hands-on ",
         "mark": "none"
       },
       {
@@ -239,9 +247,12 @@
     {
       "id": 7,
       "title": "zsk-portfolio: This Portfolio (over-engineered by design)",
-      "excerpt": "The site you're looking at right now. Built as a deliberate exercise in senior-level architecture using React 19, Vanilla Extract, Zustand, and a zero-runtime CSS design system. Every technology choice has a reason behind it — some practical, some intentionally ambitious.",
-      "shortDescription": "A fully interactive developer portfolio built to showcase architectural decision-making as much as UI craft. Uses a headless JSON data layer, type-safe CSS-in-JS compiled at build time, compound component patterns, PWA offline support, a synthetic Web Audio click engine, and hydration-safe state persistence. Purposefully over-engineered.",
+      "excerpt": "The site you're looking at right now. Built as a deliberate exercise in senior-level architecture using React 19, Vanilla Extract, Zustand, a zero-runtime CSS design system, and a focused AI resume assistant backed by FastAPI, Groq, and Redis rate limiting.",
+      "shortDescription": "A fully interactive developer portfolio built to showcase architectural decision-making as much as UI craft. Uses a headless JSON data layer, type-safe CSS-in-JS compiled at build time, compound component patterns, PWA offline support, a synthetic Web Audio click engine, hydration-safe state persistence, and an Ask AI experience. The AI feature connects the React frontend to a separate FastAPI backend that reads a structured resume profile JSON, calls Groq with a strict prompt, prioritizes professional experience before project evidence, caches repeated questions with Upstash Redis, and supports IP-based production rate limiting.",
       "highlights": [
+        "Added an Ask AI portfolio assistant with React chat UI, FastAPI backend, Groq Llama integration, strict prompt rules, and JSON-only responses",
+        "Implemented Upstash Redis caching and IP-based rate limiting, with local development bypass and production controls",
+        "Reduced LLM token usage by compacting the resume profile before each Groq request and versioning Redis cache keys when prompt behavior changes",
         "Zero-runtime CSS via Vanilla Extract — styles are TypeScript, compiled to static .css at build time",
         "15+ hot-swappable color themes built on a typed createThemeContract design system",
         "React 19 Compiler integration — automatic memoization, no manual useMemo/useCallback",
@@ -313,6 +324,20 @@
         "Improved timer parsing and notification handling to support meaningful details such as stoppage time, kickoff, goal, and full-time events",
         "Stored user preferences locally for pinned matches, refresh interval, transparency, favorites, and notification behavior",
         "Open-source project that credits the `worldcup2026` API provider directly and ships with honest unsigned-distribution tradeoffs"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "zsk-ai-resume-api: FastAPI Backend for Portfolio Ask AI",
+      "excerpt": "A focused Python FastAPI backend that powers the portfolio Ask AI feature with Groq, strict prompt engineering, structured JSON responses, Redis caching, and production rate limiting.",
+      "shortDescription": "zsk-ai-resume-api is the separate backend service for my portfolio's Ask AI experience. It uses FastAPI, Pydantic settings, Groq's Llama 3.3 model, and a structured resume profile JSON to answer questions about my professional background. The backend includes strict prompt rules that keep answers scoped to my resume, prioritize professional experience before personal projects, return JSON-only responses, cache repeated questions in Upstash Redis, and enforce IP-based rate limiting in production while allowing unlimited local development. I also added compact profile context to reduce Groq token usage after seeing how quickly full-profile prompts can hit provider limits.",
+      "highlights": [
+        "Built a Python FastAPI service with `/chat` and `/health` endpoints for the portfolio Ask AI feature",
+        "Integrated Groq Llama 3.3 with strict prompt engineering, JSON-only output, professional-experience-first evidence rules, and unrelated-question refusal",
+        "Used Upstash Redis for repeated-question caching, cache versioning, and IP-based production rate limiting",
+        "Added local development controls so rate limits can be disabled locally while remaining enabled in production",
+        "Reduced LLM token usage by compacting the resume profile before each Groq request instead of sending the full public JSON every time",
+        "Handled Groq provider rate-limit errors cleanly so the frontend can show a meaningful message instead of a generic failure"
       ]
     }
   ],

@@ -78,7 +78,12 @@
       { "name": "Three.js", "level": 70, "category": "frontend" },
       { "name": "React Three Fiber", "level": 70, "category": "frontend" },
       { "name": "NativeWind", "level": 70, "category": "frontend" },
-      { "name": "Bun", "level": 70, "category": "tools" }
+      { "name": "Bun", "level": 70, "category": "tools" },
+      { "name": "FastAPI", "level": 65, "category": "backend" },
+      { "name": "Groq API", "level": 70, "category": "backend" },
+      { "name": "LLM Integration", "level": 70, "category": "backend" },
+      { "name": "Prompt Engineering", "level": 75, "category": "tools" },
+      { "name": "Upstash Redis", "level": 65, "category": "backend" }
     ],
     "categories": {
       "frontend": [
@@ -130,7 +135,12 @@
         "Chai",
         "Multer",
         "Google Gemini API",
-        "ClipDrop"
+        "ClipDrop",
+        "FastAPI",
+        "Groq API",
+        "LLM Integration",
+        "Upstash Redis",
+        "Redis Rate Limiting"
       ],
       "languages": ["JavaScript", "TypeScript", "Python"],
       "tools": [
@@ -152,7 +162,10 @@
         "oxlint",
         "oxfmt",
         "Vercel",
-        "Render"
+        "Render",
+        "Prompt Engineering",
+        "Groq",
+        "Upstash"
       ],
       "testing": [
         "Jest",
@@ -317,7 +330,7 @@
       "id": 7,
       "url": "https://github.com/sk-izsk/zsk-portfolio",
       "demo_link": "https://izsk.dev",
-      "projectTypes": ["frontend"],
+      "projectTypes": ["full-stack", "frontend", "backend", "ai-skill"],
       "category": "Portfolio",
       "tags": [
         "React 19",
@@ -331,7 +344,15 @@
         "PWA",
         "Web Audio API",
         "i18n",
-        "Compound Components"
+        "Compound Components",
+        "FastAPI",
+        "Groq",
+        "Llama 3.3",
+        "Prompt Engineering",
+        "LLM Integration",
+        "Upstash Redis",
+        "Rate Limiting",
+        "AI Chat"
       ],
       "publishDate": "2026-04-11"
     },
@@ -436,6 +457,29 @@
         "Open Source"
       ],
       "publishDate": "2026-06-14"
+    },
+    {
+      "id": 13,
+      "url": "https://github.com/sk-izsk/zsk-ai-resume-api",
+      "projectTypes": ["backend", "ai-skill"],
+      "category": "AI Backend",
+      "tags": [
+        "Python",
+        "FastAPI",
+        "Groq",
+        "Llama 3.3",
+        "Prompt Engineering",
+        "LLM Integration",
+        "Structured JSON Output",
+        "Upstash Redis",
+        "Rate Limiting",
+        "Caching",
+        "Pydantic",
+        "Render",
+        "CORS",
+        "REST API"
+      ],
+      "publishDate": "2026-08-12"
     }
   ],
   "blogBase": [

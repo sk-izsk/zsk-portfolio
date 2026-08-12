@@ -1,0 +1,30 @@
+export const askAiEn = {
+  title: 'Ask AI',
+  pageTitle: 'Ask AI',
+  seoDescription:
+    'Ask an AI assistant about Shaikh Zeeshan Murshed, including skills, projects, experience, education, and professional background.',
+  heroEyebrow: 'Portfolio AI',
+  heroTitle: 'Ask about my work.',
+  heroBody:
+    'A focused assistant that answers from my portfolio profile, projects, skills, experience, education, and blog.',
+  inputPlaceholder: 'Ask about Zeeshan...',
+  send: 'Send',
+  assistantName: 'Zeeshan AI',
+  userName: 'You',
+  emptyTitle: 'Start with a question',
+  emptyBody: 'Try one of the prompts below or ask directly about my technical background.',
+  remaining: 'Requests left',
+  localMode: 'Local dev may be unlimited',
+  healthCheck: 'Checking backend health...',
+  evidence: 'Evidence',
+  cached: 'cached',
+  error: 'The assistant could not answer right now. Try again in a moment.',
+  offline: 'Local AI backend is not running. Start FastAPI on port 8000 and try again.',
+  rateLimited: 'Hourly limit reached. Try again after the reset.',
+  prompts: {
+    reactProjects: 'What are Zeeshan strongest React projects?',
+    fullStack: 'Summarize his full-stack experience.',
+    aiProjects: 'What AI projects has he built?',
+    reactNative: 'Is he a good fit for a React Native role?',
+  },
+} as const

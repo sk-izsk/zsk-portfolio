@@ -1,0 +1,30 @@
+export const askAiFr = {
+  title: 'Ask AI',
+  pageTitle: 'Ask AI',
+  seoDescription:
+    "Posez des questions a un assistant IA sur Shaikh Zeeshan Murshed, ses competences, projets, experience, formation et parcours professionnel.",
+  heroEyebrow: 'IA Portfolio',
+  heroTitle: 'Posez des questions sur mon travail.',
+  heroBody:
+    "Un assistant cible qui repond a partir de mon profil portfolio, mes projets, competences, experiences, formation et articles.",
+  inputPlaceholder: 'Demandez quelque chose sur Zeeshan...',
+  send: 'Envoyer',
+  assistantName: 'Zeeshan AI',
+  userName: 'Vous',
+  emptyTitle: 'Commencez par une question',
+  emptyBody: 'Essayez un exemple ci-dessous ou posez une question sur mon profil technique.',
+  remaining: 'Requetes restantes',
+  localMode: 'Le mode local peut etre illimite',
+  healthCheck: 'Verification du backend...',
+  evidence: 'Sources',
+  cached: 'cache',
+  error: "L'assistant ne peut pas repondre maintenant. Reessayez dans un moment.",
+  offline: "Le backend IA local n'est pas lance. Demarrez FastAPI sur le port 8000 puis reessayez.",
+  rateLimited: "Limite horaire atteinte. Reessayez apres la reinitialisation.",
+  prompts: {
+    reactProjects: 'Quels sont les meilleurs projets React de Zeeshan ?',
+    fullStack: 'Resume son experience full-stack.',
+    aiProjects: 'Quels projets IA a-t-il construits ?',
+    reactNative: 'Est-il adapte a un role React Native ?',
+  },
+} as const
