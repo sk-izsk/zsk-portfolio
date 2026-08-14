@@ -18,6 +18,13 @@ export const aboutFr = {
     loadingYear: 'Chargement des contributions de {{year}}...',
     loadFailed: 'Impossible de charger le graphe des contributions pour le moment.',
     streakUnavailable: 'Apercu du streak GitHub temporairement indisponible.',
+    streak: {
+      current: 'Streak actuel',
+      longest: 'Plus long streak',
+      activeDays: 'Jours actifs',
+      contributions: 'Contributions',
+      days: 'jours',
+    },
     cards: {
       contributions: 'Graphe des contributions',
       streak: 'Apercu du streak',

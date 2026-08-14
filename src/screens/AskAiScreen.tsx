@@ -26,6 +26,7 @@ type ChatMessage =
     }
 
 const toMessageId = () => `${Date.now()}-${Math.random().toString(36).slice(2)}`
+const HEALTH_OVERLAY_DELAY_MS = 1200
 
 type AskAiErrorDetail = {
   message?: string
@@ -90,6 +91,22 @@ const AskAiScreen: React.FC = () => {
     t('askAi.prompts.aiProjects'),
     t('askAi.prompts.reactNative'),
   ]
+  const typedMessage = message.trim()
+  const normalizedTypedMessage = typedMessage.toLowerCase()
+  const lastMessageIsAssistant = messages[messages.length - 1]?.role === 'assistant'
+  const activeSuggestions =
+    lastMessageIsAssistant && !isSending
+      ? typedMessage
+        ? prompts
+            .filter((prompt) => prompt.toLowerCase() !== normalizedTypedMessage)
+            .sort(
+              (left, right) =>
+                Number(right.toLowerCase().includes(normalizedTypedMessage)) -
+                Number(left.toLowerCase().includes(normalizedTypedMessage)),
+            )
+            .slice(0, 3)
+        : prompts.slice(0, 4)
+      : []
 
   useEffect(() => {
     const input = inputRef.current
@@ -110,11 +127,17 @@ const AskAiScreen: React.FC = () => {
     setMessage('')
     setStatus('')
     setIsSending(true)
+    let healthOverlayTimer: number | undefined
     setMessages((current) => [...current, { id: toMessageId(), role: 'user', text }])
 
     try {
-      setIsCheckingHealth(true)
+      healthOverlayTimer = window.setTimeout(
+        () => setIsCheckingHealth(true),
+        HEALTH_OVERLAY_DELAY_MS,
+      )
       await askAiHealthApi()
+      window.clearTimeout(healthOverlayTimer)
+      healthOverlayTimer = undefined
       setIsCheckingHealth(false)
       const response = await askAiApi(text)
       setRemaining(response.remaining)
@@ -151,6 +174,10 @@ const AskAiScreen: React.FC = () => {
           : askAiError.message,
       )
     } finally {
+      if (healthOverlayTimer) {
+        window.clearTimeout(healthOverlayTimer)
+      }
+      setIsCheckingHealth(false)
       setIsSending(false)
     }
   }
@@ -192,8 +219,10 @@ const AskAiScreen: React.FC = () => {
           {isCheckingHealth ? (
             <div className={styles.healthOverlay} aria-live="assertive">
               <div className={styles.healthBox}>
-                <Loader2 className={styles.spin} size={18} aria-hidden />
-                {t('askAi.healthCheck')}
+                <span className={styles.healthIconTrack} aria-hidden>
+                  <Loader2 className={styles.healthIcon} size={28} />
+                </span>
+                <span>{t('askAi.healthCheck')}</span>
               </div>
             </div>
           ) : null}
@@ -269,6 +298,22 @@ const AskAiScreen: React.FC = () => {
                         <span className={cn('typingDot', 'typingDotDelayTwo')} />
                       </div>
                     </div>
+                  </div>
+                ) : null}
+                {activeSuggestions.length ? (
+                  <div className={styles.activeSuggestions} aria-label={t('askAi.suggestions')}>
+                    <span className={styles.suggestionLabel}>{t('askAi.suggestions')}</span>
+                    {activeSuggestions.map((prompt) => (
+                      <button
+                        key={prompt}
+                        className={styles.suggestionChip}
+                        type="button"
+                        onClick={() => void submitMessage(prompt)}
+                        disabled={isSending}
+                      >
+                        {prompt}
+                      </button>
+                    ))}
                   </div>
                 ) : null}
               </>

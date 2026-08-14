@@ -1,4 +1,4 @@
-import { keyframes, style } from '@vanilla-extract/css'
+import { globalStyle, keyframes, style } from '@vanilla-extract/css'
 import { vars } from '@styles/theme.css'
 
 const slideUp = keyframes({
@@ -82,13 +82,25 @@ export const titleRowSticky = style({
 })
 
 export const highlights = style({
-  paddingLeft: 20,
-  marginBottom: 18,
+  paddingLeft: 22,
+  margin: '0 0 18px',
   color: vars.color.text[900],
   fontSize: 15,
   lineHeight: 1.6,
   listStyleType: 'disc',
-  listStylePosition: 'inside',
+  listStylePosition: 'outside',
+})
+
+globalStyle(`${highlights} li`, {
+  paddingLeft: 4,
+})
+
+globalStyle(`${highlights} li + li`, {
+  marginTop: 8,
+})
+
+globalStyle(`${highlights} li::marker`, {
+  color: vars.color.skin,
 })
 
 export const footerSticky = style({

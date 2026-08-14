@@ -62,7 +62,7 @@ describe('AboutScreen', () => {
     usePortfolioStore.getState().setData(mockPortfolioData)
     renderScreen()
 
-    expect(screen.getByText('Code activity and dev signals')).toBeInTheDocument()
+    expect(screen.getByText('Code activity and contribution history')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'View Profile' })).toHaveAttribute(
       'href',
       mockPortfolioData.contact.social.github.url,

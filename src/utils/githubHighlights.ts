@@ -31,6 +31,13 @@ export type ContributionYearIndex = {
   years: string[]
 }
 
+export type ContributionStreakStats = {
+  currentStreak: number
+  longestStreak: number
+  activeDays: number
+  totalContributions: number
+}
+
 export type ContributionLayout = {
   contentWidth: number
   monthLabels: Array<{ key: string; label: string; x: number }>
@@ -277,6 +284,43 @@ export const buildContributionCalendarSvg = (
   return `<svg viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMinYMin meet" role="img" aria-label="GitHub contribution heatmap"><g>${cells.join(
     '',
   )}</g></svg>`
+}
+
+export const buildContributionStreakStats = (
+  yearData: ContributionYearData,
+  now = new Date(),
+): ContributionStreakStats => {
+  const today = now.toISOString().slice(0, 10)
+  const streakEndDate = today < yearData.endDate ? today : yearData.endDate
+  let longestStreak = 0
+  let runningStreak = 0
+  let currentStreak = 0
+  let activeDays = 0
+  let totalContributions = 0
+
+  for (const day of yearData.days) {
+    const isActive = day.contributionCount > 0
+
+    if (isActive) {
+      runningStreak += 1
+      activeDays += 1
+      totalContributions += day.contributionCount
+      longestStreak = Math.max(longestStreak, runningStreak)
+    } else {
+      runningStreak = 0
+    }
+
+    if (day.date <= streakEndDate) {
+      currentStreak = runningStreak
+    }
+  }
+
+  return {
+    currentStreak,
+    longestStreak,
+    activeDays,
+    totalContributions,
+  }
 }
 
 export const getGithubUsername = (githubUrl?: string): string | null => {

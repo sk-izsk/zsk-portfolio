@@ -12,6 +12,21 @@ const pulse = keyframes({
   },
 })
 
+const floatLoader = keyframes({
+  '0%': {
+    transform: 'translate(-8px, 0) rotate(0deg)',
+  },
+  '35%': {
+    transform: 'translate(8px, -7px) rotate(130deg)',
+  },
+  '70%': {
+    transform: 'translate(5px, 7px) rotate(260deg)',
+  },
+  '100%': {
+    transform: 'translate(-8px, 0) rotate(360deg)',
+  },
+})
+
 export const askAiContainer = style({
   maxWidth: '1040px',
 })
@@ -124,24 +139,47 @@ export const healthOverlay = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  background: vars.color.background[100] + 'ee',
-  backdropFilter: 'blur(4px)',
+  padding: '24px',
+  background: vars.color.background[100] + 'f2',
+  backdropFilter: 'blur(7px)',
 })
 
 export const healthBox = style({
   display: 'inline-flex',
   alignItems: 'center',
-  gap: '10px',
+  gap: '16px',
   color: vars.color.text[900],
   border: `1px solid ${vars.color.skin}55`,
-  borderRadius: '8px',
+  borderRadius: '16px',
   background: vars.color.background[900],
-  padding: '14px 16px',
-  fontWeight: 700,
+  padding: '18px 22px',
+  fontSize: '16px',
+  lineHeight: 1.45,
+  fontWeight: 800,
+  boxShadow: `0 18px 44px ${vars.color.skin}22`,
+  '@media': {
+    '(max-width: 767px)': {
+      alignItems: 'flex-start',
+      fontSize: '15px',
+    },
+  },
 })
 
-export const spin = style({
-  animation: `${pulse} 0.9s ease-in-out infinite`,
+export const healthIconTrack = style({
+  flex: '0 0 44px',
+  width: '44px',
+  height: '44px',
+  borderRadius: '999px',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  background: vars.color.skin + '16',
+  color: vars.color.skin,
+})
+
+export const healthIcon = style({
+  color: vars.color.skin,
+  animation: `${floatLoader} 1.4s ease-in-out infinite`,
 })
 
 export const messages = style({
@@ -211,7 +249,7 @@ export const promptGrid = style({
 export const promptButton = style({
   minHeight: '52px',
   border: `1px solid ${vars.color.background[50]}`,
-  borderRadius: '8px',
+  borderRadius: '18px',
   background: vars.color.background[900],
   color: vars.color.text[900],
   cursor: 'pointer',
@@ -223,6 +261,61 @@ export const promptButton = style({
     borderColor: vars.color.skin,
     color: vars.color.skin,
     transform: 'translateY(-1px)',
+  },
+})
+
+export const activeSuggestions = style({
+  alignSelf: 'flex-start',
+  display: 'grid',
+  gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+  gap: '10px',
+  width: 'min(720px, calc(100% - 46px))',
+  marginLeft: '46px',
+  marginTop: '-4px',
+  padding: '12px',
+  border: `1px dashed ${vars.color.skin}66`,
+  borderLeft: `3px solid ${vars.color.skin}`,
+  borderRadius: '14px',
+  background: vars.color.skin + '08',
+  '@media': {
+    '(max-width: 767px)': {
+      gridTemplateColumns: '1fr',
+      width: '100%',
+      marginLeft: 0,
+    },
+  },
+})
+
+export const suggestionLabel = style({
+  gridColumn: '1 / -1',
+  color: vars.color.skin,
+  fontSize: '11px',
+  fontWeight: 800,
+  lineHeight: 1,
+  textTransform: 'uppercase',
+})
+
+export const suggestionChip = style({
+  border: `1px solid ${vars.color.background[50]}`,
+  borderRadius: '14px',
+  background: vars.color.background[900],
+  color: vars.color.text[900],
+  cursor: 'pointer',
+  padding: '11px 13px',
+  font: 'inherit',
+  fontSize: '13px',
+  lineHeight: 1.35,
+  textAlign: 'left',
+  transition: 'border-color 0.2s ease, color 0.2s ease, transform 0.2s ease',
+  ':hover': {
+    borderColor: vars.color.skin,
+    color: vars.color.skin,
+    transform: 'translateY(-1px)',
+  },
+  ':disabled': {
+    cursor: 'not-allowed',
+    opacity: 0.55,
+    transform: 'none',
   },
 })
 

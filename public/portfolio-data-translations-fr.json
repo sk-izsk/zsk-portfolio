@@ -294,6 +294,17 @@
       ]
     },
     {
+      "id": 14,
+      "title": "zperiod : application web interactive d'apprentissage de la chimie",
+      "excerpt": "Une console de chimie moderne en React avec tableau periodique recherchable, profils d'elements, visualisation atomique 3D, calcul de masse molaire, equilibrage d'equations, references d'ions, table de solubilite et generation de fiches PDF.",
+      "shortDescription": "zperiod est une application web d'apprentissage de la chimie construite avec React 19, TypeScript, Vite, Bun, TanStack Router, Zustand, Tailwind CSS, vanilla-extract, React Three Fiber, Drei, Three.js, Framer Motion, Vitest, Testing Library, Web Workers et zsk-react-i18n. Elle combine un tableau periodique de 118 elements avec recherche et filtres par categorie, des profils d'elements detailles, une visualisation atomique sensible aux isotopes, le parsing de masses molaires, l'equilibrage d'equations, des references d'ions courants, une table de solubilite et la generation de fiches d'exercices imprimables. L'implementation separe la logique pure de chimie de l'UI React, charge les ecrans par route, deplace l'equilibrage hors du main thread et utilise plusieurs optimisations raisonnables sans presenter l'app comme totalement optimisee.",
+      "highlights": [
+        "Tableau periodique interactif avec recherche, filtrage par categorie, profils d'elements detailles, donnees d'ions courants et contenu localise anglais/francais",
+        "Outils de chimie : calcul de masse molaire, equilibrage d'equations avec fractions exactes dans un Web Worker, table de solubilite et generation de fiches PDF",
+        "Modele atomique 3D base sur React Three Fiber, Drei, Three.js, helpers de couches memorises et lazy loading pour garder les fonctions lourdes hors du chemin de demarrage"
+      ]
+    },
+    {
       "id": 11,
       "title": "Z Gym : SPA fitness au rendu premium",
       "excerpt": "Une SPA fitness construite avec React, TypeScript, Vite, Tailwind CSS, Radix UI et Motion. Je l'ai pensee comme un vrai systeme frontend, avec sections guidees par le scroll, primitives UI reutilisables, contenu type, et gestion de themes au lieu d'un simple habillage visuel.",
