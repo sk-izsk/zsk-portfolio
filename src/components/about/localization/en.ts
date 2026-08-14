@@ -18,6 +18,13 @@ export const aboutEn = {
     loadingYear: 'Loading {{year}} contributions...',
     loadFailed: 'Unable to load contribution graph right now.',
     streakUnavailable: 'GitHub streak snapshot is temporarily unavailable.',
+    streak: {
+      current: 'Current streak',
+      longest: 'Longest streak',
+      activeDays: 'Active days',
+      contributions: 'Contributions',
+      days: 'days',
+    },
     cards: {
       contributions: 'Contribution Graph',
       streak: 'Streak Snapshot',

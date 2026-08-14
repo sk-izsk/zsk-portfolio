@@ -417,6 +417,34 @@
       "publishDate": "2026-05-05"
     },
     {
+      "id": 14,
+      "url": "https://github.com/sk-izsk/zsk-periodic",
+      "demo_link": "https://zsk-periodic.vercel.app",
+      "projectTypes": ["frontend"],
+      "category": "Frontend",
+      "tags": [
+        "React 19",
+        "TypeScript",
+        "Vite",
+        "Bun",
+        "TanStack Router",
+        "Zustand",
+        "Tailwind CSS",
+        "Vanilla Extract",
+        "Three.js",
+        "React Three Fiber",
+        "Drei",
+        "Framer Motion",
+        "Web Workers",
+        "Vitest",
+        "Testing Library",
+        "PDF Export",
+        "i18n",
+        "Chemistry Tools"
+      ],
+      "publishDate": "2026-05-08"
+    },
+    {
       "id": 11,
       "url": "https://github.com/sk-izsk/z-gym",
       "demo_link": "https://zed-gym.netlify.app/",

@@ -781,6 +781,40 @@
       ]
     },
     {
+      "title": "zperiod: Interactive Chemistry Learning Web App",
+      "url": "https://github.com/sk-izsk/zsk-periodic",
+      "demo": "https://zsk-periodic.vercel.app",
+      "category": "Frontend",
+      "tags": [
+        "React 19",
+        "TypeScript",
+        "Vite",
+        "Bun",
+        "TanStack Router",
+        "Zustand",
+        "Tailwind CSS",
+        "Vanilla Extract",
+        "Three.js",
+        "React Three Fiber",
+        "Drei",
+        "Framer Motion",
+        "Web Workers",
+        "Vitest",
+        "Testing Library",
+        "PDF Export",
+        "i18n",
+        "Chemistry Tools"
+      ],
+      "publishDate": "2026-05-08",
+      "excerpt": "A modern React chemistry console with a searchable periodic table, element profiles, 3D atom visualization, molar mass calculation, equation balancing, ion references, solubility lookup, and worksheet PDF generation.",
+      "description": "zperiod is a browser-based chemistry learning app built with React 19, TypeScript, Vite, Bun, TanStack Router, Zustand, Tailwind CSS, vanilla-extract, React Three Fiber, Drei, Three.js, Framer Motion, Vitest, Testing Library, Web Workers, and zsk-react-i18n. It combines a searchable 118-element periodic table with category filters, detailed element profiles, isotope-aware atom visualization, molar mass parsing, equation balancing, common ion references, solubility lookup, and print-ready worksheet generation. The implementation separates pure chemistry logic from React UI, lazy-loads route screens, keeps equation balancing off the main thread, and uses several reasonable optimization techniques without overselling the app as fully optimized.",
+      "highlights": [
+        "Interactive periodic table with search, category filtering, detailed element profiles, common ion data, and localized English/French content",
+        "Chemistry tools include molar mass calculation, equation balancing with exact fraction math in a Web Worker, solubility lookup, and worksheet PDF generation",
+        "3D atom model uses React Three Fiber, Drei, Three.js, memoized shell helpers, and lazy loading so heavy visual features stay outside the startup path"
+      ]
+    },
+    {
       "title": "Z Gym: Premium Fitness Brand SPA",
       "url": "https://github.com/sk-izsk/z-gym",
       "demo": "https://zed-gym.netlify.app/",

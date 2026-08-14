@@ -22,6 +22,7 @@ export const mockPortfolioData: PortfolioData = {
       github: { label: 'github.com/johndoe', url: 'https://github.com/johndoe' },
       linkedin: { label: 'linkedin.com/in/johndoe', url: 'https://linkedin.com/in/johndoe' },
       website: { label: 'johndoe.dev', url: 'https://johndoe.dev' },
+      blog: { label: 'johndoe.hashnode.dev', url: 'https://johndoe.hashnode.dev' },
       twitter: { label: '@johndoe', url: 'https://twitter.com/johndoe' },
       instagram: { label: '@johndoe', url: 'https://instagram.com/johndoe' },
       telegram: { label: '@johndoe', url: 'https://t.me/johndoe' },

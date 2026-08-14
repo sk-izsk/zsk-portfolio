@@ -213,6 +213,43 @@ export const githubStatsFallback = style({
   fontSize: '14px',
 })
 
+export const githubStreakGrid = style({
+  display: 'grid',
+  gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+  gap: '12px',
+  minHeight: '140px',
+  margin: 0,
+  padding: '10px',
+  '@media': {
+    '(max-width: 480px)': {
+      gridTemplateColumns: '1fr',
+    },
+  },
+})
+
+export const githubStreakMetric = style({
+  margin: 0,
+  padding: '14px',
+  borderRadius: '12px',
+  background: vars.color.background[900],
+  border: `1px solid ${vars.color.background[50]}`,
+})
+
+export const githubStreakLabel = style({
+  margin: '0 0 6px',
+  color: vars.color.text[700],
+  fontSize: '13px',
+  lineHeight: 1.4,
+})
+
+export const githubStreakValue = style({
+  margin: 0,
+  color: vars.color.text[900],
+  fontSize: '22px',
+  lineHeight: 1.2,
+  fontWeight: 700,
+})
+
 export const githubContributionPanel = style({
   position: 'relative',
   borderRadius: '14px',

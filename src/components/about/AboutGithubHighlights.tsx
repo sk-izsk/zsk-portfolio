@@ -9,6 +9,7 @@ import { useThemeStore } from '@stores/themeStore'
 import {
   buildContributionCalendarSvg,
   buildContributionLayout,
+  buildContributionStreakStats,
   type ContributionDay,
   getContributionShades,
   getGithubUsername,
@@ -61,6 +62,11 @@ export const AboutGithubHighlights: React.FC = () => {
       selectedYearData,
     ],
   )
+  const streakStats = useMemo(
+    () => (selectedYearData ? buildContributionStreakStats(selectedYearData) : null),
+    [selectedYearData],
+  )
+
   return (
     <>
       <GithubHighlightsHeader
@@ -97,6 +103,14 @@ export const AboutGithubHighlights: React.FC = () => {
       <GithubSupplementaryCards
         streakTitle={t('about.github.cards.streak')}
         streakUnavailableText={t('about.github.streakUnavailable')}
+        stats={streakStats}
+        labels={{
+          current: t('about.github.streak.current'),
+          longest: t('about.github.streak.longest'),
+          activeDays: t('about.github.streak.activeDays'),
+          contributions: t('about.github.streak.contributions'),
+          days: t('about.github.streak.days'),
+        }}
       />
     </>
   )
