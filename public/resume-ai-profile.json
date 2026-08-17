@@ -1209,6 +1209,32 @@
         "Breaks down a reusable six-part prompt structure with Python examples using Groq and Llama 3.3",
         "Covers structured JSON output, prompt injection defenses, prompt testing, and production failure patterns"
       ]
+    },
+    {
+      "title": "TypeScript Patterns That Actually Make Your Frontend Code Better",
+      "url": "https://izsk.hashnode.dev/typescript-patterns-that-actually-make-your-frontend-code-better",
+      "category": "Frontend Architecture",
+      "tags": [
+        "TypeScript",
+        "React",
+        "Frontend",
+        "Discriminated Unions",
+        "Type Narrowing",
+        "Generics",
+        "Utility Types",
+        "API Types",
+        "Component API Design"
+      ],
+      "publishDate": "2026-08-17",
+      "excerpt": "TypeScript is most useful when it prevents impossible UI states, not when it decorates JavaScript with extra ceremony.",
+      "description": "An opinionated React-focused guide to using TypeScript where it changes real frontend outcomes: discriminated unions instead of boolean flag soup, narrowing with `in`, `instanceof`, and custom predicates, practical generics for hooks and reusable components, utility types for frontend data shaping, and the mistakes that make TypeScript feel louder than it needs to be.",
+      "highlights": [
+        "Shows how discriminated unions model mutually exclusive UI states better than scattered loading, error, and empty booleans",
+        "Covers type narrowing with `in`, `instanceof`, and custom type predicates for cleaner React control flow",
+        "Applies generics to hooks, API wrappers, and reusable components without turning every prop into a type puzzle",
+        "Uses `Partial`, `Pick`, `Omit`, and `Exclude` for real frontend cases such as forms, previews, patches, and component variants",
+        "Calls out `as` abuse, over-typing, and under-typed API responses as the habits that quietly erase TypeScript's value"
+      ]
     }
   ],
   "assistantRules": [

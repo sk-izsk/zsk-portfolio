@@ -481,6 +481,19 @@
         "Detaille une structure de prompt reusable en six parties avec des exemples Python bases sur Groq et Llama 3.3",
         "Couvre la sortie JSON structuree, les defenses contre la prompt injection, les tests de prompt et les pannes frequentes en production"
       ]
+    },
+    {
+      "id": 13,
+      "title": "TypeScript Patterns That Actually Make Your Frontend Code Better",
+      "excerpt": "TypeScript est surtout utile quand il empeche les etats UI impossibles, pas quand il ajoute de la ceremonie autour de JavaScript.",
+      "shortDescription": "Un guide React tranche sur les usages de TypeScript qui changent vraiment le code frontend : discriminated unions au lieu d'un empilement de booleens, narrowing avec `in`, `instanceof` et des predicates custom, generics pratiques pour hooks et composants reutilisables, utility types pour modeler les donnees cote UI, et les erreurs qui rendent TypeScript plus bruyant qu'utile.",
+      "highlights": [
+        "Montre comment les discriminated unions modelisent les etats UI exclusifs mieux que des booleens loading, error et empty eparpilles",
+        "Couvre le narrowing avec `in`, `instanceof` et des predicates custom pour un control flow React plus lisible",
+        "Applique les generics aux hooks, wrappers API et composants reutilisables sans transformer chaque prop en casse-tete de types",
+        "Utilise `Partial`, `Pick`, `Omit` et `Exclude` dans des cas frontend concrets comme formulaires, previews, patches et variantes de composants",
+        "Pointe l'abus de `as`, le sur-typage et les reponses API sous-typees comme les habitudes qui annulent discretement la valeur de TypeScript"
+      ]
     }
   ]
 }
