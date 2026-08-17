@@ -736,6 +736,24 @@
         "Few-Shot Prompting"
       ],
       "publishDate": "2026-08-12"
+    },
+    {
+      "id": 13,
+      "url": "https://izsk.hashnode.dev/typescript-patterns-that-actually-make-your-frontend-code-better",
+      "blogTypes": ["frontend", "architecture"],
+      "category": "Frontend Architecture",
+      "tags": [
+        "TypeScript",
+        "React",
+        "Frontend",
+        "Discriminated Unions",
+        "Type Narrowing",
+        "Generics",
+        "Utility Types",
+        "API Types",
+        "Component API Design"
+      ],
+      "publishDate": "2026-08-17"
     }
   ],
   "experienceBase": [
