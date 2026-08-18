@@ -237,6 +237,7 @@ interface AskAiResponse {
   remaining: number
   reset_in_seconds: number
   cached: boolean
+  provider?: string
 }
 
 const askAiBaseUrl = import.meta.env.DEV
@@ -252,12 +253,16 @@ export const askAiHealthApi = async (): Promise<void> => {
 }
 
 export const askAiApi = async (message: string): Promise<AskAiResponse> => {
-  return ky
-    .post(`${askAiBaseUrl}/chat`, {
-      json: { message },
-      timeout: 30000,
-    })
-    .json<AskAiResponse>()
+  const response = await ky.post(`${askAiBaseUrl}/chat`, {
+    json: { message },
+    timeout: 30000,
+  })
+  const payload = await response.json<AskAiResponse>()
+
+  return {
+    ...payload,
+    provider: response.headers.get('X-LLM-Provider') || undefined,
+  }
 }
 
 export const queryKeys = {

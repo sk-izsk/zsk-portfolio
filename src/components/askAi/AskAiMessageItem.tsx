@@ -2,6 +2,7 @@ import type { ChatMessage } from '@app-types/askAi'
 import * as styles from '@components/askAi/askAi.css'
 import { useTranslation } from '@localization/localize'
 import { createCn } from '@utils/cn'
+import { formatAskAiProvider } from '@utils/askAi'
 import { Bot, User } from 'lucide-react'
 import React from 'react'
 
@@ -14,6 +15,7 @@ interface AskAiMessageItemProps {
 export const AskAiMessageItem: React.FC<AskAiMessageItemProps> = ({ item }) => {
   const { t } = useTranslation()
   const isUser = item.role === 'user'
+  const providerLabel = isUser ? null : formatAskAiProvider(item.provider, item.cached)
 
   return (
     <div className={cn('messageRow', { messageRowUser: isUser })}>
@@ -23,7 +25,7 @@ export const AskAiMessageItem: React.FC<AskAiMessageItemProps> = ({ item }) => {
       <div className={cn('bubble', { userBubble: isUser })}>
         <div className={cn('messageMeta', { messageMetaUser: isUser })}>
           {isUser ? t('askAi.userName') : t('askAi.assistantName')}
-          {!isUser && item.cached ? <span>{t('askAi.cached')}</span> : null}
+          {providerLabel ? <span className={styles.providerMeta}>{providerLabel}</span> : null}
         </div>
         <p className={cn('messageText', isUser ? 'userText' : 'assistantText')}>{item.text}</p>
         {!isUser && item.sources.length ? (

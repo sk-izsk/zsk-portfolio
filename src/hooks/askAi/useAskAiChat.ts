@@ -60,6 +60,7 @@ export const useAskAiChat = (copy: AskAiChatCopy) => {
           text: response.answer,
           sources: response.sources,
           cached: response.cached,
+          provider: response.provider,
         },
       ])
     } catch (requestError) {

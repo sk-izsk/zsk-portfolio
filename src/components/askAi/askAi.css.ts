@@ -39,8 +39,13 @@ export const shell = style({
   gap: '16px',
   '@media': {
     '(max-width: 1199px)': {
-      height: 'auto',
-      minHeight: 'calc(100dvh - 150px)',
+      height: 'calc(100dvh - 136px)',
+      minHeight: '560px',
+    },
+    '(max-width: 767px)': {
+      height: 'calc(100dvh - 96px)',
+      minHeight: '520px',
+      gap: '12px',
     },
   },
 })
@@ -366,6 +371,16 @@ export const messageMeta = style({
 
 export const messageMetaUser = style({
   justifyContent: 'flex-end',
+})
+
+export const providerMeta = style({
+  color: vars.color.text[700],
+  fontSize: '11px',
+  opacity: 0.78,
+  ':before': {
+    content: '"·"',
+    marginRight: '8px',
+  },
 })
 
 export const messageText = style({
