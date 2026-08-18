@@ -23,6 +23,24 @@ export const formatResetTime = (seconds: number) => {
   return minutes ? `${hours}h ${minutes}m` : `${hours}h`
 }
 
+export const formatAskAiProvider = (provider?: string, cached = false) => {
+  if (cached || provider === 'cache') {
+    return 'cached'
+  }
+
+  if (provider === 'google') {
+    const model = import.meta.env.VITE_ASK_AI_GOOGLE_MODEL || 'gemini-3.6-flash'
+    return import.meta.env.DEV ? `powered by Gemini (${model})` : 'powered by Gemini'
+  }
+
+  if (provider === 'groq') {
+    const model = import.meta.env.VITE_ASK_AI_GROQ_MODEL || 'openai/gpt-oss-120b'
+    return import.meta.env.DEV ? `powered by Groq (${model})` : 'powered by Groq'
+  }
+
+  return null
+}
+
 export const getAskAiSuggestions = (
   prompts: string[],
   message: string,

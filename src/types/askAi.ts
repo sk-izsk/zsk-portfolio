@@ -10,6 +10,7 @@ export type ChatMessage =
       text: string
       sources: string[]
       cached: boolean
+      provider?: string
     }
 
 export type AskAiSubmitHandler = (message: string) => void | Promise<void>

@@ -7,7 +7,7 @@ import { AskAiSuggestionCards } from '@components/askAi/AskAiSuggestionCards'
 import { AskAiTypingMessage } from '@components/askAi/AskAiTypingMessage'
 import * as styles from '@components/askAi/askAi.css'
 import { getAskAiSuggestions } from '@utils/askAi'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 interface AskAiChatPanelProps {
   prompts: string[]
@@ -31,6 +31,11 @@ export const AskAiChatPanel: React.FC<AskAiChatPanelProps> = ({
   onSubmit,
 }) => {
   const activeSuggestions = getAskAiSuggestions(prompts, message, messages, isSending)
+  const bottomRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ block: 'end' })
+  }, [messages, isSending])
 
   return (
     <div className={styles.chatPanel}>
@@ -47,6 +52,7 @@ export const AskAiChatPanel: React.FC<AskAiChatPanelProps> = ({
             {activeSuggestions.length ? (
               <AskAiSuggestionCards prompts={activeSuggestions} onSubmit={onSubmit} />
             ) : null}
+            <div ref={bottomRef} aria-hidden />
           </>
         )}
       </div>
