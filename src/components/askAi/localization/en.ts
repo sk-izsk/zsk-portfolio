@@ -20,6 +20,7 @@ export const askAiEn = {
   suggestions: 'Suggested questions',
   evidence: 'Evidence',
   cached: 'cached',
+  copy: 'Copy message',
   error: 'The assistant could not answer right now. Try again in a moment.',
   offline: 'Local AI backend is not running. Start FastAPI on port 8000 and try again.',
   rateLimited: 'Hourly limit reached. Try again after the reset.',

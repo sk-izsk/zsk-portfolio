@@ -1,8 +1,9 @@
 import type { AskAiSubmitHandler } from '@app-types/askAi'
+import { AskAiComposerTextarea } from '@components/askAi/AskAiComposerTextarea'
 import * as styles from '@components/askAi/askAi.css'
 import { useTranslation } from '@localization/localize'
 import { Loader2, Send } from 'lucide-react'
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 
 interface AskAiComposerProps {
   message: string
@@ -18,42 +19,27 @@ export const AskAiComposer: React.FC<AskAiComposerProps> = ({
   onSubmit,
 }) => {
   const { t } = useTranslation()
-  const inputRef = useRef<HTMLTextAreaElement | null>(null)
-
-  useEffect(() => {
-    const input = inputRef.current
-    if (!input) {
+  const submitCurrentMessage = () => {
+    const text = message.trim()
+    if (!text.trim() || isSending) {
       return
     }
 
-    input.style.height = '48px'
-    input.style.height = `${Math.min(input.scrollHeight, 96)}px`
-  }, [message])
+    void onSubmit(text)
+  }
 
   return (
     <form
       className={styles.composer}
       onSubmit={(event) => {
         event.preventDefault()
-        void onSubmit(message)
+        submitCurrentMessage()
       }}
     >
-      <textarea
-        ref={inputRef}
-        className={styles.input}
-        value={message}
-        rows={1}
-        maxLength={800}
-        onChange={(event) => onMessageChange(event.currentTarget.value)}
-        onKeyDown={(event) => {
-          if (event.key !== 'Enter' || event.shiftKey) {
-            return
-          }
-
-          event.preventDefault()
-          void onSubmit(message)
-        }}
-        placeholder={t('askAi.inputPlaceholder')}
+      <AskAiComposerTextarea
+        message={message}
+        onMessageChange={onMessageChange}
+        onSubmit={submitCurrentMessage}
       />
       <button
         className={styles.sendButton}
