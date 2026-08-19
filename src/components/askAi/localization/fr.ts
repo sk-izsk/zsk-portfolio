@@ -20,6 +20,7 @@ export const askAiFr = {
   suggestions: 'Questions suggerees',
   evidence: 'Sources',
   cached: 'cache',
+  copy: 'Copier le message',
   error: "L'assistant ne peut pas repondre maintenant. Reessayez dans un moment.",
   offline: "Le backend IA local n'est pas lance. Demarrez FastAPI sur le port 8000 puis reessayez.",
   rateLimited: "Limite horaire atteinte. Reessayez apres la reinitialisation.",

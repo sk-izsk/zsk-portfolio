@@ -30,7 +30,7 @@ export const AskAiChatPanel: React.FC<AskAiChatPanelProps> = ({
   onMessageChange,
   onSubmit,
 }) => {
-  const activeSuggestions = getAskAiSuggestions(prompts, message, messages, isSending)
+  const activeSuggestions = getAskAiSuggestions(prompts, messages, isSending)
   const bottomRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {

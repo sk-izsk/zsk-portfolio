@@ -43,7 +43,6 @@ export const formatAskAiProvider = (provider?: string, cached = false) => {
 
 export const getAskAiSuggestions = (
   prompts: string[],
-  message: string,
   messages: ChatMessage[],
   isSending: boolean,
 ) => {
@@ -53,21 +52,7 @@ export const getAskAiSuggestions = (
     return []
   }
 
-  const typedMessage = message.trim()
-  if (!typedMessage) {
-    return prompts.slice(0, 4)
-  }
-
-  const normalizedTypedMessage = typedMessage.toLowerCase()
-
-  return prompts
-    .filter((prompt) => prompt.toLowerCase() !== normalizedTypedMessage)
-    .sort(
-      (left, right) =>
-        Number(right.toLowerCase().includes(normalizedTypedMessage)) -
-        Number(left.toLowerCase().includes(normalizedTypedMessage)),
-    )
-    .slice(0, 3)
+  return prompts.slice(0, 4)
 }
 
 export const readAskAiError = async (

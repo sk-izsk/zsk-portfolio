@@ -20,19 +20,19 @@ describe('askAi utils', () => {
   it('shows suggestions only after the latest assistant message', () => {
     const prompts = ['React work', 'Full-stack work', 'AI projects', 'React Native']
 
-    expect(getAskAiSuggestions(prompts, '', [], false)).toEqual([])
+    expect(getAskAiSuggestions(prompts, [], false)).toEqual([])
     expect(
       getAskAiSuggestions(
         prompts,
-        '',
         [assistantMessage, { id: 'user-1', role: 'user', text: 'Thanks' }],
         false,
       ),
     ).toEqual([])
-    expect(getAskAiSuggestions(prompts, 'react', [assistantMessage], false)).toEqual([
+    expect(getAskAiSuggestions(prompts, [assistantMessage], false)).toEqual([
       'React work',
-      'React Native',
       'Full-stack work',
+      'AI projects',
+      'React Native',
     ])
   })
 })

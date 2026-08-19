@@ -383,15 +383,137 @@ export const providerMeta = style({
   },
 })
 
+export const copyButton = style({
+  width: '22px',
+  height: '22px',
+  border: 'none',
+  borderRadius: '6px',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  background: 'transparent',
+  color: vars.color.text[700],
+  cursor: 'pointer',
+  transition: 'background 0.2s ease, color 0.2s ease',
+  ':hover': {
+    background: vars.color.background[50],
+    color: vars.color.skin,
+  },
+})
+
 export const messageText = style({
   display: 'inline-block',
+  maxWidth: '100%',
   padding: '13px 15px',
   borderRadius: '8px',
   background: vars.color.background[900],
   color: vars.color.text[900],
   lineHeight: 1.65,
+  whiteSpace: 'normal',
+  overflowWrap: 'anywhere',
+  wordBreak: 'break-word',
+})
+
+export const expandButton = style({
+  display: 'block',
+  marginTop: '8px',
+  border: 'none',
+  background: 'transparent',
+  color: vars.color.skin,
+  cursor: 'pointer',
+  font: 'inherit',
+  fontSize: '12px',
+  fontWeight: 800,
+  padding: 0,
+  textAlign: 'left',
+})
+
+export const markdownContent = style({
+  maxWidth: '100%',
+  overflowWrap: 'anywhere',
+  wordBreak: 'break-word',
+})
+
+export const plainMessagePreview = style({
   whiteSpace: 'pre-wrap',
   overflowWrap: 'anywhere',
+  wordBreak: 'break-word',
+})
+
+globalStyle(`${markdownContent} > *:first-child`, {
+  marginTop: 0,
+})
+
+globalStyle(`${markdownContent} > *:last-child`, {
+  marginBottom: 0,
+})
+
+globalStyle(`${markdownContent} p`, {
+  margin: '0 0 6px',
+})
+
+globalStyle(`${markdownContent} ul, ${markdownContent} ol`, {
+  margin: '6px 0',
+  paddingLeft: '22px',
+  listStylePosition: 'outside',
+})
+
+globalStyle(`${markdownContent} li`, {
+  margin: '2px 0',
+})
+
+globalStyle(`${markdownContent} a`, {
+  color: 'currentColor',
+  textDecoration: 'underline',
+  textUnderlineOffset: '3px',
+})
+
+globalStyle(`${markdownContent} strong`, {
+  fontWeight: 800,
+})
+
+globalStyle(`${markdownContent} code`, {
+  border: `1px solid ${vars.color.background[50]}`,
+  borderRadius: '6px',
+  background: vars.color.background[100],
+  color: vars.color.text[900],
+  padding: '1px 5px',
+  fontSize: '0.92em',
+})
+
+globalStyle(`${markdownContent} pre`, {
+  maxWidth: '100%',
+  overflowX: 'auto',
+  border: `1px solid ${vars.color.background[50]}`,
+  borderRadius: '8px',
+  background: vars.color.background[100],
+  padding: '10px',
+})
+
+globalStyle(`${markdownContent} pre code`, {
+  border: 'none',
+  background: 'transparent',
+  padding: 0,
+})
+
+globalStyle(`${markdownContent} blockquote`, {
+  margin: '8px 0',
+  borderLeft: `3px solid ${vars.color.skin}`,
+  paddingLeft: '12px',
+  color: vars.color.text[700],
+})
+
+globalStyle(`${markdownContent} table`, {
+  display: 'block',
+  maxWidth: '100%',
+  overflowX: 'auto',
+  borderCollapse: 'collapse',
+  margin: '8px 0',
+})
+
+globalStyle(`${markdownContent} th, ${markdownContent} td`, {
+  border: `1px solid ${vars.color.background[50]}`,
+  padding: '6px 8px',
 })
 
 export const assistantText = style({
@@ -401,6 +523,45 @@ export const assistantText = style({
 export const userText = style({
   background: vars.color.skin,
   color: '#fff',
+})
+
+globalStyle(`${userText} ${markdownContent} code`, {
+  border: 'none',
+  borderRadius: '4px',
+  background: '#ffffff22',
+  color: '#fff',
+  padding: '1px 4px',
+})
+
+globalStyle(`${userText} ${markdownContent} pre`, {
+  borderColor: '#ffffff40',
+  background: '#00000018',
+  color: '#fff',
+  padding: '8px',
+  overflowX: 'hidden',
+  whiteSpace: 'pre-wrap',
+  overflowWrap: 'anywhere',
+  wordBreak: 'break-word',
+})
+
+globalStyle(`${userText} ${markdownContent} pre code`, {
+  background: 'transparent',
+  color: '#fff',
+  padding: 0,
+  whiteSpace: 'pre-wrap',
+  overflowWrap: 'anywhere',
+  wordBreak: 'break-word',
+})
+
+globalStyle(`${userText} ${markdownContent} ul, ${userText} ${markdownContent} ol`, {
+  display: 'inline-block',
+  paddingLeft: '18px',
+  listStylePosition: 'outside',
+  textAlign: 'left',
+})
+
+globalStyle(`${userText} ${markdownContent} li`, {
+  textAlign: 'left',
 })
 
 globalStyle(`${messageText}::selection`, {
@@ -472,6 +633,20 @@ export const composer = style({
   padding: '14px',
   borderTop: `1px solid ${vars.color.background[50]}`,
   background: vars.color.background[900],
+})
+
+export const composerInputShell = style({
+  position: 'relative',
+  minWidth: 0,
+})
+
+export const characterCount = style({
+  position: 'absolute',
+  right: '10px',
+  bottom: '6px',
+  color: vars.color.text[700],
+  fontSize: '11px',
+  pointerEvents: 'none',
 })
 
 export const input = style({
