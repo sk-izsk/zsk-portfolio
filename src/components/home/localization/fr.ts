@@ -12,6 +12,6 @@ export const homeFr = {
     frontend: 'Developpeur Frontend',
     backend: 'Developpeur Backend',
     mobile: 'Developpeur Mobile',
-    productManager: 'Chef de Produit',
+    aiEngineering: 'Ingenieur IA',
   },
 } as const

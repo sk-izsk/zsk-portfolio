@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { ChevronDown } from 'lucide-react'
 import { useTranslation } from '@localization/localize'
 import { Button } from '@components/common/button/Button'
 import { Divider } from '@components/common/divider/Divider'
 import * as modalStyles from '@components/common/modal/modal.css'
+import { useScrollableOverflow } from '@hooks/useScrollableOverflow'
 import { createCn } from '@utils/cn'
 
 const modalRoot = typeof window !== 'undefined' ? document.body : null
@@ -102,7 +104,49 @@ Modal.Title = ({ children }) => (
   </>
 )
 
-Modal.Body = ({ children }) => <div className={modalStyles.modalBody}>{children}</div>
+Modal.Body = ({ children }) => {
+  const viewportRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
+  const { hasMoreBelow } = useScrollableOverflow({
+    isEnabled: true,
+    viewportRef,
+    contentRef,
+    dependencies: [children],
+  })
+
+  const handleScrollCueClick = () => {
+    const viewport = viewportRef.current
+
+    if (!viewport) {
+      return
+    }
+
+    viewport.scrollTo({
+      top: viewport.scrollTop + Math.round(viewport.clientHeight * 0.7),
+      behavior: 'smooth',
+    })
+  }
+
+  return (
+    <div className={modalStyles.modalBody} ref={viewportRef}>
+      <div ref={contentRef}>{children}</div>
+      <button
+        type="button"
+        aria-label="Scroll for more modal content"
+        aria-hidden={!hasMoreBelow}
+        data-visible={hasMoreBelow ? 'true' : 'false'}
+        className={cn('scrollCue', {
+          scrollCueVisible: hasMoreBelow,
+          scrollCueHidden: !hasMoreBelow,
+        })}
+        onClick={handleScrollCueClick}
+        tabIndex={hasMoreBelow ? 0 : -1}
+      >
+        <ChevronDown size={16} aria-hidden="true" />
+      </button>
+    </div>
+  )
+}
 
 Modal.Description = ({ children }) => <div className={modalStyles.desc}>{children}</div>
 

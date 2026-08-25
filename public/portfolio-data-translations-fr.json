@@ -1,50 +1,56 @@
 {
   "personalInfo": {
     "name": "Shaikh Zeeshan Murshed",
-    "title": "Ingenieur Logiciel",
+    "title": "Ingenieur Frontend Senior",
     "greeting": "Bonjour, je m'appelle",
-    "profession": "Je suis Ingenieur Logiciel & Chef de Produit",
-    "bio": "Ingenieur logiciel et Chef de Produit avec plus de 7 ans dans la conception d'applications web et mobiles evolutives et dans la gestion de livraisons interfonctionnelles. Developpement full-stack, propriete de la feuille de route et support technique — avec un focus strict sur les Core Web Vitals et l'architecture propre.",
+    "profession": "Je suis Ingenieur Frontend Senior",
+    "bio": "Ingenieur frontend senior avec plus de 7 ans d'experience dans la construction d'applications React et TypeScript performantes pour SaaS enterprise. A dirige l'architecture frontend, la distribution de SDK et l'integration d'outils IA chez SwiftConnect. Maintenant concentre sur des roles senior frontend, full-stack et AI engineering. Ouvert au remote.",
     "bioSegments": [
-      { "text": "Ingenieur Logiciel", "mark": "underline" },
+      { "text": "Ingenieur Frontend Senior", "mark": "underline" },
       {
-        "text": " avec plus de 7 ans dans la conception d'applications web et mobiles scalables et dans la ",
+        "text": " avec plus de 7 ans dans la construction d'applications ",
         "mark": "none"
       },
-      { "text": "gestion de livraisons interfonctionnelles", "mark": "highlight" },
+      { "text": "React et TypeScript", "mark": "highlight" },
       {
-        "text": ". Developpement full-stack, feuille de route produit et support technique — avec un focus strict sur les ",
+        "text": " performantes pour SaaS enterprise. A dirige l'architecture frontend, la distribution de SDK et ",
         "mark": "none"
       },
       {
-        "text": "Core Web Vitals et l'architecture propre",
+        "text": "l'integration d'outils IA",
         "mark": "highlight"
       },
-      { "text": ".", "mark": "none" }
+      {
+        "text": " chez SwiftConnect. Maintenant concentre sur des roles senior frontend, full-stack et AI engineering. Ouvert au remote.",
+        "mark": "none"
+      }
     ],
-    "detailedBio": "Ingenieur logiciel et Chef de Produit avec plus de 7 ans d'experience dans l'architecture d'applications web et mobiles performantes en React et TypeScript. A pris en charge des roles de Product Owner et lead technique pour definir les feuilles de route, prioriser les backlogs et synchroniser la livraison entre les equipes frontend et backend. Expansion vers le design de systemes full-stack (Node.js, Express, PostgreSQL) et construction recente d'un assistant IA de portfolio avec FastAPI, Groq, cache Redis, limitation de taux et controles de prompt. Apporte egalement une experience concrete en support technique — diagnostic de problemes complexes, gestion des escalades clients et liaison entre l'ingenierie et les utilisateurs finaux.",
+    "detailedBio": "Ingenieur frontend senior avec plus de 7 ans d'experience dans la construction d'applications React et TypeScript performantes pour SaaS enterprise. A dirige l'architecture frontend, la distribution de SDK, les systemes de composants et l'integration d'outils IA chez SwiftConnect jusqu'en mars 2026. Maintenant concentre sur des roles senior frontend, full-stack et AI engineering, avec des forces en React, TypeScript, architecture de composants, creation de SDK, integration LLM et livraison full-stack.",
     "detailedBioSegments": [
-      { "text": "Ingenieur Logiciel & Chef de Produit", "mark": "highlight" },
+      { "text": "Ingenieur Frontend Senior", "mark": "highlight" },
       {
-        "text": " avec plus de 7 ans dans l'architecture d'applications web et mobiles performantes. A pris en charge des roles de ",
-        "mark": "none"
-      },
-      { "text": "Product Owner et lead technique", "mark": "highlight" },
-      {
-        "text": " pour definir les feuilles de route et synchroniser la livraison. Expansion vers le design full-stack (Node.js, Express, PostgreSQL) et construction recente d'un ",
+        "text": " avec plus de 7 ans dans la construction d'applications React et TypeScript performantes pour SaaS enterprise. A dirige ",
         "mark": "none"
       },
       {
-        "text": "assistant IA de portfolio avec FastAPI et Groq",
+        "text": "l'architecture frontend, la distribution de SDK, les systemes de composants et l'integration d'outils IA",
         "mark": "highlight"
       },
       {
-        "text": " avec cache Redis, limitation de taux et controles de prompt. Apporte une experience concrete en ",
+        "text": " chez SwiftConnect jusqu'en mars 2026. Maintenant concentre sur des ",
         "mark": "none"
       },
-      { "text": "support technique", "mark": "highlight" },
       {
-        "text": " — diagnostic de problemes, gestion des escalades clients et liaison entre l'ingenierie et les besoins utilisateurs.",
+        "text": "roles senior frontend, full-stack et AI engineering",
+        "mark": "highlight"
+      },
+      {
+        "text": ", avec des forces en React, TypeScript, architecture de composants, creation de SDK, ",
+        "mark": "none"
+      },
+      { "text": "integration LLM", "mark": "highlight" },
+      {
+        "text": " et livraison full-stack.",
         "mark": "none"
       }
     ]
@@ -63,16 +69,30 @@
   ],
   "experience": [
     {
-      "id": 1,
-      "description": "Ingenieur logiciel senior en charge du developpement et de la maintenance d'applications React/TypeScript a grande echelle , avec une responsabilite supplementaire en tant que Product Owner par interim quand l'equipe en avait besoin. Architecture frontend, construction de bibliotheques NPM privees et optimisation des Core Web Vitals, tout en pilotant les decisions de feuille de route et l'alignement inter-equipes lors des phases de livraison critiques.",
+      "id": 5,
+      "description": "Developpement full-stack et AI engineering auto-dirige pendant une transition de carriere, avec focus sur des outils de portfolio prets pour la production, systemes backend, integration LLM et redaction technique continue.",
       "highlights": [
-        "Construction et maintenance de fonctionnalites React/TypeScript en production avec Styled Components, React Router, Redux Toolkit et React Query comme role d'ingenierie principal.",
-        "Prise en charge du role de Product Owner au besoin, facilitation de la planification des sprints, traduction des exigences metier en specifications techniques et alignement des parties prenantes entre frontend, backend et design.",
-        "Definition des contrats d'API et des criteres d'acceptation en debut de cycle de fonctionnalite, evitant que les problemes d'integration inter-equipes n'apparaissent tardivement.",
-        "Architecture et maintenance de bibliotheques NPM privees pour composants UI et utilitaires, ameliorant la reutilisabilite du code et reduisant la duplication entre les equipes.",
-        "Conduite de revues de code et sessions de mentorat avec les developpeurs juniors, elevant les standards d'ingenierie et reduisant le delai de revue d'environ 25%.",
-        "Optimisation des Core Web Vitals et application des bonnes pratiques d'accessibilite et de performance sur plusieurs lignes de produits.",
-        "Maintien d'une documentation trimestrielle des decisions d'equipe, fonctionnalites livrees et direction architecturale — donnant une visibilite a la direction sans qu'elle ait besoin de demander."
+        "Construction d'une fonctionnalite Ask AI de bout en bout avec backend FastAPI integrant des APIs d'inference LLM, cache Upstash Redis avec cles versionnees, limitation par IP a 3 requetes par IP par heure, et pipeline de prompt structure imposant des reponses JSON-only fondees sur le CV.",
+        "Livraison d'un frontend de chat React 19, TypeScript et Vite avec gestion du cold start, indicateurs de saisie, dropdowns de sources, input auto-grandissant, raccourcis clavier et affichage des erreurs backend.",
+        "Pratique continue backend et AI engineering avec Express 5, FastAPI, flows temps reel Socket.IO, PostgreSQL, patterns d'authentification, debugging de deploiement et integration LLM.",
+        "Participation a des projets d'evaluation IA et de sondages pour des organisations externes, en restant actif dans l'espace AI engineering pendant la transition.",
+        "Maintenance d'un blog technique sur izsk.hashnode.dev couvrant des patterns React avances et des sujets d'AI engineering."
+      ]
+    },
+    {
+      "id": 1,
+      "description": "Ingenieur logiciel chez SwiftConnect a Montreal, QC, construisant des interfaces SaaS enterprise d'access management et de securite avec React, TypeScript, Styled Components, Ant Design, Redux Toolkit et TanStack Query. Architecture frontend, distribution de SDK, bibliotheques NPM privees, analytics, observabilite et livraison technique inter-equipes jusqu'en mars 2026.",
+      "highlights": [
+        "Conception d'interfaces React et TypeScript performantes pour des workflows d'autorisation complexes sur plusieurs zones produit enterprise.",
+        "Transformation de maquettes UX/UI en systemes de composants reutilisables et accessibles sur plus de 10 composants UI, reduisant les cycles de revision design-dev d'environ 30%.",
+        "Creation d'une bibliotheque de composants NPM privee documentee dans Storybook et adoptee par plusieurs equipes, reduisant le code frontend duplique d'environ 40% et imposant des standards UI coherents.",
+        "Architecture de SDK Node.js et React prives avec interfaces API typees et versionnees pour projets internes et integrations clients tierces.",
+        "Conception, construction et maintenance en solo d'un dashboard interne React Native et Expo pour l'equipe customer-facing, incluant navigation, integration API, vues dashboard riches en donnees et couverture React Native Testing Library.",
+        "Mise en place d'un pipeline de templates email SendGrid bases sur React avec deploiement CI/CD, gardant les emails versionnes et supprimant la gestion manuelle des templates.",
+        "Instrumentation d'analytics frontend, suivi KPI, monitoring Sentry, upload de source maps, suivi Core Web Vitals et checks GitLab CI/CD sur les parcours utilisateurs cles.",
+        "Mentorat de 2-3 developpeurs juniors via revues de code, pair programming et sessions de partage bi-hebdomadaires, reduisant le delai de revue d'environ 25%.",
+        "Role de lead technique et proxy Product Owner pendant des phases critiques, traduisant les besoins metier en plans d'architecture et coordonnant l'execution sprint entre frontend et backend.",
+        "Construction de workflows MCP Storybook, Figma et GitHub pour validation d'integrite design, recherche de documentation API dans l'editeur, PR reviews assistees par LLM et scaffolding agentique avec validation humaine."
       ]
     },
     {
@@ -93,17 +113,6 @@
         "Construction et consommation d'API REST avec Node.js et Express, application de patterns routing, controllers et middleware.",
         "Support d'une refonte majeure du site, ameliorant la maintenabilite et la performance.",
         "Acquisition d'experience pratique avec technologies backend et cloud."
-      ]
-    },
-    {
-      "id": 4,
-      "description": "Fourniture d'un support technique pour des clients sur environnements Windows et Mac — diagnostic de problemes logiciels et materiels, configuration d'equipements reseau, resolution de problemes email et gestion du cycle complet du support de la prise en charge a la resolution.",
-      "highlights": [
-        "Diagnostic et resolution de problemes logiciels et materiels pour des clients sur Windows et Mac, couvrant erreurs OS, installations corrompues, conflits de pilotes et defaillances d'applications.",
-        "Accompagnement des clients dans la configuration de routeurs, le port forwarding et le depannage reseau par telephone — en traduisant les etapes techniques en langage accessible sans rappels repetitifs.",
-        "Resolution de problemes de configuration email multi-fournisseurs — creation de comptes, echecs d'envoi/reception, recuperation d'acces et problemes de synchronisation.",
-        "Debut en vente pendant les six premiers mois, gestion des appels entrants pour qualifier les besoins et vendre des forfaits de support technique dans un environnement telephonique a volume eleve.",
-        "Gestion du cycle de support complet de maniere autonome : recueil des symptomes, reproduction des problemes a distance, application des correctifs et confirmation de la resolution avant cloture."
       ]
     }
   ],
@@ -330,16 +339,14 @@
     },
     {
       "id": 13,
-      "title": "zsk-ai-resume-api : backend FastAPI pour Portfolio Ask AI",
-      "excerpt": "Un backend Python FastAPI cible qui alimente la fonctionnalite Ask AI du portfolio avec Groq, prompt engineering strict, reponses JSON structurees, cache Redis et limitation de taux en production.",
-      "shortDescription": "zsk-ai-resume-api est le service backend separe pour l'experience Ask AI de mon portfolio. Il utilise FastAPI, Pydantic Settings, le modele Llama 3.3 de Groq, et un profil CV JSON structure pour repondre aux questions sur mon parcours professionnel. Le backend inclut des regles de prompt strictes qui gardent les reponses limitees a mon CV, priorisent l'experience professionnelle avant les projets personnels, retournent uniquement du JSON, mettent en cache les questions repetees dans Upstash Redis, et appliquent une limitation de taux par IP en production tout en permettant un developpement local illimite. J'ai aussi ajoute un contexte de profil compacte pour reduire l'usage tokens Groq apres avoir vu a quelle vitesse les prompts complets peuvent atteindre les limites du fournisseur.",
+      "title": "Portfolio Ask AI",
+      "excerpt": "Une fonctionnalite Ask AI de portfolio de bout en bout avec React 19, FastAPI, inference LLM, cache Redis, limitation par IP et reponses structurees fondees sur le CV.",
+      "shortDescription": "Fonctionnalite Ask AI de bout en bout pour izsk.dev avec backend FastAPI, inference LLM, cache Upstash Redis, limitation par IP et pipeline de prompt structure. Le frontend React 19 gere le reveil cold-start, les reponses typees, les dropdowns de sources, l'input auto-grandissant, les raccourcis clavier et l'affichage des erreurs backend.",
       "highlights": [
-        "Construction d'un service Python FastAPI avec endpoints `/chat` et `/health` pour la fonctionnalite Portfolio Ask AI",
-        "Integration de Groq Llama 3.3 avec prompt engineering strict, sortie JSON-only, regles de preuve priorisant l'experience professionnelle, et refus des questions hors sujet",
-        "Utilisation d'Upstash Redis pour le cache des questions repetees, le versioning de cache et la limitation de taux par IP en production",
-        "Ajout de controles de developpement local pour desactiver les limites localement tout en les gardant actives en production",
-        "Reduction de l'usage tokens LLM en compactant le profil CV avant chaque requete Groq au lieu d'envoyer tout le JSON public a chaque fois",
-        "Gestion propre des erreurs de rate limit Groq pour que le frontend affiche un message utile au lieu d'un echec generique"
+        "Construction d'un backend FastAPI integrant APIs d'inference LLM, controles de prompt structures, sortie JSON-only et regles de reponse fondees sur le CV",
+        "Utilisation d'Upstash Redis pour le cache des questions repetees, les cles de cache versionnees et la limitation de taux en production a 3 requetes par IP par heure",
+        "Livraison d'un frontend de chat React 19, TypeScript et Vite avec reveil cold-start, reponses typees, dropdowns de sources, input auto-grandissant et raccourcis clavier",
+        "Affichage des erreurs backend et fournisseur dans le frontend pour donner des etats utiles au lieu d'un echec generique"
       ]
     }
   ],
@@ -493,6 +500,18 @@
         "Applique les generics aux hooks, wrappers API et composants reutilisables sans transformer chaque prop en casse-tete de types",
         "Utilise `Partial`, `Pick`, `Omit` et `Exclude` dans des cas frontend concrets comme formulaires, previews, patches et variantes de composants",
         "Pointe l'abus de `as`, le sur-typage et les reponses API sous-typees comme les habitudes qui annulent discretement la valeur de TypeScript"
+      ]
+    },
+    {
+      "id": 14,
+      "title": "RAG Is Not Magic. It's a Search Problem.",
+      "excerpt": "Retrieval-Augmented Generation fonctionne mieux quand on le traite comme un systeme de recherche, pas comme une astuce LLM.",
+      "shortDescription": "Une analyse en langage clair du fonctionnement de Retrieval-Augmented Generation de bout en bout, avec l'idee centrale que le RAG est d'abord un probleme de recherche et que le LLM n'est que la derniere partie du pipeline.",
+      "highlights": [
+        "Explique pourquoi le RAG existe, ou les knowledge cutoffs des LLM comptent, et pourquoi le fine-tuning n'est pas le bon choix par defaut pour mettre a jour des connaissances",
+        "Parcourt le chunking par paragraphes avec overlap, les embeddings, la recherche vectorielle, la similarite cosinus, les index ANN et une boucle de retrieval complete en Node.js",
+        "Couvre les pannes frequentes : mauvais chunking, lost-in-the-middle, decalage entre requete et document, et index stale",
+        "Compare RAG et fine-tuning avec un cadre de decision direct, puis presente hybrid search, re-ranking, metadata filtering et parent-child chunking"
       ]
     }
   ]
