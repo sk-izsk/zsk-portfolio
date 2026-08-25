@@ -494,6 +494,18 @@
         "Utilise `Partial`, `Pick`, `Omit` et `Exclude` dans des cas frontend concrets comme formulaires, previews, patches et variantes de composants",
         "Pointe l'abus de `as`, le sur-typage et les reponses API sous-typees comme les habitudes qui annulent discretement la valeur de TypeScript"
       ]
+    },
+    {
+      "id": 14,
+      "title": "RAG Is Not Magic. It's a Search Problem.",
+      "excerpt": "Retrieval-Augmented Generation fonctionne mieux quand on le traite comme un systeme de recherche, pas comme une astuce LLM.",
+      "shortDescription": "Une analyse en langage clair du fonctionnement de Retrieval-Augmented Generation de bout en bout, avec l'idee centrale que le RAG est d'abord un probleme de recherche et que le LLM n'est que la derniere partie du pipeline.",
+      "highlights": [
+        "Explique pourquoi le RAG existe, ou les knowledge cutoffs des LLM comptent, et pourquoi le fine-tuning n'est pas le bon choix par defaut pour mettre a jour des connaissances",
+        "Parcourt le chunking par paragraphes avec overlap, les embeddings, la recherche vectorielle, la similarite cosinus, les index ANN et une boucle de retrieval complete en Node.js",
+        "Couvre les pannes frequentes : mauvais chunking, lost-in-the-middle, decalage entre requete et document, et index stale",
+        "Compare RAG et fine-tuning avec un cadre de decision direct, puis presente hybrid search, re-ranking, metadata filtering et parent-child chunking"
+      ]
     }
   ]
 }

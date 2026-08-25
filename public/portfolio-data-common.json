@@ -754,6 +754,27 @@
         "Component API Design"
       ],
       "publishDate": "2026-08-17"
+    },
+    {
+      "id": 14,
+      "url": "https://izsk.hashnode.dev/rag-is-not-magic-it-s-a-search-problem",
+      "blogTypes": ["backend", "architecture"],
+      "category": "AI Engineering",
+      "tags": [
+        "RAG",
+        "Retrieval-Augmented Generation",
+        "LLMs",
+        "AI Engineering",
+        "Embeddings",
+        "Vector Databases",
+        "Semantic Search",
+        "pgvector",
+        "HNSW",
+        "Hybrid Search",
+        "Re-ranking",
+        "Node.js"
+      ],
+      "publishDate": "2026-08-25"
     }
   ],
   "experienceBase": [
