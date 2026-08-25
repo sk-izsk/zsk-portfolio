@@ -489,11 +489,16 @@
     {
       "id": 13,
       "url": "https://github.com/sk-izsk/zsk-ai-resume-api",
-      "projectTypes": ["backend", "ai-skill"],
-      "category": "AI Backend",
+      "demo_link": "https://izsk.dev",
+      "projectTypes": ["full-stack", "frontend", "backend", "ai-skill"],
+      "category": "AI Engineering",
       "tags": [
+        "React 19",
+        "TypeScript",
+        "Vite",
         "Python",
         "FastAPI",
+        "LLM Inference APIs",
         "Groq",
         "Llama 3.3",
         "Prompt Engineering",
@@ -779,10 +784,16 @@
   ],
   "experienceBase": [
     {
+      "id": 5,
+      "company": "Self-directed",
+      "position": "Independent Projects & AI Engineering",
+      "duration": "Mar 2026 - Present"
+    },
+    {
       "id": 1,
       "company": "SwiftConnect",
-      "position": "Software Engineer & Product Manager",
-      "duration": "Nov 2020 - Present"
+      "position": "Software Engineer",
+      "duration": "Nov 2020 - Mar 2026"
     },
     {
       "id": 2,

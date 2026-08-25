@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { Modal } from '@components/common/modal/Modal'
 
 describe('Modal', () => {
@@ -50,5 +50,57 @@ describe('Modal', () => {
       </Modal>,
     )
     expect(screen.getByRole('link', { name: /project/i })).toBeInTheDocument()
+  })
+
+  it('shows a scroll cue when modal body has more content below', async () => {
+    const clientHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'clientHeight')
+    const scrollHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollHeight')
+    const scrollTop = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollTop')
+    const scrollTo = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollTo')
+    const scrollToMock = vi.fn()
+    let scrollTopValue = 0
+
+    Object.defineProperties(HTMLElement.prototype, {
+      clientHeight: { configurable: true, get: () => 100 },
+      scrollHeight: { configurable: true, get: () => 250 },
+      scrollTop: {
+        configurable: true,
+        get: () => scrollTopValue,
+        set: (value) => {
+          scrollTopValue = value
+        },
+      },
+      scrollTo: { configurable: true, value: scrollToMock },
+    })
+
+    try {
+      render(
+        <Modal open={true} onClose={() => {}}>
+          <Modal.Title>Test</Modal.Title>
+          <Modal.Body>Long Body</Modal.Body>
+          <Modal.Footer onClose={() => {}} />
+        </Modal>,
+      )
+
+      const scrollCue = await screen.findByRole('button', { name: 'Scroll for more modal content' })
+      await waitFor(() => expect(scrollCue).toHaveAttribute('data-visible', 'true'))
+      expect(scrollCue).toHaveAttribute('data-visible', 'true')
+
+      fireEvent.click(scrollCue)
+      expect(scrollToMock).toHaveBeenCalledWith({ top: 70, behavior: 'smooth' })
+    } finally {
+      for (const [property, descriptor] of Object.entries({
+        clientHeight,
+        scrollHeight,
+        scrollTop,
+        scrollTo,
+      })) {
+        if (descriptor) {
+          Object.defineProperty(HTMLElement.prototype, property, descriptor)
+        } else {
+          Reflect.deleteProperty(HTMLElement.prototype, property)
+        }
+      }
+    }
   })
 })

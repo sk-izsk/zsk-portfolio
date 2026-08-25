@@ -12,6 +12,6 @@ export const homeEn = {
     frontend: 'Frontend Developer',
     backend: 'Backend Developer',
     mobile: 'Mobile Developer',
-    productManager: 'Product Manager',
+    aiEngineering: 'AI Engineer',
   },
 } as const

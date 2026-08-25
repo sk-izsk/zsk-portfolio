@@ -1,59 +1,56 @@
 {
   "personalInfo": {
     "name": "Shaikh Zeeshan Murshed",
-    "title": "Software Engineer",
+    "title": "Senior Frontend Engineer",
     "greeting": "Hello, my name is",
-    "profession": "I'm a Software Engineer & Product Manager",
-    "bio": "Software Engineer and Product Manager with 7+ years building scalable web and mobile applications and driving cross-functional product delivery. Full-stack development, roadmap ownership, and technical support backed by a strict focus on Core Web Vitals and clean architecture.",
+    "profession": "I'm a Senior Frontend Engineer",
+    "bio": "Senior Frontend Engineer with 7+ years building high-performance React and TypeScript applications for enterprise SaaS. Led frontend architecture, SDK distribution, and AI tooling integration at SwiftConnect. Now focused on senior frontend, full-stack, and AI engineering roles. Open to remote.",
     "bioSegments": [
-      { "text": "Software Engineer", "mark": "underline" },
+      { "text": "Senior Frontend Engineer", "mark": "underline" },
       {
-        "text": " with 7+ years building scalable web and mobile applications and ",
+        "text": " with 7+ years building high-performance ",
         "mark": "none"
       },
-      { "text": "driving cross-functional product delivery", "mark": "highlight" },
+      { "text": "React and TypeScript", "mark": "highlight" },
       {
-        "text": ". Full-stack development, roadmap ownership, and technical support — backed by a strict focus on ",
+        "text": " applications for enterprise SaaS. Led frontend architecture, SDK distribution, and ",
         "mark": "none"
       },
       {
-        "text": "Core Web Vitals and clean architecture",
+        "text": "AI tooling integration",
         "mark": "highlight"
       },
       {
-        "text": ".",
+        "text": " at SwiftConnect. Now focused on senior frontend, full-stack, and AI engineering roles. Open to remote.",
         "mark": "none"
       }
     ],
-    "detailedBio": "Software Engineer and Product Manager with over 7 years architecting high-performance web and mobile applications in React and TypeScript. Stepped into Product Owner and technical lead roles to define roadmaps, prioritize backlogs, and synchronize cross-functional delivery across frontend and backend teams. Expanded into full-stack system design (Node.js, Express, PostgreSQL) and recently built a FastAPI plus Groq-powered portfolio AI assistant with Redis caching, rate limiting, and prompt controls. Also brings hands-on technical support experience  diagnosing issues, managing client-facing escalations, and bridging engineering with end-user needs.",
+    "detailedBio": "Senior Frontend Engineer with 7+ years building high-performance React and TypeScript applications for enterprise SaaS. Led frontend architecture, SDK distribution, component systems, and AI tooling integration at SwiftConnect through March 2026. Now focused on senior frontend, full-stack, and AI engineering roles, with strengths across React, TypeScript, component architecture, SDK authorship, LLM integration, and full-stack delivery.",
     "detailedBioSegments": [
-      { "text": "Software Engineer & Product Manager", "mark": "highlight" },
+      { "text": "Senior Frontend Engineer", "mark": "highlight" },
       {
-        "text": " with over 7 years architecting high-performance web and mobile applications. Stepped into ",
+        "text": " with 7+ years building high-performance React and TypeScript applications for enterprise SaaS. Led ",
         "mark": "none"
       },
       {
-        "text": "Product Owner and technical lead roles",
+        "text": "frontend architecture, SDK distribution, component systems, and AI tooling integration",
         "mark": "highlight"
       },
       {
-        "text": " to define roadmaps and synchronize delivery. Expanded into full-stack system design (Node.js, Express, PostgreSQL) and recently built a ",
+        "text": " at SwiftConnect through March 2026. Now focused on ",
         "mark": "none"
       },
       {
-        "text": "FastAPI plus Groq-powered portfolio AI assistant",
+        "text": "senior frontend, full-stack, and AI engineering roles",
         "mark": "highlight"
       },
       {
-        "text": " with Redis caching, rate limiting, and prompt controls. Brings hands-on ",
+        "text": ", with strengths across React, TypeScript, component architecture, SDK authorship, ",
         "mark": "none"
       },
+      { "text": "LLM integration", "mark": "highlight" },
       {
-        "text": "technical support experience",
-        "mark": "highlight"
-      },
-      {
-        "text": " — diagnosing issues, managing client escalations, and bridging engineering with end-user needs.",
+        "text": ", and full-stack delivery.",
         "mark": "none"
       }
     ]
@@ -72,16 +69,30 @@
   ],
   "experience": [
     {
-      "id": 1,
-      "description": "Senior software engineer building and maintaining React/TypeScript applications at scale , with additional responsibility stepping into a Product Owner capacity when the team needed it. Owned frontend architecture, built private NPM libraries, and optimized Core Web Vitals, while also driving roadmap decisions and cross-team alignment during critical delivery phases.",
+      "id": 5,
+      "description": "Self-directed full-stack and AI engineering development during a career transition, focused on production-minded portfolio tooling, backend systems, LLM integration, and continued technical writing.",
       "highlights": [
-        "Built and maintained production React/TypeScript features using Styled Components, React Router, Redux Toolkit, and React Query as the primary engineering role.",
-        "Stepped into a Product Owner capacity when needed, facilitating sprint planning, translating business requirements into technical specifications, and aligning stakeholders across frontend, backend, and design.",
-        "Set API contracts and acceptance criteria at the start of feature cycles, keeping cross-team integration issues from surfacing late in delivery.",
-        "Architected and maintained private NPM libraries for UI components and utilities, improving code reuse and reducing duplication across teams.",
-        "Ran code reviews and mentoring sessions with junior developers, raising engineering standards and cutting review turnaround time by ~25%.",
-        "Optimized Core Web Vitals and enforced accessibility and performance best practices across multiple product lines.",
-        "Kept quarterly documentation of team decisions, shipped features, and architectural direction — giving leadership visibility without needing to ask."
+        "Built an end-to-end Ask AI portfolio feature with a FastAPI backend integrating LLM inference APIs, Upstash Redis caching with versioned cache keys, IP-based rate limiting at 3 requests per IP per hour, and a structured prompt pipeline enforcing resume-grounded JSON-only answers.",
+        "Shipped a React 19, TypeScript, and Vite chat frontend with cold-start handling, typing indicators, source dropdowns, auto-growing input, keyboard shortcuts, and backend error surfacing.",
+        "Continued backend and AI engineering practice across Express 5, FastAPI, Socket.IO real-time flows, PostgreSQL, auth patterns, deployment debugging, and LLM integration.",
+        "Participated in AI evaluation and survey projects for external organizations, staying active in the AI engineering space during the transition.",
+        "Maintained a technical blog at izsk.hashnode.dev covering advanced React patterns and AI engineering topics."
+      ]
+    },
+    {
+      "id": 1,
+      "description": "Software Engineer at SwiftConnect in Montréal, QC, building enterprise access and security management SaaS interfaces with React, TypeScript, Styled Components, Ant Design, Redux Toolkit, and TanStack Query. Owned frontend architecture, SDK distribution, private NPM libraries, analytics, observability, and cross-team technical delivery through March 2026.",
+      "highlights": [
+        "Designed high-performance React and TypeScript interfaces for complex authorization workflows across multiple enterprise product areas.",
+        "Translated UX/UI mockups into reusable, accessible component systems across 10+ UI components, cutting design-to-development revision cycles by about 30%.",
+        "Authored a Storybook-documented private NPM component library adopted across teams, reducing duplicate frontend code by about 40% and enforcing consistent UI standards.",
+        "Architected private Node.js and React SDKs with typed, versioned API interfaces for internal projects and third-party customer integrations.",
+        "Solely designed, built, and maintained an internal React Native and Expo dashboard for the customer-facing team, including navigation, API integration, data-heavy dashboard views, and React Native Testing Library coverage.",
+        "Engineered a React-based SendGrid email templating pipeline with CI/CD deployment, keeping email output version-controlled and removing manual template management.",
+        "Instrumented frontend analytics, KPI tracking, Sentry monitoring, source map uploads, Core Web Vitals tracking, and GitLab CI/CD checks across key user journeys.",
+        "Mentored 2-3 junior developers through code reviews, pair programming, and bi-weekly knowledge-sharing sessions, reducing review turnaround time by about 25%.",
+        "Acted as technical lead and proxy Product Owner during critical delivery phases, translating business requirements into architecture plans and coordinating sprint execution across frontend and backend teams.",
+        "Built Storybook, Figma, and GitHub MCP workflows for design-integrity validation, in-editor API documentation lookup, LLM-assisted PR review, and agentic scaffolding with human-review gates."
       ]
     },
     {
@@ -102,17 +113,6 @@
         "Built and consumed REST APIs with Node.js and Express, applying routing, controllers, and middleware patterns.",
         "Supported a major web app rebuild, improving maintainability and performance.",
         "Gained hands-on experience with backend and cloud technologies."
-      ]
-    },
-    {
-      "id": 4,
-      "description": "Provided technical support for clients across Windows and Mac environments — diagnosing software and hardware issues, configuring network equipment, resolving email issues, and managing the full support lifecycle from intake to resolution.",
-      "highlights": [
-        "Diagnosed and resolved software and hardware issues for clients across Windows and Mac environments, covering OS errors, corrupted installations, driver conflicts, and application failures.",
-        "Walked clients through router setup, port forwarding, and home network troubleshooting over the phone — translating technical steps into language non-technical users could follow without repeat calls.",
-        "Resolved email configuration issues across multiple providers — account setup, send/receive failures, access recovery, and sync problems on desktop and mobile.",
-        "Started in sales for the first six months, handling inbound calls to qualify needs and sell technical support packages in a high-volume phone environment.",
-        "Managed the full support lifecycle independently: gathering symptoms, replicating issues remotely, applying fixes, and confirming resolution before closing."
       ]
     }
   ],
@@ -339,16 +339,14 @@
     },
     {
       "id": 13,
-      "title": "zsk-ai-resume-api: FastAPI Backend for Portfolio Ask AI",
-      "excerpt": "A focused Python FastAPI backend that powers the portfolio Ask AI feature with Groq, strict prompt engineering, structured JSON responses, Redis caching, and production rate limiting.",
-      "shortDescription": "zsk-ai-resume-api is the separate backend service for my portfolio's Ask AI experience. It uses FastAPI, Pydantic settings, Groq's Llama 3.3 model, and a structured resume profile JSON to answer questions about my professional background. The backend includes strict prompt rules that keep answers scoped to my resume, prioritize professional experience before personal projects, return JSON-only responses, cache repeated questions in Upstash Redis, and enforce IP-based rate limiting in production while allowing unlimited local development. I also added compact profile context to reduce Groq token usage after seeing how quickly full-profile prompts can hit provider limits.",
+      "title": "Portfolio Ask AI",
+      "excerpt": "An end-to-end Ask AI portfolio feature with React 19, FastAPI, LLM inference, Redis caching, IP rate limiting, and structured resume-grounded answers.",
+      "shortDescription": "End-to-end Ask AI feature for izsk.dev with a FastAPI backend, LLM inference, Upstash Redis caching, IP rate limiting, and a structured prompt pipeline. The React 19 frontend handles cold-start wakeup, typed responses, source dropdowns, auto-growing input, keyboard shortcuts, and backend error surfacing.",
       "highlights": [
-        "Built a Python FastAPI service with `/chat` and `/health` endpoints for the portfolio Ask AI feature",
-        "Integrated Groq Llama 3.3 with strict prompt engineering, JSON-only output, professional-experience-first evidence rules, and unrelated-question refusal",
-        "Used Upstash Redis for repeated-question caching, cache versioning, and IP-based production rate limiting",
-        "Added local development controls so rate limits can be disabled locally while remaining enabled in production",
-        "Reduced LLM token usage by compacting the resume profile before each Groq request instead of sending the full public JSON every time",
-        "Handled Groq provider rate-limit errors cleanly so the frontend can show a meaningful message instead of a generic failure"
+        "Built a FastAPI backend integrating LLM inference APIs, structured prompt controls, JSON-only output, and resume-grounded answer rules",
+        "Used Upstash Redis for repeated-question caching, versioned cache keys, and IP-based production rate limiting at 3 requests per IP per hour",
+        "Shipped a React 19, TypeScript, and Vite chat frontend with cold-start wakeup, typed responses, source dropdowns, auto-growing input, and keyboard shortcuts",
+        "Surfaced backend and provider errors in the frontend so users see actionable states instead of generic failures"
       ]
     }
   ],

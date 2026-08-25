@@ -21,6 +21,11 @@ const fadeOut = keyframes({
   '100%': { opacity: 0 },
 })
 
+const bob = keyframes({
+  '0%, 100%': { transform: 'translate(-50%, 0)' },
+  '50%': { transform: 'translate(-50%, 5px)' },
+})
+
 export const modalAnimateIn = style({
   animation: `${slideUp} 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards`,
 })
@@ -182,11 +187,59 @@ export const modalBody = style({
   minHeight: 0,
   overscrollBehavior: 'contain',
   padding: '12px 16px',
+  position: 'relative',
   scrollbarWidth: 'none',
   msOverflowStyle: 'none',
   selectors: {
     '&::-webkit-scrollbar': { display: 'none' },
   },
+})
+
+export const scrollCue = style({
+  position: 'sticky',
+  left: '50%',
+  bottom: 0,
+  width: 34,
+  height: 34,
+  margin: '-34px 0 0',
+  transform: 'translateX(-50%)',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: '999px',
+  border: `1px solid ${vars.color.skin}`,
+  background: vars.color.background[900],
+  color: vars.color.skin,
+  boxShadow: '0 8px 18px rgba(15, 23, 42, 0.16)',
+  transition: 'opacity 0.18s ease, transform 0.18s ease, background-color 0.2s ease',
+  zIndex: 1,
+  cursor: 'pointer',
+  selectors: {
+    '&:hover': {
+      background: `${vars.color.skin}18`,
+    },
+    '&:focus-visible': {
+      outline: `2px solid ${vars.color.skin}`,
+      outlineOffset: 2,
+    },
+  },
+})
+
+export const scrollCueVisible = style({
+  opacity: 1,
+  pointerEvents: 'auto',
+  animation: `${bob} 1.6s ease-in-out infinite`,
+  '@media': {
+    '(prefers-reduced-motion: reduce)': {
+      animation: 'none',
+    },
+  },
+})
+
+export const scrollCueHidden = style({
+  opacity: 0,
+  pointerEvents: 'none',
+  transform: 'translate(-50%, 4px) scale(0.94)',
 })
 
 export const closeBtnTag = style({
