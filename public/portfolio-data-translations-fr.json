@@ -513,6 +513,19 @@
         "Couvre les pannes frequentes : mauvais chunking, lost-in-the-middle, decalage entre requete et document, et index stale",
         "Compare RAG et fine-tuning avec un cadre de decision direct, puis presente hybrid search, re-ranking, metadata filtering et parent-child chunking"
       ]
+    },
+    {
+      "id": 15,
+      "title": "Code Splitting in React : route-level vs component-level, et ce qui compte vraiment",
+      "excerpt": "Le code splitting est un outil de performance chirurgical, pas un reflexe a appliquer a chaque composant.",
+      "shortDescription": "Un article pratique de performance React qui defend le route-level splitting comme base pour les apps multi-routes, tandis que le component-level splitting ne se justifie que lorsqu'un composant est lourd, conditionnel, et pas necessaire dans chaque session utilisateur. Il couvre la generation des chunks, des exemples React Router et TanStack Router, les dependances lourdes type Monaco Editor, le chargement below-the-fold, les modales conditionnelles, les pieges de waterfall, le layout shift, les strategies de preload, les hints Vite et Webpack, et la mesure avec analyzers, waterfalls reseau, LCP et INP.",
+      "highlights": [
+        "Explique pourquoi les chunks generes par le bundler et la taille brute du bundle sont utiles, mais insuffisants comme metriques de performance seules",
+        "Montre le route-level splitting avec React Router et TanStack Router comme base par defaut pour les apps React multi-routes",
+        "Definit les cas limites ou le component-level splitting vaut le cout : librairies tierces lourdes, contenu below-the-fold et modales conditionnelles",
+        "Pointe les echecs du splitting agressif comme les waterfalls, le layout shift et les chunks trop nombreux",
+        "Relie la strategie avec preload au hover, prefetch via Intersection Observer, hints Vite et Webpack, et mesure par field data"
+      ]
     }
   ]
 }
