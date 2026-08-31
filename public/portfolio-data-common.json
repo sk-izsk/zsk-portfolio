@@ -780,6 +780,29 @@
         "Node.js"
       ],
       "publishDate": "2026-08-25"
+    },
+    {
+      "id": 15,
+      "url": "https://izsk.hashnode.dev/code-splitting-in-react-route-level-vs-component-level-and-what-actually-matters",
+      "blogTypes": ["frontend", "architecture"],
+      "category": "Frontend Performance",
+      "tags": [
+        "React",
+        "Code Splitting",
+        "React Router",
+        "TanStack Router",
+        "Vite",
+        "Webpack",
+        "Lazy Loading",
+        "Preloading",
+        "Intersection Observer",
+        "Monaco Editor",
+        "Bundle Analysis",
+        "Web Performance",
+        "LCP",
+        "INP"
+      ],
+      "publishDate": "2026-08-31"
     }
   ],
   "experienceBase": [
