@@ -1,4 +1,4 @@
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom/vitest'
 
 const createMemoryStorage = (): Storage => {
   const store = new Map<string, string>()

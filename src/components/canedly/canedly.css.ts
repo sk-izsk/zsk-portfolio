@@ -16,7 +16,7 @@ export const floatingContainer = style({
 
 export const triggerButton = style({
   height: '52px',
-  minWidth: '52px',
+  width: '52px',
   border: 'none',
   borderRadius: '999px',
   cursor: 'pointer',
@@ -24,18 +24,8 @@ export const triggerButton = style({
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-  gap: '10px',
-  padding: '0 16px',
-  width: 'fit-content',
-  maxWidth: '90vw',
+  padding: 0,
   boxShadow: '0 10px 30px rgba(0, 0, 0, 0.22)',
-  '@media': {
-    '(max-width: 767px)': {
-      width: '52px',
-      padding: 0,
-      gap: 0,
-    },
-  },
   selectors: {
     '&:focus-visible': {
       outline: '2px solid #ffffff',
@@ -45,26 +35,10 @@ export const triggerButton = style({
 })
 
 export const triggerIcon = style({
-  display: 'none',
+  display: 'inline-block',
   width: '18px',
   height: '18px',
   flexShrink: 0,
-  '@media': {
-    '(max-width: 767px)': {
-      display: 'inline-block',
-    },
-  },
-})
-
-export const triggerLabelDesktop = style({
-  whiteSpace: 'nowrap',
-  fontSize: '14px',
-  fontWeight: 600,
-  '@media': {
-    '(max-width: 767px)': {
-      display: 'none',
-    },
-  },
 })
 
 export const triggerColor1 = style({
