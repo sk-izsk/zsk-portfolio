@@ -9,7 +9,6 @@ import {
   triggerColor7,
   triggerColor9,
   triggerIcon,
-  triggerLabelDesktop,
 } from '@components/canedly/canedly.css'
 import { useTranslation } from '@localization/localize'
 import { useThemeStore } from '@stores/themeStore'
@@ -102,7 +101,6 @@ export const Canedly = () => {
           aria-label={desktopText}
         >
           <MessageCircle className={triggerIcon} size={18} />
-          <span className={triggerLabelDesktop}>{desktopText}</span>
         </button>
       </div>
 
