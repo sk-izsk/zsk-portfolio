@@ -803,6 +803,25 @@
         "INP"
       ],
       "publishDate": "2026-08-31"
+    },
+    {
+      "id": 16,
+      "url": "https://izsk.hashnode.dev/sse-vs-websockets-vs-webhooks-stop-reaching-for-websockets-first",
+      "blogTypes": ["frontend", "backend", "architecture"],
+      "category": "Real-Time Architecture",
+      "tags": [
+        "Server-Sent Events",
+        "WebSockets",
+        "Webhooks",
+        "EventSource",
+        "Streaming",
+        "Real-Time",
+        "TanStack Query",
+        "Redis",
+        "Security",
+        "AI Engineering"
+      ],
+      "publishDate": "2026-10-12"
     }
   ],
   "experienceBase": [
