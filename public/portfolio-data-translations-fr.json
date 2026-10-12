@@ -526,6 +526,20 @@
         "Pointe les echecs du splitting agressif comme les waterfalls, le layout shift et les chunks trop nombreux",
         "Relie la strategie avec preload au hover, prefetch via Intersection Observer, hints Vite et Webpack, et mesure par field data"
       ]
+    },
+    {
+      "id": 16,
+      "title": "SSE, WebSockets ou webhooks : arrêtez de choisir WebSockets d'abord",
+      "excerpt": "La plupart des fonctionnalités temps réel dans le navigateur reçoivent surtout des mises à jour du serveur. Commencez par SSE et réservez WebSockets aux vrais échanges bidirectionnels.",
+      "shortDescription": "Un guide pratique pour choisir le transport temps réel selon qui communique et à quelle fréquence. Il distingue les canaux navigateur-serveur des webhooks entre serveurs, explique la livraison et la reprise des flux SSE, les coûts opérationnels de WebSockets et la réception sécurisée des webhooks. Un parcours de confirmation de paiement combine webhooks et SSE, tandis qu'une section expose les cas où SSE n'est pas le bon premier choix. L'article prolonge la réflexion sur les connexions et la latence de Web Performance Beyond Lighthouse et celle sur les flux LLM de Prompt Engineering.",
+      "highlights": [
+        "Explique le format `text/event-stream`, les identifiants d'événement et la reprise via `Last-Event-ID`, les commentaires de heartbeat, le buffering nginx et la limite de six connexions en HTTP/1.1",
+        "Montre quand `EventSource` suffit et quand POST ou `Authorization` imposent un lecteur de flux basé sur fetch",
+        "Couvre l'authentification WebSocket par ticket à usage unique, les heartbeats ping/pong, le backoff exponentiel avec jitter et la diffusion via Redis pub/sub",
+        "Décrit un récepteur de webhook signé avec vérification HMAC sur le corps brut, `timingSafeEqual`, contrôle d'horodatage, insertion idempotente par identifiant d'événement et passage en file d'attente",
+        "S'appuie sur la confirmation de paiement et sur les exemples d'Anthropic, Stripe, GitHub, Discord et Slack pour guider le choix, avec un point sur WebTransport après Safari 26.4",
+        "Utilise les événements du flux pour invalider TanStack Query plutôt que pour créer une seconde couche de données, et précise quand SSE n'est pas adapté"
+      ]
     }
   ]
 }

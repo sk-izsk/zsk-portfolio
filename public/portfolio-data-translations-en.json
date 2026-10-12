@@ -526,6 +526,20 @@
         "Calls out aggressive splitting failure modes such as waterfall loading, layout shift, and too many tiny chunks",
         "Ties the strategy together with hover preloading, Intersection Observer prefetching, Vite and Webpack hints, and field-data measurement"
       ]
+    },
+    {
+      "id": 16,
+      "title": "SSE vs WebSockets vs Webhooks: Stop Reaching for WebSockets First",
+      "excerpt": "Most real-time browser features only need updates from the server. Start with SSE, then choose WebSockets when two-way traffic actually calls for them.",
+      "shortDescription": "An opinionated guide to choosing real-time transport by who talks and how often. It separates browser channels from server-to-server webhooks, explains SSE delivery and reconnection, the operational costs of WebSockets, and secure webhook handling. A payment-confirmation flow stacks webhooks with SSE, while a counterpoint section shows when SSE-first is the wrong call. It connects the connection and latency concerns from Web Performance Beyond Lighthouse with LLM streaming from Prompt Engineering.",
+      "highlights": [
+        "Explains the `text/event-stream` format, event IDs and `Last-Event-ID` resume, heartbeat comments, nginx buffering, and the six-connection HTTP/1.1 limit",
+        "Shows when native `EventSource` is enough and when POST or `Authorization` requires a fetch-based streaming reader",
+        "Covers WebSocket ticket authentication, ping/pong heartbeats, jittered exponential backoff, and Redis pub/sub fan-out",
+        "Walks through a signed webhook receiver with raw-body HMAC verification, `timingSafeEqual`, timestamp checks, idempotent event inserts, and queue handoff",
+        "Uses payment confirmation and industry examples from Anthropic, Stripe, GitHub, Discord, and Slack to frame the choice, including WebTransport after Safari 26.4",
+        "Treats stream events as TanStack Query invalidation signals instead of a second data layer, and identifies cases where SSE-first fails"
+      ]
     }
   ]
 }
