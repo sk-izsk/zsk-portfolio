@@ -540,6 +540,20 @@
         "S'appuie sur la confirmation de paiement et sur les exemples d'Anthropic, Stripe, GitHub, Discord et Slack pour guider le choix, avec un point sur WebTransport après Safari 26.4",
         "Utilise les événements du flux pour invalider TanStack Query plutôt que pour créer une seconde couche de données, et précise quand SSE n'est pas adapté"
       ]
+    },
+    {
+      "id": 17,
+      "title": "État serveur et état temps réel : arrêtez de tout mettre dans un seul store",
+      "excerpt": "Les applications de chat cassent quand l'état serveur et l'état temps réel transitoire partagent un même store. Séparez TanStack Query et Zustand avec un seul module socket entre les deux.",
+      "shortDescription": "Un plaidoyer pour séparer l'état serveur de l'état temps réel dans les applications de chat. Il applique un test de tri simple, montre deux mauvais schémas courants et place un unique module socket hors de React entre TanStack Query et Zustand. Il couvre la déduplication des messages, l'envoi optimiste, les indicateurs de saisie et de présence, la reconnexion, le partage de la logique entre clients web Vite et mobile Expo, et le contrôle des rendus avec des sélecteurs. Il se termine sur les cas où ne pas séparer et sur les alternatives, et rejoint Prompt Engineering et React Memoization autour de la propriété de l'état et des re-rendus inutiles.",
+      "highlights": [
+        "Introduit le test de tri : le serveur connaîtrait-il encore cette donnée après le départ de tous les clients, et un refetch pourrait-il la retrouver",
+        "Montre deux mauvais schémas : tout dans un seul store Zustand, et des événements socket qui écrivent dans le cache Query depuis les composants",
+        "Construit un module socket unique hors de React qui appelle `setQueryData` quand l'événement porte l'entité complète et `invalidateQueries` quand il ne fait que signaler un changement",
+        "Déduplique les messages dans `upsertMessage` par id ou `clientId` pour que la réponse HTTP et l'écho socket convergent, avec envoi optimiste via `cancelQueries`, un `clientId` temporaire et un statut d'échec plutôt qu'un rollback",
+        "Garde les indicateurs de saisie avec minuteurs auto-expirants, la présence et les repères `lastSeen` dans Zustand, et gère la reconnexion en réinitialisant l'état transitoire, en invalidant l'état serveur et en vérifiant `socket.recovered`",
+        "Partage la logique entre un client web Vite et un client mobile Expo avec `AppState` et `focusManager` comme seul code natif, utilise des sélecteurs Zustand et `React.memo` contre les re-rendus du chat entier, et couvre quand ne pas séparer ainsi que les alternatives Redux Toolkit et Jotai"
+      ]
     }
   ]
 }

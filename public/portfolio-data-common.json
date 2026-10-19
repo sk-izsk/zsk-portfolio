@@ -822,6 +822,25 @@
         "AI Engineering"
       ],
       "publishDate": "2026-10-12"
+    },
+    {
+      "id": 17,
+      "url": "https://izsk.hashnode.dev/server-state-vs-real-time-state-stop-putting-both-in-one-store",
+      "blogTypes": ["frontend", "architecture"],
+      "category": "Real-Time Architecture",
+      "tags": [
+        "TanStack Query",
+        "Zustand",
+        "WebSockets",
+        "Socket.IO",
+        "State Management",
+        "Optimistic Updates",
+        "React Native",
+        "Expo",
+        "React.memo",
+        "Real-Time"
+      ],
+      "publishDate": "2026-10-19"
     }
   ],
   "experienceBase": [

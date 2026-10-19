@@ -540,6 +540,20 @@
         "Uses payment confirmation and industry examples from Anthropic, Stripe, GitHub, Discord, and Slack to frame the choice, including WebTransport after Safari 26.4",
         "Treats stream events as TanStack Query invalidation signals instead of a second data layer, and identifies cases where SSE-first fails"
       ]
+    },
+    {
+      "id": 17,
+      "title": "Server State vs Real-Time State: Stop Putting Both in One Store",
+      "excerpt": "Chat apps break when server state and transient real-time state share one store. Split TanStack Query from Zustand and put one socket module in between.",
+      "shortDescription": "An argument for separating server state from real-time state in chat apps. It applies a simple sorting test, shows two common wrong patterns, and places a single socket module outside React between TanStack Query and Zustand. It covers message dedupe, optimistic sending, typing and presence, reconnect handling, sharing the logic across Vite web and Expo mobile clients, and render control with selectors. It closes with when not to split and alternatives, and connects to Prompt Engineering and React Memoization through state ownership and avoiding unnecessary re-renders.",
+      "highlights": [
+        "Introduces the sorting test: would the server still know this after every client left, and could a refetch recover it",
+        "Shows two wrong patterns: everything in one Zustand store, and socket events writing into the Query cache from inside components",
+        "Builds one socket module outside React that calls `setQueryData` when the event carries the full entity and `invalidateQueries` when it only signals change",
+        "Dedupes messages in `upsertMessage` by id or `clientId` so the HTTP response and the socket echo converge, with optimistic sending via `cancelQueries`, a temporary `clientId`, and a failed status instead of rollback",
+        "Keeps typing indicators with self-expiring timers, presence, and `lastSeen` markers in Zustand, and handles reconnects by resetting transient state, invalidating server state, and checking `socket.recovered`",
+        "Shares the logic across a Vite web client and an Expo mobile client with `AppState` and `focusManager` as the only native code, uses Zustand selectors and `React.memo` to stop whole-chat re-renders, and covers when not to split plus Redux Toolkit and Jotai alternatives"
+      ]
     }
   ]
 }
