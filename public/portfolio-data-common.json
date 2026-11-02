@@ -841,6 +841,25 @@
         "Real-Time"
       ],
       "publishDate": "2026-10-19"
+    },
+    {
+      "id": 18,
+      "url": "https://izsk.hashnode.dev/start-with-a-monorepo-small-teams-lose-weeks-to-polyrepo-overhead",
+      "blogTypes": ["frontend", "backend", "architecture"],
+      "category": "Project Architecture",
+      "tags": [
+        "Monorepo",
+        "Polyrepo",
+        "pnpm Workspaces",
+        "Turborepo",
+        "TypeScript",
+        "GitLab CI",
+        "Storybook",
+        "Vitest",
+        "Changesets",
+        "CODEOWNERS"
+      ],
+      "publishDate": "2026-11-02"
     }
   ],
   "experienceBase": [

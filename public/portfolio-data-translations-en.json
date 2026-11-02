@@ -554,6 +554,19 @@
         "Keeps typing indicators with self-expiring timers, presence, and `lastSeen` markers in Zustand, and handles reconnects by resetting transient state, invalidating server state, and checking `socket.recovered`",
         "Shares the logic across a Vite web client and an Expo mobile client with `AppState` and `focusManager` as the only native code, uses Zustand selectors and `React.memo` to stop whole-chat re-renders, and covers when not to split plus Redux Toolkit and Jotai alternatives"
       ]
+    },
+    {
+      "id": 18,
+      "title": "Monorepo vs Polyrepo for Small Teams: Why I Pick Monorepo",
+      "excerpt": "For teams under about 15 engineers, manual package bumps and version drift can cost more than a shared repository.",
+      "shortDescription": "An opinionated case for starting small teams with a monorepo, informed by SDK and component library work at SwiftConnect. A missing currency field slips through when two repos use different versions of `@acme/types`; the article then builds a pnpm workspace with shared TypeScript and ESLint config, Turborepo tasks, GitLab CI, a tested UI package, Changesets for externally consumed packages, and CODEOWNERS. It also explains when separate repositories make more sense.",
+      "highlights": [
+        "Shows how `@acme/types` 1.4.2 versus 1.3.9 can hide a missing currency field across repo boundaries, while a workspace build catches the mismatch",
+        "Sets up `apps/` and `packages/` with `workspace:*` dependencies, one base tsconfig, one ESLint flat config, and Turborepo's `^build` dependency and cache outputs",
+        "Filters a GitLab CI job to changed packages and gates a shared UI package with Storybook and Vitest before apps import its components",
+        "Uses Changesets only for packages with external consumers, such as an SDK, and CODEOWNERS to keep ownership clear",
+        "Names cases for polyrepo, including separate release cadences, security isolation, and open source packages, plus mistakes such as root app dependencies, circular packages, premature packages, unpinned packageManager, and missing cache outputs"
+      ]
     }
   ]
 }
