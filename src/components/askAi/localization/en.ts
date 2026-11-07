@@ -1,5 +1,6 @@
 export const askAiEn = {
   title: 'Ask AI',
+  triggerLabel: 'Ask AI',
   openChat: 'Ask AI about me',
   closeChat: 'Close chat',
   heroEyebrow: 'Portfolio AI',

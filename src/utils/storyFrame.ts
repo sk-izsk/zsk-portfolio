@@ -5,7 +5,6 @@ export interface FrameSpot {
   right: number
   bottom: number
   size: number
-  opacity: number
 }
 
 // Where the frame belongs at a scroll position. A spot can depend on the scroll position
@@ -57,6 +56,5 @@ export const getSpotAt = (stops: FrameStop[], scrollY: number): FrameSpot | null
     right: mix(from.right, to.right, amount),
     bottom: mix(from.bottom, to.bottom, amount),
     size: mix(from.size, to.size, amount),
-    opacity: mix(from.opacity, to.opacity, amount),
   }
 }

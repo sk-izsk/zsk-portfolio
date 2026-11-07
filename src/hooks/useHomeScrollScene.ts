@@ -68,14 +68,15 @@ export const useHomeScrollScene = (
           0,
         )
         .to(headline, { autoAlpha: 0, y: -32, duration: 0.7 }, HOME_SCENE_BEATS.headlineLeave)
-        .set(shelf, { autoAlpha: 1 }, 1.8)
+        // Waits for the headline to finish fading, so the two never share the screen.
+        .set(shelf, { autoAlpha: 1 }, 2.2)
         .fromTo(
           words,
           { opacity: 0.25 },
-          { opacity: 1, stagger: { amount: 1.1 }, duration: 0.2 },
-          1.9,
+          { opacity: 1, stagger: { amount: 0.8 }, duration: 0.2 },
+          2.3,
         )
-        .fromTo(quote, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6 }, 3.3)
+        .fromTo(quote, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6 }, 3.4)
         // Fixes the length, so the frame's stops stay in time with these beats.
         .to({}, { duration: 0.001 }, HOME_SCENE_BEATS.length)
 

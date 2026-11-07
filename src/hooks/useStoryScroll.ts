@@ -110,6 +110,7 @@ export const useStoryScroll = (
 
   useEffect(() => {
     let frameId = 0
+    let tops = getTops(storyRef.current)
 
     const syncLink = () => {
       frameId = 0
@@ -119,7 +120,7 @@ export const useStoryScroll = (
       }
 
       const line = window.scrollY + window.innerHeight / 2
-      const index = findActiveIndex(getTops(storyRef.current), line)
+      const index = findActiveIndex(tops, line)
 
       if (index !== getStoryIndex(window.location.pathname)) {
         // Keeps the query, so a project filter survives scrolling past its page and back.
@@ -138,13 +139,19 @@ export const useStoryScroll = (
       frameId ||= requestAnimationFrame(syncLink)
     }
 
+    // Heights only change on a resize, so they are not read again on every scroll.
+    const resizes = new ResizeObserver(() => {
+      tops = getTops(storyRef.current)
+      schedule()
+    })
+
+    Array.from(storyRef.current?.children ?? []).forEach((page) => resizes.observe(page))
     window.addEventListener('scroll', schedule, { passive: true })
-    window.addEventListener('resize', schedule, { passive: true })
 
     return () => {
       cancelAnimationFrame(frameId)
+      resizes.disconnect()
       window.removeEventListener('scroll', schedule)
-      window.removeEventListener('resize', schedule)
     }
   }, [navigate, storyRef])
 }

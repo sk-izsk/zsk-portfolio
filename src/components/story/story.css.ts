@@ -16,6 +16,19 @@ export const storyPage = style({
     [storyCardQuery]: {
       position: 'sticky',
       top: 'var(--stick-top, 0)',
+      selectors: {
+        // A shadow along the top edge only. One around a whole page is expensive to repaint.
+        '&:not(:first-child)::before': {
+          content: '""',
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: '-32px',
+          height: '32px',
+          background: 'linear-gradient(transparent, rgba(15, 23, 42, 0.14))',
+          pointerEvents: 'none',
+        },
+      },
     },
   },
 })
@@ -24,11 +37,9 @@ export const storyPageInner = style({
   position: 'relative',
   minHeight: '100svh',
   overflow: 'clip',
-  transformOrigin: '50% 100%',
   '@media': {
     [storyCardQuery]: {
       borderRadius: '32px 32px 0 0',
-      boxShadow: '0 -24px 48px rgba(15, 23, 42, 0.16)',
     },
     // Without the card slide, a plain line marks where one page ends and the next begins.
     '(max-width: 1099px), (prefers-reduced-motion: reduce)': {
@@ -38,7 +49,6 @@ export const storyPageInner = style({
   selectors: {
     [`${storyPage}:first-child > &`]: {
       borderRadius: 0,
-      boxShadow: 'none',
       borderTop: 'none',
     },
   },
@@ -53,9 +63,10 @@ export const storyPageDim = style({
   zIndex: 5,
 })
 
-export const storyDots = style({
-  position: 'absolute',
-  zIndex: -1,
+// One repeating dot background per page, far cheaper to paint than a masked SVG layer each.
+globalStyle(`${storyPage} .section`, {
+  backgroundImage: `radial-gradient(circle, color-mix(in srgb, ${vars.color.skin} 30%, transparent) 1.5px, transparent 1.5px)`,
+  backgroundSize: '16px 16px',
 })
 
 // Pages rise in once when first seen. Home has its own scene, so it is left out.
@@ -132,51 +143,7 @@ export const storyBracketEnd = style([
   },
 ])
 
-// Each page's title stays under the bar while its page is read, on a soft glass backing
-// so the content scrolling behind it stays out of the way. The frame replaces its underline.
-globalStyle(`${storyPage} .section-title`, {
-  '@media': {
-    [storyCardQuery]: {
-      position: 'sticky',
-      top: '88px',
-      zIndex: 4,
-      width: 'fit-content',
-      maxWidth: '100%',
-      pointerEvents: 'none',
-    },
-  },
-})
-
+// Fits the title's text, so the frame hugs it instead of spanning the page.
 globalStyle(`${storyPage} .section-title h2`, {
   width: 'fit-content',
-  '@media': {
-    [storyCardQuery]: {
-      transformOrigin: '0 0',
-      isolation: 'isolate',
-    },
-  },
-})
-
-globalStyle(`${storyPage} .section-title h2::before`, {
-  '@media': {
-    [storyCardQuery]: {
-      inset: '-8px -12px',
-      top: '-8px',
-      width: 'auto',
-      height: 'auto',
-      zIndex: -1,
-      borderRadius: '12px',
-      background: `color-mix(in srgb, ${vars.color.background[900]} 70%, transparent)`,
-      backdropFilter: 'blur(12px)',
-      WebkitBackdropFilter: 'blur(12px)',
-    },
-  },
-})
-
-globalStyle(`${storyPage} .section-title h2::after`, {
-  '@media': {
-    [storyCardQuery]: {
-      display: 'none',
-    },
-  },
 })

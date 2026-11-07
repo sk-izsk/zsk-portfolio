@@ -1,5 +1,6 @@
 export const askAiFr = {
   title: 'Ask AI',
+  triggerLabel: "Demander à l'IA",
   openChat: "Interroger l'IA à mon sujet",
   closeChat: 'Fermer le chat',
   heroEyebrow: 'IA Portfolio',

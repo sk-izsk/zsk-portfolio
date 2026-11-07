@@ -1,4 +1,4 @@
-import { storyCardQuery, storyPageDim, storyPageInner } from '@components/story/story.css'
+import { storyCardQuery, storyPageDim } from '@components/story/story.css'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useEffect, useLayoutEffect, type RefObject } from 'react'
@@ -66,7 +66,7 @@ export const useStoryMotion = (storyRef: RefObject<HTMLDivElement | null>) => {
     return () => pagesToReveal.disconnect()
   }, [storyRef])
 
-  // As a page gets covered it sinks back slightly, which sells the card sliding over it.
+  // A page dims as the next one covers it, then stops being painted once it is fully hidden.
   useLayoutEffect(() => {
     const story = storyRef.current
 
@@ -77,27 +77,32 @@ export const useStoryMotion = (storyRef: RefObject<HTMLDivElement | null>) => {
     const media = gsap.matchMedia()
 
     media.add(storyCardQuery, () => {
-      const pages = Array.from(story.children)
+      const pages = Array.from(story.children) as HTMLElement[]
 
       pages.slice(0, -1).forEach((page, index) => {
-        const scrollTrigger = {
-          trigger: pages[index + 1],
-          start: 'top bottom',
-          end: 'top top',
-          scrub: true,
-        }
+        const nextPage = pages[index + 1]
 
-        gsap.to(page.querySelector(`.${storyPageInner}`), {
-          scale: 0.95,
-          ease: 'none',
-          scrollTrigger,
-        })
         gsap.to(page.querySelector(`.${storyPageDim}`), {
           opacity: 0.25,
           ease: 'none',
-          scrollTrigger,
+          scrollTrigger: { trigger: nextPage, start: 'top bottom', end: 'top top', scrub: true },
+        })
+
+        ScrollTrigger.create({
+          trigger: nextPage,
+          start: 'top top',
+          end: 'max',
+          onToggle: ({ isActive }) => {
+            page.style.visibility = isActive ? 'hidden' : ''
+          },
         })
       })
+
+      return () => {
+        pages.forEach((page) => {
+          page.style.visibility = ''
+        })
+      }
     })
 
     return () => media.revert()

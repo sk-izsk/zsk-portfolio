@@ -9,8 +9,9 @@ export const topBarEn = {
     contact: 'Contact',
   },
   language: {
-    en: 'en',
-    fr: 'fr',
+    label: 'Change language',
+    en: 'English',
+    fr: 'Français',
   },
   toggle: {
     open: 'Open navigation',

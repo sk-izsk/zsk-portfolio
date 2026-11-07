@@ -7,7 +7,6 @@ const spot = (left: number, size = 80): FrameSpot => ({
   right: left + 100,
   bottom: 100,
   size,
-  opacity: 1,
 })
 
 const stops: FrameStop[] = [

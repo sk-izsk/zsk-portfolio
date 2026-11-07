@@ -3,7 +3,6 @@ import type { PropsWithChildren } from 'react'
 import React, { useContext, useLayoutEffect } from 'react'
 import { SeoHead } from '@components/common/SeoHead'
 import { DotPattern } from '@components/common/dotPattern/DotPattern'
-import { storyDots } from '@components/story/story.css'
 import { StoryContext } from '@components/story/storyContext'
 import { cx } from '@utils/cn'
 
@@ -74,23 +73,18 @@ export const Screen: React.FC<ScreenProps> = ({
       {isInStory ? null : (
         <ScreenHead title={pageTitle ?? title} description={description} canonical={canonical} />
       )}
-      <DotPattern className={isInStory ? storyDots : undefined} />
+      {isInStory ? null : <DotPattern />}
       <div
         className={cx('container', 'screen-container', containerClassName)}
         data-content-protected={contentProtected || undefined}
       >
-        {title && isInStory ? (
-          <div className="section-title">
-            <h2>{title}</h2>
-          </div>
-        ) : null}
-        {title && !isInStory ? (
+        {title && (
           <div className="row">
             <div className="section-title padd-15">
               <h2>{title}</h2>
             </div>
           </div>
-        ) : null}
+        )}
         {state ? <div className={state.className}>{state.message}</div> : children}
       </div>
     </section>

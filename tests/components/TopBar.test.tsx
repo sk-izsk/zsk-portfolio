@@ -59,11 +59,15 @@ describe('TopBar', () => {
     window.history.pushState({}, '', '/')
   })
 
-  it('renders language switcher buttons', () => {
+  it('offers the languages from the translate button', async () => {
+    const user = userEvent.setup()
     renderTopBar()
 
-    // Language buttons render lowercase labels from the translation config
-    expect(screen.getByText('en')).toBeInTheDocument()
-    expect(screen.getByText('fr')).toBeInTheDocument()
+    expect(screen.queryByText('Français')).not.toBeInTheDocument()
+
+    await user.click(screen.getByRole('button', { name: 'Change language' }))
+
+    expect(screen.getByRole('button', { name: 'English' })).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByRole('button', { name: 'Français' })).toBeInTheDocument()
   })
 })

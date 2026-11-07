@@ -1,15 +1,15 @@
 import { HyperText } from '@components/common/hyperText/HyperText'
 import { StyleSwitcher } from '@components/styleSwitcher/StyleSwitcher'
 import * as styles from '@components/topBar/topBar.css'
+import { TopBarLanguageMenu } from '@components/topBar/TopBarLanguageMenu'
 import { TopBarMenu } from '@components/topBar/TopBarMenu'
-import { useNavLens } from '@hooks/useNavLens'
 import { useTranslation } from '@localization/localize'
 import { useNavMenuStore } from '@stores/navMenuStore'
 import { usePersonalInfo, usePortfolioLoading } from '@stores/portfolioStore'
 import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
 import { cx } from '@utils/cn'
 import { BookOpen, Briefcase, Cog, House, List, Menu, MessageCircle, User } from 'lucide-react'
-import React, { useRef } from 'react'
+import React from 'react'
 import { Link, useLocation } from 'react-router'
 
 const getActiveId = (pathname: string) => pathname.slice(1) || 'home'
@@ -23,10 +23,6 @@ export const TopBar: React.FC = () => {
   const closeMenu = useNavMenuStore((state) => state.close)
   const activeId = getActiveId(pathname)
   const currentLanguage = i18n.resolvedLanguage === 'fr' ? 'fr' : 'en'
-  const navRef = useRef<HTMLElement>(null)
-  const lensRef = useRef<HTMLSpanElement>(null)
-
-  useNavLens(navRef, lensRef, activeId, currentLanguage)
 
   const items = [
     { id: 'home', label: t('topBar.nav.home'), icon: House, path: '/' },
@@ -49,8 +45,8 @@ export const TopBar: React.FC = () => {
     closeMenu()
   }
 
-  const renderLanguages = (className?: string) => (
-    <div className={cx(styles.languages, className)}>
+  const languages = (
+    <div className={styles.languages}>
       {(['en', 'fr'] as const).map((language) => (
         <button
           key={language}
@@ -67,17 +63,6 @@ export const TopBar: React.FC = () => {
 
   return (
     <>
-      <svg className={styles.glassFilter} aria-hidden="true">
-        <filter id={styles.GLASS_FILTER_ID}>
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.012 0.03"
-            numOctaves="2"
-            result="noise"
-          />
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="24" />
-        </filter>
-      </svg>
       <header className={styles.bar}>
         <Link to="/" className={styles.logo}>
           <HyperText
@@ -90,8 +75,7 @@ export const TopBar: React.FC = () => {
             }
           />
         </Link>
-        <nav ref={navRef} className={styles.links}>
-          <span ref={lensRef} className={styles.lens} aria-hidden="true" />
+        <nav className={styles.links}>
           {items.map((item) => (
             <Link
               key={item.id}
@@ -107,7 +91,7 @@ export const TopBar: React.FC = () => {
           {items.find((item) => item.id === activeId)?.label}
         </span>
         <div className={styles.controls}>
-          {renderLanguages(styles.languagesInBar)}
+          <TopBarLanguageMenu currentLanguage={currentLanguage} onChange={handleLanguageChange} />
           <StyleSwitcher />
           <button
             className={styles.menuButton}
@@ -119,7 +103,7 @@ export const TopBar: React.FC = () => {
           </button>
         </div>
       </header>
-      <TopBarMenu items={items} activeId={activeId} languages={renderLanguages()} />
+      <TopBarMenu items={items} activeId={activeId} languages={languages} />
     </>
   )
 }

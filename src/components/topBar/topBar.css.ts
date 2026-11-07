@@ -3,14 +3,10 @@ import { keyframes, style } from '@vanilla-extract/css'
 
 const canAnimate = '(prefers-reduced-motion: no-preference)'
 const curve = 'cubic-bezier(0.22, 1, 0.36, 1)'
-// Settles slightly past its target, which reads as a soft spring.
-const spring = 'cubic-bezier(0.34, 1.4, 0.64, 1)'
 
 // Keep in step with the 1100px scene breakpoint in the story and home styles.
 export const fullBarQuery = '(min-width: 1100px)'
 const compactBarQuery = '(max-width: 1099px)'
-
-export const GLASS_FILTER_ID = 'top-bar-glass'
 
 const linkRise = keyframes({
   '0%': { opacity: 0, transform: 'translateY(24px)' },
@@ -51,37 +47,17 @@ export const bar = style({
     },
   },
   selectors: {
-    // The frosted body. Lives on a layer of its own so the edge layer below can see through it.
+    // The frosted body. On its own layer so the bar's contents stay crisp above it.
     '&::before': {
       content: '""',
       position: 'absolute',
       inset: 0,
-      zIndex: -2,
-      borderRadius: 'inherit',
-      background: `color-mix(in srgb, ${vars.color.background[100]} 40%, transparent)`,
-      backdropFilter: 'blur(20px) saturate(180%)',
-      WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-    },
-    // Bends what is behind the rim like a lens. Only Chromium can apply an SVG filter to a
-    // backdrop, and other browsers ignore this and keep the frosted body.
-    '&::after': {
-      content: '""',
-      position: 'absolute',
-      inset: 0,
       zIndex: -1,
-      padding: '8px',
       borderRadius: 'inherit',
-      backdropFilter: `url(#${GLASS_FILTER_ID})`,
-      mask: 'linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0)',
-      pointerEvents: 'none',
+      background: `color-mix(in srgb, ${vars.color.background[100]} 55%, transparent)`,
+      backdropFilter: 'blur(20px) saturate(180%)',
     },
   },
-})
-
-export const glassFilter = style({
-  position: 'absolute',
-  width: 0,
-  height: 0,
 })
 
 export const logo = style({
@@ -102,7 +78,6 @@ export const logoInitial = style({
 })
 
 export const links = style({
-  position: 'relative',
   display: 'flex',
   alignItems: 'center',
   gap: '4px',
@@ -113,29 +88,7 @@ export const links = style({
   },
 })
 
-// A smaller piece of glass that slides under the current link. useNavLens places it.
-export const lens = style({
-  position: 'absolute',
-  top: 0,
-  bottom: 0,
-  left: 0,
-  zIndex: 0,
-  borderRadius: '999px',
-  background: `color-mix(in srgb, ${vars.color.skin} 16%, transparent)`,
-  boxShadow: [
-    'inset 0 1px 0 rgba(255, 255, 255, 0.5)',
-    `inset 0 0 0 1px color-mix(in srgb, ${vars.color.skin} 24%, transparent)`,
-  ].join(', '),
-  '@media': {
-    [canAnimate]: {
-      transition: `transform 500ms ${spring}, width 500ms ${spring}, opacity 300ms ease-out`,
-    },
-  },
-})
-
 export const link = style({
-  position: 'relative',
-  zIndex: 1,
   display: 'block',
   padding: '8px 12px',
   borderRadius: '999px',
@@ -193,22 +146,12 @@ export const languages = style({
   color: vars.color.text[700],
 })
 
-export const languagesInBar = style({
-  '@media': {
-    [compactBarQuery]: {
-      display: 'none',
-    },
-  },
-})
-
 export const language = style({
   border: 'none',
   background: 'transparent',
   color: vars.color.text[700],
   font: 'inherit',
   fontWeight: 600,
-  textTransform: 'uppercase',
-  letterSpacing: '0.08em',
   padding: '4px',
   borderRadius: '4px',
   cursor: 'pointer',
@@ -239,6 +182,62 @@ const roundButton = style({
   },
 })
 
+export const languageMenu = style({
+  position: 'relative',
+  display: 'flex',
+  alignItems: 'center',
+  '@media': {
+    [compactBarQuery]: {
+      display: 'none',
+    },
+  },
+})
+
+export const languageMenuButton = style([roundButton])
+
+const languageMenuIn = keyframes({
+  '0%': { opacity: 0, transform: 'translateY(-8px) scale(0.96)' },
+  '100%': { opacity: 1, transform: 'translateY(0) scale(1)' },
+})
+
+export const languageMenuPanel = style({
+  position: 'absolute',
+  top: 'calc(100% + 12px)',
+  right: 0,
+  display: 'grid',
+  gap: '4px',
+  minWidth: '128px',
+  padding: '8px',
+  borderRadius: '16px',
+  border: `1px solid color-mix(in srgb, ${vars.color.text[900]} 14%, transparent)`,
+  background: vars.color.background[100],
+  boxShadow: '0 16px 40px rgba(15, 23, 42, 0.16)',
+  transformOrigin: '100% 0',
+  '@media': {
+    [canAnimate]: {
+      animation: `${languageMenuIn} 300ms ${curve} both`,
+    },
+  },
+})
+
+export const languageMenuOption = style({
+  padding: '8px 12px',
+  border: 'none',
+  borderRadius: '8px',
+  background: 'transparent',
+  color: vars.color.text[900],
+  fontFamily: 'inherit',
+  fontSize: '14px',
+  lineHeight: '20px',
+  fontWeight: 500,
+  textAlign: 'left',
+  cursor: 'pointer',
+  transition: 'background-color 300ms ease-out',
+  ':hover': {
+    backgroundColor: `color-mix(in srgb, ${vars.color.text[900]} 8%, transparent)`,
+  },
+})
+
 export const menuButton = style([
   roundButton,
   {
@@ -261,7 +260,6 @@ export const menu = style({
   color: vars.color.text[900],
   background: `color-mix(in srgb, ${vars.color.background[900]} 92%, transparent)`,
   backdropFilter: 'blur(24px)',
-  WebkitBackdropFilter: 'blur(24px)',
   selectors: {
     '&::backdrop': {
       background: 'transparent',

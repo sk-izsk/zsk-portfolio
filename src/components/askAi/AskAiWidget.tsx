@@ -1,10 +1,15 @@
+import { messages } from '@components/askAi/askAi.css'
 import { AskAiContent } from '@components/askAi/AskAiContent'
+import { AskAiTeaser } from '@components/askAi/AskAiTeaser'
 import * as styles from '@components/askAi/askAiWidget.css'
+import { useGenie } from '@hooks/useGenie'
 import { useTranslation } from '@localization/localize'
 import { useAskAiWidgetStore } from '@stores/askAiWidgetStore'
 import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
 import { Sparkles, X } from 'lucide-react'
 import React, { useEffect, useRef } from 'react'
+
+const MESSAGES_SELECTOR = `.${messages}`
 
 export const AskAiWidget: React.FC = () => {
   const { t } = useTranslation()
@@ -14,6 +19,8 @@ export const AskAiWidget: React.FC = () => {
   const hasOpened = useAskAiWidgetStore((state) => state.hasOpened)
   const panelRef = useRef<HTMLElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
+
+  useGenie(panelRef, triggerRef, isOpen, MESSAGES_SELECTOR)
 
   useEffect(() => {
     const panel = panelRef.current
@@ -69,12 +76,18 @@ export const AskAiWidget: React.FC = () => {
       >
         <AskAiContent onClose={close} />
       </section>
-      <div className={styles.triggerWrap} data-open={isOpen || undefined}>
+      <div
+        className={styles.triggerWrap}
+        data-open={isOpen || undefined}
+        data-opened-before={hasOpened || undefined}
+      >
         {hasOpened ? null : (
-          <span className={styles.hint} aria-hidden="true">
-            {t('askAi.openChat')}
-          </span>
+          <AskAiTeaser
+            questions={[t('askAi.prompts.aiProjects'), t('askAi.prompts.reactNative')]}
+            onOpen={handleTriggerClick}
+          />
         )}
+        <span className={styles.glow} aria-hidden="true" />
         <button
           ref={triggerRef}
           className={styles.trigger}
@@ -85,8 +98,11 @@ export const AskAiWidget: React.FC = () => {
           aria-expanded={isOpen}
           aria-label={isOpen ? t('askAi.closeChat') : t('askAi.openChat')}
         >
-          <Sparkles className={styles.triggerIconOpen} size={22} aria-hidden="true" />
-          <X className={styles.triggerIconClose} size={22} aria-hidden="true" />
+          <span className={styles.ring} aria-hidden="true" />
+          <span className={styles.fill} aria-hidden="true" />
+          <Sparkles className={styles.triggerIcon} size={20} aria-hidden="true" />
+          <span className={styles.triggerLabel}>{t('askAi.triggerLabel')}</span>
+          <X className={styles.triggerClose} size={22} aria-hidden="true" />
         </button>
       </div>
     </>
