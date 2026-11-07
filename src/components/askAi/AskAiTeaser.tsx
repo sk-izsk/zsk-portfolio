@@ -1,4 +1,4 @@
-import * as styles from '@components/askAi/askAiWidget.css'
+import * as styles from '@components/askAi/askAiTrigger.css'
 import React, { useEffect, useState } from 'react'
 
 const FIRST_DELAY_MS = 3000

@@ -24,3 +24,15 @@ export const getPageTops = (start: number, heights: number[]) => {
 
 export const findActiveIndex = (tops: number[], line: number) =>
   tops.reduce((active, top, index) => (top <= line ? index : active), 0)
+
+export const getStoryPages = (story: HTMLElement) => Array.from(story.children) as HTMLElement[]
+
+export const getStoryTops = (story: HTMLElement | null) => {
+  if (!story) {
+    return []
+  }
+
+  const heights = getStoryPages(story).map((page) => page.offsetHeight)
+
+  return getPageTops(story.getBoundingClientRect().top + window.scrollY, heights)
+}

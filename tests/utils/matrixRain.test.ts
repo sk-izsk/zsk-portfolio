@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { getDropFrame } from '@utils/matrixRain'
+import { getDropFrame } from '@utils/matrixRainDrop'
 
 const drop = { startAt: 100, fallMs: 500 }
 
