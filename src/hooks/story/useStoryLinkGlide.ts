@@ -36,6 +36,12 @@ export const useStoryLinkGlide = (
     }
 
     endGlide.current()
+
+    // Back and Forward restore the reading position, which a glide would throw away.
+    if (navigationType === 'POP') {
+      return
+    }
+
     setAutoScrolling(true)
 
     const finish = () => {

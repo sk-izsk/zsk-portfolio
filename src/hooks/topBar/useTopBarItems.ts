@@ -1,4 +1,5 @@
 import { useTranslation } from '@localization/localize'
+import { normalizeStoryPath } from '@utils/storyScroll'
 import { BookOpen, Briefcase, Cog, House, List, MessageCircle, User } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { useLocation } from 'react-router'
@@ -10,7 +11,7 @@ export interface TopBarItem {
   path: string
 }
 
-const getActiveId = (pathname: string) => pathname.slice(1) || 'home'
+const getActiveId = (pathname: string) => normalizeStoryPath(pathname).slice(1) || 'home'
 
 export const useTopBarItems = () => {
   const { t } = useTranslation()

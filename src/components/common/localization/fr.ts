@@ -1,5 +1,6 @@
 export const commonFr = {
   skipToContent: 'Aller au contenu',
+  pageLoadError: "Cette section n'a pas pu se charger. Rechargez la page pour réessayer.",
   calendly: {
     cta: 'Réserver une réunion avec moi',
   },

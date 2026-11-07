@@ -18,7 +18,12 @@ export const StyleSwitcherPanel: React.FC<StyleSwitcherPanelProps> = ({ panelRef
   const setCurrentColor = useThemeStore((state) => state.setCurrentColor)
 
   return createPortal(
-    <div ref={panelRef} className={styles.styleSwitcherPanel} data-open={isOpen || undefined}>
+    <div
+      ref={panelRef}
+      className={styles.styleSwitcherPanel}
+      data-open={isOpen || undefined}
+      tabIndex={-1}
+    >
       <p className={styles.panelEyebrow}>{t('common.controls.appearance')}</p>
       <h3 className={styles.panelHeading}>{t('common.controls.personalize')}</h3>
       <StyleSwitcherThemeColors currentColor={currentColor} onChangeColor={setCurrentColor} />

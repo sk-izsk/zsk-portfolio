@@ -1,6 +1,6 @@
 import { TRIGGER_HEIGHT, TRIGGER_OFFSET } from '@components/askAi/askAiTrigger.css'
 import { vars } from '@styles/theme.css'
-import { style } from '@vanilla-extract/css'
+import { globalStyle, style } from '@vanilla-extract/css'
 
 const phone = '(max-width: 767px)'
 const PANEL_GAP = 20
@@ -32,6 +32,15 @@ export const panel = style({
   selectors: {
     '&[data-open]': {
       visibility: 'visible',
+    },
+  },
+})
+
+// Same as the phone menu: the page behind a chat that fills the screen must not scroll.
+globalStyle(`html:has(${panel}[data-open])`, {
+  '@media': {
+    [phone]: {
+      overflow: 'hidden',
     },
   },
 })

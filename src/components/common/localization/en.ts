@@ -1,5 +1,6 @@
 export const commonEn = {
   skipToContent: 'Skip to content',
+  pageLoadError: 'This section could not load. Please reload the page to try again.',
   calendly: {
     cta: 'Book a meeting with me',
   },

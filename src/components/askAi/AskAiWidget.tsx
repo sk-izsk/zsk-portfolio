@@ -3,6 +3,7 @@ import { AskAiTrigger } from '@components/askAi/AskAiTrigger'
 import * as styles from '@components/askAi/askAiWidget.css'
 import { useAskAiButtonMotion } from '@hooks/askAi/useAskAiButtonMotion'
 import { useAskAiPanelFocus } from '@hooks/askAi/useAskAiPanelFocus'
+import { useAskAiPhoneModal } from '@hooks/askAi/useAskAiPhoneModal'
 import { useTranslation } from '@localization/localize'
 import { useAskAiWidgetStore } from '@stores/askAiWidgetStore'
 import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
@@ -17,7 +18,8 @@ export const AskAiWidget: React.FC = () => {
   const triggerRef = useRef<HTMLButtonElement>(null)
   const { isCloseShape, playPop } = useAskAiButtonMotion(panelRef, triggerRef, isOpen)
 
-  useAskAiPanelFocus(panelRef, triggerRef, isOpen, close)
+  useAskAiPanelFocus(panelRef, triggerRef, isOpen, isCloseShape, close)
+  useAskAiPhoneModal(panelRef, isOpen)
 
   const handleTriggerClick = () => {
     if (!isOpen) {

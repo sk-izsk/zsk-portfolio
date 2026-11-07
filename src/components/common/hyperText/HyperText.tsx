@@ -2,6 +2,7 @@ import type { ElementType, HTMLAttributes, ReactNode } from 'react'
 import React, { useEffect, useRef, useState } from 'react'
 import * as styles from '@components/common/hyperText/hyperText.css'
 import { createCn, raw } from '@utils/cn'
+import { canAnimate } from '@utils/motion'
 
 interface HyperTextProps extends Omit<HTMLAttributes<HTMLElement>, 'children'> {
   text: string
@@ -36,7 +37,7 @@ export function HyperText({
   const iterations = text.length
 
   const triggerAnimation = () => {
-    if (isAnimating.current) {
+    if (isAnimating.current || !canAnimate()) {
       return
     }
     isAnimating.current = true

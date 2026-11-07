@@ -1,7 +1,7 @@
 import { fullBarQuery } from '@components/topBar/topBar.css'
 import { useNavMenuStore } from '@stores/navMenuStore'
 import { canAnimate } from '@utils/motion'
-import { useEffect, useRef, type SyntheticEvent } from 'react'
+import { useEffect, useRef, type MouseEvent, type SyntheticEvent } from 'react'
 
 const SLIDE_KEYFRAMES = [{ transform: 'translateX(100%)' }, { transform: 'translateX(0)' }]
 const SLIDE_TIMING = { duration: 400, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
@@ -70,8 +70,9 @@ export const useTopBarMenuDialog = () => {
   }, [close])
 
   // The page ignores taps until the slide out ends, so a quick tap to reopen lands here.
-  const handleDialogClick = () => {
-    if (!isOpen) {
+  // Not on a link, where a double tap means going to that page.
+  const handleDialogClick = (event: MouseEvent<HTMLDialogElement>) => {
+    if (!isOpen && !(event.target as Element).closest('a')) {
       toggle()
     }
   }

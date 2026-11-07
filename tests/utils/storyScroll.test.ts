@@ -7,6 +7,12 @@ describe('getStoryIndex', () => {
     expect(getStoryIndex('/contact')).toBe(6)
     expect(getStoryIndex('/home')).toBe(0)
   })
+
+  it('treats case and trailing slashes as the same page, as the router does', () => {
+    expect(getStoryIndex('/about/')).toBe(1)
+    expect(getStoryIndex('/About')).toBe(1)
+    expect(getStoryIndex('/')).toBe(0)
+  })
 })
 
 describe('getPageTops', () => {

@@ -16,7 +16,8 @@ const homeRise = keyframes({
 const riseIn = (delay: number) => ({
   '@media': {
     [canAnimate]: {
-      animation: `${homeRise} 700ms cubic-bezier(0.22, 1, 0.36, 1) ${delay}ms both`,
+      // Backwards only: holding the end state would override the scroll scene's fade afterwards.
+      animation: `${homeRise} 700ms cubic-bezier(0.22, 1, 0.36, 1) ${delay}ms backwards`,
     },
   },
 })

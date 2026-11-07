@@ -1,5 +1,20 @@
 import { describe, expect, it } from 'vitest'
+import { createMatrixRain } from '@utils/matrixRain'
 import { getDropFrame } from '@utils/matrixRainDrop'
+
+describe('createMatrixRain', () => {
+  it('hides the letters on reset and shows them again on destroy', () => {
+    const element = document.createElement('p')
+    const char = document.createElement('span')
+    const rain = createMatrixRain(element, [char], 'rain')
+
+    rain.reset()
+    expect(char.style.visibility).toBe('hidden')
+
+    rain.destroy()
+    expect(char.style.visibility).toBe('')
+  })
+})
 
 const drop = { startAt: 100, fallMs: 500 }
 

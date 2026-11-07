@@ -9,7 +9,12 @@ export const STORY_PATHS = [
   '/contact',
 ]
 
-export const getStoryIndex = (pathname: string) => Math.max(STORY_PATHS.indexOf(pathname), 0)
+// The router matches /About and /about/ too, so they must count as the same page here.
+export const normalizeStoryPath = (pathname: string) =>
+  pathname.toLowerCase().replace(/\/+$/, '') || '/'
+
+export const getStoryIndex = (pathname: string) =>
+  Math.max(STORY_PATHS.indexOf(normalizeStoryPath(pathname)), 0)
 
 // Sticky pages report their stuck position, so natural tops come from the heights above them.
 export const getPageTops = (start: number, heights: number[]) => {

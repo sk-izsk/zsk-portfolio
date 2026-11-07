@@ -117,8 +117,12 @@ export const AboutPersonalInfoSection: React.FC = () => {
             size="large"
             className={cx('hire-me', btnMargin)}
             onClick={(event: React.MouseEvent) => {
-              event.preventDefault()
-              void navigate('/contact')
+              // Ctrl or Cmd click keeps opening the link in a new tab.
+              if (!event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
+                event.preventDefault()
+                void navigate('/contact')
+              }
+
               trackGaEvent('About', 'hire_me_click', 'Hire Me')
               trackMixpanelEvent('hire_me_click', 'About', 'Hire Me')
             }}

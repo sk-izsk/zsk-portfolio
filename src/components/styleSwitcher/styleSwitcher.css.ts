@@ -59,6 +59,8 @@ export const styleSwitcherPanel = style({
   border: `1px solid ${vars.color.background[50]}`,
   background: vars.color.background[100],
   boxShadow: '0 28px 70px rgba(15, 23, 42, 0.14)',
+  outline: 'none',
+  overflowY: 'auto',
   // Hidden but still laid out, because useGenie measures it before pouring it out of the button.
   visibility: 'hidden',
   selectors: {

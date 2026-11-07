@@ -7,7 +7,7 @@ describe('navMenuStore', () => {
   })
 
   it('starts closed', () => {
-    expect(useNavMenuStore.getState().isOpen).toBe(false)
+    expect(useNavMenuStore.getInitialState().isOpen).toBe(false)
   })
 
   it('toggle opens the menu when closed', () => {

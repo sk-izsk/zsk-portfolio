@@ -30,7 +30,9 @@ describe('getSpotAt', () => {
   })
 
   it('moves between stops, and holds between two equal ones', () => {
+    expect(getSpotAt(stops, 125)).toMatchObject({ left: 15.625, size: 73.75 })
     expect(getSpotAt(stops, 150)).toMatchObject({ left: 50, size: 60 })
+    expect(getSpotAt(stops, 175)).toMatchObject({ left: 84.375, size: 46.25 })
     expect(getSpotAt(stops, 250)?.left).toBe(100)
   })
 

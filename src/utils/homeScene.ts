@@ -90,12 +90,20 @@ export const buildPinnedScene = ({
     })
     .to(find(homeScrollCue), { autoAlpha: 0, duration: 0.3 }, 0)
     .to(find(homeImgImg), { autoAlpha: 0, scale: 0.96, duration: 1 }, 0)
-    .to(
+    // Explicit starts, because these also rise in on load, and scrolling during that would
+    // otherwise record a half faded state as where they return to.
+    .fromTo(
       [find(homeEyebrow), find(homeInfoP), find(homeActions)],
+      { autoAlpha: 1, y: 0 },
       { autoAlpha: 0, y: -24, stagger: 0.08, duration: 0.7 },
       0,
     )
-    .to(headline, { autoAlpha: 0, y: -32, duration: 0.7 }, HOME_SCENE_BEATS.headlineLeave)
+    .fromTo(
+      headline,
+      { autoAlpha: 1, y: 0 },
+      { autoAlpha: 0, y: -32, duration: 0.7 },
+      HOME_SCENE_BEATS.headlineLeave,
+    )
     // Waits for the headline to finish fading, so the two never share the screen.
     .set(shelf, { autoAlpha: 1 }, 2.2)
     .fromTo(words, { opacity: 0.25 }, { opacity: 1, stagger: { amount: 0.8 }, duration: 0.2 }, 2.3)

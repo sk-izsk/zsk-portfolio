@@ -59,13 +59,35 @@ describe('TopBar', () => {
     window.history.pushState({}, '', '/')
   })
 
-  it('offers the languages inside the settings panel', () => {
+  it('marks the current page when the link has a trailing slash', () => {
+    window.history.pushState({}, '', '/about/')
     renderTopBar()
 
-    expect(screen.getByRole('button', { name: 'English' })).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('aria-current', 'page')
+    window.history.pushState({}, '', '/')
+  })
+
+  it('opens the settings panel with its languages, and moves focus in and back out', async () => {
+    const user = userEvent.setup()
+    renderTopBar()
+
+    const trigger = screen.getByRole('button', { name: /open appearance controls/i })
+    await user.click(trigger)
+
+    const english = screen.getByRole('button', { name: 'English' })
+    const panel = english.closest('[data-open]')
+
+    expect(trigger).toHaveAttribute('aria-expanded', 'true')
+    expect(document.activeElement).toBe(panel)
+    expect(english).toHaveAttribute('aria-pressed', 'true')
     expect(screen.getByRole('button', { name: 'Français' })).toHaveAttribute(
       'aria-pressed',
       'false',
     )
+
+    await user.keyboard('{Escape}')
+
+    expect(trigger).toHaveAttribute('aria-expanded', 'false')
+    expect(document.activeElement).toBe(trigger)
   })
 })
