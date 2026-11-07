@@ -40,6 +40,7 @@ export type ContributionStreakStats = {
 
 export type ContributionLayout = {
   contentWidth: number
+  contentHeight: number
   monthLabels: Array<{ key: string; label: string; x: number }>
   dayLabels: Array<{ key: string; label: string; y: number }>
 }
@@ -208,6 +209,7 @@ export const buildContributionLayout = (
 
   return {
     contentWidth: totalWeeks * colWidth,
+    contentHeight: 7 * rowHeight,
     monthLabels,
     dayLabels: [
       { key: 'mon', label: 'Mon', y: rowHeight * 1 + cellSize / 2 },

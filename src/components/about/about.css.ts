@@ -306,10 +306,23 @@ export const githubContributionLoading = style({
   },
 })
 
+// The graph stretches to fill the card, so the day labels sit inside this box and are placed as
+// shares of its height, to move with the squares however wide the card is.
+export const githubContributionGraph = style({
+  position: 'relative',
+})
+
 export const githubContributionImage = style({
   display: 'block',
   width: '100%',
   minWidth: 0,
+  height: 'auto',
+})
+
+// Block, so no line gap below the drawing makes the box taller than the squares.
+globalStyle(`${githubContributionImage} svg`, {
+  display: 'block',
+  width: '100%',
   height: 'auto',
 })
 
@@ -361,15 +374,17 @@ export const githubContributionMonthLabel = style({
   },
 })
 
+// In the frame's left padding, just outside the graph.
 export const githubContributionDays = style({
   position: 'absolute',
-  top: '28px',
-  left: 0,
+  top: 0,
+  bottom: 0,
+  right: 'calc(100% + 6px)',
   width: '28px',
   pointerEvents: 'none',
   '@media': {
     '(max-width: 767px)': {
-      top: '20px',
+      right: 'calc(100% + 4px)',
       width: '20px',
     },
   },

@@ -2,6 +2,7 @@ import {
   githubContributionDayLabel,
   githubContributionDays,
   githubContributionFrame,
+  githubContributionGraph,
   githubContributionImage,
   githubContributionLegend,
   githubContributionLegendSwatch,
@@ -19,6 +20,8 @@ import {
 import { Dropdown } from '@components/common/dropdown/Dropdown'
 import type { ContributionLayout } from '@utils/githubHighlights'
 import React from 'react'
+
+const toPercent = (value: number, total: number) => `${(value / total) * 100}%`
 
 type GithubContributionPickerProps = {
   selectedYear: string
@@ -84,32 +87,36 @@ export const GithubContributionCard: React.FC<GithubContributionCardProps> = ({
               width: `${graph.contributionLayout.contentWidth + (graph.isMobileGraph ? 24 : 34)}px`,
             }}
           >
+            {/* Labels are placed as shares of the graph's size, so they stay on their weeks and
+                days when the graph stretches to fill the card. */}
             <div className={githubContributionMonths}>
               {graph.contributionLayout.monthLabels.map((month) => (
                 <span
                   key={month.key}
                   className={githubContributionMonthLabel}
-                  style={{ left: `${month.x}px` }}
+                  style={{ left: toPercent(month.x, graph.contributionLayout.contentWidth) }}
                 >
                   {month.label}
                 </span>
               ))}
             </div>
-            <div className={githubContributionDays}>
-              {graph.contributionLayout.dayLabels.map((day) => (
-                <span
-                  key={day.key}
-                  className={githubContributionDayLabel}
-                  style={{ top: `${day.y}px` }}
-                >
-                  {day.label}
-                </span>
-              ))}
+            <div className={githubContributionGraph}>
+              <div className={githubContributionDays}>
+                {graph.contributionLayout.dayLabels.map((day) => (
+                  <span
+                    key={day.key}
+                    className={githubContributionDayLabel}
+                    style={{ top: toPercent(day.y, graph.contributionLayout.contentHeight) }}
+                  >
+                    {day.label}
+                  </span>
+                ))}
+              </div>
+              <div
+                className={githubContributionImage}
+                dangerouslySetInnerHTML={{ __html: graph.contributionGraphSvg }}
+              />
             </div>
-            <div
-              className={githubContributionImage}
-              dangerouslySetInnerHTML={{ __html: graph.contributionGraphSvg }}
-            />
             <div className={githubContributionLegend}>
               <span>Less</span>
               <div className={githubContributionLegendSwatches}>
