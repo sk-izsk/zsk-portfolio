@@ -1,4 +1,6 @@
 import React from 'react'
+import { Canedly } from '@components/canedly/Canedly'
+import { contactBookMeeting } from '@components/contact/contact.css'
 import { ContactFormSection } from '@components/contact/ContactFormSection'
 import { ContactSocialsSection } from '@components/contact/ContactSocialsSection'
 import { Screen } from '@components/Screen'
@@ -22,6 +24,9 @@ const ContactScreen: React.FC = () => {
       canonical="/contact"
     >
       <ContactSocialsSection />
+      <div className={contactBookMeeting}>
+        <Canedly />
+      </div>
       <ContactFormSection />
     </Screen>
   )

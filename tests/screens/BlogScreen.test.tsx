@@ -37,18 +37,25 @@ describe('BlogScreen', () => {
     expect(screen.getByText('Could not load blog posts right now.')).toBeInTheDocument()
   })
 
-  it('renders all blog titles when data is loaded', () => {
+  it('previews the first posts and shows every title after See all', async () => {
+    const user = userEvent.setup()
     usePortfolioStore.getState().setData(mockPortfolioData)
     renderScreen()
+
+    await user.click(screen.getByRole('button', { name: /see all/i }))
 
     for (const post of mockPortfolioData.blog) {
       expect(screen.getByText(post.title)).toBeInTheDocument()
     }
+    expect(screen.queryByRole('button', { name: /see all/i })).not.toBeInTheDocument()
   })
 
-  it('renders all blog excerpts when data is loaded', () => {
+  it('renders every blog excerpt after See all', async () => {
+    const user = userEvent.setup()
     usePortfolioStore.getState().setData(mockPortfolioData)
     const { container } = renderScreen()
+
+    await user.click(screen.getByRole('button', { name: /see all/i }))
 
     for (const post of mockPortfolioData.blog) {
       expect(container).toHaveTextContent(post.shortDescription.replaceAll('`', ''))
@@ -68,7 +75,9 @@ describe('BlogScreen', () => {
     renderScreen()
 
     expect(
-      screen.getByText('Context vs Redux Toolkit vs Zustand: Picking the Right State Tool for the Job'),
+      screen.getByText(
+        'Context vs Redux Toolkit vs Zustand: Picking the Right State Tool for the Job',
+      ),
     ).toBeInTheDocument()
     expect(
       screen.queryByText('I Ditched Axios for Ky And My Dependabot Finally Stopped Screaming'),
@@ -84,7 +93,9 @@ describe('BlogScreen', () => {
       screen.getByText('I Ditched Axios for Ky And My Dependabot Finally Stopped Screaming'),
     ).toBeInTheDocument()
     expect(
-      screen.getByText('Context vs Redux Toolkit vs Zustand: Picking the Right State Tool for the Job'),
+      screen.getByText(
+        'Context vs Redux Toolkit vs Zustand: Picking the Right State Tool for the Job',
+      ),
     ).toBeInTheDocument()
   })
 
@@ -106,6 +117,8 @@ describe('BlogScreen', () => {
     usePortfolioStore.getState().setData(mockPortfolioData)
     renderScreen()
 
+    await user.click(screen.getByRole('button', { name: /see all/i }))
+
     const targetCard = screen
       .getByText('Context vs Redux Toolkit vs Zustand: Picking the Right State Tool for the Job')
       .closest('div')
@@ -116,7 +129,7 @@ describe('BlogScreen', () => {
 
     expect(
       screen.getAllByText(
-        "A production-minded comparison of React Context, Redux Toolkit, and Zustand, focused on re-render behavior, boilerplate, team scaling, and the tradeoffs that matter months after launch.",
+        'A production-minded comparison of React Context, Redux Toolkit, and Zustand, focused on re-render behavior, boilerplate, team scaling, and the tradeoffs that matter months after launch.',
       ),
     ).toHaveLength(2)
     expect(screen.getByRole('link', { name: 'Read article' })).toHaveAttribute(

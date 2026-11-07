@@ -1,68 +1,8 @@
 import { style } from '@vanilla-extract/css'
 import { vars } from '@styles/theme.css'
 
-export const floatingContainer = style({
-  position: 'fixed',
-  right: '24px',
-  bottom: '24px',
-  zIndex: 999,
-  '@media': {
-    '(max-width: 767px)': {
-      right: '16px',
-      bottom: '16px',
-    },
-  },
-})
-
-export const triggerButton = style({
-  height: '52px',
-  width: '52px',
-  border: 'none',
-  borderRadius: '999px',
-  cursor: 'pointer',
-  color: '#ffffff',
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  padding: 0,
-  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.22)',
-  selectors: {
-    '&:focus-visible': {
-      outline: '2px solid #ffffff',
-      outlineOffset: '2px',
-    },
-  },
-})
-
-export const triggerIcon = style({
-  display: 'inline-block',
-  width: '18px',
-  height: '18px',
-  flexShrink: 0,
-})
-
-export const triggerColor1 = style({
-  background: '#ec1839',
-})
-
-export const triggerColor2 = style({
-  background: '#fa5b0f',
-})
-
-export const triggerColor3 = style({
-  background: '#37b182',
-})
-
-export const triggerColor5 = style({
-  background: '#f021b2',
-})
-
-export const triggerColor7 = style({
-  background: '#daa520',
-})
-
-export const triggerColor9 = style({
-  background: '#00bfff',
+export const bookMeetingButton = style({
+  gap: '8px',
 })
 
 export const modalLoadingState = style({

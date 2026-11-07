@@ -149,19 +149,6 @@ export const homeActions = style({
   ...riseIn(330),
 })
 
-export const homeAskAi = style({
-  selectors: {
-    // Outranks the padding from the button size class so the text link lines up with its neighbours.
-    '&&': {
-      padding: 0,
-    },
-  },
-  ':focus-visible': {
-    outline: `2px solid ${vars.color.skin}`,
-    outlineOffset: '4px',
-  },
-})
-
 export const homeQuoteShelf = style({
   marginTop: '64px',
   '@media': {
@@ -337,6 +324,10 @@ export const homeBracket = style({
     '(max-width: 991px)': {
       width: '64px',
       height: '64px',
+    },
+    // During the scene these are drawn by the story's traveling frame instead.
+    [pinnedSceneQuery]: {
+      display: 'none',
     },
   },
 })

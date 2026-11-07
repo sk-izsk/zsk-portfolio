@@ -79,13 +79,18 @@ export const Screen: React.FC<ScreenProps> = ({
         className={cx('container', 'screen-container', containerClassName)}
         data-content-protected={contentProtected || undefined}
       >
-        {title && (
+        {title && isInStory ? (
+          <div className="section-title">
+            <h2>{title}</h2>
+          </div>
+        ) : null}
+        {title && !isInStory ? (
           <div className="row">
             <div className="section-title padd-15">
               <h2>{title}</h2>
             </div>
           </div>
-        )}
+        ) : null}
         {state ? <div className={state.className}>{state.message}</div> : children}
       </div>
     </section>

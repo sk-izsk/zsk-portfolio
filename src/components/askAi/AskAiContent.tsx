@@ -1,13 +1,17 @@
 import { AskAiChatPanel } from '@components/askAi/AskAiChatPanel'
 import { AskAiHero } from '@components/askAi/AskAiHero'
 import * as styles from '@components/askAi/askAi.css'
+import { closeButton } from '@components/askAi/askAiWidget.css'
 import { useAskAiChat } from '@hooks/askAi/useAskAiChat'
 import { useTranslation } from '@localization/localize'
+import { X } from 'lucide-react'
 import React from 'react'
 
-export const askAiContainerClassName = styles.askAiContainer
+interface AskAiContentProps {
+  onClose: () => void
+}
 
-export const AskAiContent: React.FC = () => {
+export const AskAiContent: React.FC<AskAiContentProps> = ({ onClose }) => {
   const { t } = useTranslation()
   const prompts = [
     t('askAi.prompts.reactProjects'),
@@ -24,7 +28,16 @@ export const AskAiContent: React.FC = () => {
 
   return (
     <div className={styles.shell}>
-      <AskAiHero remaining={chat.remaining} resetInSeconds={chat.resetInSeconds} />
+      <AskAiHero remaining={chat.remaining} resetInSeconds={chat.resetInSeconds}>
+        <button
+          className={closeButton}
+          type="button"
+          onClick={onClose}
+          aria-label={t('askAi.closeChat')}
+        >
+          <X size={18} aria-hidden="true" />
+        </button>
+      </AskAiHero>
       <AskAiChatPanel
         prompts={prompts}
         message={chat.message}

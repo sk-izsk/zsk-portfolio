@@ -21,7 +21,7 @@ export const styleSwitcherTrigger = style({
   width: '40px',
   borderRadius: '999px',
   border: `1px solid color-mix(in srgb, ${vars.color.skin} 40%, transparent)`,
-  background: vars.color.background[100],
+  background: 'transparent',
   color: vars.color.skin,
   display: 'inline-flex',
   alignItems: 'center',

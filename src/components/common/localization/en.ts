@@ -1,7 +1,7 @@
 export const commonEn = {
   skipToContent: 'Skip to content',
   calendly: {
-    cta: 'Want to book a meeting?',
+    cta: 'Book a meeting with me',
   },
   controls: {
     appearance: 'Appearance',

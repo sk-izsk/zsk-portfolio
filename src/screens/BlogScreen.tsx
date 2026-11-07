@@ -43,7 +43,11 @@ const BlogScreen: React.FC = () => {
         />
       )}
       {selectedPost && (
-        <BlogModalContainer open={modalOpen} onClose={() => setModalOpen(false)} post={selectedPost} />
+        <BlogModalContainer
+          open={modalOpen}
+          onClose={() => setModalOpen(false)}
+          post={selectedPost}
+        />
       )}
     </Screen>
   )

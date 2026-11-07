@@ -24,7 +24,8 @@ export const AskAiMessageItem: React.FC<AskAiMessageItemProps> = ({ item }) => {
   const [expanded, setExpanded] = useState(false)
   const isCollapsible = item.text.length > COLLAPSE_AFTER
   const showPlainPreview = isUser && isCollapsible && !expanded
-  const visibleText = isCollapsible && !expanded ? `${item.text.slice(0, COLLAPSE_AFTER).trim()}...` : item.text
+  const visibleText =
+    isCollapsible && !expanded ? `${item.text.slice(0, COLLAPSE_AFTER).trim()}...` : item.text
 
   return (
     <div className={cn('messageRow', { messageRowUser: isUser })}>
@@ -35,11 +36,7 @@ export const AskAiMessageItem: React.FC<AskAiMessageItemProps> = ({ item }) => {
         <div className={cn('messageMeta', { messageMetaUser: isUser })}>
           {isUser ? t('askAi.userName') : t('askAi.assistantName')}
           {providerLabel ? <span className={styles.providerMeta}>{providerLabel}</span> : null}
-          <CopyButton
-            className={styles.copyButton}
-            text={item.text}
-            label={t('askAi.copy')}
-          />
+          <CopyButton className={styles.copyButton} text={item.text} label={t('askAi.copy')} />
         </div>
         <div className={cn('messageText', isUser ? 'userText' : 'assistantText')}>
           {showPlainPreview ? (

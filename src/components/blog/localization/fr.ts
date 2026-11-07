@@ -1,5 +1,6 @@
 export const blogFr = {
   title: 'Blog',
+  seeAll: 'Voir les {{count}} articles',
   seoDescription:
     'Articles et publications de Shaikh Zeeshan Murshed sur le génie logiciel, le développement web et la technologie.',
   readMore: 'Lire plus...',

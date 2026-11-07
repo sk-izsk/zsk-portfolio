@@ -17,8 +17,8 @@ import { applyThemeClassToBody } from '@utils/themeClass'
 import { LocalizeProvider } from 'zsk-react-i18n'
 import '../styles/global.css'
 
-const LazyCanedly = lazy(() =>
-  import('@components/canedly/Canedly').then((module) => ({ default: module.Canedly })),
+const LazyAskAiWidget = lazy(() =>
+  import('@components/askAi/AskAiWidget').then((module) => ({ default: module.AskAiWidget })),
 )
 const LazyThemeAnimatedCursor = lazy(() =>
   import('@components/common/ThemeAnimatedCursor').then((module) => ({
@@ -131,7 +131,7 @@ const AppLayout = ({ children }: PropsWithChildren) => {
 
       {showEnhancements ? (
         <Suspense fallback={null}>
-          <LazyCanedly />
+          <LazyAskAiWidget />
         </Suspense>
       ) : null}
     </div>

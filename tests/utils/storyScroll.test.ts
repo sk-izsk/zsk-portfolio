@@ -4,7 +4,7 @@ import { findActiveIndex, getPageTops, getStoryIndex } from '@utils/storyScroll'
 describe('getStoryIndex', () => {
   it('finds stacked pages and treats anything else, like /home, as the first page', () => {
     expect(getStoryIndex('/about')).toBe(1)
-    expect(getStoryIndex('/contact')).toBe(5)
+    expect(getStoryIndex('/contact')).toBe(6)
     expect(getStoryIndex('/home')).toBe(0)
   })
 })

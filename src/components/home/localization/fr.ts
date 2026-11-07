@@ -6,7 +6,6 @@ export const homeFr = {
   headline:
     "Ingénieur frontend senior qui crée des applications React et TypeScript pour le SaaS d'entreprise",
   downloadCv: 'Telecharger CV',
-  askAi: "Interroger l'IA à mon sujet",
   tagline:
     "Je crée des applications React et TypeScript performantes, de l'architecture frontend aux outils IA.",
   scrollCue: 'Faites défiler pour découvrir',

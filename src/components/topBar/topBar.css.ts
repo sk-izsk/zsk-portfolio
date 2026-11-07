@@ -3,10 +3,14 @@ import { keyframes, style } from '@vanilla-extract/css'
 
 const canAnimate = '(prefers-reduced-motion: no-preference)'
 const curve = 'cubic-bezier(0.22, 1, 0.36, 1)'
+// Settles slightly past its target, which reads as a soft spring.
+const spring = 'cubic-bezier(0.34, 1.4, 0.64, 1)'
 
 // Keep in step with the 1100px scene breakpoint in the story and home styles.
 export const fullBarQuery = '(min-width: 1100px)'
 const compactBarQuery = '(max-width: 1099px)'
+
+export const GLASS_FILTER_ID = 'top-bar-glass'
 
 const linkRise = keyframes({
   '0%': { opacity: 0, transform: 'translateY(24px)' },
@@ -30,17 +34,54 @@ export const bar = style({
   maxWidth: 'calc(100vw - 32px)',
   padding: '8px 8px 8px 16px',
   borderRadius: '999px',
-  border: `1px solid color-mix(in srgb, ${vars.color.text[700]} 13%, transparent)`,
-  background: `color-mix(in srgb, ${vars.color.background[100]} 72%, transparent)`,
-  backdropFilter: 'blur(16px)',
-  WebkitBackdropFilter: 'blur(16px)',
-  boxShadow: '0 16px 40px rgba(15, 23, 42, 0.12)',
+  border: `1px solid color-mix(in srgb, ${vars.color.text[900]} 14%, transparent)`,
+  // Light caught along the top edge and bouncing off the bottom, which is what reads as glass.
+  boxShadow: [
+    '0 16px 40px rgba(15, 23, 42, 0.16)',
+    'inset 0 1px 0 rgba(255, 255, 255, 0.45)',
+    'inset 0 -1px 0 rgba(255, 255, 255, 0.12)',
+  ].join(', '),
   '@media': {
     [compactBarQuery]: {
       width: 'calc(100vw - 32px)',
       justifyContent: 'space-between',
     },
+    '(prefers-reduced-transparency: reduce)': {
+      background: vars.color.background[100],
+    },
   },
+  selectors: {
+    // The frosted body. Lives on a layer of its own so the edge layer below can see through it.
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      inset: 0,
+      zIndex: -2,
+      borderRadius: 'inherit',
+      background: `color-mix(in srgb, ${vars.color.background[100]} 40%, transparent)`,
+      backdropFilter: 'blur(20px) saturate(180%)',
+      WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+    },
+    // Bends what is behind the rim like a lens. Only Chromium can apply an SVG filter to a
+    // backdrop, and other browsers ignore this and keep the frosted body.
+    '&::after': {
+      content: '""',
+      position: 'absolute',
+      inset: 0,
+      zIndex: -1,
+      padding: '8px',
+      borderRadius: 'inherit',
+      backdropFilter: `url(#${GLASS_FILTER_ID})`,
+      mask: 'linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0)',
+      pointerEvents: 'none',
+    },
+  },
+})
+
+export const glassFilter = style({
+  position: 'absolute',
+  width: 0,
+  height: 0,
 })
 
 export const logo = style({
@@ -61,6 +102,7 @@ export const logoInitial = style({
 })
 
 export const links = style({
+  position: 'relative',
   display: 'flex',
   alignItems: 'center',
   gap: '4px',
@@ -71,7 +113,29 @@ export const links = style({
   },
 })
 
+// A smaller piece of glass that slides under the current link. useNavLens places it.
+export const lens = style({
+  position: 'absolute',
+  top: 0,
+  bottom: 0,
+  left: 0,
+  zIndex: 0,
+  borderRadius: '999px',
+  background: `color-mix(in srgb, ${vars.color.skin} 16%, transparent)`,
+  boxShadow: [
+    'inset 0 1px 0 rgba(255, 255, 255, 0.5)',
+    `inset 0 0 0 1px color-mix(in srgb, ${vars.color.skin} 24%, transparent)`,
+  ].join(', '),
+  '@media': {
+    [canAnimate]: {
+      transition: `transform 500ms ${spring}, width 500ms ${spring}, opacity 300ms ease-out`,
+    },
+  },
+})
+
 export const link = style({
+  position: 'relative',
+  zIndex: 1,
   display: 'block',
   padding: '8px 12px',
   borderRadius: '999px',
@@ -79,19 +143,20 @@ export const link = style({
   lineHeight: '20px',
   fontWeight: 500,
   whiteSpace: 'nowrap',
-  color: vars.color.text[700],
+  color: vars.color.text[900],
   transition: 'color 300ms ease-out, background-color 300ms ease-out',
   ':hover': {
-    color: vars.color.text[900],
-    backgroundColor: `color-mix(in srgb, ${vars.color.skin} 8%, transparent)`,
+    backgroundColor: `color-mix(in srgb, ${vars.color.text[900]} 8%, transparent)`,
+  },
+  ':active': {
+    transform: 'scale(0.98)',
   },
 })
 
 export const linkActive = style({
   color: vars.color.skin,
-  backgroundColor: `color-mix(in srgb, ${vars.color.skin} 12%, transparent)`,
   ':hover': {
-    color: vars.color.skin,
+    backgroundColor: 'transparent',
   },
 })
 
@@ -162,7 +227,7 @@ const roundButton = style({
   flexShrink: 0,
   borderRadius: '999px',
   border: `1px solid color-mix(in srgb, ${vars.color.skin} 40%, transparent)`,
-  background: vars.color.background[100],
+  background: 'transparent',
   color: vars.color.skin,
   cursor: 'pointer',
   transition: 'background-color 300ms ease-out',

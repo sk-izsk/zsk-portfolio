@@ -14,41 +14,12 @@ import {
   homeTaglineWord,
   pinnedSceneQuery,
 } from '@components/home/home.css'
+import { HOME_SCENE_BEATS } from '@utils/storyFrame'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useLayoutEffect, type RefObject } from 'react'
 
 gsap.registerPlugin(ScrollTrigger)
-
-const FRAME_GAP = 16
-const STAGE_INSET = 48
-// Leaves the floating top bar clear when the brackets open to the edges of the stage.
-const STAGE_TOP_INSET = 96
-
-type Frame = Pick<DOMRect, 'left' | 'top' | 'right' | 'bottom'>
-
-const translation = (element: Element, axis: 'x' | 'y') => Number(gsap.getProperty(element, axis))
-
-// Rests are measured without the bracket's own transform, so these stay correct on refresh mid scroll.
-const startCornerTo = (bracket: Element, getFrame: () => Frame) => ({
-  x: () =>
-    getFrame().left -
-    FRAME_GAP -
-    (bracket.getBoundingClientRect().left - translation(bracket, 'x')),
-  y: () =>
-    getFrame().top - FRAME_GAP - (bracket.getBoundingClientRect().top - translation(bracket, 'y')),
-})
-
-const endCornerTo = (bracket: Element, getFrame: () => Frame) => ({
-  x: () =>
-    getFrame().right +
-    FRAME_GAP -
-    (bracket.getBoundingClientRect().right - translation(bracket, 'x')),
-  y: () =>
-    getFrame().bottom +
-    FRAME_GAP -
-    (bracket.getBoundingClientRect().bottom - translation(bracket, 'y')),
-})
 
 export const useHomeScrollScene = (
   sceneRef: RefObject<HTMLDivElement | null>,
@@ -78,25 +49,6 @@ export const useHomeScrollScene = (
     const media = gsap.matchMedia()
 
     media.add(pinnedSceneQuery, () => {
-      const headlineFrame = (): Frame => {
-        const { left, top, right, bottom } = headline.getBoundingClientRect()
-        const y = translation(headline, 'y')
-
-        return { left, right, top: top - y, bottom: bottom - y }
-      }
-
-      const stageFrame = (): Frame => {
-        const { left, top, right, bottom } = stage.getBoundingClientRect()
-        const inset = STAGE_INSET + FRAME_GAP
-
-        return {
-          left: left + inset,
-          top: top + STAGE_TOP_INSET + FRAME_GAP,
-          right: right - inset,
-          bottom: bottom - inset,
-        }
-      }
-
       gsap
         .timeline({
           defaults: { ease: 'power2.inOut' },
@@ -115,15 +67,17 @@ export const useHomeScrollScene = (
           { autoAlpha: 0, y: -24, stagger: 0.08, duration: 0.7 },
           0,
         )
-        .to(bracketStart, { ...startCornerTo(bracketStart, headlineFrame), duration: 1 }, 0)
-        .to(bracketEnd, { ...endCornerTo(bracketEnd, headlineFrame), duration: 1 }, 0)
-        .to(headline, { autoAlpha: 0, y: -32, duration: 0.7 }, 1.4)
-        .to(bracketStart, { ...startCornerTo(bracketStart, stageFrame), duration: 1 }, 1.4)
-        .to(bracketEnd, { ...endCornerTo(bracketEnd, stageFrame), duration: 1 }, 1.4)
+        .to(headline, { autoAlpha: 0, y: -32, duration: 0.7 }, HOME_SCENE_BEATS.headlineLeave)
         .set(shelf, { autoAlpha: 1 }, 1.8)
-        .fromTo(words, { opacity: 0.25 }, { opacity: 1, stagger: 0.08, duration: 0.3 }, 1.9)
-        .fromTo(quote, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6 })
-        .to({}, { duration: 0.6 })
+        .fromTo(
+          words,
+          { opacity: 0.25 },
+          { opacity: 1, stagger: { amount: 1.1 }, duration: 0.2 },
+          1.9,
+        )
+        .fromTo(quote, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6 }, 3.3)
+        // Fixes the length, so the frame's stops stay in time with these beats.
+        .to({}, { duration: 0.001 }, HOME_SCENE_BEATS.length)
 
       gsap.set(shelf, { autoAlpha: 0 })
     })

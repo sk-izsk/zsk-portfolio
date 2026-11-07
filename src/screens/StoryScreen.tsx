@@ -1,7 +1,15 @@
 import { SeoHead } from '@components/common/SeoHead'
-import { storyPage, storyPageDim, storyPageInner } from '@components/story/story.css'
+import {
+  storyBracketEnd,
+  storyBracketStart,
+  storyFrame,
+  storyPage,
+  storyPageDim,
+  storyPageInner,
+} from '@components/story/story.css'
 import { StoryContext } from '@components/story/storyContext'
 import { useAnalytics } from '@hooks/useAnalytics'
+import { useStoryFrame } from '@hooks/useStoryFrame'
 import { useStoryMotion } from '@hooks/useStoryMotion'
 import { useStoryScroll } from '@hooks/useStoryScroll'
 import { useTranslation } from '@localization/localize'
@@ -18,6 +26,7 @@ const pageLoaders = [
   () => import('@screens/ServiceScreen'),
   () => import('@screens/SkillScreen'),
   () => import('@screens/ProjectScreen'),
+  () => import('@screens/BlogScreen'),
   () => import('@screens/ContactScreen'),
 ]
 
@@ -35,6 +44,7 @@ const StoryHead: React.FC = () => {
     { title: t('services.title'), description: t('services.seoDescription') },
     { title: t('skills.title'), description: t('skills.seoDescription') },
     { title: t('projects.title'), description: t('projects.seoDescription') },
+    { title: t('blog.title'), description: t('blog.seoDescription') },
     { title: t('contact.title'), description: t('contact.seoDescription') },
   ]
   const index = getStoryIndex(pathname)
@@ -46,11 +56,14 @@ const StoryHead: React.FC = () => {
 }
 
 const StoryScreen: React.FC = () => {
+  const { i18n } = useTranslation()
   const storyRef = useRef<HTMLDivElement>(null)
+  const frameRef = useRef<HTMLDivElement>(null)
   const [isEveryPageLoaded, setIsEveryPageLoaded] = useState(false)
 
   useStoryScroll(storyRef, isEveryPageLoaded)
   useStoryMotion(storyRef)
+  useStoryFrame(storyRef, frameRef, i18n.resolvedLanguage)
 
   useEffect(() => {
     let isCurrent = true
@@ -79,6 +92,10 @@ const StoryScreen: React.FC = () => {
   return (
     <>
       <StoryHead />
+      <div ref={frameRef} className={storyFrame} aria-hidden="true">
+        <span className={storyBracketStart} />
+        <span className={storyBracketEnd} />
+      </div>
       <StoryContext.Provider value={true}>
         <div ref={storyRef}>
           {pages.map((Page, index) => (

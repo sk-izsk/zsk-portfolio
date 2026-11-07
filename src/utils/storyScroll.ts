@@ -1,5 +1,13 @@
 // The pages that stack into the one continuous scroll, in order.
-export const STORY_PATHS = ['/', '/about', '/services', '/portfolio', '/projects', '/contact']
+export const STORY_PATHS = [
+  '/',
+  '/about',
+  '/services',
+  '/portfolio',
+  '/projects',
+  '/blog',
+  '/contact',
+]
 
 export const getStoryIndex = (pathname: string) => Math.max(STORY_PATHS.indexOf(pathname), 0)
 

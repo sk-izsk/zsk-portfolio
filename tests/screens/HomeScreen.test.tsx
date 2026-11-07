@@ -44,14 +44,13 @@ describe('HomeScreen', () => {
     expect(link).toHaveAttribute('href', mockPortfolioData.personalInfo.resume_link)
   })
 
-  it('renders one page heading and a link to Ask AI', () => {
+  it('renders one page heading', () => {
     usePortfolioStore.getState().setData(mockPortfolioData)
     renderScreen()
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
       'Senior Frontend Engineer building React and TypeScript apps',
     )
-    expect(screen.getByRole('link', { name: 'Ask AI about me' })).toHaveAttribute('href', '/ask-ai')
   })
 
   it('renders the home section element', () => {

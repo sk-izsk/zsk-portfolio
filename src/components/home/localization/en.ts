@@ -5,7 +5,6 @@ export const homeEn = {
 
   headline: 'Senior Frontend Engineer building React and TypeScript apps for enterprise SaaS',
   downloadCv: 'Download CV',
-  askAi: 'Ask AI about me',
   tagline:
     'I build high performance React and TypeScript applications, from frontend architecture to AI tooling.',
   scrollCue: 'Scroll to explore',

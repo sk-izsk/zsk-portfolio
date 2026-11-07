@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import {
+  homeActions,
   homeInfo,
   homeQuoteShelf,
   homeRow,
@@ -7,7 +8,7 @@ import {
   homeShelfQuote,
   homeStage,
 } from '@components/home/home.css'
-import { HomeActions } from '@components/home/HomeActions'
+import { HomeDownloadCv } from '@components/home/HomeDownloadCv'
 import { HomeDetailBio } from '@components/home/HomeDetailBio'
 import { HomeHeadline } from '@components/home/HomeHeadline'
 import { HomeImageContainer } from '@components/home/HomeImageContainer'
@@ -33,7 +34,9 @@ export const HomeScene: React.FC = () => {
           <div className={cx(homeInfo, 'padd-15')}>
             <HomeHeadline />
             <HomeDetailBio />
-            <HomeActions />
+            <div className={homeActions}>
+              <HomeDownloadCv />
+            </div>
           </div>
           <HomeImageContainer />
         </div>

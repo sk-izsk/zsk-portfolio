@@ -1,7 +1,6 @@
 export const topBarFr = {
   nav: {
     home: 'Accueil',
-    askAi: 'Ask AI',
     about: 'A Propos',
     services: 'Services',
     skills: 'Competences',

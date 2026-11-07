@@ -1,5 +1,6 @@
 export const blogEn = {
   title: 'Blog',
+  seeAll: 'See all {{count}} posts',
   seoDescription:
     'Blog posts and articles by Shaikh Zeeshan Murshed on software engineering, web development, and technology.',
   readMore: 'Read More...',
