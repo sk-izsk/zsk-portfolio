@@ -5,6 +5,8 @@ import { HelmetProvider } from 'react-helmet-async'
 import { BrowserRouter as Router } from 'react-router'
 
 import { ErrorBoundary } from '@components/errorBoundary/ErrorBoundary'
+import { Sidebar } from '@components/sidebar/Sidebar'
+import { StyleSwitcherFloating } from '@components/styleSwitcher/StyleSwitcherFloating'
 import { TopBar } from '@components/topBar/TopBar'
 import { ContentProtectionProvider } from '@components/ContentProtectionProvider'
 import { useKeyboardShortcuts } from '@hooks/useKeyboardShortcuts'
@@ -12,6 +14,7 @@ import { usePortfolioData } from '@hooks/usePortfolioData'
 import { useSoundClick } from '@hooks/useSoundClick'
 import { localizeConfig, useTranslation } from '@localization/localize'
 import { usePortfolioStore } from '@stores/portfolioStore'
+import { useSidebarStore } from '@stores/sidebarStore'
 import { useThemeStore } from '@stores/themeStore'
 import { applyThemeClassToBody } from '@utils/themeClass'
 import { LocalizeProvider } from 'zsk-react-i18n'
@@ -46,6 +49,7 @@ const AppLayout = ({ children }: PropsWithChildren) => {
   const { i18n, t } = useTranslation()
   const isDarkMode = useThemeStore((state) => state.isDarkMode)
   const currentColor = useThemeStore((state) => state.currentColor)
+  const isSidebarCollapsed = useSidebarStore((state) => state.isCollapsed)
   const [showEnhancements, setShowEnhancements] = useState(false)
 
   const portfolioQuery = usePortfolioData(i18n.resolvedLanguage === 'fr' ? 'fr' : 'en')
@@ -114,7 +118,7 @@ const AppLayout = ({ children }: PropsWithChildren) => {
   }, [])
 
   return (
-    <div className="main-container">
+    <div className="main-container" data-sidebar-collapsed={isSidebarCollapsed || undefined}>
       <a className="skip-link" href="#main-content">
         {t('common.skipToContent')}
       </a>
@@ -123,7 +127,9 @@ const AppLayout = ({ children }: PropsWithChildren) => {
           <LazyThemeAnimatedCursor />
         </Suspense>
       ) : null}
+      <Sidebar />
       <TopBar />
+      <StyleSwitcherFloating />
 
       <main id="main-content" tabIndex={-1} className="main-content">
         {children}

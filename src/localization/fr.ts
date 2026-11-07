@@ -5,6 +5,7 @@ import { homeFr } from '@components/home/localization/fr'
 import { projectsFr } from '@components/projects/localization/fr'
 import { servicesFr } from '@components/services/localization/fr'
 import { blogFr } from '@components/blog/localization/fr'
+import { sidebarFr } from '@components/sidebar/localization/fr'
 import { topBarFr } from '@components/topBar/localization/fr'
 import { skillsFr } from '@components/skills/localization/fr'
 import { askAiFr } from '@components/askAi/localization/fr'
@@ -25,6 +26,7 @@ export const fr = {
   home: homeFr,
   notFound: notFoundFr,
   projects: projectsFr,
+  sidebar: sidebarFr,
   topBar: topBarFr,
   services: servicesFr,
   skills: skillsFr,

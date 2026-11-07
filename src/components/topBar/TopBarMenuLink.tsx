@@ -1,5 +1,5 @@
 import * as styles from '@components/topBar/topBarMenu.css'
-import type { TopBarItem } from '@hooks/topBar/useTopBarItems'
+import type { NavItem } from '@hooks/useNavItems'
 import { cx } from '@utils/cn'
 import React from 'react'
 import { Link } from 'react-router'
@@ -8,7 +8,7 @@ const LINK_STEP_MS = 60
 const LINK_SEQUENCE_CAP_MS = 400
 
 interface TopBarMenuLinkProps {
-  item: TopBarItem
+  item: NavItem
   index: number
   isActive: boolean
   onClick: () => void

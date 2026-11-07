@@ -1,5 +1,6 @@
+import { belowSidebarQuery, sidebarQuery } from '@components/sidebar/sidebar.css'
 import { vars } from '@styles/theme.css'
-import { keyframes, style } from '@vanilla-extract/css'
+import { globalStyle, keyframes, style } from '@vanilla-extract/css'
 
 const rotateAnimation = keyframes({
   '0%': {
@@ -7,6 +8,36 @@ const rotateAnimation = keyframes({
   },
   '100%': {
     transform: 'rotate(360deg)',
+  },
+})
+
+export const styleSwitcherFloating = style({
+  position: 'fixed',
+  top: '24px',
+  right: '24px',
+  zIndex: 120,
+  '@media': {
+    [belowSidebarQuery]: {
+      display: 'none',
+    },
+  },
+})
+
+// The floating button keeps its old rounded square look.
+globalStyle(`${styleSwitcherFloating} button[aria-expanded]`, {
+  width: '48px',
+  height: '48px',
+  borderRadius: '16px',
+  background: vars.color.background[100],
+  boxShadow: '0 18px 45px rgba(15, 23, 42, 0.1)',
+})
+
+// Desktop has its own EN | FR in the sidebar.
+export const languageSection = style({
+  '@media': {
+    [sidebarQuery]: {
+      display: 'none',
+    },
   },
 })
 

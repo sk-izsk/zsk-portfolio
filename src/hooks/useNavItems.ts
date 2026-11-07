@@ -4,7 +4,7 @@ import { BookOpen, Briefcase, Cog, House, List, MessageCircle, User } from 'luci
 import type { LucideIcon } from 'lucide-react'
 import { useLocation } from 'react-router'
 
-export interface TopBarItem {
+export interface NavItem {
   id: string
   label: string
   icon: LucideIcon
@@ -13,12 +13,13 @@ export interface TopBarItem {
 
 const getActiveId = (pathname: string) => normalizeStoryPath(pathname).slice(1) || 'home'
 
-export const useTopBarItems = () => {
+// The pages of the story, shared by the desktop sidebar and the phone top bar.
+export const useNavItems = () => {
   const { t } = useTranslation()
   const { pathname } = useLocation()
   const activeId = getActiveId(pathname)
 
-  const items: TopBarItem[] = [
+  const items: NavItem[] = [
     { id: 'home', label: t('topBar.nav.home'), icon: House, path: '/' },
     { id: 'about', label: t('topBar.nav.about'), icon: User, path: '/about' },
     { id: 'services', label: t('topBar.nav.services'), icon: List, path: '/services' },

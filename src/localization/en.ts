@@ -5,6 +5,7 @@ import { homeEn } from '@components/home/localization/en'
 import { projectsEn } from '@components/projects/localization/en'
 import { servicesEn } from '@components/services/localization/en'
 import { blogEn } from '@components/blog/localization/en'
+import { sidebarEn } from '@components/sidebar/localization/en'
 import { topBarEn } from '@components/topBar/localization/en'
 import { skillsEn } from '@components/skills/localization/en'
 import { askAiEn } from '@components/askAi/localization/en'
@@ -25,6 +26,7 @@ export const en = {
   home: homeEn,
   notFound: notFoundEn,
   projects: projectsEn,
+  sidebar: sidebarEn,
   topBar: topBarEn,
   services: servicesEn,
   skills: skillsEn,
