@@ -10,7 +10,7 @@ const curve = 'cubic-bezier(0.22, 1, 0.36, 1)'
 
 const WIDTH = 272
 const COLLAPSED_WIDTH = 88
-const SLIDE_MS = 400
+export const SIDEBAR_SLIDE_MS = 400
 const LABEL_FADE_MS = 150
 
 export const aside = style({
@@ -33,7 +33,7 @@ export const aside = style({
       display: 'none',
     },
     [canAnimate]: {
-      transition: `width ${SLIDE_MS}ms ${curve}`,
+      transition: `width ${SIDEBAR_SLIDE_MS}ms ${curve}`,
     },
   },
   selectors: {
@@ -43,12 +43,14 @@ export const aside = style({
   },
 })
 
-// The page sits beside the sidebar. It changes width at the end of collapsing and at the start of
-// expanding, because resizing it along with the slide would lay out the whole story every frame.
+// The page sits beside the sidebar and follows its slide, in both directions.
 globalStyle('.main-content', {
   '@media': {
     [sidebarQuery]: {
       paddingLeft: `${WIDTH}px`,
+    },
+    [`${sidebarQuery} and ${canAnimate}`]: {
+      transition: `padding-left ${SIDEBAR_SLIDE_MS}ms ${curve}`,
     },
   },
 })
@@ -57,9 +59,6 @@ globalStyle('.main-container[data-sidebar-collapsed] .main-content', {
   '@media': {
     [sidebarQuery]: {
       paddingLeft: `${COLLAPSED_WIDTH}px`,
-    },
-    [`${sidebarQuery} and ${canAnimate}`]: {
-      transition: `padding-left 1ms linear ${SLIDE_MS}ms`,
     },
   },
 })
@@ -103,7 +102,7 @@ export const logoLink = style({
   },
   '@media': {
     [canAnimate]: {
-      transition: `padding ${SLIDE_MS}ms ${curve}`,
+      transition: `padding ${SIDEBAR_SLIDE_MS}ms ${curve}`,
     },
   },
   selectors: {
@@ -224,11 +223,12 @@ export const navLabel = style({
   },
 })
 
-// Icon only, centered at the bottom. It takes the theme color while collapsed.
+// Icon only, in the same column as the link icons, so it stays under the pointer while the
+// sidebar collapses and expands. It takes the theme color while collapsed.
 export const collapseButton = style([
   navLink,
   {
-    alignSelf: 'center',
+    alignSelf: 'flex-start',
     marginTop: 'auto',
     background: 'none',
     color: vars.color.text[700],
