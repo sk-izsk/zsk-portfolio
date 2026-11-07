@@ -3,13 +3,12 @@ import { vars } from '@styles/theme.css'
 
 export const projectGrid = style({
   display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 300px))',
-  justifyContent: 'start',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
   justifyItems: 'stretch',
   gap: '30px',
   '@media': {
     '(max-width: 991px)': {
-      gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 280px))',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
     },
     '(max-width: 767px)': {
       gridTemplateColumns: '1fr',
@@ -259,4 +258,10 @@ export const projectLink = style({
   lineHeight: '25px',
   textDecoration: 'none',
   cursor: 'pointer',
+})
+
+export const projectSeeAll = style({
+  display: 'flex',
+  justifyContent: 'center',
+  marginTop: '32px',
 })

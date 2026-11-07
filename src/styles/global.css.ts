@@ -12,8 +12,8 @@ const slideSection = keyframes({
   },
 })
 
-globalStyle('html', {
-  scrollBehavior: 'smooth',
+globalStyle('html:has(dialog[open])', {
+  overflow: 'hidden',
 })
 
 // Global reset
@@ -31,8 +31,15 @@ globalStyle('body', {
   fontFamily: vars.font.family.primary,
   margin: 0,
   background: vars.color.background[900],
+  overflowX: 'clip',
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
+})
+
+// Doubled to outrank single-class `outline: none` rules around the app.
+globalStyle(':focus-visible:focus-visible', {
+  outline: `2px solid ${vars.color.skin}`,
+  outlineOffset: '2px',
 })
 
 globalStyle('.main-container', {
@@ -42,6 +49,24 @@ globalStyle('.main-container', {
 
 globalStyle('.main-content', {
   minHeight: '100vh',
+})
+
+globalStyle('.skip-link', {
+  position: 'fixed',
+  top: '16px',
+  left: '16px',
+  zIndex: 3000,
+  padding: '8px 12px',
+  borderRadius: '8px',
+  background: vars.color.skin,
+  color: '#fff',
+  transform: 'translateY(-200%)',
+})
+
+globalStyle('.skip-link:focus', {
+  transform: 'translateY(0)',
+  outline: `2px solid ${vars.color.text[900]}`,
+  outlineOffset: '2px',
 })
 
 globalStyle('::before, ::after', {
@@ -76,27 +101,14 @@ globalStyle(
 // Section styles
 globalStyle('.section', {
   background: vars.color.background[900],
-  minHeight: '100vh',
+  minHeight: '100svh',
   display: 'block',
   padding: '0 32px',
-  opacity: 1,
-  position: 'fixed',
-  left: '270px',
-  top: 0,
-  right: 0,
-  bottom: 0,
-  overflowX: 'hidden',
-  overflowY: 'auto',
+  position: 'relative',
+  overflowX: 'clip',
   isolation: 'isolate',
-  transition: 'left 0.35s ease, opacity 0.3s ease',
   '@media': {
-    '(max-width: 1199px)': {
-      left: 0,
-      right: 'auto',
-      bottom: 'auto',
-      position: 'relative',
-      minHeight: '100dvh',
-      overflowY: 'visible',
+    '(max-width: 1099px)': {
       padding: '0 20px 48px',
     },
   },
@@ -126,16 +138,6 @@ globalStyle('.section::after', {
   zIndex: -2,
 })
 
-globalStyle('.sidebar-mobile-open .section', {
-  '@media': {
-    '(max-width: 1199px)': {
-      left: '0',
-      opacity: '0.3',
-      pointerEvents: 'none',
-    },
-  },
-})
-
 globalStyle('.section.back-section', {
   zIndex: 1,
 })
@@ -162,7 +164,8 @@ globalStyle('.container', {
 })
 
 globalStyle('.section .container', {
-  paddingTop: '72px',
+  // Clears the floating top bar.
+  paddingTop: '96px',
   paddingBottom: '84px',
 })
 

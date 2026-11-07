@@ -1,8 +1,8 @@
 export const askAiEn = {
   title: 'Ask AI',
-  pageTitle: 'Ask AI',
-  seoDescription:
-    'Ask an AI assistant about Shaikh Zeeshan Murshed, including skills, projects, experience, education, and professional background.',
+  triggerLabel: 'Ask AI',
+  openChat: 'Ask AI about me',
+  closeChat: 'Close chat',
   heroEyebrow: 'Portfolio AI',
   heroTitle: 'Ask about my work.',
   heroBody:

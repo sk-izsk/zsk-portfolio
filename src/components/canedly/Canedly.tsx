@@ -1,20 +1,9 @@
-import {
-  floatingContainer,
-  modalLoadingState,
-  triggerButton,
-  triggerColor1,
-  triggerColor2,
-  triggerColor3,
-  triggerColor5,
-  triggerColor7,
-  triggerColor9,
-  triggerIcon,
-} from '@components/canedly/canedly.css'
+import { bookMeetingButton, modalLoadingState } from '@components/canedly/canedly.css'
+import { Button } from '@components/common/button/Button'
 import { useTranslation } from '@localization/localize'
 import { useThemeStore } from '@stores/themeStore'
 import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
-import { cx } from '@utils/cn'
-import { MessageCircle } from 'lucide-react'
+import { CalendarDays } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 const colorThemes = {
@@ -28,15 +17,6 @@ const colorThemes = {
 
 const stripHexPrefix = (value: string) => value.replace(/^#/, '')
 
-const triggerColorClassByTheme = {
-  'color-1': triggerColor1,
-  'color-2': triggerColor2,
-  'color-3': triggerColor3,
-  'color-5': triggerColor5,
-  'color-7': triggerColor7,
-  'color-9': triggerColor9,
-} as const
-
 type PopupModalComponent = typeof import('react-calendly').PopupModal
 
 export const Canedly = () => {
@@ -48,10 +28,7 @@ export const Canedly = () => {
 
   const currentAccentColor =
     colorThemes[currentColor as keyof typeof colorThemes] ?? colorThemes['color-1']
-  const triggerColorClass =
-    triggerColorClassByTheme[currentColor as keyof typeof triggerColorClassByTheme] ?? triggerColor1
   const rootElement = document.getElementById('root') ?? document.body
-  const desktopText = t('common.calendly.cta')
 
   useEffect(() => {
     if (!isOpen || PopupModalComponent) {
@@ -64,45 +41,34 @@ export const Canedly = () => {
   }, [PopupModalComponent, isOpen])
 
   useEffect(() => {
-    const sections = document.querySelectorAll<HTMLElement>('.section')
     if (isOpen) {
       document.documentElement.style.overflowY = 'hidden'
       document.body.style.overflowY = 'hidden'
-      sections.forEach((el) => {
-        el.style.overflowY = 'hidden'
-      })
     } else {
       document.documentElement.style.overflowY = ''
       document.body.style.overflowY = ''
-      sections.forEach((el) => {
-        el.style.overflowY = ''
-      })
     }
     return () => {
       document.documentElement.style.overflowY = ''
       document.body.style.overflowY = ''
-      sections.forEach((el) => {
-        el.style.overflowY = ''
-      })
     }
   }, [isOpen])
 
   return (
     <>
-      <div className={floatingContainer}>
-        <button
-          className={cx(triggerButton, triggerColorClass)}
-          type="button"
-          onClick={() => {
-            trackGaEvent('Calendly', 'book_meeting_click', 'Want to book a meeting')
-            trackMixpanelEvent('book_meeting_click', 'Calendly', 'Want to book a meeting')
-            setIsOpen(true)
-          }}
-          aria-label={desktopText}
-        >
-          <MessageCircle className={triggerIcon} size={18} />
-        </button>
-      </div>
+      <Button
+        variant="secondary"
+        size="large"
+        className={bookMeetingButton}
+        onClick={() => {
+          trackGaEvent('Calendly', 'book_meeting_click', 'Book a meeting')
+          trackMixpanelEvent('book_meeting_click', 'Calendly', 'Book a meeting')
+          setIsOpen(true)
+        }}
+      >
+        <CalendarDays size={18} aria-hidden="true" />
+        {t('common.calendly.cta')}
+      </Button>
 
       {isOpen && !PopupModalComponent ? (
         <div className={modalLoadingState}>Loading scheduler...</div>

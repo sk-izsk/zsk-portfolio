@@ -2,12 +2,13 @@ import { Code, Cog, Laptop, Server } from 'lucide-react'
 import React from 'react'
 import { useTranslation } from '@localization/localize'
 import { SkillsRateSection } from '@components/skills/SkillsRateSection'
+import { skillsRateGroup } from '@components/skills/skills.css'
 
 export const SkillsRate: React.FC = () => {
   const { t } = useTranslation()
 
   return (
-    <>
+    <div className={skillsRateGroup}>
       <div className="row">
         <SkillsRateSection
           icon={Laptop}
@@ -20,6 +21,6 @@ export const SkillsRate: React.FC = () => {
         <SkillsRateSection icon={Code} titleText={t('skills.rate.languages')} category="language" />
         <SkillsRateSection icon={Cog} titleText={t('skills.rate.tools')} category="tools" />
       </div>
-    </>
+    </div>
   )
 }

@@ -1,6 +1,8 @@
 export const commonFr = {
+  skipToContent: 'Aller au contenu',
+  pageLoadError: "Cette section n'a pas pu se charger. Rechargez la page pour réessayer.",
   calendly: {
-    cta: 'Vous souhaitez reserver une reunion ?',
+    cta: 'Réserver une réunion avec moi',
   },
   controls: {
     appearance: 'Apparence',
@@ -10,6 +12,9 @@ export const commonFr = {
     darkMode: 'Mode sombre',
     soundOn: 'Son actif',
     soundOff: 'Son coupe',
+    language: 'Langue',
+    english: 'English',
+    french: 'Français',
     themeColors: 'Couleurs du theme',
   },
   modal: {

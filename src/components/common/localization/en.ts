@@ -1,6 +1,8 @@
 export const commonEn = {
+  skipToContent: 'Skip to content',
+  pageLoadError: 'This section could not load. Please reload the page to try again.',
   calendly: {
-    cta: 'Want to book a meeting?',
+    cta: 'Book a meeting with me',
   },
   controls: {
     appearance: 'Appearance',
@@ -10,6 +12,9 @@ export const commonEn = {
     darkMode: 'Dark mode',
     soundOn: 'Sound on',
     soundOff: 'Sound off',
+    language: 'Language',
+    english: 'English',
+    french: 'Français',
     themeColors: 'Theme Colors',
   },
   modal: {

@@ -1,6 +1,15 @@
 import { style } from '@vanilla-extract/css'
 import { vars } from '@styles/theme.css'
 
+// Phones keep the compact tags below, which list the same skills.
+export const skillsRateGroup = style({
+  '@media': {
+    '(max-width: 767px)': {
+      display: 'none',
+    },
+  },
+})
+
 export const skillsSection = style({
   flex: '0 0 50%',
   maxWidth: '50%',

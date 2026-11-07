@@ -11,40 +11,28 @@ const rotateAnimation = keyframes({
 })
 
 export const styleSwitcher = style({
-  position: 'fixed',
-  right: '24px',
-  top: '24px',
-  zIndex: 120,
+  position: 'relative',
   display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'flex-end',
-  gap: '12px',
-  '@media': {
-    '(max-width: 767px)': {
-      right: '16px',
-      top: '16px',
-    },
-  },
+  alignItems: 'center',
 })
 
 export const styleSwitcherTrigger = style({
-  height: '48px',
-  width: '48px',
-  borderRadius: '16px',
-  border: `1px solid ${vars.color.skin}66`,
-  background: vars.color.background[100],
+  height: '40px',
+  width: '40px',
+  borderRadius: '999px',
+  border: `1px solid color-mix(in srgb, ${vars.color.skin} 40%, transparent)`,
+  background: 'transparent',
   color: vars.color.skin,
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
   cursor: 'pointer',
-  boxShadow: '0 18px 45px rgba(15, 23, 42, 0.1)',
-  transition: 'transform 0.25s ease, color 0.25s ease, border-color 0.25s ease',
+  transition: 'transform 300ms ease-out, color 300ms ease-out, border-color 300ms ease-out',
   selectors: {
     '&:hover': {
       transform: 'translateY(-1px)',
       borderColor: vars.color.skin,
-      background: vars.color.skin + '10',
+      background: `color-mix(in srgb, ${vars.color.skin} 8%, transparent)`,
     },
   },
 })
@@ -61,26 +49,25 @@ export const styleSwitcherSpinIcon = style({
 })
 
 export const styleSwitcherPanel = style({
-  position: 'absolute',
-  top: 'calc(100% + 12px)',
-  right: 0,
+  // On the page rather than in the bar, because only there can it sit above the traveling frame.
+  // StyleSwitcher places it under its button.
+  position: 'fixed',
+  zIndex: 902,
   width: 'min(280px, calc(100vw - 32px))',
   padding: '18px',
   borderRadius: '22px',
   border: `1px solid ${vars.color.background[50]}`,
   background: vars.color.background[100],
   boxShadow: '0 28px 70px rgba(15, 23, 42, 0.14)',
-  opacity: 0,
-  pointerEvents: 'none',
-  transformOrigin: 'top right',
-  transform: 'translateY(-8px) scale(0.98)',
-  transition: 'opacity 0.22s ease, transform 0.22s ease',
-})
-
-export const styleSwitcherOpen = style({
-  opacity: 1,
-  pointerEvents: 'auto',
-  transform: 'translateY(0) scale(1)',
+  outline: 'none',
+  overflowY: 'auto',
+  // Hidden but still laid out, because useGenie measures it before pouring it out of the button.
+  visibility: 'hidden',
+  selectors: {
+    '&[data-open]': {
+      visibility: 'visible',
+    },
+  },
 })
 
 export const panelEyebrow = style({
@@ -161,6 +148,13 @@ export const toggleGrid = style({
   gap: '10px',
 })
 
+export const languageGrid = style([
+  toggleGrid,
+  {
+    marginBottom: '18px',
+  },
+])
+
 export const toggleButton = style({
   border: `1px solid ${vars.color.background[50]}`,
   borderRadius: '16px',
@@ -186,6 +180,13 @@ export const toggleButtonActive = style({
   borderColor: vars.color.skin + '55',
   background: vars.color.skin + '12',
   color: vars.color.skin,
+})
+
+// After toggleButton, because the later of two equally specific styles wins.
+export const languageOptionActive = style({
+  borderColor: vars.color.skin,
+  color: vars.color.skin,
+  background: `color-mix(in srgb, ${vars.color.skin} 8%, transparent)`,
 })
 
 export const toggleButtonLabel = style({

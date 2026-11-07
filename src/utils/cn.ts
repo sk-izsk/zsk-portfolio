@@ -111,7 +111,7 @@ export const raw = (...values: ClassValue[]): RawClassName => {
  * to a specific `*.css.ts` module.
  *
  * Example:
- * `cx('main-content', isSidebarOpen && 'sidebar-mobile-open')`
+ * `cx('main-content', isMenuOpen && 'menu-open')`
  */
 export const cx = (...values: ClassValue[]): string => {
   return raw(...values).value

@@ -15,6 +15,12 @@ export const contactSubTitle = style({
   marginBottom: '60px',
 })
 
+export const contactBookMeeting = style({
+  display: 'flex',
+  justifyContent: 'center',
+  margin: '32px 0 48px',
+})
+
 export const contactInfoItem = style({
   flex: '0 0 25%',
   maxWidth: '25%',

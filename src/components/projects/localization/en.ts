@@ -4,6 +4,7 @@ export const projectsEn = {
     'View recent projects by Shaikh Zeeshan Murshed – web applications, open source work, and full-stack development showcases.',
 
   heading: 'My Recent Projects :',
+  seeAll: 'See all {{count}} projects',
   filter: {
     label: 'Filter projects by type',
     options: {

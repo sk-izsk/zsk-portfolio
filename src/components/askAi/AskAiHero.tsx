@@ -2,14 +2,15 @@ import * as styles from '@components/askAi/askAi.css'
 import { useTranslation } from '@localization/localize'
 import { formatResetTime } from '@utils/askAi'
 import { Sparkles } from 'lucide-react'
+import type { PropsWithChildren } from 'react'
 import React from 'react'
 
-interface AskAiHeroProps {
+interface AskAiHeroProps extends PropsWithChildren {
   remaining: number | null
   resetInSeconds: number
 }
 
-export const AskAiHero: React.FC<AskAiHeroProps> = ({ remaining, resetInSeconds }) => {
+export const AskAiHero: React.FC<AskAiHeroProps> = ({ remaining, resetInSeconds, children }) => {
   const { t } = useTranslation()
 
   return (
@@ -31,6 +32,7 @@ export const AskAiHero: React.FC<AskAiHeroProps> = ({ remaining, resetInSeconds 
           </span>
         ) : null}
       </div>
+      {children}
     </header>
   )
 }

@@ -40,8 +40,17 @@ describe('HomeScreen', () => {
     usePortfolioStore.getState().setData(mockPortfolioData)
     renderScreen()
 
-    const link = screen.getByRole('link')
+    const link = screen.getByRole('link', { name: 'Download CV' })
     expect(link).toHaveAttribute('href', mockPortfolioData.personalInfo.resume_link)
+  })
+
+  it('renders one page heading', () => {
+    usePortfolioStore.getState().setData(mockPortfolioData)
+    renderScreen()
+
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
+      'Senior Frontend Engineer building React and TypeScript apps',
+    )
   })
 
   it('renders the home section element', () => {

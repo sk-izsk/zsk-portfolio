@@ -49,10 +49,11 @@ export const AskAiChatPanel: React.FC<AskAiChatPanelProps> = ({
               <AskAiMessageItem key={item.id} item={item} />
             ))}
             {isSending ? <AskAiTypingMessage /> : null}
+            {/* Above the suggestions, so a new answer stays in view in the narrow panel. */}
+            <div ref={bottomRef} aria-hidden />
             {activeSuggestions.length ? (
               <AskAiSuggestionCards prompts={activeSuggestions} onSubmit={onSubmit} />
             ) : null}
-            <div ref={bottomRef} aria-hidden />
           </>
         )}
       </div>

@@ -27,44 +27,24 @@ const floatLoader = keyframes({
   },
 })
 
-export const askAiContainer = style({
-  maxWidth: '1040px',
-})
-
 export const shell = style({
-  height: 'calc(100vh - 170px)',
-  minHeight: '620px',
+  width: '100%',
+  height: '100%',
+  minHeight: 0,
   display: 'grid',
   gridTemplateRows: 'auto minmax(0, 1fr)',
-  gap: '16px',
-  '@media': {
-    '(max-width: 1199px)': {
-      height: 'calc(100dvh - 136px)',
-      minHeight: '560px',
-    },
-    '(max-width: 767px)': {
-      height: 'calc(100dvh - 96px)',
-      minHeight: '520px',
-      gap: '12px',
-    },
-  },
+  gap: '12px',
 })
 
 export const hero = style({
   display: 'grid',
-  gridTemplateColumns: '1fr auto',
-  gap: '14px',
-  alignItems: 'center',
-  padding: '12px 16px',
+  gridTemplateColumns: '1fr auto auto',
+  gap: '12px',
+  alignItems: 'start',
+  padding: '12px',
   border: `1px solid ${vars.color.background[50]}`,
   borderRadius: '8px',
   background: `linear-gradient(135deg, ${vars.color.background[100]} 0%, ${vars.color.background[900]} 100%)`,
-  '@media': {
-    '(max-width: 767px)': {
-      gridTemplateColumns: '1fr',
-      padding: '12px',
-    },
-  },
 })
 
 export const eyebrow = style({
@@ -241,14 +221,9 @@ export const emptyTitle = style({
 
 export const promptGrid = style({
   display: 'grid',
-  gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+  gridTemplateColumns: '1fr',
   gap: '10px',
   marginTop: '22px',
-  '@media': {
-    '(max-width: 767px)': {
-      gridTemplateColumns: '1fr',
-    },
-  },
 })
 
 export const promptButton = style({
@@ -272,7 +247,7 @@ export const promptButton = style({
 export const activeSuggestions = style({
   alignSelf: 'flex-start',
   display: 'grid',
-  gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+  gridTemplateColumns: '1fr',
   gap: '10px',
   width: 'min(720px, calc(100% - 46px))',
   marginLeft: '46px',
@@ -282,13 +257,6 @@ export const activeSuggestions = style({
   borderLeft: `3px solid ${vars.color.skin}`,
   borderRadius: '14px',
   background: vars.color.skin + '08',
-  '@media': {
-    '(max-width: 767px)': {
-      gridTemplateColumns: '1fr',
-      width: '100%',
-      marginLeft: 0,
-    },
-  },
 })
 
 export const suggestionLabel = style({

@@ -17,8 +17,10 @@ import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
 import { cx } from '@utils/cn'
 import dayjs from 'dayjs'
 import React from 'react'
+import { useNavigate } from 'react-router'
 
 export const AboutPersonalInfoSection: React.FC = () => {
+  const navigate = useNavigate()
   const { t, i18n } = useTranslation()
   const personalInfo = usePersonalInfo()
   const contact = useContactInfo()
@@ -110,11 +112,17 @@ export const AboutPersonalInfoSection: React.FC = () => {
           </Button>
           <Button
             as="a"
-            href="#contact"
+            href="/contact"
             variant="secondary"
             size="large"
             className={cx('hire-me', btnMargin)}
-            onClick={() => {
+            onClick={(event: React.MouseEvent) => {
+              // Ctrl or Cmd click keeps opening the link in a new tab.
+              if (!event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
+                event.preventDefault()
+                void navigate('/contact')
+              }
+
               trackGaEvent('About', 'hire_me_click', 'Hire Me')
               trackMixpanelEvent('hire_me_click', 'About', 'Hire Me')
             }}
