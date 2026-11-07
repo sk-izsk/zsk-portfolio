@@ -121,7 +121,7 @@ globalStyle('.section::before', {
   width: '340px',
   height: '340px',
   borderRadius: '999px',
-  background: `radial-gradient(circle, ${vars.color.skin}18 0%, transparent 72%)`,
+  background: `radial-gradient(circle, color-mix(in srgb, ${vars.color.skin} 9%, transparent) 0%, transparent 72%)`,
   pointerEvents: 'none',
   zIndex: -2,
 })
@@ -133,7 +133,7 @@ globalStyle('.section::after', {
   width: '360px',
   height: '360px',
   borderRadius: '999px',
-  background: `radial-gradient(circle, ${vars.color.skin}12 0%, transparent 74%)`,
+  background: `radial-gradient(circle, color-mix(in srgb, ${vars.color.skin} 7%, transparent) 0%, transparent 74%)`,
   pointerEvents: 'none',
   zIndex: -2,
 })

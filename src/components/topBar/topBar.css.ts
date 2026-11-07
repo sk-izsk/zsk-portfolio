@@ -1,12 +1,8 @@
+import { sidebarQuery } from '@components/sidebar/sidebar.css'
 import { vars } from '@styles/theme.css'
 import { style } from '@vanilla-extract/css'
 
-// Keep in step with the 1100px scene breakpoint in the story and home styles.
-export const fullBarQuery = '(min-width: 1100px)'
-const compactBarQuery = '(max-width: 1099px)'
-
-export const GLASS_FILTER_ID = 'top-bar-glass'
-
+// The phone and tablet bar. Desktop has the sidebar instead.
 export const bar = style({
   position: 'fixed',
   top: '16px',
@@ -15,12 +11,13 @@ export const bar = style({
   zIndex: 900,
   display: 'flex',
   alignItems: 'center',
+  justifyContent: 'space-between',
   gap: '12px',
-  maxWidth: 'calc(100vw - 32px)',
+  width: 'calc(100vw - 32px)',
   padding: '8px 8px 8px 16px',
   borderRadius: '999px',
   border: '1px solid rgba(255, 255, 255, 0.4)',
-  // Keeps the labels readable over whatever scrolls behind the clear glass.
+  // Keeps the labels readable over whatever scrolls behind the glass.
   textShadow: `0 0 8px ${vars.color.background[100]}`,
   // Light caught along the top edge and bouncing off the bottom, which is what reads as glass.
   boxShadow: [
@@ -30,17 +27,15 @@ export const bar = style({
     'inset 0 0 12px rgba(255, 255, 255, 0.12)',
   ].join(', '),
   '@media': {
-    [compactBarQuery]: {
-      width: 'calc(100vw - 32px)',
-      justifyContent: 'space-between',
+    [sidebarQuery]: {
+      display: 'none',
     },
     '(prefers-reduced-transparency: reduce)': {
       background: vars.color.background[100],
     },
   },
   selectors: {
-    // The glass body, on its own layer so the bar's contents stay crisp above it. Browsers
-    // without the lens below get more blur instead, which is plain frosted glass.
+    // The glass body, on its own layer so the bar's contents stay crisp above it.
     '&::before': {
       content: '""',
       position: 'absolute',
@@ -49,11 +44,6 @@ export const bar = style({
       borderRadius: 'inherit',
       background: `color-mix(in srgb, ${vars.color.background[100]} 35%, transparent)`,
       backdropFilter: 'blur(10px) saturate(170%)',
-    },
-    // Set by useGlassLens: nearly clear in the middle, with the background bent around the rim.
-    '&[data-lens]::before': {
-      background: `color-mix(in srgb, ${vars.color.background[100]} 28%, transparent)`,
-      backdropFilter: `url(#${GLASS_FILTER_ID}) blur(3px) saturate(170%)`,
     },
     // A soft sheen from above, brightest at the top edge.
     '&::after': {
@@ -67,12 +57,6 @@ export const bar = style({
       pointerEvents: 'none',
     },
   },
-})
-
-export const glassFilter = style({
-  position: 'absolute',
-  width: 0,
-  height: 0,
 })
 
 export const logo = style({
@@ -92,42 +76,6 @@ export const logoInitial = style({
   color: vars.color.skin,
 })
 
-export const links = style({
-  display: 'flex',
-  alignItems: 'center',
-  gap: '4px',
-  '@media': {
-    [compactBarQuery]: {
-      display: 'none',
-    },
-  },
-})
-
-export const link = style({
-  display: 'block',
-  padding: '8px 12px',
-  borderRadius: '999px',
-  fontSize: '14px',
-  lineHeight: '20px',
-  fontWeight: 500,
-  whiteSpace: 'nowrap',
-  color: vars.color.text[900],
-  transition: 'color 300ms ease-out, background-color 300ms ease-out',
-  ':hover': {
-    backgroundColor: `color-mix(in srgb, ${vars.color.text[900]} 8%, transparent)`,
-  },
-  ':active': {
-    transform: 'scale(0.98)',
-  },
-})
-
-export const linkActive = style({
-  color: vars.color.skin,
-  ':hover': {
-    backgroundColor: 'transparent',
-  },
-})
-
 export const currentPage = style({
   flex: 1,
   textAlign: 'center',
@@ -138,11 +86,6 @@ export const currentPage = style({
   whiteSpace: 'nowrap',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
-  '@media': {
-    [fullBarQuery]: {
-      display: 'none',
-    },
-  },
 })
 
 export const controls = style({
@@ -172,14 +115,3 @@ export const roundButton = style({
     transform: 'scale(0.98)',
   },
 })
-
-export const menuButton = style([
-  roundButton,
-  {
-    '@media': {
-      [fullBarQuery]: {
-        display: 'none',
-      },
-    },
-  },
-])

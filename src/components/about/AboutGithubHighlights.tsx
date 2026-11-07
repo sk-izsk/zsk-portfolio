@@ -26,14 +26,10 @@ export const AboutGithubHighlights: React.FC = () => {
   const currentColor = useThemeStore((state) => state.currentColor)
   const githubUrl = contact?.social.github?.url
   const githubUsername = getGithubUsername(githubUrl)
-  const [selectedYear, setSelectedYear] = useState(String(new Date().getFullYear()))
+  const [selectedYear, setSelectedYear] = useState(() => String(new Date().getFullYear()))
 
   const { isGraphLoading, graphError, isMobileGraph, selectedYearData, yearOptions } =
     useGithubContributionData(githubUsername, selectedYear)
-
-  if (!githubUrl || !githubUsername) {
-    return null
-  }
 
   const selectedYearNumber = Number(selectedYear)
   const palette = getPaletteFromTheme(isDarkMode, currentColor)
@@ -53,19 +49,17 @@ export const AboutGithubHighlights: React.FC = () => {
         isMobileGraph,
         selectedYearData ?? undefined,
       ),
-    [
-      contributionDays,
-      selectedYearNumber,
-      palette,
-      isDarkMode,
-      isMobileGraph,
-      selectedYearData,
-    ],
+    [contributionDays, selectedYearNumber, palette, isDarkMode, isMobileGraph, selectedYearData],
   )
   const streakStats = useMemo(
     () => (selectedYearData ? buildContributionStreakStats(selectedYearData) : null),
     [selectedYearData],
   )
+
+  // After every hook, so the hooks run in the same order whether or not the link has loaded.
+  if (!githubUrl || !githubUsername) {
+    return null
+  }
 
   return (
     <>

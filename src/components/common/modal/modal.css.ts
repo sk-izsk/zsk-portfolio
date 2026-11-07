@@ -216,7 +216,7 @@ export const scrollCue = style({
   cursor: 'pointer',
   selectors: {
     '&:hover': {
-      background: `${vars.color.skin}18`,
+      background: `color-mix(in srgb, ${vars.color.skin} 9%, transparent)`,
     },
     '&:focus-visible': {
       outline: `2px solid ${vars.color.skin}`,
@@ -253,7 +253,7 @@ export const closeBtnTag = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: `${vars.color.skin}15`,
+  backgroundColor: `color-mix(in srgb, ${vars.color.skin} 8%, transparent)`,
   color: vars.color.skin,
   border: `1px solid ${vars.color.skin}`,
   transition: 'all 0.3s ease',

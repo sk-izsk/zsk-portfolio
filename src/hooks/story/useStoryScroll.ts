@@ -1,4 +1,5 @@
 import { useStoryDeepLink } from '@hooks/story/useStoryDeepLink'
+import { useStoryHoldPosition } from '@hooks/story/useStoryHoldPosition'
 import { useStoryLinkGlide } from '@hooks/story/useStoryLinkGlide'
 import { useStoryLinkSync } from '@hooks/story/useStoryLinkSync'
 import { getStoryIndex } from '@utils/storyScroll'
@@ -21,4 +22,5 @@ export const useStoryScroll = (
   useStoryDeepLink(storyRef, isEveryPageLoaded, setAutoScrolling)
   useStoryLinkGlide(storyRef, setAutoScrolling)
   useStoryLinkSync(storyRef, isAutoScrolling)
+  useStoryHoldPosition(storyRef)
 }

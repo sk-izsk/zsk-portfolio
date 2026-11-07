@@ -1,4 +1,4 @@
-import { fullBarQuery } from '@components/topBar/topBar.css'
+import { sidebarQuery } from '@components/sidebar/sidebar.css'
 import { useNavMenuStore } from '@stores/navMenuStore'
 import { canAnimate } from '@utils/motion'
 import { useEffect, useRef, type MouseEvent, type SyntheticEvent } from 'react'
@@ -55,18 +55,18 @@ export const useTopBarMenuDialog = () => {
     }
   }, [isOpen])
 
-  // The panel only exists for the compact bar, so it must not outlive a resize to the full one.
+  // The menu only exists without the sidebar, so it must not outlive a resize that brings it in.
   useEffect(() => {
-    const fullBar = window.matchMedia(fullBarQuery)
-    const closeOnFullBar = () => {
-      if (fullBar.matches) {
+    const hasSidebar = window.matchMedia(sidebarQuery)
+    const closeWithSidebar = () => {
+      if (hasSidebar.matches) {
         close()
       }
     }
 
-    fullBar.addEventListener('change', closeOnFullBar)
+    hasSidebar.addEventListener('change', closeWithSidebar)
 
-    return () => fullBar.removeEventListener('change', closeOnFullBar)
+    return () => hasSidebar.removeEventListener('change', closeWithSidebar)
   }, [close])
 
   // The page ignores taps until the slide out ends, so a quick tap to reopen lands here.

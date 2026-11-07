@@ -27,7 +27,11 @@ export const SkillsTagSection: React.FC<SkillsTagSectionProps> = ({ icon, titleT
     <div className="row">
       <div className={cx(skillCategoryContainer, 'padd-15')}>
         <h3 className={skillCategoryTitle}>
-          <Icon className={cx(skillsHeadingIcon, skillsHeadingIconGapMd)} size={22} strokeWidth={2.25} />
+          <Icon
+            className={cx(skillsHeadingIcon, skillsHeadingIconGapMd)}
+            size={22}
+            strokeWidth={2.25}
+          />
           {titleText}
         </h3>
         <div className={skillsList}>

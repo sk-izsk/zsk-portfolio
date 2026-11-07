@@ -11,8 +11,7 @@ export const aboutEn = {
   github: {
     eyebrow: 'GitHub Activity',
     title: 'Code activity and contribution history',
-    description:
-      'A local view of contribution history from cached GitHub activity data.',
+    description: 'A local view of contribution history from cached GitHub activity data.',
     profileLink: 'View Profile',
     yearSelector: 'Select contribution year',
     loadingYear: 'Loading {{year}} contributions...',

@@ -40,6 +40,7 @@ export type ContributionStreakStats = {
 
 export type ContributionLayout = {
   contentWidth: number
+  contentHeight: number
   monthLabels: Array<{ key: string; label: string; x: number }>
   dayLabels: Array<{ key: string; label: string; y: number }>
 }
@@ -80,29 +81,6 @@ export const skinByColor = {
   'color-9': '#00bfff',
 } as const
 
-export const DEV_QUOTES: QuoteItem[] = [
-  {
-    text: 'Simplicity is prerequisite for reliability.',
-    author: 'Edsger W. Dijkstra',
-  },
-  {
-    text: 'Programs must be written for people to read, and only incidentally for machines to execute.',
-    author: 'Harold Abelson',
-  },
-  {
-    text: 'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
-    author: 'Martin Fowler',
-  },
-  {
-    text: 'The most disastrous thing that you can ever learn is your first programming language.',
-    author: 'Alan Kay',
-  },
-  {
-    text: 'First, solve the problem. Then, write the code.',
-    author: 'John Johnson',
-  },
-]
-
 const hexToRgb = (hex: string) => {
   const normalized = hex.replace('#', '')
   const safeHex =
@@ -124,7 +102,11 @@ const hexToRgb = (hex: string) => {
 
 const rgbToHex = ({ r, g, b }: { r: number; g: number; b: number }) =>
   `#${[r, g, b]
-    .map((value) => Math.max(0, Math.min(255, Math.round(value))).toString(16).padStart(2, '0'))
+    .map((value) =>
+      Math.max(0, Math.min(255, Math.round(value)))
+        .toString(16)
+        .padStart(2, '0'),
+    )
     .join('')}`
 
 const mixHex = (baseHex: string, targetHex: string, amount: number) => {
@@ -137,8 +119,6 @@ const mixHex = (baseHex: string, targetHex: string, amount: number) => {
     b: base.b + (target.b - base.b) * amount,
   })
 }
-
-export const toParamColor = (hex: string) => hex.replace('#', '')
 
 export const getPaletteFromTheme = (
   isDarkMode: boolean,
@@ -166,12 +146,12 @@ export const getContributionShades = (palette: ThemePalette, isDarkMode: boolean
   ]
 }
 
-export const getCalendarRangeForYear = (selectedYear: number) => ({
+const getCalendarRangeForYear = (selectedYear: number) => ({
   startDate: new Date(Date.UTC(selectedYear, 0, 1)),
   endDate: new Date(Date.UTC(selectedYear, 11, 31)),
 })
 
-export const getContributionRange = (selectedYear: number, yearData?: ContributionYearData) => {
+const getContributionRange = (selectedYear: number, yearData?: ContributionYearData) => {
   if (!yearData) {
     return getCalendarRangeForYear(selectedYear)
   }
@@ -229,6 +209,7 @@ export const buildContributionLayout = (
 
   return {
     contentWidth: totalWeeks * colWidth,
+    contentHeight: 7 * rowHeight,
     monthLabels,
     dayLabels: [
       { key: 'mon', label: 'Mon', y: rowHeight * 1 + cellSize / 2 },
@@ -272,8 +253,7 @@ export const buildContributionCalendarSvg = (
       currentDate.setUTCDate(weekDate.getUTCDate() + dayIndex)
       const isoDate = currentDate.toISOString().slice(0, 10)
       const count = countsByDate.get(isoDate) ?? 0
-      const shadeIndex =
-        count === 0 ? 0 : count >= 12 ? 4 : count >= 8 ? 3 : count >= 4 ? 2 : 1
+      const shadeIndex = count === 0 ? 0 : count >= 12 ? 4 : count >= 8 ? 3 : count >= 4 ? 2 : 1
 
       cells.push(
         `<rect x="${weekIndex * colWidth}" y="${dayIndex * rowHeight}" width="${cellSize}" height="${cellSize}" rx="2" ry="2" fill="${shades[shadeIndex]}" />`,

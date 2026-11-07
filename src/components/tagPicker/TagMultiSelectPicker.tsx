@@ -69,7 +69,6 @@ export const TagMultiSelectPicker: React.FC<TagMultiSelectPickerProps> = ({
     isEnabled: isOpen,
     viewportRef: scrollViewportRef,
     contentRef: scrollContentRef,
-    dependencies: [selectedValues, visibleOptions, isResolvingOption],
   })
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {

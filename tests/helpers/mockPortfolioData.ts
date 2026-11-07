@@ -96,7 +96,8 @@ export const mockPortfolioData: PortfolioData = {
       title: 'I Ditched Axios for Ky And My Dependabot Finally Stopped Screaming',
       url: 'https://izsk.hashnode.dev/i-ditched-axios-for-ky-and-my-dependabot-finally-stopped-screaming',
       blogTypes: ['frontend', 'backend', 'architecture'],
-      excerpt: 'A personal breakdown of Fetch, Axios, and why Ky quietly became my go-to HTTP client in React.',
+      excerpt:
+        'A personal breakdown of Fetch, Axios, and why Ky quietly became my go-to HTTP client in React.',
       shortDescription:
         'A practical comparison of Fetch, Axios, and Ky through the lens of bundle weight, retries, timeouts, TypeScript ergonomics, and the security cost of unnecessary dependencies.',
       highlights: [
@@ -122,7 +123,14 @@ export const mockPortfolioData: PortfolioData = {
         'Shows when scoped Zustand plus Context is the right hybrid pattern',
       ],
       category: 'State Management',
-      tags: ['React', 'TypeScript', 'Zustand', 'Redux Toolkit', 'React Context', 'State Management'],
+      tags: [
+        'React',
+        'TypeScript',
+        'Zustand',
+        'Redux Toolkit',
+        'React Context',
+        'State Management',
+      ],
       publishDate: '2026-05-10',
     },
     {
@@ -248,7 +256,8 @@ export const mockPortfolioData: PortfolioData = {
     },
     {
       id: 7,
-      title: "Concurrent Rendering in React: What It Actually Is, And When It's Just Hiding a Problem",
+      title:
+        "Concurrent Rendering in React: What It Actually Is, And When It's Just Hiding a Problem",
       url: 'https://izsk.hashnode.dev/concurrent-rendering-in-react-what-it-actually-is-and-when-it-s-just-hiding-a-problem',
       blogTypes: ['frontend', 'architecture'],
       excerpt:
@@ -278,7 +287,8 @@ export const mockPortfolioData: PortfolioData = {
     },
     {
       id: 8,
-      title: "React Reconciliation and Keys: What's Actually Happening When Your Component Re-Renders",
+      title:
+        "React Reconciliation and Keys: What's Actually Happening When Your Component Re-Renders",
       url: 'https://izsk.hashnode.dev/react-reconciliation-and-keys-what-s-actually-happening-when-your-component-re-renders',
       blogTypes: ['frontend', 'architecture'],
       excerpt:

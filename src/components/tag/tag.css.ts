@@ -7,7 +7,7 @@ export const tagBase = style({
   fontSize: '12px',
   fontWeight: 500,
   lineHeight: 1.2,
-  backgroundColor: `${vars.color.skin}15`,
+  backgroundColor: `color-mix(in srgb, ${vars.color.skin} 8%, transparent)`,
   color: vars.color.skin,
   border: `1px solid ${vars.color.skin}`,
   maxWidth: '100%',
@@ -19,12 +19,12 @@ export const tagBase = style({
 export const tag = style([
   tagBase,
   {
-  transition: 'all 0.3s ease',
-  cursor: 'default',
-  ':hover': {
-    backgroundColor: vars.color.skin,
-    color: 'white',
-  },
+    transition: 'all 0.3s ease',
+    cursor: 'default',
+    ':hover': {
+      backgroundColor: vars.color.skin,
+      color: 'white',
+    },
   },
 ])
 

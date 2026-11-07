@@ -77,8 +77,8 @@ export const meter = style({
   minWidth: '120px',
   padding: '8px 10px',
   borderRadius: '8px',
-  border: `1px solid ${vars.color.skin}55`,
-  background: vars.color.skin + '12',
+  border: `1px solid color-mix(in srgb, ${vars.color.skin} 33%, transparent)`,
+  background: `color-mix(in srgb, ${vars.color.skin} 7%, transparent)`,
   color: vars.color.text[900],
 })
 
@@ -125,7 +125,7 @@ export const healthOverlay = style({
   alignItems: 'center',
   justifyContent: 'center',
   padding: '24px',
-  background: vars.color.background[100] + 'f2',
+  background: `color-mix(in srgb, ${vars.color.background[100]} 95%, transparent)`,
   backdropFilter: 'blur(7px)',
 })
 
@@ -134,14 +134,14 @@ export const healthBox = style({
   alignItems: 'center',
   gap: '16px',
   color: vars.color.text[900],
-  border: `1px solid ${vars.color.skin}55`,
+  border: `1px solid color-mix(in srgb, ${vars.color.skin} 33%, transparent)`,
   borderRadius: '16px',
   background: vars.color.background[900],
   padding: '18px 22px',
   fontSize: '16px',
   lineHeight: 1.45,
   fontWeight: 800,
-  boxShadow: `0 18px 44px ${vars.color.skin}22`,
+  boxShadow: `0 18px 44px color-mix(in srgb, ${vars.color.skin} 13%, transparent)`,
   '@media': {
     '(max-width: 767px)': {
       alignItems: 'flex-start',
@@ -158,7 +158,7 @@ export const healthIconTrack = style({
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-  background: vars.color.skin + '16',
+  background: `color-mix(in srgb, ${vars.color.skin} 9%, transparent)`,
   color: vars.color.skin,
 })
 
@@ -253,10 +253,10 @@ export const activeSuggestions = style({
   marginLeft: '46px',
   marginTop: '-4px',
   padding: '12px',
-  border: `1px dashed ${vars.color.skin}66`,
+  border: `1px dashed color-mix(in srgb, ${vars.color.skin} 40%, transparent)`,
   borderLeft: `3px solid ${vars.color.skin}`,
   borderRadius: '14px',
-  background: vars.color.skin + '08',
+  background: `color-mix(in srgb, ${vars.color.skin} 3%, transparent)`,
 })
 
 export const suggestionLabel = style({

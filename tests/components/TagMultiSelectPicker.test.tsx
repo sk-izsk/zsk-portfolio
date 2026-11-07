@@ -1,4 +1,7 @@
-import { TagMultiSelectPicker, type TagPickerOption } from '@components/tagPicker/TagMultiSelectPicker'
+import {
+  TagMultiSelectPicker,
+  type TagPickerOption,
+} from '@components/tagPicker/TagMultiSelectPicker'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
@@ -125,7 +128,9 @@ describe('TagMultiSelectPicker', () => {
     await user.click(screen.getByRole('button', { name: 'Filter posts by tag' }))
     await user.type(screen.getByRole('textbox', { name: 'Filter posts by tag' }), 'nodejs')
 
-    await waitFor(() => expect(screen.getByRole('option', { name: /Node\.js/i })).toBeInTheDocument())
+    await waitFor(() =>
+      expect(screen.getByRole('option', { name: /Node\.js/i })).toBeInTheDocument(),
+    )
 
     await user.click(screen.getByRole('option', { name: /Node\.js/i }))
 

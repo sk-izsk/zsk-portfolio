@@ -20,15 +20,12 @@ describe('TopBar', () => {
     useNavMenuStore.setState({ isOpen: false })
   })
 
-  it('renders all navigation links', () => {
-    renderTopBar()
+  it('names the current page in the middle of the bar', () => {
+    window.history.pushState({}, '', '/about/')
+    const { container } = renderTopBar()
 
-    expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /about/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /services/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /skills/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /projects/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /contact/i })).toBeInTheDocument()
+    expect(container.querySelector('header')).toHaveTextContent('About')
+    window.history.pushState({}, '', '/')
   })
 
   it('shows a logo text derived from the personal name when data is loaded', () => {
@@ -49,22 +46,6 @@ describe('TopBar', () => {
 
     await user.click(screen.getByRole('button', { name: /close navigation/i }))
     expect(useNavMenuStore.getState().isOpen).toBe(false)
-  })
-
-  it('marks the current page in the bar', () => {
-    window.history.pushState({}, '', '/about')
-    renderTopBar()
-
-    expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('aria-current', 'page')
-    window.history.pushState({}, '', '/')
-  })
-
-  it('marks the current page when the link has a trailing slash', () => {
-    window.history.pushState({}, '', '/about/')
-    renderTopBar()
-
-    expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('aria-current', 'page')
-    window.history.pushState({}, '', '/')
   })
 
   it('opens the settings panel with its languages, and moves focus in and back out', async () => {

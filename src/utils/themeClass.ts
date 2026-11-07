@@ -47,7 +47,7 @@ const isThemeColor = (value: string): value is ThemeColor => {
   )
 }
 
-export const getStoredThemePreferences = () => {
+const getStoredThemePreferences = () => {
   if (typeof window === 'undefined') {
     return {
       isDarkMode: false,
@@ -64,7 +64,7 @@ export const getStoredThemePreferences = () => {
   }
 }
 
-export const resolveThemeClass = (isDarkMode: boolean, currentColor: ThemeColor) => {
+const resolveThemeClass = (isDarkMode: boolean, currentColor: ThemeColor) => {
   return isDarkMode
     ? (darkThemeByColor[currentColor] ?? darkTheme)
     : (lightThemeByColor[currentColor] ?? lightTheme)

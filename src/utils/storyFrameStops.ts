@@ -14,7 +14,7 @@ const PHOTO_BRACKET_INSET_X = 20
 const PHOTO_BRACKET_OUTSET_Y = 40
 const HEADLINE_OUTSET = 16
 const STAGE_INSET = 64
-// Leaves the floating top bar clear when the brackets open to the edges of the stage.
+// Leaves the top bar clear on widths that have the scene but not yet the sidebar.
 const STAGE_TOP_INSET = 112
 
 const getHomeStops = (story: HTMLElement, leavesAt: number): FrameStop[] => {

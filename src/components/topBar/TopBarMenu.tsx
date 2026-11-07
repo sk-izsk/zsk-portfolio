@@ -1,13 +1,13 @@
 import * as styles from '@components/topBar/topBarMenu.css'
 import { TopBarMenuLink } from '@components/topBar/TopBarMenuLink'
-import type { TopBarItem } from '@hooks/topBar/useTopBarItems'
+import type { NavItem } from '@hooks/useNavItems'
 import { useTopBarMenuDialog } from '@hooks/topBar/useTopBarMenuDialog'
 import { useTranslation } from '@localization/localize'
 import { X } from 'lucide-react'
 import React from 'react'
 
 interface TopBarMenuProps {
-  items: TopBarItem[]
+  items: NavItem[]
   activeId: string
 }
 

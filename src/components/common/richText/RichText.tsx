@@ -120,7 +120,9 @@ const renderBlockSegments = (content: string) => {
 
 export const RichText: React.FC<RichTextProps> = ({ content, className, variant = 'block' }) => {
   if (variant === 'inline') {
-    return <span className={cx(styles.inlineRoot, className)}>{renderInline(content, 'inline')}</span>
+    return (
+      <span className={cx(styles.inlineRoot, className)}>{renderInline(content, 'inline')}</span>
+    )
   }
 
   return <div className={cx(styles.root, className)}>{renderBlockSegments(content)}</div>

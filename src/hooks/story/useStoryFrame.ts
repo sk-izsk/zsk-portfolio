@@ -69,6 +69,13 @@ export const useStoryFrame = (
     const resizes = new ResizeObserver(rebuild)
     pages.forEach((page) => resizes.observe(page))
 
+    // The sidebar's links change size as it collapses and expands, and the frame follows them.
+    const sidebar = document.querySelector('[data-story-nav]')
+
+    if (sidebar) {
+      resizes.observe(sidebar)
+    }
+
     // On a phone the frame hugs the page name, which changes size without any scrolling.
     const labelChanges = new MutationObserver(schedule)
     const label = document.querySelector(`.${currentPage}`)
