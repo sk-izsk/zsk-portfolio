@@ -13,6 +13,7 @@ const TRIGGER_OFFSET_PHONE = 16
 const PANEL_GAP = 20
 // The trigger's fill leaves this much of the turning ring showing around it.
 const RING_WIDTH = 2
+const MOTION_SHAPE = `450ms ${spring}`
 
 const ringTurn = keyframes({
   '0%': { transform: 'translate(-50%, -50%) rotate(0deg)' },
@@ -20,8 +21,8 @@ const ringTurn = keyframes({
 })
 
 const glowPulse = keyframes({
-  '0%': { opacity: 0.5, transform: 'scale(1)' },
-  '70%, 100%': { opacity: 0, transform: 'scale(1.35, 1.7)' },
+  '0%': { opacity: 0.45, transform: 'scale(1)' },
+  '100%': { opacity: 0, transform: 'scale(1.3, 1.8)' },
 })
 
 const twinkle = keyframes({
@@ -34,11 +35,6 @@ const teaserSlide = keyframes({
   '0%': { opacity: 0, transform: 'translateY(8px) scale(0.96)' },
   '6%, 92%': { opacity: 1, transform: 'translateY(0) scale(1)' },
   '100%': { opacity: 0, transform: 'translateY(8px) scale(0.96)' },
-})
-
-const closeTurn = keyframes({
-  '0%': { opacity: 0, transform: 'rotate(-90deg) scale(0.6)' },
-  '100%': { opacity: 1, transform: 'rotate(0deg) scale(1)' },
 })
 
 export const panel = style({
@@ -136,7 +132,7 @@ export const teaser = style({
   },
 })
 
-// Pulses behind the button until the chat has been opened once.
+// Pulses behind the pill. The close button is a different shape, so it goes without.
 export const glow = style({
   position: 'absolute',
   inset: 0,
@@ -146,15 +142,58 @@ export const glow = style({
   pointerEvents: 'none',
   '@media': {
     [canAnimate]: {
-      animation: `${glowPulse} 2400ms ${curve} infinite`,
+      animation: `${glowPulse} 2400ms ease-out infinite`,
     },
   },
   selectors: {
-    '[data-opened-before] > &': {
+    '[data-open] > &': {
       display: 'none',
     },
   },
 })
+
+// Soft shadows under the button. They live apart from it because its clipped shape would cut
+// them off, and each shape has its own so the swap only fades two layers.
+const buttonShadow = style({
+  position: 'absolute',
+  top: '8px',
+  bottom: '-8px',
+  right: 0,
+  borderRadius: '999px',
+  background: `color-mix(in srgb, ${vars.color.skin} 45%, transparent)`,
+  filter: 'blur(10px)',
+  pointerEvents: 'none',
+  '@media': {
+    [canAnimate]: {
+      transition: 'opacity 300ms ease-out',
+    },
+  },
+})
+
+export const shadowPill = style([
+  buttonShadow,
+  {
+    left: 0,
+    selectors: {
+      '[data-open] > &': {
+        opacity: 0,
+      },
+    },
+  },
+])
+
+export const shadowCircle = style([
+  buttonShadow,
+  {
+    width: `${TRIGGER_HEIGHT}px`,
+    opacity: 0,
+    selectors: {
+      '[data-open] > &': {
+        opacity: 1,
+      },
+    },
+  },
+])
 
 export const trigger = style({
   position: 'relative',
@@ -170,7 +209,9 @@ export const trigger = style({
   borderRadius: '999px',
   color: '#fff',
   background: vars.color.skin,
-  boxShadow: `0 8px 24px color-mix(in srgb, ${vars.color.skin} 50%, transparent)`,
+  // The button keeps its pill width and only shows its round end when it is the close button,
+  // so it can open from right to left without any layout changing.
+  clipPath: 'inset(0 0 0 0 round 999px)',
   fontFamily: 'inherit',
   fontSize: '16px',
   lineHeight: '24px',
@@ -179,7 +220,7 @@ export const trigger = style({
   cursor: 'pointer',
   '@media': {
     [canAnimate]: {
-      transition: `transform 300ms ${spring}`,
+      transition: `transform 300ms ${spring}, clip-path ${MOTION_SHAPE}`,
     },
   },
   selectors: {
@@ -190,8 +231,12 @@ export const trigger = style({
       transform: 'scale(0.98)',
     },
     '&[data-open]': {
-      width: `${TRIGGER_HEIGHT}px`,
-      padding: 0,
+      clipPath: `inset(0 0 0 calc(100% - ${TRIGGER_HEIGHT}px) round 999px)`,
+    },
+    // Drawn inside the button, because its clipped shape would cut off an outline outside it.
+    '&:focus-visible': {
+      outline: '2px solid #fff',
+      outlineOffset: '-6px',
     },
   },
 })
@@ -210,11 +255,6 @@ export const ring = style({
   '@media': {
     [canAnimate]: {
       animation: `${ringTurn} 3s linear infinite`,
-      selectors: {
-        '[data-opened-before] > &': {
-          animationDuration: '8s',
-        },
-      },
     },
   },
 })
@@ -227,38 +267,47 @@ export const fill = style({
   background: vars.color.skin,
 })
 
-export const triggerIcon = style({
-  flexShrink: 0,
+const hiddenInCloseShape = {
   '@media': {
     [canAnimate]: {
+      transition: 'opacity 200ms ease-out',
+    },
+  },
+  selectors: {
+    '[data-open] > &': {
+      opacity: 0,
+    },
+  },
+}
+
+export const triggerIcon = style({
+  flexShrink: 0,
+  ...hiddenInCloseShape,
+  '@media': {
+    [canAnimate]: {
+      transition: 'opacity 200ms ease-out',
       animation: `${twinkle} 4s ${curve} infinite`,
     },
   },
-  selectors: {
-    '[data-open] > &': {
-      display: 'none',
-    },
-  },
 })
 
-export const triggerLabel = style({
-  selectors: {
-    '[data-open] > &': {
-      display: 'none',
-    },
-  },
-})
+export const triggerLabel = style(hiddenInCloseShape)
 
 export const triggerClose = style({
-  display: 'none',
-  selectors: {
-    '[data-open] > &': {
-      display: 'block',
-    },
-  },
+  position: 'absolute',
+  right: `${(TRIGGER_HEIGHT - 22) / 2}px`,
+  top: `${(TRIGGER_HEIGHT - 22) / 2}px`,
+  opacity: 0,
+  transform: 'rotate(-90deg) scale(0.6)',
   '@media': {
     [canAnimate]: {
-      animation: `${closeTurn} 450ms ${spring} both`,
+      transition: `opacity 200ms ease-out, transform ${MOTION_SHAPE}`,
+    },
+  },
+  selectors: {
+    '[data-open] > &': {
+      opacity: 1,
+      transform: 'rotate(0deg) scale(1)',
     },
   },
 })

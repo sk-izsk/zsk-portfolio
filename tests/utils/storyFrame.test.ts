@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { getSpotAt, type FrameSpot, type FrameStop } from '@utils/storyFrame'
+import { getLandedHold, getSpotAt, type FrameSpot, type FrameStop } from '@utils/storyFrame'
 
 const spot = (left: number, size = 80): FrameSpot => ({
   left,
@@ -47,5 +47,21 @@ describe('getSpotAt', () => {
     ]
 
     expect(getSpotAt(following, 40)?.left).toBe(40)
+  })
+})
+
+describe('getLandedHold', () => {
+  const holds = [
+    { from: 0, to: 100, path: null },
+    { from: 200, to: 300, path: '/about' },
+  ]
+
+  it('finds where the frame is resting', () => {
+    expect(getLandedHold(holds, 50)?.path).toBeNull()
+    expect(getLandedHold(holds, 200)?.path).toBe('/about')
+  })
+
+  it('has nothing while the frame is between two places', () => {
+    expect(getLandedHold(holds, 150)).toBeNull()
   })
 })

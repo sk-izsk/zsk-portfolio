@@ -8,7 +8,6 @@ const PHONE_MAX_WIDTH = 767
 const FRAMES = 24
 const OPEN_MS = 560
 const CLOSE_MS = 480
-const LANDING_MS = 300
 // Rows overlap by this much, so no hairline shows between them while they move.
 const ROW_OVERLAP_PX = 1
 
@@ -45,7 +44,8 @@ export const useGenie = (
   panelRef: RefObject<HTMLElement | null>,
   triggerRef: RefObject<HTMLElement | null>,
   isOpen: boolean,
-  scrollSelector: string,
+  onSettled?: (isOpen: boolean) => void,
+  scrollSelector?: string,
 ) => {
   const wasOpen = useRef(isOpen)
 
@@ -64,19 +64,25 @@ export const useGenie = (
       !trigger ||
       !window.matchMedia('(prefers-reduced-motion: no-preference)').matches
     ) {
+      onSettled?.(isOpen)
       return
     }
 
     const box = panel.getBoundingClientRect()
     const button = trigger.getBoundingClientRect()
-    const buttonCenter = { x: button.left + button.width / 2, y: button.top + button.height / 2 }
+    // Always the right end of the button, where it is round. That is where the close icon sits,
+    // so the window returns to exactly where it came from whatever shape the button has.
+    const buttonEnd = {
+      x: button.right - button.height / 2,
+      y: button.top + button.height / 2,
+    }
     const rowCount = window.innerWidth <= PHONE_MAX_WIDTH ? ROWS_PHONE : ROWS
     const rowHeight = box.height / rowCount
     const layer = document.createElement('div')
     layer.className = genieLayer
     layer.setAttribute('aria-hidden', 'true')
 
-    const scrollTop = panel.querySelector(scrollSelector)?.scrollTop ?? 0
+    const scrollTop = scrollSelector ? (panel.querySelector(scrollSelector)?.scrollTop ?? 0) : 0
     const draft = panel.querySelector('textarea')?.value ?? ''
     const rows = Array.from({ length: rowCount }, (_, index) =>
       buildRow(panel, box, rowHeight * index, rowHeight),
@@ -87,7 +93,7 @@ export const useGenie = (
 
     // Cloning leaves these behind, and they would make the chat jump when the rows take over.
     rows.forEach(({ clone }) => {
-      const messages = clone.querySelector(scrollSelector)
+      const messages = scrollSelector ? clone.querySelector(scrollSelector) : null
       const input = clone.querySelector('textarea')
 
       if (messages) {
@@ -102,7 +108,7 @@ export const useGenie = (
     panel.style.opacity = '0'
 
     const animations = rows.map(({ row }, index) =>
-      row.animate(getGenieKeyframes(box, buttonCenter, index, rowCount, FRAMES), {
+      row.animate(getGenieKeyframes(box, buttonEnd, index, rowCount, FRAMES), {
         duration: isOpen ? OPEN_MS : CLOSE_MS,
         direction: isOpen ? 'reverse' : 'normal',
         easing: 'linear',
@@ -118,13 +124,7 @@ export const useGenie = (
     void Promise.all(animations.map((animation) => animation.finished)).then(
       () => {
         finish()
-
-        if (!isOpen) {
-          trigger.animate(
-            [{ transform: 'scale(1)' }, { transform: 'scale(1.14)' }, { transform: 'scale(1)' }],
-            { duration: LANDING_MS, easing: 'cubic-bezier(0.34, 1.4, 0.64, 1)' },
-          )
-        }
+        onSettled?.(isOpen)
       },
       // Cancelled by the next toggle, whose cleanup already removed these rows.
       () => undefined,
@@ -134,5 +134,5 @@ export const useGenie = (
       animations.forEach((animation) => animation.cancel())
       finish()
     }
-  }, [panelRef, triggerRef, isOpen, scrollSelector])
+  }, [panelRef, triggerRef, isOpen, scrollSelector, onSettled])
 }

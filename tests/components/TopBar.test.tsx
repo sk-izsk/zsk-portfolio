@@ -59,15 +59,13 @@ describe('TopBar', () => {
     window.history.pushState({}, '', '/')
   })
 
-  it('offers the languages from the translate button', async () => {
-    const user = userEvent.setup()
+  it('offers the languages inside the settings panel', () => {
     renderTopBar()
 
-    expect(screen.queryByText('Français')).not.toBeInTheDocument()
-
-    await user.click(screen.getByRole('button', { name: 'Change language' }))
-
     expect(screen.getByRole('button', { name: 'English' })).toHaveAttribute('aria-pressed', 'true')
-    expect(screen.getByRole('button', { name: 'Français' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Français' })).toHaveAttribute(
+      'aria-pressed',
+      'false',
+    )
   })
 })

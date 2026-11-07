@@ -8,11 +8,6 @@ export const topBarEn = {
     blog: 'Blog',
     contact: 'Contact',
   },
-  language: {
-    label: 'Change language',
-    en: 'English',
-    fr: 'Français',
-  },
   toggle: {
     open: 'Open navigation',
     close: 'Close navigation',

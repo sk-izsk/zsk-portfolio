@@ -8,9 +8,11 @@ const curve = 'cubic-bezier(0.22, 1, 0.36, 1)'
 export const fullBarQuery = '(min-width: 1100px)'
 const compactBarQuery = '(max-width: 1099px)'
 
+export const GLASS_FILTER_ID = 'top-bar-glass'
+
 const linkRise = keyframes({
-  '0%': { opacity: 0, transform: 'translateY(24px)' },
-  '100%': { opacity: 1, transform: 'translateY(0)' },
+  '0%': { opacity: 0, transform: 'translateX(48px)' },
+  '100%': { opacity: 1, transform: 'translateX(0)' },
 })
 
 const closeTurn = keyframes({
@@ -30,12 +32,15 @@ export const bar = style({
   maxWidth: 'calc(100vw - 32px)',
   padding: '8px 8px 8px 16px',
   borderRadius: '999px',
-  border: `1px solid color-mix(in srgb, ${vars.color.text[900]} 14%, transparent)`,
+  border: '1px solid rgba(255, 255, 255, 0.4)',
+  // Keeps the labels readable over whatever scrolls behind the clear glass.
+  textShadow: `0 0 8px ${vars.color.background[100]}`,
   // Light caught along the top edge and bouncing off the bottom, which is what reads as glass.
   boxShadow: [
-    '0 16px 40px rgba(15, 23, 42, 0.16)',
-    'inset 0 1px 0 rgba(255, 255, 255, 0.45)',
-    'inset 0 -1px 0 rgba(255, 255, 255, 0.12)',
+    '0 12px 32px rgba(15, 23, 42, 0.14)',
+    'inset 0 1px 1px rgba(255, 255, 255, 0.7)',
+    'inset 0 -1px 1px rgba(255, 255, 255, 0.25)',
+    'inset 0 0 12px rgba(255, 255, 255, 0.12)',
   ].join(', '),
   '@media': {
     [compactBarQuery]: {
@@ -47,17 +52,40 @@ export const bar = style({
     },
   },
   selectors: {
-    // The frosted body. On its own layer so the bar's contents stay crisp above it.
+    // The glass body, on its own layer so the bar's contents stay crisp above it. Browsers
+    // without the lens below get more blur instead, which is plain frosted glass.
     '&::before': {
       content: '""',
       position: 'absolute',
       inset: 0,
       zIndex: -1,
       borderRadius: 'inherit',
-      background: `color-mix(in srgb, ${vars.color.background[100]} 55%, transparent)`,
-      backdropFilter: 'blur(20px) saturate(180%)',
+      background: `color-mix(in srgb, ${vars.color.background[100]} 35%, transparent)`,
+      backdropFilter: 'blur(10px) saturate(170%)',
+    },
+    // Set by useGlassLens: nearly clear in the middle, with the background bent around the rim.
+    '&[data-lens]::before': {
+      background: `color-mix(in srgb, ${vars.color.background[100]} 28%, transparent)`,
+      backdropFilter: `url(#${GLASS_FILTER_ID}) blur(3px) saturate(170%)`,
+    },
+    // A soft sheen from above, brightest at the top edge.
+    '&::after': {
+      content: '""',
+      position: 'absolute',
+      inset: 0,
+      zIndex: -1,
+      borderRadius: 'inherit',
+      background:
+        'linear-gradient(180deg, rgba(255, 255, 255, 0.3), transparent 45%, rgba(255, 255, 255, 0.08))',
+      pointerEvents: 'none',
     },
   },
+})
+
+export const glassFilter = style({
+  position: 'absolute',
+  width: 0,
+  height: 0,
 })
 
 export const logo = style({
@@ -137,30 +165,6 @@ export const controls = style({
   flexShrink: 0,
 })
 
-export const languages = style({
-  display: 'flex',
-  alignItems: 'center',
-  gap: '4px',
-  fontSize: '12px',
-  lineHeight: '16px',
-  color: vars.color.text[700],
-})
-
-export const language = style({
-  border: 'none',
-  background: 'transparent',
-  color: vars.color.text[700],
-  font: 'inherit',
-  fontWeight: 600,
-  padding: '4px',
-  borderRadius: '4px',
-  cursor: 'pointer',
-})
-
-export const languageActive = style({
-  color: vars.color.skin,
-})
-
 const roundButton = style({
   display: 'inline-flex',
   alignItems: 'center',
@@ -179,62 +183,6 @@ const roundButton = style({
   },
   ':active': {
     transform: 'scale(0.98)',
-  },
-})
-
-export const languageMenu = style({
-  position: 'relative',
-  display: 'flex',
-  alignItems: 'center',
-  '@media': {
-    [compactBarQuery]: {
-      display: 'none',
-    },
-  },
-})
-
-export const languageMenuButton = style([roundButton])
-
-const languageMenuIn = keyframes({
-  '0%': { opacity: 0, transform: 'translateY(-8px) scale(0.96)' },
-  '100%': { opacity: 1, transform: 'translateY(0) scale(1)' },
-})
-
-export const languageMenuPanel = style({
-  position: 'absolute',
-  top: 'calc(100% + 12px)',
-  right: 0,
-  display: 'grid',
-  gap: '4px',
-  minWidth: '128px',
-  padding: '8px',
-  borderRadius: '16px',
-  border: `1px solid color-mix(in srgb, ${vars.color.text[900]} 14%, transparent)`,
-  background: vars.color.background[100],
-  boxShadow: '0 16px 40px rgba(15, 23, 42, 0.16)',
-  transformOrigin: '100% 0',
-  '@media': {
-    [canAnimate]: {
-      animation: `${languageMenuIn} 300ms ${curve} both`,
-    },
-  },
-})
-
-export const languageMenuOption = style({
-  padding: '8px 12px',
-  border: 'none',
-  borderRadius: '8px',
-  background: 'transparent',
-  color: vars.color.text[900],
-  fontFamily: 'inherit',
-  fontSize: '14px',
-  lineHeight: '20px',
-  fontWeight: 500,
-  textAlign: 'left',
-  cursor: 'pointer',
-  transition: 'background-color 300ms ease-out',
-  ':hover': {
-    backgroundColor: `color-mix(in srgb, ${vars.color.text[900]} 8%, transparent)`,
   },
 })
 
@@ -258,8 +206,8 @@ export const menu = style({
   padding: '24px',
   border: 'none',
   color: vars.color.text[900],
-  background: `color-mix(in srgb, ${vars.color.background[900]} 92%, transparent)`,
-  backdropFilter: 'blur(24px)',
+  // Solid, because a blur over the whole page would repaint on every frame of the slide.
+  background: vars.color.background[900],
   selectors: {
     '&::backdrop': {
       background: 'transparent',
@@ -275,7 +223,7 @@ export const menu = style({
 export const menuTop = style({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between',
+  justifyContent: 'flex-end',
   gap: '16px',
 })
 

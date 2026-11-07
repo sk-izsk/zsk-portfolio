@@ -1,15 +1,17 @@
 import * as styles from '@components/styleSwitcher/styleSwitcher.css'
 import { StyleSwitcherThemeColors } from '@components/styleSwitcher/StyleSwitcherThemeColors'
+import { useGenie } from '@hooks/useGenie'
 import { useTranslation } from '@localization/localize'
 import { useSoundStore } from '@stores/soundStore'
 import { useThemeStore } from '@stores/themeStore'
+import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
 import { createCn } from '@utils/cn'
 import { Moon, Settings, Sun, Volume2, VolumeX } from 'lucide-react'
 import React, { useEffect, useRef, useState } from 'react'
 const cn = createCn(styles)
 
 export const StyleSwitcher: React.FC = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const isDarkMode = useThemeStore((state) => state.isDarkMode)
   const isSoundEnabled = useSoundStore((state) => state.isSoundEnabled)
   const toggleSound = useSoundStore((state) => state.toggleSound)
@@ -18,6 +20,23 @@ export const StyleSwitcher: React.FC = () => {
   const setCurrentColor = useThemeStore((state) => state.setCurrentColor)
   const [isOpen, setIsOpen] = useState(false)
   const styleSwitcherRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLButtonElement>(null)
+  const panelRef = useRef<HTMLDivElement>(null)
+
+  useGenie(panelRef, triggerRef, isOpen)
+
+  const currentLanguage = i18n.resolvedLanguage === 'fr' ? 'fr' : 'en'
+  const languages = [
+    { id: 'en', label: t('common.controls.english') },
+    { id: 'fr', label: t('common.controls.french') },
+  ] as const
+
+  const handleLanguageChange = (language: 'en' | 'fr') => {
+    const label = language.toUpperCase()
+    trackGaEvent('Language', 'language_switch_click', label)
+    trackMixpanelEvent('language_switch_click', 'Language', label)
+    void i18n.changeLanguage(language)
+  }
 
   const toggleSwitcher = () => {
     setIsOpen((prevState) => !prevState)
@@ -62,6 +81,7 @@ export const StyleSwitcher: React.FC = () => {
   return (
     <div ref={styleSwitcherRef} className={styles.styleSwitcher}>
       <button
+        ref={triggerRef}
         className={styles.styleSwitcherTrigger}
         type="button"
         onClick={toggleSwitcher}
@@ -70,10 +90,26 @@ export const StyleSwitcher: React.FC = () => {
       >
         <Settings className={styles.styleSwitcherSpinIcon} size={22} />
       </button>
-      <div className={cn('styleSwitcherPanel', { styleSwitcherOpen: isOpen })}>
+      <div ref={panelRef} className={styles.styleSwitcherPanel} data-open={isOpen || undefined}>
         <p className={styles.panelEyebrow}>{t('common.controls.appearance')}</p>
         <h3 className={styles.panelHeading}>{t('common.controls.personalize')}</h3>
         <StyleSwitcherThemeColors currentColor={currentColor} onChangeColor={setCurrentColor} />
+        <h4 className={styles.heading}>{t('common.controls.language')}</h4>
+        <div className={styles.languageGrid}>
+          {languages.map((language) => (
+            <button
+              key={language.id}
+              className={cn('toggleButton', {
+                languageOptionActive: currentLanguage === language.id,
+              })}
+              type="button"
+              aria-pressed={currentLanguage === language.id}
+              onClick={() => handleLanguageChange(language.id)}
+            >
+              <span className={styles.toggleButtonLabel}>{language.label}</span>
+            </button>
+          ))}
+        </div>
         <div className={styles.toggleGrid}>
           <button
             className={cn('toggleButton', { toggleButtonActive: isDarkMode })}

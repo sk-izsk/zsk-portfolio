@@ -7,9 +7,10 @@ import { useTranslation } from '@localization/localize'
 import { useAskAiWidgetStore } from '@stores/askAiWidgetStore'
 import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
 import { Sparkles, X } from 'lucide-react'
-import React, { useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 const MESSAGES_SELECTOR = `.${messages}`
+const POP_MS = 500
 
 export const AskAiWidget: React.FC = () => {
   const { t } = useTranslation()
@@ -19,8 +20,33 @@ export const AskAiWidget: React.FC = () => {
   const hasOpened = useAskAiWidgetStore((state) => state.hasOpened)
   const panelRef = useRef<HTMLElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
+  // The button keeps its close shape until the chat has fully poured back into it.
+  const [isCloseShape, setIsCloseShape] = useState(isOpen)
 
-  useGenie(panelRef, triggerRef, isOpen, MESSAGES_SELECTOR)
+  const playPop = useCallback(() => {
+    if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+      triggerRef.current?.animate(
+        [
+          { transform: 'scale(1)' },
+          { transform: 'scale(0.86)' },
+          { transform: 'scale(1.1)' },
+          { transform: 'scale(0.97)' },
+          { transform: 'scale(1)' },
+        ],
+        { duration: POP_MS, easing: 'ease-out' },
+      )
+    }
+  }, [])
+
+  const handleGenieSettled = useCallback(
+    (nowOpen: boolean) => {
+      setIsCloseShape(nowOpen)
+      playPop()
+    },
+    [playPop],
+  )
+
+  useGenie(panelRef, triggerRef, isOpen, handleGenieSettled, MESSAGES_SELECTOR)
 
   useEffect(() => {
     const panel = panelRef.current
@@ -57,6 +83,7 @@ export const AskAiWidget: React.FC = () => {
     if (!isOpen) {
       trackGaEvent('AskAi', 'chat_open_click', 'Open chat')
       trackMixpanelEvent('chat_open_click', 'AskAi', 'Open chat')
+      playPop()
     }
 
     toggle()
@@ -76,11 +103,7 @@ export const AskAiWidget: React.FC = () => {
       >
         <AskAiContent onClose={close} />
       </section>
-      <div
-        className={styles.triggerWrap}
-        data-open={isOpen || undefined}
-        data-opened-before={hasOpened || undefined}
-      >
+      <div className={styles.triggerWrap} data-open={isCloseShape || undefined}>
         {hasOpened ? null : (
           <AskAiTeaser
             questions={[t('askAi.prompts.aiProjects'), t('askAi.prompts.reactNative')]}
@@ -88,11 +111,12 @@ export const AskAiWidget: React.FC = () => {
           />
         )}
         <span className={styles.glow} aria-hidden="true" />
+        <span className={styles.shadowPill} aria-hidden="true" />
+        <span className={styles.shadowCircle} aria-hidden="true" />
         <button
           ref={triggerRef}
           className={styles.trigger}
-          data-open={isOpen || undefined}
-          data-opened-before={hasOpened || undefined}
+          data-open={isCloseShape || undefined}
           type="button"
           onClick={handleTriggerClick}
           aria-expanded={isOpen}

@@ -58,17 +58,15 @@ export const styleSwitcherPanel = style({
   border: `1px solid ${vars.color.background[50]}`,
   background: vars.color.background[100],
   boxShadow: '0 28px 70px rgba(15, 23, 42, 0.14)',
-  opacity: 0,
-  pointerEvents: 'none',
-  transformOrigin: 'top right',
-  transform: 'translateY(-8px) scale(0.98)',
-  transition: 'opacity 0.22s ease, transform 0.22s ease',
-})
-
-export const styleSwitcherOpen = style({
-  opacity: 1,
-  pointerEvents: 'auto',
-  transform: 'translateY(0) scale(1)',
+  // The bar's glow is for reading over clear glass, and this panel is solid.
+  textShadow: 'none',
+  // Hidden but still laid out, because useGenie measures it before pouring it out of the button.
+  visibility: 'hidden',
+  selectors: {
+    '&[data-open]': {
+      visibility: 'visible',
+    },
+  },
 })
 
 export const panelEyebrow = style({
@@ -147,6 +145,19 @@ export const toggleGrid = style({
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
   gap: '10px',
+})
+
+export const languageGrid = style([
+  toggleGrid,
+  {
+    marginBottom: '18px',
+  },
+])
+
+export const languageOptionActive = style({
+  borderColor: vars.color.skin,
+  color: vars.color.skin,
+  background: `color-mix(in srgb, ${vars.color.skin} 8%, transparent)`,
 })
 
 export const toggleButton = style({

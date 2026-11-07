@@ -57,4 +57,13 @@ describe('getGenieKeyframes', () => {
 
     expect(translateX(nearest)).toBeGreaterThan(translateX(farthest))
   })
+
+  it('sends the top rows first when the target is above the window', () => {
+    const above = { x: 480, y: 20 }
+    const middleFrame = FRAMES / 2
+    const nearest = getGenieKeyframes(box, above, 0, ROWS, FRAMES)[middleFrame]!
+    const farthest = getGenieKeyframes(box, above, ROWS - 1, ROWS, FRAMES)[middleFrame]!
+
+    expect(translateX(nearest)).toBeGreaterThan(translateX(farthest))
+  })
 })

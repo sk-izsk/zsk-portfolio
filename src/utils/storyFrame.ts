@@ -14,6 +14,13 @@ export interface FrameStop {
   spot: (scrollY: number) => FrameSpot
 }
 
+// A stretch of scrolling where the frame sits still. `path` is the nav link it sits on, if any.
+export interface FrameHold {
+  from: number
+  to: number
+  path: string | null
+}
+
 // Beats of the home scene timeline, which the frame's first stops are timed against.
 export const HOME_SCENE_BEATS = {
   headlineArrive: 1,
@@ -58,3 +65,6 @@ export const getSpotAt = (stops: FrameStop[], scrollY: number): FrameSpot | null
     size: mix(from.size, to.size, amount),
   }
 }
+
+export const getLandedHold = (holds: FrameHold[], scrollY: number) =>
+  holds.find((hold) => scrollY >= hold.from && scrollY <= hold.to) ?? null

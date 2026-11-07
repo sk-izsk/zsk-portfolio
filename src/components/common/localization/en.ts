@@ -11,6 +11,9 @@ export const commonEn = {
     darkMode: 'Dark mode',
     soundOn: 'Sound on',
     soundOff: 'Sound off',
+    language: 'Language',
+    english: 'English',
+    french: 'Français',
     themeColors: 'Theme Colors',
   },
   modal: {

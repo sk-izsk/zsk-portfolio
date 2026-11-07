@@ -2,7 +2,7 @@ import { create } from 'zustand'
 
 type AskAiWidgetStore = {
   isOpen: boolean
-  // The button stops asking for attention once the chat has been opened.
+  // The teaser questions stop once the chat has been opened.
   hasOpened: boolean
   open: () => void
   close: () => void

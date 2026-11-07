@@ -11,6 +11,9 @@ export const commonFr = {
     darkMode: 'Mode sombre',
     soundOn: 'Son actif',
     soundOff: 'Son coupe',
+    language: 'Langue',
+    english: 'English',
+    french: 'Français',
     themeColors: 'Couleurs du theme',
   },
   modal: {

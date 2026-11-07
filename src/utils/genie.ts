@@ -41,9 +41,10 @@ export const getGenieKeyframes = (
   const rowHeight = box.height / rowCount
   const rowCenterY = box.top + rowHeight * (rowIndex + 0.5)
   const offsetX = target.x - (box.left + box.width / 2)
+  const isTargetAbove = target.y < box.top + box.height / 2
 
   const getProgress = (overall: number, position: number) =>
-    clamp(overall * (1 + ROW_SPREAD) - (1 - position) * ROW_SPREAD)
+    clamp(overall * (1 + ROW_SPREAD) - (isTargetAbove ? position : 1 - position) * ROW_SPREAD)
 
   const getEdgeY = (overall: number, position: number) => {
     const restY = box.top + box.height * position

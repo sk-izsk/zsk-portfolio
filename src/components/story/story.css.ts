@@ -1,3 +1,4 @@
+import { styleSwitcherTrigger } from '@components/styleSwitcher/styleSwitcher.css'
 import { vars } from '@styles/theme.css'
 import { globalStyle, style } from '@vanilla-extract/css'
 
@@ -112,6 +113,12 @@ export const storyFrame = style({
       display: 'none',
     },
   },
+  selectors: {
+    // The settings panel lives inside the bar, so no z-index can lift it above the frame.
+    [`body:has(${styleSwitcherTrigger}[aria-expanded="true"]) &`]: {
+      visibility: 'hidden',
+    },
+  },
 })
 
 const storyBracket = style({
@@ -142,8 +149,3 @@ export const storyBracketEnd = style([
     borderBottomWidth: '10px',
   },
 ])
-
-// Fits the title's text, so the frame hugs it instead of spanning the page.
-globalStyle(`${storyPage} .section-title h2`, {
-  width: 'fit-content',
-})

@@ -5,24 +5,22 @@ import {
   homeStage,
   pinnedSceneQuery,
 } from '@components/home/home.css'
-import { STORY_BRACKET_SIZE, storyCardQuery } from '@components/story/story.css'
+import { STORY_BRACKET_SIZE } from '@components/story/story.css'
 import { currentPage } from '@components/topBar/topBar.css'
-import { getSpotAt, HOME_SCENE_BEATS, type FrameSpot, type FrameStop } from '@utils/storyFrame'
+import { useNavScrambleStore } from '@stores/navScrambleStore'
+import {
+  getLandedHold,
+  getSpotAt,
+  HOME_SCENE_BEATS,
+  type FrameHold,
+  type FrameSpot,
+  type FrameStop,
+} from '@utils/storyFrame'
 import { getPageTops, STORY_PATHS } from '@utils/storyScroll'
 import gsap from 'gsap'
 import { useEffect, type RefObject } from 'react'
 
-const TITLE_SELECTOR = '.section-title h2'
 const FOLLOW_SECONDS = 0.45
-// How far down the screen a title is when the frame lands on it, leaving the bar clear.
-const TITLE_LANDING_TOP = 110
-// How much further the page scrolls before the frame lifts from the title to the bar.
-const TITLE_LIFT_SCROLL = 160
-// How early the frame sets off to meet a title, in viewport heights.
-const FLIGHT_VIEWPORTS = 0.7
-const TITLE_OUTSET = 12
-const TITLE_BRACKET = 36
-const TITLE_BRACKET_COMPACT = 24
 const LINK_OUTSET = 2
 const LINK_BRACKET = 12
 const LABEL_OUTSET = 6
@@ -147,55 +145,56 @@ const getStops = (story: HTMLElement, pages: HTMLElement[]) => {
     0,
     pages.map((page) => page.offsetHeight),
   )
-  const titleBracket = window.matchMedia(storyCardQuery).matches
-    ? TITLE_BRACKET
-    : TITLE_BRACKET_COMPACT
+  const { innerHeight } = window
   const stops: FrameStop[] = []
+  const holds: FrameHold[] = []
 
-  pages.forEach((page, index) => {
-    const title = page.querySelector<HTMLElement>(TITLE_SELECTOR)
+  // The frame moves as a page rises into view, landing as it becomes the current page.
+  const travelFor = (index: number) => {
+    const pageTop = tops[index] ?? 0
 
-    if (!title) {
-      return
-    }
+    return { setsOffAt: pageTop - innerHeight, landsAt: pageTop - innerHeight / 2 }
+  }
 
-    const { left } = offsetWithin(title, document.body)
-    const titleTop = (tops[index] ?? 0) + offsetWithin(title, page).top
-    const { offsetWidth: width, offsetHeight: height } = title
-    const landsAt = titleTop - TITLE_LANDING_TOP
-    const setsOffAt = landsAt - window.innerHeight * FLIGHT_VIEWPORTS
+  const homeStops = getHomeStops(story, travelFor(1).setsOffAt)
 
-    if (stops.length === 0) {
-      stops.push(...getHomeStops(story, setsOffAt))
-    }
+  stops.push(...homeStops)
 
-    // Without the home scene, as on phones, the frame starts on Home's own place in the bar.
-    if (stops.length === 0) {
-      stops.push({ at: 0, spot: getRestSpot(STORY_PATHS[0] ?? '/') })
-    }
+  // Without the home scene, as on phones, the frame starts on Home's own place in the bar.
+  if (homeStops.length === 0) {
+    stops.push({ at: 0, spot: getRestSpot(STORY_PATHS[0] ?? '/') })
+  }
 
+  holds.push({
+    from: 0,
+    to: travelFor(1).setsOffAt,
+    path: homeStops.length === 0 ? (STORY_PATHS[0] ?? '/') : null,
+  })
+
+  pages.slice(1).forEach((_, offset) => {
+    const index = offset + 1
+    const path = STORY_PATHS[index] ?? '/'
+    const { setsOffAt, landsAt } = travelFor(index)
     const previous = stops[stops.length - 1]
 
     if (previous && previous.at !== setsOffAt) {
       stops.push({ at: setsOffAt, spot: previous.spot })
     }
 
-    stops.push(
-      {
-        at: landsAt,
-        spot: (scrollY) =>
-          frameAround(left, titleTop - scrollY, width, height, TITLE_OUTSET, titleBracket),
-      },
-      { at: landsAt + TITLE_LIFT_SCROLL, spot: getRestSpot(STORY_PATHS[index] ?? '/') },
-    )
+    stops.push({ at: landsAt, spot: getRestSpot(path) })
+    holds.push({
+      from: landsAt,
+      to: index + 1 < pages.length ? travelFor(index + 1).setsOffAt : Infinity,
+      path,
+    })
   })
 
-  return stops
+  return { stops, holds }
 }
 
 /**
- * Drives the one frame that travels the whole story: from the photo through the home scene,
- * then down onto each page's title as it arrives and up onto its link as the page is read.
+ * Drives the one frame that travels the whole story: from the photo through the home scene up
+ * into the nav bar, where it stays and moves from link to link as the pages change.
  */
 export const useStoryFrame = (
   storyRef: RefObject<HTMLDivElement | null>,
@@ -234,6 +233,8 @@ export const useStoryFrame = (
     const pages = Array.from(story.children) as HTMLElement[]
 
     let stops: FrameStop[] = []
+    let holds: FrameHold[] = []
+    let lastLandedPath: string | null | undefined
     let frameId = 0
     let isPlaced = false
 
@@ -241,6 +242,16 @@ export const useStoryFrame = (
       frameId = 0
 
       const spot = getSpotAt(stops, window.scrollY)
+      const landed = getLandedHold(holds, window.scrollY)
+
+      if (landed && landed.path !== lastLandedPath) {
+        // Not on the first placement, which is the page loading rather than the frame arriving.
+        if (landed.path && lastLandedPath !== undefined) {
+          useNavScrambleStore.getState().scramble(landed.path)
+        }
+
+        lastLandedPath = landed.path
+      }
 
       if (!spot) {
         return
@@ -268,7 +279,7 @@ export const useStoryFrame = (
     }
 
     const rebuild = () => {
-      stops = getStops(story, pages)
+      ;({ stops, holds } = getStops(story, pages))
       schedule()
     }
 
@@ -276,6 +287,15 @@ export const useStoryFrame = (
 
     const resizes = new ResizeObserver(rebuild)
     pages.forEach((page) => resizes.observe(page))
+
+    // On a phone the frame hugs the page name, which changes size without any scrolling.
+    const labelChanges = new MutationObserver(schedule)
+    const label = document.querySelector(`.${currentPage}`)
+
+    if (label) {
+      labelChanges.observe(label, { childList: true })
+    }
+
     window.addEventListener('scroll', schedule, { passive: true })
     window.addEventListener('resize', rebuild, { passive: true })
     void document.fonts?.ready.then(rebuild)
@@ -283,6 +303,7 @@ export const useStoryFrame = (
     return () => {
       cancelAnimationFrame(frameId)
       resizes.disconnect()
+      labelChanges.disconnect()
       window.removeEventListener('scroll', schedule)
       window.removeEventListener('resize', rebuild)
     }

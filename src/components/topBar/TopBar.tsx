@@ -1,28 +1,31 @@
 import { HyperText } from '@components/common/hyperText/HyperText'
 import { StyleSwitcher } from '@components/styleSwitcher/StyleSwitcher'
 import * as styles from '@components/topBar/topBar.css'
-import { TopBarLanguageMenu } from '@components/topBar/TopBarLanguageMenu'
 import { TopBarMenu } from '@components/topBar/TopBarMenu'
+import { TopBarNavLink } from '@components/topBar/TopBarNavLink'
+import { useGlassLens } from '@hooks/useGlassLens'
+import { useMediaQuery } from '@hooks/useMediaQuery'
 import { useTranslation } from '@localization/localize'
 import { useNavMenuStore } from '@stores/navMenuStore'
 import { usePersonalInfo, usePortfolioLoading } from '@stores/portfolioStore'
-import { trackGaEvent, trackMixpanelEvent } from '@utils/analytics'
-import { cx } from '@utils/cn'
 import { BookOpen, Briefcase, Cog, House, List, Menu, MessageCircle, User } from 'lucide-react'
-import React from 'react'
+import React, { useRef } from 'react'
 import { Link, useLocation } from 'react-router'
 
 const getActiveId = (pathname: string) => pathname.slice(1) || 'home'
 
 export const TopBar: React.FC = () => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const { pathname } = useLocation()
   const personalInfo = usePersonalInfo()
   const loading = usePortfolioLoading()
   const toggleMenu = useNavMenuStore((state) => state.toggle)
-  const closeMenu = useNavMenuStore((state) => state.close)
   const activeId = getActiveId(pathname)
-  const currentLanguage = i18n.resolvedLanguage === 'fr' ? 'fr' : 'en'
+  const canAnimate = useMediaQuery('(prefers-reduced-motion: no-preference)')
+  const barRef = useRef<HTMLElement>(null)
+  const lensMapRef = useRef<SVGFEImageElement>(null)
+
+  useGlassLens(barRef, lensMapRef)
 
   const items = [
     { id: 'home', label: t('topBar.nav.home'), icon: House, path: '/' },
@@ -34,36 +37,33 @@ export const TopBar: React.FC = () => {
     { id: 'contact', label: t('topBar.nav.contact'), icon: MessageCircle, path: '/contact' },
   ]
 
+  const activeLabel = items.find((item) => item.id === activeId)?.label ?? ''
+
   const firstName = (loading ? undefined : personalInfo?.name.split(' ')[1]) ?? 'Zeeshan'
   const logoText = `${firstName.charAt(0).toUpperCase()}${firstName.slice(1).toLowerCase()}`
 
-  const handleLanguageChange = (language: 'en' | 'fr') => {
-    const label = language.toUpperCase()
-    trackGaEvent('Language', 'language_switch_click', label)
-    trackMixpanelEvent('language_switch_click', 'Language', label)
-    void i18n.changeLanguage(language)
-    closeMenu()
-  }
-
-  const languages = (
-    <div className={styles.languages}>
-      {(['en', 'fr'] as const).map((language) => (
-        <button
-          key={language}
-          className={cx(styles.language, currentLanguage === language && styles.languageActive)}
-          type="button"
-          aria-pressed={currentLanguage === language}
-          onClick={() => handleLanguageChange(language)}
-        >
-          {t(`topBar.language.${language}`)}
-        </button>
-      ))}
-    </div>
-  )
-
   return (
     <>
-      <header className={styles.bar}>
+      <svg className={styles.glassFilter} aria-hidden="true">
+        <filter
+          id={styles.GLASS_FILTER_ID}
+          x="0"
+          y="0"
+          width="100%"
+          height="100%"
+          colorInterpolationFilters="sRGB"
+        >
+          <feImage ref={lensMapRef} x="0" y="0" preserveAspectRatio="none" result="map" />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="map"
+            scale="18"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </svg>
+      <header ref={barRef} className={styles.bar}>
         <Link to="/" className={styles.logo}>
           <HyperText
             text={logoText}
@@ -77,21 +77,24 @@ export const TopBar: React.FC = () => {
         </Link>
         <nav className={styles.links}>
           {items.map((item) => (
-            <Link
+            <TopBarNavLink
               key={item.id}
-              to={item.path}
-              aria-current={item.id === activeId ? 'page' : undefined}
-              className={cx(styles.link, item.id === activeId && styles.linkActive)}
-            >
-              {item.label}
-            </Link>
+              label={item.label}
+              path={item.path}
+              isActive={item.id === activeId}
+            />
           ))}
         </nav>
         <span className={styles.currentPage} aria-hidden="true">
-          {items.find((item) => item.id === activeId)?.label}
+          <HyperText
+            key={activeLabel}
+            text={activeLabel}
+            as="span"
+            animateOnLoad={canAnimate}
+            animateOnHover={false}
+          />
         </span>
         <div className={styles.controls}>
-          <TopBarLanguageMenu currentLanguage={currentLanguage} onChange={handleLanguageChange} />
           <StyleSwitcher />
           <button
             className={styles.menuButton}
@@ -103,7 +106,7 @@ export const TopBar: React.FC = () => {
           </button>
         </div>
       </header>
-      <TopBarMenu items={items} activeId={activeId} languages={languages} />
+      <TopBarMenu items={items} activeId={activeId} />
     </>
   )
 }
