@@ -135,7 +135,7 @@ export const categoryBadge = style({
   borderRadius: '20px',
   fontSize: '13px',
   fontWeight: 500,
-  backgroundColor: vars.color.skin + '15',
+  backgroundColor: `color-mix(in srgb, ${vars.color.skin} 8%, transparent)`,
   color: vars.color.skin,
   border: `1px solid ${vars.color.skin}`,
   transition: 'all 0.3s ease',

@@ -1,7 +1,8 @@
 import { keyframes, style } from '@vanilla-extract/css'
 import { vars } from '@styles/theme.css'
 
-const skinTint = (percent: number) => `color-mix(in srgb, ${vars.color.skin} ${percent}%, transparent)`
+const skinTint = (percent: number) =>
+  `color-mix(in srgb, ${vars.color.skin} ${percent}%, transparent)`
 
 const bob = keyframes({
   '0%': { transform: 'translate(-50%, 0)' },
@@ -99,7 +100,7 @@ export const selectedChipRemove = style({
   transition: 'background-color 0.2s ease, color 0.2s ease',
   selectors: {
     '&:hover': {
-      background: `${vars.color.skin}18`,
+      background: `color-mix(in srgb, ${vars.color.skin} 9%, transparent)`,
     },
     '&:focus-visible': {
       outline: `2px solid ${vars.color.skin}`,
@@ -286,7 +287,8 @@ export const scrollCue = style({
   color: vars.color.skin,
   boxShadow: `0 8px 18px rgba(15, 23, 42, 0.14), inset 0 1px 0 ${skinTint(10)}`,
   backdropFilter: 'blur(6px)',
-  transition: 'opacity 0.18s ease, transform 0.18s ease, background-color 0.2s ease, border-color 0.2s ease',
+  transition:
+    'opacity 0.18s ease, transform 0.18s ease, background-color 0.2s ease, border-color 0.2s ease',
   selectors: {
     '&:hover': {
       background: `radial-gradient(circle at 30% 25%, ${skinTint(30)} 0%, ${skinTint(22)} 55%, ${skinTint(16)} 100%)`,

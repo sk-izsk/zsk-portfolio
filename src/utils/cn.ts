@@ -34,7 +34,9 @@ const isRawClassName = (value: unknown): value is RawClassName => {
 const isStyleConditionMap = <Styles extends StyleModule>(
   value: BoundClassValue<Styles>,
 ): value is StyleConditionMap<Styles> => {
-  return typeof value === 'object' && value !== null && !Array.isArray(value) && !isRawClassName(value)
+  return (
+    typeof value === 'object' && value !== null && !Array.isArray(value) && !isRawClassName(value)
+  )
 }
 
 const pushRawClassNames = (classNames: string[], value: ClassValue): void => {
@@ -135,4 +137,4 @@ export const createCn = <Styles extends StyleModule>(styles: Styles) => {
   }
 }
 
-export type { BoundClassValue, StyleKey, StyleModule }
+export type { BoundClassValue, StyleModule }

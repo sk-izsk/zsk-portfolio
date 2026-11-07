@@ -1,10 +1,6 @@
 import type { TagPickerOption } from '@app-types/tagPickerTypes'
 
-export const normalizeTagSlug = (value: string) =>
-  value
-    .trim()
-    .toLowerCase()
-    .replace(/\s+/g, '-')
+export const normalizeTagSlug = (value: string) => value.trim().toLowerCase().replace(/\s+/g, '-')
 
 export const normalizeTagSlugs = (values: string[]) =>
   [...new Set(values.map(normalizeTagSlug).filter(Boolean))].sort((left, right) =>

@@ -44,12 +44,9 @@ export const TextReveal: React.FC<TextRevealProps> = ({ children, className }) =
     <span ref={rootRef} className={cn('revealRoot', raw(className))}>
       {words.map((word, index) => {
         const delayClass = styles.revealDelay[Math.min(index, styles.revealDelay.length - 1)]
-        const textClasses = cn(
-          'revealWordText',
-          'reducedMotionReveal',
-          raw(delayClass),
-          { revealWordVisible: isVisible },
-        )
+        const textClasses = cn('revealWordText', 'reducedMotionReveal', raw(delayClass), {
+          revealWordVisible: isVisible,
+        })
 
         return (
           <span key={`${word}-${index}`} className={styles.revealWord}>

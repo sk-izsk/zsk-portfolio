@@ -9,7 +9,6 @@ const config: KnipConfig = {
     '!src/vite-env.d.ts',
   ],
   includeEntryExports: true,
-  ignore: ['coverage/**', 'dist/**', 'graphify-out/**'],
 }
 
 export default config

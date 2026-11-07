@@ -17,8 +17,8 @@ export const useRandomDeveloperQuote = () => {
   })
 
   useEffect(() => {
+    // Without quotes there is nothing to rotate. The index wraps, so a stale one stays valid.
     if (!quoteQuery.data?.length) {
-      setQuoteIndex(0)
       return
     }
 

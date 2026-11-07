@@ -208,8 +208,8 @@ export const toggleButton = style({
 })
 
 export const toggleButtonActive = style({
-  borderColor: vars.color.skin + '55',
-  background: vars.color.skin + '12',
+  borderColor: `color-mix(in srgb, ${vars.color.skin} 33%, transparent)`,
+  background: `color-mix(in srgb, ${vars.color.skin} 7%, transparent)`,
   color: vars.color.skin,
 })
 

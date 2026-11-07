@@ -19,15 +19,16 @@ export const useGithubContributionData = (
   const [isGraphLoading, setIsGraphLoading] = useState(true)
   const [graphError, setGraphError] = useState(false)
   const [isMobileGraph, setIsMobileGraph] = useState(false)
+  // Read once, since rendering must not depend on the clock.
+  const [currentYear] = useState(() => new Date().getFullYear())
 
   const yearOptions = useMemo(() => {
     if (yearIndex) {
       return [...yearIndex.years].sort((left, right) => Number(right) - Number(left))
     }
 
-    const currentYear = new Date().getFullYear()
     return Array.from({ length: currentYear - 2018 + 1 }, (_, index) => String(currentYear - index))
-  }, [yearIndex])
+  }, [yearIndex, currentYear])
 
   useEffect(() => {
     if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {

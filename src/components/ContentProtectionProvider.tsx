@@ -69,14 +69,14 @@ const isDevtoolsShortcut = (event: KeyboardEvent) => {
 
   return (
     key === 'f12' ||
-    key === 'u' && hasMetaOrCtrl ||
-    key === 's' && hasMetaOrCtrl ||
-    key === 'i' && hasInspectorModifiers ||
-    key === 'i' && hasMacInspectorModifiers ||
-    key === 'j' && hasInspectorModifiers ||
-    key === 'j' && hasMacInspectorModifiers ||
-    key === 'c' && hasInspectorModifiers ||
-    key === 'c' && hasMacInspectorModifiers
+    (key === 'u' && hasMetaOrCtrl) ||
+    (key === 's' && hasMetaOrCtrl) ||
+    (key === 'i' && hasInspectorModifiers) ||
+    (key === 'i' && hasMacInspectorModifiers) ||
+    (key === 'j' && hasInspectorModifiers) ||
+    (key === 'j' && hasMacInspectorModifiers) ||
+    (key === 'c' && hasInspectorModifiers) ||
+    (key === 'c' && hasMacInspectorModifiers)
   )
 }
 

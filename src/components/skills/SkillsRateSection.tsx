@@ -29,7 +29,11 @@ export const SkillsRateSection: React.FC<SkillsRateSectionProps> = ({
   return (
     <div className={cx(skillsSection, 'padd-15')}>
       <h3 className={cx(title, skillsHeading)}>
-        <Icon className={cx(skillsHeadingIcon, skillsHeadingIconGapSm)} size={22} strokeWidth={2.25} />
+        <Icon
+          className={cx(skillsHeadingIcon, skillsHeadingIconGapSm)}
+          size={22}
+          strokeWidth={2.25}
+        />
         {titleText}
       </h3>
       <div className="row">

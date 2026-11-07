@@ -36,11 +36,10 @@ export const Modal: ModalCompound = ({ open, onClose, children, contentProtected
   const ref = useRef<HTMLDivElement>(null)
   const [shouldRender, setShouldRender] = useState(open)
 
-  useEffect(() => {
-    if (open) {
-      setShouldRender(true)
-    }
-  }, [open])
+  // Mounts as soon as it opens. It unmounts on its own once the closing animation ends.
+  if (open && !shouldRender) {
+    setShouldRender(true)
+  }
 
   const handleAnimationEnd = () => {
     if (!open) {
@@ -111,7 +110,6 @@ Modal.Body = ({ children }) => {
     isEnabled: true,
     viewportRef,
     contentRef,
-    dependencies: [children],
   })
 
   const handleScrollCueClick = () => {

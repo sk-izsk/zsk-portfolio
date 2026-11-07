@@ -45,10 +45,15 @@ const frameAroundRect = (rect: DOMRect, outset: number, size: number) =>
 const getLinkContentRect = (link: HTMLElement) => {
   const box = link.getBoundingClientRect()
   const icon = link.firstElementChild?.getBoundingClientRect() ?? box
-  const label = link.lastElementChild?.getBoundingClientRect() ?? box
+  const labelElement = link.lastElementChild as HTMLElement | null
+  const label = labelElement?.getBoundingClientRect() ?? box
+  // From layout rather than the rect, because the label may still be sliding in when measured.
+  const labelRight = labelElement
+    ? box.left + labelElement.offsetLeft - link.offsetLeft + labelElement.offsetWidth
+    : box.right
   const contentRight = box.right - parseFloat(getComputedStyle(link).paddingRight)
   const top = Math.min(icon.top, label.top)
-  const right = Math.max(icon.right, Math.min(label.right, contentRight))
+  const right = Math.max(icon.right, Math.min(labelRight, contentRight))
 
   return new DOMRect(icon.left, top, right - icon.left, Math.max(icon.bottom, label.bottom) - top)
 }

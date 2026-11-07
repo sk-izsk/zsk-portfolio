@@ -17,7 +17,13 @@ export const CopyButton: React.FC<CopyButtonProps> = ({ text, label, className }
   }
 
   return (
-    <button className={className} type="button" onClick={() => void copyText()} aria-label={label} title={label}>
+    <button
+      className={className}
+      type="button"
+      onClick={() => void copyText()}
+      aria-label={label}
+      title={label}
+    >
       {copied ? <Check size={13} aria-hidden /> : <Copy size={13} aria-hidden />}
     </button>
   )

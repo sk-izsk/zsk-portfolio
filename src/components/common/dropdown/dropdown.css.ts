@@ -27,13 +27,13 @@ export const trigger = style({
   transition: 'border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease',
   selectors: {
     '&:focus-visible': {
-      boxShadow: `0 0 0 3px ${vars.color.skin}25`,
+      boxShadow: `0 0 0 3px color-mix(in srgb, ${vars.color.skin} 15%, transparent)`,
     },
   },
 })
 
 export const triggerOpen = style({
-  boxShadow: `0 0 0 3px ${vars.color.skin}18`,
+  boxShadow: `0 0 0 3px color-mix(in srgb, ${vars.color.skin} 9%, transparent)`,
 })
 
 export const triggerLabel = style({
@@ -85,10 +85,10 @@ export const option = style({
   transition: 'background-color 0.2s ease, color 0.2s ease',
   selectors: {
     '&:hover': {
-      background: `${vars.color.skin}14`,
+      background: `color-mix(in srgb, ${vars.color.skin} 8%, transparent)`,
     },
     '&:focus-visible': {
-      background: `${vars.color.skin}14`,
+      background: `color-mix(in srgb, ${vars.color.skin} 8%, transparent)`,
     },
   },
 })

@@ -3,28 +3,22 @@ import { useEffect, useState, type RefObject } from 'react'
 interface UseScrollableOverflowOptions {
   isEnabled: boolean
   viewportRef: RefObject<HTMLElement | null>
+  // Watched for size changes, so new content updates the result without being listed.
   contentRef?: RefObject<HTMLElement | null>
-  dependencies?: readonly unknown[]
 }
 
 export const useScrollableOverflow = ({
   isEnabled,
   viewportRef,
   contentRef,
-  dependencies = [],
 }: UseScrollableOverflowOptions) => {
   const [hasMoreBelow, setHasMoreBelow] = useState(false)
 
   useEffect(() => {
-    if (!isEnabled) {
-      setHasMoreBelow(false)
-      return
-    }
-
     const viewport = viewportRef.current
     const content = contentRef?.current
 
-    if (!viewport) {
+    if (!isEnabled || !viewport) {
       return
     }
 
@@ -53,7 +47,7 @@ export const useScrollableOverflow = ({
       viewport.removeEventListener('scroll', updateScrollState)
       resizeObserver?.disconnect()
     }
-  }, [contentRef, isEnabled, viewportRef, ...dependencies])
+  }, [contentRef, isEnabled, viewportRef])
 
-  return { hasMoreBelow }
+  return { hasMoreBelow: isEnabled && hasMoreBelow }
 }

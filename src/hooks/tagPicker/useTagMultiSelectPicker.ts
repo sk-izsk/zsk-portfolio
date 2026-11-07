@@ -22,8 +22,9 @@ export const useTagMultiSelectPicker = ({
 }: UseTagMultiSelectPickerOptions) => {
   const [isOpen, setIsOpen] = useState(false)
   const [query, setQuery] = useState('')
-  const [remoteOption, setRemoteOption] = useState<TagPickerOption | null>(null)
-  const [isResolvingOption, setIsResolvingOption] = useState(false)
+  const [storedRemoteOption, setRemoteOption] = useState<TagPickerOption | null>(null)
+  // The last query an answer came back for, which tells whether the current one is still pending.
+  const [resolvedQuery, setResolvedQuery] = useState<string | null>(null)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
   const rootRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -72,6 +73,18 @@ export const useTagMultiSelectPicker = ({
       })
       .slice(0, maxResults)
   }, [maxResults, options, query])
+
+  // A query is looked up remotely only when no known option already matches it exactly.
+  const normalizedQuery = normalizeSearchValue(query)
+  const queryToResolve =
+    normalizedQuery &&
+    resolveOptionByQuery &&
+    !options.some((option) => option.value === normalizedQuery) &&
+    !filteredOptions.some((option) => option.value === normalizedQuery)
+      ? normalizedQuery
+      : null
+  const remoteOption = queryToResolve ? storedRemoteOption : null
+  const isResolvingOption = queryToResolve !== null && resolvedQuery !== queryToResolve
 
   const visibleOptions = useMemo(() => {
     const merged = [...filteredOptions]
@@ -140,46 +153,30 @@ export const useTagMultiSelectPicker = ({
   }, [isOpen])
 
   useEffect(() => {
-    const normalizedQuery = normalizeSearchValue(query)
-
-    if (!normalizedQuery || !resolveOptionByQuery) {
-      setRemoteOption(null)
-      setIsResolvingOption(false)
-      return
-    }
-
-    if (
-      options.some((option) => option.value === normalizedQuery) ||
-      filteredOptions.some((option) => option.value === normalizedQuery)
-    ) {
-      setRemoteOption(null)
-      setIsResolvingOption(false)
+    if (!queryToResolve || !resolveOptionByQuery) {
       return
     }
 
     let isActive = true
-    setIsResolvingOption(true)
 
-    void resolveOptionByQuery(normalizedQuery)
+    void resolveOptionByQuery(queryToResolve)
       .then((option) => {
-        if (!isActive) {
-          return
+        if (isActive) {
+          setRemoteOption(option)
+          setResolvedQuery(queryToResolve)
         }
-
-        setRemoteOption(option)
-        setIsResolvingOption(false)
       })
       .catch(() => {
         if (isActive) {
           setRemoteOption(null)
-          setIsResolvingOption(false)
+          setResolvedQuery(queryToResolve)
         }
       })
 
     return () => {
       isActive = false
     }
-  }, [filteredOptions, options, query, resolveOptionByQuery])
+  }, [queryToResolve, resolveOptionByQuery])
 
   return {
     rootRef,

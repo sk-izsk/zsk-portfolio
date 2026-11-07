@@ -72,13 +72,17 @@ export const GithubContributionCard: React.FC<GithubContributionCardProps> = ({
     </div>
     <div className={githubStatsMedia}>
       <div className={githubContributionPanel}>
-        {status.isLoading ? <div className={githubContributionLoading}>{status.loadingText}</div> : null}
+        {status.isLoading ? (
+          <div className={githubContributionLoading}>{status.loadingText}</div>
+        ) : null}
         {status.hasError ? (
           <div className={githubContributionLoading}>{status.errorText}</div>
         ) : (
           <div
             className={githubContributionFrame}
-            style={{ width: `${graph.contributionLayout.contentWidth + (graph.isMobileGraph ? 24 : 34)}px` }}
+            style={{
+              width: `${graph.contributionLayout.contentWidth + (graph.isMobileGraph ? 24 : 34)}px`,
+            }}
           >
             <div className={githubContributionMonths}>
               {graph.contributionLayout.monthLabels.map((month) => (

@@ -1,5 +1,9 @@
 import { Search } from 'lucide-react'
-import React, { type ChangeEvent, type KeyboardEvent as ReactKeyboardEvent, type RefObject } from 'react'
+import React, {
+  type ChangeEvent,
+  type KeyboardEvent as ReactKeyboardEvent,
+  type RefObject,
+} from 'react'
 import * as styles from './tagMultiSelectPicker.css'
 
 interface TagPickerSearchInputProps {
