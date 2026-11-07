@@ -1,12 +1,12 @@
 import { create } from 'zustand'
 
-type SidebarStore = {
+type NavMenuStore = {
   isOpen: boolean
   toggle: () => void
   close: () => void
 }
 
-export const useSidebarStore = create<SidebarStore>((set) => ({
+export const useNavMenuStore = create<NavMenuStore>((set) => ({
   isOpen: false,
   toggle: () => set((state) => ({ isOpen: !state.isOpen })),
   close: () => set({ isOpen: false }),

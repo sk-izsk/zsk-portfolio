@@ -5,6 +5,12 @@ export const serviceRow = style({
   alignItems: 'stretch',
 })
 
+export const serviceSeeAll = style({
+  flex: '0 0 100%',
+  display: 'flex',
+  justifyContent: 'center',
+})
+
 export const serviceItem = style({
   display: 'flex',
   marginBottom: '30px',

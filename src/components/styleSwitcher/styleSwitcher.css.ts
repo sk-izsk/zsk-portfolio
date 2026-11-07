@@ -11,40 +11,28 @@ const rotateAnimation = keyframes({
 })
 
 export const styleSwitcher = style({
-  position: 'fixed',
-  right: '24px',
-  top: '24px',
-  zIndex: 120,
+  position: 'relative',
   display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'flex-end',
-  gap: '12px',
-  '@media': {
-    '(max-width: 767px)': {
-      right: '16px',
-      top: '16px',
-    },
-  },
+  alignItems: 'center',
 })
 
 export const styleSwitcherTrigger = style({
-  height: '48px',
-  width: '48px',
-  borderRadius: '16px',
-  border: `1px solid ${vars.color.skin}66`,
+  height: '40px',
+  width: '40px',
+  borderRadius: '999px',
+  border: `1px solid color-mix(in srgb, ${vars.color.skin} 40%, transparent)`,
   background: vars.color.background[100],
   color: vars.color.skin,
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
   cursor: 'pointer',
-  boxShadow: '0 18px 45px rgba(15, 23, 42, 0.1)',
-  transition: 'transform 0.25s ease, color 0.25s ease, border-color 0.25s ease',
+  transition: 'transform 300ms ease-out, color 300ms ease-out, border-color 300ms ease-out',
   selectors: {
     '&:hover': {
       transform: 'translateY(-1px)',
       borderColor: vars.color.skin,
-      background: vars.color.skin + '10',
+      background: `color-mix(in srgb, ${vars.color.skin} 8%, transparent)`,
     },
   },
 })

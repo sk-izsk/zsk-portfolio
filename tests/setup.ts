@@ -28,13 +28,13 @@ const createMemoryStorage = (): Storage => {
 const hasWorkingStorage = (value: unknown): value is Storage =>
   Boolean(
     value &&
-      typeof value === 'object' &&
-      'getItem' in value &&
-      typeof value.getItem === 'function' &&
-      'setItem' in value &&
-      typeof value.setItem === 'function' &&
-      'clear' in value &&
-      typeof value.clear === 'function',
+    typeof value === 'object' &&
+    'getItem' in value &&
+    typeof value.getItem === 'function' &&
+    'setItem' in value &&
+    typeof value.setItem === 'function' &&
+    'clear' in value &&
+    typeof value.clear === 'function',
   )
 
 const ensureStorage = (name: 'localStorage' | 'sessionStorage') => {
@@ -59,3 +59,40 @@ const ensureStorage = (name: 'localStorage' | 'sessionStorage') => {
 
 ensureStorage('localStorage')
 ensureStorage('sessionStorage')
+
+// jsdom has neither API. Observers never fire and no media query matches, so scroll scenes stay off.
+class IntersectionObserverStub implements IntersectionObserver {
+  readonly root = null
+  readonly rootMargin = ''
+  readonly scrollMargin = ''
+  readonly thresholds = []
+  disconnect() {}
+  observe() {}
+  takeRecords() {
+    return []
+  }
+  unobserve() {}
+}
+
+globalThis.IntersectionObserver = IntersectionObserverStub
+
+window.matchMedia = (query: string) =>
+  ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addEventListener() {},
+    removeEventListener() {},
+    addListener() {},
+    removeListener() {},
+    dispatchEvent: () => false,
+  }) as MediaQueryList
+
+window.scrollTo = () => undefined
+
+HTMLDialogElement.prototype.showModal = function showModal(this: HTMLDialogElement) {
+  this.open = true
+}
+HTMLDialogElement.prototype.close = function close(this: HTMLDialogElement) {
+  this.open = false
+}

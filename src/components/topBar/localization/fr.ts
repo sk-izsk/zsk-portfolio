@@ -1,4 +1,4 @@
-export const sidebarFr = {
+export const topBarFr = {
   nav: {
     home: 'Accueil',
     askAi: 'Ask AI',
@@ -16,7 +16,5 @@ export const sidebarFr = {
   toggle: {
     open: 'Ouvrir la navigation',
     close: 'Fermer la navigation',
-    expand: 'Agrandir la barre laterale',
-    collapse: 'Reduire la barre laterale',
   },
 } as const

@@ -3,15 +3,11 @@ export const homeFr = {
   seoDescription:
     'Portfolio de développeur Full Stack de Shaikh Zeeshan Murshed – expert React, TypeScript et Node.js basé à Montréal.',
 
-  professionPrefix: 'Je suis',
+  headline:
+    "Ingénieur frontend senior qui crée des applications React et TypeScript pour le SaaS d'entreprise",
   downloadCv: 'Telecharger CV',
-  roles: {
-    fullStack: 'Developpeur Full Stack',
-    react: 'Developpeur React',
-    typescript: 'Developpeur TypeScript',
-    frontend: 'Developpeur Frontend',
-    backend: 'Developpeur Backend',
-    mobile: 'Developpeur Mobile',
-    aiEngineering: 'Ingenieur IA',
-  },
+  askAi: "Interroger l'IA à mon sujet",
+  tagline:
+    "Je crée des applications React et TypeScript performantes, de l'architecture frontend aux outils IA.",
+  scrollCue: 'Faites défiler pour découvrir',
 } as const

@@ -1,16 +1,26 @@
 import { ProjectCardContainer } from '@components/projects/ProjectCardContainer'
 import { ProjectFilterBar } from '@components/projects/ProjectFilterBar'
 import { ProjectModalContainer } from '@components/projects/ProjectModalContainer'
-import { projectGrid, projectHeading, projectToolbar } from '@components/projects/projects.css'
+import {
+  projectGrid,
+  projectHeading,
+  projectSeeAll,
+  projectToolbar,
+} from '@components/projects/projects.css'
+import { Button } from '@components/common/button/Button'
 import { Screen } from '@components/Screen'
 import { useProjectTagFilteredProjects } from '@hooks/project/useProjectTagFilteredProjects'
 import { useSelectedProjectTagFilters } from '@hooks/project/useSelectedProjectTagFilters'
 import { useAnalytics } from '@hooks/useAnalytics'
+import { usePreview } from '@hooks/usePreview'
 import { useTranslation } from '@localization/localize'
 import { usePortfolioError, usePortfolioLoading, useProjects } from '@stores/portfolioStore'
 import { cx } from '@utils/cn'
 import React, { useState } from 'react'
 import type { FilterProjectType } from '../hooks/project/useProjectTypeFilteredProjects'
+
+const PREVIEW_COUNT = 6
+const PREVIEW_COUNT_PHONE = 3
 
 const ProjectScreen: React.FC = () => {
   const projects = useProjects()
@@ -24,6 +34,11 @@ const ProjectScreen: React.FC = () => {
 
   const [selectedTags, setSelectedTags] = useSelectedProjectTagFilters()
   const filteredProjects = useProjectTagFilteredProjects(selectedTags)
+  const {
+    visibleItems: visibleProjects,
+    hasMore,
+    showAll,
+  } = usePreview(filteredProjects, PREVIEW_COUNT_PHONE, PREVIEW_COUNT)
 
   return (
     <Screen
@@ -50,7 +65,7 @@ const ProjectScreen: React.FC = () => {
             </div>
           </div>
           <div className={cx(projectGrid, 'padd-15')}>
-            {filteredProjects.map((project) => {
+            {visibleProjects.map((project) => {
               return (
                 <ProjectCardContainer
                   key={project.id}
@@ -63,6 +78,13 @@ const ProjectScreen: React.FC = () => {
               )
             })}
           </div>
+          {hasMore ? (
+            <div className={projectSeeAll}>
+              <Button variant="secondary" size="large" onClick={showAll}>
+                {t('projects.seeAll', { count: filteredProjects.length })}
+              </Button>
+            </div>
+          ) : null}
           {selectedProject && (
             <ProjectModalContainer
               open={modalOpen}

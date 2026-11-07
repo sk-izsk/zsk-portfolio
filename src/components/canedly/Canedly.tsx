@@ -64,26 +64,16 @@ export const Canedly = () => {
   }, [PopupModalComponent, isOpen])
 
   useEffect(() => {
-    const sections = document.querySelectorAll<HTMLElement>('.section')
     if (isOpen) {
       document.documentElement.style.overflowY = 'hidden'
       document.body.style.overflowY = 'hidden'
-      sections.forEach((el) => {
-        el.style.overflowY = 'hidden'
-      })
     } else {
       document.documentElement.style.overflowY = ''
       document.body.style.overflowY = ''
-      sections.forEach((el) => {
-        el.style.overflowY = ''
-      })
     }
     return () => {
       document.documentElement.style.overflowY = ''
       document.body.style.overflowY = ''
-      sections.forEach((el) => {
-        el.style.overflowY = ''
-      })
     }
   }, [isOpen])
 

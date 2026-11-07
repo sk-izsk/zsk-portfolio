@@ -1,4 +1,4 @@
-export const sidebarEn = {
+export const topBarEn = {
   nav: {
     home: 'Home',
     askAi: 'Ask AI',
@@ -16,7 +16,5 @@ export const sidebarEn = {
   toggle: {
     open: 'Open navigation',
     close: 'Close navigation',
-    expand: 'Expand sidebar',
-    collapse: 'Collapse sidebar',
   },
 } as const

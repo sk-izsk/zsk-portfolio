@@ -1,6 +1,8 @@
 import { Screen } from '@components/Screen'
 import { ServiceCard } from '@components/services/ServiceCard'
-import { serviceRow } from '@components/services/services.css'
+import { serviceRow, serviceSeeAll } from '@components/services/services.css'
+import { Button } from '@components/common/button/Button'
+import { usePreview } from '@hooks/usePreview'
 import { useAnalytics } from '@hooks/useAnalytics'
 import { useTranslation } from '@localization/localize'
 import { usePortfolioError, usePortfolioLoading, useServices } from '@stores/portfolioStore'
@@ -37,8 +39,11 @@ const toServiceIcon = (serviceId: number): LucideIcon => {
   return serviceIconById[serviceId] ?? Code
 }
 
+const PREVIEW_COUNT_PHONE = 4
+
 const ServiceScreen: React.FC = () => {
   const services = useServices()
+  const { visibleItems, hasMore, showAll } = usePreview(services ?? [], PREVIEW_COUNT_PHONE)
   const loading = usePortfolioLoading()
   const error = usePortfolioError()
   const { t } = useTranslation()
@@ -56,13 +61,20 @@ const ServiceScreen: React.FC = () => {
     >
       {services && (
         <div className={cx('row', serviceRow)}>
-          {services.map((service) => (
+          {visibleItems.map((service) => (
             <ServiceCard key={service.id}>
               <ServiceCard.Icon icon={toServiceIcon(service.id)} />
               <ServiceCard.Title>{service.title}</ServiceCard.Title>
               <ServiceCard.Body>{service.description}</ServiceCard.Body>
             </ServiceCard>
           ))}
+          {hasMore ? (
+            <div className={serviceSeeAll}>
+              <Button variant="secondary" size="large" onClick={showAll}>
+                {t('services.seeAll', { count: services.length })}
+              </Button>
+            </div>
+          ) : null}
         </div>
       )}
     </Screen>

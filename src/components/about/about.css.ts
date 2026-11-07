@@ -1,4 +1,4 @@
-import { keyframes, style } from '@vanilla-extract/css'
+import { globalStyle, keyframes, style } from '@vanilla-extract/css'
 import { vars } from '@styles/theme.css'
 
 export const aboutContent = style({
@@ -167,6 +167,9 @@ export const githubStatsBottomGrid = style({
   justifyContent: 'start',
   gap: '24px',
   '@media': {
+    '(max-width: 767px)': {
+      display: 'none',
+    },
     '(max-width: 991px)': {
       gridTemplateColumns: '1fr',
     },
@@ -659,6 +662,18 @@ export const timelineText = style({
   fontSize: '16px',
   textAlign: 'justify',
   color: vars.color.text[700],
+})
+
+// Experience has a Read More for the full text. Education does not, so it stays complete.
+globalStyle(`${experience} ${timelineText}`, {
+  '@media': {
+    '(max-width: 767px)': {
+      display: '-webkit-box',
+      WebkitBoxOrient: 'vertical',
+      WebkitLineClamp: 3,
+      overflow: 'hidden',
+    },
+  },
 })
 
 export const readMoreTrigger = style({

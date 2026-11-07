@@ -4,6 +4,7 @@ export const projectsFr = {
     'Découvrez les projets récents de Shaikh Zeeshan Murshed – applications web, travaux open source et réalisations full-stack.',
 
   heading: 'Mes Projets Recents :',
+  seeAll: 'Voir les {{count}} projets',
   filter: {
     label: 'Filtrer les projets par type',
     options: {

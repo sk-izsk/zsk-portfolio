@@ -5,17 +5,14 @@ import { HelmetProvider } from 'react-helmet-async'
 import { BrowserRouter as Router } from 'react-router'
 
 import { ErrorBoundary } from '@components/errorBoundary/ErrorBoundary'
-import { Sidebar } from '@components/sidebar/Sidebar'
-import { StyleSwitcher } from '@components/styleSwitcher/StyleSwitcher'
+import { TopBar } from '@components/topBar/TopBar'
 import { ContentProtectionProvider } from '@components/ContentProtectionProvider'
 import { useKeyboardShortcuts } from '@hooks/useKeyboardShortcuts'
 import { usePortfolioData } from '@hooks/usePortfolioData'
 import { useSoundClick } from '@hooks/useSoundClick'
 import { localizeConfig, useTranslation } from '@localization/localize'
 import { usePortfolioStore } from '@stores/portfolioStore'
-import { useSidebarStore } from '@stores/sidebarStore'
 import { useThemeStore } from '@stores/themeStore'
-import { cx } from '@utils/cn'
 import { applyThemeClassToBody } from '@utils/themeClass'
 import { LocalizeProvider } from 'zsk-react-i18n'
 import '../styles/global.css'
@@ -46,8 +43,7 @@ const queryClient = new QueryClient({
 })
 
 const AppLayout = ({ children }: PropsWithChildren) => {
-  const { i18n } = useTranslation()
-  const isSidebarOpen = useSidebarStore((state) => state.isOpen)
+  const { i18n, t } = useTranslation()
   const isDarkMode = useThemeStore((state) => state.isDarkMode)
   const currentColor = useThemeStore((state) => state.currentColor)
   const [showEnhancements, setShowEnhancements] = useState(false)
@@ -61,6 +57,10 @@ const AppLayout = ({ children }: PropsWithChildren) => {
   useLayoutEffect(() => {
     applyThemeClassToBody(isDarkMode, currentColor)
   }, [currentColor, isDarkMode])
+
+  useEffect(() => {
+    document.documentElement.lang = i18n.resolvedLanguage ?? 'en'
+  }, [i18n.resolvedLanguage])
 
   useEffect(() => {
     setLoading(portfolioQuery.isLoading)
@@ -115,16 +115,20 @@ const AppLayout = ({ children }: PropsWithChildren) => {
 
   return (
     <div className="main-container">
+      <a className="skip-link" href="#main-content">
+        {t('common.skipToContent')}
+      </a>
       {showEnhancements ? (
         <Suspense fallback={null}>
           <LazyThemeAnimatedCursor />
         </Suspense>
       ) : null}
-      <Sidebar />
+      <TopBar />
 
-      <div className={cx('main-content', isSidebarOpen && 'sidebar-mobile-open')}>{children}</div>
+      <main id="main-content" tabIndex={-1} className="main-content">
+        {children}
+      </main>
 
-      {showEnhancements ? <StyleSwitcher /> : null}
       {showEnhancements ? (
         <Suspense fallback={null}>
           <LazyCanedly />

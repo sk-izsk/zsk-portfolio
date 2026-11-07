@@ -1,4 +1,5 @@
 export const commonFr = {
+  skipToContent: 'Aller au contenu',
   calendly: {
     cta: 'Vous souhaitez reserver une reunion ?',
   },

@@ -1,27 +1,27 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeEach, describe, expect, it } from 'vitest'
-import { Sidebar } from '@components/sidebar/Sidebar'
+import { TopBar } from '@components/topBar/TopBar'
 import { usePortfolioStore } from '@stores/portfolioStore'
-import { useSidebarStore } from '@stores/sidebarStore'
+import { useNavMenuStore } from '@stores/navMenuStore'
 import { AllProviders } from '@tests/helpers/AllProviders'
 import { mockPortfolioData } from '@tests/helpers/mockPortfolioData'
 
-const renderSidebar = () =>
+const renderTopBar = () =>
   render(
     <AllProviders>
-      <Sidebar />
+      <TopBar />
     </AllProviders>,
   )
 
-describe('Sidebar', () => {
+describe('TopBar', () => {
   beforeEach(() => {
     usePortfolioStore.getState().reset()
-    useSidebarStore.setState({ isOpen: false })
+    useNavMenuStore.setState({ isOpen: false })
   })
 
   it('renders all navigation links', () => {
-    renderSidebar()
+    renderTopBar()
 
     expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /about/i })).toBeInTheDocument()
@@ -33,32 +33,34 @@ describe('Sidebar', () => {
 
   it('shows a logo text derived from the personal name when data is loaded', () => {
     usePortfolioStore.getState().setData(mockPortfolioData)
-    renderSidebar()
+    renderTopBar()
 
-    // getLogoText() takes the second word of the name and title-cases it
-    // 'John Doe' -> 'Doe' -> renders as '<span>D</span>oe'
+    // The second word of the name, 'John Doe' -> 'Doe', renders as '<span>D</span>oe'
     const secondWord = mockPortfolioData.personalInfo.name.split(' ')[1]!.toLowerCase()
-    // The slice after the first character ('oe') is a standalone text node
     expect(screen.getByText(secondWord.slice(1))).toBeInTheDocument()
   })
 
-  it('opens from the hamburger button and closes from the backdrop', async () => {
+  it('opens the menu panel from the menu button and closes it again', async () => {
     const user = userEvent.setup()
-    renderSidebar()
+    renderTopBar()
 
-    const toggler = screen.getByRole('button', { name: /open navigation/i })
-    await user.click(toggler)
+    await user.click(screen.getByRole('button', { name: /open navigation/i }))
+    expect(useNavMenuStore.getState().isOpen).toBe(true)
 
-    expect(useSidebarStore.getState().isOpen).toBe(true)
+    await user.click(screen.getByRole('button', { name: /close navigation/i }))
+    expect(useNavMenuStore.getState().isOpen).toBe(false)
+  })
 
-    const backdrop = screen.getByRole('button', { name: /close navigation/i })
-    await user.click(backdrop)
+  it('marks the current page in the bar', () => {
+    window.history.pushState({}, '', '/about')
+    renderTopBar()
 
-    expect(useSidebarStore.getState().isOpen).toBe(false)
+    expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('aria-current', 'page')
+    window.history.pushState({}, '', '/')
   })
 
   it('renders language switcher buttons', () => {
-    renderSidebar()
+    renderTopBar()
 
     // Language buttons render lowercase labels from the translation config
     expect(screen.getByText('en')).toBeInTheDocument()
