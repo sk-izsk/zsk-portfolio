@@ -1,4 +1,3 @@
-import { styleSwitcherTrigger } from '@components/styleSwitcher/styleSwitcher.css'
 import { vars } from '@styles/theme.css'
 import { globalStyle, style } from '@vanilla-extract/css'
 
@@ -111,12 +110,6 @@ export const storyFrame = style({
   '@media': {
     '(prefers-reduced-motion: reduce)': {
       display: 'none',
-    },
-  },
-  selectors: {
-    // The settings panel lives inside the bar, so no z-index can lift it above the frame.
-    [`body:has(${styleSwitcherTrigger}[aria-expanded="true"]) &`]: {
-      visibility: 'hidden',
     },
   },
 })

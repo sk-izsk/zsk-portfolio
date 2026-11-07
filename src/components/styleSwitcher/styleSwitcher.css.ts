@@ -49,17 +49,16 @@ export const styleSwitcherSpinIcon = style({
 })
 
 export const styleSwitcherPanel = style({
-  position: 'absolute',
-  top: 'calc(100% + 12px)',
-  right: 0,
+  // On the page rather than in the bar, because only there can it sit above the traveling frame.
+  // StyleSwitcher places it under its button.
+  position: 'fixed',
+  zIndex: 902,
   width: 'min(280px, calc(100vw - 32px))',
   padding: '18px',
   borderRadius: '22px',
   border: `1px solid ${vars.color.background[50]}`,
   background: vars.color.background[100],
   boxShadow: '0 28px 70px rgba(15, 23, 42, 0.14)',
-  // The bar's glow is for reading over clear glass, and this panel is solid.
-  textShadow: 'none',
   // Hidden but still laid out, because useGenie measures it before pouring it out of the button.
   visibility: 'hidden',
   selectors: {
@@ -154,12 +153,6 @@ export const languageGrid = style([
   },
 ])
 
-export const languageOptionActive = style({
-  borderColor: vars.color.skin,
-  color: vars.color.skin,
-  background: `color-mix(in srgb, ${vars.color.skin} 8%, transparent)`,
-})
-
 export const toggleButton = style({
   border: `1px solid ${vars.color.background[50]}`,
   borderRadius: '16px',
@@ -185,6 +178,13 @@ export const toggleButtonActive = style({
   borderColor: vars.color.skin + '55',
   background: vars.color.skin + '12',
   color: vars.color.skin,
+})
+
+// After toggleButton, because the later of two equally specific styles wins.
+export const languageOptionActive = style({
+  borderColor: vars.color.skin,
+  color: vars.color.skin,
+  background: `color-mix(in srgb, ${vars.color.skin} 8%, transparent)`,
 })
 
 export const toggleButtonLabel = style({

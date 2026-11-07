@@ -251,12 +251,42 @@ export const homeQuoteBottomBody = style({
 })
 
 export const homeQuoteText = style({
+  position: 'relative',
   margin: 0,
   fontSize: '18px',
   lineHeight: '28px',
   color: vars.color.text[700],
   textWrap: 'balance',
   letterSpacing: '0.01em',
+})
+
+export const homeQuoteSrOnly = style({
+  position: 'absolute',
+  width: '1px',
+  height: '1px',
+  overflow: 'hidden',
+  clipPath: 'inset(50%)',
+  whiteSpace: 'nowrap',
+})
+
+// Each letter lands lit in the theme color, then cools to the text color.
+export const homeQuoteChar = style({
+  transition: 'color 900ms ease-out, text-shadow 900ms ease-out',
+  selectors: {
+    '&[data-lit]': {
+      color: vars.color.skin,
+      textShadow: `0 0 12px ${vars.color.skin}`,
+      transition: 'none',
+    },
+  },
+})
+
+// Reaches above the text, where the rain starts. Its color is the one the rain is drawn in.
+export const homeQuoteRain = style({
+  position: 'absolute',
+  left: 0,
+  color: vars.color.skin,
+  pointerEvents: 'none',
 })
 
 export const homeQuoteMark = style({
