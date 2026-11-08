@@ -25,8 +25,7 @@ export const askAiFr = {
   offline: "Le backend IA local n'est pas lance. Demarrez FastAPI sur le port 8000 puis reessayez.",
   rateLimited: 'Limite horaire atteinte. Reessayez apres la reinitialisation.',
   prompts: {
-    reactProjects:
-      'Quel travail professionnel et quels projets montrent le mieux son niveau en React ?',
+    reactProjects: 'Quel est son meilleur travail en React ?',
     fullStack: 'Resume son experience full-stack.',
     aiProjects: 'Quels projets IA a-t-il construits ?',
     reactNative: 'Est-il adapte a un role React Native ?',

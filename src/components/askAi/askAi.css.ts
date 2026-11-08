@@ -36,14 +36,15 @@ export const shell = style({
   gap: '12px',
 })
 
+// Eyebrow, request count and close button share the first row; the text gets the full width.
 export const hero = style({
   display: 'grid',
   gridTemplateColumns: '1fr auto auto',
-  gap: '12px',
-  alignItems: 'start',
-  padding: '12px',
+  columnGap: '10px',
+  alignItems: 'center',
+  padding: '14px 14px 16px',
   border: `1px solid ${vars.color.background[50]}`,
-  borderRadius: '8px',
+  borderRadius: '12px',
   background: `linear-gradient(135deg, ${vars.color.background[100]} 0%, ${vars.color.background[900]} 100%)`,
 })
 
@@ -52,58 +53,53 @@ export const eyebrow = style({
   alignItems: 'center',
   gap: '8px',
   color: vars.color.skin,
-  fontSize: '13px',
-  fontWeight: 700,
-  textTransform: 'uppercase',
-  marginBottom: '4px',
-})
-
-export const heroTitle = style({
-  color: vars.color.text[900],
-  fontSize: '20px',
-  lineHeight: 1.15,
-  fontWeight: 800,
-  marginBottom: '4px',
-})
-
-export const heroBody = style({
-  color: vars.color.text[700],
-  maxWidth: '620px',
-  fontSize: '13px',
-  lineHeight: 1.45,
-})
-
-export const meter = style({
-  minWidth: '120px',
-  padding: '8px 10px',
-  borderRadius: '8px',
-  border: `1px solid color-mix(in srgb, ${vars.color.skin} 33%, transparent)`,
-  background: `color-mix(in srgb, ${vars.color.skin} 7%, transparent)`,
-  color: vars.color.text[900],
-})
-
-export const meterLabel = style({
-  color: vars.color.text[700],
   fontSize: '12px',
   fontWeight: 700,
   textTransform: 'uppercase',
 })
 
+export const heroTitle = style({
+  gridColumn: '1 / -1',
+  marginTop: '10px',
+  color: vars.color.text[900],
+  fontSize: '20px',
+  lineHeight: 1.2,
+  fontWeight: 800,
+})
+
+export const heroBody = style({
+  gridColumn: '1 / -1',
+  marginTop: '4px',
+  color: vars.color.text[700],
+  fontSize: '13px',
+  lineHeight: 1.5,
+})
+
+export const meter = style({
+  display: 'inline-flex',
+  alignItems: 'baseline',
+  gap: '6px',
+  padding: '6px 10px',
+  borderRadius: '999px',
+  border: `1px solid color-mix(in srgb, ${vars.color.skin} 33%, transparent)`,
+  background: `color-mix(in srgb, ${vars.color.skin} 7%, transparent)`,
+  color: vars.color.text[700],
+  fontSize: '11px',
+  fontWeight: 700,
+  textTransform: 'uppercase',
+  whiteSpace: 'nowrap',
+})
+
 export const meterValue = style({
-  display: 'block',
   color: vars.color.skin,
-  fontSize: '22px',
+  fontSize: '15px',
   fontWeight: 800,
   lineHeight: 1,
-  marginTop: '6px',
 })
 
 export const meterReset = style({
-  display: 'block',
-  color: vars.color.text[700],
-  fontSize: '11px',
-  lineHeight: 1.3,
-  marginTop: '6px',
+  fontWeight: 600,
+  textTransform: 'none',
 })
 
 export const chatPanel = style({
@@ -214,28 +210,35 @@ export const emptyState = style({
 
 export const emptyTitle = style({
   color: vars.color.text[900],
-  fontSize: '24px',
+  fontSize: '18px',
   fontWeight: 800,
-  marginBottom: '8px',
+  marginBottom: '6px',
+})
+
+export const emptyBody = style({
+  fontSize: '13px',
+  lineHeight: 1.5,
 })
 
 export const promptGrid = style({
-  display: 'grid',
-  gridTemplateColumns: '1fr',
-  gap: '10px',
-  marginTop: '22px',
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  gap: '8px',
+  marginTop: '18px',
 })
 
 export const promptButton = style({
-  minHeight: '52px',
   border: `1px solid ${vars.color.background[50]}`,
-  borderRadius: '18px',
+  borderRadius: '999px',
   background: vars.color.background[900],
   color: vars.color.text[900],
   cursor: 'pointer',
-  padding: '12px 14px',
+  padding: '7px 12px',
   textAlign: 'left',
   font: 'inherit',
+  fontSize: '12px',
+  lineHeight: 1.35,
   transition: 'border-color 0.2s ease, color 0.2s ease, transform 0.2s ease',
   ':hover': {
     borderColor: vars.color.skin,
@@ -246,21 +249,16 @@ export const promptButton = style({
 
 export const activeSuggestions = style({
   alignSelf: 'flex-start',
-  display: 'grid',
-  gridTemplateColumns: '1fr',
-  gap: '10px',
-  width: 'min(720px, calc(100% - 46px))',
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: '8px',
+  width: 'calc(100% - 46px)',
   marginLeft: '46px',
-  marginTop: '-4px',
-  padding: '12px',
-  border: `1px dashed color-mix(in srgb, ${vars.color.skin} 40%, transparent)`,
-  borderLeft: `3px solid ${vars.color.skin}`,
-  borderRadius: '14px',
-  background: `color-mix(in srgb, ${vars.color.skin} 3%, transparent)`,
+  marginTop: '-6px',
 })
 
 export const suggestionLabel = style({
-  gridColumn: '1 / -1',
+  flexBasis: '100%',
   color: vars.color.skin,
   fontSize: '11px',
   fontWeight: 800,
@@ -270,13 +268,13 @@ export const suggestionLabel = style({
 
 export const suggestionChip = style({
   border: `1px solid ${vars.color.background[50]}`,
-  borderRadius: '14px',
+  borderRadius: '999px',
   background: vars.color.background[900],
   color: vars.color.text[900],
   cursor: 'pointer',
-  padding: '11px 13px',
+  padding: '7px 12px',
   font: 'inherit',
-  fontSize: '13px',
+  fontSize: '12px',
   lineHeight: 1.35,
   textAlign: 'left',
   transition: 'border-color 0.2s ease, color 0.2s ease, transform 0.2s ease',
@@ -656,10 +654,15 @@ export const sendButton = style({
   },
 })
 
+// Takes no room until there is a status to read, and stays mounted so it is still announced.
 export const status = style({
-  minHeight: '20px',
   color: vars.color.text[700],
   fontSize: '13px',
   padding: '0 14px 14px',
   background: vars.color.background[900],
+  selectors: {
+    '&:empty': {
+      padding: 0,
+    },
+  },
 })

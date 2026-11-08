@@ -15,24 +15,22 @@ export const AskAiHero: React.FC<AskAiHeroProps> = ({ remaining, resetInSeconds,
 
   return (
     <header className={styles.hero}>
-      <div>
-        <span className={styles.eyebrow}>
-          <Sparkles size={16} aria-hidden />
-          {t('askAi.heroEyebrow')}
-        </span>
-        <h3 className={styles.heroTitle}>{t('askAi.heroTitle')}</h3>
-        <p className={styles.heroBody}>{t('askAi.heroBody')}</p>
-      </div>
-      <div className={styles.meter} aria-live="polite">
-        <span className={styles.meterLabel}>{t('askAi.remaining')}</span>
-        <span className={styles.meterValue}>{remaining ?? 3}</span>
+      <span className={styles.eyebrow}>
+        <Sparkles size={16} aria-hidden />
+        {t('askAi.heroEyebrow')}
+      </span>
+      <span className={styles.meter} aria-live="polite">
+        {t('askAi.remaining')}
+        <strong className={styles.meterValue}>{remaining ?? 3}</strong>
         {remaining === 0 && resetInSeconds > 0 ? (
           <span className={styles.meterReset}>
-            {t('askAi.resetsIn', { time: formatResetTime(resetInSeconds) })}
+            · {t('askAi.resetsIn', { time: formatResetTime(resetInSeconds) })}
           </span>
         ) : null}
-      </div>
+      </span>
       {children}
+      <h3 className={styles.heroTitle}>{t('askAi.heroTitle')}</h3>
+      <p className={styles.heroBody}>{t('askAi.heroBody')}</p>
     </header>
   )
 }

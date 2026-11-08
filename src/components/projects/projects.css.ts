@@ -6,13 +6,15 @@ export const projectGrid = style({
   gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
   justifyItems: 'stretch',
   gap: '30px',
+  paddingInline: '15px',
   '@media': {
     '(max-width: 991px)': {
       gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
     },
+    // Full width on phones, so the cards line up with the other cards on the page.
     '(max-width: 767px)': {
-      gridTemplateColumns: '1fr',
-      justifyItems: 'center',
+      gridTemplateColumns: 'minmax(0, 1fr)',
+      paddingInline: 0,
     },
   },
 })
@@ -43,8 +45,7 @@ export const projectFilter = style({
   flexShrink: 0,
   '@media': {
     '(max-width: 767px)': {
-      width: 'min(300px, 100%)',
-      margin: '0 auto',
+      maxWidth: 'none',
     },
   },
 })
@@ -69,9 +70,7 @@ export const projectFilterControl = style({
   flexShrink: 0,
   '@media': {
     '(max-width: 767px)': {
-      width: 'min(300px, 100%)',
-      maxWidth: '100%',
-      margin: '0 auto',
+      maxWidth: 'none',
     },
   },
 })
@@ -85,7 +84,7 @@ export const projectItem = style({
   margin: 0,
   '@media': {
     '(max-width: 767px)': {
-      maxWidth: 'min(300px, 100%)',
+      maxWidth: 'none',
     },
   },
 })

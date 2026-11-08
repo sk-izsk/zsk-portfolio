@@ -25,7 +25,7 @@ export const askAiEn = {
   offline: 'Local AI backend is not running. Start FastAPI on port 8000 and try again.',
   rateLimited: 'Hourly limit reached. Try again after the reset.',
   prompts: {
-    reactProjects: "What professional React work and projects best show Zeeshan's skill?",
+    reactProjects: "What's Zeeshan's strongest React work?",
     fullStack: 'Summarize his full-stack experience.',
     aiProjects: 'What AI projects has he built?',
     reactNative: 'Is he a good fit for a React Native role?',

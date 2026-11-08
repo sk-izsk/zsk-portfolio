@@ -7,20 +7,14 @@
       "city": "Montréal",
       "country": "Canada"
     },
-    "languages": [
-      "English",
-      "Bengali",
-      "Hindi"
-    ],
-    "availability": [
-      "Full time",
-      "Remote"
-    ],
+    "languages": ["English", "Bengali", "Hindi"],
+    "preferredLocation": ["USA (Remote)", "Anywhere in Canada"],
+    "availability": ["Full time", "Remote", "Hybrid", "Onsite"],
     "resume": "/Zeeshan-Resume.pdf"
   },
   "summary": {
-    "short": "Senior Frontend Engineer with 7+ years building high-performance React and TypeScript applications for enterprise SaaS. Led frontend architecture, SDK distribution, and AI tooling integration at SwiftConnect. Now focused on senior frontend, full-stack, and AI engineering roles. Open to remote.",
-    "detailed": "Senior Frontend Engineer with 7+ years building high-performance React and TypeScript applications for enterprise SaaS. Led frontend architecture, SDK distribution, component systems, and AI tooling integration at SwiftConnect through March 2026. Now focused on senior frontend, full-stack, and AI engineering roles, with strengths across React, TypeScript, component architecture, SDK authorship, LLM integration, and full-stack delivery."
+    "short": "Senior Frontend Engineer with 7+ years building React and TypeScript products for enterprise SaaS. At SwiftConnect, built shared SDKs, a component library, single-spa micro-frontends with SSO, and AI-assisted engineering workflows. Earlier, two years in remote technical support for UK and Canadian telecom customers. Now focused on senior frontend, full-stack, and AI engineering roles. Open to remote, or hybrid in Toronto or Vancouver.",
+    "detailed": "Senior Frontend Engineer with 7+ years building React and TypeScript products for enterprise SaaS, working at SwiftConnect in Montréal from Nov 2020 through March 2026. Built the Node.js and React SDKs used by the front-end team and third-party customers, a Storybook-backed component library with WCAG AA accessibility, and single-spa micro-frontends for shared authentication (including Google, Microsoft and Okta SSO) and Stripe checkout. Has 3+ years of Next.js experience, including a customer-facing booking platform that moved from the Pages Router to the App Router. Built custom MCP servers for SDK docs and Figma checks, set up Copilot first-pass code review, and wrote custom AI skills. Stood in as product owner for a couple of sprints, introduced a design, backend and frontend kickoff that later product owners kept, and mentored 5 or 6 interns and juniors. Earlier, worked in remote technical support from Feb 2017 to Jun 2019 for customers of four UK and Canadian telecom and internet providers, ranking among the monthly top three agents. Now doing applied AI and full-stack work, with strengths across React, TypeScript, component architecture, micro-frontends, SDK authorship, LLM integration, and full-stack delivery."
   },
   "contact": {
     "email": "sk.zeeshan1992@gmail.com",
@@ -84,8 +78,8 @@
         "category": "frontend"
       },
       {
-        "name": "Vue.js",
-        "level": 75,
+        "name": "Vue 2",
+        "level": 35,
         "category": "frontend"
       },
       {
@@ -232,6 +226,86 @@
         "name": "Upstash Redis",
         "level": 65,
         "category": "backend"
+      },
+      {
+        "name": "single-spa",
+        "level": 75,
+        "category": "frontend"
+      },
+      {
+        "name": "Service Workers",
+        "level": 65,
+        "category": "frontend"
+      },
+      {
+        "name": "Web Workers",
+        "level": 70,
+        "category": "frontend"
+      },
+      {
+        "name": "Accessibility (WCAG AA)",
+        "level": 70,
+        "category": "frontend"
+      },
+      {
+        "name": "Ant Design",
+        "level": 75,
+        "category": "frontend"
+      },
+      {
+        "name": "SSO (OAuth, OIDC, SAML)",
+        "level": 65,
+        "category": "backend"
+      },
+      {
+        "name": "Stripe",
+        "level": 55,
+        "category": "backend"
+      },
+      {
+        "name": "Sentry",
+        "level": 70,
+        "category": "tools"
+      },
+      {
+        "name": "Docker",
+        "level": 55,
+        "category": "tools"
+      },
+      {
+        "name": "Webpack",
+        "level": 65,
+        "category": "tools"
+      },
+      {
+        "name": "MCP Servers",
+        "level": 75,
+        "category": "tools"
+      },
+      {
+        "name": "AI-Assisted Code Review",
+        "level": 70,
+        "category": "tools"
+      },
+      {
+        "name": "Technical Support",
+        "level": 75,
+        "category": "support"
+      },
+      {
+        "name": "Windows & macOS Troubleshooting",
+        "level": 70,
+        "category": "support"
+      },
+      {
+        "name": "Router & Home Network Troubleshooting",
+        "level": 65,
+        "category": "support"
+      },
+      {
+        "name": "Email Setup & Recovery",
+        "level": 70,
+        "category": "support"
       }
     ],
     "categories": {
@@ -239,7 +313,7 @@
         "React",
         "Redux",
         "Next.js",
-        "Vue",
+        "Vue 2",
         "Vuex",
         "Vue-Router",
         "React Native",
@@ -264,7 +338,17 @@
         "Bootstrap",
         "CSS3",
         "HTML5",
-        "JSS"
+        "JSS",
+        "single-spa",
+        "Micro-frontends",
+        "Service Workers",
+        "Web Workers",
+        "WCAG AA Accessibility",
+        "Apollo Client",
+        "urql",
+        "GraphQL Codegen",
+        "Next.js App Router",
+        "Next.js Pages Router"
       ],
       "backend": [
         "Node.js",
@@ -289,13 +373,11 @@
         "Groq API",
         "LLM Integration",
         "Upstash Redis",
-        "Redis Rate Limiting"
+        "Redis Rate Limiting",
+        "SSO (OAuth, OIDC, SAML)",
+        "Stripe"
       ],
-      "languages": [
-        "JavaScript",
-        "TypeScript",
-        "Python"
-      ],
+      "languages": ["JavaScript", "TypeScript", "Python"],
       "tools": [
         "Git",
         "Yarn/NPM",
@@ -318,7 +400,18 @@
         "Render",
         "Prompt Engineering",
         "Groq",
-        "Upstash"
+        "Upstash",
+        "GitHub",
+        "GitHub Copilot",
+        "Husky",
+        "Knip",
+        "Docker",
+        "Webpack",
+        "Sentry",
+        "Core Web Vitals",
+        "MCP Servers",
+        "Google Analytics",
+        "Mixpanel"
       ],
       "testing": [
         "Jest",
@@ -330,13 +423,21 @@
         "Chai",
         "Cypress",
         "Vitest",
-        "Bun Test"
+        "Bun Test",
+        "jest-axe"
       ],
-      "learning": [
-        "SASS",
-        "Firebase",
-        "GraphQL",
-        "WebGL"
+      "learning": ["SASS", "Firebase", "WebGL"],
+      "support": [
+        "Remote desktop support",
+        "Phone support",
+        "Windows and macOS troubleshooting",
+        "OS recovery",
+        "Driver and software conflicts",
+        "Router setup and port forwarding",
+        "Home network troubleshooting",
+        "Email client setup and recovery",
+        "Ticket handling and case documentation",
+        "Inbound sales (qualifying needs, support packages)"
       ]
     }
   },
@@ -354,34 +455,45 @@
   ],
   "experience": [
     {
-      "company": "Self-directed",
-      "position": "Independent Projects & AI Engineering",
+      "company": "AI data platforms and product builds",
+      "position": "Applied AI & Full-Stack Engineering",
       "duration": "Mar 2026 - Present",
-      "description": "Self-directed full-stack and AI engineering development during a career transition, focused on production-minded portfolio tooling, backend systems, LLM integration, and continued technical writing.",
+      "description": "AI evaluation and data-quality work on AI data platforms, hands-on full-stack and AI engineering builds, and regular technical writing.",
       "highlights": [
+        "Evaluate and review LLM outputs on AI data platforms, scoring answers for correctness and reasoning quality so model teams get cleaner training and evaluation data.",
         "Built an end-to-end Ask AI portfolio feature with a FastAPI backend integrating LLM inference APIs, Upstash Redis caching with versioned cache keys, IP-based rate limiting at 3 requests per IP per hour, and a structured prompt pipeline enforcing resume-grounded JSON-only answers.",
         "Shipped a React 19, TypeScript, and Vite chat frontend with cold-start handling, typing indicators, source dropdowns, auto-growing input, keyboard shortcuts, and backend error surfacing.",
         "Continued backend and AI engineering practice across Express 5, FastAPI, Socket.IO real-time flows, PostgreSQL, auth patterns, deployment debugging, and LLM integration.",
-        "Participated in AI evaluation and survey projects for external organizations, staying active in the AI engineering space during the transition.",
-        "Maintained a technical blog at izsk.hashnode.dev covering advanced React patterns and AI engineering topics."
+        "Publish a technical blog at izsk.hashnode.dev on advanced React patterns, performance, real-time architecture, and AI engineering, with 18 posts so far."
       ]
     },
     {
       "company": "SwiftConnect",
       "position": "Software Engineer",
       "duration": "Nov 2020 - Mar 2026",
-      "description": "Software Engineer at SwiftConnect in Montréal, QC, building enterprise access and security management SaaS interfaces with React, TypeScript, Styled Components, Ant Design, Redux Toolkit, and TanStack Query. Owned frontend architecture, SDK distribution, private NPM libraries, analytics, observability, and cross-team technical delivery through March 2026.",
+      "description": "Software Engineer at SwiftConnect in Montréal, QC (Nov 2020 to Mar 2026), building enterprise access and security management SaaS with React, TypeScript, Next.js, React Native, Node.js, Ant Design, Styled Components, Redux Toolkit, Zustand, and TanStack Query. Built shared SDKs, a component library, single-spa micro-frontends, internal support tooling, observability, and AI-assisted engineering workflows.",
       "highlights": [
-        "Designed high-performance React and TypeScript interfaces for complex authorization workflows across multiple enterprise product areas.",
-        "Translated UX/UI mockups into reusable, accessible component systems across 10+ UI components, cutting design-to-development revision cycles by about 30%.",
-        "Authored a Storybook-documented private NPM component library adopted across teams, reducing duplicate frontend code by about 40% and enforcing consistent UI standards.",
-        "Architected private Node.js and React SDKs with typed, versioned API interfaces for internal projects and third-party customer integrations.",
-        "Solely designed, built, and maintained an internal React Native and Expo dashboard for the customer-facing team, including navigation, API integration, data-heavy dashboard views, and React Native Testing Library coverage.",
-        "Engineered a React-based SendGrid email templating pipeline with CI/CD deployment, keeping email output version-controlled and removing manual template management.",
-        "Instrumented frontend analytics, KPI tracking, Sentry monitoring, source map uploads, Core Web Vitals tracking, and GitLab CI/CD checks across key user journeys.",
-        "Mentored 2-3 junior developers through code reviews, pair programming, and bi-weekly knowledge-sharing sessions, reducing review turnaround time by about 25%.",
-        "Acted as technical lead and proxy Product Owner during critical delivery phases, translating business requirements into architecture plans and coordinating sprint execution across frontend and backend teams.",
-        "Built Storybook, Figma, and GitHub MCP workflows for design-integrity validation, in-editor API documentation lookup, LLM-assisted PR review, and agentic scaffolding with human-review gates."
+        "Built the core access-control web client in React and TypeScript, with Redux Toolkit and TanStack Query handling complex authorization data so the UI stays stable during heavy mutations across multiple product areas.",
+        "Replaced copy-pasted API code in every project with one versioned Node.js SDK and a React SDK on top of it, published from a monorepo (pnpm workspaces, later Bun workspaces) to a private npm registry with semantic versions and a changelog. Almost the whole front-end team adopted them, and third-party customers integrated through the same SDKs.",
+        "Built a Storybook-documented component library from scratch, in its own repo with a standalone Webpack config, merging three projects' copies of the same UI into one and cutting duplicated UI code by roughly two thirds (estimate). A fourth app, moved from Angular 1.6 to React, used it from day one.",
+        "Built accessibility into the component library to WCAG AA, with keyboard navigation, focus management and colour contrast, tested with the Storybook a11y addon, jest-axe and screen reader checks, first in a Husky pre-commit hook and later in CI.",
+        "Set up single-spa micro-frontends from scratch and worked with them for 3+ years: a shared authentication app and a shared checkout app that the other web apps redirect to, deployed independently.",
+        "Integrated SSO sign-in with Google, Microsoft and Okta (OAuth, OIDC, SAML) in the shared auth app, and built the booking checkout on Stripe, styled to match the product, with card data staying with Stripe.",
+        "Built a customer-facing meeting-room booking platform in Next.js from scratch. It started on the Pages Router, moved to the App Router, and has run in production with real customers for more than 3 years, using API routes, server actions and middleware.",
+        "Replaced a daily forced logout with 15-minute access tokens that renew from a session token on user activity or focus, designed with a proof of concept and team feedback so customers stay signed in longer without weakening security.",
+        "Built service worker support for a web app (offline use, cached assets, FCM web push, background sync of CSV uploads) and moved CSV parsing of files up to 5 MB and other CPU-heavy work into Web Workers.",
+        "Added list and table virtualization to heavy tables, used memoization and React Profiler to stop unrelated re-renders, and moved the Create React App web apps to Vite with code splitting and tree-shaking, roughly halving the bundle (estimate).",
+        "Stopped big forms from re-rendering every field on each keystroke by giving each input its own Zustand subscription, a pattern the team adopted across most web and mobile projects, and moved UI state from Redux Toolkit to Zustand while keeping server data in TanStack Query.",
+        "Built, from scratch, an internal React Native (Expo) dashboard that lets customer support see failures and respond from company phones, with push notifications and React Native Testing Library coverage. CPU-heavy list work runs in background workers.",
+        "Replaced React Navigation with Expo's file-based router to cut Dependabot alerts and config overhead.",
+        "Delivered a React web dashboard error table and Slack alerts so support, ops and customer teams stopped contacting engineers to decode raw logs.",
+        "Cut email template turnaround from 3 to 4 days to hours or minutes by moving SendGrid templates into shared React components deployed by CI/CD.",
+        "Set up Sentry on the React Native app and then the web apps, with release tracking, source maps and alert routing, and tracked Core Web Vitals in production. Added event tracking with Google Analytics and then Mixpanel to see which features customers used.",
+        "Built a custom MCP server over the SDK docs and a custom Figma MCP with a design-contract check that cut design revision cycles by roughly 25 to 30% (estimate), connected Storybook's MCP and the GitHub MCP, and wrote custom AI skills that carry each project's patterns.",
+        "Added a GitHub Copilot first-pass review before human review, with the GitHub MCP pulling PR comments and status into the editor, reducing PR turnaround from about 2 to 3 days to about 1 to 1.5 days, roughly 50% (estimate).",
+        "Stood in as product owner for a couple of sprints, and introduced a kickoff where design, backend and frontend agree the API contract before building, which later product owners kept.",
+        "Owned code review and CI standards, wrote and reviewed RFCs, kept the architectural decision records, interviewed junior and intern candidates, and mentored 5 or 6 interns and juniors.",
+        "Raised a design problem with multiple emails and phone numbers, built a proof of concept with editable inputs, and shipped it after customer feedback raised the same issue."
       ]
     },
     {
@@ -400,12 +512,28 @@
       "company": "Guiker Inc",
       "position": "Junior Software Developer",
       "duration": "July 2019 - June 2020",
-      "description": "Assisted in developing iOS and Android mobile apps using Expo, TypeScript, Jest, and React Native. Gained hands-on backend experience with Node.js and Express by building and consuming REST APIs and applying core patterns like routing, controllers, and middleware to support the web app rebuild.",
+      "description": "Junior Software Developer at Guiker in Montréal, building iOS and Android features with React Native (Expo), TypeScript and Jest, and contributing to the React and TypeScript rewrite of the web product, with some Node.js and Express routing and middleware. Used GitLab for repos and CI/CD.",
       "highlights": [
-        "Developed iOS and Android apps using Expo, TypeScript, Jest, and React Native.",
-        "Built and consumed REST APIs with Node.js and Express, applying routing, controllers, and middleware patterns.",
-        "Supported a major web app rebuild, improving maintainability and performance.",
-        "Gained hands-on experience with backend and cloud technologies."
+        "Cut lease signing from up to a week of agent visits to 1 to 2 days by building the online lease flow and in-app landlord and tenant chat, which also helped support onboard customers faster.",
+        "Contributed to the React and TypeScript rewrite of the main web product with Material-UI, JSS, REST APIs and Jest test coverage.",
+        "Owned some Node.js and Express routing and middleware logic.",
+        "Built the 9-page lease form and fixed needless re-renders caused by React Context with memoization.",
+        "Built iOS and Android features in React Native (Expo) with TypeScript and Jest."
+      ]
+    },
+    {
+      "company": "Fusion BPO Services",
+      "position": "Technical Support Specialist",
+      "duration": "Feb 2017 - Jun 2019",
+      "description": "Remote technical support and inbound sales for customers of four telecom and internet providers in the UK and Canada, over phone and remote desktop. Part-time until Jun 2018, then full-time until Jun 2019.",
+      "highlights": [
+        "Ranked among the monthly top three agents throughout the tenure and received the monthly prize for it.",
+        "Supported customers of four telecom and internet providers in the UK and Canada over phone and remote desktop, working through many calls and several tickets a day, for customers from first-time computer users to experienced ones.",
+        "Fixed Windows and Mac problems: OS errors, corrupted installations, driver conflicts and application failures.",
+        "Walked customers through router setup, port forwarding and home network troubleshooting by phone, in steps a non-technical person could follow.",
+        "Fixed email problems across providers and clients: account setup, send and receive failures, access recovery, and sync on desktop and mobile.",
+        "Handled each case from start to finish: collected symptoms, reproduced the issue remotely, applied the fix, confirmed with the customer and documented the outcome before closing.",
+        "Spent the first roughly six months on inbound sales calls, qualifying customer needs and selling support packages, about 8 to 9 sales a month (estimate)."
       ]
     }
   ],
@@ -413,12 +541,12 @@
     {
       "id": 4,
       "title": "Full Stack Solutions",
-      "description": "End-to-end application development combining frontend and backend technologies. Specializing in MERN/MEAN stack development with modern deployment practices."
+      "description": "End-to-end application development combining frontend and backend technologies. Specializing in MERN-style stacks, Next.js, and FastAPI backends, with modern deployment practices."
     },
     {
       "id": 2,
       "title": "Frontend Development",
-      "description": "Building modern, responsive, and scalable frontend applications using React, Next.js, Vue.js, and TypeScript. Focus on component-based architecture and performance optimization."
+      "description": "Building modern, responsive, and scalable frontend applications using React, Next.js, React Native, and TypeScript. Focus on component-based architecture, accessibility (WCAG AA), micro-frontends with single-spa, and performance optimization."
     },
     {
       "id": 3,
@@ -427,23 +555,23 @@
     },
     {
       "id": 1,
-      "title": "Product Management",
-      "description": "Driving product vision, roadmap planning, and backlog prioritization to align engineering execution with business goals. Experienced in acting as Product Owner, managing sprints, facilitating stakeholder alignment, and bridging the gap between technical teams and business stakeholders."
+      "title": "Product Ownership Support",
+      "description": "Turning business requirements into work a team can pick up, and aligning design, backend and frontend before building. Experience standing in as product owner for a couple of sprints and introducing a kickoff where the API contract is agreed up front."
     },
     {
       "id": 5,
       "title": "Mobile Development",
-      "description": "Cross-platform mobile application development using React Native and Expo. Creating performant mobile apps for both iOS and Android platforms."
+      "description": "Cross-platform mobile application development using React Native and Expo, including push notifications and background workers. Creating performant mobile apps for both iOS and Android platforms."
     },
     {
       "id": 6,
       "title": "NPM Library Development",
-      "description": "Creating and maintaining private and public NPM libraries. Specialized in building reusable components and utility libraries for enhanced development productivity."
+      "description": "Creating and maintaining private and public NPM libraries. Specialized in versioned SDKs, monorepo publishing to private registries, and reusable component libraries with Storybook."
     },
     {
       "id": 7,
       "title": "Technical Consulting",
-      "description": "Providing technical guidance on architecture decisions, code reviews, and best practices. Helping teams improve code quality and development processes."
+      "description": "Providing technical guidance on architecture decisions, RFCs, code reviews, and best practices. Helping teams improve code quality, CI standards, and development processes."
     },
     {
       "id": 8,
@@ -453,7 +581,7 @@
     {
       "id": 9,
       "title": "Technical Support",
-      "description": "Providing expert technical support and troubleshooting for software applications and systems. Experienced in diagnosing complex issues, managing support ticket workflows, and acting as a technical liaison between clients and development teams to ensure fast and reliable resolution."
+      "description": "Remote technical support and troubleshooting for software applications and computers, drawn from two years of phone and remote desktop support for telecom customers and from building internal support tooling. Experienced in diagnosing Windows and macOS problems, router and email issues, and handling tickets from first contact to confirmed resolution."
     },
     {
       "id": 10,
@@ -739,20 +867,22 @@
         "Skill Gap Analysis",
         "Cover Letter",
         "AI Workflow",
-        "Portable Skill",
-        "TypeScript"
+        "Impact Bank",
+        "Gap Check"
       ],
       "publishDate": "2026-04-15",
-      "excerpt": "A portable LLM skill that performs ATS gap analysis, interview probability scoring, and full LaTeX resume tailoring against any job description — with a mandatory warning gate before output and bilingual cover letter generation.",
-      "description": "A structured prompt skill for Claude and other LLMs that automates resume tailoring end-to-end: JD parsing, skill gap scoring, ATS keyword injection, and compilable LaTeX output with optional cover letters. Built with strict ATS writing rules, fabrication guardrails, and support for patch-mode diffs.",
+      "excerpt": "A Claude skill that runs ATS gap analysis and tailors a short, human-sounding resume to any job description from a master resume and an impact bank of real stories, with a mandatory trap scan, a gap check, and separate modes for technical support and product-angle resumes.",
+      "description": "A structured Claude skill that automates resume tailoring end to end: JD parsing, an AI-trap scan, skill gap scoring, a gap check against an impact bank of real stories, and compilable LaTeX output with optional cover letters. Built with strict ATS writing rules and truthfulness guardrails: every fact must come from the master resume, the bank, or the user's own answer.",
       "highlights": [
-        "Performs weighted skill gap analysis (hard skills 60%, seniority 25%, domain fit 15%) with interview probability estimate",
-        "Mandatory warning gate blocks output if match score < 50 or majority of required skills are missing — prevents false confidence",
-        "Rewrites professional summary, reorders skills, and injects JD keywords into bullet points without fabricating any experience",
-        "Generates standalone compilable LaTeX cover letters in 4 length modes (short, default, long, cover-only) with formal/casual tone flags",
-        "Patch mode outputs only changed LaTeX blocks — clean diffs for version control workflows",
-        "Strict ATS writing rules: 15+ banned words/phrases, no em dashes, no repetitive bullet structures, no robotic summary openers",
-        "Portable across Claude, Cursor, Copilot, ChatGPT, Gemini CLI, and any markdown-capable LLM"
+        "Performs weighted skill gap analysis (hard skills 60%, seniority 25%, domain fit 15%) and reports a chance versus the user's usual instead of a numeric probability",
+        "Scans the job posting for hidden instructions aimed at AI tools and stops until the user confirms, so a trap can never shape the resume",
+        "Asks gap-check questions only about skills the master resume and the impact bank do not already answer, and never lets a bare yes put a skill on the resume",
+        "Builds a one-sentence summary and result-first bullets from bank stories, with Do not claim lines, estimate labels, and no invented numbers or titles",
+        "Separate modes for technical support (--TS) and a product angle (--PM), each with its own bank and title rules",
+        "Generates compilable LaTeX cover letters in 3 length modes (120, 200 and 350 words max) plus cover-only, with formal or casual tone flags",
+        "Patch mode outputs only changed LaTeX blocks for clean diffs in version control",
+        "Strict writing rules: banned AI-sounding words, no em dashes, no repeated bullet openers, no robotic summary openers",
+        "Written for Claude. Other LLM tools may read the skill but are untested"
       ]
     },
     {
@@ -1119,12 +1249,7 @@
       "title": "JavaScript Loops: Stop Using map() for Everything",
       "url": "https://izsk.hashnode.dev/javascript-loops-stop-using-map-for-everything",
       "category": "Frontend Architecture",
-      "tags": [
-        "JavaScript",
-        "Frontend",
-        "WebDevelopment",
-        "Programming"
-      ],
+      "tags": ["JavaScript", "Frontend", "WebDevelopment", "Programming"],
       "publishDate": "2026-07-19",
       "excerpt": "Most loop mistakes are not style choices. They're cases where the code is saying one thing and doing another.",
       "description": "A practical guide to choosing the right JavaScript loop based on intent, control flow, return value, async behavior, and readability, with concrete reasons to use `for`, `while`, `for...of`, `forEach`, `map`, `filter`, `reduce`, `find`, `some`, `every`, and `flatMap`.",
@@ -1385,9 +1510,13 @@
     }
   ],
   "assistantRules": [
-    "Answer only about Zeeshan Shaikh Murshed and his professional profile.",
+    "Answer only about Shaikh Zeeshan Murshed and his professional profile.",
     "Use only facts contained in this JSON.",
     "If information is missing, say the portfolio does not include that detail.",
-    "For unrelated questions, politely redirect the user to ask about Zeeshan work."
+    "For unrelated questions, politely redirect the user to ask about Zeeshan work.",
+    "His official title at SwiftConnect was Software Engineer. Do not give him a Lead, Manager, Product Manager, or Architect title.",
+    "Describe SwiftConnect (ended March 2026) and the Fusion BPO Services technical support work (Feb 2017 to Jun 2019) in the past tense, and do not give reasons for leaving any job.",
+    "Numbers marked as estimates must be repeated as approximate.",
+    "Vue 2 and AngularJS 1.6 are older, lighter experience. Do not claim modern Angular, Module Federation, or installable PWAs."
   ]
 }
