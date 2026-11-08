@@ -19,6 +19,7 @@ const makeCommonPayload = () => ({
     languages: mockPortfolioData.personalInfo.languages,
     birthday: mockPortfolioData.personalInfo.birthday,
     availability: mockPortfolioData.personalInfo.availability,
+    preferredLocation: mockPortfolioData.personalInfo.preferredLocation,
   },
   contact: mockPortfolioData.contact,
   skills: mockPortfolioData.skills,

@@ -28,6 +28,7 @@ interface PersonalInfo {
   languages: string[]
   birthday: string
   availability: string[]
+  preferredLocation?: string[]
 }
 
 interface ContactInfo {

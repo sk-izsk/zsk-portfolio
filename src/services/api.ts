@@ -13,6 +13,7 @@ interface PortfolioCommonData {
     languages: string[]
     birthday: string
     availability: string[]
+    preferredLocation?: string[]
   }
   contact: PortfolioData['contact']
   skills: PortfolioData['skills']

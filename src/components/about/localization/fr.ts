@@ -18,6 +18,15 @@ export const aboutFr = {
     loadingYear: 'Chargement des contributions de {{year}}...',
     loadFailed: 'Impossible de charger le graphe des contributions pour le moment.',
     streakUnavailable: 'Apercu du streak GitHub temporairement indisponible.',
+    insightsUnavailable: 'Aucune activite a resumer pour cette annee.',
+    insights: {
+      busiestMonth: 'Mois le plus actif',
+      busiestWeekday: 'Jour le plus actif',
+      bestDay: 'Meilleure journee',
+      perActiveDay: 'Par jour actif',
+      contributions: '{{count}} contributions',
+      average: 'contributions en moyenne',
+    },
     streak: {
       current: 'Streak actuel',
       longest: 'Plus long streak',
@@ -28,6 +37,7 @@ export const aboutFr = {
     cards: {
       contributions: 'Graphe des contributions',
       streak: 'Apercu du streak',
+      insights: "Apercu de l'activite",
     },
     alt: {
       contributions: 'Graphique des contributions GitHub de {{username}}',
@@ -42,6 +52,8 @@ export const aboutFr = {
     phone: 'Telephone',
     city: 'Ville',
     availability: 'Disponibilite',
+    preferredLocations: 'Lieux souhaites',
+    openToWork: 'Ouvert aux opportunites',
     languages: 'Langues',
     notAvailable: 'N/D',
   },

@@ -29,22 +29,21 @@ export const aboutTextP = style({
 })
 
 export const personalInfoSection = style({
-  flex: '0 0 60%',
-  maxWidth: '60%',
+  flex: '0 0 100%',
+  maxWidth: '100%',
   marginTop: '40px',
-  '@media': {
-    '(max-width: 1199px)': {
-      flex: '0 0 100%',
-      maxWidth: '100%',
-    },
-  },
 })
 
+// Three columns on wide screens (each about as wide as the old two-column grid's), two below.
 export const infoItem = style({
   flex: '0 0 50%',
   maxWidth: '50%',
   marginBottom: '30px',
   '@media': {
+    '(min-width: 1200px)': {
+      flex: '0 0 33.333%',
+      maxWidth: '33.333%',
+    },
     '(max-width: 767px)': {
       flex: '0 0 100%',
       maxWidth: '100%',
@@ -53,6 +52,8 @@ export const infoItem = style({
 })
 
 export const infoItemP = style({
+  // Fills the row's height, so the underlines in a row line up when one value wraps.
+  height: '100%',
   fontWeight: 600,
   padding: '10px 0',
   fontSize: '16px',
@@ -163,7 +164,8 @@ export const githubStatsGrid = style({
 
 export const githubStatsBottomGrid = style({
   display: 'grid',
-  gridTemplateColumns: 'minmax(320px, 580px)',
+  // Two cards side by side at their own width, never stretched to fill the row.
+  gridTemplateColumns: 'repeat(2, minmax(320px, 580px))',
   justifyContent: 'start',
   gap: '24px',
   '@media': {

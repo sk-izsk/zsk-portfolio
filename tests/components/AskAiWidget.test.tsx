@@ -42,7 +42,11 @@ describe('AskAiWidget', () => {
   }
 
   it('shows the remaining requests from the server, and reads them from the cache on reopen', async () => {
-    vi.mocked(askAiUsageApi).mockResolvedValue({ remaining: 1, reset_in_seconds: 900, allowed: true })
+    vi.mocked(askAiUsageApi).mockResolvedValue({
+      remaining: 1,
+      reset_in_seconds: 900,
+      allowed: true,
+    })
     const user = userEvent.setup()
     renderWidget()
 
@@ -56,7 +60,11 @@ describe('AskAiWidget', () => {
   })
 
   it('locks the input, send button and prompts once no requests are left', async () => {
-    vi.mocked(askAiUsageApi).mockResolvedValue({ remaining: 0, reset_in_seconds: 3180, allowed: false })
+    vi.mocked(askAiUsageApi).mockResolvedValue({
+      remaining: 0,
+      reset_in_seconds: 3180,
+      allowed: false,
+    })
     const user = userEvent.setup()
     renderWidget()
 
