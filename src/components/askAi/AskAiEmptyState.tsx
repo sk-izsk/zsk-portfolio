@@ -5,10 +5,15 @@ import React from 'react'
 
 interface AskAiEmptyStateProps {
   prompts: string[]
+  disabled: boolean
   onSubmit: AskAiSubmitHandler
 }
 
-export const AskAiEmptyState: React.FC<AskAiEmptyStateProps> = ({ prompts, onSubmit }) => {
+export const AskAiEmptyState: React.FC<AskAiEmptyStateProps> = ({
+  prompts,
+  disabled,
+  onSubmit,
+}) => {
   const { t } = useTranslation()
 
   return (
@@ -21,6 +26,7 @@ export const AskAiEmptyState: React.FC<AskAiEmptyStateProps> = ({ prompts, onSub
             key={prompt}
             className={styles.promptButton}
             type="button"
+            disabled={disabled}
             onClick={() => void onSubmit(prompt)}
           >
             {prompt}

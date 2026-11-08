@@ -252,6 +252,16 @@ export const askAiHealthApi = async (): Promise<void> => {
     .json<{ status: string }>()
 }
 
+export interface AskAiUsage {
+  remaining: number
+  reset_in_seconds: number
+  allowed: boolean
+}
+
+// Reads the visitor's remaining requests without using one. Allows for a cold start like the health check.
+export const askAiUsageApi = async (): Promise<AskAiUsage> =>
+  ky.get(`${askAiBaseUrl}/usage`, { timeout: 60000 }).json<AskAiUsage>()
+
 export const askAiApi = async (message: string): Promise<AskAiResponse> => {
   const response = await ky.post(`${askAiBaseUrl}/chat`, {
     json: { message },
@@ -268,4 +278,5 @@ export const askAiApi = async (message: string): Promise<AskAiResponse> => {
 export const queryKeys = {
   portfolioData: (language: AppLanguage) => ['portfolio-data', language] as const,
   developerQuotes: () => ['developer-quotes'] as const,
+  askAiUsage: () => ['ask-ai-usage'] as const,
 }

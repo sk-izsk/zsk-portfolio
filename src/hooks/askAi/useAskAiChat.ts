@@ -1,5 +1,6 @@
 import type { ChatMessage } from '@app-types/askAi'
-import { askAiApi, askAiHealthApi } from '@services/api'
+import { askAiApi, askAiHealthApi, queryKeys, type AskAiUsage } from '@services/api'
+import { useQueryClient } from '@tanstack/react-query'
 import {
   formatResetTime,
   HEALTH_OVERLAY_DELAY_MS,
@@ -31,8 +32,14 @@ export const useAskAiChat = (copy: AskAiChatCopy) => {
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [isSending, setIsSending] = useState(false)
   const [isCheckingHealth, setIsCheckingHealth] = useState(false)
-  const [remaining, setRemaining] = useState<number | null>(null)
-  const [resetInSeconds, setResetInSeconds] = useState(0)
+  const queryClient = useQueryClient()
+  // The remaining count lives in the usage query's cache, so the panel shows it after a reload too.
+  const saveUsage = (remaining: number, resetInSeconds: number) =>
+    queryClient.setQueryData<AskAiUsage>(queryKeys.askAiUsage(), {
+      remaining,
+      reset_in_seconds: resetInSeconds,
+      allowed: remaining > 0,
+    })
   const [status, setStatus] = useState('')
 
   const submitMessage = async (rawMessage: string) => {
@@ -50,8 +57,7 @@ export const useAskAiChat = (copy: AskAiChatCopy) => {
     try {
       await checkHealthWithDelayedOverlay(setIsCheckingHealth)
       const response = await askAiApi(text)
-      setRemaining(response.remaining)
-      setResetInSeconds(response.reset_in_seconds)
+      saveUsage(response.remaining, response.reset_in_seconds)
       setMessages((current) => [
         ...current,
         {
@@ -67,10 +73,7 @@ export const useAskAiChat = (copy: AskAiChatCopy) => {
       const askAiError = readAskAiError(requestError, copy.error, copy.rateLimited, copy.offline)
 
       if (typeof askAiError.remaining === 'number') {
-        setRemaining(askAiError.remaining)
-      }
-      if (typeof askAiError.resetInSeconds === 'number') {
-        setResetInSeconds(askAiError.resetInSeconds)
+        saveUsage(askAiError.remaining, askAiError.resetInSeconds ?? 0)
       }
 
       setStatus(
@@ -88,8 +91,6 @@ export const useAskAiChat = (copy: AskAiChatCopy) => {
     messages,
     isSending,
     isCheckingHealth,
-    remaining,
-    resetInSeconds,
     status,
     setMessage,
     submitMessage,

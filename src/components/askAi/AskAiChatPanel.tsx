@@ -6,7 +6,8 @@ import { AskAiMessageItem } from '@components/askAi/AskAiMessageItem'
 import { AskAiSuggestionCards } from '@components/askAi/AskAiSuggestionCards'
 import { AskAiTypingMessage } from '@components/askAi/AskAiTypingMessage'
 import * as styles from '@components/askAi/askAi.css'
-import { getAskAiSuggestions } from '@utils/askAi'
+import { useTranslation } from '@localization/localize'
+import { formatResetTime, getAskAiSuggestions } from '@utils/askAi'
 import React, { useEffect, useRef } from 'react'
 
 interface AskAiChatPanelProps {
@@ -16,6 +17,9 @@ interface AskAiChatPanelProps {
   status: string
   isSending: boolean
   isCheckingHealth: boolean
+  isCheckingUsage: boolean
+  isLimitReached: boolean
+  resetInSeconds: number
   onMessageChange: (value: string) => void
   onSubmit: AskAiSubmitHandler
 }
@@ -27,9 +31,13 @@ export const AskAiChatPanel: React.FC<AskAiChatPanelProps> = ({
   status,
   isSending,
   isCheckingHealth,
+  isCheckingUsage,
+  isLimitReached,
+  resetInSeconds,
   onMessageChange,
   onSubmit,
 }) => {
+  const { t } = useTranslation()
   const activeSuggestions = getAskAiSuggestions(prompts, messages, isSending)
   const bottomRef = useRef<HTMLDivElement | null>(null)
 
@@ -42,7 +50,7 @@ export const AskAiChatPanel: React.FC<AskAiChatPanelProps> = ({
       {isCheckingHealth ? <AskAiHealthOverlay /> : null}
       <div className={styles.messages} aria-live="polite">
         {messages.length === 0 ? (
-          <AskAiEmptyState prompts={prompts} onSubmit={onSubmit} />
+          <AskAiEmptyState prompts={prompts} disabled={isLimitReached} onSubmit={onSubmit} />
         ) : (
           <>
             {messages.map((item) => (
@@ -52,7 +60,11 @@ export const AskAiChatPanel: React.FC<AskAiChatPanelProps> = ({
             {/* Above the suggestions, so a new answer stays in view in the narrow panel. */}
             <div ref={bottomRef} aria-hidden />
             {activeSuggestions.length ? (
-              <AskAiSuggestionCards prompts={activeSuggestions} onSubmit={onSubmit} />
+              <AskAiSuggestionCards
+                prompts={activeSuggestions}
+                disabled={isLimitReached}
+                onSubmit={onSubmit}
+              />
             ) : null}
           </>
         )}
@@ -61,12 +73,22 @@ export const AskAiChatPanel: React.FC<AskAiChatPanelProps> = ({
       <AskAiComposer
         message={message}
         isSending={isSending}
+        disabled={isLimitReached}
         onMessageChange={onMessageChange}
         onSubmit={onSubmit}
       />
-      <div className={styles.status} role="status">
-        {status}
-      </div>
+      {isLimitReached ? (
+        <p className={styles.limitNotice} role="status">
+          {t('askAi.limitReached')}
+          {resetInSeconds > 0
+            ? ` ${t('askAi.resetsIn', { time: formatResetTime(resetInSeconds) })}.`
+            : null}
+        </p>
+      ) : (
+        <div className={styles.status} role="status">
+          {status || (isCheckingUsage ? t('askAi.checkingUsage') : '')}
+        </div>
+      )}
     </div>
   )
 }

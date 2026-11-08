@@ -12,6 +12,10 @@ const pulse = keyframes({
   },
 })
 
+const spin = keyframes({
+  to: { transform: 'rotate(360deg)' },
+})
+
 const floatLoader = keyframes({
   '0%': {
     transform: 'translate(-8px, 0) rotate(0deg)',
@@ -95,6 +99,11 @@ export const meterValue = style({
   fontSize: '15px',
   fontWeight: 800,
   lineHeight: 1,
+})
+
+export const meterSpinner = style({
+  display: 'block',
+  animation: `${spin} 0.9s linear infinite`,
 })
 
 export const meterReset = style({
@@ -245,6 +254,14 @@ export const promptButton = style({
     color: vars.color.skin,
     transform: 'translateY(-1px)',
   },
+})
+
+globalStyle(`${promptButton}:disabled`, {
+  cursor: 'not-allowed',
+  opacity: 0.55,
+  transform: 'none',
+  borderColor: vars.color.background[50],
+  color: vars.color.text[900],
 })
 
 export const activeSuggestions = style({
@@ -630,6 +647,10 @@ export const input = style({
   ':focus': {
     borderColor: vars.color.skin,
   },
+  ':disabled': {
+    cursor: 'not-allowed',
+    opacity: 0.6,
+  },
 })
 
 export const sendButton = style({
@@ -652,6 +673,17 @@ export const sendButton = style({
     opacity: 0.55,
     transform: 'none',
   },
+})
+
+// In the theme colour, so a visitor who has used every request notices why the chat is locked.
+export const limitNotice = style({
+  margin: 0,
+  padding: '0 14px 14px',
+  background: vars.color.background[900],
+  color: vars.color.skin,
+  fontSize: '13px',
+  fontWeight: 700,
+  lineHeight: 1.45,
 })
 
 // Takes no room until there is a status to read, and stays mounted so it is still announced.

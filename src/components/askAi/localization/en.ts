@@ -24,6 +24,8 @@ export const askAiEn = {
   error: 'The assistant could not answer right now. Try again in a moment.',
   offline: 'Local AI backend is not running. Start FastAPI on port 8000 and try again.',
   rateLimited: 'Hourly limit reached. Try again after the reset.',
+  limitReached: "You've used all your questions for this hour.",
+  checkingUsage: 'Checking your remaining questions...',
   prompts: {
     reactProjects: "What's Zeeshan's strongest React work?",
     fullStack: 'Summarize his full-stack experience.',
