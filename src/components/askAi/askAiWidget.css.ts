@@ -11,7 +11,7 @@ export const panel = style({
   bottom: `${TRIGGER_OFFSET + TRIGGER_HEIGHT + PANEL_GAP}px`,
   zIndex: 950,
   display: 'flex',
-  width: 'min(440px, calc(100vw - 48px))',
+  width: 'min(520px, calc(100vw - 48px))',
   height: 'min(680px, calc(100dvh - 128px))',
   padding: '12px',
   borderRadius: '24px',

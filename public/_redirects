@@ -1,3 +1,0 @@
-/api/quote    /.netlify/functions/quote   200
-/api/ask-ai/* https://zsk-ai-resume-api.onrender.com/:splat 200
-/*    /index.html   200

@@ -14,7 +14,7 @@ export const AskAiEmptyState: React.FC<AskAiEmptyStateProps> = ({ prompts, onSub
   return (
     <div className={styles.emptyState}>
       <div className={styles.emptyTitle}>{t('askAi.emptyTitle')}</div>
-      <p>{t('askAi.emptyBody')}</p>
+      <p className={styles.emptyBody}>{t('askAi.emptyBody')}</p>
       <div className={styles.promptGrid}>
         {prompts.map((prompt) => (
           <button

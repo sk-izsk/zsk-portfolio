@@ -46,7 +46,7 @@ export const BlogContainer: React.FC<BlogContainerProps> = ({
           </div>
         </div>
       </div>
-      <div className={cx(projectGrid, 'padd-15')}>
+      <div className={projectGrid}>
         {posts.length === 0 ? <div>{t('blog.empty')}</div> : null}
         {visibleItems.map((post) => (
           <BlogCardContainer key={post.id} post={post} onReadMoreClick={onReadMoreClick} />

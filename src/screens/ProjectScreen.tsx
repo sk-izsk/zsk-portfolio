@@ -64,7 +64,7 @@ const ProjectScreen: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className={cx(projectGrid, 'padd-15')}>
+          <div className={projectGrid}>
             {visibleProjects.map((project) => {
               return (
                 <ProjectCardContainer
