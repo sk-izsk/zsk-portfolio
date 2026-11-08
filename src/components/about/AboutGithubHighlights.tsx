@@ -91,7 +91,7 @@ export const AboutGithubHighlights: React.FC = () => {
           }}
         />
       </div>
-      <GithubSupplementaryCards cards={statCards} label={t('about.github.statsLabel')} />
+      <GithubSupplementaryCards cards={statCards} />
     </>
   )
 }

@@ -172,25 +172,8 @@ export const githubStatsBottomGrid = style({
     '(max-width: 991px)': {
       gridTemplateColumns: '1fr',
     },
-    // Phones swipe between the cards instead; the next one peeks in so the row reads as swipeable.
     '(max-width: 767px)': {
-      display: 'flex',
-      alignItems: 'flex-start',
-      gap: '12px',
-      overflowX: 'auto',
-      scrollSnapType: 'x mandatory',
-      scrollbarWidth: 'none',
-      overscrollBehaviorX: 'contain',
-      paddingBottom: '4px',
-    },
-  },
-})
-
-globalStyle(`${githubStatsBottomGrid} > *`, {
-  '@media': {
-    '(max-width: 767px)': {
-      flex: '0 0 86%',
-      scrollSnapAlign: 'start',
+      gap: '16px',
     },
   },
 })

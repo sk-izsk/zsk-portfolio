@@ -13,7 +13,6 @@ export const aboutEn = {
     title: 'Code activity and contribution history',
     description: 'A local view of contribution history from cached GitHub activity data.',
     profileLink: 'View Profile',
-    statsLabel: 'GitHub stats',
     yearSelector: 'Select contribution year',
     loadingYear: 'Loading {{year}} contributions...',
     loadFailed: 'Unable to load contribution graph right now.',

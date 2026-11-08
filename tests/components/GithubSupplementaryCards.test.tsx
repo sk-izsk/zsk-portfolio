@@ -6,7 +6,6 @@ describe('GithubSupplementaryCards', () => {
   it('renders each card with its figures and optional details', () => {
     render(
       <GithubSupplementaryCards
-        label="GitHub stats"
         cards={[
           {
             title: 'Streak Snapshot',
@@ -31,7 +30,6 @@ describe('GithubSupplementaryCards', () => {
   it('shows a card’s fallback when it has no figures', () => {
     render(
       <GithubSupplementaryCards
-        label="GitHub stats"
         cards={[
           { title: 'Activity Insights', unavailableText: 'Insights unavailable', metrics: null },
         ]}
