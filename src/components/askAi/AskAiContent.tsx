@@ -3,7 +3,9 @@ import { AskAiHero } from '@components/askAi/AskAiHero'
 import * as styles from '@components/askAi/askAi.css'
 import { closeButton } from '@components/askAi/askAiWidget.css'
 import { useAskAiChat } from '@hooks/askAi/useAskAiChat'
+import { useAskAiUsage } from '@hooks/askAi/useAskAiUsage'
 import { useTranslation } from '@localization/localize'
+import { useAskAiWidgetStore } from '@stores/askAiWidgetStore'
 import { X } from 'lucide-react'
 import React from 'react'
 
@@ -19,6 +21,9 @@ export const AskAiContent: React.FC<AskAiContentProps> = ({ onClose }) => {
     t('askAi.prompts.aiProjects'),
     t('askAi.prompts.reactNative'),
   ]
+  const isOpen = useAskAiWidgetStore((state) => state.isOpen)
+  const usage = useAskAiUsage(isOpen)
+  const resetInSeconds = usage.data?.reset_in_seconds ?? 0
   const chat = useAskAiChat({
     error: t('askAi.error'),
     offline: t('askAi.offline'),
@@ -28,7 +33,11 @@ export const AskAiContent: React.FC<AskAiContentProps> = ({ onClose }) => {
 
   return (
     <div className={styles.shell}>
-      <AskAiHero remaining={chat.remaining} resetInSeconds={chat.resetInSeconds}>
+      <AskAiHero
+        remaining={usage.data?.remaining}
+        resetInSeconds={resetInSeconds}
+        isLoading={usage.isLoading}
+      >
         <button
           className={closeButton}
           type="button"
@@ -45,6 +54,9 @@ export const AskAiContent: React.FC<AskAiContentProps> = ({ onClose }) => {
         status={chat.status}
         isSending={chat.isSending}
         isCheckingHealth={chat.isCheckingHealth}
+        isCheckingUsage={usage.isLoading}
+        isLimitReached={usage.data?.allowed === false}
+        resetInSeconds={resetInSeconds}
         onMessageChange={chat.setMessage}
         onSubmit={chat.submitMessage}
       />

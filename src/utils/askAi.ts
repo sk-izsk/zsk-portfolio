@@ -71,7 +71,7 @@ export const readAskAiError = (
     const detail = (error.data as { detail?: AskAiErrorDetail } | undefined)?.detail
 
     return {
-      message: detail?.message || rateLimited,
+      message: rateLimited,
       remaining: detail?.remaining,
       resetInSeconds: detail?.reset_in_seconds,
     }

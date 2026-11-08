@@ -96,6 +96,21 @@ export default defineConfig({
   server: {
     port: 2222,
   },
+  build: {
+    rolldownOptions: {
+      output: {
+        // Libraries every page needs get their own chunks: the first chunk stays under 500 kB, and
+        // browsers keep these cached across deploys because they rarely change.
+        codeSplitting: {
+          groups: [
+            { name: 'react', test: /node_modules[\\/](react|react-dom|scheduler|react-router)[\\/]/ },
+            { name: 'data', test: /node_modules[\\/](@tanstack|ky)[\\/]/ },
+            { name: 'i18n', test: /node_modules[\\/](i18next|react-i18next|zsk-react-i18n)[\\/]/ },
+          ],
+        },
+      },
+    },
+  },
   plugins: [
     react(),
     babelPlugin({ presets: [reactCompilerPreset()] }),

@@ -1,16 +1,22 @@
 import * as styles from '@components/askAi/askAi.css'
 import { useTranslation } from '@localization/localize'
 import { formatResetTime } from '@utils/askAi'
-import { Sparkles } from 'lucide-react'
+import { Loader2, Sparkles } from 'lucide-react'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
 
 interface AskAiHeroProps extends PropsWithChildren {
-  remaining: number | null
+  remaining: number | undefined
   resetInSeconds: number
+  isLoading: boolean
 }
 
-export const AskAiHero: React.FC<AskAiHeroProps> = ({ remaining, resetInSeconds, children }) => {
+export const AskAiHero: React.FC<AskAiHeroProps> = ({
+  remaining,
+  resetInSeconds,
+  isLoading,
+  children,
+}) => {
   const { t } = useTranslation()
 
   return (
@@ -21,7 +27,17 @@ export const AskAiHero: React.FC<AskAiHeroProps> = ({ remaining, resetInSeconds,
       </span>
       <span className={styles.meter} aria-live="polite">
         {t('askAi.remaining')}
-        <strong className={styles.meterValue}>{remaining ?? 3}</strong>
+        <strong className={styles.meterValue}>
+          {isLoading ? (
+            <Loader2
+              className={styles.meterSpinner}
+              size={13}
+              aria-label={t('askAi.checkingUsage')}
+            />
+          ) : (
+            (remaining ?? '–')
+          )}
+        </strong>
         {remaining === 0 && resetInSeconds > 0 ? (
           <span className={styles.meterReset}>
             · {t('askAi.resetsIn', { time: formatResetTime(resetInSeconds) })}

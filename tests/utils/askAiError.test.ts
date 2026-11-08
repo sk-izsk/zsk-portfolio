@@ -15,13 +15,13 @@ const failWith = async (fetch: typeof globalThis.fetch) => {
 }
 
 describe('readAskAiError', () => {
-  it('reads the remaining count and reset time from a 429', async () => {
+  it("reads the remaining count and reset time from a 429, in the site's own words", async () => {
     const body = {
       detail: { message: 'Rate limit exceeded', remaining: 0, reset_in_seconds: 3403 },
     }
     const result = await failWith(async () => Response.json(body, { status: 429 }))
 
-    expect(result).toEqual({ message: 'Rate limit exceeded', remaining: 0, resetInSeconds: 3403 })
+    expect(result).toEqual({ message: 'Hourly limit reached', remaining: 0, resetInSeconds: 3403 })
   })
 
   it('says offline when the connection fails', async () => {

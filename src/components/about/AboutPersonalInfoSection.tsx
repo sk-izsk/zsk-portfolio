@@ -10,6 +10,7 @@ import {
   personalInfoSection,
 } from '@components/about/about.css'
 import { AboutGithubHighlights } from '@components/about/AboutGithubHighlights'
+import { availabilityDot } from '@components/about/availabilityDot.css'
 import { Button } from '@components/common/button/Button'
 import { useTranslation } from '@localization/localize'
 import { useContactInfo, usePersonalInfo } from '@stores/portfolioStore'
@@ -48,6 +49,10 @@ export const AboutPersonalInfoSection: React.FC = () => {
     },
     { label: t('about.info.age'), value: ageInYears },
     {
+      label: t('about.info.city'),
+      value: `${personalInfo.location.city}, ${personalInfo.location.country}`,
+    },
+    {
       label: t('about.info.website'),
       value: contact.social.website.label,
       href: contact.social.website.url,
@@ -58,15 +63,19 @@ export const AboutPersonalInfoSection: React.FC = () => {
       value: contact.email,
       href: `mailto:${contact.email}`,
     },
-    { label: t('about.info.phone'), value: contact.phone },
-    { label: t('about.info.city'), value: personalInfo.location.city },
     {
-      label: t('about.info.availability'),
-      value: personalInfo.availability.join(', '),
+      label: t('about.info.preferredLocations'),
+      value: personalInfo.preferredLocation?.join(', ') || t('about.info.notAvailable'),
     },
+    { label: t('about.info.phone'), value: contact.phone },
     {
       label: t('about.info.languages'),
       value: personalInfo.languages.join(', '),
+    },
+    {
+      label: t('about.info.availability'),
+      value: personalInfo.availability.join(', '),
+      isOpenToWork: true,
     },
   ]
 
@@ -88,7 +97,17 @@ export const AboutPersonalInfoSection: React.FC = () => {
                     {item.value}
                   </a>
                 ) : (
-                  <span className={infoItemSpan}>{item.value}</span>
+                  <span className={infoItemSpan}>
+                    {item.isOpenToWork ? (
+                      <span
+                        className={availabilityDot}
+                        role="img"
+                        aria-label={t('about.info.openToWork')}
+                        title={t('about.info.openToWork')}
+                      />
+                    ) : null}
+                    {item.value}
+                  </span>
                 )}
               </p>
             </div>

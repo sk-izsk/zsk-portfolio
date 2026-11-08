@@ -24,6 +24,8 @@ export const askAiFr = {
   error: "L'assistant ne peut pas repondre maintenant. Reessayez dans un moment.",
   offline: "Le backend IA local n'est pas lance. Demarrez FastAPI sur le port 8000 puis reessayez.",
   rateLimited: 'Limite horaire atteinte. Reessayez apres la reinitialisation.',
+  limitReached: 'Vous avez utilise toutes vos questions pour cette heure.',
+  checkingUsage: 'Verification de vos questions restantes...',
   prompts: {
     reactProjects: 'Quel est son meilleur travail en React ?',
     fullStack: 'Resume son experience full-stack.',

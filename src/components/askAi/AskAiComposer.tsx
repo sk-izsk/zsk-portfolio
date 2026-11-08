@@ -8,6 +8,7 @@ import React from 'react'
 interface AskAiComposerProps {
   message: string
   isSending: boolean
+  disabled: boolean
   onMessageChange: (value: string) => void
   onSubmit: AskAiSubmitHandler
 }
@@ -15,13 +16,14 @@ interface AskAiComposerProps {
 export const AskAiComposer: React.FC<AskAiComposerProps> = ({
   message,
   isSending,
+  disabled,
   onMessageChange,
   onSubmit,
 }) => {
   const { t } = useTranslation()
   const submitCurrentMessage = () => {
     const text = message.trim()
-    if (!text.trim() || isSending) {
+    if (!text || isSending || disabled) {
       return
     }
 
@@ -38,13 +40,14 @@ export const AskAiComposer: React.FC<AskAiComposerProps> = ({
     >
       <AskAiComposerTextarea
         message={message}
+        disabled={disabled}
         onMessageChange={onMessageChange}
         onSubmit={submitCurrentMessage}
       />
       <button
         className={styles.sendButton}
         type="submit"
-        disabled={isSending || !message.trim()}
+        disabled={disabled || isSending || !message.trim()}
         aria-label={t('askAi.send')}
       >
         {isSending ? <Loader2 size={19} aria-hidden /> : <Send size={19} aria-hidden />}

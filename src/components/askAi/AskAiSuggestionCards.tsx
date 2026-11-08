@@ -5,11 +5,13 @@ import React from 'react'
 
 interface AskAiSuggestionCardsProps {
   prompts: string[]
+  disabled: boolean
   onSubmit: AskAiSubmitHandler
 }
 
 export const AskAiSuggestionCards: React.FC<AskAiSuggestionCardsProps> = ({
   prompts,
+  disabled,
   onSubmit,
 }) => {
   const { t } = useTranslation()
@@ -22,6 +24,7 @@ export const AskAiSuggestionCards: React.FC<AskAiSuggestionCardsProps> = ({
           key={prompt}
           className={styles.suggestionChip}
           type="button"
+          disabled={disabled}
           onClick={() => void onSubmit(prompt)}
         >
           {prompt}

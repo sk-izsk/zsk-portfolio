@@ -44,11 +44,15 @@ describe('AboutScreen', () => {
     expect(container.querySelector('#about')).toBeInTheDocument()
   })
 
-  it('shows personal info (city) when data is loaded', () => {
+  it('shows where and how he wants to work in the info grid', () => {
     usePortfolioStore.getState().setData(mockPortfolioData)
     renderScreen()
 
-    expect(screen.getByText(mockPortfolioData.personalInfo.location.city)).toBeInTheDocument()
+    expect(screen.getByText('Paris, France')).toBeInTheDocument()
+    expect(screen.getByText('USA (Remote), Anywhere in Canada')).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: 'Open to work' }).parentElement).toHaveTextContent(
+      'Full-time, Remote',
+    )
   })
 
   it('shows the contact email when data is loaded', () => {

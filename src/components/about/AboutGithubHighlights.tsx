@@ -3,13 +3,13 @@ import { GithubContributionCard } from '@components/about/github/GithubContribut
 import { GithubHighlightsHeader } from '@components/about/github/GithubHighlightsHeader'
 import { GithubSupplementaryCards } from '@components/about/github/GithubSupplementaryCards'
 import { useGithubContributionData } from '@hooks/useGithubContributionData'
+import { useGithubStatCards } from '@hooks/useGithubStatCards'
 import { useTranslation } from '@localization/localize'
 import { useContactInfo } from '@stores/portfolioStore'
 import { useThemeStore } from '@stores/themeStore'
 import {
   buildContributionCalendarSvg,
   buildContributionLayout,
-  buildContributionStreakStats,
   type ContributionDay,
   getContributionShades,
   getGithubUsername,
@@ -51,10 +51,7 @@ export const AboutGithubHighlights: React.FC = () => {
       ),
     [contributionDays, selectedYearNumber, palette, isDarkMode, isMobileGraph, selectedYearData],
   )
-  const streakStats = useMemo(
-    () => (selectedYearData ? buildContributionStreakStats(selectedYearData) : null),
-    [selectedYearData],
-  )
+  const statCards = useGithubStatCards(selectedYearData ?? null)
 
   // After every hook, so the hooks run in the same order whether or not the link has loaded.
   if (!githubUrl || !githubUsername) {
@@ -94,18 +91,7 @@ export const AboutGithubHighlights: React.FC = () => {
           }}
         />
       </div>
-      <GithubSupplementaryCards
-        streakTitle={t('about.github.cards.streak')}
-        streakUnavailableText={t('about.github.streakUnavailable')}
-        stats={streakStats}
-        labels={{
-          current: t('about.github.streak.current'),
-          longest: t('about.github.streak.longest'),
-          activeDays: t('about.github.streak.activeDays'),
-          contributions: t('about.github.streak.contributions'),
-          days: t('about.github.streak.days'),
-        }}
-      />
+      <GithubSupplementaryCards cards={statCards} />
     </>
   )
 }

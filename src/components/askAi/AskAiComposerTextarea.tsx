@@ -7,12 +7,14 @@ const ASK_AI_COUNTER_THRESHOLD = 8_000
 
 interface AskAiComposerTextareaProps {
   message: string
+  disabled: boolean
   onMessageChange: (value: string) => void
   onSubmit: () => void
 }
 
 export const AskAiComposerTextarea: React.FC<AskAiComposerTextareaProps> = ({
   message,
+  disabled,
   onMessageChange,
   onSubmit,
 }) => {
@@ -51,6 +53,7 @@ export const AskAiComposerTextarea: React.FC<AskAiComposerTextareaProps> = ({
         className={styles.input}
         value={message}
         rows={1}
+        disabled={disabled}
         maxLength={ASK_AI_MESSAGE_MAX_LENGTH}
         onChange={(event) => onMessageChange(event.currentTarget.value)}
         placeholder={t('askAi.inputPlaceholder')}

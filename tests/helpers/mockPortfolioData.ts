@@ -14,6 +14,7 @@ export const mockPortfolioData: PortfolioData = {
     languages: ['English', 'French'],
     birthday: '1990-01-15',
     availability: ['Full-time', 'Remote'],
+    preferredLocation: ['USA (Remote)', 'Anywhere in Canada'],
   },
   contact: {
     email: 'john@example.com',

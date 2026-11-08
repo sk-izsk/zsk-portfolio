@@ -17,6 +17,15 @@ export const aboutEn = {
     loadingYear: 'Loading {{year}} contributions...',
     loadFailed: 'Unable to load contribution graph right now.',
     streakUnavailable: 'GitHub streak snapshot is temporarily unavailable.',
+    insightsUnavailable: 'No activity to summarize for this year yet.',
+    insights: {
+      busiestMonth: 'Busiest month',
+      busiestWeekday: 'Busiest weekday',
+      bestDay: 'Best day',
+      perActiveDay: 'Per active day',
+      contributions: '{{count}} contributions',
+      average: 'contributions on average',
+    },
     streak: {
       current: 'Current streak',
       longest: 'Longest streak',
@@ -27,6 +36,7 @@ export const aboutEn = {
     cards: {
       contributions: 'Contribution Graph',
       streak: 'Streak Snapshot',
+      insights: 'Activity Insights',
     },
     alt: {
       contributions: '{{username}} GitHub contribution chart',
@@ -41,6 +51,8 @@ export const aboutEn = {
     phone: 'Phone',
     city: 'City',
     availability: 'Availability',
+    preferredLocations: 'Preferred locations',
+    openToWork: 'Open to work',
     languages: 'Languages',
     notAvailable: 'N/A',
   },

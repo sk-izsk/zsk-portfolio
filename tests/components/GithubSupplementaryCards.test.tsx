@@ -1,46 +1,41 @@
 import { GithubSupplementaryCards } from '@components/about/github/GithubSupplementaryCards'
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-const labels = {
-  current: 'Current streak',
-  longest: 'Longest streak',
-  activeDays: 'Active days',
-  contributions: 'Contributions',
-  days: 'days',
-}
-
 describe('GithubSupplementaryCards', () => {
-  it('renders streak stats when contribution data is available', () => {
+  it('renders each card with its figures and optional details', () => {
     render(
       <GithubSupplementaryCards
-        streakTitle="Streak Snapshot"
-        streakUnavailableText="Unavailable"
-        labels={labels}
-        stats={{
-          currentStreak: 3,
-          longestStreak: 9,
-          activeDays: 42,
-          totalContributions: 120,
-        }}
+        cards={[
+          {
+            title: 'Streak Snapshot',
+            unavailableText: 'Streak unavailable',
+            metrics: [{ label: 'Current streak', value: '3 days' }],
+          },
+          {
+            title: 'Activity Insights',
+            unavailableText: 'Insights unavailable',
+            metrics: [{ label: 'Busiest month', value: 'March', detail: '92 contributions' }],
+          },
+        ]}
       />,
     )
 
-    expect(screen.getByText('Current streak')).toBeInTheDocument()
+    const insights = screen.getByRole('heading', { name: 'Activity Insights' }).closest('article')!
     expect(screen.getByText('3 days')).toBeInTheDocument()
-    expect(screen.queryByText('Unavailable')).not.toBeInTheDocument()
+    expect(within(insights).getByText('March')).toBeInTheDocument()
+    expect(within(insights).getByText('92 contributions')).toBeInTheDocument()
   })
 
-  it('renders the fallback when contribution data is unavailable', () => {
+  it('shows a card’s fallback when it has no figures', () => {
     render(
       <GithubSupplementaryCards
-        streakTitle="Streak Snapshot"
-        streakUnavailableText="Unavailable"
-        labels={labels}
-        stats={null}
+        cards={[
+          { title: 'Activity Insights', unavailableText: 'Insights unavailable', metrics: null },
+        ]}
       />,
     )
 
-    expect(screen.getByText('Unavailable')).toBeInTheDocument()
+    expect(screen.getByText('Insights unavailable')).toBeInTheDocument()
   })
 })
