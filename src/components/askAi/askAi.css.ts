@@ -41,10 +41,19 @@ export const shell = style({
 })
 
 // Eyebrow, request count and close button share the first row; the text gets the full width.
+// One row of eyebrow, request count and close button; on phones the count gets its own row so a
+// long "Resets in…" never pushes the panel wider than the screen.
 export const hero = style({
   display: 'grid',
-  gridTemplateColumns: '1fr auto auto',
+  gridTemplateColumns: 'minmax(0, 1fr) auto auto',
+  gridTemplateAreas: '"eyebrow meter close" "title title title" "body body body"',
   columnGap: '10px',
+  '@media': {
+    '(max-width: 767px)': {
+      gridTemplateColumns: 'minmax(0, 1fr) auto',
+      gridTemplateAreas: '"eyebrow close" "meter meter" "title title" "body body"',
+    },
+  },
   alignItems: 'center',
   padding: '14px 14px 16px',
   border: `1px solid ${vars.color.background[50]}`,
@@ -53,6 +62,8 @@ export const hero = style({
 })
 
 export const eyebrow = style({
+  gridArea: 'eyebrow',
+  whiteSpace: 'nowrap',
   display: 'inline-flex',
   alignItems: 'center',
   gap: '8px',
@@ -63,7 +74,7 @@ export const eyebrow = style({
 })
 
 export const heroTitle = style({
-  gridColumn: '1 / -1',
+  gridArea: 'title',
   marginTop: '10px',
   color: vars.color.text[900],
   fontSize: '20px',
@@ -72,7 +83,7 @@ export const heroTitle = style({
 })
 
 export const heroBody = style({
-  gridColumn: '1 / -1',
+  gridArea: 'body',
   marginTop: '4px',
   color: vars.color.text[700],
   fontSize: '13px',
@@ -80,6 +91,10 @@ export const heroBody = style({
 })
 
 export const meter = style({
+  gridArea: 'meter',
+  justifySelf: 'start',
+  maxWidth: '100%',
+  flexWrap: 'wrap',
   display: 'inline-flex',
   alignItems: 'baseline',
   gap: '6px',
@@ -92,6 +107,11 @@ export const meter = style({
   fontWeight: 700,
   textTransform: 'uppercase',
   whiteSpace: 'nowrap',
+  '@media': {
+    '(max-width: 767px)': {
+      marginTop: '10px',
+    },
+  },
 })
 
 export const meterValue = style({

@@ -169,11 +169,11 @@ export const githubStatsBottomGrid = style({
   justifyContent: 'start',
   gap: '24px',
   '@media': {
-    '(max-width: 767px)': {
-      display: 'none',
-    },
     '(max-width: 991px)': {
       gridTemplateColumns: '1fr',
+    },
+    '(max-width: 767px)': {
+      gap: '16px',
     },
   },
 })
@@ -226,8 +226,10 @@ export const githubStreakGrid = style({
   margin: 0,
   padding: '10px',
   '@media': {
+    // Stays 2×2 in the phone carousel, just tighter.
     '(max-width: 480px)': {
-      gridTemplateColumns: '1fr',
+      gap: '8px',
+      padding: '4px',
     },
   },
 })
@@ -238,6 +240,10 @@ export const githubStreakMetric = style({
   borderRadius: '12px',
   background: vars.color.background[900],
   border: `1px solid ${vars.color.background[50]}`,
+  minWidth: 0,
+  '@media': {
+    '(max-width: 480px)': { padding: '10px' },
+  },
 })
 
 export const githubStreakLabel = style({
@@ -253,6 +259,10 @@ export const githubStreakValue = style({
   fontSize: '22px',
   lineHeight: 1.2,
   fontWeight: 700,
+  overflowWrap: 'anywhere',
+  '@media': {
+    '(max-width: 480px)': { fontSize: '17px' },
+  },
 })
 
 export const githubContributionPanel = style({
