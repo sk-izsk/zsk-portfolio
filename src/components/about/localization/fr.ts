@@ -14,6 +14,7 @@ export const aboutFr = {
     description:
       "Une vue locale de l'historique des contributions depuis les donnees GitHub mises en cache.",
     profileLink: 'Voir le profil',
+    statsLabel: 'Statistiques GitHub',
     yearSelector: "Selectionner l'annee de contribution",
     loadingYear: 'Chargement des contributions de {{year}}...',
     loadFailed: 'Impossible de charger le graphe des contributions pour le moment.',

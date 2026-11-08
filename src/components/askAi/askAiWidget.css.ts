@@ -46,6 +46,8 @@ globalStyle(`html:has(${panel}[data-open])`, {
 })
 
 export const closeButton = style({
+  gridArea: 'close',
+  justifySelf: 'end',
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
