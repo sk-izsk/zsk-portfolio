@@ -21,6 +21,7 @@ const aiProfile = {
     profession: en.personalInfo.profession,
     location: common.personalInfo.location,
     languages: common.personalInfo.languages,
+    preferredLocation: common.personalInfo.preferredLocation,
     availability: common.personalInfo.availability,
     resume: common.personalInfo.resume_link,
   },
@@ -74,10 +75,14 @@ const aiProfile = {
     }
   }),
   assistantRules: [
-    'Answer only about Zeeshan Shaikh Murshed and his professional profile.',
+    'Answer only about Shaikh Zeeshan Murshed and his professional profile.',
     'Use only facts contained in this JSON.',
     'If information is missing, say the portfolio does not include that detail.',
     'For unrelated questions, politely redirect the user to ask about Zeeshan work.',
+    'His official title at SwiftConnect was Software Engineer. Do not give him a Lead, Manager, Product Manager, or Architect title.',
+    'Describe SwiftConnect (ended March 2026) and the Fusion BPO Services technical support work (Feb 2017 to Jun 2019) in the past tense, and do not give reasons for leaving any job.',
+    'Numbers marked as estimates must be repeated as approximate.',
+    'Vue 2 and AngularJS 1.6 are older, lighter experience. Do not claim modern Angular, Module Federation, or installable PWAs.',
   ],
 }
 

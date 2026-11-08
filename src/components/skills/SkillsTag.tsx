@@ -1,4 +1,4 @@
-import { Code, Cog, FlaskConical, GraduationCap, Laptop, Server } from 'lucide-react'
+import { Code, Cog, FlaskConical, GraduationCap, Headset, Laptop, Server } from 'lucide-react'
 import React from 'react'
 import { useTranslation } from '@localization/localize'
 import { useSkills } from '@stores/portfolioStore'
@@ -38,6 +38,11 @@ export const SkillsTag: React.FC = () => {
         icon={FlaskConical}
         titleText={t('skills.tags.testing')}
         tags={categories.testing ?? []}
+      />
+      <SkillsTagSection
+        icon={Headset}
+        titleText={t('skills.tags.support')}
+        tags={categories.support ?? []}
       />
       <SkillsTagSection
         icon={GraduationCap}

@@ -44,7 +44,7 @@ interface ContactInfo {
 interface Skill {
   name: string
   level: number
-  category: 'frontend' | 'backend' | 'language' | 'tools' | 'testing'
+  category: 'frontend' | 'backend' | 'language' | 'tools' | 'testing' | 'support'
 }
 
 interface SkillCategories {
@@ -53,6 +53,7 @@ interface SkillCategories {
   languages: string[]
   tools: string[]
   testing: string[]
+  support?: string[]
   learning: string[]
 }
 

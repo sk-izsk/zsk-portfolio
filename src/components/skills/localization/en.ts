@@ -15,6 +15,7 @@ export const skillsEn = {
     languages: 'Programming Languages',
     tools: 'Development Tools',
     testing: 'Testing Frameworks',
+    support: 'Technical Support',
     learning: 'Currently Learning',
     ai: 'AI & Machine Learning',
     saas: 'SaaS & Cloud',

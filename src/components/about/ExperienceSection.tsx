@@ -23,7 +23,7 @@ export const ExperienceSection: React.FC = () => {
         heading={t('about.sections.experience')}
         containerClassName={`${experienceClass} padd-15`}
       >
-        {experienceData.slice(0, 4).map((item) => (
+        {experienceData.map((item) => (
           <ActivityTimeline.Item key={item.company + item.position + item.duration}>
             <ActivityTimeline.Item.TimeSpan>{item.duration}</ActivityTimeline.Item.TimeSpan>
             <ActivityTimeline.Item.Title>

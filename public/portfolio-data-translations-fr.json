@@ -4,51 +4,87 @@
     "title": "Ingenieur Frontend Senior",
     "greeting": "Bonjour, je m'appelle",
     "profession": "Je suis Ingenieur Frontend Senior",
-    "bio": "Ingenieur frontend senior avec plus de 7 ans d'experience dans la construction d'applications React et TypeScript performantes pour SaaS enterprise. A dirige l'architecture frontend, la distribution de SDK et l'integration d'outils IA chez SwiftConnect. Maintenant concentre sur des roles senior frontend, full-stack et AI engineering. Ouvert au remote.",
+    "bio": "Ingénieur frontend senior avec plus de 7 ans d'expérience dans la création de produits React et TypeScript pour des SaaS d'entreprise. Chez SwiftConnect, a construit des SDK partagés, une bibliothèque de composants, des micro-frontends single-spa avec SSO et des workflows d'ingénierie assistés par l'IA. Auparavant, deux ans de support technique à distance pour des clients de télécoms au Royaume-Uni et au Canada. Aujourd'hui tourné vers des postes seniors en frontend, full-stack et ingénierie IA. Ouvert au télétravail, ou à un mode hybride à Toronto ou Vancouver.",
     "bioSegments": [
-      { "text": "Ingenieur Frontend Senior", "mark": "underline" },
       {
-        "text": " avec plus de 7 ans dans la construction d'applications ",
-        "mark": "none"
-      },
-      { "text": "React et TypeScript", "mark": "highlight" },
-      {
-        "text": " performantes pour SaaS enterprise. A dirige l'architecture frontend, la distribution de SDK et ",
-        "mark": "none"
+        "text": "Ingénieur frontend senior",
+        "mark": "underline"
       },
       {
-        "text": "l'integration d'outils IA",
+        "text": " avec plus de 7 ans d'expérience dans la création de produits ",
+        "mark": "none"
+      },
+      {
+        "text": "React et TypeScript",
         "mark": "highlight"
       },
       {
-        "text": " chez SwiftConnect. Maintenant concentre sur des roles senior frontend, full-stack et AI engineering. Ouvert au remote.",
+        "text": " pour des SaaS d'entreprise. Chez SwiftConnect, a construit des SDK partagés, une bibliothèque de composants, des ",
+        "mark": "none"
+      },
+      {
+        "text": "micro-frontends single-spa avec SSO",
+        "mark": "highlight"
+      },
+      {
+        "text": " et des ",
+        "mark": "none"
+      },
+      {
+        "text": "workflows d'ingénierie assistés par l'IA",
+        "mark": "highlight"
+      },
+      {
+        "text": ". Auparavant, deux ans de support technique à distance pour des clients de télécoms au Royaume-Uni et au Canada. Aujourd'hui tourné vers des postes seniors en frontend, full-stack et ingénierie IA. Ouvert au télétravail, ou à un mode hybride à Toronto ou Vancouver.",
         "mark": "none"
       }
     ],
-    "detailedBio": "Ingenieur frontend senior avec plus de 7 ans d'experience dans la construction d'applications React et TypeScript performantes pour SaaS enterprise. A dirige l'architecture frontend, la distribution de SDK, les systemes de composants et l'integration d'outils IA chez SwiftConnect jusqu'en mars 2026. Maintenant concentre sur des roles senior frontend, full-stack et AI engineering, avec des forces en React, TypeScript, architecture de composants, creation de SDK, integration LLM et livraison full-stack.",
+    "detailedBio": "Ingénieur frontend senior avec plus de 7 ans d'expérience dans la création de produits React et TypeScript pour des SaaS d'entreprise, chez SwiftConnect à Montréal de novembre 2020 à mars 2026. A construit les SDK Node.js et React utilisés par l'équipe front-end et par des clients tiers, une bibliothèque de composants documentée dans Storybook et accessible au niveau WCAG AA, ainsi que des micro-frontends single-spa pour l'authentification partagée (dont le SSO Google, Microsoft et Okta) et le paiement Stripe. Plus de 3 ans d'expérience avec Next.js, dont une plateforme de réservation client migrée du Pages Router vers l'App Router. A créé des serveurs MCP sur mesure pour la documentation des SDK et les vérifications Figma, mis en place une première revue de code par Copilot et écrit des skills IA sur mesure. A assuré le rôle de product owner pendant quelques sprints, instauré un kickoff design, backend et frontend que les product owners suivants ont conservé, et encadré 5 ou 6 stagiaires et juniors. Auparavant, a travaillé en support technique à distance de février 2017 à juin 2019 pour les clients de quatre fournisseurs de télécoms et d'Internet au Royaume-Uni et au Canada, parmi les trois meilleurs agents chaque mois. Fait aujourd'hui de l'IA appliquée et du full-stack, avec des points forts en React, TypeScript, architecture de composants, micro-frontends, création de SDK, intégration de LLM et livraison full-stack.",
     "detailedBioSegments": [
-      { "text": "Ingenieur Frontend Senior", "mark": "highlight" },
       {
-        "text": " avec plus de 7 ans dans la construction d'applications React et TypeScript performantes pour SaaS enterprise. A dirige ",
-        "mark": "none"
-      },
-      {
-        "text": "l'architecture frontend, la distribution de SDK, les systemes de composants et l'integration d'outils IA",
+        "text": "Ingénieur frontend senior",
         "mark": "highlight"
       },
       {
-        "text": " chez SwiftConnect jusqu'en mars 2026. Maintenant concentre sur des ",
+        "text": " avec plus de 7 ans d'expérience dans la création de produits React et TypeScript pour des SaaS d'entreprise, chez SwiftConnect à Montréal de novembre 2020 à mars 2026. A construit les ",
         "mark": "none"
       },
       {
-        "text": "roles senior frontend, full-stack et AI engineering",
+        "text": "SDK Node.js et React",
         "mark": "highlight"
       },
       {
-        "text": ", avec des forces en React, TypeScript, architecture de composants, creation de SDK, ",
+        "text": " utilisés par l'équipe front-end et par des clients tiers, une bibliothèque de composants documentée dans Storybook et accessible au niveau WCAG AA, ainsi que des ",
         "mark": "none"
       },
-      { "text": "integration LLM", "mark": "highlight" },
+      {
+        "text": "micro-frontends single-spa",
+        "mark": "highlight"
+      },
+      {
+        "text": " pour l'authentification partagée (dont le SSO Google, Microsoft et Okta) et le paiement Stripe. ",
+        "mark": "none"
+      },
+      {
+        "text": "Plus de 3 ans d'expérience avec Next.js",
+        "mark": "highlight"
+      },
+      {
+        "text": ", dont une plateforme de réservation client migrée du Pages Router vers l'App Router. A créé des ",
+        "mark": "none"
+      },
+      {
+        "text": "serveurs MCP sur mesure",
+        "mark": "highlight"
+      },
+      {
+        "text": " pour la documentation des SDK et les vérifications Figma, mis en place une première revue de code par Copilot et écrit des skills IA sur mesure. A assuré le rôle de product owner pendant quelques sprints, instauré un kickoff design, backend et frontend que les product owners suivants ont conservé, et encadré 5 ou 6 stagiaires et juniors. Auparavant, a travaillé en support technique à distance de février 2017 à juin 2019 pour les clients de quatre fournisseurs de télécoms et d'Internet au Royaume-Uni et au Canada, parmi les trois meilleurs agents chaque mois. Fait aujourd'hui de l'IA appliquée et du full-stack, avec des points forts en React, TypeScript, architecture de composants, micro-frontends, création de SDK, ",
+        "mark": "none"
+      },
+      {
+        "text": "intégration de LLM",
+        "mark": "highlight"
+      },
       {
         "text": " et livraison full-stack.",
         "mark": "none"
@@ -70,29 +106,40 @@
   "experience": [
     {
       "id": 5,
-      "description": "Developpement full-stack et AI engineering auto-dirige pendant une transition de carriere, avec focus sur des outils de portfolio prets pour la production, systemes backend, integration LLM et redaction technique continue.",
+      "description": "Évaluation de l'IA et qualité des données sur des plateformes de données IA, projets concrets d'ingénierie full-stack et IA, et rédaction technique régulière.",
       "highlights": [
-        "Construction d'une fonctionnalite Ask AI de bout en bout avec backend FastAPI integrant des APIs d'inference LLM, cache Upstash Redis avec cles versionnees, limitation par IP a 3 requetes par IP par heure, et pipeline de prompt structure imposant des reponses JSON-only fondees sur le CV.",
-        "Livraison d'un frontend de chat React 19, TypeScript et Vite avec gestion du cold start, indicateurs de saisie, dropdowns de sources, input auto-grandissant, raccourcis clavier et affichage des erreurs backend.",
-        "Pratique continue backend et AI engineering avec Express 5, FastAPI, flows temps reel Socket.IO, PostgreSQL, patterns d'authentification, debugging de deploiement et integration LLM.",
-        "Participation a des projets d'evaluation IA et de sondages pour des organisations externes, en restant actif dans l'espace AI engineering pendant la transition.",
-        "Maintenance d'un blog technique sur izsk.hashnode.dev couvrant des patterns React avances et des sujets d'AI engineering."
+        "Évalue et relit des réponses de LLM sur des plateformes de données IA, en notant l'exactitude et la qualité du raisonnement pour fournir aux équipes modèles des données d'entraînement et d'évaluation plus propres.",
+        "A construit de bout en bout une fonctionnalité Ask AI pour le portfolio : un backend FastAPI intégrant des API d'inférence LLM, un cache Upstash Redis avec des clés versionnées, une limite de 3 requêtes par IP et par heure, et un pipeline de prompts structuré qui impose des réponses JSON fondées sur le CV.",
+        "A livré une interface de chat en React 19, TypeScript et Vite avec gestion du démarrage à froid, indicateur de saisie, liste déroulante des sources, champ qui s'agrandit, raccourcis clavier et affichage des erreurs du backend.",
+        "Pratique continue du backend et de l'ingénierie IA avec Express 5, FastAPI, des flux temps réel Socket.IO, PostgreSQL, des modèles d'authentification, le débogage de déploiements et l'intégration de LLM.",
+        "Publie un blog technique sur izsk.hashnode.dev consacré aux patterns React avancés, à la performance, à l'architecture temps réel et à l'ingénierie IA, avec 18 articles à ce jour."
       ]
     },
     {
       "id": 1,
-      "description": "Ingenieur logiciel chez SwiftConnect a Montreal, QC, construisant des interfaces SaaS enterprise d'access management et de securite avec React, TypeScript, Styled Components, Ant Design, Redux Toolkit et TanStack Query. Architecture frontend, distribution de SDK, bibliotheques NPM privees, analytics, observabilite et livraison technique inter-equipes jusqu'en mars 2026.",
+      "description": "Ingénieur logiciel chez SwiftConnect à Montréal, QC (novembre 2020 à mars 2026), sur un SaaS d'entreprise de gestion des accès et de la sécurité avec React, TypeScript, Next.js, React Native, Node.js, Ant Design, Styled Components, Redux Toolkit, Zustand et TanStack Query. A construit des SDK partagés, une bibliothèque de composants, des micro-frontends single-spa, des outils de support internes, l'observabilité et des workflows d'ingénierie assistés par l'IA.",
       "highlights": [
-        "Conception d'interfaces React et TypeScript performantes pour des workflows d'autorisation complexes sur plusieurs zones produit enterprise.",
-        "Transformation de maquettes UX/UI en systemes de composants reutilisables et accessibles sur plus de 10 composants UI, reduisant les cycles de revision design-dev d'environ 30%.",
-        "Creation d'une bibliotheque de composants NPM privee documentee dans Storybook et adoptee par plusieurs equipes, reduisant le code frontend duplique d'environ 40% et imposant des standards UI coherents.",
-        "Architecture de SDK Node.js et React prives avec interfaces API typees et versionnees pour projets internes et integrations clients tierces.",
-        "Conception, construction et maintenance en solo d'un dashboard interne React Native et Expo pour l'equipe customer-facing, incluant navigation, integration API, vues dashboard riches en donnees et couverture React Native Testing Library.",
-        "Mise en place d'un pipeline de templates email SendGrid bases sur React avec deploiement CI/CD, gardant les emails versionnes et supprimant la gestion manuelle des templates.",
-        "Instrumentation d'analytics frontend, suivi KPI, monitoring Sentry, upload de source maps, suivi Core Web Vitals et checks GitLab CI/CD sur les parcours utilisateurs cles.",
-        "Mentorat de 2-3 developpeurs juniors via revues de code, pair programming et sessions de partage bi-hebdomadaires, reduisant le delai de revue d'environ 25%.",
-        "Role de lead technique et proxy Product Owner pendant des phases critiques, traduisant les besoins metier en plans d'architecture et coordonnant l'execution sprint entre frontend et backend.",
-        "Construction de workflows MCP Storybook, Figma et GitHub pour validation d'integrite design, recherche de documentation API dans l'editeur, PR reviews assistees par LLM et scaffolding agentique avec validation humaine."
+        "A construit le client web principal de contrôle d'accès en React et TypeScript, avec Redux Toolkit et TanStack Query pour gérer des données d'autorisation complexes, afin que l'interface reste stable pendant de nombreuses mutations sur plusieurs zones produit.",
+        "A remplacé le code d'API copié-collé dans chaque projet par un SDK Node.js versionné et un SDK React par-dessus, publiés depuis un monorepo (pnpm workspaces, puis Bun workspaces) vers un registre npm privé, avec versionnage sémantique et changelog. Presque toute l'équipe front-end les a adoptés, et les clients tiers s'intégraient via les mêmes SDK.",
+        "A créé de zéro une bibliothèque de composants documentée dans Storybook, dans son propre dépôt avec une configuration Webpack autonome, en fusionnant les copies de la même interface de trois projets et en réduisant le code d'interface dupliqué d'environ deux tiers (estimation). Une quatrième application, migrée d'Angular 1.6 vers React, l'a utilisée dès le premier jour.",
+        "A intégré l'accessibilité WCAG AA dans la bibliothèque de composants (navigation au clavier, gestion du focus et contraste des couleurs), testée avec l'addon a11y de Storybook, jest-axe et des vérifications au lecteur d'écran, d'abord dans un hook pre-commit Husky puis en CI.",
+        "A mis en place de zéro des micro-frontends single-spa et travaillé avec pendant plus de 3 ans : une application d'authentification partagée et une application de paiement partagée vers lesquelles les autres applications web redirigent, déployées indépendamment.",
+        "A intégré la connexion SSO avec Google, Microsoft et Okta (OAuth, OIDC, SAML) dans l'application d'authentification partagée, et construit le paiement des réservations sur Stripe, stylisé comme le produit, les données de carte restant chez Stripe.",
+        "A créé de zéro en Next.js une plateforme client de réservation de salles de réunion. Lancée sur le Pages Router puis migrée vers l'App Router, elle tourne en production avec de vrais clients depuis plus de 3 ans, avec des API routes, des server actions et un middleware.",
+        "A remplacé une déconnexion forcée quotidienne par des jetons d'accès de 15 minutes renouvelés à partir d'un jeton de session lors de l'activité ou du focus de l'utilisateur, conçus avec une preuve de concept et les retours de l'équipe, pour que les clients restent connectés plus longtemps sans affaiblir la sécurité.",
+        "A ajouté la prise en charge des service workers à une application web (utilisation hors ligne, ressources en cache, notifications push web FCM, synchronisation en arrière-plan des imports CSV) et déplacé l'analyse de fichiers CSV jusqu'à 5 Mo et d'autres traitements lourds vers des Web Workers.",
+        "A ajouté la virtualisation des listes et des tableaux lourds, utilisé la mémoïsation et React Profiler pour éviter les rendus inutiles, et migré les applications web Create React App vers Vite avec code splitting et tree-shaking, réduisant le bundle environ de moitié (estimation).",
+        "A empêché les grands formulaires de re-rendre chaque champ à chaque frappe en donnant à chaque champ son propre abonnement Zustand, un pattern adopté par l'équipe dans la plupart des projets web et mobiles, et a déplacé l'état d'interface de Redux Toolkit vers Zustand tout en gardant les données serveur dans TanStack Query.",
+        "A créé de zéro un tableau de bord interne en React Native (Expo) qui permet au support client de voir les échecs et d'y répondre depuis les téléphones de l'entreprise, avec notifications push et tests React Native Testing Library. Les traitements de listes lourds tournent dans des workers en arrière-plan.",
+        "A remplacé React Navigation par le routeur basé sur les fichiers d'Expo pour réduire les alertes Dependabot et la configuration.",
+        "A livré un tableau des erreurs dans un tableau de bord web React et des alertes Slack, pour que les équipes support, opérations et clients n'aient plus à demander aux ingénieurs de décoder des logs bruts.",
+        "A réduit le délai des modèles d'e-mail de 3 à 4 jours à quelques heures ou minutes en déplaçant les modèles SendGrid dans des composants React partagés déployés par CI/CD.",
+        "A mis en place Sentry sur l'application React Native puis sur les applications web, avec suivi des versions, source maps et routage des alertes, et suivi des Core Web Vitals en production. A ajouté le suivi d'événements avec Google Analytics puis Mixpanel pour savoir quelles fonctionnalités les clients utilisaient.",
+        "A créé un serveur MCP sur mesure pour la documentation des SDK et un MCP Figma sur mesure avec une vérification du contrat de design qui a réduit les cycles de révision du design d'environ 25 à 30 % (estimation), connecté le MCP de Storybook et le MCP GitHub, et écrit des skills IA sur mesure qui reprennent les patterns de chaque projet.",
+        "A ajouté une première revue GitHub Copilot avant la revue humaine, avec le MCP GitHub qui ramène les commentaires et le statut des PR dans l'éditeur, réduisant le délai des PR d'environ 2 à 3 jours à environ 1 à 1,5 jour, soit environ 50 % (estimation).",
+        "A assuré le rôle de product owner pendant quelques sprints et instauré un kickoff où design, backend et frontend s'accordent sur le contrat d'API avant de construire, que les product owners suivants ont conservé.",
+        "Responsable des standards de revue de code et de CI, a rédigé et relu des RFC, tenu les registres de décisions d'architecture, mené des entretiens de candidats juniors et stagiaires, et encadré 5 ou 6 stagiaires et juniors.",
+        "A soulevé un problème de conception lié aux adresses e-mail et numéros de téléphone multiples, construit une preuve de concept avec des champs modifiables, et l'a livrée après que des retours clients ont soulevé le même problème."
       ]
     },
     {
@@ -107,12 +154,26 @@
     },
     {
       "id": 3,
-      "description": "A assiste au developpement d'applications mobiles iOS et Android utilisant Expo, TypeScript, Jest et React Native. Acquisition d'experience backend pratique avec Node.js et Express via la construction et consommation d'API REST et l'application de patterns fondamentaux comme routing, controllers et middleware pour supporter la refonte du site.",
+      "description": "Développeur logiciel junior chez Guiker à Montréal, développant des fonctionnalités iOS et Android avec React Native (Expo), TypeScript et Jest, et participant à la réécriture du produit web en React et TypeScript, avec un peu de routage et de middleware Node.js et Express. Utilisait GitLab pour les dépôts et la CI/CD.",
       "highlights": [
-        "Developpement d'applications iOS et Android utilisant Expo, TypeScript, Jest et React Native.",
-        "Construction et consommation d'API REST avec Node.js et Express, application de patterns routing, controllers et middleware.",
-        "Support d'une refonte majeure du site, ameliorant la maintenabilite et la performance.",
-        "Acquisition d'experience pratique avec technologies backend et cloud."
+        "A réduit la signature des baux d'une semaine de visites d'agents à 1 à 2 jours en construisant le parcours de bail en ligne et un chat intégré entre propriétaires et locataires, ce qui a aussi aidé le support à intégrer les clients plus vite.",
+        "A participé à la réécriture du produit web principal en React et TypeScript avec Material-UI, JSS, des API REST et des tests Jest.",
+        "A pris en charge une partie de la logique de routage et de middleware Node.js et Express.",
+        "A construit le formulaire de bail de 9 pages et corrigé, par la mémoïsation, des rendus inutiles causés par React Context.",
+        "A développé des fonctionnalités iOS et Android en React Native (Expo) avec TypeScript et Jest."
+      ]
+    },
+    {
+      "id": 4,
+      "description": "Support technique à distance et ventes entrantes pour les clients de quatre fournisseurs de télécoms et d'Internet au Royaume-Uni et au Canada, par téléphone et bureau à distance. À temps partiel jusqu'en juin 2018, puis à temps plein jusqu'en juin 2019.",
+      "highlights": [
+        "Classé parmi les trois meilleurs agents chaque mois pendant toute la période, avec la prime mensuelle correspondante.",
+        "A assisté les clients de quatre fournisseurs de télécoms et d'Internet au Royaume-Uni et au Canada par téléphone et bureau à distance, avec de nombreux appels et plusieurs tickets par jour, pour des clients allant du débutant à l'utilisateur expérimenté.",
+        "A résolu des problèmes Windows et Mac : erreurs système, installations corrompues, conflits de pilotes et plantages d'applications.",
+        "A guidé les clients par téléphone dans la configuration de routeurs, la redirection de ports et le dépannage de réseaux domestiques, en étapes accessibles à une personne non technique.",
+        "A résolu des problèmes d'e-mail chez différents fournisseurs et clients de messagerie : configuration de comptes, échecs d'envoi et de réception, récupération d'accès et synchronisation sur ordinateur et mobile.",
+        "A géré chaque dossier du début à la fin : recueil des symptômes, reproduction du problème à distance, application du correctif, confirmation avec le client et documentation du résultat avant clôture.",
+        "A passé environ les six premiers mois sur des appels de vente entrants, à qualifier les besoins des clients et vendre des forfaits de support, environ 8 à 9 ventes par mois (estimation)."
       ]
     }
   ],
@@ -120,12 +181,12 @@
     {
       "id": 4,
       "title": "Solutions Full Stack",
-      "description": "Developpement d'applications de bout en bout combinant technologies frontend et backend. Specialisation dans le developpement MERN/MEAN stack avec pratiques de deploiement modernes."
+      "description": "Développement d'applications de bout en bout combinant technologies frontend et backend. Spécialisé dans les stacks de type MERN, Next.js et les backends FastAPI, avec des pratiques de déploiement modernes."
     },
     {
       "id": 2,
       "title": "Developpement Frontend",
-      "description": "Construction d'applications frontend modernes, responsives et scalables utilisant React, Next.js, Vue.js et TypeScript. Focus sur l'architecture basee composants et l'optimisation de performance."
+      "description": "Création d'applications frontend modernes, responsives et évolutives avec React, Next.js, React Native et TypeScript. Accent sur l'architecture à base de composants, l'accessibilité (WCAG AA), les micro-frontends avec single-spa et l'optimisation des performances."
     },
     {
       "id": 3,
@@ -134,23 +195,23 @@
     },
     {
       "id": 1,
-      "title": "Gestion de Produit",
-      "description": "Pilotage de la vision produit, planification de la feuille de route et priorisation du backlog pour aligner l'execution technique sur les objectifs metier. Experience en tant que Product Owner, gestion des sprints, facilitation de l'alignement des parties prenantes et liaison entre equipes techniques et business."
+      "title": "Appui Product Owner",
+      "description": "Transformer les besoins métier en tâches qu'une équipe peut prendre en charge, et aligner design, backend et frontend avant de construire. Expérience comme product owner par intérim pendant quelques sprints et mise en place d'un kickoff où le contrat d'API est convenu en amont."
     },
     {
       "id": 5,
       "title": "Developpement Mobile",
-      "description": "Developpement mobile cross-platform avec React Native et Expo. Creation d'applications performantes pour iOS et Android."
+      "description": "Développement d'applications mobiles multiplateformes avec React Native et Expo, y compris les notifications push et les workers en arrière-plan. Création d'applications performantes pour iOS et Android."
     },
     {
       "id": 6,
       "title": "Developpement de bibliotheques NPM",
-      "description": "Creation et maintenance de bibliotheques NPM privees et publiques. Specialisation dans les composants reutilisables et bibliotheques utilitaires pour accelerer la productivite."
+      "description": "Création et maintenance de bibliothèques NPM privées et publiques. Spécialisé dans les SDK versionnés, la publication depuis un monorepo vers des registres privés et les bibliothèques de composants réutilisables avec Storybook."
     },
     {
       "id": 7,
       "title": "Conseil technique",
-      "description": "Accompagnement technique sur les decisions d'architecture, les revues de code et les bonnes pratiques. Aide aux equipes pour ameliorer la qualite du code et les processus."
+      "description": "Conseils techniques sur les décisions d'architecture, les RFC, les revues de code et les bonnes pratiques. Aide aux équipes pour améliorer la qualité du code, les standards de CI et les processus de développement."
     },
     {
       "id": 8,
@@ -160,7 +221,7 @@
     {
       "id": 9,
       "title": "Support Technique",
-      "description": "Fourniture d'un support technique expert et resolution de problemes pour applications et systemes logiciels. Experience dans le diagnostic de problemes complexes, la gestion des flux de tickets et la liaison technique entre clients et equipes de developpement pour des resolutions rapides et fiables."
+      "description": "Support technique à distance et dépannage d'applications et d'ordinateurs, fondé sur deux ans de support par téléphone et bureau à distance pour des clients de télécoms et sur la création d'outils de support internes. Expérience dans le diagnostic de problèmes Windows et macOS, de routeurs et d'e-mail, et dans le suivi des tickets du premier contact à la résolution confirmée."
     },
     {
       "id": 10,
@@ -279,16 +340,18 @@
     {
       "id": 9,
       "title": "zsk-jd : Skill IA de personnalisation de CV",
-      "excerpt": "Un skill LLM portable qui effectue une analyse d'écart ATS, un score de probabilité d'entretien et une personnalisation complète de CV en LaTeX pour n'importe quelle offre d'emploi — avec une validation obligatoire avant toute sortie et génération de lettres de motivation bilingues.",
-      "shortDescription": "Un skill de prompt structuré pour Claude et autres LLMs qui automatise la personnalisation de CV de bout en bout : analyse d'offre, scoring d'écart de compétences, injection de mots-clés ATS et sortie LaTeX compilable avec lettres de motivation optionnelles. Conçu avec des règles d'écriture ATS strictes, des garde-fous anti-fabrication et support du mode patch.",
+      "excerpt": "Un skill Claude qui effectue une analyse d'écart ATS et adapte un CV court et naturel à n'importe quelle offre d'emploi, à partir d'un CV maître et d'une banque d'impact d'histoires réelles, avec un scan obligatoire des pièges, une vérification des écarts et des modes distincts pour les CV de support technique et orientés produit.",
+      "shortDescription": "Un skill Claude structuré qui automatise la personnalisation de CV de bout en bout : analyse de l'offre, scan des pièges pour IA, score d'écart de compétences, vérification des écarts avec une banque d'impact d'histoires réelles, et sortie LaTeX compilable avec lettres de motivation en option. Conçu avec des règles d'écriture ATS strictes et des garde-fous de véracité : chaque fait doit venir du CV maître, de la banque ou de la réponse de l'utilisateur.",
       "highlights": [
-        "Analyse d'écart de compétences pondérée (compétences techniques 60%, séniorité 25%, adéquation domaine 15%) avec estimation du taux d'entretien",
-        "Porte de validation obligatoire bloquant toute sortie si le score est inférieur à 50 ou si la majorité des compétences requises sont absentes",
-        "Réécrit le résumé professionnel, réordonne les compétences et injecte les mots-clés de l'offre sans fabriquer d'expériences",
-        "Génère des lettres de motivation LaTeX compilables en 4 modes de longueur avec indicateurs de ton (formel/décontracté)",
-        "Mode patch : ne produit que les blocs LaTeX modifiés pour des workflows de contrôle de version propres",
-        "Règles d'écriture ATS strictes : 15+ mots/phrases interdits, sans tiret cadratin, sans structures de puces répétitives",
-        "Portable sur Claude, Cursor, Copilot, ChatGPT, Gemini CLI et tout LLM compatible Markdown"
+        "Analyse pondérée des écarts de compétences (compétences techniques 60 %, séniorité 25 %, adéquation au domaine 15 %), avec une chance comparée à l'habitude de l'utilisateur plutôt qu'une probabilité chiffrée",
+        "Recherche dans l'offre des instructions cachées destinées aux outils d'IA et s'arrête jusqu'à confirmation de l'utilisateur, pour qu'un piège ne puisse jamais influencer le CV",
+        "Ne pose des questions de vérification que sur les compétences que le CV maître et la banque d'impact ne couvrent pas déjà, et un simple oui ne suffit jamais à ajouter une compétence au CV",
+        "Construit un résumé d'une phrase et des puces orientées résultats à partir des histoires de la banque, avec des lignes « Ne pas revendiquer », des mentions d'estimation et aucun chiffre ni titre inventé",
+        "Modes distincts pour le support technique (--TS) et l'angle produit (--PM), chacun avec sa propre banque et ses règles de titre",
+        "Génère des lettres de motivation LaTeX compilables en 3 longueurs (120, 200 et 350 mots maximum) plus un mode lettre seule, avec un ton formel ou décontracté",
+        "Le mode patch ne produit que les blocs LaTeX modifiés pour des diffs propres en gestion de versions",
+        "Règles d'écriture strictes : mots typiques de l'IA interdits, pas de tirets cadratins, pas de débuts de puces répétés, pas d'ouvertures de résumé robotiques",
+        "Écrit pour Claude. D'autres outils LLM peuvent lire le skill mais n'ont pas été testés"
       ]
     },
     {
