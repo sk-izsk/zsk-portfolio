@@ -64,12 +64,7 @@ export const useAskAiChat = (copy: AskAiChatCopy) => {
         },
       ])
     } catch (requestError) {
-      const askAiError = await readAskAiError(
-        requestError,
-        copy.error,
-        copy.rateLimited,
-        copy.offline,
-      )
+      const askAiError = readAskAiError(requestError, copy.error, copy.rateLimited, copy.offline)
 
       if (typeof askAiError.remaining === 'number') {
         setRemaining(askAiError.remaining)

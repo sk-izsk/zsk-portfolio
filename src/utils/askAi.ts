@@ -1,5 +1,5 @@
 import type { ChatMessage } from '@app-types/askAi'
-import { HTTPError } from 'ky'
+import { isHTTPError, isNetworkError, isTimeoutError } from 'ky'
 
 interface AskAiErrorDetail {
   message?: string
@@ -55,25 +55,25 @@ export const getAskAiSuggestions = (
   return prompts.slice(0, 4)
 }
 
-export const readAskAiError = async (
+// ky 2 reads an error's body into `error.data` (the response body itself can no longer be read), and
+// reports a failed connection as NetworkError rather than TypeError.
+export const readAskAiError = (
   error: unknown,
   fallback: string,
   rateLimited: string,
   offline: string,
 ) => {
-  if (!(error instanceof HTTPError)) {
-    return { message: error instanceof TypeError ? offline : fallback }
+  if (isNetworkError(error) || isTimeoutError(error)) {
+    return { message: offline }
   }
 
-  if (error.response.status === 429) {
-    const payload = (await error.response.json().catch(() => null)) as {
-      detail?: AskAiErrorDetail
-    } | null
+  if (isHTTPError(error) && error.response.status === 429) {
+    const detail = (error.data as { detail?: AskAiErrorDetail } | undefined)?.detail
 
     return {
-      message: payload?.detail?.message || rateLimited,
-      remaining: payload?.detail?.remaining,
-      resetInSeconds: payload?.detail?.reset_in_seconds,
+      message: detail?.message || rateLimited,
+      remaining: detail?.remaining,
+      resetInSeconds: detail?.reset_in_seconds,
     }
   }
 
