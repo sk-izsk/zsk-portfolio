@@ -1,30 +1,17 @@
-import { Bars } from 'react-loader-spinner'
-import { useThemeStore } from '@stores/themeStore'
+import * as styles from '@components/pageLoader.css'
 
-const colorThemes = {
-  'color-1': '#ec1839',
-  'color-2': '#fa5b0f',
-  'color-3': '#37b182',
-  'color-5': '#f021b2',
-  'color-7': '#daa520',
-  'color-9': '#00bfff',
-}
+const BAR_DELAYS = [0, 0.1, 0.2, 0.3, 0.4]
 
-export const PageLoader = () => {
-  const currentColor = useThemeStore((state) => state.currentColor)
-
-  return (
-    <div className="page-loader">
-      <div className="loading">
-        <Bars
-          height="80"
-          width="80"
-          color={colorThemes[currentColor as keyof typeof colorThemes]}
-          ariaLabel="bars-loading"
-          wrapperClass=""
-          visible={true}
-        />
+// Plain CSS bars in the theme colour, instead of a spinner library that pulled styled-components into
+// the first chunk.
+export const PageLoader = () => (
+  <div className="page-loader">
+    <div className="loading" role="status" aria-label="Loading">
+      <div className={styles.bars}>
+        {BAR_DELAYS.map((delay) => (
+          <span key={delay} className={styles.bar} style={{ animationDelay: `${delay}s` }} />
+        ))}
       </div>
     </div>
-  )
-}
+  </div>
+)
