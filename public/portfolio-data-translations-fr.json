@@ -112,7 +112,7 @@
         "A construit de bout en bout une fonctionnalité Ask AI pour le portfolio : un backend FastAPI intégrant des API d'inférence LLM, un cache Upstash Redis avec des clés versionnées, une limite de 3 requêtes par IP et par heure, et un pipeline de prompts structuré qui impose des réponses JSON fondées sur le CV.",
         "A livré une interface de chat en React 19, TypeScript et Vite avec gestion du démarrage à froid, indicateur de saisie, liste déroulante des sources, champ qui s'agrandit, raccourcis clavier et affichage des erreurs du backend.",
         "Pratique continue du backend et de l'ingénierie IA avec Express 5, FastAPI, des flux temps réel Socket.IO, PostgreSQL, des modèles d'authentification, le débogage de déploiements et l'intégration de LLM.",
-        "Publie un blog technique sur izsk.hashnode.dev consacré aux patterns React avancés, à la performance, à l'architecture temps réel et à l'ingénierie IA, avec 18 articles à ce jour."
+        "Publie un blog technique sur izsk.hashnode.dev consacré aux patterns React avancés, à la performance, à l'architecture temps réel et à l'ingénierie IA, avec 19 articles à ce jour."
       ]
     },
     {
@@ -629,6 +629,20 @@
         "Limite une tâche CI GitLab aux packages modifiés et valide un package UI avec Storybook et Vitest avant que les apps importent ses composants",
         "Réserve Changesets aux packages utilisés hors du dépôt, comme un SDK, et utilise CODEOWNERS pour clarifier les responsabilités",
         "Présente les cas où le polyrepo gagne, dont les rythmes de publication distincts, l'isolation de sécurité et l'open source, ainsi que les erreurs de configuration : dépendances des apps à la racine, cycles entre packages, packages prématurés, packageManager non épinglé et sorties de cache manquantes"
+      ]
+    },
+    {
+      "id": 19,
+      "title": "FlashList vs FlatList : arrêtez d'utiliser FlatList pour les vrais feeds",
+      "excerpt": "Pour un long feed React Native, recycler les lignes est souvent un meilleur point de départ que les remonter à chaque défilement.",
+      "shortDescription": "Le dixième article de la série performance explique pourquoi le windowing de FlatList coûte cher dans les vrais feeds et comment FlashList v2 réutilise les cellules montées. Il couvre la disposition synchrone avec la New Architecture, les pièges de migration et de recyclage, les performances de chaque ligne et les cas où FlatList ou une autre bibliothèque reste préférable. Il relie le recyclage mobile aux articles sur la virtualisation web, la mémoïsation, la réconciliation et les clés, et la mesure des performances.",
+      "highlights": [
+        "Explique le windowing de VirtualizedList et pourquoi `windowSize` et `maxToRenderPerBatch` échangent des cellules vides contre plus de mémoire et de travail de rendu sans supprimer le coût des remontages",
+        "Montre comment FlashList v2 recycle les cellules, abandonne `estimatedItemSize` grâce à la disposition synchrone de la New Architecture et utilise `getItemType` et une prop masonry pour les feeds mixtes",
+        "Détaille la migration vers v2 : retirer les anciennes props, tester les builds de production et éviter que l'état local ou les clés des enfants gardent l'identité de la mauvaise ligne",
+        "Distingue `useRecyclingState` de l'état Zustand indexé par identifiant et utilise les callbacks de visibilité plutôt que les effets au montage pour les impressions",
+        "Applique un `renderItem` stable, `React.memo` avec des props stables, `extraData` et des images `expo-image` bien dimensionnées aux performances des lignes",
+        "Garde FlatList pour les listes courtes ou à hauteur fixe avec `getItemLayout` et `initialNumToRender`, conseille des mesures sur un Android milieu de gamme en build de production et examine LegendList et RecyclerListView"
       ]
     }
   ]

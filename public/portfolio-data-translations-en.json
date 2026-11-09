@@ -112,7 +112,7 @@
         "Built an end-to-end Ask AI portfolio feature with a FastAPI backend integrating LLM inference APIs, Upstash Redis caching with versioned cache keys, IP-based rate limiting at 3 requests per IP per hour, and a structured prompt pipeline enforcing resume-grounded JSON-only answers.",
         "Shipped a React 19, TypeScript, and Vite chat frontend with cold-start handling, typing indicators, source dropdowns, auto-growing input, keyboard shortcuts, and backend error surfacing.",
         "Continued backend and AI engineering practice across Express 5, FastAPI, Socket.IO real-time flows, PostgreSQL, auth patterns, deployment debugging, and LLM integration.",
-        "Publish a technical blog at izsk.hashnode.dev on advanced React patterns, performance, real-time architecture, and AI engineering, with 18 posts so far."
+        "Publish a technical blog at izsk.hashnode.dev on advanced React patterns, performance, real-time architecture, and AI engineering, with 19 posts so far."
       ]
     },
     {
@@ -629,6 +629,20 @@
         "Filters a GitLab CI job to changed packages and gates a shared UI package with Storybook and Vitest before apps import its components",
         "Uses Changesets only for packages with external consumers, such as an SDK, and CODEOWNERS to keep ownership clear",
         "Names cases for polyrepo, including separate release cadences, security isolation, and open source packages, plus mistakes such as root app dependencies, circular packages, premature packages, unpinned packageManager, and missing cache outputs"
+      ]
+    },
+    {
+      "id": 19,
+      "title": "FlashList vs FlatList: Stop Shipping FlatList for Real Feeds",
+      "excerpt": "For a long React Native feed, recycling rows is usually a better starting point than repeatedly mounting them as you scroll.",
+      "shortDescription": "Post 10 in the performance series argues that FlatList's windowing costs make it a poor default for real feeds, while FlashList v2 reuses mounted cells. It explains the New Architecture layout change, migration and recycling traps, row-level performance, and the cases where FlatList or another list library still makes more sense. It connects mobile recycling to the earlier posts on web virtualization, memoization, reconciliation and keys, and measurement.",
+      "highlights": [
+        "Explains VirtualizedList windowing and why `windowSize` and `maxToRenderPerBatch` trade blank cells against memory and render work rather than removing remount costs",
+        "Shows how FlashList v2 recycles cells, drops `estimatedItemSize` through synchronous New Architecture layout, and uses `getItemType` pools and a masonry prop for mixed feeds",
+        "Covers v2 migration checks: remove obsolete props, test release builds, and prevent recycled local state or child keys from carrying the wrong row identity",
+        "Separates `useRecyclingState` from state stored by item ID in Zustand, and uses viewability callbacks instead of mount effects for impressions",
+        "Applies stable `renderItem`, `React.memo` with stable props, `extraData`, and correctly sized `expo-image` assets to row performance",
+        "Keeps FlatList for short or fixed-height lists with `getItemLayout` and `initialNumToRender`, recommends measuring on a mid-range Android release build, and considers old architecture, unrecyclable rows, LegendList, and RecyclerListView"
       ]
     }
   ]
