@@ -1,14 +1,12 @@
 import { storyCardQuery } from '@components/story/story.css'
 import { getStoryTops } from '@utils/storyScroll'
 import { getWheelLanding } from '@utils/storyWheel'
-import gsap from 'gsap'
 import { useEffect, type RefObject } from 'react'
 
 const LINE_PX = 16
-// The beat the page holds before it starts to rise, and how long a step takes to settle.
+// The beat the page holds before it starts to rise, and how long a smooth scroll takes to land.
 const GATE_PAUSE_MS = 380
-const GATE_GLIDE_S = 0.22
-const STEP_GLIDE_S = 0.5
+const SETTLE_MS = 450
 
 // A notched mouse wheel reports whole notches of 120. Trackpads and touch scroll smoothly on
 // their own, and are left alone.
@@ -46,14 +44,17 @@ const isScrolledInside = (event: WheelEvent) => {
  */
 export const useStoryWheel = (storyRef: RefObject<HTMLDivElement | null>) => {
   useEffect(() => {
-    const position = { y: 0 }
     let target = 0
     let lockedUntil = 0
-    let tween: gsap.core.Tween | null = null
+    let settlesAt = 0
 
+    // The browser's own smooth scroll runs with the page's scrolling, so the sticky pages and
+    // what is tied to them stay in step. A tween moving it from script would trail behind.
     const stop = () => {
-      tween?.kill()
-      tween = null
+      if (performance.now() < settlesAt) {
+        settlesAt = 0
+        window.scrollTo({ top: window.scrollY, behavior: 'instant' })
+      }
     }
 
     const onWheel = (event: WheelEvent) => {
@@ -72,7 +73,7 @@ export const useStoryWheel = (storyRef: RefObject<HTMLDivElement | null>) => {
         return
       }
 
-      const from = tween?.isActive() ? target : window.scrollY
+      const from = performance.now() < settlesAt ? target : window.scrollY
       const delta = event.deltaMode === 1 ? event.deltaY * LINE_PX : event.deltaY
       const tops = getStoryTops(storyRef.current)
       const gates = tops.slice(1).map((top) => top - window.innerHeight)
@@ -93,15 +94,8 @@ export const useStoryWheel = (storyRef: RefObject<HTMLDivElement | null>) => {
         lockedUntil = performance.now() + GATE_PAUSE_MS
       }
 
-      stop()
-      position.y = window.scrollY
-      tween = gsap.to(position, {
-        y: target,
-        duration: landing.isGate ? GATE_GLIDE_S : STEP_GLIDE_S,
-        ease: 'power3.out',
-        overwrite: true,
-        onUpdate: () => window.scrollTo(0, position.y),
-      })
+      settlesAt = performance.now() + SETTLE_MS
+      window.scrollTo({ top: target, behavior: 'smooth' })
     }
 
     window.addEventListener('wheel', onWheel, { passive: false })
