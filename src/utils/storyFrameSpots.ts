@@ -64,9 +64,8 @@ export const getRestSpot = (path: string): (() => FrameSpot) => {
   const link = document.querySelector<HTMLElement>(`[data-story-link="${path}"]`)
 
   if (link?.offsetParent) {
-    const spot = frameAroundRect(getLinkContentRect(link), LINK_OUTSET, LINK_BRACKET)
-
-    return () => spot
+    // Measured each time, so a late font or a label that is still sliding never leaves it stale.
+    return () => frameAroundRect(getLinkContentRect(link), LINK_OUTSET, LINK_BRACKET)
   }
 
   const label = document.querySelector(`.${currentPage}`)

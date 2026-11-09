@@ -5,6 +5,8 @@ const canAnimate = '(prefers-reduced-motion: no-preference)'
 
 export const storyCardQuery = `${canAnimate} and (min-width: 1100px)`
 
+export const STORY_CARD_RADIUS = 32
+
 export const storyPage = style({
   position: 'relative',
   minHeight: '100svh',
@@ -37,7 +39,7 @@ export const storyPageInner = style({
   overflow: 'clip',
   '@media': {
     [storyCardQuery]: {
-      borderRadius: '32px 32px 0 0',
+      borderRadius: `${STORY_CARD_RADIUS}px ${STORY_CARD_RADIUS}px 0 0`,
     },
     // Without the card slide, a plain line marks where one page ends and the next begins.
     '(max-width: 1099px), (prefers-reduced-motion: reduce)': {

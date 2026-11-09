@@ -908,6 +908,25 @@
         "CODEOWNERS"
       ],
       "publishDate": "2026-11-02"
+    },
+    {
+      "id": 19,
+      "url": "https://izsk.hashnode.dev/flashlist-vs-flatlist-stop-shipping-flatlist-for-real-feeds",
+      "blogTypes": ["frontend", "architecture"],
+      "category": "Mobile Performance",
+      "tags": [
+        "React Native",
+        "FlashList",
+        "FlatList",
+        "VirtualizedList",
+        "Expo",
+        "Zustand",
+        "React.memo",
+        "Recycling",
+        "Performance",
+        "New Architecture"
+      ],
+      "publishDate": "2026-11-09"
     }
   ],
   "experienceBase": [

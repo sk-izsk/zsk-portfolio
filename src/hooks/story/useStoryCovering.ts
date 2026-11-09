@@ -1,4 +1,4 @@
-import { storyCardQuery, storyPageDim } from '@components/story/story.css'
+import { STORY_CARD_RADIUS, storyCardQuery, storyPageDim } from '@components/story/story.css'
 import { getStoryPages } from '@utils/storyScroll'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -19,6 +19,21 @@ export const useStoryCovering = (storyRef: RefObject<HTMLDivElement | null>) => 
 
     media.add(storyCardQuery, () => {
       const pages = getStoryPages(story)
+
+      // The rounded top is for a page that is rising. Once it docks at the top of the screen the
+      // corners would only show the background behind it, so they straighten as it arrives.
+      pages.slice(1).forEach((page) => {
+        gsap.fromTo(
+          page.firstElementChild,
+          { borderTopLeftRadius: STORY_CARD_RADIUS, borderTopRightRadius: STORY_CARD_RADIUS },
+          {
+            borderTopLeftRadius: 0,
+            borderTopRightRadius: 0,
+            ease: 'none',
+            scrollTrigger: { trigger: page, start: 'top 35%', end: 'top top', scrub: true },
+          },
+        )
+      })
 
       pages.slice(0, -1).forEach((page, index) => {
         const nextPage = pages[index + 1]
