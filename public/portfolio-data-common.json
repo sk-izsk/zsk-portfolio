@@ -566,6 +566,37 @@
         "REST API"
       ],
       "publishDate": "2026-08-12"
+    },
+    {
+      "id": 15,
+      "url": "https://github.com/sk-izsk/yt-playlist-course",
+      "demo_link": "https://tubewise.vercel.app",
+      "projectTypes": ["full-stack", "frontend", "backend"],
+      "category": "Full Stack",
+      "tags": [
+        "TypeScript",
+        "Next.js 16",
+        "React 19",
+        "antd 6",
+        "TanStack Query",
+        "zustand",
+        "ky",
+        "PostgreSQL",
+        "Neon",
+        "drizzle-orm",
+        "Vercel",
+        "jose",
+        "argon2id",
+        "zod",
+        "Model Context Protocol",
+        "Anthropic SDK",
+        "youtubei.js",
+        "dnd-kit",
+        "GitHub Actions",
+        "launchd",
+        "Bun"
+      ],
+      "publishDate": "2026-11-11"
     }
   ],
   "blogBase": [

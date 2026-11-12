@@ -1,7 +1,6 @@
 import { BookOpenText, CalendarDays } from 'lucide-react'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
-import { useTranslation } from '@localization/localize'
 import { Tag } from '@components/tag/Tag'
 import { RichText } from '@components/common/richText/RichText'
 import {
@@ -78,10 +77,8 @@ const ProjectCardRoot: React.FC<ProjectCardRootProps> = ({ children, className }
 }
 
 const ProjectCardTimeLink: React.FC<ProjectCardTimeLinkProps> = ({ category, publishDate }) => {
-  const { i18n } = useTranslation()
-  const readableDate = new Date(publishDate).toLocaleDateString(
-    i18n.resolvedLanguage === 'fr' ? 'fr-FR' : 'en-US',
-  )
+  // Always DD/MM/YYYY in every language. Built from the ISO string so timezones can't shift the day.
+  const readableDate = publishDate.split('-').reverse().join('/')
 
   return (
     <div className={projectInfo}>
