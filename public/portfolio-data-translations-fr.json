@@ -411,6 +411,26 @@
         "Livraison d'un frontend de chat React 19, TypeScript et Vite avec reveil cold-start, reponses typees, dropdowns de sources, input auto-grandissant et raccourcis clavier",
         "Affichage des erreurs backend et fournisseur dans le frontend pour donner des etats utiles au lieu d'un echec generique"
       ]
+    },
+    {
+      "id": 15,
+      "title": "Tubewise : des playlists YouTube transformées en cours",
+      "excerpt": "Transforme n'importe quelle vidéo ou playlist YouTube en cours structuré que l'on termine vraiment : notes écrites par IA, exercices, quiz et parcours quotidien dessiné comme des stations de métro.",
+      "shortDescription": "Tubewise transforme une vidéo ou une playlist YouTube en cours. Chaque vidéo devient une leçon avec des notes horodatées, des exercices faciles/moyens/difficiles (de vrais problèmes LeetCode/GFG pour les cours d'algorithmique) et un quiz, et une mauvaise réponse ramène la vidéo au moment qui l'explique. Les notes sont écrites par un agent de code IA à partir de la transcription de chaque vidéo via un serveur MCP personnalisé, puis vérifiées côté serveur avant d'être enregistrées. Projet solo, conçu, développé et déployé de bout en bout sur des offres gratuites.",
+      "highlights": [
+        "Bibliothèque en ligne de 4 cours et 206 leçons, dont 171 avec des notes écrites par IA ; environ 7 000 lignes de TypeScript, 32 fichiers de routes API et un serveur MCP personnalisé avec 8 outils",
+        "YouTube bloque le téléchargement des sous-titres depuis les serveurs cloud (5 requêtes sur 5 ont échoué depuis Vercel, alors que la même vidéo a renvoyé 675 lignes de sous-titres depuis une connexion domestique) : le site stocke les métadonnées et mon Mac télécharge les transcriptions puis les envoie via une API d'agent à jetons restreints",
+        "Contrôle qualité côté serveur pour les notes IA après une première exécution qui a produit 37 leçons à partir d'un seul modèle : les horodatages doivent correspondre à de vraies lignes de transcription, les options de quiz ne peuvent pas être copiées du résumé, les phrases ne peuvent pas se répéter d'une leçon à l'autre, et l'option la plus longue ne peut généralement pas être la bonne réponse",
+        "Authentification sans bibliothèque dédiée : mots de passe argon2id avec verrouillage, jetons d'accès JWT de 15 minutes dans des cookies httpOnly, jetons de rafraîchissement hachés et renouvelés à chaque usage, et la réutilisation d'un ancien jeton révoque toutes les sessions ; vérifiée par 13 scénarios scriptés",
+        "Accès en écriture sécurisé pour l'IA en production : jetons d'agent personnels (affichés une seule fois, stockés hachés, révocables) et API d'agent restreinte sans route de suppression, avec le même contrôle qualité sur les enregistrements des agents",
+        "Migration de SQLite vers Postgres en réécrivant environ 54 appels synchrones en asynchrone, avec 5 migrations versionnées et une copie de chaque ligne sous son identifiant d'origine",
+        "Sauvegardes toutes les 15 minutes (14 jours conservés), copies nocturnes hors site, un miroir en lecture seule vers lequel l'interface peut basculer et une corbeille de 7 jours pour les cours supprimés",
+        "Fonctionne entièrement sur des offres gratuites (Vercel Hobby, Neon gratuit) ; la seule fonction payante, un tuteur IA, est optionnelle et plafonnée",
+        "Architecture : Next.js 16 (App Router) sur Vercel, Postgres sur Neon via drizzle-orm et node-postgres, React 19, antd 6 et TanStack Query ; un serveur MCP personnalisé sur mon Mac (stdio) permet à Claude Code, Claude Desktop et Codex de lire les leçons, envoyer les transcriptions et enregistrer les notes via l'API d'agent (9 des 32 fichiers de routes API)",
+        "Lecture publique, écriture privée : tout le monde peut consulter, chaque écriture est réservée au propriétaire côté serveur, l'interface masque les contrôles qui échoueraient et les détails d'erreur internes n'atteignent jamais le navigateur",
+        "Les leçons sont organisées en parcours quotidien (30 à 120 min/jour) dessiné comme des stations de métro ; les vidéos avec chapitres sont découpées par chapitre et les playlists sont vérifiées chaque jour pour détecter de nouvelles vidéos",
+        "Prochaines étapes : filtrer chaque requête par identifiant utilisateur pour plusieurs propriétaires, proposer une option cloud pour récupérer les transcriptions et activer le tuteur IA (Claude Haiku avec cache de prompt et plafonds quotidiens) sur le site une fois l'usage justifié"
+      ]
     }
   ],
   "blog": [

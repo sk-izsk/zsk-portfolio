@@ -411,6 +411,26 @@
         "Shipped a React 19, TypeScript, and Vite chat frontend with cold-start wakeup, typed responses, source dropdowns, auto-growing input, and keyboard shortcuts",
         "Surfaced backend and provider errors in the frontend so users see actionable states instead of generic failures"
       ]
+    },
+    {
+      "id": 15,
+      "title": "Tubewise: YouTube Playlists Turned Into Courses",
+      "excerpt": "Turns any YouTube video or playlist into a structured course you actually finish: AI-written notes, practice problems, quizzes and a daily route drawn as metro stops.",
+      "shortDescription": "Tubewise turns a YouTube video or playlist into a course. Each video becomes a lesson with timestamped notes, easy/medium/hard practice problems (real LeetCode/GFG problems for DSA courses) and a quiz, and a wrong answer jumps the video to the moment that explains it. Notes are written by an AI coding agent from each video's own transcript through a custom MCP server and checked by server-side code before they are saved. Solo project, designed, built and deployed end to end on free tiers.",
+      "highlights": [
+        "Live library of 4 courses and 206 lessons, 171 with AI-written notes; about 7,000 lines of TypeScript, 32 API route files and a custom MCP server with 8 tools",
+        "YouTube blocks caption downloads from cloud servers (5 of 5 requests failed from Vercel, while the same video returned 675 caption lines from a home connection), so the site stores metadata and my Mac downloads transcripts and uploads them through a token-scoped agent API",
+        "Server-side quality gate for AI notes after an early run produced 37 lessons from one template: timestamps must match real transcript lines, quiz options can't be copied from the summary, sentences can't repeat across lessons, and the longest option can't usually be the right answer",
+        "Authentication without an auth library: argon2id passwords with lockout, 15-minute JWT access tokens in httpOnly cookies, hashed refresh tokens rotated on every use, and reuse of an old token revokes every session; verified with 13 scripted scenarios",
+        "Safe AI write access to production: personal agent tokens (shown once, stored hashed, revocable) and a scoped agent API with no delete routes, with the same quality gate applied to agent saves",
+        "Moved from SQLite to Postgres by rewriting about 54 synchronous call sites as async, adding 5 versioned migrations and copying every row with its original id",
+        "Backups every 15 minutes (14 days kept), nightly off-site dumps, a read-only mirror the UI can switch to, and a 7-day trash for deleted courses",
+        "Runs entirely on free tiers (Vercel Hobby, Neon free); the only paid feature, an AI tutor, is optional and capped",
+        "Architecture: Next.js 16 (App Router) on Vercel, Postgres on Neon via drizzle-orm and node-postgres, React 19, antd 6 and TanStack Query; a custom MCP server on my Mac (stdio) lets Claude Code, Claude Desktop and Codex read lessons, upload transcripts and save notes through the agent API (9 of 32 API route files)",
+        "Public read, private write: anyone can browse, every write is owner-only on the server, the UI hides controls that would fail, and internal error details never reach the browser",
+        "Lessons are laid out as a daily route (30-120 min/day) drawn as metro stops; videos with chapters are split per chapter and playlists are checked daily for new videos",
+        "Next: scope every query by user id for more than one owner, add a cloud option for fetching transcripts, and enable the AI tutor (Claude Haiku with prompt caching and daily caps) on the live site once usage justifies the cost"
+      ]
     }
   ],
   "blog": [

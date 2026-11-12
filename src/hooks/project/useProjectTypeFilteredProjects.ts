@@ -28,16 +28,9 @@ export const useProjectTypeFilteredProjects = (): FilterProjectType[] => {
 
   const sortedProjects = useMemo(
     () =>
-      [...projects].sort((a, b) => {
-        const aIsAiSkill = a.projectTypes.includes('ai-skill')
-        const bIsAiSkill = b.projectTypes.includes('ai-skill')
-
-        if (aIsAiSkill !== bIsAiSkill) {
-          return aIsAiSkill ? -1 : 1
-        }
-
-        return new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
-      }),
+      [...projects].sort(
+        (a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime(),
+      ),
     [projects],
   )
 
