@@ -597,6 +597,27 @@
         "Bun"
       ],
       "publishDate": "2026-11-11"
+    },
+    {
+      "id": 16,
+      "url": "https://github.com/sk-izsk/free-my-tv-enhanced",
+      "projectTypes": ["misc"],
+      "category": "Android TV App",
+      "tags": [
+        "Android TV",
+        "Google TV",
+        "Java",
+        "Android",
+        "Launcher",
+        "Open Source",
+        "TMDB API",
+        "ADB",
+        "UI/Canvas",
+        "AGSL",
+        "Fork",
+        "AI-Assisted"
+      ],
+      "publishDate": "2026-11-15"
     }
   ],
   "blogBase": [

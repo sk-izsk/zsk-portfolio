@@ -431,6 +431,25 @@
         "Lessons are laid out as a daily route (30-120 min/day) drawn as metro stops; videos with chapters are split per chapter and playlists are checked daily for new videos",
         "Next: scope every query by user id for more than one owner, add a cloud option for fetching transcripts, and enable the AI tutor (Claude Haiku with prompt caching and daily caps) on the live site once usage justifies the cost"
       ]
+    },
+    {
+      "id": 16,
+      "title": "Free My TV Enhanced: Ad-Free Google TV Home Screen",
+      "excerpt": "An open-source fork of Free My TV that adds folders, a TV Status panel, personalized suggestions and a performance mode to an ad-free Google TV home screen. Built by directing an AI coding assistant, and in daily use on two Google TVs at home.",
+      "shortDescription": "Free My TV Enhanced is a fork of Free My TV by simbasjungles (github.com/simbasjungles/free-my-tv), an ad-free replacement for the Google TV home screen. I did not start it from zero: I added folders, a TV Status panel, TMDB-based suggestions and a performance mode on top of the original, and it runs as version 1.0.0 with its own numbering, based on Free My TV 1.5. I am the sole maintainer: I defined the features, made the design decisions and tested everything on my own TVs, while the implementation was done by vibe coding with an AI coding assistant. It is in daily use on two Hisense Google TVs in my home.",
+      "highlights": [
+        "Why: the stock Google TV home screen is full of ads and promoted content and is slow on budget TVs; Free My TV replaces it with a clean, Apple TV-style home screen, and I wanted more control on top of it",
+        "Folders in All Apps (Apple TV style, 2x2 preview) with Select several to move many apps at once, plus customizable drawer shortcuts and top buttons",
+        "TV Status: a glass panel showing memory, storage, CPU, uptime and network, with actions (free memory, clear caches, restart the home screen, reboot) and a performance mode switch; it opens over any app with a double press of a remote button you choose",
+        "Personalized suggestions from TMDB recommendations (\"Your taste\") with Love it / Not for me feedback, badges for runtime or seasons, rating and year, and Continue Watching and genre rows under the app shelf",
+        "Performance mode (flat panels, no blurred shadows) for low-end TVs, and a way to copy settings between TVs over ADB through a content provider restricted to the adb shell",
+        "Plain Java with the Android SDK only (no Gradle, no third-party libraries, minSdk 26, targetSdk 33): the UI is drawn by hand on a single Canvas, with AGSL shaders for the glass on Android 13+, built with a Bash script (javac, d8, aapt2, apksigner)",
+        "Measured before optimizing: frame times and memory on real TVs showed the slowness came from CPU load by other system services, not from drawing, which shaped what the performance mode and TV Status do",
+        "Fixed a menu state bug where a mode carried over between menus, so \"Add to folder\" silently filed apps into the wrong folder; I found the cause and tested the fix on the TV",
+        "Clean fork strategy: every change to an original file is marked [custom] so upstream updates merge without losing features, and the update check also reports when the original project has a newer release",
+        "Secrets stay out of the public repo: a private repo holds the real build, the public fork is published without keys or signing files, and a git pre-push hook refuses any push that would include them",
+        "Credit: based on Free My TV by simbasjungles; what is new compared with the original is listed in ENHANCED.md in the repository"
+      ]
     }
   ],
   "blog": [
