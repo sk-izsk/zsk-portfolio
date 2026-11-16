@@ -431,6 +431,25 @@
         "Les leçons sont organisées en parcours quotidien (30 à 120 min/jour) dessiné comme des stations de métro ; les vidéos avec chapitres sont découpées par chapitre et les playlists sont vérifiées chaque jour pour détecter de nouvelles vidéos",
         "Prochaines étapes : filtrer chaque requête par identifiant utilisateur pour plusieurs propriétaires, proposer une option cloud pour récupérer les transcriptions et activer le tuteur IA (Claude Haiku avec cache de prompt et plafonds quotidiens) sur le site une fois l'usage justifié"
       ]
+    },
+    {
+      "id": 16,
+      "title": "Free My TV Enhanced : écran d'accueil Google TV sans publicité",
+      "excerpt": "Fork open source de Free My TV qui ajoute des dossiers, un panneau TV Status, des suggestions personnalisées et un mode performance à un écran d'accueil Google TV sans publicité. Créé en pilotant un assistant de code IA, et utilisé tous les jours sur deux Google TV à la maison.",
+      "shortDescription": "Free My TV Enhanced est un fork de Free My TV par simbasjungles (github.com/simbasjungles/free-my-tv), un remplaçant sans publicité de l'écran d'accueil Google TV. Je ne l'ai pas créé à partir de zéro : j'ai ajouté des dossiers, un panneau TV Status, des suggestions basées sur TMDB et un mode performance par-dessus l'original, avec sa propre numérotation (version 1.0.0, basée sur Free My TV 1.5). Je suis le seul mainteneur : j'ai défini les fonctionnalités, pris les décisions de conception et tout testé sur mes propres téléviseurs, tandis que l'implémentation a été faite en vibe coding avec un assistant de code IA. Il est utilisé tous les jours sur deux Google TV Hisense chez moi.",
+      "highlights": [
+        "Pourquoi : l'écran d'accueil Google TV d'origine est rempli de publicités et de contenus sponsorisés et lent sur les téléviseurs d'entrée de gamme ; Free My TV le remplace par un écran propre, de style Apple TV, et je voulais plus de contrôle par-dessus",
+        "Dossiers dans Toutes les apps (style Apple TV, aperçu 2x2) avec Sélection multiple pour déplacer plusieurs apps à la fois, ainsi que des raccourcis de tiroir et des boutons du haut personnalisables",
+        "TV Status : un panneau en verre affichant mémoire, stockage, CPU, durée de fonctionnement et réseau, avec des actions (libérer la mémoire, vider les caches, redémarrer l'écran d'accueil, redémarrer le téléviseur) et un interrupteur de mode performance ; il s'ouvre par-dessus n'importe quelle app par un double appui sur un bouton de télécommande au choix",
+        "Suggestions personnalisées issues des recommandations TMDB (« Votre goût ») avec retour Love it / Not for me, badges de durée ou de saisons, note et année, et rangées Continuer à regarder et genres sous l'étagère d'apps",
+        "Mode performance (panneaux plats, sans ombres floues) pour les téléviseurs modestes, et copie des réglages entre téléviseurs via ADB grâce à un content provider réservé au shell adb",
+        "Java pur avec le seul SDK Android (sans Gradle ni bibliothèque tierce, minSdk 26, targetSdk 33) : l'interface est dessinée à la main sur un seul Canvas, avec des shaders AGSL pour l'effet verre sous Android 13+, et compilée par un script Bash (javac, d8, aapt2, apksigner)",
+        "Mesurer avant d'optimiser : les temps d'image et la mémoire relevés sur de vrais téléviseurs ont montré que la lenteur venait de la charge CPU d'autres services système et non du dessin, ce qui a orienté le mode performance et TV Status",
+        "Correction d'un bug d'état dans les menus : un mode se propageait d'un menu à l'autre, si bien que « Ajouter au dossier » rangeait silencieusement les apps dans le mauvais dossier ; j'ai trouvé la cause et testé le correctif sur le téléviseur",
+        "Stratégie de fork propre : chaque modification d'un fichier d'origine est marquée [custom] pour que les mises à jour amont fusionnent sans perdre les fonctionnalités, et la vérification de mise à jour signale aussi quand le projet d'origine a une version plus récente",
+        "Secrets hors du dépôt public : un dépôt privé contient la vraie version, le fork public est publié sans clés ni fichiers de signature, et un hook git pre-push refuse tout envoi qui les inclurait",
+        "Crédit : basé sur Free My TV de simbasjungles ; les nouveautés par rapport à l'original sont listées dans ENHANCED.md dans le dépôt"
+      ]
     }
   ],
   "blog": [
