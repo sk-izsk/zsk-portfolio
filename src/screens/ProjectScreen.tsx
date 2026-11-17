@@ -12,11 +12,13 @@ import { Screen } from '@components/Screen'
 import { useProjectTagFilteredProjects } from '@hooks/project/useProjectTagFilteredProjects'
 import { useSelectedProjectTagFilters } from '@hooks/project/useSelectedProjectTagFilters'
 import { useAnalytics } from '@hooks/useAnalytics'
+import { useSearchQuery } from '@hooks/useSearchQuery'
 import { usePreview } from '@hooks/usePreview'
 import { useTranslation } from '@localization/localize'
 import { usePortfolioError, usePortfolioLoading, useProjects } from '@stores/portfolioStore'
 import { cx } from '@utils/cn'
-import React, { useState } from 'react'
+import { filterBySearch } from '@utils/search'
+import React, { useDeferredValue, useState } from 'react'
 import type { FilterProjectType } from '../hooks/project/useProjectTypeFilteredProjects'
 
 const PREVIEW_COUNT = 6
@@ -33,7 +35,13 @@ const ProjectScreen: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<FilterProjectType | null>(null)
 
   const [selectedTags, setSelectedTags] = useSelectedProjectTagFilters()
-  const filteredProjects = useProjectTagFilteredProjects(selectedTags)
+  const [searchQuery, setSearchQuery] = useSearchQuery('projectSearch')
+  // Typing stays instant; the grid catches up when React has a spare moment.
+  const deferredSearchQuery = useDeferredValue(searchQuery)
+  const filteredProjects = filterBySearch(
+    useProjectTagFilteredProjects(selectedTags),
+    deferredSearchQuery,
+  )
   const {
     visibleItems: visibleProjects,
     hasMore,
@@ -60,11 +68,14 @@ const ProjectScreen: React.FC = () => {
                   projects={projects}
                   selectedTags={selectedTags}
                   onSelectedTagsChange={setSelectedTags}
+                  searchQuery={searchQuery}
+                  onSearchQueryChange={setSearchQuery}
                 />
               </div>
             </div>
           </div>
           <div className={projectGrid}>
+            {filteredProjects.length === 0 ? <div>{t('projects.search.empty')}</div> : null}
             {visibleProjects.map((project) => {
               return (
                 <ProjectCardContainer

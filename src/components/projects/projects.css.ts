@@ -55,6 +55,7 @@ export const projectFilterBar = style({
   alignItems: 'center',
   gap: '12px',
   width: '100%',
+  flexWrap: 'wrap',
   justifyContent: 'flex-end',
   '@media': {
     '(max-width: 767px)': {
@@ -62,6 +63,21 @@ export const projectFilterBar = style({
       alignItems: 'stretch',
     },
   },
+})
+
+// Pushes the search to the left edge, under the heading; the other filters stay on the right.
+export const projectSearchControl = style({
+  marginRight: 'auto',
+  '@media': {
+    '(max-width: 767px)': {
+      marginRight: 0,
+    },
+  },
+})
+
+// The tag picker's wrapper inside the filter bar: its own width, no more.
+export const projectTagPickerSlot = style({
+  display: 'contents',
 })
 
 export const projectFilterControl = style({

@@ -5,9 +5,11 @@ import { useBlogTagFilteredPosts } from '@hooks/blog/useBlogTagFilteredPosts'
 import { useSelectedBlogTagFilters } from '@hooks/blog/useSelectedBlogTagFilters'
 import type { FilterBlogPostType } from '@hooks/blog/useBlogTypeFilteredPosts'
 import { useAnalytics } from '@hooks/useAnalytics'
+import { useSearchQuery } from '@hooks/useSearchQuery'
 import { useTranslation } from '@localization/localize'
 import { useBlogPosts, usePortfolioError, usePortfolioLoading } from '@stores/portfolioStore'
-import React, { useState } from 'react'
+import { filterBySearch } from '@utils/search'
+import React, { useDeferredValue, useState } from 'react'
 
 const BlogScreen: React.FC = () => {
   const { t } = useTranslation()
@@ -18,7 +20,9 @@ const BlogScreen: React.FC = () => {
   const [selectedPost, setSelectedPost] = useState<FilterBlogPostType | null>(null)
 
   const [selectedTags] = useSelectedBlogTagFilters()
-  const filteredPosts = useBlogTagFilteredPosts(selectedTags)
+  const [searchQuery] = useSearchQuery('blogSearch')
+  const deferredSearchQuery = useDeferredValue(searchQuery)
+  const filteredPosts = filterBySearch(useBlogTagFilteredPosts(selectedTags), deferredSearchQuery)
   useAnalytics()
 
   return (

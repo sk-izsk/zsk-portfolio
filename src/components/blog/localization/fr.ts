@@ -22,6 +22,11 @@ export const blogFr = {
     stateManagement: 'Gestion d etat',
     dataFetching: 'Recuperation de donnees',
   },
+  search: {
+    label: 'Rechercher des articles',
+    placeholder: 'Rechercher des articles',
+    empty: 'Aucun article ne correspond à votre recherche.',
+  },
   tagFilter: {
     label: 'Filtrer les articles par tag',
     placeholder: 'Rechercher des tags',

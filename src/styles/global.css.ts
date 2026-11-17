@@ -37,7 +37,9 @@ globalStyle('body', {
 })
 
 // Doubled to outrank single-class `outline: none` rules around the app.
-globalStyle(':focus-visible:focus-visible', {
+// Text fields are left out: each one draws its own focus state (border, shadow or a ring on its
+// wrapper), and an extra outline here shows up as a second box inside that ring.
+globalStyle(':focus-visible:focus-visible:not(input, textarea)', {
   outline: `2px solid ${vars.color.skin}`,
   outlineOffset: '2px',
 })
