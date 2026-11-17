@@ -1,8 +1,9 @@
+import { cx } from '@utils/cn'
 import type { Project } from '@app-types/portfolio'
 import { SearchInput } from '@components/common/searchInput/SearchInput'
 import { useTranslation } from '@localization/localize'
 import React from 'react'
-import { projectFilterBar, projectFilterControl } from './projects.css'
+import { projectFilterBar, projectFilterControl, projectSearchControl } from './projects.css'
 import { ProjectTagPickerContainer } from './ProjectTagPickerContainer'
 import { ProjectTypeDropdown } from './ProjectTypeDropdown'
 
@@ -25,7 +26,7 @@ export const ProjectFilterBar: React.FC<ProjectFilterBarProps> = ({
 
   return (
     <div className={projectFilterBar}>
-      <div className={projectFilterControl}>
+      <div className={cx(projectFilterControl, projectSearchControl)}>
         <SearchInput
           value={searchQuery}
           onChange={onSearchQueryChange}
