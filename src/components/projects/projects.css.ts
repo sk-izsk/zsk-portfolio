@@ -55,6 +55,7 @@ export const projectFilterBar = style({
   alignItems: 'center',
   gap: '12px',
   width: '100%',
+  flexWrap: 'wrap',
   justifyContent: 'flex-end',
   '@media': {
     '(max-width: 767px)': {
@@ -62,6 +63,11 @@ export const projectFilterBar = style({
       alignItems: 'stretch',
     },
   },
+})
+
+// The tag picker's wrapper inside the filter bar: its own width, no more.
+export const projectTagPickerSlot = style({
+  display: 'contents',
 })
 
 export const projectFilterControl = style({

@@ -9,6 +9,7 @@ import {
   projectToolbar,
 } from '@components/projects/projects.css'
 import { usePreview } from '@hooks/usePreview'
+import { useSearchQuery } from '@hooks/useSearchQuery'
 import { useTranslation } from '@localization/localize'
 import { cx } from '@utils/cn'
 import React from 'react'
@@ -30,6 +31,7 @@ export const BlogContainer: React.FC<BlogContainerProps> = ({
   onReadMoreClick,
 }) => {
   const [selectedTags, setSelectedTags] = useSelectedBlogTagFilters()
+  const [searchQuery, setSearchQuery] = useSearchQuery('blogSearch')
   const { t } = useTranslation()
   const { visibleItems, hasMore, showAll } = usePreview(posts, PREVIEW_COUNT_PHONE, PREVIEW_COUNT)
 
@@ -42,12 +44,16 @@ export const BlogContainer: React.FC<BlogContainerProps> = ({
               posts={allPosts}
               selectedTags={selectedTags}
               onSelectedTagsChange={setSelectedTags}
+              searchQuery={searchQuery}
+              onSearchQueryChange={setSearchQuery}
             />
           </div>
         </div>
       </div>
       <div className={projectGrid}>
-        {posts.length === 0 ? <div>{t('blog.empty')}</div> : null}
+        {posts.length === 0 ? (
+          <div>{t(searchQuery ? 'blog.search.empty' : 'blog.empty')}</div>
+        ) : null}
         {visibleItems.map((post) => (
           <BlogCardContainer key={post.id} post={post} onReadMoreClick={onReadMoreClick} />
         ))}

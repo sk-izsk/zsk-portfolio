@@ -3,7 +3,7 @@ import type { BlogPost } from '@app-types/portfolio'
 import React from 'react'
 import { useTranslation } from '@localization/localize'
 import { TagMultiSelectPicker } from '../tagPicker/TagMultiSelectPicker'
-import { projectFilterBar, projectFilterControl } from '../projects/projects.css'
+import { projectFilterControl, projectTagPickerSlot } from '../projects/projects.css'
 
 interface Props {
   selectedTags: string[]
@@ -23,7 +23,7 @@ export const BlogTagPickerContainer: React.FC<Props> = ({
   const showTagFilter = tagOptions.length > 0 || selectedTags.length > 0
 
   return (
-    <div className={projectFilterBar}>
+    <div className={projectTagPickerSlot}>
       {showTagFilter ? (
         <div className={projectFilterControl}>
           <TagMultiSelectPicker

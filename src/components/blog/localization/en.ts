@@ -22,6 +22,11 @@ export const blogEn = {
     stateManagement: 'State Management',
     dataFetching: 'Data Fetching',
   },
+  search: {
+    label: 'Search blog posts',
+    placeholder: 'Search posts',
+    empty: 'No posts match your search.',
+  },
   tagFilter: {
     label: 'Filter blog posts by tag',
     placeholder: 'Search tags',
