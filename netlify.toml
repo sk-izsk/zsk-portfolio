@@ -1,21 +1,21 @@
 [build]
-  functions = "netlify/functions"
+functions = "netlify/functions"
 
 [[redirects]]
-  from = "/api/quote"
-  to = "/.netlify/functions/quote"
-  status = 200
+from = "/api/quote"
+to = "/.netlify/functions/quote"
+status = 200
 
 # Netlify signs each proxied request with ASK_AI_PROXY_SIGNATURE (set in the Netlify UI), so the API can
 # trust the visitor IP this proxy forwards. The API checks it with the same value in NETLIFY_PROXY_SECRET.
 [[redirects]]
-  from = "/api/ask-ai/*"
-  to = "https://zsk-ai-resume-api.onrender.com/:splat"
-  status = 200
-  force = true
-  signed = "ASK_AI_PROXY_SIGNATURE"
+from = "/api/ask-ai/*"
+to = "https://zsk-ai-resume-api.onrender.com/:splat"
+status = 200
+force = true
+signed = "ASK_AI_PROXY_SIGNATURE"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+from = "/*"
+to = "/index.html"
+status = 200

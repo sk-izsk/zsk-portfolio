@@ -450,6 +450,17 @@
         "Secrets hors du dépôt public : un dépôt privé contient la vraie version, le fork public est publié sans clés ni fichiers de signature, et un hook git pre-push refuse tout envoi qui les inclurait",
         "Crédit : basé sur Free My TV de simbasjungles ; les nouveautés par rapport à l'original sont listées dans ENHANCED.md dans le dépôt"
       ]
+    },
+    {
+      "id": 17,
+      "title": "Bitwarden pour Alfred",
+      "excerpt": "Un workflow Alfred open source pour rechercher dans Bitwarden, remplir les identifiants et générer des mots de passe sur macOS. Développé avec TypeScript et le CLI officiel Bitwarden. Première version sans audit.",
+      "shortDescription": "Je voulais retrouver dans Alfred l’accès rapide à Bitwarden que j’aimais dans Raycast. J’ai créé un workflow Alfred 6 sous licence MIT pour rechercher dans le coffre, remplir les identifiants, générer des mots de passe, consulter les codes d’authentification et utiliser Bitwarden Send. Il prend en charge plusieurs comptes et utilise le CLI officiel Bitwarden.\n\nDes assistants IA ont écrit et remanié une grande partie du code, des tests et de la documentation. J’ai dirigé le travail, pris les décisions de conception et de stockage, et testé le workflow dans Alfred avec un compte de test.\n\nLes sessions utilisent le trousseau macOS, les caches sont chiffrés et les contrôles de verrouillage bloquent les anciennes fenêtres. Cette première version n’a pas été auditée. Elle ne protège pas contre les logiciels malveillants exécutés sous le même utilisateur pendant le déverrouillage, les secrets en mémoire ou dans le presse-papiers, ni le stockage du CLI. Touch ID et PIN sont des commodités désactivées par défaut.\n\nInspiré de l’extension Bitwarden pour Raycast de jomifepe et des contributeurs, sous licence MIT, qui a fourni les icônes des mots-clés. Aucune affiliation avec Raycast, Alfred ou Bitwarden.",
+      "highlights": [
+        "Environ 3 900 lignes de TypeScript dans 29 modules, sans dépendance à l’exécution",
+        "38 tests dans 14 fichiers, vérifications par mutation et tests réels dans Alfred ayant révélé un bug de remplissage",
+        "Version 1.0.0 avec somme de contrôle ; CI macOS pour lint, formatage, types, tests et paquet du workflow"
+      ]
     }
   ],
   "blog": [

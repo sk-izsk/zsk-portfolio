@@ -116,4 +116,65 @@ describe('ProjectScreen', () => {
     expect(screen.getByText('Portfolio Website')).toBeInTheDocument()
     expect(screen.getByText('Open Source CLI Tool')).toBeInTheDocument()
   })
+
+  it('filters open source projects from a direct URL', () => {
+    window.history.pushState({}, '', '/projects?project-type=open-source')
+    usePortfolioStore.getState().setData(mockPortfolioData)
+    renderScreen()
+
+    expect(screen.getByText('Open Source CLI Tool')).toBeInTheDocument()
+    expect(screen.queryByText('Portfolio Website')).not.toBeInTheDocument()
+  })
+
+  it('selects Open Source and restores all projects when cleared', async () => {
+    const user = userEvent.setup()
+    usePortfolioStore.getState().setData(mockPortfolioData)
+    renderScreen()
+
+    await user.click(screen.getByRole('button', { name: 'Filter projects by type' }))
+    await user.click(screen.getByRole('option', { name: 'Open Source' }))
+
+    await waitFor(() => {
+      expect(window.location.search).toBe('?project-type=open-source')
+    })
+    expect(screen.getByText('Open Source CLI Tool')).toBeInTheDocument()
+    expect(screen.queryByText('Portfolio Website')).not.toBeInTheDocument()
+
+    await user.click(screen.getByRole('button', { name: 'Filter projects by type' }))
+    await user.click(screen.getByRole('option', { name: 'All' }))
+
+    await waitFor(() => {
+      expect(window.location.search).toBe('')
+    })
+    expect(screen.getByText('Portfolio Website')).toBeInTheDocument()
+    expect(screen.getByText('Open Source CLI Tool')).toBeInTheDocument()
+  })
+
+  it('combines the open source type with tag filters', () => {
+    window.history.pushState({}, '', '/projects?project-type=open-source&project-tags=typescript')
+    usePortfolioStore.getState().setData(mockPortfolioData)
+    renderScreen()
+
+    expect(screen.queryByText('Open Source CLI Tool')).not.toBeInTheDocument()
+    expect(screen.queryByText('Portfolio Website')).not.toBeInTheDocument()
+    expect(screen.getByText('No projects match your search.')).toBeInTheDocument()
+  })
+
+  it('keeps full descriptions behind Read More', async () => {
+    const user = userEvent.setup()
+    const project = {
+      ...mockPortfolioData.projects[0]!,
+      excerpt: 'A short card summary.',
+      shortDescription: 'Detailed project explanation for the modal.',
+    }
+    usePortfolioStore.getState().setData({ ...mockPortfolioData, projects: [project] })
+    renderScreen()
+
+    expect(screen.getByText(project.excerpt)).toBeInTheDocument()
+    expect(screen.queryByText(project.shortDescription)).not.toBeInTheDocument()
+
+    await user.click(screen.getByRole('link', { name: 'Read More...' }))
+
+    expect(screen.getByText(project.shortDescription)).toBeInTheDocument()
+  })
 })

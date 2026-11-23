@@ -522,7 +522,7 @@
     {
       "id": 12,
       "url": "https://github.com/sk-izsk/WC26",
-      "projectTypes": ["misc"],
+      "projectTypes": ["misc", "open-source"],
       "category": "macOS App",
       "tags": [
         "Swift",
@@ -601,7 +601,7 @@
     {
       "id": 16,
       "url": "https://github.com/sk-izsk/free-my-tv-enhanced",
-      "projectTypes": ["misc"],
+      "projectTypes": ["misc", "open-source"],
       "category": "Android TV App",
       "tags": [
         "Android TV",
@@ -618,6 +618,14 @@
         "AI-Assisted"
       ],
       "publishDate": "2026-11-15"
+    },
+    {
+      "id": 17,
+      "url": "https://github.com/sk-izsk/z-bitwarden",
+      "projectTypes": ["misc", "open-source"],
+      "category": "Alfred Workflow",
+      "tags": ["Open Source", "TypeScript", "Node.js", "Alfred 6", "Bitwarden CLI", "Bun"],
+      "publishDate": "2026-11-23"
     }
   ],
   "blogBase": [

@@ -8,6 +8,7 @@ export const projectFilterValues = [
   'backend',
   'library',
   'ai-skill',
+  'open-source',
   'misc',
 ] as const satisfies readonly ProjectFilterType[]
 
