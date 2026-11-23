@@ -571,9 +571,10 @@
       "id": 15,
       "url": "https://github.com/sk-izsk/yt-playlist-course",
       "demo_link": "https://tubewise.vercel.app",
-      "projectTypes": ["full-stack", "frontend", "backend"],
+      "projectTypes": ["full-stack", "frontend", "backend", "open-source"],
       "category": "Full Stack",
       "tags": [
+        "Open Source",
         "TypeScript",
         "Next.js 16",
         "React 19",

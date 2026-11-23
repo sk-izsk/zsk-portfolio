@@ -7,21 +7,9 @@
       "city": "Montréal",
       "country": "Canada"
     },
-    "languages": [
-      "English",
-      "Bengali",
-      "Hindi"
-    ],
-    "preferredLocation": [
-      "USA (Remote)",
-      "Anywhere in Canada"
-    ],
-    "availability": [
-      "Full time",
-      "Remote",
-      "Hybrid",
-      "Onsite"
-    ],
+    "languages": ["English", "Bengali", "Hindi"],
+    "preferredLocation": ["USA (Remote)", "Anywhere in Canada"],
+    "availability": ["Full time", "Remote", "Hybrid", "Onsite"],
     "resume": "/Zeeshan-Resume.pdf"
   },
   "summary": {
@@ -389,11 +377,7 @@
         "SSO (OAuth, OIDC, SAML)",
         "Stripe"
       ],
-      "languages": [
-        "JavaScript",
-        "TypeScript",
-        "Python"
-      ],
+      "languages": ["JavaScript", "TypeScript", "Python"],
       "tools": [
         "Git",
         "Yarn/NPM",
@@ -442,12 +426,7 @@
         "Bun Test",
         "jest-axe"
       ],
-      "learning": [
-        "SASS",
-        "Firebase",
-        "GraphQL",
-        "WebGL"
-      ],
+      "learning": ["SASS", "Firebase", "GraphQL", "WebGL"],
       "support": [
         "Remote desktop support",
         "Phone support",
@@ -1066,6 +1045,7 @@
       "demo": "https://tubewise.vercel.app",
       "category": "Full Stack",
       "tags": [
+        "Open Source",
         "TypeScript",
         "Next.js 16",
         "React 19",
@@ -1147,14 +1127,7 @@
       "url": "https://github.com/sk-izsk/z-bitwarden",
       "demo": "",
       "category": "Alfred Workflow",
-      "tags": [
-        "Open Source",
-        "TypeScript",
-        "Node.js",
-        "Alfred 6",
-        "Bitwarden CLI",
-        "Bun"
-      ],
+      "tags": ["Open Source", "TypeScript", "Node.js", "Alfred 6", "Bitwarden CLI", "Bun"],
       "publishDate": "2026-11-23",
       "excerpt": "An open source Alfred workflow for searching Bitwarden, autofilling logins and generating passwords on macOS. Built with TypeScript and the official Bitwarden CLI. Early release, unaudited.",
       "description": "I wanted the quick Bitwarden access I liked in Raycast inside Alfred. I built an MIT-licensed Alfred 6 workflow for vault search, autofill, password generation, live authentication codes and Bitwarden Send. It supports multiple accounts and uses the official Bitwarden CLI.\n\nAI coding assistants wrote and refactored much of the code, tests and documentation. I directed the work, made the design and storage decisions, and tested it in Alfred with a test account.\n\nSessions use the macOS Keychain, caches are encrypted, and lock checks prevent stale windows from copying or autofilling. This is an early, unaudited release. It does not protect against malware running as the same user while unlocked, secrets in memory or the clipboard, or the CLI’s own storage. Optional Touch ID and PIN unlock are conveniences, disabled by default.\n\nInspired by the MIT-licensed Bitwarden extension for Raycast by jomifepe and contributors, which supplied the keyword icons. Not affiliated with Raycast, Alfred or Bitwarden.",
@@ -1374,12 +1347,7 @@
       "title": "JavaScript Loops: Stop Using map() for Everything",
       "url": "https://izsk.hashnode.dev/javascript-loops-stop-using-map-for-everything",
       "category": "Frontend Architecture",
-      "tags": [
-        "JavaScript",
-        "Frontend",
-        "WebDevelopment",
-        "Programming"
-      ],
+      "tags": ["JavaScript", "Frontend", "WebDevelopment", "Programming"],
       "publishDate": "2026-07-19",
       "excerpt": "Most loop mistakes are not style choices. They're cases where the code is saying one thing and doing another.",
       "description": "A practical guide to choosing the right JavaScript loop based on intent, control flow, return value, async behavior, and readability, with concrete reasons to use `for`, `while`, `for...of`, `forEach`, `map`, `filter`, `reduce`, `find`, `some`, `every`, and `flatMap`.",
