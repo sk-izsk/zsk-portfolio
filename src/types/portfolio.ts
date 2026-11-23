@@ -83,7 +83,14 @@ interface Service {
   description: string
 }
 
-type ProjectType = 'full-stack' | 'frontend' | 'backend' | 'library' | 'ai-skill' | 'misc'
+type ProjectType =
+  | 'full-stack'
+  | 'frontend'
+  | 'backend'
+  | 'library'
+  | 'ai-skill'
+  | 'open-source'
+  | 'misc'
 
 export type ProjectFilterType = 'all' | ProjectType
 

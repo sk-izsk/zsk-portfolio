@@ -103,7 +103,10 @@ export default defineConfig({
         // browsers keep these cached across deploys because they rarely change.
         codeSplitting: {
           groups: [
-            { name: 'react', test: /node_modules[\\/](react|react-dom|scheduler|react-router)[\\/]/ },
+            {
+              name: 'react',
+              test: /node_modules[\\/](react|react-dom|scheduler|react-router)[\\/]/,
+            },
             { name: 'data', test: /node_modules[\\/](@tanstack|ky)[\\/]/ },
             { name: 'i18n', test: /node_modules[\\/](i18next|react-i18next|zsk-react-i18n)[\\/]/ },
           ],

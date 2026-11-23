@@ -82,10 +82,10 @@ export const mockPortfolioData: PortfolioData = {
     {
       id: 2,
       title: 'Open Source CLI Tool',
-      projectTypes: ['misc'],
+      projectTypes: ['misc', 'open-source'],
       excerpt: 'A command-line utility written in Node.js.',
       category: 'Tools',
-      tags: ['Node.js', 'CLI'],
+      tags: ['Node.js', 'CLI', 'Open Source'],
       shortDescription: 'A command-line utility written in Node.js.',
       highlights: ['Cross-platform', 'Easy to use'],
       publishDate: '2023-06-15',

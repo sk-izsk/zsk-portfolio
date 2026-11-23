@@ -450,6 +450,17 @@
         "Secrets stay out of the public repo: a private repo holds the real build, the public fork is published without keys or signing files, and a git pre-push hook refuses any push that would include them",
         "Credit: based on Free My TV by simbasjungles; what is new compared with the original is listed in ENHANCED.md in the repository"
       ]
+    },
+    {
+      "id": 17,
+      "title": "Bitwarden for Alfred",
+      "excerpt": "An open source Alfred workflow for searching Bitwarden, autofilling logins and generating passwords on macOS. Built with TypeScript and the official Bitwarden CLI. Early release, unaudited.",
+      "shortDescription": "I wanted the quick Bitwarden access I liked in Raycast inside Alfred. I built an MIT-licensed Alfred 6 workflow for vault search, autofill, password generation, live authentication codes and Bitwarden Send. It supports multiple accounts and uses the official Bitwarden CLI.\n\nAI coding assistants wrote and refactored much of the code, tests and documentation. I directed the work, made the design and storage decisions, and tested it in Alfred with a test account.\n\nSessions use the macOS Keychain, caches are encrypted, and lock checks prevent stale windows from copying or autofilling. This is an early, unaudited release. It does not protect against malware running as the same user while unlocked, secrets in memory or the clipboard, or the CLI’s own storage. Optional Touch ID and PIN unlock are conveniences, disabled by default.\n\nInspired by the MIT-licensed Bitwarden extension for Raycast by jomifepe and contributors, which supplied the keyword icons. Not affiliated with Raycast, Alfred or Bitwarden.",
+      "highlights": [
+        "About 3,900 lines of TypeScript across 29 modules, with zero runtime dependencies",
+        "38 tests across 14 files, mutation checks and live Alfred testing that caught an autofill bug missed by automated tests",
+        "Released as v1.0.0 with a checksum; macOS CI checks lint, formatting, types, tests and workflow packaging"
+      ]
     }
   ],
   "blog": [

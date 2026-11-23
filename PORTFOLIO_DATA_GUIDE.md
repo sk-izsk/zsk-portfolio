@@ -304,14 +304,14 @@ const typescriptPosts = data.blog.filter((post) => post.tags.includes('TypeScrip
 
 The data structure includes comprehensive TypeScript interfaces:
 
-* `PortfolioData` - Main interface for the entire data structure
-* `PersonalInfo` - Personal information section
-* `ContactInfo` - Contact details and social links
-* `Skill` - Individual skill with progress and color
-* `Experience` - Work experience entry
-* `Service` - Service offering
-* `BlogPost` - Blog post entry
-* And many more...
+- `PortfolioData` - Main interface for the entire data structure
+- `PersonalInfo` - Personal information section
+- `ContactInfo` - Contact details and social links
+- `Skill` - Individual skill with progress and color
+- `Experience` - Work experience entry
+- `Service` - Service offering
+- `BlogPost` - Blog post entry
+- And many more...
 
 ## Customization
 

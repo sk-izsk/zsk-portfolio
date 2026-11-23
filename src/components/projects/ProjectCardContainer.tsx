@@ -19,7 +19,7 @@ export const ProjectCardContainer: React.FC<Props> = ({ project, onReadMoreClick
       <ProjectCard.Title href={project.projectHref} isExternal={project.isExternal}>
         {project.title}
       </ProjectCard.Title>
-      <ProjectCard.Body shortDescription={project.shortDescription} highlights={[]} />
+      <ProjectCard.Body shortDescription={project.excerpt} highlights={[]} />
       <ProjectCard.Tags projectId={project.id} tags={project.tags} />
       <ProjectCard.Actions layout={hasDemoLink ? 'split' : 'center'}>
         {hasDemoLink && (

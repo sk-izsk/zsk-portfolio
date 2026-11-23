@@ -34,7 +34,9 @@ const parseGithubCalendar = (html) => {
 }
 
 const fetchGithubCalendarYear = async (username, year) => {
-  const response = await fetch(`https://github.com/users/${username}/contributions?to=${year}-12-31`)
+  const response = await fetch(
+    `https://github.com/users/${username}/contributions?to=${year}-12-31`,
+  )
 
   if (!response.ok) {
     throw new Error(`GitHub calendar request failed for ${username} ${year}: ${response.status}`)
@@ -82,7 +84,10 @@ const syncUserDirectory = async (username) => {
 
     try {
       const yearData = await fetchYearData(username, year)
-      await writeFile(path.join(userDirectory, `${year}.json`), `${JSON.stringify(yearData, null, 2)}\n`)
+      await writeFile(
+        path.join(userDirectory, `${year}.json`),
+        `${JSON.stringify(yearData, null, 2)}\n`,
+      )
     } catch (error) {
       const existingYearData = await readExistingYearData(username, year)
 
